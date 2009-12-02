@@ -20,6 +20,8 @@ ifndef BUILDS
 endif
 
 BINDIR = bin/$(BMS_OSNAME)
+LIBDIR = lib/$(BMS_OSNAME)
+OBJDIR = obj/$(BMS_OSNAME)
 SRCDIR = src
 
 XML_SOURCE = BarrelEMcal_HDDS.xml BeamLine_HDDS.xml CentralDC_HDDS.xml\
@@ -28,10 +30,10 @@ XML_SOURCE = BarrelEMcal_HDDS.xml BeamLine_HDDS.xml CentralDC_HDDS.xml\
              StartCntr_HDDS.xml Target_HDDS.xml UpstreamEMveto_HDDS.xml \
 	     Regions_HDDS.xml main_HDDS.xml
 
-all: make_dirs $(SRCDIR)/hddsGeant3.F $(SRCDIR)/hddsroot.C $(SRCDIR)/hddsroot.h
+all: make_dirs $(SRCDIR)/hddsroot.C $(SRCDIR)/hddsroot.h $(LIBDIR)/libhddsGeant3.a
 
 make_dirs:
-	mkdir -p $(BINDIR) $(SRCDIR)
+	mkdir -p $(BINDIR) $(LIBDIR) $(OBJDIR) $(SRCDIR)
 
 install: hdds-geant hdds-root hdds-mcfast hdds-root_h hddsGeant3.F hddsroot.h
 	mkdir -p $(HALLD_HOME)/bin/$(BMS_OSNAME)
@@ -87,10 +89,13 @@ $(BINDIR)/xpath-example: xpath-example.cpp
 	-o $@ xpath-example.cpp \
 	-L$(XALANCROOT)/lib -lxalan-c -L$(XERCESCROOT)/lib -lxerces-c
 
+$(OBJDIR)/hddsGeant3.o: $(SRCDIR)/hddsGeant3.F
+	$(FC) $(FCOPTS) -c -o $(OBJDIR)/hddsGeant3.o $(SRCDIR)/hddsGeant3.F
+
+$(LIBDIR)/libhddsGeant3.a: $(OBJDIR)/hddsGeant3.o
+	$(AR) rv $(LIBDIR)/libhddsGeant3.a $(OBJDIR)/hddsGeant3.o 
+
 clean:
 	rm -rfv *.o core *.depend $(BINDIR) $(SRCDIR)
 
 pristine: clean
-
-
-
