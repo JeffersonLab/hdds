@@ -24,6 +24,9 @@ LIBDIR = lib/$(BMS_OSNAME)
 OBJDIR = obj/$(BMS_OSNAME)
 SRCDIR = src
 
+ifndef NO_COMPILER_MOD
+include Makefile.compilers
+endif
 WHICH_FC := $(shell which $(FC))
 
 XML_SOURCE = BarrelEMcal_HDDS.xml BeamLine_HDDS.xml CentralDC_HDDS.xml\
@@ -42,12 +45,14 @@ else
 endif
 
 fortran_compiler_check:
-#	@echo WHICH_FC = \"$(WHICH_FC)\"
-#	@echo stripped version = \"$(strip $(WHICH_FC))\"
+	@echo FORTRAN compiler = $(FC)
 ifeq ($(strip $(WHICH_FC)),)
-	@echo make cannot find FORTRAN compiler, set the FC variable to be the compiler command, for example; echo "    setenv FC gfortran"; echo or invoke make with definition in command line; echo "    make FC=gfortran"; exit 1
-else
-	@echo FORTRAN compiler = $(WHICH_FC)
+	@echo Make cannot find FORTRAN compiler.; \
+	echo Invoke make with compiler definition, turning off Makefile compiler guessing in command line, e. g.,; \
+	echo; \
+	echo "    make FC=gfortran NO_COMPILER_MOD=1"; \
+	echo; \
+	exit 1
 endif
 
 make_dirs:
