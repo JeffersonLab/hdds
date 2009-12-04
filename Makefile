@@ -24,13 +24,31 @@ LIBDIR = lib/$(BMS_OSNAME)
 OBJDIR = obj/$(BMS_OSNAME)
 SRCDIR = src
 
+WHICH_FC := $(shell which $(FC))
+
 XML_SOURCE = BarrelEMcal_HDDS.xml BeamLine_HDDS.xml CentralDC_HDDS.xml\
              CerenkovCntr_HDDS.xml ForwardDC_HDDS.xml ForwardEMcal_HDDS.xml\
              ForwardTOF_HDDS.xml Material_HDDS.xml Solenoid_HDDS.xml \
              StartCntr_HDDS.xml Target_HDDS.xml UpstreamEMveto_HDDS.xml \
 	     Regions_HDDS.xml main_HDDS.xml
 
-all: make_dirs $(SRCDIR)/hddsroot.C $(SRCDIR)/hddsroot.h $(LIBDIR)/libhddsGeant3.a
+all: bms_osname_check fortran_compiler_check make_dirs $(SRCDIR)/hddsroot.C $(SRCDIR)/hddsroot.h $(LIBDIR)/libhddsGeant3.a
+
+bms_osname_check:
+ifdef BMS_OSNAME
+	@echo BMS_OSNAME = $(BMS_OSNAME)
+else
+	@echo BMS_OSNAME not set; exit 1
+endif
+
+fortran_compiler_check:
+#	@echo WHICH_FC = \"$(WHICH_FC)\"
+#	@echo stripped version = \"$(strip $(WHICH_FC))\"
+ifeq ($(strip $(WHICH_FC)),)
+	@echo make cannot find FORTRAN compiler, set the FC variable to be the compiler command, for example; echo "    setenv FC gfortran"; echo or invoke make with definition in command line; echo "    make FC=gfortran"; exit 1
+else
+	@echo FORTRAN compiler = $(WHICH_FC)
+endif
 
 make_dirs:
 	mkdir -p $(BINDIR) $(LIBDIR) $(OBJDIR) $(SRCDIR)
@@ -96,6 +114,6 @@ $(LIBDIR)/libhddsGeant3.a: $(OBJDIR)/hddsGeant3.o
 	$(AR) rv $(LIBDIR)/libhddsGeant3.a $(OBJDIR)/hddsGeant3.o 
 
 clean:
-	rm -rfv *.o core *.depend $(BINDIR) $(SRCDIR)
+	rm -rfv $(BINDIR) $(SRCDIR) $(OBJDIR) $(LIBDIR)
 
 pristine: clean
