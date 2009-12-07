@@ -1,3 +1,7 @@
+ifdef DEBUG
+        DEBUG_SUFFIX = _d
+	FCOPTS += -g
+endif
 	OStype = $(shell uname)
 
 	CC = /usr/bin/g++
@@ -21,7 +25,7 @@ endif
 
 BINDIR = bin/$(BMS_OSNAME)
 LIBDIR = lib/$(BMS_OSNAME)
-OBJDIR = obj/$(BMS_OSNAME)
+OBJDIR = obj$(DEBUG_SUFFIX)/$(BMS_OSNAME)
 SRCDIR = src
 
 ifndef NO_COMPILER_MOD
@@ -35,7 +39,7 @@ XML_SOURCE = BarrelEMcal_HDDS.xml BeamLine_HDDS.xml CentralDC_HDDS.xml\
              StartCntr_HDDS.xml Target_HDDS.xml UpstreamEMveto_HDDS.xml \
 	     Regions_HDDS.xml main_HDDS.xml
 
-all: bms_osname_check fortran_compiler_check make_dirs $(SRCDIR)/hddsroot.C $(SRCDIR)/hddsroot.h $(LIBDIR)/libhddsGeant3.a
+all: bms_osname_check fortran_compiler_check make_dirs $(SRCDIR)/hddsroot.C $(SRCDIR)/hddsroot.h $(LIBDIR)/libhddsGeant3$(DEBUG_SUFFIX).a
 
 bms_osname_check:
 ifdef BMS_OSNAME
@@ -57,12 +61,6 @@ endif
 
 make_dirs:
 	mkdir -p $(BINDIR) $(LIBDIR) $(OBJDIR) $(SRCDIR)
-
-install: hdds-geant hdds-root hdds-mcfast hdds-root_h hddsGeant3.F hddsroot.h
-	mkdir -p $(HALLD_HOME)/bin/$(BMS_OSNAME)
-	cp $^ $(HALLD_HOME)/bin/$(BMS_OSNAME)
-	if [ -e ../HDGeant ] ; then cp hddsGeant3.F ../HDGeant/hddsGeant3.F ; fi
-	if [ -e ../../../libraries/HDGEOMETRY ] ; then cp -p hddsroot.h ../../../libraries/HDGEOMETRY/hddsroot.h ; fi
 
 $(SRCDIR)/hddsMCfast.db: $(BINDIR)/hdds-mcfast $(XML_SOURCE)
 	ln -sf $(MCFAST_DIR)/db db
@@ -115,8 +113,8 @@ $(BINDIR)/xpath-example: xpath-example.cpp
 $(OBJDIR)/hddsGeant3.o: $(SRCDIR)/hddsGeant3.F
 	$(FC) $(FCOPTS) -c -o $(OBJDIR)/hddsGeant3.o $(SRCDIR)/hddsGeant3.F
 
-$(LIBDIR)/libhddsGeant3.a: $(OBJDIR)/hddsGeant3.o
-	$(AR) rv $(LIBDIR)/libhddsGeant3.a $(OBJDIR)/hddsGeant3.o 
+$(LIBDIR)/libhddsGeant3$(DEBUG_SUFFIX).a: $(OBJDIR)/hddsGeant3.o
+	$(AR) rv $@ $<
 
 clean:
 	rm -rfv $(BINDIR) $(SRCDIR) $(OBJDIR) $(LIBDIR)
