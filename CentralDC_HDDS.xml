@@ -358,19 +358,19 @@
     <polyplane Rio_Z="9.0 57.0 0.0" />
   </pcon>
 
-  <tubs name="STRA" Rio_Z="0.000  0.800  150." material="CDchamberGas"
+  <tubs name="STRA" Rio_Z="0.000  0.7874  150." material="CDchamberGas"
 						sensitive="true" />
-  <tubs name="STRW" Rio_Z="0.7895  0.8000  150.0" material="AluminizedKapton" />
-  <tubs name="WIRE" Rio_Z="0.000  0.0015  150." material="Tungsten" />
-  <tubs name="UPLG" Rio_Z="0.000  0.800  1.0" material="Aluminum" />
-  <tubs name="DPLG" Rio_Z="0.000  0.800  1.0" material="Delrin" />
+  <tubs name="STRW" Rio_Z="0.7760  0.7874  150.0" material="CDCStrawMaterial" />
+  <tubs name="WIRE" Rio_Z="0.000  0.0010  150." material="Tungsten" />
+  <tubs name="UPLG" Rio_Z="0.000  0.7874  1.0" material="Aluminum" />
+  <tubs name="DPLG" Rio_Z="0.000  0.7874  1.0" material="Delrin" />
 
-  <tubs name="STLA" Rio_Z="0.000  0.800  150.83" material="CDchamberGas"
+  <tubs name="STLA" Rio_Z="0.000  0.7874  150.83" material="CDchamberGas"
 						sensitive="true" />
-  <tubs name="STLB" Rio_Z="0.000  0.800  150.83" material="CDchamberGas"
+  <tubs name="STLB" Rio_Z="0.000  0.7874  150.83" material="CDchamberGas"
 						sensitive="true" />
-  <tubs name="STLW" Rio_Z="0.7895  0.8000  150.83" material="AluminizedKapton" />
-  <tubs name="STLX" Rio_Z="0.7895  0.8000  150.83" material="AluminizedKapton" />
+  <tubs name="STLW" Rio_Z="0.7760  0.7874  150.83" material="CDCStrawMaterial" />
+  <tubs name="STLX" Rio_Z="0.7760  0.7874  150.83" material="CDCStrawMaterial" />
 
   <tubs name="WILE" Rio_Z="0.000  0.0015  150.83" material="Tungsten" />
 
