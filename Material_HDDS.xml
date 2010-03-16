@@ -748,10 +748,10 @@
 
   <composite name="CDchamberGas">
 	<addmaterial material="Argon">
-		<fractionmass	fraction="0.85"	/>
+		<fractionmass	fraction="0.474"	/>
  	</addmaterial>
 	<addmaterial material="CO2">
-		<fractionmass	fraction="0.15"	/>
+		<fractionmass	fraction="0.526"	/>
  	</addmaterial>
   </composite>
 
@@ -776,6 +776,19 @@
  	</addmaterial>
   </composite>
   
+
+  <composite name="CDCStrawMaterial">
+  <addmaterial material="Aluminum">
+  <fractionmass fraction="0.187" />
+  </addmaterial>
+  <addmaterial material="EpoxyResin">
+  <fractionmass fraction="0.165" />
+  </addmaterial>
+  <addmaterial material="Mylar">
+  <fractionmass fraction="0.648"/>
+  </addmaterial>
+  </composite>  
+
 
   <composite name="AluminizedKapton">
 	<addmaterial material="Aluminum">
@@ -826,7 +839,6 @@
 	<addmaterial material="CO2">
 		<fractionmass	fraction="0.62"	/>
  	</addmaterial>
-	<real name="density"	value="1.899e-3"  unit="g/cm^3" />
   </composite>
 
   <composite name="CalciumTitanate">
