@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: Forward EM calorimeter
+  **************************************************
+
+     version 1.0: Initial version	-rtj
+
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name        = "ComptonEMcal"
+         version     = "1.0"
+         date        = "2010-04-17"
+         author      = "P. Ambrozewicz"
+         top_volume  = "CCAL"
+         specification = "v1.0">
+
+<!-- Origin of ComptonEMcal is center of upstream face of LTD (Lead Tungstate Detector) -->
+
+  <composition name="ComptonEMcal">
+    <apply region="nullBfield"/>
+    <posXYZ volume="comptonEMcal" X_Y_Z="0.0  0.0  9.0" />
+  </composition>
+
+  <composition name="comptonEMcal" envelope="CCAL">
+    <posXYZ volume="LTDlower" X_Y_Z="0.0 -9.0  0.0" />
+    <posXYZ volume="LTDeast" X_Y_Z="-9.0  0.0  0.0" />
+    <posXYZ volume="LTDwest" X_Y_Z="+9.0  0.0  0.0" />
+    <posXYZ volume="LTDupper" X_Y_Z="0.0 +9.0  0.0" />
+  </composition>
+
+  <composition name="LTDlower" envelope="LTDB">
+    <mposY volume="LTDfullRow" ncopy="7" Z_X="0.0 0.0" Y0="-6.0" dY="2.0">
+      <row value="0" step="1" />
+    </mposY>
+  </composition>
+
+  <composition name="LTDwest" envelope="LTDW">
+    <mposY volume="LTDhalfRowWest" ncopy="2" Y0="-1.0" dY="2.0">
+      <row value="7" step="1" />
+    </mposY>
+  </composition>
+
+  <composition name="LTDeast" envelope="LTDE">
+    <mposY volume="LTDhalfRowEast" ncopy="2" Y0="-1.0" dY="2.0">
+      <row value="7" step="1" />
+    </mposY>
+  </composition>
+
+  <composition name="LTDupper" envelope="LTDT">
+    <mposY volume="LTDfullRow" ncopy="7" Z_X="0.0 0.0" Y0="-6.0" dY="2.0">
+      <row value="9" step="1" />
+    </mposY>
+  </composition>
+
+  <composition name="LTDfullRow">
+    <mposX volume="LTBL" ncopy="16" Y_Z="0.0 0.0" X0="-15.0" dX="2.0">
+      <column value="0" step="1" />
+    </mposX>
+  </composition>
+
+  <composition name="LTDhalfRowWest">
+    <mposX volume="LTBL" ncopy="7" Y_Z="0.0 0.0" X0="-6.0" dX="2.0">
+      <column value="9" step="1" />
+    </mposX>
+  </composition>
+
+  <composition name="LTDhalfRowEast">
+    <mposX volume="LTBL" ncopy="7" Y_Z="0.0 0.0" X0="-6.0" dX="2.0">
+      <column value="0" step="1" />
+    </mposX>
+  </composition>
+
+  <box name="CCAL" X_Y_Z="32.0  32.0  18.0"  material="Air"
+	                              	comment="Compton EMcal mother" />
+  <box name="LTDB" X_Y_Z="32.0  14.0  18.0"  material="Air"
+					comment="LTD bottom section"   />
+  <box name="LTDT" X_Y_Z="32.0  14.0  18.0"  material="Air"
+					comment="LTD top section"      />
+  <box name="LTDW" X_Y_Z="14.0   4.0  18.0"  material="Air"
+					comment="LTD west section"     />
+  <box name="LTDE" X_Y_Z="14.0   4.0  18.0"  material="Air"
+					comment="LTD east section"    />
+ <!-- LOOK UP MATERIAL FOR PWO4 -->
+  <box name="LTBL" X_Y_Z="  2.0    2.0  18.0"  material="leadGlassF800"
+		sensitive="true"	 comment="lead tungstate block"     />
+
+  <!-- The following elements describe an early rendition of the GlueX
+       detector simulated using a fast Monte Carlo program MCFast.  They
+       are retained for future reference, do not rely on their values. -->
+
+<!--  <parameters name="forwardEMcal_pars" type="mcfast">
+    <real_array	name="xlimit"	comment="xmin  xmax limits of box"
+				values="-106.0  106.0"
+				unit="cm"	/>
+    <real_array	name="ylimit"	comment="ymin  ymax limits of box"
+				values="-106.0  106.0"
+				unit="cm"	/>
+    <real_array	name="xlimit_gap" comment="xmin  xmax of beam hole aperture"
+				values="   -6.0   6.0"
+				unit="cm"	/>
+    <real_array	name="ylimit_gap" comment="ymin  ymax of beam hole aperture"
+				values="   -6.0   6.0"
+				unit="cm"	/>
+    <real	name="z0"	value="620.07"	comment="z of midplane"
+				unit="cm"	/>
+    <real	name="zlen"	value="18.0"	comment="length of blocks"
+				unit="cm"	/>
+    <reference	name="material"	value="leadGlassF800" />
+    <reference	name="active"	value="leadGlassF800" />
+    <int	name="ncr1"	value="58"	comment="x segmentation"     />
+    <int	name="ncr2"	value="58"	comment="y segmentation"     />
+    <int	name="nlayers"	value="1"	comment="z segmentation"     />
+    <real	name="siga_em"	value="0.06"	comment="root-E coefficient"
+				unit="cm"	/>
+    <real	name="sigb_em"	value="0.01"	comment="floor term"
+				unit="cm"	/>
+    <real	name="siga_had"	value="0.0"	comment="root-E coefficient"
+				unit="cm"	/>
+    <real	name="sigb_had"	value="0.0"	comment="floor term"
+				unit="cm"	/>
+    <real	name="em_had_ratio" value="4.0"	comment="response ratio"
+				unit="cm"	/>
+  </parameters>
+-->
+<!-- The forward calorimeter is hard coded into HDFast at present
+
+  <mcfast model="CalorBox" template="db/calorbox.db"
+                           parameters="forwardEMcal_pars">
+    <string	name="name"	value="CCAL"
+    <string	name="shape"	value="BOX"
+    <int	name="type"	value="2"
+  </mcfast>
+-->
+
+</section>
+
+<!-- </HDDS> -->

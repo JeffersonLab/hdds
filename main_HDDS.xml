@@ -15,6 +15,7 @@
   <!ENTITY ForwardEMcal_s SYSTEM "ForwardEMcal_HDDS.xml">
   <!ENTITY CerenkovCntr_s SYSTEM "CerenkovCntr_HDDS.xml">
   <!ENTITY UpstreamEMveto_s SYSTEM "UpstreamEMveto_HDDS.xml">
+  <!ENTITY ComptonEMcal_s SYSTEM "ComptonEMcal_HDDS.xml">
 
 ]>
 
@@ -41,6 +42,7 @@
      &Solenoid_s;
      &BeamLine_s;
      &UpstreamEMveto_s;
+     &ComptonEMcal_s;
 <!-- End of include    -->
 
 
@@ -74,6 +76,7 @@
     <!--posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
     <posXYZ volume="ForwardTOF" X_Y_Z="0.0 0.0 616.25" />
     <posXYZ volume="ForwardEMcal" X_Y_Z="0.0 0.0 625.3" />
+    <posXYZ volume="ComptonEMcal" X_Y_Z="0.0 0.0 1025.3" />
   </composition>
 
   <composition name="backwardPackage">
