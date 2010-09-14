@@ -1,6 +1,6 @@
 # Default GNU fortran compiler is based
 # on whether we're using gcc3 or not
-GCCVERSION = $(shell gccversion.sh)
+GCCVERSION = $(shell ./gccversion.sh)
 ifeq ($(strip $(GCCVERSION)), 3)
 	# Using gcc3
 	FC_GNU = g77
