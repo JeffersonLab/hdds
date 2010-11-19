@@ -1,0 +1,57 @@
+Release Notes for hdds-1.1
+
+This version was tagged on November 19, 2010. It is a copy of the
+trunk as of revision 6961. The repository location is tags/hdds-1.1 .
+
+Differences from hdds-1.0:
+
+------------------------------------------------------------------------
+r6151 | staylor | 2010-03-16 11:56:31 -0400 (Tue, 16 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/hdds/ForwardDC_HDDS.xml
+
+Make the Dec09 revised frame version of the FDC geometry the default.
+------------------------------------------------------------------------
+r6152 | staylor | 2010-03-16 12:02:04 -0400 (Tue, 16 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/hdds/Material_HDDS.xml
+
+Added CDCStrawMaterial for the mylar straws. Right now the fractions of mylar, epoxy and aluminum are rough guesses.  Changed CDchamberGas to a 50/50 Ar/CO2 mixture, closer to what we expect to use.
+------------------------------------------------------------------------
+r6153 | staylor | 2010-03-16 12:04:37 -0400 (Tue, 16 Mar 2010) | 1 line
+Changed paths:
+   M /trunk/hdds/CentralDC_HDDS.xml
+
+Adjusted dimensions of straws to be consistent with current engineering drawings -- 0.62in od and 0.611in id. Changed straw material from AluminizedKapton to mylar-based material CDCStrawMaterial.
+------------------------------------------------------------------------
+r6306 | jonesrt | 2010-04-23 09:20:24 -0400 (Fri, 23 Apr 2010) | 4 lines
+Changed paths:
+   A /trunk/hdds/ComptonEMcal_HDDS.xml
+   M /trunk/hdds/main_HDDS.xml
+
+ComptonEMcal_HDDS.xml, main_HDDS.xml [pa,rtj]
+   - add a new geometry file for the Compton calorimeter, and insert
+     it into the ForwardPackage in the main geometry file.
+
+------------------------------------------------------------------------
+r6653 | marki | 2010-08-18 10:44:52 -0400 (Wed, 18 Aug 2010) | 4 lines
+Changed paths:
+   D /trunk/hdds/ForwardDC_HDDS.revised_frames.xml
+
+Remove ForwardDC_HDDS.revised_frames.xml. This is currently the same
+as ForwardDC_HDDS.xml. Was used by Simon to test a new configuration
+and has since become the standard one.
+
+------------------------------------------------------------------------
+r6710 | marki | 2010-09-14 14:34:48 -0400 (Tue, 14 Sep 2010) | 1 line
+Changed paths:
+   M /trunk/hdds/Makefile.compilers
+
+use . explicitly in path for gccversion.sh
+------------------------------------------------------------------------
+r6798 | dwbennet | 2010-10-14 10:34:48 -0400 (Thu, 14 Oct 2010) | 1 line
+Changed paths:
+   M /trunk/hdds/BarrelEMcal_HDDS.xml
+
+BCAL Changes as per GlueX-doc-1536-v1
+------------------------------------------------------------------------
