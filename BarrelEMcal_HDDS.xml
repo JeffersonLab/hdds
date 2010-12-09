@@ -42,18 +42,10 @@
     <posXYZ volume="BCALlayer_4" />
     <posXYZ volume="BCALlayer_5" />
     <posXYZ volume="BCALlayer_6" />
-<!-- readout option 1: uniform segmentation in depth 
     <posXYZ volume="BCALlayer_7" />
     <posXYZ volume="BCALlayer_8" />
     <posXYZ volume="BCALlayer_9" />
     <posXYZ volume="BCALlayer_10" />
-    <posXYZ volume="BCALlayer_11" />
--->
-<!-- readout option 2: outer 5 layers reduced to 2 -->
-    <posXYZ volume="BCALfatlayer_7" />
-    <posXYZ volume="BCALfatlayer_8" />
-    <posXYZ volume="BCALfatlayer_9" />
-    <posXYZ volume="BCALfatlayer_10" />
     <posXYZ volume="BCAS" />
   </composition>
 
@@ -107,8 +99,7 @@
     </mposPhi>
   </composition>
 
-
-  <composition name="BCALlayer_7" envelope="BCL7">
+  <composition name="BCALlayer_7" envelope="BCK7">
     <mposPhi volume="BCALsector_7" ncopy="4" Phi0="-2.8125"  dPhi="1.875"
                                              impliedRot="true">
       <layer value="7" />
@@ -116,7 +107,7 @@
     </mposPhi>
   </composition>
 
-  <composition name="BCALlayer_8" envelope="BCL8">
+  <composition name="BCALlayer_8" envelope="BCK8">
     <mposPhi volume="BCALsector_8" ncopy="4" Phi0="-2.8125"  dPhi="1.875"
                                              impliedRot="true">
       <layer value="8" />
@@ -124,7 +115,7 @@
     </mposPhi>
   </composition>
 
-  <composition name="BCALlayer_9" envelope="BCL9">
+  <composition name="BCALlayer_9" envelope="BCK9">
     <mposPhi volume="BCALsector_9" ncopy="4" Phi0="-2.8125"  dPhi="1.875"
                                              impliedRot="true">
       <layer value="9" />
@@ -132,48 +123,8 @@
     </mposPhi>
   </composition>
 
-  <composition name="BCALlayer_10" envelope="BCLA">
+  <composition name="BCALlayer_10" envelope="BCKA">
     <mposPhi volume="BCALsector_10" ncopy="4" Phi0="-2.8125"  dPhi="1.875"
-                                             impliedRot="true">
-      <layer value="10" />
-      <sector value="1" step="1" />
-    </mposPhi>
-  </composition>
-
-  <composition name="BCALlayer_11" envelope="BCLB">
-    <mposPhi volume="BCALsector_11" ncopy="4" Phi0="-2.8125"  dPhi="1.875"
-                                             impliedRot="true">
-      <layer value="11" />
-      <sector value="1" step="1" />
-    </mposPhi>
-  </composition>
-
-  <composition name="BCALfatlayer_7" envelope="BCK7">
-    <mposPhi volume="BCALfatsector_7" ncopy="4" Phi0="-2.8125"  dPhi="1.875"
-                                             impliedRot="true">
-      <layer value="7" />
-      <sector value="1" step="1" />
-    </mposPhi>
-  </composition>
-
-  <composition name="BCALfatlayer_8" envelope="BCK8">
-    <mposPhi volume="BCALfatsector_8" ncopy="4" Phi0="-2.8125"  dPhi="1.875"
-                                             impliedRot="true">
-      <layer value="8" />
-      <sector value="1" step="1" />
-    </mposPhi>
-  </composition>
-
-  <composition name="BCALfatlayer_9" envelope="BCK9">
-    <mposPhi volume="BCALfatsector_9" ncopy="4" Phi0="-2.8125"  dPhi="1.875"
-                                             impliedRot="true">
-      <layer value="9" />
-      <sector value="1" step="1" />
-    </mposPhi>
-  </composition>
-
-  <composition name="BCALfatlayer_10" envelope="BCKA">
-    <mposPhi volume="BCALfatsector_10" ncopy="4" Phi0="-2.8125"  dPhi="1.875"
                                              impliedRot="true">
       <layer value="10" />
       <sector value="1" step="1" />
@@ -229,65 +180,25 @@
     <posRPhiZ volume="BCPM" R_Phi_Z="75.3 0.0 -206.0" rot="180 0 0" />
   </composition>
 
-  <composition name="BCALsector_7" envelope="BCS7">
-    <posRPhiZ volume="BM07" />
-    <posRPhiZ volume="BCN7" R_Phi_Z="77.3 0.0  197.5" />
-    <posRPhiZ volume="BCN7" R_Phi_Z="77.3 0.0 -197.5" rot="180 0 0" />
-    <posRPhiZ volume="BCPM" R_Phi_Z="77.3 0.0  201.0" />
-    <posRPhiZ volume="BCPM" R_Phi_Z="77.3 0.0 -201.0" rot="180 0 0" />
-  </composition>
-
-  <composition name="BCALsector_8" envelope="BCS8">
-    <posRPhiZ volume="BM08" />
-    <posRPhiZ volume="BCN8" R_Phi_Z="79.3 0.0  197.5" />
-    <posRPhiZ volume="BCN8" R_Phi_Z="79.3 0.0 -197.5" rot="180 0 0" />
-    <posRPhiZ volume="BCPM" R_Phi_Z="79.3 0.0  201.0" />
-    <posRPhiZ volume="BCPM" R_Phi_Z="79.3 0.0 -201.0" rot="180 0 0" />
-  </composition>
-
-  <composition name="BCALsector_9" envelope="BCS9">
-    <posRPhiZ volume="BM09" />
-    <posRPhiZ volume="BCN9" R_Phi_Z="81.3 0.0  197.5" />
-    <posRPhiZ volume="BCN9" R_Phi_Z="81.3 0.0 -197.5" rot="180 0 0" />
-    <posRPhiZ volume="BCPM" R_Phi_Z="81.3 0.0  201.0" />
-    <posRPhiZ volume="BCPM" R_Phi_Z="81.3 0.0 -201.0" rot="180 0 0" />
-  </composition>
-
-  <composition name="BCALsector_10" envelope="BCSA">
-    <posRPhiZ volume="BM10" />
-    <posRPhiZ volume="BCNA" R_Phi_Z="83.3 0.0  197.5" />
-    <posRPhiZ volume="BCNA" R_Phi_Z="83.3 0.0 -197.5" rot="180 0 0" />
-    <posRPhiZ volume="BCPM" R_Phi_Z="83.3 0.0  201.0" />
-    <posRPhiZ volume="BCPM" R_Phi_Z="83.3 0.0 -201.0" rot="180 0 0" />
-  </composition>
-
-  <composition name="BCALsector_11" envelope="BCSB">
-    <posRPhiZ volume="BM11" />
-    <posRPhiZ volume="BCNB" R_Phi_Z="86.23 0.0  197.5" />
-    <posRPhiZ volume="BCNB" R_Phi_Z="86.23 0.0 -197.5" rot="180 0 0" />
-    <posRPhiZ volume="BCPM" R_Phi_Z="86.23 0.0  201.0" />
-    <posRPhiZ volume="BCPM" R_Phi_Z="86.23 0.0 -201.0" rot="180 0 0" />
-  </composition>
-
-  <composition name="BCALfatsector_7" envelope="BCA7">
+  <composition name="BCALsector_7" envelope="BCA7">
     <posRPhiZ volume="BMF7" />
     <posRPhiZ volume="BCO7" R_Phi_Z="77.534 0.0  202.5" />
     <posRPhiZ volume="BCO7" R_Phi_Z="77.534 0.0 -202.5" rot="180 0 0" />
   </composition>
 
-  <composition name="BCALfatsector_8" envelope="BCA8">
+  <composition name="BCALsector_8" envelope="BCA8">
     <posRPhiZ volume="BMF8" />
     <posRPhiZ volume="BCO8" R_Phi_Z="80.002 0.0  202.5" />
     <posRPhiZ volume="BCO8" R_Phi_Z="80.002 0.0 -202.5" rot="180 0 0" />
   </composition>
 
-  <composition name="BCALfatsector_9" envelope="BCA9">
+  <composition name="BCALsector_9" envelope="BCA9">
     <posRPhiZ volume="BMF9" />
     <posRPhiZ volume="BCO9" R_Phi_Z="82.47 0.0  202.5" />
     <posRPhiZ volume="BCO9" R_Phi_Z="82.47 0.0 -202.5" rot="180 0 0" />
   </composition>
 
-  <composition name="BCALfatsector_10" envelope="BCAA">
+  <composition name="BCALsector_10" envelope="BCAA">
     <posRPhiZ volume="BMFA" />
     <posRPhiZ volume="BCOA" R_Phi_Z="84.938 0.0  202.5" />
     <posRPhiZ volume="BCOA" R_Phi_Z="84.938 0.0 -202.5" rot="180 0 0" />
@@ -341,60 +252,30 @@
   <tubs name="BCS6" Rio_Z="74.3 76.3 420.0" profile="-0.9375 1.875"
                     unit_length="cm" unit_angle="deg"
                     material="Air" comment="barrel EMcal module sector 6" />
-  <tubs name="BCL7" Rio_Z="76.3 78.3 420.0" profile="-3.75 7.5"
-                    unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module layer 7" />
-  <tubs name="BCS7" Rio_Z="76.3 78.3 420.0" profile="-0.9375 1.875"
-                    unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module sector 7" />
-  <tubs name="BCL8" Rio_Z="78.3 80.3 420.0" profile="-3.75 7.5"
-                    unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module layer 8" />
-  <tubs name="BCS8" Rio_Z="78.3 80.3 420.0" profile="-0.9375 1.875"
-                    unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module sector 8" />
-  <tubs name="BCL9" Rio_Z="80.3 82.3 420.0" profile="-3.75 7.5"
-                    unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module layer 9" />
-  <tubs name="BCS9" Rio_Z="80.3 82.3 420.0" profile="-0.9375 1.875"
-                    unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module sector 9" />
-  <tubs name="BCLA" Rio_Z="82.3 84.3 420.0" profile="-3.75 7.5"
-                    unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module layer 10" />
-  <tubs name="BCSA" Rio_Z="82.3 84.3 420.0" profile="-0.9375 1.875"
-                    unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module sector 10" />
-  <tubs name="BCLB" Rio_Z="85.3 87.46 420.0" profile="-3.75 7.5"
-                    unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module layer 11" />
-  <tubs name="BCSB" Rio_Z="85.3 87.46 420.0" profile="-0.9375 1.875"
-                    unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module sector 11" />
   <tubs name="BCK7" Rio_Z="76.3 78.768 420.0" profile="-3.75 7.5"
                     unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module fat layer 7" />
+                    material="Air" comment="barrel EMcal module layer 7" />
   <tubs name="BCA7" Rio_Z="76.3 78.768 420.0" profile="-0.9375 1.875"
                     unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module fat sector 7" />
+                    material="Air" comment="barrel EMcal module sector 7" />
   <tubs name="BCK8" Rio_Z="78.768 81.236 420.0" profile="-3.75 7.5"
                     unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module fat layer 8" />
+                    material="Air" comment="barrel EMcal module layer 8" />
   <tubs name="BCA8" Rio_Z="78.768 81.236 420.0" profile="-0.9375 1.875"
                     unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module fat sector 8" />
+                    material="Air" comment="barrel EMcal module sector 8" />
   <tubs name="BCK9" Rio_Z="81.236 83.704 420.0" profile="-3.75 7.5"
                     unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module fat layer 9" />
+                    material="Air" comment="barrel EMcal module layer 9" />
   <tubs name="BCA9" Rio_Z="81.236 83.704 420.0" profile="-0.9375 1.875"
                     unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module fat sector 9" />  
+                    material="Air" comment="barrel EMcal module sector 9" />  
   <tubs name="BCKA" Rio_Z="83.704 86.172 420.0" profile="-3.75 7.5"
                     unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module fat layer 10" />
+                    material="Air" comment="barrel EMcal module layer 10" />
   <tubs name="BCAA" Rio_Z="83.704 86.172 420.0" profile="-0.9375 1.875"
                     unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel EMcal module fat sector 10" />
+                    material="Air" comment="barrel EMcal module sector 10" />
 
 
   <tubs name="BM01" Rio_Z="64.3 66.3 390.0" profile="-0.9375 1.875"
@@ -421,42 +302,22 @@
                     unit_length="cm" unit_angle="deg"
                     material="leadScint" sensitive="true"
                     comment="barrel EMcal submodule in ring 6" />
-  <tubs name="BM07" Rio_Z="76.3 78.3 390.0" profile="-0.9375 1.875"
-                    unit_length="cm" unit_angle="deg"
-                    material="leadScint" sensitive="true"
-                    comment="barrel EMcal submodule in ring 7" />
-  <tubs name="BM08" Rio_Z="78.3 80.3 390.0" profile="-0.9375 1.875"
-                    unit_length="cm" unit_angle="deg"
-                    material="leadScint" sensitive="true"
-                    comment="barrel EMcal submodule in ring 8" />
-  <tubs name="BM09" Rio_Z="80.3 82.3 390.0" profile="-0.9375 1.875"
-                    unit_length="cm" unit_angle="deg"
-                    material="leadScint" sensitive="true"
-                    comment="barrel EMcal submodule in ring 9" />
-  <tubs name="BM10" Rio_Z="82.3 84.3 390.0" profile="-0.9375 1.875"
-                    unit_length="cm" unit_angle="deg"
-                    material="leadScint" sensitive="true"
-                    comment="barrel EMcal submodule in ring 10" />
-  <tubs name="BM11" Rio_Z="84.3 87.46 390.0" profile="-0.9375 1.875"
-                    unit_length="cm" unit_angle="deg"
-                    material="leadScint" sensitive="true"
-                    comment="barrel EMcal submodule in ring 11" />
   <tubs name="BMF7" Rio_Z="76.3 78.768 390.0" profile="-0.9375 1.875"
                     unit_length="cm" unit_angle="deg"
                     material="leadScint" sensitive="true"
-                    comment="barrel EMcal submodule in fat layer 7" />
+                    comment="barrel EMcal submodule in layer 7" />
   <tubs name="BMF8" Rio_Z="78.768 81.236 390.0" profile="-0.9375 1.875"
                     unit_length="cm" unit_angle="deg"
                     material="leadScint" sensitive="true"
-                    comment="barrel EMcal submodule in fat layer 8" />
+                    comment="barrel EMcal submodule in layer 8" />
   <tubs name="BMF9" Rio_Z="81.236 83.704 390.0" profile="-0.9375 1.875"
                     unit_length="cm" unit_angle="deg"
                     material="leadScint" sensitive="true"
-                    comment="barrel EMcal submodule in fat layer 9" />
+                    comment="barrel EMcal submodule in layer 9" />
   <tubs name="BMFA" Rio_Z="83.704 86.172 390.0" profile="-0.9375 1.875"
                     unit_length="cm" unit_angle="deg"
                     material="leadScint" sensitive="true"
-                    comment="barrel EMcal submodule in fat layer 10" />
+                    comment="barrel EMcal submodule in layer 10" />
 
   <trd name="BCN1" Xmp_Ymp_Z="2.0 1.3 2.0 1.3 10.0" 
        material="Plexiglas" comment="Winston cone for layer 1"/>
@@ -470,24 +331,14 @@
        material="Plexiglas" comment="Winston cone for layer 5"/>
   <trd name="BCN6" Xmp_Ymp_Z="2.0 1.3 2.0 1.3 10.0" 
        material="Plexiglas" comment="Winston cone for layer 6"/>
-  <trd name="BCN7" Xmp_Ymp_Z="2.0 1.3 2.0 1.3 10.0" 
-       material="Plexiglas" comment="Winston cone for layer 7"/>
-  <trd name="BCN8" Xmp_Ymp_Z="2.0 1.3 2.0 1.3 10.0" 
-       material="Plexiglas" comment="Winston cone for layer 8"/>
-  <trd name="BCN9" Xmp_Ymp_Z="2.0 1.3 2.0 1.3 10.0" 
-       material="Plexiglas" comment="Winston cone for layer 9"/>
-  <trd name="BCNA" Xmp_Ymp_Z="2.0 1.3 2.0 1.3 10.0" 
-       material="Plexiglas" comment="Winston cone for layer 9"/>
-  <trd name="BCNB" Xmp_Ymp_Z="2.0 1.3 2.0 1.3 10.0" 
-       material="Plexiglas" comment="Winston cone for layer 9"/>
   <trd name="BCO7" Xmp_Ymp_Z="5.23 3.0 5.04 3.0 15.0" 
-       material="Plexiglas" comment="light collector for fat layer 7"/>
+       material="Plexiglas" comment="light collector for layer 7"/>
   <trd name="BCO8" Xmp_Ymp_Z="5.23 3.0 5.04 3.0 15.0" 
-       material="Plexiglas" comment="light collector for fat layer 8"/>
+       material="Plexiglas" comment="light collector for layer 8"/>
   <trd name="BCO9" Xmp_Ymp_Z="5.23 3.0 5.04 3.0 15.0" 
-       material="Plexiglas" comment="light collector for fat layer 9"/>
+       material="Plexiglas" comment="light collector for layer 9"/>
   <trd name="BCOA" Xmp_Ymp_Z="5.23 3.0 5.04 3.0 15.0" 
-       material="Plexiglas" comment="light collector for fat layer 10"/>
+       material="Plexiglas" comment="light collector for layer 10"/>
 
   <box name="BCPM" X_Y_Z="1.9 1.9 2.0" 
        material="Aluminum" comment="SiPM readout module with cooler"/>
