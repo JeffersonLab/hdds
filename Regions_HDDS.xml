@@ -19,9 +19,17 @@
 
   <region name="sweepDipoleBfield"
           comment="photon beam collimator cleanup dipole field">
-    <uniformBfield Bx_By_Bz="0 0 2" unit="kG"/>
+    <uniformBfield Bx_By_Bz="0 2.3 0" unit="kG"/>
   </region>
- 
+
+  <!-- Pair Spectrometer dipole fields -->
+
+  <region name="PairBfield"
+          comment="photon beam collimator cleanup dipole field">
+    <uniformBfield Bx_By_Bz="0  16.4  0" unit="kG"/>
+  </region>
+
+
   <!-- The tagger dipole field map -->
 
   <region name="taggerBfield" comment="tagging spectrometer field map">
