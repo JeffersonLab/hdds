@@ -37,7 +37,7 @@ XML_SOURCE = BarrelEMcal_HDDS.xml BeamLine_HDDS.xml CentralDC_HDDS.xml\
              CerenkovCntr_HDDS.xml ForwardDC_HDDS.xml ForwardEMcal_HDDS.xml\
              ForwardTOF_HDDS.xml Material_HDDS.xml Solenoid_HDDS.xml \
              StartCntr_HDDS.xml Target_HDDS.xml UpstreamEMveto_HDDS.xml \
-	     Regions_HDDS.xml main_HDDS.xml
+	     Regions_HDDS.xml PairSpect_HDDS.xml main_HDDS.xml
 
 all: bms_osname_check fortran_compiler_check make_dirs $(SRCDIR)/hddsroot.C $(SRCDIR)/hddsroot.h $(LIBDIR)/libhddsGeant3$(DEBUG_SUFFIX).a
 
