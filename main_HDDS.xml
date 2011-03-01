@@ -4,6 +4,7 @@
   <!ENTITY Regions_s SYSTEM "Regions_HDDS.xml">
   <!ENTITY Material_s SYSTEM "Material_HDDS.xml">
   <!ENTITY BeamLine_s SYSTEM "BeamLine_HDDS.xml">
+  <!ENTITY PairSpect_s SYSTEM "PairSpect_HDDS.xml">
   <!ENTITY Target_s SYSTEM "Target_HDDS.xml"  >
   <!ENTITY Solenoid_s SYSTEM "Solenoid_HDDS.xml">
   <!ENTITY CentralDC_s SYSTEM "CentralDC_HDDS.xml">
@@ -42,6 +43,7 @@
      &Solenoid_s;
      &BeamLine_s;
      &UpstreamEMveto_s;
+     &PairSpect_s;     
      &ComptonEMcal_s;
 <!-- End of include    -->
 
@@ -94,6 +96,7 @@
 
   <composition name="experimentalHall" envelope="HALL">
     <posXYZ volume="GlueXdetector" X_Y_Z="150.0 -350.0 -500.0" />
+    <posXYZ volume="PairSpectrometer" X_Y_Z="150.0 -350.0 -1389.45" />  
     <posXYZ volume="beamPipe" X_Y_Z="0.0 0.0 0.0" />
   </composition>
 
