@@ -286,12 +286,12 @@
 
   It has three parameters:
 
-                     Rio_Z="Ri Ro Z"
+                     Rxy_Z="Ri Ro Z"
 
   with
 
-                     Ri    Semi-axis of the ellipse along x
-                     Ro    Semi-axis of the ellipse along y
+                     Rx    Semi-axis of the ellipse along x
+                     Ry    Semi-axis of the ellipse along y
                      Z     Half-length in z
 
 
@@ -2540,7 +2540,7 @@
       <xs:group ref="parameter_group" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
 
-    <xs:attribute name="Rio_Z" use="required">
+    <xs:attribute name="Rxy_Z" use="required">
       <xs:simpleType>
         <xs:restriction base="floatList">
           <xs:length value="3"/>
