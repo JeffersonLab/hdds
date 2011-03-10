@@ -105,6 +105,9 @@
        Modified the composition 'beamPipe'. Now 'beamPipe' extends the vacuum from the 
        pair spectrometer to the position of the target.
 
+     Revision 3.0  3/2/2011
+       Large group of revisions, to reflect the beamline geometry and shielding
+       in the engineering drawings for the cave, and the new pair spectrometer.
 
 
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
@@ -126,6 +129,7 @@
 
   <box name="SHLD" X_Y_Z="550.  550.  1250." material="Concrete"/>
   <composition name="ShieldedCollimator" envelope="SHLD">
+    <posXYZ volume="pipeFromTaggerHall" X_Y_Z="0.0  0.0  -600.0" />
     <posXYZ volume="collimatorCave" X_Y_Z="0.0  35.0  25.0" />
   </composition>  
  
@@ -172,54 +176,55 @@
 
 <!-- Beam Pipe 0 -->
 
+  <composition name="pipeFromTaggerHall" envelope="PFTH">
+    <posXYZ volume="PFTV" X_Y_Z="0.0 0.0 0.0"/>
+  </composition>
+
+  <tubs name="PFTH" Rio_Z="0.0   12.7  50.0" material="Iron" />
+  <tubs name="PFTV" Rio_Z="0.0   12.4  50.0" material="Vacuum" />
+
   <composition name="BeamPipe0">
-    <posXYZ volume="BeamPipeTube"    X_Y_Z="0.0  0.0  13.82" />
+    <posXYZ volume="BeamPipeTube"    X_Y_Z="0.0  0.0  15.24" />
     <posXYZ volume="BeamPipeFlange1" X_Y_Z="0.0  0.0  29.06" />
-    <posXYZ volume="BeamPipeFlange2" X_Y_Z="0.0  0.0  31.9"  />
+    <posXYZ volume="BeamPipeExitWindow" X_Y_Z="0.0  0.0  30.48" />
+    <posXYZ volume="BeamPipeFlange2" X_Y_Z="0.0  0.0  31.90"  />
   </composition>
 
   <composition name="BeamPipeTube" envelope="BPTO">
     <posXYZ volume="BPTI" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <tubs name="BPTO" Rio_Z="0.0   12.7  27.64" material="Iron" />
-  <tubs name="BPTI" Rio_Z="0.0   12.4  27.64" material="Vacuum" />
+  <tubs name="BPTO" Rio_Z="0.0   12.7  30.48" material="Iron" />
+  <tubs name="BPTI" Rio_Z="0.0   12.4  30.48" material="Vacuum" />
 
-  <composition name="BeamPipeFlange1" envelope="BFO1">
-    <posXYZ volume="BFI1" X_Y_Z="0.0 0.0 0.0"/>
+  <composition name="BeamPipeFlange1">
+    <posXYZ volume="BFO1" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <tubs name="BFO1" Rio_Z="0.0   15.24  2.84" material="Iron" />
-  <tubs name="BFI1" Rio_Z="0.0   12.4   2.84" material="Vacuum" />
+  <tubs name="BFO1" Rio_Z="12.7   15.24  2.84" material="Iron" />
 
-  <composition name="BeamPipeFlange2" envelope="BFO2">
-    <posXYZ volume="BFI2" X_Y_Z="0.0  0.0  -0.0125"/>
-    <posXYZ volume="FCAP" X_Y_Z="0.0  0.0   1.4075"/>
+  <composition name="BeamPipeExitWindow">
+    <posXYZ volume="FCAP" X_Y_Z="0.0  0.0  0.0125"/>
   </composition>
 
-  <tubs name="BFO2" Rio_Z="0.0   15.24   2.84"  material="Iron" />
-  <tubs name="BFI2" Rio_Z="0.0   10.16   2.815" material="Vacuum" />
   <tubs name="FCAP" Rio_Z="0.0   10.16   0.025" material="Kapton" />
+
+  <composition name="BeamPipeFlange2">
+    <posXYZ volume="BFO2" X_Y_Z="0.0  0.0  0.0"/>
+  </composition>
+
+  <tubs name="BFO2" Rio_Z="10.16   15.24   2.84"  material="Iron" />
 
 
 <!-- Primary Collimator -->
 
-  <composition name="PrimaryCol">
-    <posXYZ volume="PrimaryOuter" X_Y_Z="0.0  0.0  0.0" />
-    <posXYZ volume="PrimaryInner" X_Y_Z="0.0  0.0  0.0" />
+  <composition name="PrimaryCol" envelope="PCPB">
+    <posXYZ volume="TungstenInsert" X_Y_Z="0.0  0.0  0.0" />
   </composition>
 
-  <composition name="PrimaryOuter">
-    <posXYZ volume="PCTB" X_Y_Z="0.0   +8.89  0.0" />
-    <posXYZ volume="PCTB" X_Y_Z="0.0   -8.89  0.0" />
-    <posXYZ volume="PCSD" X_Y_Z="+8.89  0.0   0.0" />
-    <posXYZ volume="PCSD" X_Y_Z="-8.89  0.0   0.0" />
-  </composition>
+  <box name="PCPB"  X_Y_Z="30.48  30.48  20." material="Lead" />
 
-  <box name="PCTB"  X_Y_Z="30.48  12.7  20." material="Lead" />
-  <box name="PCSD"  X_Y_Z="12.70   5.8  20." material="Lead" />
-
-  <composition name="PrimaryInner" envelope="PCTT">
+  <composition name="TungstenInsert" envelope="PCTT">
     <posXYZ volume="PCTH" X_Y_Z="0.0 0.0 0.0" />
   </composition>
 
@@ -230,33 +235,29 @@
 <!-- Flange 1 -->
 
   <composition name="Flange1">
-    <posXYZ volume="FlangeOneDisk1" X_Y_Z="0.0  0.0  -7.72" />
-    <posXYZ volume="FlangeOneDisk2" X_Y_Z="0.0  0.0  -5.58" />
-    <posXYZ volume="FlangeOnePipe1" X_Y_Z="0.0  0.0  -2.255" />
+    <posXYZ volume="FlangeOneDisk" X_Y_Z="0.0  0.0  -7.72" />
+    <posXYZ volume="FlangeOneWindow" X_Y_Z="0.0  0.0  -6.65" />
+    <posXYZ volume="FlangeOnePipe" X_Y_Z="0.0  0.0  -3.325" />
   </composition>
 
-  <composition name="FlangeOneDisk1" envelope="FOO1">
-    <posXYZ volume="FOI1" X_Y_Z="0.0  0.0  0.0075"/>
-    <posXYZ volume="F1CP" X_Y_Z="0.0  0.0 -1.0625"/>
+  <composition name="FlangeOneDisk">
+    <posXYZ volume="FOI1" X_Y_Z="0.0  0.0  0.0"/>
   </composition>
 
-  <tubs name="FOO1" Rio_Z="0.0   8.57  2.14"  material="Iron" />
-  <tubs name="FOI1" Rio_Z="0.0   1.27  2.125" material="Vacuum" />
+  <tubs name="FOI1" Rio_Z="1.27  8.57  2.14"  material="Iron" />
+
+  <composition name="FlangeOneWindow">
+    <posXYZ volume="F1CP" X_Y_Z="0.0  0.0  0.0075"/>
+  </composition>
+
   <tubs name="F1CP" Rio_Z="0.0   1.27  0.015" material="Kapton" />
 
-  <composition name="FlangeOneDisk2" envelope="FOO2">
-   <posXYZ volume="FOI2" X_Y_Z="0.0 0.0 0.0"/> 
-  </composition> 
-
-  <tubs name="FOO2" Rio_Z="0.0   8.57   2.14" material="Iron" />
-  <eltu name="FOI2" Rio_Z="4.95  2.29   2.14" material="Vacuum" />
-
-  <composition name="FlangeOnePipe1" envelope="FOPO">
+  <composition name="FlangeOnePipe" envelope="FOPO">
     <posXYZ volume="FOPI" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <eltu name="FOPO" Rio_Z="5.11  2.45   4.51" material="Iron" />
-  <eltu name="FOPI" Rio_Z="4.95  2.29   4.51" material="Vacuum" />
+  <eltu name="FOPO" Rxy_Z="5.11  2.45   6.65" material="Iron" />
+  <eltu name="FOPI" Rxy_Z="4.95  2.29   6.65" material="Vacuum" />
 
 
 <!-- 1st Sweeping Magnet -->
@@ -280,8 +281,8 @@
     <posXYZ volume="MPI1" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <eltu name="MPO1" Rio_Z="5.11  2.45  355.6" material="Iron" />
-  <eltu name="MPI1" Rio_Z="4.95  2.29  355.6" material="Vacuum" />
+  <eltu name="MPO1" Rxy_Z="5.11  2.45  355.6" material="Iron" />
+  <eltu name="MPI1" Rxy_Z="4.95  2.29  355.6" material="Vacuum" />
 
 
 <!-- Concrete Wall around the 1st sweeping magnet -->
@@ -312,8 +313,8 @@
     <posXYZ volume="FTI1" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <eltu name="FTO1" Rio_Z="5.11  2.45   4.58" material="Iron" />
-  <eltu name="FTI1" Rio_Z="4.95  2.29   4.58" material="Vacuum" />
+  <eltu name="FTO1" Rxy_Z="5.11  2.45   4.58" material="Iron" />
+  <eltu name="FTI1" Rxy_Z="4.95  2.29   4.58" material="Vacuum" />
 
   <composition name="FlangeTwoDisk2" envelope="FTO2">
     <posXYZ volume="FTI2" X_Y_Z="0.0 0.0 0.0"/>
