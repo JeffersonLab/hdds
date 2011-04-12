@@ -1754,8 +1754,9 @@ void FortranWriter::createUtilityFunctions(DOMElement* el, const XString& ident)
 
    std::cout
         << std::endl
-        << "      subroutine guplsh(medi0,medi1)" << std::endl
+        << "      function guplsh(medi0,medi1)" << std::endl
         << "      implicit none" << std::endl
+        << "      real guplsh" << std::endl
         << "      integer medi0,medi1" << std::endl
         << "      real E,refl,absl,rind,plsh,eff" << std::endl
         << "      integer nmat" << std::endl
@@ -1769,6 +1770,7 @@ void FortranWriter::createUtilityFunctions(DOMElement* el, const XString& ident)
         << "     +  tmaxfd,stemax,deemax,epsil,stmin,ubuf,nwbuf)" << std::endl
         << "      E = 2.5" << std::endl
         << "      call getoptical(nmat,E,refl,absl,rind,plsh,eff)" << std::endl
+        << "      guplsh = plsh" << std::endl
         << "      end" << std::endl;
 
 #ifdef LINUX_CPUTIME_PROFILING
