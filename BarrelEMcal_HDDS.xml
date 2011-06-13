@@ -23,8 +23,8 @@
 
   <composition name="BarrelEMcal">
     <posXYZ volume="barrelEMcal" X_Y_Z="0.0 0.0 195.0" />
-    <posXYZ volume="BCSU" X_Y_Z="0.0 0.0 -15.0" />
-    <posXYZ volume="BCSD" X_Y_Z="0.0 0.0 405." />
+    <posXYZ volume="BCSU" X_Y_Z="0.0 0.0 -17.5" />
+    <posXYZ volume="BCSD" X_Y_Z="0.0 0.0 407.5" />
   </composition>
 
   <composition name="barrelEMcal" envelope="BCAL">

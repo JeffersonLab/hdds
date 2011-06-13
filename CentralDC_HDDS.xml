@@ -348,11 +348,11 @@
   <tubs name="CDCA" Rio_Z="9.0   57.0    0.5" material="SignalCables"
 	                           comment="CDC upstream cables" />
   <pcon name="CDCB" material="SignalCables" comment="CDC readout cables">
-    <polyplane Rio_Z="74.0 120. -65.2" />
-    <polyplane Rio_Z="71.0 120. -62.2" />
-    <polyplane Rio_Z="71.0 75.2 -62.2" />
-    <polyplane Rio_Z="65.0 69.2 -56.2" />
-    <polyplane Rio_Z="65.0 68.0 -55.0" />
+    <polyplane Rio_Z="74.0 120. -75.2" />
+    <polyplane Rio_Z="71.0 120. -72.2" />
+    <polyplane Rio_Z="71.0 75.2 -72.2" />
+    <polyplane Rio_Z="65.0 69.2 -66.2" />
+    <polyplane Rio_Z="65.0 68.0 -65.0" />
     <polyplane Rio_Z="56.4 57.0 -3.31" />
     <polyplane Rio_Z="23.0 57.0 -0.53" />
     <polyplane Rio_Z="9.0 57.0 0.0" />
