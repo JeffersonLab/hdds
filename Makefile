@@ -4,7 +4,7 @@ ifdef DEBUG
 endif
 	OStype = $(shell uname)
 
-	CC = /usr/bin/g++
+	CC = g++
 	COPTS = -g -D_REENTRANT
 
 ifeq ($(OStype),OSF1)
