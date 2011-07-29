@@ -1,0 +1,135 @@
+Release Notes for hdds-1.2
+
+This version was tagged on July 29, 2010. It is a copy of the
+trunk as of revision 8108. The repository location is tags/hdds-1.2 .
+
+Differences from hdds-1.1:
+
+------------------------------------------------------------------------
+r7138 | dwbennet | 2010-12-09 14:47:20 -0500 (Thu, 09 Dec 2010) | 1 line
+
+Cosmetic changes to BarrelEMcal_HDDS.xml code and comments
+------------------------------------------------------------------------
+r7139 | shepherd | 2010-12-10 12:06:11 -0500 (Fri, 10 Dec 2010) | 1 line
+
+removed old 3x3 geometry file for BCAL to avoid any confusion
+------------------------------------------------------------------------
+r7496 | somov | 2011-03-01 11:25:48 -0500 (Tue, 01 Mar 2011) | 54 lines
+
+       Made the following changes in the composition 'collimatorStack':
+  	  1. Added the composition BeamPipe0 describing a vacuum beam pipe at the entrance 
+             of the collimator cave:
+              - the beam pipe radius is 12.4 cm
+              - the exit window: 250 micron Kapton with the radius of 10.14 cm. 
+ 	  2. Moved the active collimator, DET1, and other components 83.96 cm upstream the 
+             beamline.
+          3. Changed layout of the 1st passive collimator to a composite W/Pb:
+	      - the inner part is a W  box,  5.08 x  5.08 x 20.0 cm3
+              - the outer part is a Pb box, 30.48 x 30.48 x 20.0 cm3 
+          4. Added  the vacuum beam pipe (Flange1 compositon) in front of the 1st sweeping 
+             magnet:
+              - use 150 micron Kapton entrance window
+              - vaccuum goes all the way downstream the beamline until the GlueX detector.
+          5. Modified the layout of the 1st sweeping magnet:
+              - the outer dimensions are 29.2 x 24.8 x 355.6 cm3
+              - the gap size is 10.22 x 4.9 cm2 
+              - the field inside the gap is 0.23 T (integrated field is 0.82 Tm)
+              - the elliptical vacuum pipe goes through the magnet. The semi-axes of the pipe 
+              are 4.95 cm and 2.29 cm.        
+          6. Added the concrete blocks around the 1st sweeping magnet, composition ConcreteWall1. 
+             The size of the wall is 101.6 x 147.32 x 121.92 cm3.
+          7. Added the composition Flange2 to connect the 1st sweeping magnet with a vacuum chamber.
+          8. Added a vacuum chamber after the 1st sweeping magnet with the following dimensions:
+              - 50.8 cm long tube with the inner and outer radii of Rin = 9.83 cm and Rout = 9.85.
+          9. Added the small lead wall after the vacuum chamber, composition LeadBand1.
+         10. Added the composition Flange3 to connect the vacuum pipe between the lead band and the
+             2nd collimatoor.
+         11. Changed material of the 2nd collimator from Nickel to Iron. The default pinhole 
+             diameter was changed from 1 cm to 0.6 cm.
+         12. Added the composition Flange4 to connect the vacuum pipe between the 2nd collimator and
+             the 2nd sweeping magnet.
+         13. Changed the layout of the second sweeping magnet:
+              - outer dimensions are 42 x 20.8 cm2
+              - the gap size is 20.3 x 5 cm2, the field in the gap is 0.23 T
+              - 1.75 cm radius vacuum beam pipe goes through the magnet.         
+         14. Added the composition Flange5 to connect 2nd the sweeping magnet with the vacuum beam 
+             pipe.           
+         15. Added a 1m long vacuum beam pipe. The inner and outer radii are 2.38 and 2.54 cm, 
+             respectively.
+         16. Added the small lead wall (composition LeadBand2), 81.28 x 20.32 x 10.16 cm3.
+         17. Placed the vertical plane DET2 after the lead wall. 
+         18. Added the composition Flange6 to connect the vacuum pipe between the lead wall and 
+             a pair spectrometer converter box.          
+         19. Added the pair spectrometer converter. The converter thickness and material can be set
+             in the box 'PTAR'   <box  name="PTAR" X_Y_Z="1.0  1.0  0.0445" material="Aluminum" />.
+         20. Added the composition Flange7 to connect the vacuum pipe between the converter and 
+             the concrete wall.
+         21. Modified the size of the concrete shielding wall to 450.0 x 270.0 x 121.92 cm3.
+             Added passage to the collimator cave.
+         22. Decreased thickness of the lead wall to 5.08 cm (size of the lead brick).
+              
+       Modified the composition 'beamPipe'. Now 'beamPipe' extends the vacuum from the 
+       pair spectrometer to the position of the target.
+------------------------------------------------------------------------
+r7499 | somov | 2011-03-01 11:37:02 -0500 (Tue, 01 Mar 2011) | 1 line
+
+Add pair pair spectrometer
+------------------------------------------------------------------------
+r7500 | somov | 2011-03-01 11:40:55 -0500 (Tue, 01 Mar 2011) | 1 line
+
+Add Pair Spectrometer
+------------------------------------------------------------------------
+r7501 | somov | 2011-03-01 11:45:28 -0500 (Tue, 01 Mar 2011) | 1 line
+
+Correct field of the sweeping magnet. Add Pair Spectrometer field
+------------------------------------------------------------------------
+r7503 | somov | 2011-03-01 16:02:30 -0500 (Tue, 01 Mar 2011) | 1 line
+
+Pair Spectrometer geometry
+------------------------------------------------------------------------
+r7554 | jonesrt | 2011-03-10 07:00:37 -0500 (Thu, 10 Mar 2011) | 9 lines
+
+HDDS-1_0.xsd [rtj]
+   * fix the spelling on attribute Rio_Z to geometry tag eltu,
+     changing it to Rxy_Z to make it more descriptive.
+
+hdds-geant.cpp, hdds-root.cpp
+   * propagate the changes from the above fix to the translators
+     so they look for attribute Rxy_Z instead of Rio_Z in eltu.
+
+
+------------------------------------------------------------------------
+r7555 | jonesrt | 2011-03-10 07:02:15 -0500 (Thu, 10 Mar 2011) | 3 lines
+
+BeamLine_HDDS.xml [rtj]
+   * optimizations to the latest beamline geometry, for faster tracking.
+
+------------------------------------------------------------------------
+r7715 | jonesrt | 2011-04-12 05:50:08 -0400 (Tue, 12 Apr 2011) | 5 lines
+
+hdds-geant.cpp [rtj]
+   * fixed a bug in the generated fortran code for function guplsh, which
+     is supposed to be a function returning a value, but was being declared
+     a subroutine and returning nothing (random values).
+
+------------------------------------------------------------------------
+r7901 | zihlmann | 2011-06-02 17:47:31 -0400 (Thu, 02 Jun 2011) | 5 lines
+
+Changed the inside Aluminum support plate from 2.54cm back to 0.8cm
+Modified the readout completely. Changed the light guides and added
+material simulating the box for the cooling of the SiPMs and electroncis.
+
+
+------------------------------------------------------------------------
+r7948 | zihlmann | 2011-06-13 11:23:01 -0400 (Mon, 13 Jun 2011) | 2 lines
+
+adjust cable positions for the BCAL and the CDC to avoid overlapps.
+
+------------------------------------------------------------------------
+r8078 | jonesrt | 2011-07-16 05:48:13 -0400 (Sat, 16 Jul 2011) | 4 lines
+
+Makefile [rtj]
+   - removed the hard-coded path to g++ as /usr/bin/g++, the user should be able to
+     determine which installed version of the compiler to use, based on PATH.
+
+------------------------------------------------------------------------
