@@ -36,11 +36,11 @@
     <posXYZ volume="FDCR" X_Y_Z="0.0 0.0 -94.6848"/> 
     <posXYZ volume="FDGU" X_Y_Z="0.0 0.0 -95.5848"/>
     <posXYZ volume="FDGV" X_Y_Z="0.0 0.0 -95.5848"/>
-    <mposPhi volume="FDRU" ncopy="24" R_Z="52.25 +95.0348" />
-    <mposPhi volume="FDXN" ncopy="24" R_Z="52.25 +95.0348" />   
-    <posXYZ volume="FDCR" X_Y_Z="0.0 0.0 +94.6848"/>
-    <posXYZ volume="FDGU" X_Y_Z="0.0 0.0 +95.5848"/> 
-    <posXYZ volume="FDGV" X_Y_Z="0.0 0.0 +95.5848"/>
+    <mposPhi volume="FDRU" ncopy="24" R_Z="52.25 +75.0348" />
+    <mposPhi volume="FDXN" ncopy="24" R_Z="52.25 +75.0348" />   
+    <posXYZ volume="FDCR" X_Y_Z="0.0 0.0 +74.6848"/>
+    <posXYZ volume="FDGU" X_Y_Z="0.0 0.0 +75.5848"/> 
+    <posXYZ volume="FDGV" X_Y_Z="0.0 0.0 +75.5848"/>
     <posXYZ volume="forwardDC_package_1" X_Y_Z="0.0  0.0  -87.6486">
       <identifier field="package" value="1" />
     </posXYZ>
@@ -50,10 +50,11 @@
     <posXYZ volume="forwardDC_package_3" X_Y_Z="0.0  0.0  +29.2162">
       <identifier field="package" value="3" />
     </posXYZ>
-    <posXYZ volume="forwardDC_package_4" X_Y_Z="0.0  0.0  +87.6486">
+    <posXYZ volume="forwardDC_package_4" X_Y_Z="0.0  0.0  +67.6486">
       <identifier field="package" value="4" />
     </posXYZ>  
-    <mposZ volume="forwardDC_inter_package" ncopy="3" Z0="-58.4324" dZ="58.4234" />
+    <mposZ volume="forwardDC_inter_package" ncopy="2" Z0="-58.4324" dZ="58.4234" />
+    <mposZ volume="forwardDC_inter_package_last" ncopy="1" Z0="48.4324" dZ="58.4234" />
   </composition>
 
   <composition name="forwardDC_package_1" envelope="FDP1">
@@ -184,6 +185,24 @@
     <mposPhi volume="FDXN" ncopy="24" R_Z="52.25 +21.83" />
     <mposPhi volume="FDRU" ncopy="24" R_Z="52.25 +21.83" />
    </composition>
+
+  <composition name="forwardDC_inter_package_last" envelope="FDIX">
+    <posXYZ volume="FDXM" X_Y_Z="0.0 0.0 0.0" />   
+    <posXYZ volume="FDCR" X_Y_Z="0.0 0.0 -12.18"/>
+    <posXYZ volume="FDGU" X_Y_Z="0.0 0.0 -11.28"/>
+    <posXYZ volume="FDGV" X_Y_Z="0.0 0.0 -11.28"/>  
+    <posXYZ volume="FDCR" X_Y_Z="0.0 0.0 +12.18"/> 
+    <posXYZ volume="FDGU" X_Y_Z="0.0 0.0 +11.28"/>
+    <posXYZ volume="FDGV" X_Y_Z="0.0 0.0 +11.28"/> 
+    <posXYZ volume="FDML" X_Y_Z="0.0 0.0 +12.27935"/>
+    <mposPhi volume="FDZL" ncopy="4" R_Z="52.25 0.0" />
+    <mposPhi volume="FDXN" ncopy="24" R_Z="52.25 -11.83" />
+    <mposPhi volume="FDRU" ncopy="24" R_Z="52.25 -11.83" />
+    <mposPhi volume="FDXN" ncopy="24" R_Z="52.25 +11.83" />
+    <mposPhi volume="FDRU" ncopy="24" R_Z="52.25 +11.83" />
+   </composition>
+
+
 
   <composition name="forwardDC_chamber_1" envelope="FDC1">
     <posXYZ volume="FDCG" X_Y_Z="0.0 0.0 -1.06205" />
@@ -388,6 +407,10 @@
                                    comment="fdc frame periodic container" />
   <tubs name="FDRL" Rio_Z="0.7838 0.8890 44.16" material="FR-4"
                                    comment="fdc long support rods" />
+
+  <tubs name="FDZL" Rio_Z="0.7838 0.8890 24.16" material="FR-4"
+                                   comment="fdc short support rods 4 last package" />
+
   <tubs name="FDRS" Rio_Z="0.0 0.240 13.8724" material="Ultem2300"
                                    comment="fdc package compression rods" />
   <tubs name="FDRU" Rio_Z="0.0 0.240 0.50" material="Ultem2300"
@@ -412,6 +435,9 @@
                  comment="fdc frame aluminum band for attaching cooling ring" />
   <tubs name="FDXM" Rio_Z="51.25 51.35 44.16" material="FR-4"
                  comment="support exoskeleton between fdc packages" />
+  <tubs name="FDXX" Rio_Z="51.25 51.35 24.16" material="FR-4"
+                 comment="support exoskeleton before last fdc packages" />
+
   <tubs name="FDPS" Rio_Z="48.5 52.70 0.50" material="FDchamberGas"
                  comment="mother volume for spacer ring for half-gap between cathode and wires"/>
   <tubs name="FDPP" Rio_Z="51.0 52.70 0.50" material="Polypropylene"
@@ -428,6 +454,10 @@
                  comment="Cable support ring" />
   <tubs name="FDIS" Rio_Z="0.0 60.8 44.56" material="Air"
                  comment="Inter-package spacer mother volume"/>
+
+  <tubs name="FDIX" Rio_Z="0.0 60.8 24.56" material="Air"
+                 comment="Inter-package spacer mother volume 4 last package"/>
+
   <pcon name="FDGS" material="Noryl" comment="cable support gusset" >
     <polyplane Rio_Z="59.8 60.1 -96.96" />
     <polyplane Rio_Z="53.45 53.75 -94.58" />
