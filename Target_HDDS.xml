@@ -21,33 +21,75 @@
      liquid hydrogen target - not the start of the vacuum vessel.  -->
 
   <composition name="Target">
-    <posXYZ volume="targetVessel" X_Y_Z="0. 0. 12.5" />
+    <posXYZ volume="targetSupportArm" X_Y_Z="0. 0. -11.1"/>
+    <posXYZ volume="targetVessel" X_Y_Z="0. 0. 15.0" />
   </composition>
+
+  <composition name="targetSupportArm" envelope="TARM">
+   <posXYZ volume="TGBM" X_Y_Z="0. 0. 0."/>
+   <posXYZ volume="TargetFlange" X_Y_Z="0. 0. -54.96" />
+  </composition>
+
+ <pcon name="TARM" material="Air"> 
+    <polyplane Rio_Z="0.0 12.65 -100.0" />
+    <polyplane Rio_Z="0.0 12.65 -52.4" />
+    <polyplane Rio_Z="0.0 8.5 -52.4" />
+    <polyplane Rio_Z="0.0 8.5 -35.2" />
+    <polyplane Rio_Z="0.0 7.9 -29.2" />
+    <polyplane Rio_Z="0.0 7.9 -5.0" />
+    <polyplane Rio_Z="0.0 7.9 -5.0"/>
+    <polyplane Rio_Z="0.0 7.9 -4.0"/>
+    <polyplane Rio_Z="0.0 6.9 -4.0"/>
+    <polyplane Rio_Z="0.0 6.9 1.0"/>
+    <polyplane Rio_Z="0.0 4.0 5.0"/>
+ </pcon>
+
+ <pcon name="TGBM" material="Aluminum">
+    <polyplane Rio_Z="8.2 8.5 -54.8" /> 
+    <polyplane Rio_Z="8.2 8.5 -35.2" />
+    <polyplane Rio_Z="7.6 7.9 -29.2" />
+    <polyplane Rio_Z="7.6 7.9 -5.0" />
+    <polyplane Rio_Z="6.6 7.9 -5.0"/>
+    <polyplane Rio_Z="6.6 7.9 -4.0"/>
+    <polyplane Rio_Z="6.6 6.9 -4.0"/>
+    <polyplane Rio_Z="6.6 6.9 1.0"/>
+    <polyplane Rio_Z="3.7 4.0 5.0"/> 
+  </pcon>
+
+ <composition name="TargetFlange" envelope="TGFL">
+    <posXYZ volume="TGF1" X_Y_Z="0. 0. 1.27" />
+    <posXYZ volume="TGF2" X_Y_Z="0. 0. -1.27" />
+ </composition>
+
+ <tubs name="TGFL" Rio_Z="8.5 12.65 5.08" material="Air"
+             comment="Mother volume for flange near target"/>
+ <tubs name="TGF1" Rio_Z="8.5 12.65 2.54" material="Aluminum" />
+ <tubs name="TGF2" Rio_Z="10.1 12.65 2.54" material="Aluminum" />
 
   <composition name="targetVessel" envelope="TARG">
     <posXYZ volume="CYLW" X_Y_Z="0. 0. 0." />
-    <posXYZ volume="UWIT" X_Y_Z="0. 0. -27.495"/>
-    <posXYZ volume="DWIT" X_Y_Z="0. 0. +27.495"/>
-    <posXYZ volume="UFLT" X_Y_Z="0. 0. -27.25"/>
-    <posXYZ volume="DFLT" X_Y_Z="0. 0. +27.00"/>
-    <posXYZ volume="targetTube" X_Y_Z="0. 0. 2.5" />
+    <posXYZ volume="UWIT" X_Y_Z="0. 0. -21.0965"/>
+    <posXYZ volume="DWIT" X_Y_Z="0. 0. +21.0965"/>
+    <posXYZ volume="UFLT" X_Y_Z="0. 0. -20.85"/>
+    <posXYZ volume="DFLT" X_Y_Z="0. 0. +20.60"/>
+    <posXYZ volume="targetTube" X_Y_Z="0. 0. 0.0" />
   </composition>
 
   <composition name="targetTube" envelope="TGTV">
     <posXYZ volume="LIH2" X_Y_Z="0. 0. 0."/>
   </composition>
 
-  <tubs name="TARG" Rio_Z="0.00 4.00 55.0" material="Vacuum"
+  <tubs name="TARG" Rio_Z="0.00 4.70 42.2" material="Vacuum"
 	                        comment="target vessel mother volume" />
   <tubs name="TGTV" Rio_Z="0.00 1.515 30.030" material="Kapton"
 	                        comment="target cell"      />
   <tubs name="LIH2" Rio_Z="0.00 1.500 30.000" material="LiqHydrogen"
 	                        comment="target contents"  />
-  <tubs name="CYLW" Rio_Z="3.00 4.00 55.0" material="HighDensityROHACELL"
+  <tubs name="CYLW" Rio_Z="3.70 4.70 42.2" material="HighDensityROHACELL"
 				comment="target vessel cylindrical wall"  />
-  <tubs name="UFLT" Rio_Z="2.00 3.00 0.5" material="Aluminum"
+  <tubs name="UFLT" Rio_Z="2.00 3.70 0.5" material="Aluminum"
 				comment="target vessel entrance flange"  />
-  <tubs name="DFLT" Rio_Z="2.00 3.00 1.0" material="HighDensityROHACELL"
+  <tubs name="DFLT" Rio_Z="2.00 3.70 1.0" material="HighDensityROHACELL"
 				comment="target vessel exit flange"  />
   <tubs name="UWIT" Rio_Z="0.00 2.00 0.007" material="Aluminum"
 				comment="target vessel entrance window"   />
