@@ -1482,31 +1482,74 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             {
                targEnv = targEl;
             }
-            XString targProfS(targEnv->getAttribute(X("profile")));
             if (noRotation && (nSiblings == 1) &&
                 (containerS == "pcon"  ||
                  containerS == "cons"  ||
                  containerS == "tubs"  ||
 		 containerS == "eltu") &&
-                (targProfS.size() > 0) &&
                 (implrotS == "true"))
             {
-               double phi1, dphi1;
-               std::stringstream profstr(targProfS);
-               profstr >> phi1 >> dphi1;
-               Units tunit;
-               tunit.getConversions(targEnv);
-               phi1 /= tunit.deg;
-               dphi1 /= tunit.deg;
+               double phiMax, phiMin, dphiM;
+               XString envProfS(env->getAttribute(X("profile")));
+               if (envProfS.size() > 0)
+               {
+                  std::stringstream profstr(envProfS);
+                  profstr >> phiMin >> dphiM;
+                  Units munit;
+                  munit.getConversions(env);
+                  phiMin /= munit.deg;
+                  dphiM /= munit.deg;
+                  phiMax = phiMin + dphiM;
+               }
+               else {
+                  phiMin = 0;
+                  phiMax = 360;
+               }
+               phi0 *= unit.rad /unit.deg;
+               dphi *= unit.rad /unit.deg;
+               double phigap = phi0-phiMin;
+               double phipull = (phigap > dphi/2)? dphi/2 : phigap;
+               phipull = (phiMin+phigap+ncopy*dphi-phipull > phiMax)?
+                          phiMin+phigap+ncopy*dphi-phiMax : phipull;
+               if (phipull < phiMin-0.001 || phipull > dphi)
+               {
+                  std::cerr
+                       << APP_NAME << " error: volume " << S(nameS)
+                       << " overflows " << phiMax
+                       << " degrees when positioned with "
+                       << ncopy << " copies starting at "
+                       << phi0 << " degrees and spaced "
+                       << dphi << " degrees apart."
+                       << std::endl;
+                  exit(1);
+               }
+               double phi1=0, dphi1=0;
+               XString targProfS(targEnv->getAttribute(X("profile")));
+               if (r == 0 && s == 0 && targProfS.size() > 0)
+               {
+                  std::stringstream profstr(targProfS);
+                  profstr >> phi1 >> dphi1;
+                  Units tunit;
+                  tunit.getConversions(targEnv);
+                  phi1 /= tunit.deg;
+                  dphi1 /= tunit.deg;
+               }
+               if (phipull+phi1 < -0.001 || phipull+phi1+dphi1 > dphi+0.001)
+               {
+                  std::cerr
+                       << APP_NAME << " error: volume " << S(targS)
+                       << " overflows its sector division of size "
+                       << dphi << " degrees."
+                       << std::endl;
+                  exit(1);
+               }
                static int phiDivisions = 0xd00;
                std::stringstream divStr;
                divStr << "s" << std::setfill('0') << std::setw(3) << std::hex
                       << ++phiDivisions;
-               phi0 *= unit.rad /unit.deg;
-               dphi *= unit.rad /unit.deg;
                drs.fPartition.ncopy = ncopy;
                drs.fPartition.axis = "phi";
-               drs.fPartition.start = phi0 + phi1 - myRef.fPhiOffset;
+               drs.fPartition.start = phi0 - phipull - myRef.fPhiOffset;
                drs.fPartition.step = dphi;
                XString divS(divStr.str());
                createDivision(divS, drs);
@@ -1514,7 +1557,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                targEl->setAttribute(X("divides"),X(containerS));
                drs.reset();
 
-               double phioffset = phi1 + dphi/2;
+               double phioffset = dphi/2 - phipull;
                if (fabs(phioffset) > 0.001)
                {
                   angle[0] = 0;
