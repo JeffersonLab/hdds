@@ -17,7 +17,8 @@ XString::XString(void)
 {}
 
 XString::XString(const XMLCh* const x)
- : fStringCollection()
+ : std::string(),
+   fStringCollection()
 {
    if (x)
    {
@@ -28,7 +29,8 @@ XString::XString(const XMLCh* const x)
 }
 
 XString::XString(const char* const s)
- : fStringCollection()
+ : std::string(),
+   fStringCollection()
 {
    if (s)
    {
@@ -37,19 +39,14 @@ XString::XString(const char* const s)
 }
 
 XString::XString(const std::string& s)
- : fStringCollection()
-{
-   if (s.size())
-   {
-      (std::string&)*this = s;
-   }
-}
+ : std::string(s),
+   fStringCollection()
+{}
 
 XString::XString(const XString& X)
- : fStringCollection()
-{
-   (std::string&)*this = (std::string&)X;
-}
+ : std::string(X),
+   fStringCollection()
+{}
 
 XString::~XString()
 {
