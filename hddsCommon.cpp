@@ -122,6 +122,8 @@ using namespace xercesc;
 #define X(str) XString(str).unicode_str()
 #define S(str) str.c_str()
 
+#define NOT_USED(x) ((void)(x))
+
 /*  Refsys class:
  *	Stores persistent information about coordinate
  *	reference systems which are used to orient and place
@@ -135,11 +137,11 @@ std::map<std::string,Refsys::VolIdent> Refsys::fIdentifiers;
 std::vector<std::map<std::string,std::vector<int> > > Refsys::fIdentifierTable;
 
 Refsys::Refsys()			// empty constructor
- : fIdentifier(),
-   fMother(0),
+ : fMother(0),
    fRegion(0),
+   fPhiOffset(0),
    fRegionID(0),
-   fPhiOffset(0)
+   fIdentifier()
 {
    fMOrigin[0] = fMOrigin[1] = fMOrigin[2] = 0;
    fMRmatrix[0][0] = fMRmatrix[1][1] = fMRmatrix[2][2] = 1;
@@ -149,11 +151,11 @@ Refsys::Refsys()			// empty constructor
 }
 
 Refsys::Refsys(const Refsys& src)	// copy constructor
- : fIdentifier(src.fIdentifier),
-   fMother(src.fMother),
+ : fMother(src.fMother),
    fRegion(src.fRegion),
-   fRegionID(src.fRegionID),
    fPhiOffset(src.fPhiOffset),
+   fRegionID(src.fRegionID),
+   fIdentifier(src.fIdentifier),
    fPartition(src.fPartition)
 {
    for (int i=0; i<3; i++)
@@ -343,6 +345,26 @@ std::vector<double>& Refsys::getRotation() const
 
 std::vector<double>& Refsys::getMRotation() const
 {
+   std::vector<double> *angles = new std::vector<double>(3);
+   if (fMRmatrix[2][1] == 0 && fMRmatrix[2][2] == 0) {
+      if (fMRmatrix[2][0] < 0) {
+         (*angles)[0] = atan2(fMRmatrix[0][1],fMRmatrix[1][1]);
+         (*angles)[1] = M_PI/2.;
+         (*angles)[2] = 0;
+      }
+      else {
+         (*angles)[0] = atan2(-fMRmatrix[0][1],fMRmatrix[1][1]);
+         (*angles)[1] = -M_PI/2.;
+         (*angles)[2] = 0;
+      }
+   }
+   else {
+      (*angles)[0] = atan2(fMRmatrix[2][1],fMRmatrix[2][2]);
+      (*angles)[1] = atan2(-fMRmatrix[2][0],
+                            fMRmatrix[2][2]/(cos((*angles)[0])+1e-100));
+      (*angles)[2] = atan2(fMRmatrix[1][0],fMRmatrix[0][0]);
+   }
+   return *angles;
 }
 
 void Refsys::clearIdentifiers()
@@ -375,7 +397,7 @@ int Refsys::nextRotationID()
 
 int Refsys::nextVolumeID()
 {
-   int ivolu = ++fVolumes;
+   unsigned int ivolu = ++fVolumes;
    while (fIdentifierTable.size() <= ivolu)
    {
       std::map<std::string,std::vector<int> > unmarked;
@@ -397,22 +419,28 @@ int Refsys::nextRegionID()
  */
 
 Substance::Substance()
- : fMaterialEl(0),
-   fAtomicWeight(0), fAtomicNumber(0), fDensity(-1),
-   fRadLen(0), fAbsLen(0), fColLen(0), fMIdEdx(0),
-   fUniqueID(0),fBrewList(0)
+ : fUniqueID(0),
+   fBrewList(0),
+   fMaterialEl(0),
+   fAtomicWeight(0),
+   fAtomicNumber(0),
+   fDensity(-1),
+   fRadLen(0),
+   fAbsLen(0),
+   fColLen(0),
+   fMIdEdx(0)
 {}
 
 Substance::Substance(Substance& src)
- : fMaterialEl(src.fMaterialEl),
+ : fUniqueID(src.fUniqueID),
+   fMaterialEl(src.fMaterialEl),
    fAtomicWeight(src.fAtomicWeight),
    fAtomicNumber(src.fAtomicNumber),
    fDensity(src.fDensity),
    fRadLen(src.fRadLen),
    fAbsLen(src.fAbsLen),
    fColLen(src.fColLen),
-   fMIdEdx(src.fMIdEdx),
-   fUniqueID(src.fUniqueID)
+   fMIdEdx(src.fMIdEdx)
 {
    std::list<Brew>::iterator iter;
    for (iter = src.fBrewList.begin();
@@ -426,10 +454,16 @@ Substance::Substance(Substance& src)
 }
 
 Substance::Substance(DOMElement* elem)
- : fMaterialEl(elem),
-   fAtomicWeight(0), fAtomicNumber(0), fDensity(-1),
-   fRadLen(0), fAbsLen(0), fColLen(0), fMIdEdx(0),
-   fUniqueID(0),fBrewList(0)
+ : fUniqueID(0),
+   fBrewList(0),
+   fMaterialEl(elem),
+   fAtomicWeight(0),
+   fAtomicNumber(0), 
+   fDensity(-1),
+   fRadLen(0),
+   fAbsLen(0),
+   fColLen(0),
+   fMIdEdx(0)
 {
    XString aS(fMaterialEl->getAttribute(X("a")));
    fAtomicWeight = atof(S(aS));
@@ -454,23 +488,23 @@ Substance::Substance(DOMElement* elem)
             XString valueS(contEl->getAttribute(X("value")));
             if (nameS == "density")
             {
-               fDensity = atof(S(valueS)) * unit.g/unit.cm3;
+               fDensity = atof(S(valueS)) /(unit.g/unit.cm3);
             }
             else if (nameS == "radlen")
             {
-               fRadLen = atof(S(valueS)) * unit.cm;
+               fRadLen = atof(S(valueS)) /unit.cm;
             }
             else if (nameS == "abslen")
             {
-               fAbsLen = atof(S(valueS)) * unit.cm;
+               fAbsLen = atof(S(valueS)) /unit.cm;
             }
             else if (nameS == "collen")
             {
-               fColLen = atof(S(valueS)) * unit.cm;
+               fColLen = atof(S(valueS)) /unit.cm;
             }
             else if (nameS == "dedx")
             {
-               fMIdEdx = atof(S(valueS)) * unit.MeV/unit.cm;
+               fMIdEdx = atof(S(valueS)) /(unit.MeV/unit.cm);
             }
          }
          else if (tagS == "addmaterial")
@@ -626,6 +660,7 @@ Substance& Substance::operator=(const Substance& src)
    {
       iter->sub = new Substance(*iter->sub);
    }
+   return *this;
 }
 
 double Substance::getAtomicWeight()
@@ -694,79 +729,79 @@ Units::Units()
    set_1cm2(1.);
    set_1cm3(1.);
    set_1G(1.);
-   percent = 100;
+   percent = 0.01;
 }
 
 Units::Units(Units& u)
 {
-   set_1s(1/u.s);
-   set_1cm(1/u.cm);
-   set_1rad(1/u.rad);
-   set_1MeV(1/u.MeV);
-   set_1g(1/u.g);
-   set_1cm2(1/u.cm2);
-   set_1cm3(1/u.cm3);
-   set_1G(1/u.G);
-   percent = 100;
+   set_1s(u.s);
+   set_1cm(u.cm);
+   set_1rad(u.rad);
+   set_1MeV(u.MeV);
+   set_1g(u.g);
+   set_1cm2(u.cm2);
+   set_1cm3(u.cm3);
+   set_1G(u.G);
+   percent = 0.01;
 }
 
 void Units::set_1s(double tu)
 {
-   s=1/tu;
-   ns=s*1e9; ms=s*1e3;
-   min=s*60; hr=min*60; days=hr*24; weeks=days*7;
+   s=tu;
+   ns=s*1e-9; ms=s*1e-3;
+   min=s/60; hr=min/60; days=hr/24; weeks=days/7;
 }
 
 void Units::set_1cm(double lu)
 {
-   cm=1/lu;
-   m=cm*1e-2; mm=m*1e3; um=m*1e6; nm=m*1e9; km=m*1e-3;
-   in=cm/2.54; ft=in/12; miles=ft/5280; mils=in*1e3;
+   cm=lu;
+   m=cm*1e2; mm=m*1e-3; um=m*1e-6; nm=m*1e-9; km=m*1e3;
+   in=cm*2.54; ft=in*12; miles=ft*5280; mils=in*1e-3;
 }
 
 void Units::set_1rad(double au)
 {
-   rad=1/au;
-   mrad=rad*1e3; urad=rad*1e6;
-   deg=rad*180/M_PI; arcmin=deg*60; arcsec=arcmin*60;
+   rad=au;
+   mrad=rad*1e-3; urad=rad*1e-6;
+   deg=rad*M_PI/180; arcmin=deg/60; arcsec=arcmin/60;
 }
 
 void Units::set_1deg(double au)
 {
-   deg=1/au;
-   arcmin=deg*60; arcsec=arcmin*60;
-   rad=deg*M_PI/180; mrad=rad*1e3; urad=rad*1e6;
+   deg=au;
+   arcmin=deg/60; arcsec=arcmin/60;
+   rad=deg*180/M_PI; mrad=rad*1e-3; urad=rad*1e-6;
 }
 
 void Units::set_1MeV(double eu)
 {
-   MeV=1/eu;
-   eV=MeV*1e6; KeV=eV*1e-3; GeV=eV*1e-9; TeV=eV*1e-12;
+   MeV=eu;
+   eV=MeV*1e-6; KeV=eV*1e3; GeV=eV*1e9; TeV=eV*1e12;
 }
 
 void Units::set_1g(double mu)
 {
-   g=1/mu;
-   kg=g*1e-3; mg=g*1e3;
+   g=mu;
+   kg=g*1e3; mg=g*1e-3;
 }
 
 void Units::set_1cm2(double l2u)
 {
-   cm2=1/l2u;
-   m2=cm2*1e-4; mm2=cm2*1e2;
-   b=cm2*1e24; mb=b*1e3; ub=b*1e6; nb=b*1e9; pb=b*1e12;
+   cm2=l2u;
+   m2=cm2*1e4; mm2=cm2*1e-2;
+   b=cm2*1e-24; mb=b*1e-3; ub=b*1e-6; nb=b*1e-9; pb=b*1e-12;
 }
 
 void Units::set_1cm3(double l3u)
 {
-   cm3=1/l3u;
-   ml=cm3; l=ml*1e-3;
+   cm3=l3u;
+   ml=cm3; l=ml*1e3;
 }
 
 void Units::set_1G(double bfu)
 {
-   G=1/bfu;
-   kG=G*1e-3; Tesla=kG*1e-1;
+   G=bfu;
+   kG=G*1e3; Tesla=kG*10;
 }
 
 void Units::getConversions(DOMElement* el)
@@ -1137,15 +1172,15 @@ int CodeWriter::createRegion(DOMElement* el, Refsys& ref)
    listr >> angle[0] >> angle[1] >> angle[2];
    Units unit;
    unit.getConversions(el);
-   angle[0] *= unit.rad;
-   angle[1] *= unit.rad;
-   angle[2] *= unit.rad;
+   angle[0] /= unit.rad;
+   angle[1] /= unit.rad;
+   angle[2] /= unit.rad;
    XString xyzS(el->getAttribute(X("origin")));
    listr.clear(), listr.str(xyzS);
    listr >> origin[0] >> origin[1] >> origin[2];
-   origin[0] *= unit.cm;
-   origin[1] *= unit.cm;
-   origin[2] *= unit.cm;
+   origin[0] /= unit.cm;
+   origin[1] /= unit.cm;
+   origin[2] /= unit.cm;
    ref.shift(origin);
    ref.rotate(angle);
 
@@ -1330,9 +1365,9 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
          listr1 >> angle[0] >> angle[1] >> angle[2];
          Units unit;
          unit.getConversions(contEl);
-         angle[0] *= unit.rad;
-         angle[1] *= unit.rad;
-         angle[2] *= unit.rad;
+         angle[0] /= unit.rad;
+         angle[1] /= unit.rad;
+         angle[2] /= unit.rad;
          bool noRotation = (angle[0] == 0) &&
                            (angle[1] == 0) &&
                            (angle[2] == 0) ;
@@ -1358,9 +1393,9 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             XString xyzS(contEl->getAttribute(X("X_Y_Z")));
             std::stringstream listr(xyzS);
             listr >> origin[0] >> origin[1] >> origin[2];
-            origin[0] *= unit.cm;
-            origin[1] *= unit.cm;
-            origin[2] *= unit.cm;
+            origin[0] /= unit.cm;
+            origin[1] /= unit.cm;
+            origin[2] /= unit.cm;
             drs.shift(origin);
             drs.rotate(angle);
             createVolume(targEl,drs);
@@ -1374,10 +1409,10 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             double s;
             XString sS(contEl->getAttribute(X("S")));
             s = atof(S(sS));
-            phi *= unit.rad;
-            r *= unit.cm;
-            z *= unit.cm;
-            s *= unit.cm;
+            phi /= unit.rad;
+            r /= unit.cm;
+            z /= unit.cm;
+            s /= unit.cm;
             origin[0] = r * cos(phi) - s * sin(phi);
             origin[1] = r * sin(phi) + s * cos(phi);
             origin[2] = z;
@@ -1405,11 +1440,11 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
 
             double phi0, dphi;
             XString phi0S(contEl->getAttribute(X("Phi0")));
-            phi0 = atof(S(phi0S)) * unit.rad;
+            phi0 = atof(S(phi0S)) /unit.rad;
             XString dphiS(contEl->getAttribute(X("dPhi")));
             if (dphiS.size() != 0)
             {
-               dphi = atof(S(dphiS)) * unit.rad;
+               dphi = atof(S(dphiS)) /unit.rad;
             }
             else
             {
@@ -1422,9 +1457,9 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             listr >> r >> z;
             XString sS(contEl->getAttribute(X("S")));
             s = atof(S(sS));
-            r *= unit.cm;
-            z *= unit.cm;
-            s *= unit.cm;
+            r /= unit.cm;
+            z /= unit.cm;
+            s /= unit.cm;
 
             XString containerS;
             if (env != 0)
@@ -1461,16 +1496,16 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                profstr >> phi1 >> dphi1;
                Units tunit;
                tunit.getConversions(targEnv);
-               phi1 *= tunit.deg;
-               dphi1 *= tunit.deg;
+               phi1 /= tunit.deg;
+               dphi1 /= tunit.deg;
                static int phiDivisions = 0xd00;
                std::stringstream divStr;
                divStr << "s" << std::setfill('0') << std::setw(3) << std::hex
                       << ++phiDivisions;
-               phi0 *= unit.deg/unit.rad;
-               dphi *= unit.deg/unit.rad;
+               phi0 *= unit.rad /unit.deg;
+               dphi *= unit.rad /unit.deg;
                drs.fPartition.ncopy = ncopy;
-               drs.fPartition.iaxis = 2;
+               drs.fPartition.axis = "phi";
                drs.fPartition.start = phi0 + phi1 - myRef.fPhiOffset;
                drs.fPartition.step = dphi;
                XString divS(divStr.str());
@@ -1484,7 +1519,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                {
                   angle[0] = 0;
                   angle[1] = 0;
-                  angle[2] = -phioffset*unit.rad/unit.deg;
+                  angle[2] = -phioffset*unit.deg /unit.rad;
                   drs.rotate(angle);
                }
                origin[0] = r;
@@ -1529,9 +1564,9 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
 
             double r0, dr;
             XString r0S(contEl->getAttribute(X("R0")));
-            r0 = atof(S(r0S)) * unit.cm;
+            r0 = atof(S(r0S)) /unit.cm;
             XString drS(contEl->getAttribute(X("dR")));
-            dr = atof(S(drS)) * unit.cm;
+            dr = atof(S(drS)) /unit.cm;
 
             double phi, z, s;
             XString zphiS(contEl->getAttribute(X("Z_Phi")));
@@ -1539,9 +1574,9 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             listr >> z >> phi;
             XString sS(contEl->getAttribute(X("S")));
             s = atof(S(sS));
-            phi *= unit.rad;
-            z *= unit.cm;
-            s *= unit.cm;
+            phi /= unit.rad;
+            z /= unit.cm;
+            s /= unit.cm;
 
             XString containerS;
             if (env != 0)
@@ -1563,7 +1598,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                divStr << "r" << std::setfill('0') << std::setw(3) << std::hex
                       << ++rDivisions;
                drs.fPartition.ncopy = ncopy;
-               drs.fPartition.iaxis = 1;
+               drs.fPartition.axis = "rho";
                drs.fPartition.start = r0 - dr/2;
                drs.fPartition.step = dr;
                XString divS(divStr.str());
@@ -1609,9 +1644,9 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
 
             double x0, dx;
             XString x0S(contEl->getAttribute(X("X0")));
-            x0 = atof(S(x0S)) * unit.cm;
+            x0 = atof(S(x0S)) /unit.cm;
             XString dxS(contEl->getAttribute(X("dX")));
-            dx = atof(S(dxS)) * unit.cm;
+            dx = atof(S(dxS)) /unit.cm;
 
             double y, z, s;
             XString yzS(contEl->getAttribute(X("Y_Z")));
@@ -1619,9 +1654,9 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             listr >> y >> z;
             XString sS(contEl->getAttribute(X("S")));
             s = atof(S(sS));
-            y *= unit.cm;
-            z *= unit.cm;
-            s *= unit.cm;
+            y /= unit.cm;
+            z /= unit.cm;
+            s /= unit.cm;
 
             XString containerS;
             if (env != 0)
@@ -1640,7 +1675,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                divStr << "x" << std::setfill('0') << std::setw(3) << std::hex
                       << ++xDivisions;
                drs.fPartition.ncopy = ncopy;
-               drs.fPartition.iaxis = 1;
+               drs.fPartition.axis = "x";
                drs.fPartition.start = x0 - dx/2;
                drs.fPartition.step = dx;
                XString divS(divStr.str());
@@ -1686,9 +1721,9 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
 
             double y0, dy;
             XString y0S(contEl->getAttribute(X("Y0")));
-            y0 = atof(S(y0S)) * unit.cm;
+            y0 = atof(S(y0S)) /unit.cm;
             XString dyS(contEl->getAttribute(X("dY")));
-            dy = atof(S(dyS)) * unit.cm;
+            dy = atof(S(dyS)) /unit.cm;
 
             double x, z, s;
             XString zxS(contEl->getAttribute(X("Z_X")));
@@ -1696,9 +1731,9 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             listr >> z >> x;
             XString sS(contEl->getAttribute(X("S")));
             s = atof(S(sS));
-            x *= unit.cm;
-            z *= unit.cm;
-            s *= unit.cm;
+            x /= unit.cm;
+            z /= unit.cm;
+            s /= unit.cm;
 
             XString containerS;
             if (env != 0)
@@ -1717,7 +1752,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                divStr << "y" << std::setfill('0') << std::setw(3) << std::hex 
                       << ++yDivisions;
                drs.fPartition.ncopy = ncopy;
-               drs.fPartition.iaxis = 2;
+               drs.fPartition.axis = "y";
                drs.fPartition.start = y0 - dy/2;
                drs.fPartition.step = dy;
                XString divS(divStr.str());
@@ -1739,7 +1774,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                for (int inst = 0; inst < ncopy; inst++)
                {
                   double y = y0 + inst * dy;
-                  double phi = atan2(y,x);
+                  // double phi = atan2(y,x);
                   origin[0] = x;
                   origin[1] = y;
                   origin[2] = z;
@@ -1764,9 +1799,9 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
 
             double z0, dz;
             XString z0S(contEl->getAttribute(X("Z0")));
-            z0 = atof(S(z0S)) * unit.cm;
+            z0 = atof(S(z0S)) /unit.cm;
             XString dzS(contEl->getAttribute(X("dZ")));
-            dz = atof(S(dzS)) * unit.cm;
+            dz = atof(S(dzS)) /unit.cm;
 
             double x, y, s;
             XString xyS(contEl->getAttribute(X("X_Y")));
@@ -1781,15 +1816,15 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                XString rphiS(contEl->getAttribute(X("R_Phi")));
                std::stringstream listr(rphiS);
                listr >> r >> phi;
-               phi *= unit.rad;
+               phi /= unit.rad;
                x = r * cos(phi);
                y = r * sin(phi);
             }
             XString sS(contEl->getAttribute(X("S")));
             s = atof(S(sS));
-            x *= unit.cm;
-            y *= unit.cm;
-            s *= unit.cm;
+            x /= unit.cm;
+            y /= unit.cm;
+            s /= unit.cm;
 
             XString containerS;
             if (env != 0)
@@ -1808,7 +1843,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                divStr << "z" << std::setfill('0') << std::setw(3) << std::hex
                       << ++zDivisions;
                drs.fPartition.ncopy = ncopy;
-               drs.fPartition.iaxis = 3;
+               drs.fPartition.axis = "z";
                drs.fPartition.start = z0 - dz/2;
                drs.fPartition.step = dz;
                XString divS(divStr.str());
@@ -1884,8 +1919,8 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             listr >> phi0 >> dphi;
             Units punit;
             punit.getConversions(el);
-            phi0 *= punit.deg;
-            dphi *= punit.deg;
+            phi0 /= punit.deg;
+            dphi /= punit.deg;
             if ( (myRef.fOrigin[0] == 0) && (myRef.fOrigin[1] == 0) )
             {
                phi0 -= myRef.fPhiOffset;
@@ -1918,7 +1953,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
       {
          XString fieldS(iter->first);
          std::vector<int>* idlist = &Refsys::fIdentifierTable[ivolu][fieldS];
-         while (idlist->size() < icopy-1)
+         while (idlist->size() < (unsigned int)icopy-1)
          {
             idlist->push_back(0);
          }
@@ -1939,18 +1974,26 @@ void CodeWriter::createTrailer()
 
 void CodeWriter::createSetFunctions(DOMElement* el, const XString& ident)
 {
+   NOT_USED(el);
+   NOT_USED(ident);
 }
 
 void CodeWriter::createGetFunctions(DOMElement* el, const XString& ident)
 {
+   NOT_USED(el);
+   NOT_USED(ident);
 }
 
 void CodeWriter::createMapFunctions(DOMElement* el, const XString& ident)
 {
+   NOT_USED(el);
+   NOT_USED(ident);
 }
 
 void CodeWriter::createUtilityFunctions(DOMElement* el, const XString& ident)
 {
+   NOT_USED(el);
+   NOT_USED(ident);
 }
 
 void CodeWriter::translate(DOMElement* topel)
@@ -1962,7 +2005,7 @@ void CodeWriter::translate(DOMElement* topel)
 
    DOMNodeList* propL = topel->getOwnerDocument()
                              ->getElementsByTagName(X("optical_properties"));
-   for (int iprop=0; iprop < propL->getLength(); ++iprop)
+   for (unsigned int iprop=0; iprop < propL->getLength(); ++iprop)
    {
       DOMElement* propEl = (DOMElement*)propL->item(iprop);
       DOMElement* matEl = (DOMElement*)propEl->getParentNode();
@@ -1996,7 +2039,7 @@ void CodeWriter::dump(DOMElement* el, int level=0) // useful debug function
    }
    std::cerr << "<" << tagS;
    DOMNamedNodeMap* attribL = el->getAttributes();
-   for (int i=0; i < attribL->getLength(); i++)
+   for (unsigned int i=0; i < attribL->getLength(); i++)
    {
       XString nameS(attribL->item(i)->getNodeName());
       XString valueS(attribL->item(i)->getNodeValue());

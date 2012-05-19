@@ -119,16 +119,16 @@ std::vector<Refsys>* hddsBrowser::find(const XString volume,
       if (rotS.size() > 0) {
          std::stringstream listr1(rotS);
          listr1 >> angle[0] >> angle[1] >> angle[2];
-         angle[0] *= unit.rad;
-         angle[1] *= unit.rad;
-         angle[2] *= unit.rad;
+         angle[0] /= unit.rad;
+         angle[1] /= unit.rad;
+         angle[2] /= unit.rad;
       }
       XString implrotS(contEl->getAttribute(X("impliedRot")));
       XString sS(el->getAttribute(X("S")));
       double s = 0;
       if (sS.size() > 0) {
          s = atof(S(sS));
-         s *= unit.cm;
+         s /= unit.cm;
       }
       XString ncopyS(el->getAttribute(X("ncopy")));
       if (ncopyS.size() > 0) {
@@ -140,9 +140,9 @@ std::vector<Refsys>* hddsBrowser::find(const XString volume,
          if (xyzS.size() > 0) {
             std::stringstream listr1(xyzS);
             listr1 >> origin[0] >> origin[1] >> origin[2];
-            origin[0] *= unit.cm;
-            origin[1] *= unit.cm;
-            origin[2] *= unit.cm;
+            origin[0] /= unit.cm;
+            origin[1] /= unit.cm;
+            origin[2] /= unit.cm;
             dref->shift(origin);
             dref->rotate(angle);
             if (volumeS == volume) {
@@ -166,12 +166,12 @@ std::vector<Refsys>* hddsBrowser::find(const XString volume,
             if (rphizS.size() > 0) {
                std::stringstream listr1(rphizS);
                listr1 >> r >> phi >> origin[2];
-               r *= unit.cm;
-               phi *= unit.rad;
+               r /= unit.cm;
+               phi /= unit.rad;
             }
             origin[0] = r * cos(phi) - s * sin(phi);
             origin[1] = r * sin(phi) + s * cos(phi);
-            origin[2] *= unit.cm;
+            origin[2] /= unit.cm;
             if (implrotS == "true") {
                angle[2] += phi;
             }
@@ -194,10 +194,10 @@ std::vector<Refsys>* hddsBrowser::find(const XString volume,
       else if (elS == "mposPhi") {
          double phi0, dphi;
          XString phi0S(contEl->getAttribute(X("Phi0")));
-         phi0 = atof(S(phi0S)) * unit.rad;
+         phi0 = atof(S(phi0S)) /unit.rad;
          XString dphiS(contEl->getAttribute(X("dPhi")));
          if (dphiS.size() != 0) {
-            dphi = atof(S(dphiS)) * unit.rad;
+            dphi = atof(S(dphiS)) /unit.rad;
          }
          else {
             dphi = 2 * M_PI / ncopy;
@@ -207,8 +207,8 @@ std::vector<Refsys>* hddsBrowser::find(const XString volume,
          if (rzS.size() > 0) {
             std::stringstream listr(rzS);
             listr >> r >> z;
-            r *= unit.cm;
-            z *= unit.cm;
+            r /= unit.cm;
+            z /= unit.cm;
          }
          dref->rotate(angle);
          for (int inst = 0; inst < ncopy; inst++) {
@@ -245,16 +245,16 @@ std::vector<Refsys>* hddsBrowser::find(const XString volume,
       else if (elS == "mposR") {
          double r0, dr;
          XString r0S(contEl->getAttribute(X("R0")));
-         r0 = atof(S(r0S)) * unit.cm;
+         r0 = atof(S(r0S)) /unit.cm;
          XString drS(contEl->getAttribute(X("dR")));
-         dr = atof(S(drS)) * unit.cm;
+         dr = atof(S(drS)) /unit.cm;
          double phi=0, z=0;
          XString zphiS(contEl->getAttribute(X("Z_Phi")));
          if (zphiS.size() > 0) {
             std::stringstream listr(zphiS);
             listr >> z >> phi;
-            phi *= unit.rad;
-            z *= unit.cm;
+            phi /= unit.rad;
+            z /= unit.cm;
          }
          dref->rotate(angle);
          for (int inst = 0; inst < ncopy; inst++) {
@@ -287,16 +287,16 @@ std::vector<Refsys>* hddsBrowser::find(const XString volume,
       else if (elS == "mposX") {
          double x0, dx;
          XString x0S(contEl->getAttribute(X("X0")));
-         x0 = atof(S(x0S)) * unit.cm;
+         x0 = atof(S(x0S)) /unit.cm;
          XString dxS(contEl->getAttribute(X("dX")));
-         dx = atof(S(dxS)) * unit.cm;
+         dx = atof(S(dxS)) /unit.cm;
          double y=0, z=0;
          XString yzS(contEl->getAttribute(X("Y_Z")));
          if (yzS.size() > 0) {
             std::stringstream listr(yzS);
             listr >> y >> z;
-            y *= unit.cm;
-            z *= unit.cm;
+            y /= unit.cm;
+            z /= unit.cm;
          }
          dref->rotate(angle);
          for (int inst = 0; inst < ncopy; inst++) {
@@ -329,16 +329,16 @@ std::vector<Refsys>* hddsBrowser::find(const XString volume,
       else if (elS == "mposY") {
          double y0, dy;
          XString y0S(contEl->getAttribute(X("Y0")));
-         y0 = atof(S(y0S)) * unit.cm;
+         y0 = atof(S(y0S)) /unit.cm;
          XString dyS(contEl->getAttribute(X("dY")));
-         dy = atof(S(dyS)) * unit.cm;
+         dy = atof(S(dyS)) /unit.cm;
          double x=0, z=0;
          XString zxS(contEl->getAttribute(X("Z_X")));
          if (zxS.size() > 0) {
             std::stringstream listr(zxS);
             listr >> z >> x;
-            x *= unit.cm;
-            z *= unit.cm;
+            x /= unit.cm;
+            z /= unit.cm;
          }
          dref->rotate(angle);
          for (int inst = 0; inst < ncopy; inst++) {
@@ -372,9 +372,9 @@ std::vector<Refsys>* hddsBrowser::find(const XString volume,
       else if (elS == "mposZ") {
          double z0, dz;
          XString z0S(contEl->getAttribute(X("Z0")));
-         z0 = atof(S(z0S)) * unit.cm;
+         z0 = atof(S(z0S)) /unit.cm;
          XString dzS(contEl->getAttribute(X("dZ")));
-         dz = atof(S(dzS)) * unit.cm;
+         dz = atof(S(dzS)) /unit.cm;
          double x=0, y=0;
          XString xyS(contEl->getAttribute(X("X_Y")));
          XString rphiS(contEl->getAttribute(X("R_Phi")));
@@ -386,12 +386,12 @@ std::vector<Refsys>* hddsBrowser::find(const XString volume,
             double r, phi;
             std::stringstream listr(rphiS);
             listr >> r >> phi;
-            phi *= unit.rad;
+            phi /= unit.rad;
             x = r * cos(phi);
             y = r * sin(phi);
          }
-         x *= unit.cm;
-         y *= unit.cm;
+         x /= unit.cm;
+         y /= unit.cm;
          dref->rotate(angle);
          double phi = atan2(y,x);
          origin[0] = x - s * sin(phi);

@@ -77,8 +77,6 @@ class RootMacroWriter : public CodeWriter
                     Refsys& ref);   	// generate code for placement
    int createDivision(XString& divStr,
                       Refsys& ref);	// generate code for divisions
-   void createGetFunctions(DOMElement* el,
-                     XString& ident);   // generate code for identifiers
 };
 
 
@@ -186,9 +184,9 @@ int RootMacroWriter::createMaterial(DOMElement* el)
    double z = fSubst.getAtomicNumber();
    double dens = fSubst.getDensity();
    double radl = fSubst.getRadLength();
-   double absl = fSubst.getAbsLength();
+   // double absl = fSubst.getAbsLength();
    double coll = fSubst.getColLength();
-   double dedx = fSubst.getMIdEdx();
+   // double dedx = fSubst.getMIdEdx();
    XString matS = fSubst.getName();
 
    if (fSubst.fBrewList.size() == 0)
@@ -259,7 +257,7 @@ int RootMacroWriter::createSolid(DOMElement* el, Refsys& ref)
 {
    int ivolu = CodeWriter::createSolid(el,ref);
    int imate = fSubst.fUniqueID;
-   int iregion = ref.fRegionID;
+   // int iregion = ref.fRegionID;
 
    int ifield = 0;	// default values for tracking properties
    double fieldm = 0;	// are overridden by values specified in region tag
@@ -335,9 +333,9 @@ int RootMacroWriter::createSolid(DOMElement* el, Refsys& ref)
       listr >> xl >> yl >> zl;
 
       npar = 3;
-      par[0] = xl/2 * unit.cm;
-      par[1] = yl/2 * unit.cm;
-      par[2] = zl/2 * unit.cm;
+      par[0] = xl/2 /unit.cm;
+      par[1] = yl/2 /unit.cm;
+      par[2] = zl/2 /unit.cm;
 
       std::cout 
            << "TGeoVolume *" << S(nameS) 
@@ -348,15 +346,16 @@ int RootMacroWriter::createSolid(DOMElement* el, Refsys& ref)
    else if (shapeS == "eltu")
    {
       shapeS = "ELTU";
-      double rx, ry, zl, phi0, dphi;
+      double rx, ry, zl;
+      // double phi0, dphi;
       XString rxyzS(el->getAttribute(X("Rxy_Z")));
       std::stringstream listr(rxyzS);
       listr >> rx >> ry >> zl;
 
       npar = 3;
-      par[0] = rx * unit.cm;
-      par[1] = ry * unit.cm;
-      par[2] = zl/2 * unit.cm;
+      par[0] = rx /unit.cm;
+      par[1] = ry /unit.cm;
+      par[2] = zl/2 /unit.cm;
 
       std::cout
            << "TGeoVolume *" << S(nameS) << "= gGeoManager->MakeEltu(\"" 
@@ -377,12 +376,12 @@ int RootMacroWriter::createSolid(DOMElement* el, Refsys& ref)
       listr >> phi0 >> dphi;
 
       npar = 5;
-      par[0] = ri * unit.cm;
-      par[1] = ro * unit.cm;
-      par[2] = zl/2 * unit.cm;
-      par[3] = phi0 * unit.deg;
-      par[4] = (phi0 + dphi) * unit.deg;
-      if (dphi*unit.deg == 360)
+      par[0] = ri /unit.cm;
+      par[1] = ro /unit.cm;
+      par[2] = zl/2 /unit.cm;
+      par[3] = phi0 /unit.deg;
+      par[4] = (phi0 + dphi) /unit.deg;
+      if (dphi == 360*unit.deg)
       {
          shapeS = "TUBE";
          npar = 3;
@@ -415,19 +414,19 @@ int RootMacroWriter::createSolid(DOMElement* el, Refsys& ref)
       listr >> alph_xz >> alph_yz;
 
       npar = 11;
-      double x = tan(alph_xz * unit.rad);
-      double y = tan(alph_yz * unit.rad);
+      double x = tan(alph_xz/unit.rad);
+      double y = tan(alph_yz/unit.rad);
       double r = sqrt(x*x + y*y);
-      par[0] = zl/2 * unit.cm;
-      par[1] = atan2(r,1) * unit.deg/unit.rad;
-      par[2] = atan2(y,x) * unit.deg/unit.rad;
-      par[3] = ym/2 * unit.cm;
-      par[4] = xm/2 * unit.cm;
-      par[5] = xm/2 * unit.cm;
+      par[0] = zl/2 /unit.cm;
+      par[1] = atan2(r,1)*unit.rad /unit.deg;
+      par[2] = atan2(y,x)*unit.rad /unit.deg;
+      par[3] = ym/2 /unit.cm;
+      par[4] = xm/2 /unit.cm;
+      par[5] = xm/2 /unit.cm;
       par[6] = 0;
-      par[7] = yp/2 * unit.cm;
-      par[8] = xp/2 * unit.cm;
-      par[9] = xp/2 * unit.cm;
+      par[7] = yp/2 /unit.cm;
+      par[8] = xp/2 /unit.cm;
+      par[9] = xp/2 /unit.cm;
       par[10] = 0;
       
       std::cout
@@ -448,10 +447,10 @@ int RootMacroWriter::createSolid(DOMElement* el, Refsys& ref)
       DOMNodeList* planeList = el->getElementsByTagName(X("polyplane"));
 
       npar = 3;
-      par[0] = phi0 * unit.deg;
-      par[1] = dphi * unit.deg;
+      par[0] = phi0 /unit.deg;
+      par[1] = dphi /unit.deg;
       par[2] = planeList->getLength();
-      for (int p = 0; p < planeList->getLength(); p++)
+      for (unsigned int p = 0; p < planeList->getLength(); p++)
       {
          double ri, ro, zl;
          DOMNode* node = planeList->item(p);
@@ -459,9 +458,9 @@ int RootMacroWriter::createSolid(DOMElement* el, Refsys& ref)
          XString riozS(elem->getAttribute(X("Rio_Z")));
          std::stringstream listr1(riozS);
          listr1 >> ri >> ro >> zl;
-         par[npar++] = zl * unit.cm;
-         par[npar++] = ri * unit.cm;
-         par[npar++] = ro * unit.cm;
+         par[npar++] = zl /unit.cm;
+         par[npar++] = ri /unit.cm;
+         par[npar++] = ro /unit.cm;
       }
 
       std::cout
@@ -490,11 +489,11 @@ int RootMacroWriter::createSolid(DOMElement* el, Refsys& ref)
       DOMNodeList* planeList = el->getElementsByTagName(X("polyplane"));
 
       npar = 4;
-      par[0] = phi0 * unit.deg;
-      par[1] = dphi * unit.deg;
+      par[0] = phi0 /unit.deg;
+      par[1] = dphi /unit.deg;
       par[2] = segments;
       par[3] = planeList->getLength();
-      for (int p = 0; p < planeList->getLength(); p++)
+      for (unsigned int p = 0; p < planeList->getLength(); p++)
       {
          double ri, ro, zl;
          DOMNode* node = planeList->item(p);
@@ -502,9 +501,9 @@ int RootMacroWriter::createSolid(DOMElement* el, Refsys& ref)
          XString riozS(elem->getAttribute(X("Rio_Z")));
          std::stringstream listr1(riozS);
          listr1 >> ri >> ro >> zl;
-         par[npar++] = zl * unit.cm;
-         par[npar++] = ri * unit.cm;
-         par[npar++] = ro * unit.cm;
+         par[npar++] = zl /unit.cm;
+         par[npar++] = ri /unit.cm;
+         par[npar++] = ro /unit.cm;
       }
 
       std::cout 
@@ -533,14 +532,14 @@ int RootMacroWriter::createSolid(DOMElement* el, Refsys& ref)
       listr >> phi0 >> dphi;
 
       npar = 7;
-      par[0] = zl/2 * unit.cm;
-      par[1] = rim * unit.cm;
-      par[2] = rom * unit.cm;
-      par[3] = rip * unit.cm;
-      par[4] = rop * unit.cm;
-      par[5] = phi0 * unit.deg;
-      par[6] = (phi0 + dphi) * unit.deg;
-      if (dphi*unit.deg == 360)
+      par[0] = zl/2 /unit.cm;
+      par[1] = rim /unit.cm;
+      par[2] = rom /unit.cm;
+      par[3] = rip /unit.cm;
+      par[4] = rop /unit.cm;
+      par[5] = phi0 /unit.deg;
+      par[6] = (phi0 + dphi) /unit.deg;
+      if (dphi == 360*unit.deg)
       {
          shapeS = "CONE";
          npar = 5;
@@ -578,12 +577,12 @@ int RootMacroWriter::createSolid(DOMElement* el, Refsys& ref)
       listr >> phi0 >> dphi;
 
       npar = 6;
-      par[0] = ri * unit.cm;
-      par[1] = ro * unit.cm;
-      par[2] = theta0 * unit.deg;
-      par[3] = theta1 * unit.deg;
-      par[4] = phi0 * unit.deg;
-      par[5] = (phi0 + dphi) * unit.deg;
+      par[0] = ri /unit.cm;
+      par[1] = ro /unit.cm;
+      par[2] = theta0 /unit.deg;
+      par[3] = theta1 /unit.deg;
+      par[4] = phi0 /unit.deg;
+      par[5] = (phi0 + dphi) /unit.deg;
       std::cout
            << "TGeoVolume *" << S(nameS) 
            << "= gGeoManager->MakeSphere(\"" << S(nameS) 
@@ -640,11 +639,43 @@ int RootMacroWriter::createDivision(XString& divStr, Refsys& ref)
 {
    int ndiv = CodeWriter::createDivision(divStr,ref);
 
+   int iaxis;
+   if (ref.fPartition.axis == "x")
+   {
+      iaxis = 1;
+   }
+   else if (ref.fPartition.axis == "y")
+   {
+      iaxis = 2;
+   }
+   else if (ref.fPartition.axis == "z")
+   {
+      iaxis = 3;
+   }
+   else if (ref.fPartition.axis == "rho")
+   {
+      iaxis = 1;
+   }
+   else if (ref.fPartition.axis == "phi")
+   {
+      iaxis = 2;
+   }
+   else
+   {
+      XString motherS(ref.fMother->getAttribute(X("name")));
+      std::cerr
+           << APP_NAME << " error: volume " << S(motherS)
+           << " is divided along unsupported axis " 
+           << "\"" << ref.fPartition.axis << "\""
+           << std::endl;
+      exit(1);
+   }
+
    XString motherS(ref.fMother->getAttribute(X("name")));
    std::cout
         << "TGeoVolume *" << divStr << "= "
         << S(motherS) << "->Divide(\"" << divStr << "\","
-        << ref.fPartition.iaxis << "," << ref.fPartition.ncopy << ","
+        << iaxis << "," << ref.fPartition.ncopy << ","
         << ref.fPartition.start << "," << ref.fPartition.step << ");"
         << std::endl;
 

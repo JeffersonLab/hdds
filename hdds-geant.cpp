@@ -201,8 +201,8 @@ int FortranWriter::createMaterial(DOMElement* el)
    double dens = fSubst.getDensity();
    double radl = fSubst.getRadLength();
    double absl = fSubst.getAbsLength();
-   double coll = fSubst.getColLength();
-   double dedx = fSubst.getMIdEdx();
+   // double coll = fSubst.getColLength();
+   // double dedx = fSubst.getMIdEdx();
    XString matS = fSubst.getName();
 
    if (fSubst.fBrewList.size() == 0)
@@ -244,7 +244,7 @@ int FortranWriter::createMaterial(DOMElement* el)
            << "      imate = " << imate << std::endl
            << "      namate = \'" << S(matS) << "\'" << std::endl;
       std::list<Substance::Brew>::iterator iter = fSubst.fBrewList.begin();
-      for (int im = 0; im < fSubst.fBrewList.size(); im++, iter++)
+      for (unsigned int im = 0; im < fSubst.fBrewList.size(); im++, iter++)
       {
          std::cout
               << "      wmat(" << im + 1 << ") = "
@@ -344,9 +344,9 @@ int FortranWriter::createSolid(DOMElement* el, Refsys& ref)
       listr >> xl >> yl >> zl;
 
       npar = 3;
-      par[0] = xl/2 * unit.cm;
-      par[1] = yl/2 * unit.cm;
-      par[2] = zl/2 * unit.cm;
+      par[0] = xl/2 /unit.cm;
+      par[1] = yl/2 /unit.cm;
+      par[2] = zl/2 /unit.cm;
    }
    else if (shapeS == "tubs")
    {
@@ -360,12 +360,12 @@ int FortranWriter::createSolid(DOMElement* el, Refsys& ref)
       listr >> phi0 >> dphi;
 
       npar = 5;
-      par[0] = ri * unit.cm;
-      par[1] = ro * unit.cm;
-      par[2] = zl/2 * unit.cm;
-      par[3] = phi0 * unit.deg;
-      par[4] = (phi0 + dphi) * unit.deg;
-      if (dphi*unit.deg == 360)
+      par[0] = ri /unit.cm;
+      par[1] = ro /unit.cm;
+      par[2] = zl/2 /unit.cm;
+      par[3] = phi0 /unit.deg;
+      par[4] = (phi0 + dphi) /unit.deg;
+      if (dphi == 360*unit.deg)
       {
          shapeS = "TUBE";
          npar = 3;
@@ -381,9 +381,9 @@ int FortranWriter::createSolid(DOMElement* el, Refsys& ref)
       listr >> rx >> ry >> zl;
 
       npar = 3;
-      par[0] = rx * unit.cm;
-      par[1] = ry * unit.cm;
-      par[2] = zl/2 * unit.cm;
+      par[0] = rx /unit.cm;
+      par[1] = ry /unit.cm;
+      par[2] = zl/2 /unit.cm;
    }
    else if (shapeS == "trd")
    {
@@ -398,19 +398,19 @@ int FortranWriter::createSolid(DOMElement* el, Refsys& ref)
       listr >> alph_xz >> alph_yz;
 
       npar = 11;
-      double x = tan(alph_xz * unit.rad);
-      double y = tan(alph_yz * unit.rad);
+      double x = tan(alph_xz/unit.rad);
+      double y = tan(alph_yz/unit.rad);
       double r = sqrt(x*x + y*y);
-      par[0] = zl/2 * unit.cm;
-      par[1] = atan2(r,1) * unit.deg/unit.rad;
-      par[2] = atan2(y,x) * unit.deg/unit.rad;
-      par[3] = ym/2 * unit.cm;
-      par[4] = xm/2 * unit.cm;
-      par[5] = xm/2 * unit.cm;
+      par[0] = zl/2 /unit.cm;
+      par[1] = atan2(r,1)*unit.rad /unit.deg;
+      par[2] = atan2(y,x)*unit.rad /unit.deg;
+      par[3] = ym/2 /unit.cm;
+      par[4] = xm/2 /unit.cm;
+      par[5] = xm/2 /unit.cm;
       par[6] = 0;
-      par[7] = yp/2 * unit.cm;
-      par[8] = xp/2 * unit.cm;
-      par[9] = xp/2 * unit.cm;
+      par[7] = yp/2 /unit.cm;
+      par[8] = xp/2 /unit.cm;
+      par[9] = xp/2 /unit.cm;
       par[10] = 0;
    }
    else if (shapeS == "pcon")
@@ -423,11 +423,11 @@ int FortranWriter::createSolid(DOMElement* el, Refsys& ref)
       DOMNodeList* planeList = el->getElementsByTagName(X("polyplane"));
 
       npar = 3;
-      par[0] = phi0 * unit.deg;
-      par[1] = dphi * unit.deg;
+      par[0] = phi0 /unit.deg;
+      par[1] = dphi /unit.deg;
       par[2] = planeList->getLength();
       double zlast = -1e30;
-      for (int p = 0; p < planeList->getLength(); p++)
+      for (unsigned int p = 0; p < planeList->getLength(); p++)
       {
          double ri, ro, zl;
          DOMNode* node = planeList->item(p);
@@ -445,9 +445,9 @@ int FortranWriter::createSolid(DOMElement* el, Refsys& ref)
             exit(1);
          }
          zlast = zl;
-         par[npar++] = zl * unit.cm;
-         par[npar++] = ri * unit.cm;
-         par[npar++] = ro * unit.cm;
+         par[npar++] = zl /unit.cm;
+         par[npar++] = ri /unit.cm;
+         par[npar++] = ro /unit.cm;
       }
    }
    else if (shapeS == "pgon")
@@ -463,12 +463,12 @@ int FortranWriter::createSolid(DOMElement* el, Refsys& ref)
       DOMNodeList* planeList = el->getElementsByTagName(X("polyplane"));
 
       npar = 4;
-      par[0] = phi0 * unit.deg;
-      par[1] = dphi * unit.deg;
+      par[0] = phi0 /unit.deg;
+      par[1] = dphi /unit.deg;
       par[2] = segments;
       par[3] = planeList->getLength();
       double zlast = -1e30;
-      for (int p = 0; p < planeList->getLength(); p++)
+      for (unsigned int p = 0; p < planeList->getLength(); p++)
       {
          double ri, ro, zl;
          DOMNode* node = planeList->item(p);
@@ -486,9 +486,9 @@ int FortranWriter::createSolid(DOMElement* el, Refsys& ref)
             exit(1);
          }
          zlast = zl;
-         par[npar++] = zl * unit.cm;
-         par[npar++] = ri * unit.cm;
-         par[npar++] = ro * unit.cm;
+         par[npar++] = zl /unit.cm;
+         par[npar++] = ri /unit.cm;
+         par[npar++] = ro /unit.cm;
       }
    }
    else if (shapeS == "cons")
@@ -504,14 +504,14 @@ int FortranWriter::createSolid(DOMElement* el, Refsys& ref)
       listr >> phi0 >> dphi;
 
       npar = 7;
-      par[0] = zl/2 * unit.cm;
-      par[1] = rim * unit.cm;
-      par[2] = rom * unit.cm;
-      par[3] = rip * unit.cm;
-      par[4] = rop * unit.cm;
-      par[5] = phi0 * unit.deg;
-      par[6] = (phi0 + dphi) * unit.deg;
-      if (dphi*unit.deg == 360)
+      par[0] = zl/2 /unit.cm;
+      par[1] = rim /unit.cm;
+      par[2] = rom /unit.cm;
+      par[3] = rip /unit.cm;
+      par[4] = rop /unit.cm;
+      par[5] = phi0 /unit.deg;
+      par[6] = (phi0 + dphi) /unit.deg;
+      if (dphi == 360*unit.deg)
       {
          shapeS = "CONE";
          npar = 5;
@@ -534,12 +534,12 @@ int FortranWriter::createSolid(DOMElement* el, Refsys& ref)
       listr >> phi0 >> dphi;
 
       npar = 6;
-      par[0] = ri * unit.cm;
-      par[1] = ro * unit.cm;
-      par[2] = theta0 * unit.deg;
-      par[3] = theta1 * unit.deg;
-      par[4] = phi0 * unit.deg;
-      par[5] = (phi0 + dphi) * unit.deg;
+      par[0] = ri /unit.cm;
+      par[1] = ro /unit.cm;
+      par[2] = theta0 /unit.deg;
+      par[3] = theta1 /unit.deg;
+      par[4] = phi0 /unit.deg;
+      par[5] = (phi0 + dphi) /unit.deg;
    }
    else
    {
@@ -661,7 +661,7 @@ int FortranWriter::createRegion(DOMElement* el, Refsys& ref)
          double B[3];
          str >> B[0] >> B[1] >> B[2];
          ref.fPar["fieldm"] = sqrt(B[0]*B[0] + B[1]*B[1] + B[2]*B[2]);
-         ref.fPar["fieldm"] *= funit.kG;
+         ref.fPar["fieldm"] /= funit.kG;
          ref.fPar["ifield"] = 2;
          ref.fPar["tmaxfd"] = 1;
       }
@@ -672,7 +672,7 @@ int FortranWriter::createRegion(DOMElement* el, Refsys& ref)
          funit.getConversions(mapBfieldEl);
          XString bmaxS(mapBfieldEl->getAttribute(X("maxBfield")));
          ref.fPar["fieldm"] = atof(S(bmaxS));
-         ref.fPar["fieldm"] *= funit.kG;
+         ref.fPar["fieldm"] /= funit.kG;
          ref.fPar["ifield"] = 2;
          ref.fPar["tmaxfd"] = 1;
       }
@@ -684,7 +684,7 @@ int FortranWriter::createRegion(DOMElement* el, Refsys& ref)
          Units unit;
          unit.getConversions(swimEl);
          XString stepS(swimEl->getAttribute(X("maxArcStep")));
-         ref.fPar["tmaxfd"] = atof(S(stepS)) * unit.deg;
+         ref.fPar["tmaxfd"] = atof(S(stepS)) /unit.deg;
       }
    }
 
@@ -710,13 +710,45 @@ int FortranWriter::createDivision(XString& divStr, Refsys& ref)
 
    int ndiv = CodeWriter::createDivision(divStr,ref);
 
+   int iaxis;
+   if (ref.fPartition.axis == "x")
+   {
+      iaxis = 1;
+   }
+   else if (ref.fPartition.axis == "y")
+   {
+      iaxis = 2;
+   }
+   else if (ref.fPartition.axis == "z")
+   {
+      iaxis = 3;
+   }
+   else if (ref.fPartition.axis == "rho")
+   {
+      iaxis = 1;
+   }
+   else if (ref.fPartition.axis == "phi")
+   {
+      iaxis = 2;
+   }
+   else
+   {
+      XString motherS(ref.fMother->getAttribute(X("name")));
+      std::cerr
+           << APP_NAME << " error: volume " << S(motherS)
+           << " is divided along unsupported axis " 
+           << "\"" << ref.fPartition.axis << "\""
+           << std::endl;
+      exit(1);
+   }
+
    XString motherS(ref.fMother->getAttribute(X("name")));
    std::cout
         << std::endl
         << "      chname = \'" << divStr << "\'" << std::endl
         << "      chmoth = \'" << S(motherS) << "\'" << std::endl
         << "      ndiv = " << ref.fPartition.ncopy << std::endl
-        << "      iaxis = " << ref.fPartition.iaxis << std::endl
+        << "      iaxis = " << iaxis << std::endl
         << "      step = " << ref.fPartition.step << std::endl
         << "      c0 = " << ref.fPartition.start << std::endl
         << "      numed = 0" << std::endl
@@ -1040,14 +1072,14 @@ void FortranWriter::createGetFunctions(DOMElement* el, const XString& ident)
                   Refsys::fIdentifierTable[ivolu].find(ident);
       if (idlist != Refsys::fIdentifierTable[ivolu].end())
       {
-         if (ncopy != idlist->second.size())
+         if ((unsigned int)ncopy != idlist->second.size())
          {
             std::cerr
                   << APP_NAME << " warning: volume " << ivolu
                   << " has " << ncopy << " copies, but "
                   << idlist->second.size() << " " 
                   << ident << " identifiers!" << std::endl;
-            for (int idx = 0; idx < idlist->second.size(); idx++)
+            for (unsigned int idx = 0; idx < idlist->second.size(); idx++)
             {
                std::cerr << idlist->second[idx]  << " ";
                if (idx/20*20 == idx)
@@ -1118,12 +1150,12 @@ void FortranWriter::createGetFunctions(DOMElement* el, const XString& ident)
 
       std::cout << "      integer lookup(" << table.size() << ")" << std::endl;
 
-      for (int i = 0; i < table.size();)
+      for (unsigned int i = 0; i < table.size();)
       {
          std::stringstream str;
          if (i % 100 == 0)
          {
-            int ilimit = i + 100;
+            unsigned int ilimit = i + 100;
             ilimit = (ilimit > table.size())? table.size() : ilimit;
             std::cout << "      data (lookup(i),i=" << i + 1 << "," << ilimit
                    << ") /" << std::endl;
@@ -1213,7 +1245,7 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
 
    DOMElement* regionsEl = (DOMElement*)regionsL->item(0);
    DOMNodeList* regionL = regionsEl->getElementsByTagName(X("region"));
-   for (int ireg=0; ireg < regionL->getLength(); ++ireg)
+   for (unsigned int ireg=0; ireg < regionL->getLength(); ++ireg)
    {
       DOMElement* regionEl = (DOMElement*)regionL->item(ireg);
       DOMNodeList* noTagL = regionEl->getElementsByTagName(X("noBfield"));
@@ -1222,7 +1254,7 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
          continue;
       }
       DOMNodeList* mapL = regionEl->getElementsByTagName(X("HDDSregion"));
-      for (int imap=0; imap < mapL->getLength(); ++imap)
+      for (unsigned int imap=0; imap < mapL->getLength(); ++imap)
       {
          DOMElement* mapEl = (DOMElement*)mapL->item(imap);
          XString idS(mapEl->getAttribute(X("id")));
@@ -1262,13 +1294,13 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
         << "        B(3) = 0" << std::endl;
 
    std::list<DOMElement*> fieldMap;
-   for (int ireg=0; ireg < regionL->getLength(); ++ireg)
+   for (unsigned int ireg=0; ireg < regionL->getLength(); ++ireg)
    {
       DOMElement* regionEl = (DOMElement*)regionL->item(ireg);
       DOMNodeList* unifTagL = regionEl->getElementsByTagName(X("uniformBfield"));
       DOMNodeList* mapfTagL = regionEl->getElementsByTagName(X("mappedBfield"));
       DOMNodeList* mapL = regionEl->getElementsByTagName(X("HDDSregion"));
-      for (int imap=0; imap < mapL->getLength(); ++imap)
+      for (unsigned int imap=0; imap < mapL->getLength(); ++imap)
       {
          DOMElement* mapEl = (DOMElement*)mapL->item(imap);
          XString idS(mapEl->getAttribute(X("id")));
@@ -1293,9 +1325,9 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
             listr >> b[0] >> b[1] >> b[2];
             Units unit;
             unit.getConversions(unifEl);
-            b[0] *= unit.kG;
-            b[1] *= unit.kG;
-            b[2] *= unit.kG;
+            b[0] /= unit.kG;
+            b[1] /= unit.kG;
+            b[2] /= unit.kG;
 
             std::cout
              << "      else if (iregion.eq." << id << ") then" << std::endl
@@ -1347,9 +1379,9 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
              if (unit.kG != 1)
              {
                 std::cout
-                   << "        B(1) = B(1)*" << unit.kG << std::endl
-                   << "        B(2) = B(2)*" << unit.kG << std::endl
-                   << "        B(3) = B(3)*" << unit.kG << std::endl;
+                   << "        B(1) = B(1)*" << 1/unit.kG << std::endl
+                   << "        B(2) = B(2)*" << 1/unit.kG << std::endl
+                   << "        B(3) = B(3)*" << 1/unit.kG << std::endl;
              }
          }
       }
@@ -1384,7 +1416,7 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
 
       XString gridtype;
       DOMNodeList* gridL = (*iter)->getElementsByTagName(X("grid"));
-      int ngrid;
+      unsigned int ngrid;
       for (ngrid = 0; ngrid < gridL->getLength(); ++ngrid)
       {
          int axsense[] = {1,1,1,1};
@@ -1421,7 +1453,7 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
             sunit.getConversions(sampleEl);
             std::stringstream listr(boundsS);
             listr >> bound[0] >> bound[1];
-            int iaxis;
+            int iaxis=0;
             if (gridtype == "cartesian")
             {
                if (axisS == "x" && 
@@ -1429,24 +1461,24 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
                {
                   iaxis = 1;
                   axorder[0] = iax;
-                  bound[0] *= sunit.cm;
-                  bound[1] *= sunit.cm;
+                  bound[0] /= sunit.cm;
+                  bound[1] /= sunit.cm;
                }
                else if (axisS == "y" && 
                        (axorder[1] == 0 || axorder[1] == iax))
                {
                   iaxis = 2;
                   axorder[1] = iax;
-                  bound[0] *= sunit.cm;
-                  bound[1] *= sunit.cm;
+                  bound[0] /= sunit.cm;
+                  bound[1] /= sunit.cm;
                }
                else if (axisS == "z" &&
                        (axorder[2] == 0 || axorder[2] == iax))
                {
                   iaxis = 3;
                   axorder[2] = iax;
-                  bound[0] *= sunit.cm;
-                  bound[1] *= sunit.cm;
+                  bound[0] /= sunit.cm;
+                  bound[1] /= sunit.cm;
                }
                else
                {
@@ -1462,22 +1494,22 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
                {
                   iaxis = 1;
                   axorder[0] = iax;
-                  bound[0] *= sunit.cm;
-                  bound[1] *= sunit.cm;
+                  bound[0] /= sunit.cm;
+                  bound[1] /= sunit.cm;
                }
                else if (axisS == "phi" && axorder[1] == 0)
                {
                   iaxis = 2;
                   axorder[1] = iax;
-                  bound[0] *= sunit.rad;
-                  bound[1] *= sunit.rad;
+                  bound[0] /= sunit.rad;
+                  bound[1] /= sunit.rad;
                }
                else if (axisS == "z" && axorder[2] == 0)
                {
                   iaxis = 3;
                   axorder[2] = iax;
-                  bound[0] *= sunit.cm;
-                  bound[1] *= sunit.cm;
+                  bound[0] /= sunit.cm;
+                  bound[1] /= sunit.cm;
                }
                else
                {
@@ -1576,7 +1608,7 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
            << "      endif" << std::endl
            << std::endl;
 
-      for (int igrid = 0; igrid < ngrid; igrid++)
+      for (unsigned int igrid = 0; igrid < ngrid; igrid++)
       {
          if (gridtype == "cylindrical")
          {
@@ -1712,7 +1744,7 @@ void FortranWriter::createUtilityFunctions(DOMElement* el, const XString& ident)
    DOMNodeList* propL = el->getOwnerDocument()
                           ->getElementsByTagName(X("optical_properties"));
    int ifclauses = 0;
-   for (int iprop=0; iprop < propL->getLength(); ++iprop)
+   for (unsigned int iprop=0; iprop < propL->getLength(); ++iprop)
    {
       DOMElement* propEl = (DOMElement*)propL->item(iprop);
       DOMElement* matEl = (DOMElement*)propEl->getParentNode();
