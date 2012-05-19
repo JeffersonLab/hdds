@@ -493,8 +493,8 @@
 
   <!-- Define the composite materials -->
 
-  <element name="Vacuum" symbol="Vac" z="0" a="0">
-	<real name="density"	value="0.0"	unit="g/cm^3"	/>
+  <element name="Vacuum" symbol="Vac" z="1" a="1">
+	<real name="density"	value="1e-25"	unit="g/cm^3"	/>
 	<real name="radlen"	value="1.0"	unit="g/cm^2"	/>
 	<real name="collen"	value="1.0"	unit="g/cm^2"	/>
 	<real name="abslen"	value="1.0"	unit="g/cm^2"	/>
