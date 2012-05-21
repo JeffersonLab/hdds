@@ -31,7 +31,7 @@
   </composition>
 
   <composition name="startCntrCables" envelope="STCM">
-     <mposPhi volume="startCntrCable" ncopy="10" Phi0="90.000000" R_Z="8.3  0.0"
+     <mposPhi volume="startCntrCable" ncopy="10" Phi0="18.000000" R_Z="8.3  0.0"
               impliedRot="true">
          <sector value="1" step="1" />
      </mposPhi>
