@@ -24,6 +24,21 @@
  * pool.  To prevent this behavior, call the parser with the argument
  * perm=true, in which case the resulting DOMDocument will persist for
  * the rest of the lifetime of the program.
+ *
+ *
+ * Modification Notes:
+ * --------------------
+ * 6/12/2012  DL
+ *   Xerces 3 has done away with the DOMBuilder API, yet retains
+ *   the DOMParser. It seems the code using the routines in this file
+ *   looked to the pre-processor variable OLD_STYLE_XERCES_PARSER to
+ *   decide whether to call parseInputDocument() or buildDOMDocument().
+ *   The former being called if the variable was defined implying
+ *   the former was likely to be deprecated. The simplest change that
+ *   could be made to get this working with XERCES 3 was to turn the
+ *   buildDOMDocument() routine into a wrapper for the parseInputDocument()
+ *   routine. This is done below.
+ *
  */ 
 
 #include <xercesc/sax/SAXParseException.hpp>
@@ -109,6 +124,9 @@ xercesc::DOMDocument* parseInputDocument(const XString& xmlFile, bool keep)
 
 xercesc::DOMDocument* buildDOMDocument(const XString& xmlFile, bool keep)
 {
+return parseInputDocument(xmlFile, keep);
+#if 0 // below no longer works in XERCES 3
+	
    xercesc::DOMImplementation *impl =
          xercesc:: DOMImplementationRegistry::getDOMImplementation(X("LS"));
    static xercesc::DOMBuilder* scratchBuilder=0;
@@ -177,6 +195,7 @@ xercesc::DOMDocument* buildDOMDocument(const XString& xmlFile, bool keep)
    }
 
    return doc;
+#endif // 0
 }
 
 MyOwnErrorHandler::MyOwnErrorHandler() : 
