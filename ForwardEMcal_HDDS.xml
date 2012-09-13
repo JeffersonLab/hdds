@@ -88,7 +88,7 @@
   <box name="LGBL" X_Y_Z="  4.0    4.0  45.0"  material="leadGlassF800"
 		sensitive="true"	comment="lead glass block"     />
 
-  <pgon name="FCBI" segments="4" profile="-45 360" material="Steel"
+  <pgon name="FCBI" segments="4" profile="-45 360" material="StainlessSteel"
                     comment="FCal beam hole support insert">
    <polyplane Rio_Z="4.73 6.00 -22.5"  />
    <polyplane Rio_Z="4.73 6.00 +22.5" />
