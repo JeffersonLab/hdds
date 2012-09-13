@@ -31,6 +31,7 @@
     <posXYZ volume="LGDsouth" X_Y_Z="-62.0   0.0  0.0" />
     <posXYZ volume="LGDnorth" X_Y_Z="+62.0   0.0  0.0" />
     <posXYZ volume="LGDupper" X_Y_Z="  0.0 +62.0  0.0" />
+    <posXYZ volume="FCBI" X_Y_Z="0.0 0.0 0.0" />
   </composition>
 
   <composition name="LGDlower" envelope="LGDB">
@@ -85,7 +86,13 @@
   <box name="LGDS" X_Y_Z="112.0   12.0  45.0"  material="Air"
 					comment="LGD south section"    />
   <box name="LGBL" X_Y_Z="  4.0    4.0  45.0"  material="leadGlassF800"
-		sensitive="true"	 comment="lead glass block"     />
+		sensitive="true"	comment="lead glass block"     />
+
+  <pgon name="FCBI" segments="4" profile="-45 360" material="Steel"
+                    comment="FCal beam hole support insert">
+   <polyplane Rio_Z="4.73 6.00 -22.5"  />
+   <polyplane Rio_Z="4.73 6.00 +22.5" />
+  </pgon>
 
   <!-- The following elements describe an early rendition of the GlueX
        detector simulated using a fast Monte Carlo program MCFast.  They
