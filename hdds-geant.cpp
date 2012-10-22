@@ -643,6 +643,7 @@ int FortranWriter::createRegion(DOMElement* el, Refsys& ref)
    {
       DOMNodeList* noBfieldL = ref.fRegion->getElementsByTagName(X("noBfield"));
       DOMNodeList* uniBfieldL = ref.fRegion->getElementsByTagName(X("uniformBfield"));
+      DOMNodeList* compBfieldL = ref.fRegion->getElementsByTagName(X("computedBfield"));
       DOMNodeList* mapBfieldL = ref.fRegion->getElementsByTagName(X("mappedBfield"));
       DOMNodeList* swimL = ref.fRegion->getElementsByTagName(X("swim"));
       if (noBfieldL->getLength() > 0)
@@ -661,6 +662,17 @@ int FortranWriter::createRegion(DOMElement* el, Refsys& ref)
          double B[3];
          str >> B[0] >> B[1] >> B[2];
          ref.fPar["fieldm"] = sqrt(B[0]*B[0] + B[1]*B[1] + B[2]*B[2]);
+         ref.fPar["fieldm"] /= funit.kG;
+         ref.fPar["ifield"] = 2;
+         ref.fPar["tmaxfd"] = 1;
+      }
+      else if (compBfieldL->getLength() > 0)
+      {
+         Units funit;
+         DOMElement* compBfieldEl = (DOMElement*)compBfieldL->item(0);
+         funit.getConversions(compBfieldEl);
+         XString bmaxS(compBfieldEl->getAttribute(X("maxBfield")));
+         ref.fPar["fieldm"] = atof(S(bmaxS));
          ref.fPar["fieldm"] /= funit.kG;
          ref.fPar["ifield"] = 2;
          ref.fPar["tmaxfd"] = 1;
@@ -1298,6 +1310,7 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
    {
       DOMElement* regionEl = (DOMElement*)regionL->item(ireg);
       DOMNodeList* unifTagL = regionEl->getElementsByTagName(X("uniformBfield"));
+      DOMNodeList* compTagL = regionEl->getElementsByTagName(X("computedBfield"));
       DOMNodeList* mapfTagL = regionEl->getElementsByTagName(X("mappedBfield"));
       DOMNodeList* mapL = regionEl->getElementsByTagName(X("HDDSregion"));
       for (unsigned int imap=0; imap < mapL->getLength(); ++imap)
@@ -1341,6 +1354,26 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
              << Rmatrix[2][0]*b[0] + Rmatrix[2][1]*b[1] + Rmatrix[2][2]*b[2]
              << std::endl;
          }
+         else if (compTagL->getLength() > 0)
+         {
+            DOMElement* compEl = (DOMElement*)compTagL->item(0);
+            XString funcS(compEl->getAttribute(X("function")));
+
+            Units unit;
+            unit.getConversions(compEl);
+
+            std::cout
+             << "      else if (iregion.eq." << id << ") then" 	<< std::endl
+             << "        call " << funcS			<< std::endl;
+
+            if (unit.kG != 1)
+            {
+               std::cout
+                 << "        B(1) = B(1)*" << 1/unit.kG << std::endl
+                 << "        B(2) = B(2)*" << 1/unit.kG << std::endl
+                 << "        B(3) = B(3)*" << 1/unit.kG << std::endl;
+            }
+         }
          else if (mapfTagL->getLength() > 0)
          {
             DOMElement* mapfEl = (DOMElement*)mapfTagL->item(0);
@@ -1352,37 +1385,36 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
 
             std::cout
              << "      else if (iregion.eq." << id << ") then" << std::endl
-				 << "		    call gufld2(r, B)" << std::endl
-             << "C        rs(1) = r(1)-orig" << id << "(1)" << std::endl
-             << "C        rs(2) = r(2)-orig" << id << "(2)" << std::endl
-             << "C        rs(3) = r(3)-orig" << id << "(3)" << std::endl
-             << "C        rr(1) = rs(1)*rmat" << id << "(1,1)"
+             << "        rs(1) = r(1)-orig" << id << "(1)" << std::endl
+             << "        rs(2) = r(2)-orig" << id << "(2)" << std::endl
+             << "        rs(3) = r(3)-orig" << id << "(3)" << std::endl
+             << "        rr(1) = rs(1)*rmat" << id << "(1,1)"
              <<                "+rs(2)*rmat" << id << "(1,2)"
              <<                "+rs(3)*rmat" << id << "(1,3)" << std::endl
-             << "C        rr(2) = rs(1)*rmat" << id << "(2,1)"
+             << "        rr(2) = rs(1)*rmat" << id << "(2,1)"
              <<                "+rs(2)*rmat" << id << "(2,2)"
              <<                "+rs(3)*rmat" << id << "(2,3)" << std::endl
-             << "C        rr(3) = rs(1)*rmat" << id << "(3,1)"
+             << "        rr(3) = rs(1)*rmat" << id << "(3,1)"
              <<                "+rs(2)*rmat" << id << "(3,2)"
              <<                "+rs(3)*rmat" << id << "(3,3)" << std::endl
-             << "C        call gufld" << map << "(rr,BB)"     << std::endl
-             << "C        B(1) = BB(1)*rmat" << id << "(1,1)"
+             << "        call gufld" << map << "(rr,BB)"     << std::endl
+             << "        B(1) = BB(1)*rmat" << id << "(1,1)"
              <<               "+BB(2)*rmat" << id << "(2,1)"
              <<               "+BB(3)*rmat" << id << "(3,1)" << std::endl
-             << "C        B(2) = BB(1)*rmat" << id << "(1,2)"
+             << "        B(2) = BB(1)*rmat" << id << "(1,2)"
              <<               "+BB(2)*rmat" << id << "(2,2)"
              <<               "+BB(3)*rmat" << id << "(3,2)" << std::endl
-             << "C        B(3) = BB(1)*rmat" << id << "(1,3)"
+             << "        B(3) = BB(1)*rmat" << id << "(1,3)"
              <<               "+BB(2)*rmat" << id << "(2,3)"
              <<               "+BB(3)*rmat" << id << "(3,3)" << std::endl;
 
-             if (unit.kG != 1)
-             {
-                std::cout
-                   << "        B(1) = B(1)*" << 1/unit.kG << std::endl
-                   << "        B(2) = B(2)*" << 1/unit.kG << std::endl
-                   << "        B(3) = B(3)*" << 1/unit.kG << std::endl;
-             }
+            if (unit.kG != 1)
+            {
+               std::cout
+                 << "        B(1) = B(1)*" << 1/unit.kG << std::endl
+                 << "        B(2) = B(2)*" << 1/unit.kG << std::endl
+                 << "        B(3) = B(3)*" << 1/unit.kG << std::endl;
+            }
          }
       }
    }
