@@ -734,15 +734,14 @@
   contain a more general description of tracking properties.  At present,
   only magnetic field specifiers are defined.  Only properties that are
   explicitly declared within the region definition are modified from their
-  defaults.  Magnetic fields are described using either a uniformBfield,
-  a computedBfield, or a mappedBfield element.  A region that has no
-  magnetic field is defined using the noBfield tag.  Assigning a region
-  with noBfield to a volume results in the same tracking behavior as if
-  the volume had no region assignment, i.e. belongs to the default region.
-  The noBfield specifier has been introduced to enable volumes that inherit
-  a region with a magnetic field from an ancestor to override that behavior
-  by specifying their own region with noBfield.  The noBfield tag has no
-  attributes.
+  defaults.  Magnetic fields are described using either a uniformBfield
+  or a mappedBfield element.  A region that has no magnetic field is defined
+  using the noBfield tag.  Assigning a region with noBfield to a volume
+  results in the same tracking behavior as if the volume had no region
+  assignment, i.e. belongs to the default region.  The noBfield specifier
+  has been introduced to enable volumes that inherit a region with a
+  magnetic field from an ancestor to override that behavior by specifying
+  their own region with noBfield.  The noBfield tag has no attributes.
 
   The uniformBfield tag supports the following attributes.
 
@@ -750,21 +749,6 @@
 			components of the uniform magnetic field.
 	    unit      : units for specifying magnetic field, eg. kG, T
 			(default is kG).
-
-  The computedBfield tag supports the following attributes.
-
-	    function  : name of the global function that computes the
-			magnetic field at a point r.  The syntax of this
-			string is user-defined, and may be a global function
-			call in some language, a lookup key for a database,
-			or some keyword-based selector.  In any case, the
-			language-specific interpreter needs to translate
-			this string into the function or method invocation
-			that is appropriate in that context.
-            maxBfield : maximum magnitude of the magnetic field within the
-                        range specified by the map
-	    unit      : units for the magnetic field values returned by the
-			funtion, eg. kG, T (default is kG).
 
   The mappedBfield element has the following attributes:
 
@@ -897,13 +881,8 @@
     <uniformBfield Bx_By_Bz="0 0 2" unit="kG"/>
   </region>
  
-  <region name="pairSpectrometer" comment="photon beam pair spetrometer">
-    <computedBfield function="gufld_DB(r,B)" maxBfield="2.5" unit="kG"/>
-  </region>
- 
   <region name="taggerDipoles" comment="tagging spectrometer field map">
-    <mappedBfield map="file://taggermap.dat" maxBfield="80"
-                                             encoding="utf-8" unit="kG">
+    <mappedBfield map="file://taggermap.dat" encoding="utf-8" unit="kG">
       <grid type="cartesian">
         <samples axis="x" n="351" bounds="-340 10" unit_length="cm">
           <samples axis="z" n="1611" bounds="-10 1600" unit_length="cm">
@@ -931,8 +910,7 @@
   </region>
 
   <region name="solenoidBfield" comment="LASS spectrometer field map">
-    <mappedBfield map="file://taggermap.dat" maxBfield="2.5"
-                                             encoding="utf-8" unit="Tesla">
+    <mappedBfield map="file://taggermap.dat" encoding="utf-8" unit="Tesla">
       <grid type="cylindrical">
         <samples axis="phi" n="1" bounds="0 360" unit_angle="deg"/>
           <samples axis="r" n="41" bounds="0 40" unit_length="in"/>
@@ -1687,14 +1665,6 @@
   </xs:complexType>
 </xs:element>
 
-<xs:element name="computedBfield">
-  <xs:complexType>
-    <xs:attribute name="function" use="required" type="xs:string"/>
-    <xs:attribute name="maxBfield" use="required" type="xs:double"/>
-    <xs:attribute name="unit" use="required" type="BfieldUnit"/>
-  </xs:complexType>
-</xs:element>
-
 <xs:element name="noBfield">
 </xs:element>
 
@@ -1720,7 +1690,6 @@
         <xs:element ref="noBfield"/>
         <xs:element ref="uniformBfield"/>
         <xs:element ref="mappedBfield"/>
-        <xs:element ref="computedBfield"/>
       </xs:choice>
       <xs:element ref="swim" minOccurs="0"/>
     </xs:sequence>

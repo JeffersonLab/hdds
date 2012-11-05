@@ -1462,17 +1462,13 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             s /= unit.cm;
 
             XString containerS;
-            XString containerTypeS;
             if (env != 0)
             {
-               containerS = env->getAttribute(X("name"));
-               containerTypeS = env->getTagName();
+               containerS = env->getTagName();
             }
             else
             {
-               containerS = el->getAttribute(X("container_name"));
-               containerTypeS = el->getAttribute(X("container_type"));
-               env = document->getElementById(X(containerS));
+               containerS = el->getAttribute(X("divides"));
             }
             XString implrotS(contEl->getAttribute(X("impliedRot")));
             XString targTagS(targEl->getTagName());
@@ -1487,10 +1483,10 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                targEnv = targEl;
             }
             if (noRotation && (nSiblings == 1) &&
-                (containerTypeS == "pcon"  ||
-                 containerTypeS == "cons"  ||
-                 containerTypeS == "tubs"  ||
-		 containerTypeS == "eltu") &&
+                (containerS == "pcon"  ||
+                 containerS == "cons"  ||
+                 containerS == "tubs"  ||
+		 containerS == "eltu") &&
                 (implrotS == "true"))
             {
                double phiMax, phiMin, dphiM;
@@ -1554,13 +1550,11 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                drs.fPartition.ncopy = ncopy;
                drs.fPartition.axis = "phi";
                drs.fPartition.start = phi0 - phipull - myRef.fPhiOffset;
-               drs.fPartition.offset = drs.fPartition.start - phiMin;
                drs.fPartition.step = dphi;
                XString divS(divStr.str());
                createDivision(divS, drs);
                drs.fMother = drs.fPartition.divEl;
-               targEl->setAttribute(X("container_name"),X(containerS));
-               targEl->setAttribute(X("container_type"),X(containerTypeS));
+               targEl->setAttribute(X("divides"),X(containerS));
                drs.reset();
 
                double phioffset = dphi/2 - phipull;
@@ -1628,41 +1622,20 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             s /= unit.cm;
 
             XString containerS;
-            XString containerTypeS;
             if (env != 0)
             {
-               containerS = env->getAttribute(X("name"));
-               containerTypeS = env->getTagName();
+               containerS = env->getTagName();
             }
             else
             {
-               containerS = el->getAttribute(X("container_name"));
-               containerTypeS = el->getAttribute(X("container_type"));
-               env = document->getElementById(X(containerS));
+               containerS = el->getAttribute(X("divides"));
             }
             if (noRotation && (nSiblings == 1) &&
-                (containerTypeS == "tubs" ))
+                (containerS == "pcon" ||
+                 containerS == "cons" ||
+                 containerS == "tubs" || 
+                 containerS == "eltu" ))
             {
-               double rMax, rMin, drM;
-               XString envRioZS(env->getAttribute(X("Rio_Z")));
-               if (envRioZS.size() > 0)
-               {
-                  std::stringstream riozstr(envRioZS);
-                  riozstr >> rMin >> rMax;
-                  Units munit;
-                  munit.getConversions(env);
-                  rMin /= munit.deg;
-                  rMax /= munit.deg;
-                  drM = rMax-rMin;
-               }
-               else
-               {
-                  std::cerr
-                       << APP_NAME << " error: volume " << S(targS)
-                       << " is missing a Rio_Z attribute."
-                       << std::endl;
-                  exit(1);
-               }
                static int rDivisions = 0xd00;
                std::stringstream divStr;
                divStr << "r" << std::setfill('0') << std::setw(3) << std::hex
@@ -1670,13 +1643,11 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                drs.fPartition.ncopy = ncopy;
                drs.fPartition.axis = "rho";
                drs.fPartition.start = r0 - dr/2;
-               drs.fPartition.offset = drs.fPartition.start - rMin;
                drs.fPartition.step = dr;
                XString divS(divStr.str());
                createDivision(divS, drs);
                drs.fMother = drs.fPartition.divEl;
-               targEl->setAttribute(X("container_name"),X(containerS));
-               targEl->setAttribute(X("container_type"),X(containerTypeS));
+               targEl->setAttribute(X("divides"),X(containerS));
                origin[0] = r0 * cos(phi) - s * sin(phi);
                origin[1] = r0 * sin(phi) + s * cos(phi);
                origin[2] = z;
@@ -1731,42 +1702,17 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             s /= unit.cm;
 
             XString containerS;
-            XString containerTypeS;
             if (env != 0)
             {
-               containerS = env->getAttribute(X("name"));
-               containerTypeS = env->getTagName();
+               containerS = env->getTagName();
             }
             else
             {
-               containerS = el->getAttribute(X("container_name"));
-               containerTypeS = el->getAttribute(X("container_type"));
-               env = document->getElementById(X(containerS));
+               containerS = el->getAttribute(X("divides"));
             }
             if (noRotation && (nSiblings == 1) && 
-                containerTypeS == "box")
+                containerS == "box")
             {
-               double xMax, xMin, dxM;
-               XString envXYZS(env->getAttribute(X("X_Y_Z")));
-               if (envXYZS.size() > 0)
-               {
-                  std::stringstream xyzstr(envXYZS);
-                  double hx, hy, hz;
-                  xyzstr >> hx >> hy >> hz;
-                  Units munit;
-                  munit.getConversions(env);
-                  xMax = hx/2 /munit.cm;
-                  xMin = -xMax;
-                  dxM = hx;
-               }
-               else
-               {
-                  std::cerr
-                       << APP_NAME << " error: volume " << S(targS)
-                       << " is missing a X_Y_Z attribute."
-                       << std::endl;
-                  exit(1);
-               }
                static int xDivisions = 0xd00;
                std::stringstream divStr;
                divStr << "x" << std::setfill('0') << std::setw(3) << std::hex
@@ -1774,13 +1720,11 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                drs.fPartition.ncopy = ncopy;
                drs.fPartition.axis = "x";
                drs.fPartition.start = x0 - dx/2;
-               drs.fPartition.offset = drs.fPartition.start - xMin;
                drs.fPartition.step = dx;
                XString divS(divStr.str());
                createDivision(divS, drs);
                drs.fMother = drs.fPartition.divEl;
-               targEl->setAttribute(X("container_name"),X(containerS));
-               targEl->setAttribute(X("container_type"),X(containerTypeS));
+               targEl->setAttribute(X("divides"),X(containerS));
                origin[0] = 0;
                origin[1] = y + s;
                origin[2] = z;
@@ -1835,42 +1779,17 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             s /= unit.cm;
 
             XString containerS;
-            XString containerTypeS;
             if (env != 0)
             {
-               containerS = env->getAttribute(X("name"));
-               containerTypeS = env->getTagName();
+               containerS = env->getTagName();
             }
             else
             {
-               containerS = el->getAttribute(X("container_name"));
-               containerTypeS = el->getAttribute(X("container_type"));
-               env = document->getElementById(X(containerS));
+               containerS = el->getAttribute(X("divides"));
             }
             if (noRotation && (nSiblings == 1) && 
-                containerTypeS == "box")
+                containerS == "box")
             {
-               double yMax, yMin, dyM;
-               XString envXYZS(env->getAttribute(X("X_Y_Z")));
-               if (envXYZS.size() > 0)
-               {
-                  std::stringstream xyzstr(envXYZS);
-                  double hx, hy, hz;
-                  xyzstr >> hx >> hy >> hz;
-                  Units munit;
-                  munit.getConversions(env);
-                  yMax = hy/2 /munit.cm;
-                  yMin = -yMax;
-                  dyM = hy;
-               }
-               else
-               {
-                  std::cerr
-                       << APP_NAME << " error: volume " << S(targS)
-                       << " is missing a X_Y_Z attribute."
-                       << std::endl;
-                  exit(1);
-               }
                static int yDivisions = 0xd00;
                std::stringstream divStr;
                divStr << "y" << std::setfill('0') << std::setw(3) << std::hex 
@@ -1878,13 +1797,11 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                drs.fPartition.ncopy = ncopy;
                drs.fPartition.axis = "y";
                drs.fPartition.start = y0 - dy/2;
-               drs.fPartition.offset = drs.fPartition.start - yMin;
                drs.fPartition.step = dy;
                XString divS(divStr.str());
                createDivision(divS, drs);
                drs.fMother = drs.fPartition.divEl;
-               targEl->setAttribute(X("container_name"),X(containerS));
-               targEl->setAttribute(X("container_type"),X(containerTypeS));
+               targEl->setAttribute(X("divides"),X(containerS));
                origin[0] = x + s;
                origin[1] = 0;
                origin[2] = z;
@@ -1953,85 +1870,17 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             s /= unit.cm;
 
             XString containerS;
-            XString containerTypeS;
             if (env != 0)
             {
-               containerS = env->getAttribute(X("name"));
-               containerTypeS = env->getTagName();
+               containerS = env->getTagName();
             }
             else
             {
-               containerS = el->getAttribute(X("container_name"));
-               containerTypeS = el->getAttribute(X("container_type"));
-               env = document->getElementById(X(containerS));
+               containerS = el->getAttribute(X("divides"));
             }
             if (noRotation && (nSiblings == 1) &&
-                (containerTypeS == "tubs" ||
-                 containerTypeS == "cons" ||
-                 containerTypeS == "pcon" ||
-                 containerTypeS == "pgon" ||
-                 containerTypeS == "trap" ||
-                 containerTypeS == "eltu" ||
-                 containerTypeS == "box") &&
                 (containerS.size() != 0))
             {
-               double zMax, zMin, dzM;
-               XString envXYZS(env->getAttribute(X("X_Y_Z")));
-               XString envRioZS(el->getAttribute(X("Rio_Z")));
-               XString envRxyZS(el->getAttribute(X("Rxy_Z")));
-               XString envXmpYmpZS(el->getAttribute(X("Xmp_Ymp_Z")));
-               if (envXYZS.size() > 0)
-               {
-                  std::stringstream xyzstr(envXYZS);
-                  double hx, hy, hz;
-                  xyzstr >> hx >> hy >> hz;
-                  Units munit;
-                  munit.getConversions(env);
-                  zMax = hz/2 /munit.cm;
-                  zMin = -zMax;
-                  dzM = hz;
-               }
-               else if (envRioZS.size() > 0)
-               {
-                  std::stringstream riozstr(envRioZS);
-                  double ri, ro, hz;
-                  riozstr >> ri >> ro >> hz;
-                  Units munit;
-                  munit.getConversions(env);
-                  zMax = hz/2 /munit.cm;
-                  zMin = -zMax;
-                  dzM = hz;
-               }
-               else if (envRxyZS.size() > 0)
-               {
-                  std::stringstream xyzstr(envRxyZS);
-                  double rx, ry, hz;
-                  xyzstr >> rx >> ry >> hz;
-                  Units munit;
-                  munit.getConversions(env);
-                  zMax = hz/2 /munit.cm;
-                  zMin = -zMax;
-                  dzM = hz;
-               }
-               else if (envXmpYmpZS.size() > 0)
-               {
-                  std::stringstream xyzstr(envXmpYmpZS);
-                  double xm, xp, ym, yp, hz;
-                  xyzstr >> xm >> xp >> ym >> yp >> hz;
-                  Units munit;
-                  munit.getConversions(env);
-                  zMax = hz/2 /munit.cm;
-                  zMin = -zMax;
-                  dzM = hz;
-               }
-               else
-               {
-                  std::cerr
-                       << APP_NAME << " error: volume " << S(targS)
-                       << " is missing a *_Z attribute."
-                       << std::endl;
-                  exit(1);
-               }
                static int zDivisions = 0xd00;
                std::stringstream divStr;
                divStr << "z" << std::setfill('0') << std::setw(3) << std::hex
@@ -2039,13 +1888,11 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                drs.fPartition.ncopy = ncopy;
                drs.fPartition.axis = "z";
                drs.fPartition.start = z0 - dz/2;
-               drs.fPartition.offset = drs.fPartition.start - zMin;
                drs.fPartition.step = dz;
                XString divS(divStr.str());
                createDivision(divS, drs);
                drs.fMother = drs.fPartition.divEl;
-               targEl->setAttribute(X("container_name"),X(containerS));
-               targEl->setAttribute(X("container_type"),X(containerTypeS));
+               targEl->setAttribute(X("divides"),X(containerS));
                double phi = atan2(y,x);
                origin[0] = x - s * sin(phi);
                origin[1] = y + s * cos(phi);

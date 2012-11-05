@@ -102,7 +102,6 @@ class Refsys
       DOMElement* divEl;
       int ncopy;
       std::string axis;
-      double offset;
       double start;
       double step;
    };

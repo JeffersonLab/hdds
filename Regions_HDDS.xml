@@ -56,7 +56,16 @@
   <!-- The main solenoid field map -->
 
   <region name="solenoidBfield" comment="LASS spectrometer field map">
-    <computedBfield function="gufld_db(r,B)" maxBfield="2.24" unit="T"/>
+    <mappedBfield map="file://solenoid.map" encoding="utf-8"
+                  maxBfield="2.24" unit="T">
+      <grid type="cylindrical">
+        <samples axis="phi" n="1" bounds="0 360" unit_angle="deg">
+          <samples axis="r" n="41" bounds="0 40" unit_length="in">
+            <samples axis="z" n="251" bounds="4 254" unit_length="in"/>
+          </samples>
+        </samples>
+      </grid>
+    </mappedBfield>
     <swim method="helix"/>
   </region>
 
