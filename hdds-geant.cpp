@@ -1837,6 +1837,14 @@ void FortranWriter::createUtilityFunctions(DOMElement* el, const XString& ident)
         << "      guplsh = plsh" << std::endl
         << "      end" << std::endl;
 
+   std::cout
+        << std::endl
+        << "      function md5geom()" << std::endl
+        << "      implicit none" << std::endl
+        << "      CHARACTER md5geom*17" << std::endl
+        << "      md5geom='" << last_md5_checksum<< "'" << std::endl
+        << "      end" << std::endl;
+
 #ifdef LINUX_CPUTIME_PROFILING
    timestr << " ( " << timer.getUserDelta() << " ) ";
    std::cerr << timestr.str() << std::endl;

@@ -74,6 +74,8 @@ class RootMacroWriter : public CodeWriter
                     Refsys& ref);   	// generate code for placement
    int createDivision(XString& divStr,
                       Refsys& ref);	// generate code for divisions
+   void createUtilityFunctions(DOMElement* el,
+                  const XString& ident); // generate utility functions
 };
 
 
@@ -757,3 +759,13 @@ void RootMacroWriter::createTrailer()
        << "return gGeoManager;" << std::endl
        << "}" << std::endl;
 }
+
+void RootMacroWriter::createUtilityFunctions(DOMElement* el, const XString& ident)
+{
+	// Simply declare here. Implmentation is output from hdds-root.cpp
+
+   std::cout
+        << std::endl
+        << "static const char* md5geom(void){ return \""<< last_md5_checksum <<"\";}" << std::endl;
+}
+

@@ -77,6 +77,8 @@ class RootMacroWriter : public CodeWriter
                     Refsys& ref);   	// generate code for placement
    int createDivision(XString& divStr,
                       Refsys& ref);	// generate code for divisions
+   void createUtilityFunctions(DOMElement* el,
+                  const XString& ident); // generate utility functions
 };
 
 
@@ -770,4 +772,14 @@ void RootMacroWriter::createTrailer()
        << "gGeoManager->SetVisLevel(9);" << std::endl
        << "HALL->Raytrace();" << std::endl
        << "}" << std::endl;
+}
+
+void RootMacroWriter::createUtilityFunctions(DOMElement* el, const XString& ident)
+{
+   std::cout
+        << std::endl
+        << "const char* md5geom(void)" << std::endl
+		<< "{" << std::endl
+        << "	return \"" << last_md5_checksum<< "\";" << std::endl
+		<< "}" << std::endl;
 }

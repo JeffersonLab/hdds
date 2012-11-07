@@ -76,33 +76,33 @@ $(SRCDIR)/hddsroot.C: $(BINDIR)/hdds-root $(XML_SOURCE)
 $(SRCDIR)/hddsroot.h: $(BINDIR)/hdds-root_h $(XML_SOURCE)
 	$(BINDIR)/hdds-root_h main_HDDS.xml >$@
 
-$(BINDIR)/hdds-geant: hdds-geant.cpp XParsers.cpp XParsers.hpp \
+$(BINDIR)/hdds-geant: hdds-geant.cpp XParsers.cpp XParsers.hpp md5.c md5.h \
             XString.cpp XString.hpp hddsCommon.cpp hddsCommon.hpp
 	$(CC) $(COPTS) -I$(XERCESCROOT)/include -o $@ $< \
-	hddsCommon.cpp XParsers.cpp XString.cpp \
+	hddsCommon.cpp XParsers.cpp XString.cpp md5.c \
 	-L$(XERCESCROOT)/lib -lxerces-c
 
-$(BINDIR)/hdds-root: hdds-root.cpp hdds-root.hpp XParsers.cpp XParsers.hpp \
+$(BINDIR)/hdds-root: hdds-root.cpp hdds-root.hpp XParsers.cpp XParsers.hpp md5.c md5.h \
            XString.cpp XString.hpp hddsCommon.cpp hddsCommon.hpp
 	$(CC) $(COPTS) -I$(XERCESCROOT)/include -o $@ $< \
-	hddsCommon.cpp XParsers.cpp XString.cpp \
+	hddsCommon.cpp XParsers.cpp XString.cpp md5.c \
 	-L$(XERCESCROOT)/lib -lxerces-c
 
-$(BINDIR)/hdds-root_h: hdds-root_h.cpp hdds-root.hpp XParsers.cpp XParsers.hpp \
+$(BINDIR)/hdds-root_h: hdds-root_h.cpp hdds-root.hpp XParsers.cpp XParsers.hpp md5.c md5.h \
            XString.cpp XString.hpp hddsCommon.cpp hddsCommon.hpp
 	$(CC) $(COPTS) -I$(XERCESCROOT)/include -o $@ $< \
-	hddsCommon.cpp XParsers.cpp XString.cpp \
+	hddsCommon.cpp XParsers.cpp XString.cpp md5.c \
 	-L$(XERCESCROOT)/lib -lxerces-c
 
-$(BINDIR)/hdds-mcfast: hdds-mcfast.cpp XParsers.cpp XParsers.hpp\
+$(BINDIR)/hdds-mcfast: hdds-mcfast.cpp XParsers.cpp XParsers.hpp md5.c md5.h \
              XString.cpp XString.hpp
 	$(CC) $(COPTS) -I$(XERCESCROOT)/include -o $@ $< \
-	XParsers.cpp XString.cpp -L$(XERCESCROOT)/lib -lxerces-c
+	XParsers.cpp XString.cpp md5.c -L$(XERCESCROOT)/lib -lxerces-c
 
-$(BINDIR)/findall: findall.cpp XParsers.cpp XParsers.hpp hddsCommon.hpp hddsCommon.cpp \
+$(BINDIR)/findall: findall.cpp XParsers.cpp XParsers.hpp md5.c md5.h hddsCommon.hpp hddsCommon.cpp \
          XString.cpp XString.hpp hddsBrowser.hpp hddsBrowser.cpp
 	$(CC) $(COPTS) -I$(XERCESCROOT)/include -o $@ $< \
-	hddsBrowser.cpp hddsCommon.cpp XParsers.cpp XString.cpp \
+	hddsBrowser.cpp hddsCommon.cpp XParsers.cpp XString.cpp md5.c \
 	-L$(XERCESCROOT)/lib -lxerces-c
 
 $(BINDIR)/xpath-example: xpath-example.cpp
