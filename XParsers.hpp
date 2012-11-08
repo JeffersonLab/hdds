@@ -93,6 +93,7 @@ public:
 
 private:
 	std::vector<std::string> xml_filenames;
+	std::string path;
 };
 
 xercesc::DOMDocument* parseInputDocument(const XString& file, bool keep);

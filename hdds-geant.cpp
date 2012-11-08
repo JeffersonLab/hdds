@@ -1839,10 +1839,9 @@ void FortranWriter::createUtilityFunctions(DOMElement* el, const XString& ident)
 
    std::cout
         << std::endl
-        << "      function md5geom()" << std::endl
-        << "      implicit none" << std::endl
-        << "      CHARACTER md5geom*17" << std::endl
-        << "      md5geom='" << last_md5_checksum<< "'" << std::endl
+        << "      subroutine md5geom(md5)" << std::endl
+        << "      CHARACTER(LEN=33) md5" << std::endl
+		  << "      md5='" << last_md5_checksum<< "'" << std::endl
         << "      end" << std::endl;
 
 #ifdef LINUX_CPUTIME_PROFILING

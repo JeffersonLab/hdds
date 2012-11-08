@@ -310,6 +310,12 @@ void MyDOMErrorHandler::resetErrors()
 MyEntityResolver::MyEntityResolver(const XString& xmlFile)
 {
 	xml_filenames.push_back(xmlFile);
+	
+	string fname = xmlFile;
+	size_t pos = fname.find_last_of('/');
+	if(pos != string::npos){
+		path = fname.substr(0,pos) + "/";
+	}
 }
 
 //----------------------------------
@@ -343,10 +349,10 @@ xercesc::InputSource* MyEntityResolver::resolveEntity(const XMLCh* const publicI
 		my_systemId = my_systemId_ptr;
 		xercesc::XMLString::release(&my_systemId_ptr);
 	}
+	//std::cerr<<"publicId="<<my_publicId<<"  systemId="<<my_systemId<<std::endl;
 
 	// The systemId seems to be the one we want
-	xml_filenames.push_back(my_systemId);
-	//std::cerr<<"publicId="<<my_publicId<<"  systemId="<<my_systemId<<std::endl;
+	xml_filenames.push_back(path + my_systemId);
 
 	return NULL; // have xerces handle this using its defaults
 }
@@ -372,6 +378,8 @@ std::string MyEntityResolver::GetMD5_checksum(void)
 	md5_state_t pms;
 	md5_init(&pms);
 	for(unsigned int i=0; i<xml_filenames.size(); i++){
+
+		//std::cerr<<".... Adding file to MD5 checksum : " << xml_filenames[i] << std::endl;
 	
 		ifstream ifs(xml_filenames[i].c_str());
 		if(!ifs.is_open())continue;
