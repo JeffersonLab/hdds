@@ -39,7 +39,7 @@ XML_SOURCE = BarrelEMcal_HDDS.xml BeamLine_HDDS.xml CentralDC_HDDS.xml\
              StartCntr_HDDS.xml Target_HDDS.xml UpstreamEMveto_HDDS.xml \
 	     Regions_HDDS.xml PairSpect_HDDS.xml main_HDDS.xml
 
-all: bms_osname_check fortran_compiler_check make_dirs $(SRCDIR)/hddsroot.C $(SRCDIR)/hddsroot.h $(LIBDIR)/libhddsGeant3$(DEBUG_SUFFIX).a
+all: bms_osname_check fortran_compiler_check make_dirs $(SRCDIR)/hddsroot.C $(SRCDIR)/hddsroot.h $(LIBDIR)/libhddsGeant3$(DEBUG_SUFFIX).a $(BINDIR)/hdds-md5
 
 bms_osname_check:
 ifdef BMS_OSNAME
@@ -90,6 +90,12 @@ $(BINDIR)/hdds-root: hdds-root.cpp hdds-root.hpp XParsers.cpp XParsers.hpp md5.c
 
 $(BINDIR)/hdds-root_h: hdds-root_h.cpp hdds-root.hpp XParsers.cpp XParsers.hpp md5.c md5.h \
            XString.cpp XString.hpp hddsCommon.cpp hddsCommon.hpp
+	$(CC) $(COPTS) -I$(XERCESCROOT)/include -o $@ $< \
+	hddsCommon.cpp XParsers.cpp XString.cpp md5.c \
+	-L$(XERCESCROOT)/lib -lxerces-c
+
+$(BINDIR)/hdds-md5: hdds-md5.cpp XParsers.cpp XParsers.hpp md5.c md5.h \
+            XString.cpp XString.hpp hddsCommon.cpp hddsCommon.hpp
 	$(CC) $(COPTS) -I$(XERCESCROOT)/include -o $@ $< \
 	hddsCommon.cpp XParsers.cpp XString.cpp md5.c \
 	-L$(XERCESCROOT)/lib -lxerces-c
