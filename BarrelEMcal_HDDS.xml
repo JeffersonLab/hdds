@@ -48,6 +48,11 @@ determine the layer dimensions. This comes out being slightly past the
 In addition, the ReadoutBox volumes were shifted 7.423mm out from their original
 value since this most recent change (version 3.2) shifted the radius of the
 active volume out by that amount. Similarly for the cables.
+
+The BCAL and BCAM mother volumes were also tightened by pushing the
+inner radius from 61.76 out to 64.2486. The small inner radius had the
+BCAL volume (air) masking material between the CDC and BCAL. It also 
+caused conflict with drift chamber cable supports.
 -->
 
   <composition name="BarrelEMcal">
@@ -223,9 +228,9 @@ active volume out by that amount. Similarly for the cables.
     <posRPhiZ volume="BCOA" R_Phi_Z="86.1065 0.0 -199.0" rot="180 0 0" />
   </composition>
 
-  <tubs name="BCAL" Rio_Z="61.76 90.5185 440.0" unit_length="cm" material="Air"
+  <tubs name="BCAL" Rio_Z="64.2486 90.5185 440.0" unit_length="cm" material="Air"
                                       comment="barrel EMcal mother" />
-  <tubs name="BCAM" Rio_Z="61.76 90.5185 440.0" profile="-3.75 7.5"
+  <tubs name="BCAM" Rio_Z="64.2486 90.5185 440.0" profile="-3.75 7.5"
                     unit_length="cm" unit_angle="deg"
                     material="Air" comment="barrel calorimeter module" />
   <tubs name="BCAS" Rio_Z="87.3435 90.5185 390.0" profile="-3.75 7.5"
@@ -247,10 +252,10 @@ active volume out by that amount. Similarly for the cables.
   <tubs name="BCS2" Rio_Z="67.10986 69.17742 420.0" profile="-0.9375 1.875"
                     unit_length="cm" unit_angle="deg"
                     material="Air" comment="barrel EMcal module sector 2" />
-  <tubs name="BCL3" Rio_Z="69.17742 69.17742 420.0" profile="-3.75 7.5"
+  <tubs name="BCL3" Rio_Z="69.17742 71.24498 420.0" profile="-3.75 7.5"
                     unit_length="cm" unit_angle="deg"
                     material="Air" comment="barrel EMcal module layer 3" />
-  <tubs name="BCS3" Rio_Z="69.17742 69.17742 420.0" profile="-0.9375 1.875"
+  <tubs name="BCS3" Rio_Z="69.17742 71.24498 420.0" profile="-0.9375 1.875"
                     unit_length="cm" unit_angle="deg"
                     material="Air" comment="barrel EMcal module sector 3" />
   <tubs name="BCL4" Rio_Z="71.24498 73.31254 420.0" profile="-3.75 7.5"
