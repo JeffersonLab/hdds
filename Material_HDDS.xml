@@ -789,6 +789,15 @@
   </addmaterial>
   </composite>  
 
+  <composite name="AluminumMesh">	
+     <addmaterial material="Aluminum">
+         <fractionmass fraction="0.99877"/>
+     </addmaterial>
+     <addmaterial material="Air">
+         <fractionmass fraction="0.00123"/>
+     </addmaterial>
+     <real name="density" value="0.5816" unit="g/cm^3" />
+  </composite>
 
   <composite name="AluminizedKapton">
 	<addmaterial material="Aluminum">
