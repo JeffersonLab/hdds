@@ -1337,6 +1337,17 @@
         </addmaterial>
   </composite>
 
+  <composite name="CDCHookupCables">
+      <addmaterial material="SignalCables">
+         <fractionmass fraction="0.983"/>
+      </addmaterial>
+      <addmaterial material="CDchamberGas">
+         <fractionmass fraction="0.017"/>
+      </addmaterial>
+      <real name="density"   value="1.0"   unit="g/cm^3" />
+  </composite>
+   
+
   <composite name="CircuitBoards">
 	<addmaterial material="Polyethylene">
                 <fractionmass   fraction="0.35" />
