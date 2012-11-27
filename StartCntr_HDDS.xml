@@ -42,7 +42,7 @@
      <posXYZ volume="STC2" X_Y_Z="0. 0. -2.682"/>
   </composition>
 
- <tubs name="STCM" Rio_Z="8.2 8.9 29.7" material="Air"
+ <tubs name="STCM" Rio_Z="8.2 8.75 29.7" material="Air"
                    comment="Start counter cables mother volume" />
 
  <box name="STCB" X_Y_Z="0.1 3.81 29.7" material="Air"/> 
