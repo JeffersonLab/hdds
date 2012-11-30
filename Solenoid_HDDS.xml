@@ -30,7 +30,7 @@
   </composition>
 
   <pcon name="LASS" material="Air">
-    <polyplane Rio_Z="12.65 188.0  -60.8" />   
+    <polyplane Rio_Z="12.65 188.0  -70.8" />   
     <polyplane Rio_Z="12.65 188.0  -12.5" />
     <polyplane Rio_Z="8.5   188.0   4.7" />
     <polyplane Rio_Z="7.9   188.0   10.7" />
