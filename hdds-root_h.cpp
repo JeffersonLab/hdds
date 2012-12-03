@@ -766,6 +766,6 @@ void RootMacroWriter::createUtilityFunctions(DOMElement* el, const XString& iden
 
    std::cout
         << std::endl
-        << "static const char* md5geom(void){ return \""<< last_md5_checksum <<"\";}" << std::endl;
+        << "const char* md5geom(void){ return \""<< last_md5_checksum <<"\";}" << std::endl;
 }
 
