@@ -236,25 +236,29 @@
 
   </composition>
 
-  <composition name="CDCstrawShort" envelope="STRA">
+  <composition name="CDCstrawShort" envelope="STRM">
+    <posXYZ volume="STRA" X_Y_Z="0. 0. 0."> </posXYZ>
     <posXYZ volume="STRW" X_Y_Z="0. 0. 0."> </posXYZ>
     <posXYZ volume="WIRE" X_Y_Z="0. 0. 0."> </posXYZ>
     <posXYZ volume="DPLG" X_Y_Z="0. 0. 74.52375"> </posXYZ>
-    <posXYZ volume="DFTH" X_Y_Z="0. 0. 74.3983"> </posXYZ>   
+    <posXYZ volume="DFTH" X_Y_Z="0. 0. 74.6233"> </posXYZ>   
     <posXYZ volume="UPLG" X_Y_Z="0. 0. -74.52375"> </posXYZ>
-    <posXYZ volume="UFTH" X_Y_Z="0. 0. -74.3983"> </posXYZ>  
-    <posXYZ volume="UWIN" X_Y_Z="0. 0. -73.90625"> </posXYZ> 
-    <posXYZ volume="DWIN" X_Y_Z="0. 0. 73.73"> </posXYZ>
+    <posXYZ volume="UFTH" X_Y_Z="0. 0. -74.6233"> </posXYZ>  
+    <posXYZ volume="UWIN" X_Y_Z="0. 0. -74.18"> </posXYZ> 
+    <posXYZ volume="DWIN" X_Y_Z="0. 0. 74.18"> </posXYZ>
+    <posXYZ volume="UPES" X_Y_Z="0. 0. -75.225"> </posXYZ> 
+    <posXYZ volume="DWES" X_Y_Z="0. 0. 75.225"> </posXYZ>
   </composition>
-  <composition name="CDCstrawLong" envelope="STLA">
-    <posXYZ volume="STLW" X_Y_Z="0. 0. 0."> </posXYZ>
+  <composition name="CDCstrawLong" envelope="STLM">
+    <posXYZ volume="STLA" X_Y_Z="0. 0. 0."> </posXYZ>
+    <posXYZ volume="STRW" X_Y_Z="0. 0. 0."> </posXYZ>
     <posXYZ volume="WILE" X_Y_Z="0. 0. 0."> </posXYZ>
-    <posXYZ volume="DPLG" X_Y_Z="0. 0. 74.93875"> </posXYZ>
-    <posXYZ volume="DFTH" X_Y_Z="0. 0. 74.8133"> </posXYZ>   
-    <posXYZ volume="UPLG" X_Y_Z="0. 0. -74.93875"> </posXYZ>
-    <posXYZ volume="UFTH" X_Y_Z="0. 0. -74.8133"> </posXYZ>  
-    <posXYZ volume="UWIN" X_Y_Z="0. 0. -74.32125"> </posXYZ> 
-    <posXYZ volume="DWIN" X_Y_Z="0. 0. 74.145"> </posXYZ>
+    <posXYZ volume="DPLG" X_Y_Z="0. 0. 74.52375"> </posXYZ>
+    <posXYZ volume="DFTH" X_Y_Z="0. 0. 74.7473"> </posXYZ>   
+    <posXYZ volume="UPLG" X_Y_Z="0. 0. -74.52375"> </posXYZ>
+    <posXYZ volume="UFTH" X_Y_Z="0. 0. -74.7473"> </posXYZ>  
+    <posXYZ volume="UWIN" X_Y_Z="0. 0. -74.3"> </posXYZ> 
+    <posXYZ volume="DWIN" X_Y_Z="0. 0. 74.3"> </posXYZ>
   </composition>
  
  <composition name="CDCstrawLongB12">
@@ -343,22 +347,36 @@
   <tubs name="CSAM" Rio_Z="60.325 60.5663 150." material="AluminumMesh"
         comment="Aluminum mesh for FDC cable support"/>
 
-  <tubs name="STRA" Rio_Z="0.000  0.7874  150." material="CDchamberGas"
-						sensitive="true" />
+  <pcon name="STRA" material="CDchamberGas" sensitive="true" comment="Straw sensitive volume">
+    <polyplane Rio_Z="0.0010 0.254 -75.45"/>
+    <polyplane Rio_Z="0.0010 0.254 -72.91"/>
+    <polyplane Rio_Z="0.0010 0.776 -72.91"/>
+    <polyplane Rio_Z="0.0010 0.776 72.91"/>
+    <polyplane Rio_Z="0.0010 0.254 72.91"/>
+    <polyplane Rio_Z="0.0010 0.254 75.45"/>
+  </pcon>
+  <pcon name="STLA" material="CDchamberGas" sensitive="true" comment="Straw sensitive volume">
+    <polyplane Rio_Z="0.0010 0.254 -75.575"/>
+    <polyplane Rio_Z="0.0010 0.254 -73.035"/>
+    <polyplane Rio_Z="0.0010 0.776 -73.035"/>
+    <polyplane Rio_Z="0.0010 0.776 73.035"/>
+    <polyplane Rio_Z="0.0010 0.254 73.035"/>
+    <polyplane Rio_Z="0.0010 0.254 75.575"/>
+  </pcon>
+
+  <tubs name="STRM" Rio_Z="0.000  0.7874  150.9" material="CDchamberGas"/>
   <tubs name="STRW" Rio_Z="0.7760  0.7874  150.0" material="CDCStrawMaterial" />
-  <tubs name="WIRE" Rio_Z="0.000  0.0010  150." material="Tungsten" />
+  <tubs name="WIRE" Rio_Z="0.000  0.0010  150.9" material="Tungsten" />
   <tubs name="UPLG" Rio_Z="0.5556  0.7760  0.9525" material="Aluminum" />
   <tubs name="DPLG" Rio_Z="0.5556  0.7760  0.9525" material="Delrin" /> 
-  <tubs name="UFTH" Rio_Z="0.3175  0.5556  1.2034" material="Aluminum" />
-  <tubs name="DFTH" Rio_Z="0.3175  0.5556  1.2034" material="Delrin" /> 
+  <tubs name="UFTH" Rio_Z="0.3175  0.5556  1.6534" material="Aluminum" />
+  <tubs name="DFTH" Rio_Z="0.3175  0.5556  1.6534" material="Delrin" /> 
   <tubs name="DWIN" Rio_Z="0.254  0.3175  2.54" material="Noryl" />
-  <tubs name="UWIN" Rio_Z="0.254  0.3175  2.1875" material="Noryl" />
-
-  <tubs name="STLA" Rio_Z="0.000  0.7874  150.83" material="CDchamberGas"
-						sensitive="true" />
-  <tubs name="STLW" Rio_Z="0.7760  0.7874  150.83" material="CDCStrawMaterial" />
-
-  <tubs name="WILE" Rio_Z="0.000  0.0015  150.83" material="Tungsten" />
+  <tubs name="UWIN" Rio_Z="0.254  0.3175  2.54" material="Noryl" />
+  <tubs name="UPES" Rio_Z="0.556  0.7874  0.45" material="Aluminum" /> 
+  <tubs name="DWES" Rio_Z="0.556  0.7874  0.45" material="CarbonFiber" />
+  <tubs name="STLM" Rio_Z="0.000  0.7874  151.15" material="CDchamberGas"/>
+  <tubs name="WILE" Rio_Z="0.000  0.0010  151.15" material="Tungsten" />
 
   <tubs name="DCLS"  Rio_Z="9.9344 55.5338 150.00" material="CDchamberGas" />
  
