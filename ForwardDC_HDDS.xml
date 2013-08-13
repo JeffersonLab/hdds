@@ -20,7 +20,7 @@
      anode wire plane of the most upstream chamber.    -->
 
   <composition name="ForwardDC">
-    <posXYZ volume="forwardDC" X_Y_Z="0.0  0.0  84.7" />
+    <posXYZ volume="forwardDC" X_Y_Z="0.0  0.0  92.9621" />
     <!-- The following four volumes model the FDC cables in the region of the CDC -->
     <posXYZ volume="FDQ1" />
     <posXYZ volume="FDQ2" />
