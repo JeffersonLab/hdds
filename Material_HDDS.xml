@@ -518,6 +518,15 @@
 	<real name="density"	value="1.049"	unit="g/cm^3"	/>
   </composite>
 
+  <composite name="Brass">
+    <addmaterial material="Copper">
+      <fractionmass fraction="0.65" />
+    </addmaterial>
+    <addmaterial material="Zinc">
+      <fractionmass fraction="0.35"/>
+    </addmaterial>
+  </composite>
+
   <composite name="Air">
 	<addmaterial material="Nitrogen">
 		<fractionmass	fraction="0.7494"	/>
