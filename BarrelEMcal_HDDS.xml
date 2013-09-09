@@ -6,17 +6,34 @@
 
      version 1.0: Initial version  -rtj
      version 1.2: Initial SiPM subsectoring -cx,zp
-	 version 3.2: Pushed inner radius out to match final drawings -dl
+     version 3.2: Pushed inner radius out to match final drawings -dl
+     version 4.0: updates for compatibility with geant4 -rtj
+                  a) Add shifts, most of them small, to eliminate overlaps.
+                  b) Significant changes in the base dimensions of the light
+                     guides so that they fit within the readout segments.
+                  c) Enlarge the outer radius of the BCAL container volume,
+                     and also the module BCAM volume, so that they can fully
+                     contain all of the objects placed inside them.
+                  d) Split the stainless standoffs (SOFF) into two segments
+                     so they can fit between the readout layers without
+                     generating overlaps.
+                  e) Move the Winston cones out of the aluminum plate into
+                     the main BCal readout volume.  Then place the aluminum
+                     plate into the same volume, on a separate layer so that
+                     the Winston cones can penetrate through it.
+                  f) Place the coolant coupling tubes (CoolingCon) onto a
+                     separate layer so that they can interleave with the
+                     readout layers without generating overlaps.
  
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name = "BarrelEMcal"
-         version = "3.2"
+         version = "4.0"
          date = "2007-12-08"
          author = "R.T. Jones"
          top_volume = "BCAL"
-         specification = "v1.0">
+         specification = "v1.1">
 
 <!-- Origin of BarrelEMcal is center of upstream end
      of the active region, not including the light guides. -->
@@ -81,22 +98,27 @@ caused conflict with drift chamber cable supports.
     <posXYZ volume="BCALlayer_9" />
     <posXYZ volume="BCALlayer_10" />
     <posXYZ volume="BCAS" />
-    <posRPhiZ volume="ReadoutBox" R_Phi_Z="77.1658 0.0  207.5" rot="-90 -90 -90"/>
-    <posRPhiZ volume="ReadoutBox" R_Phi_Z="77.1658 0.0 -207.5" rot="90 90 90" />
+    <posRPhiZ volume="ReadoutBox" R_Phi_Z="77.2440 0.0  207.5" rot="-90 -90 -90"/>
+    <posRPhiZ volume="ReadoutBox" R_Phi_Z="77.2440 0.0 -207.5" rot="90 90 90" />
     <!-- The following are sets of top and bottom plates for the readout boxes -->
     <posRPhiZ volume="ALID" R_Phi_Z="64.38703 0. -201.2996" rot="90. 0. 90."/> 
     <posRPhiZ volume="ALID" R_Phi_Z="64.38703 0. +201.2996" rot="90. 0. 90."/> 
-    <posRPhiZ volume="ALOD" R_Phi_Z="89.9658 0. -201.2996" rot="90. 0. 90."/> 
-    <posRPhiZ volume="ALOD" R_Phi_Z="89.9658 0. +201.2996" rot="90. 0. 90."/> 
+    <posRPhiZ volume="ALOD" R_Phi_Z="90.1458 0. -201.2996" rot="90. 0. 90."/> 
+    <posRPhiZ volume="ALOD" R_Phi_Z="90.1458 0. +201.2996" rot="90. 0. 90."/> 
     <!-- These are some extensions to the lids at the bottom -->
     <posRPhiZ volume="ALBL" R_Phi_Z="64.69703 0. +195.47625" rot="90. 90. 90."/>    
     <posRPhiZ volume="ALBL" R_Phi_Z="64.69703 0. -195.47625" rot="90. 90. 90."/>
+    <!-- The following are the arrays of Winston cones for the readout -->
+    <posRPhiZ volume="BCALWinstonCones" R_Phi_Z="77.1658 0. -202.76125" rot="90. 90. 90."/>
+    <posRPhiZ volume="BCALWinstonCones" R_Phi_Z="77.1658 0. 202.76125" rot="-90. -90. -90."/>
     <!-- The following are aluminum plates with holes through which the light guides stick -->
-    <posRPhiZ volume="BCALWedgePlate" R_Phi_Z="77.1658 0. -202.76125" rot="90. 90. 90."/>
-    <posRPhiZ volume="BCALWedgePlate" R_Phi_Z="77.1658 0. 202.76125" rot="-90. -90. -90."/>
+    <posRPhiZ volume="ALPL" R_Phi_Z="77.1658 0. -202.76125" rot="90. 90. 90."
+                                                            layer="1"/>
+    <posRPhiZ volume="ALPL" R_Phi_Z="77.1658 0.  202.76125" rot="-90. -90. -90."
+                                                            layer="1"/>
   </composition>
 
-  <composition name="BCALWedgePlate" envelope="ALPL">
+  <composition name="BCALWinstonCones">
    <posXYZ volume="BCUA" X_Y_Z="0.0 4.22505 8.837" rot="90. 2.8125 90."/>
    <posXYZ volume="BCUA" X_Y_Z="0.0 1.40885 8.92919" rot="90. 0.9375 90."/>
    <posXYZ volume="BCUA" X_Y_Z="0.0 -1.40885 8.92919" rot="90. -0.9375 90."/> 
@@ -292,9 +314,9 @@ caused conflict with drift chamber cable supports.
     <posRPhiZ volume="BCOA" R_Phi_Z="86.1065 0.0 -198.76125" rot="180 0 0" />
   </composition>
 
-  <tubs name="BCAL" Rio_Z="64.2486 89. 425.0" unit_length="cm" material="Air"
+  <tubs name="BCAL" Rio_Z="64.2485 90.5185 425.0" unit_length="cm" material="Air"
                                       comment="barrel EMcal mother" />
-  <tubs name="BCAM" Rio_Z="64.2486 90.5185 425.0" profile="-3.75 7.5"
+  <tubs name="BCAM" Rio_Z="64.2485 90.5185 425.0" profile="-3.75 7.5"
                     unit_length="cm" unit_angle="deg"
                     material="Air" comment="barrel calorimeter module" />
   <tubs name="BCAS" Rio_Z="87.3435 90.5185 390.0" profile="-3.75 7.5"
@@ -407,25 +429,25 @@ caused conflict with drift chamber cable supports.
                     material="leadScint" sensitive="true"
                     comment="barrel EMcal submodule in layer 10" />
 
-  <trd name="BCN1" Xmp_Ymp_Z="2.164 1.412 2.164 1.412 7.5225" 
+  <trd name="BCN1" Xmp_Ymp_Z="2.050 1.412 2.128 1.412 7.5225" 
        material="Plexiglas" comment="light collector for layer 1"/>
-  <trd name="BCN2" Xmp_Ymp_Z="2.230 1.416 2.230 1.416 7.5225" 
+  <trd name="BCN2" Xmp_Ymp_Z="2.050 1.416 2.190 1.416 7.5225" 
        material="Plexiglas" comment="light collector for layer 2"/>
-  <trd name="BCN3" Xmp_Ymp_Z="2.299 1.420 2.299 1.420 7.5225" 
+  <trd name="BCN3" Xmp_Ymp_Z="2.050 1.420 2.260 1.420 7.5225" 
        material="Plexiglas" comment="light collector for layer 3"/>
-  <trd name="BCN4" Xmp_Ymp_Z="2.365 1.424 2.365 1.424 7.5225" 
+  <trd name="BCN4" Xmp_Ymp_Z="2.050 1.424 2.320 1.424 7.5225" 
        material="Plexiglas" comment="light collector for layer 4"/>
-  <trd name="BCN5" Xmp_Ymp_Z="2.433 1.428 2.433 1.428 7.5225" 
+  <trd name="BCN5" Xmp_Ymp_Z="2.050 1.428 2.390 1.428 7.5225" 
        material="Plexiglas" comment="light collector for layer 5"/>
-  <trd name="BCN6" Xmp_Ymp_Z="2.502 1.432 2.502 1.432 7.5225" 
+  <trd name="BCN6" Xmp_Ymp_Z="2.048 1.432 2.430 1.432 7.5225" 
        material="Plexiglas" comment="light collector for layer 6"/>
-  <trd name="BCO7" Xmp_Ymp_Z="2.583 1.437 2.583 1.437 7.5225" 
+  <trd name="BCO7" Xmp_Ymp_Z="2.420 1.437 2.530 1.437 7.5225" 
        material="Plexiglas" comment="light collector for layer 7"/>
-  <trd name="BCO8" Xmp_Ymp_Z="2.662 1.441 2.662 1.441 7.5225" 
+  <trd name="BCO8" Xmp_Ymp_Z="2.420 1.441 2.580 1.441 7.5225" 
        material="Plexiglas" comment="light collector for layer 8"/>
-  <trd name="BCO9" Xmp_Ymp_Z="2.743 1.446 2.743 1.446 7.5225" 
+  <trd name="BCO9" Xmp_Ymp_Z="2.420 1.446 2.650 1.446 7.5225" 
        material="Plexiglas" comment="light collector for layer 9"/>
-  <trd name="BCOA" Xmp_Ymp_Z="2.824 1.451 2.824 1.451 7.5225" 
+  <trd name="BCOA" Xmp_Ymp_Z="2.420 1.451 2.740 1.451 7.5225" 
        material="Plexiglas" comment="light collector for layer 10"/>
 
   <trd name="BCU1" Xmp_Ymp_Z="1.412 1.364 1.412 1.364 0.4775" 
@@ -453,18 +475,20 @@ caused conflict with drift chamber cable supports.
   <composition name="ReadoutBox" envelope="ROUT">
     <posXYZ volume="PMHO" X_Y_Z="-4.2625   0. 0.  "/>
     <posXYZ volume="CUPL" X_Y_Z="-3.575 0. 0.  "/>
-    <posXYZ volume="PCB2" X_Y_Z="-2.3675 0. 0.  "/>
+    <posXYZ volume="PCB2" X_Y_Z="-2.3975 0. 0.  "/>
 
     <posXYZ volume="CoolingTransition" X_Y_Z="-1.1675 0. -2."/>
     <posXYZ volume="CoolingFins" X_Y_Z="2.157 0. -2."/>
 
     <posXYZ volume="ALP1" X_Y_Z="0.0325  0. 0.  "/>
-    <posXYZ volume="CoolingCon" X_Y_Z="0.3125 -2. -10." rot="0. 75. 0."/>
-    <posXYZ volume="CoolingCon" X_Y_Z="0.3125 +2. -10." rot="0. 75. 0."/>
+    <posXYZ volume="CoolingCon" X_Y_Z="0.3125 -2. -10." rot="0. 75. 0."
+                                                        layer="1"/>
+    <posXYZ volume="CoolingCon" X_Y_Z="0.3125 +2. -10." rot="0. 75. 0."
+                                                        layer="1"/>
   
-    <posXYZ volume="SOFF" X_Y_Z="-1.606745 0. -11." rot="0. 90. 0."/>
-    <posXYZ volume="SOFF" X_Y_Z="-1.606745 -3.5 -12." rot="0. 90. 0."/>
-    <posXYZ volume="SOFF" X_Y_Z="-1.606745 +3.5 -12." rot="0. 90. 0."/>
+    <posXYZ volume="ReadoutStandoffs" X_Y_Z="0. 0. -11." rot="0. 90. 0."/>
+    <posXYZ volume="ReadoutStandoffs" X_Y_Z="0. -3.5 -12." rot="0. 90. 0."/>
+    <posXYZ volume="ReadoutStandoffs" X_Y_Z="0. +3.5 -12." rot="0. 90. 0."/>
   </composition>
 
   <composition name="CoolingCon" envelope="COCO">
@@ -498,15 +522,20 @@ caused conflict with drift chamber cable supports.
     <posXYZ volume="HSFI" X_Y_Z="0.16 0.  4.74"/>
   </composition>
 
-  <trd name="CUPL" Xmp_Ymp_Z="0.9 0.9 8.359 11.37412 25.32314" 
+  <composition name="ReadoutStandoffs">
+    <posXYZ volume="SOF1" X_Y_Z="0 0 -2.820305"/>
+    <posXYZ volume="SOF2" X_Y_Z="0 0 -1.153195"/>
+  </composition>
+
+  <trd name="CUPL" Xmp_Ymp_Z="0.9 0.9 8.359 11.37412 25.1667" 
        material="Copper" comment="Copper cooling plate"/>
-  <trd name="PMHO" Xmp_Ymp_Z="0.475 0.475 8.359 11.37412 25.32314" 
+  <trd name="PMHO" Xmp_Ymp_Z="0.475 0.475 8.359 11.37412 25.1667" 
        material="FR-4" comment="SiPM holder FR-4 is like G10"/>
-  <trd name="ALPL" Xmp_Ymp_Z="0.475 0.475 8.359 11.37412 25.32314" 
+  <trd name="ALPL" Xmp_Ymp_Z="0.475 0.475 8.359 11.37412 25.1667" 
        material="Aluminum" comment="Aluminum inner frame plate"/>
-  <trd name="ALP1" Xmp_Ymp_Z="0.119 0.119 8.359 11.37412 25.32314" 
+  <trd name="ALP1" Xmp_Ymp_Z="0.119 0.119 8.359 11.37412 25.1667" 
        material="Aluminum" comment="Aluminum outer frame plate"/>
-  <trd name="ROUT"  Xmp_Ymp_Z="9. 9. 8.359 11.37412 25.32314"
+  <trd name="ROUT"  Xmp_Ymp_Z="9. 9. 8.359 11.37412 25.1667"
        material="Air" comment="Readout Box mother Volume"/>
   <box name="ALID"  X_Y_Z="8.3566 12.5992 0.27686"
        material="Aluminum" comment="Al ID wall"/>
@@ -518,7 +547,7 @@ caused conflict with drift chamber cable supports.
 	material="Copper" comment="SiPM cooling tube connector"/>
   <tubs name="COCO" Rio_Z="0. 0.6 8.0" profile="0. 360."
 	material="Air" comment="SiPM cooling Tubing System"/>
-  <trd name="PCB2" Xmp_Ymp_Z="0.23622 0.23622 8.359 11.37412 25.32314" 
+  <trd name="PCB2" Xmp_Ymp_Z="0.23622 0.23622 8.359 11.37412 25.1667" 
        material="FR-4" comment="PCB board for electronics"/>
   <trd name="ALP2" Xmp_Ymp_Z="0.3175 0.3175 6.985 8.5598 15." 
        material="Aluminum" comment="Cooling bridge plate"/>
@@ -534,7 +563,9 @@ caused conflict with drift chamber cable supports.
        material="Aluminum" comment="Cooling Fin"/>
   <box name="ALBL" X_Y_Z="0.9525 8.3566 0.34"
        material="Aluminum" comment="Cooling Fin"/>
-  <tubs name="SOFF" Rio_Z="0. 0.25 3.17" profile="0. 360."
+  <tubs name="SOF1" Rio_Z="0. 0.25 0.60939" profile="0. 360."
+	material="StainlessSteel" comment="Standoff"/>
+  <tubs name="SOF2" Rio_Z="0. 0.25 2.25239" profile="0. 360."
 	material="StainlessSteel" comment="Standoff"/>
 
 

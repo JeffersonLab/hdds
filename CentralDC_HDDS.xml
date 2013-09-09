@@ -31,61 +31,75 @@
                   g) Center of the straws is 3.29cm downstream of the CDC volume center
                   h) Remove all references to geomtry-option-2
 
-<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+     version 3.1: updates for compatibility with geant4 -rtj
+                  a) Remove redundant composition "centralDC_gasvol" (CDCG) and
+                     move its former contents into the outer "centralDC" (CDC)
+                     container.
+                  b) Move the "cdcLayers" volume slightly in z to eliminate
+                     overlaps with the upstream and downstream gas plenums.
+                  c) Move the aluminum mesh (CSAM) volume to align with the 
+                     center of the straw volume.
+                  d) Remove extra copies of the upstream and downstream plates
+                     in the gas volume, moved to another layer - see below.
+                  e) Add the upstream (CDPU) and downstream (CDPD) end plates
+                     to the "cdcLayers" (DCLS) volume, specify layer=1.
+                  f) Shift the upstream (UWIN) and downstream (DWIN) gas plenum
+                     to eliminate overlaps.
+                  g) Increase the length of the "cdcLayers" (DCLS) volume to
+                     make room for the two end plates.
+                  h) Decrease slightly the outer radius of the readout cables
+                     to prevent extrusion from the envelope of the CDC.
+
+<HDDS specification="v1.1" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "CentralDC"
-         version     = "3.0"
-         date        = "2007-12-07"
+         version     = "3.1"
+         date        = "2013-09-07"
          author      = "R.T. Jones, C.A.Meyer"
          top_volume  = "CDC"
-         specification = "v1.0">
+         specification = "v1.1">
 
 <!-- Origin of CentralDC is center of upstream end of the active region,
-     ie. the inside surface of the upstream plate.  It should be at
-     17 cm to be consistent with mcfast  Curtis -->
+     ie. the inside surface of the upstream plate.  -->
 
   <composition name="CentralDC">
-    <posXYZ volume="centralDC_option-1" X_Y_Z="0.0  0.0  71.71" />
-    <posXYZ volume="CDCB"                    X_Y_Z="0.0 0.0 -9.74" />   <!-- upstream cables  -->
+    <posXYZ volume="centralDC" X_Y_Z="0.0  0.0  71.71" />
+    <posXYZ volume="CDCB" X_Y_Z="0.0 0.0 -9.74" />    <!-- upstream cables  -->
   </composition>
 
-  <composition name="centralDC_option-1" envelope="CDC">
-    <posXYZ volume="centralDC_gasvol"        X_Y_Z="0.0 0.0 0.00" />    <!-- Chamber Gas volume --> 
-    <posXYZ volume="CSAM"		     X_Y_Z="0.0 0.0 0.0" /> <!-- aluminum mesh -->   
+  <composition name="centralDC" envelope="CDC">
+    <mposPhi volume="CDCSupportRod" ncopy="12" 
+             Phi0="15.0" dPhi="30.0"
+             R_Z="56.7055 3.29"/>                <!-- aluminum support rods -->
+    <mposPhi volume="CDSS" ncopy="12"
+             Phi0="15.0" dPhi="30.0"
+             R_Z="56.7055 -74.25"/>              <!-- stainless steel studs -->
+    <posXYZ volume="CDClayers"
+                          X_Y_Z="0.0 0.0 3.11375" />   <!-- straw container -->
+    <posXYZ volume="CDCI" X_Y_Z="0.0 0.0 3.29"/>           <!-- inner shell -->
+    <posXYZ volume="CDCO" X_Y_Z="0.0 0.0 3.29"/>           <!-- outer shell -->
+    <posXYZ volume="CDOC" X_Y_Z="0.0 0.0 -70.46"/> <!-- upstream outer collar -->
+    <posXYZ volume="CDOC" X_Y_Z="0.0 0.0 77.04"/> <!-- downstream outer collar -->
+    <posXYZ volume="CDIU" X_Y_Z="0.0 0.0 -70.46"/> <!-- upstream inner collar -->
+    <posXYZ volume="CDID" X_Y_Z="0.0 0.0 77.04"/> <!-- downstream inner collar -->
+    <posXYZ volume="CDGD" X_Y_Z="0.0 0.0 +80.16"/> <!-- downstream rhoacell outer ring -->
+    <posXYZ volume="CDGI" X_Y_Z="0.0 0.0 +79.398"/> <!-- downstream rhoacell inner ring #1 --> 
+    <posXYZ volume="CDG2" X_Y_Z="0.0 0.0 +80.668"/> <!-- downstream rhoacell inner ring #2 -->
+    <posXYZ volume="CDPU" X_Y_Z="0.0 0.0 -72.18625"
+                          layer="1"/>               <!-- upstream end plate -->
+    <posXYZ volume="CDPD" X_Y_Z="0.0 0.0 +78.590" 
+                          layer="1"/>             <!-- downstream end plate -->
+    <posXYZ volume="CDGW" X_Y_Z="0.0 0.0 +81.435"/> <!-- downstream mylar gas window -->
+    <posXYZ volume="CDGU" X_Y_Z="0.0 0.0 -76.63125"/> <!-- upstream plexiglass gas plate -->
+    <posXYZ volume="CDGS" X_Y_Z="0.0 0.0 -74.25"/> <!-- upstream gas plenum shell -->  
+    <posXYZ volume="CDIS" X_Y_Z="0.0 0.0 -74.25"/> <!-- upstream gas plenum inner shell -->
+    <posXYZ volume="CDRO" X_Y_Z="0.0 0.0 -79.425"/> <!-- CDC readout cables outside plexiglas -->  
+    <posXYZ volume="CDHU" X_Y_Z="0.0 0.0 -74.25"/> <!-- CDC readout cables inside gas volume-->
+    <posXYZ volume="CSAM" X_Y_Z="0.0 0.0 3.29" />  <!-- aluminum mesh -->   
  </composition>
 
-  <composition name="centralDC_gasvol" envelope="CDCG">
-    <posXYZ volume="CDClayers"     X_Y_Z="0.0 0.0 3.29" />
-    <mposPhi volume="CDCSupportRod" ncopy="12" Phi0="15.0" R_Z="56.7055 3.29" dPhi="30.0">
-    </mposPhi> <!-- Aluminum support rods -->
-    <mposPhi volume="CDSS" ncopy="12" Phi0="15.0" R_Z="56.7055 -74.25" dPhi="30.0">
-    </mposPhi> <!-- Stainless steel studs -->
-
-    <posXYZ volume="CDCI"                    X_Y_Z="0.0 0.0 3.29" />    <!-- Inner shell -->
-    <posXYZ volume="CDCO"                    X_Y_Z="0.0 0.0 3.29" />    <!-- Outer shell -->
-    <posXYZ volume="CDOC"                    X_Y_Z="0.0 0.0 77.04"/>    <!-- outer collar #1 -->
-    <posXYZ volume="CDOC"                    X_Y_Z="0.0 0.0 -70.46"/>    <!-- outer collar #2 -->
-    <posXYZ volume="CDIU"                    X_Y_Z="0.0 0.0 -70.46"/> <!-- upstream inner collar -->
-    <posXYZ volume="CDID"                    X_Y_Z="0.0 0.0 77.04"/> <!-- downstream inner collar -->
-    <posXYZ volume="CDGD"                    X_Y_Z="0.0 0.0 +80.16" />  <!-- downstream rhoacell outer ring -->
-    <posXYZ volume="CDGI"                    X_Y_Z="0.0 0.0 +79.398" />  <!-- first part of downstream rhoacell inner ring --> 
-    <posXYZ volume="CDG2"                    X_Y_Z="0.0 0.0 +80.668" />  <!-- second part of downstream rhoacell inner ring -->
-
-    <posXYZ volume="CDPU"                    X_Y_Z="0.0 0.0 -72.18625" /> <!-- upstream end plate -->
-    <posXYZ volume="CDPD"                    X_Y_Z="0.0 0.0 +78.59" />  <!-- downstream end plate -->
-    <posXYZ volume="CDGW"                    X_Y_Z="0.0 0.0 +81.435" /> <!-- downstream mylar gas window -->
-    <posXYZ volume="CDGU"                    X_Y_Z="0.0 0.0 -76.63125" />   <!-- upstream plexiglass gas plate -->
-    <posXYZ volume="CDGS"                    X_Y_Z="0.0 0.0 -74.25" /> <!-- upstream gas plenum shell -->  
-    <posXYZ volume="CDIS"                    X_Y_Z="0.0 0.0 -74.25" /> <!-- upstream gas plenum inner shell -->
-    <posXYZ volume="CDRO"                    X_Y_Z="0.0 0.0 -79.425"/> <!-- CDC readout cables outside plexiglas -->  
-    <posXYZ volume="CDHU"                    X_Y_Z="0.0 0.0 -74.25"/> <!-- CDC readout cables inside gas volume-->
-   </composition>
-
   <composition name="CDClayers" envelope="DCLS">
-   <!-- These two lines need to be here due to the way GEANT tracks through volumes -->
-    <posXYZ volume="CDPU" X_Y_Z="0.0 0.0 -75.47625" />
-    <posXYZ volume="CDPD" X_Y_Z="0.0 0.0 +75.3" />
 
     <mposPhi volume="CDCstrawShort" ncopy="42" Phi0="0.0" R_Z="10.7218 0.0" dPhi="8.571428">
       <ring value="1" />
@@ -257,8 +271,8 @@
     <posXYZ volume="DFTH" X_Y_Z="0. 0. 74.7473"> </posXYZ>   
     <posXYZ volume="UPLG" X_Y_Z="0. 0. -74.52375"> </posXYZ>
     <posXYZ volume="UFTH" X_Y_Z="0. 0. -74.7473"> </posXYZ>  
-    <posXYZ volume="UWIN" X_Y_Z="0. 0. -74.3"> </posXYZ> 
-    <posXYZ volume="DWIN" X_Y_Z="0. 0. 74.3"> </posXYZ>
+    <posXYZ volume="UWIN" X_Y_Z="0. 0. -74.305"> </posXYZ> 
+    <posXYZ volume="DWIN" X_Y_Z="0. 0. 74.305"> </posXYZ>
   </composition>
  
  <composition name="CDCstrawLongB12">
@@ -299,8 +313,6 @@
 
   <tubs name="CDC" Rio_Z="8.75   60.5663   162.9" material="Air"
 	                           comment="CDC mother volume"      />
-  <tubs name="CDCG" Rio_Z="8.75   57.9374   162.9" material="CDchamberGas"
-	                           comment="CDC Ar C02 gas volume"      />
   <tubs name="CDCI" Rio_Z="9.1821  9.2329 150.0" material="E-fiberGlass"
 	                           comment="CDC inner cylinder"     />
   <tubs name="CDOC" Rio_Z="57.6326  57.8612 2.5" material="E-fiberGlass"
@@ -312,9 +324,9 @@
   <tubs name="CDID" Rio_Z="9.074  9.1821 2.5" material="Aluminum"
 	                           comment="CDC downstream inner collar"     />
   <tubs name="CDPU" Rio_Z="8.75   59.741    0.9525" material="Aluminum"
-	                           comment="CDC upstream endplate"   />
+                                   comment="CDC upstream endplate"   />
   <tubs name="CDPD" Rio_Z="8.75   59.741    0.6" material="CarbonFiberEpoxy"
-	                           comment="CDC downstream endplate" />
+                                   comment="CDC downstream endplate" />
   <tubs name="CDGU" Rio_Z="8.75   57.785    1.5875" material="Plexiglas"
 	                           comment="CDC upstream gas plenum" />
   <tubs name="CDGS" Rio_Z="55.3   56.0     3.175" material="Aluminum"
@@ -378,11 +390,11 @@
   <tubs name="STLM" Rio_Z="0.000  0.7874  151.15" material="CDchamberGas"/>
   <tubs name="WILE" Rio_Z="0.000  0.0010  151.15" material="Tungsten" />
 
-  <tubs name="DCLS"  Rio_Z="9.9344 55.5338 150.00" material="CDchamberGas" />
+  <tubs name="DCLS"  Rio_Z="9.9344 55.5338 151.5525" material="CDchamberGas" />
  
   <tubs name="CDSS" Rio_Z="0.0 0.635 3.175" material="StainlessSteel"/>
   <tubs name="CDRO" Rio_Z="9.9 55.5 4.0" material="SignalCables"/>  
-  <tubs name="CDHU" Rio_Z="9.9 55.5 3.175" material="CDCHookupCables"/>
+  <tubs name="CDHU" Rio_Z="9.9 55.3 3.175" material="CDCHookupCables"/>
 
   <!-- The following elements describe an early rendition of the GlueX
        detector simulated using a fast Monte Carlo program MCFast.  They

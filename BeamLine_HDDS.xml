@@ -109,13 +109,19 @@
        Large group of revisions, to reflect the beamline geometry and shielding
        in the engineering drawings for the cave, and the new pair spectrometer.
 
+     Revision 3.1 9/6/2013
+       Updates for compatibility with geant4 -rtj
+       a) Many small shifts to various volumes to eliminate overlaps.
+       b) Changes to dimensions of the active collimator wedges, and even
+          the number of pins per row, so that all overlaps are eliminated.
+
 
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "BeamLine"
-         version     = "2.0"
-         date        = "2006-11-25"
+         version     = "3.1"
+         date        = "2013-09-06"
          author      = "R.T. Jones"
          top_volume  = "collimatorPackage"
          specification = "v1.0">
@@ -168,7 +174,7 @@
     <posXYZ volume="Flange6"       X_Y_Z="0.0  0.0   713.7"  />
     <posXYZ volume="TargetBox"     X_Y_Z="0.0  0.0   754.44" />
     <posXYZ volume="Flange7"       X_Y_Z="0.0  0.0   765.44"  />
-    <posXYZ volume="ConcreteWall2" X_Y_Z="0.0  35.0  856.24" />
+    <posXYZ volume="ConcreteWall2" X_Y_Z="0.0  33.0  856.24" />
     <posXYZ volume="shieldingWall" X_Y_Z="0.0  35.0  919.74" />     
     <posXYZ volume="BeamPipe2"     X_Y_Z="0.0  0.0   986.14" />
   </composition>
@@ -247,7 +253,7 @@
   <tubs name="FOI1" Rio_Z="1.27  8.57  2.14"  material="Iron" />
 
   <composition name="FlangeOneWindow">
-    <posXYZ volume="F1CP" X_Y_Z="0.0  0.0  0.0075"/>
+    <posXYZ volume="F1CP" X_Y_Z="0.0  0.0  -0.0075"/>
   </composition>
 
   <tubs name="F1CP" Rio_Z="0.0   1.27  0.015" material="Kapton" />
@@ -348,9 +354,9 @@
 <!-- Vacuum chamber after the 1st sweeping magnet-->
 
   <composition name="VacuumChamber">
-    <posXYZ volume="VacuumChambDisk1" X_Y_Z="0.0 0.0 -25.3"/>
+    <posXYZ volume="VacuumChambDisk1" X_Y_Z="0.0 0.0 -25.30"/>
     <posXYZ volume="VacuumChambDisk2" X_Y_Z="0.0 0.0  0.0"/>
-    <posXYZ volume="VacuumChambDisk3" X_Y_Z="0.0 0.0  25.3"/>
+    <posXYZ volume="VacuumChambDisk3" X_Y_Z="0.0 0.0  25.30"/>
   </composition>
 
   <composition name="VacuumChambDisk1" envelope="VCO1">
@@ -364,8 +370,8 @@
     <posXYZ volume="VCI2" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <tubs name="VCO2" Rio_Z="0.0  9.85  50.76" material="Iron" />
-  <tubs name="VCI2" Rio_Z="0.0  9.83  50.76" material="Vacuum" />
+  <tubs name="VCO2" Rio_Z="0.0  9.85  50.40" material="Iron" />
+  <tubs name="VCI2" Rio_Z="0.0  9.83  50.40" material="Vacuum" />
 
   <composition name="VacuumChambDisk3" envelope="VCO3">
     <posXYZ volume="VCI3" X_Y_Z="0.0 0.0 0.0"/>
@@ -733,16 +739,16 @@
 
   <composition name="ConcreteWall2" envelope="BLC2">
     <posXYZ volume="ENTR" X_Y_Z="-179.0  0.0 -30.46"/>
-    <posXYZ volume="Block2Hole" X_Y_Z="0.0 -35.0 0.0"/>
+    <posXYZ volume="Block2Hole" X_Y_Z="0.0 -33.0 0.0"/>
   </composition>
 
-  <box name="ENTR" X_Y_Z="92.0 270.0 61.0" material="Air" />
+  <box name="ENTR" X_Y_Z="92.0 266.0 61.0" material="Air" />
 
   <composition name="Block2Hole" envelope="OBHO">
     <posXYZ volume="IBHO"  X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <box name="BLC2" X_Y_Z="450.0 270.0 121.92" material="Concrete" />
+  <box name="BLC2" X_Y_Z="450.0 266.0 121.92" material="Concrete" />
   <tubs name="OBHO" Rio_Z="0.0  2.54  121.92" material="Iron" />
   <tubs name="IBHO" Rio_Z="0.0  2.38  121.92" material="Vacuum" />
 
@@ -775,7 +781,7 @@
 
   <tubs name="DET1" Rio_Z="0.   50.  2." material="Air" />
   <box name="DET2" X_Y_Z=" 450. 270. 0.1" material="Vacuum" />
-  <box name="DET3" X_Y_Z=" 450. 2. 1200." material="Air" />
+  <box name="DET3" X_Y_Z=" 450. 2. 918." material="Air" />
 
   
   <tubs name="CONV" Rio_Z="0.0  2.0  0.0240"  material="Vacuum"
@@ -832,7 +838,7 @@
   
   <composition name="ColAssemblyInitial" envelope="AIRH">
     <mposPhi volume="DIV1" ncopy="4" Phi0="0" dPhi="90" R_Z="3.375 0."/>  
-    <posXYZ  volume="DIV2" X_Y_Z="0.0  0.0  0.0"/>  
+    <mposPhi volume="DIV2" ncopy="4" Phi0="45" dPhi="90"/>  
     <mposPhi volume="innerPinCushionWedge" ncopy="4" Phi0="45" dPhi="90" />
     <mposPhi volume="outerPinCushionWedge" ncopy="4" Phi0="45" dPhi="90" />
   </composition>
@@ -843,24 +849,25 @@
  
   <tubs name="HOUF" Rio_Z="0.25   6.85  0.50" material="Aluminum"/>
  
-  <tubs name="AIRH" Rio_Z="0.25   6.5  2.9" material="Air" />
+  <tubs name="AIRH" Rio_Z="0.25   6.5002  2.9" material="Air" />
   <box  name="DIV1" X_Y_Z="6.25  0.1  2.9" material="Aluminum" />
-  <tubs name="DIV2" Rio_Z="2.7   2.8  2.9" material="Aluminum" />
+  <tubs name="DIV2" Rio_Z="2.7   2.8  2.9" profile="-42.870 85.740"
+                                           material="Aluminum" />
 
   <composition name="innerPinCushionWedge" envelope="ACWI">
     <posXYZ volume="ACBI" X_Y_Z="0.0 0.0 -0.85" />
-    <posXYZ volume="innerPinCushionRow_1" X_Y_Z="0.275 0.0 0.40" />
-    <posXYZ volume="innerPinCushionRow_2" X_Y_Z="0.375 0.0 0.40" />
-    <posXYZ volume="innerPinCushionRow_3" X_Y_Z="0.475 0.0 0.40" />
-    <posXYZ volume="innerPinCushionRow_4" X_Y_Z="0.575 0.0 0.40" />
-    <posXYZ volume="innerPinCushionRow_5" X_Y_Z="0.675 0.0 0.40" />
-    <posXYZ volume="innerPinCushionRow_6" X_Y_Z="0.775 0.0 0.40" />
+    <posXYZ volume="innerPinCushionRow_1" X_Y_Z="0.276 0.0 0.40" />
+    <posXYZ volume="innerPinCushionRow_2" X_Y_Z="0.376 0.0 0.40" />
+    <posXYZ volume="innerPinCushionRow_3" X_Y_Z="0.476 0.0 0.40" />
+    <posXYZ volume="innerPinCushionRow_4" X_Y_Z="0.576 0.0 0.40" />
+    <posXYZ volume="innerPinCushionRow_5" X_Y_Z="0.676 0.0 0.40" />
+    <posXYZ volume="innerPinCushionRow_6" X_Y_Z="0.776 0.0 0.40" />
   </composition>
   <composition name="innerPinCushionRow_1" envelope="AIR1">
     <mposY volume="PIN1" ncopy="3" Y0="-0.10" dY="0.10" />
   </composition>
   <composition name="innerPinCushionRow_2" envelope="AIR2">
-    <mposY volume="PIN1" ncopy="5" Y0="-0.20" dY="0.10" />
+    <mposY volume="PIN1" ncopy="3" Y0="-0.10" dY="0.10" />
   </composition>
   <composition name="innerPinCushionRow_3" envelope="AIR3">
     <mposY volume="PIN1" ncopy="5" Y0="-0.20" dY="0.10" />
@@ -927,33 +934,33 @@
     <mposY volume="PIN1" ncopy="41" Y0="-2.00" dY="0.10" />
   </composition>
 
-  <tubs name="ACWI" Rio_Z="0.25 2.5  2.5" profile="-30. 60."
+  <tubs name="ACWI" Rio_Z="0.25 2.5  2.5" profile="-33. 66."
          material="Air" comment="active collimator inner wedge" />  
-  <tubs name="ACWO" Rio_Z="3.0  6.0  2.5" profile="-30. 60."
+  <tubs name="ACWO" Rio_Z="2.97  6.0  2.5" profile="-33. 66."
          material="Air" comment="active collimator outer wedge" />  
-  <tubs name="ACBI" Rio_Z="0.25 2.5  0.8" profile="-30. 60."
+  <tubs name="ACBI" Rio_Z="0.25 2.5  0.8" profile="-32. 64."
          material="SoftTungsten" comment="inner wedge base plate" />  
   <tubs name="ACBO" Rio_Z="3.0  6.0  0.8" profile="-30. 60."
          material="SoftTungsten" comment="outer wedge base plate" />  
 
-  <box name="AIR1" X_Y_Z="0.05 0.30 1.7" material="Air" />
-  <box name="AIR2" X_Y_Z="0.05 0.50 1.7" material="Air" />
-  <box name="AIR3" X_Y_Z="0.05 0.50 1.7" material="Air" />
-  <box name="AIR4" X_Y_Z="0.05 0.70 1.7" material="Air" />
-  <box name="AIR5" X_Y_Z="0.05 0.70 1.7" material="Air" />
-  <box name="AIR6" X_Y_Z="0.05 0.90 1.7" material="Air" />
+  <box name="AIR1" X_Y_Z="0.051 0.30 1.7" material="Air" />
+  <box name="AIR2" X_Y_Z="0.051 0.40 1.7" material="Air" />
+  <box name="AIR3" X_Y_Z="0.051 0.50 1.7" material="Air" />
+  <box name="AIR4" X_Y_Z="0.051 0.70 1.7" material="Air" />
+  <box name="AIR5" X_Y_Z="0.051 0.80 1.7" material="Air" />
+  <box name="AIR6" X_Y_Z="0.051 0.90 1.7" material="Air" />
 
-  <box name="AOR1" X_Y_Z="0.05 0.10 1.7" material="Air" />
-  <box name="AOR2" X_Y_Z="0.05 0.30 1.7" material="Air" />
-  <box name="AOR3" X_Y_Z="0.05 0.70 1.7" material="Air" />
-  <box name="AOR4" X_Y_Z="0.05 1.00 1.7" material="Air" />
-  <box name="AOR5" X_Y_Z="0.05 3.50 1.7" material="Air" />
-  <box name="AOR6" X_Y_Z="0.05 3.50 1.7" material="Air" />
-  <box name="AOR7" X_Y_Z="0.05 3.70 1.7" material="Air" />
-  <box name="AOR8" X_Y_Z="0.05 3.90 1.7" material="Air" />
-  <box name="AOR9" X_Y_Z="0.05 3.90 1.7" material="Air" />
-  <box name="AORA" X_Y_Z="0.05 4.10 1.7" material="Air" />
-  <box name="AORB" X_Y_Z="0.05 4.10 1.7" material="Air" />
+  <box name="AOR1" X_Y_Z="0.051 0.10 1.7" material="Air" />
+  <box name="AOR2" X_Y_Z="0.051 0.30 1.7" material="Air" />
+  <box name="AOR3" X_Y_Z="0.051 0.70 1.7" material="Air" />
+  <box name="AOR4" X_Y_Z="0.051 1.00 1.7" material="Air" />
+  <box name="AOR5" X_Y_Z="0.051 3.50 1.7" material="Air" />
+  <box name="AOR6" X_Y_Z="0.051 3.50 1.7" material="Air" />
+  <box name="AOR7" X_Y_Z="0.051 3.70 1.7" material="Air" />
+  <box name="AOR8" X_Y_Z="0.051 3.90 1.7" material="Air" />
+  <box name="AOR9" X_Y_Z="0.051 3.90 1.7" material="Air" />
+  <box name="AORA" X_Y_Z="0.051 4.10 1.7" material="Air" />
+  <box name="AORB" X_Y_Z="0.051 4.10 1.7" material="Air" />
 
   <box name="PIN1" X_Y_Z="0.051 0.051 1.7" material="SoftTungsten" />
  

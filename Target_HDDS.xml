@@ -5,12 +5,14 @@
   **********************************
 
      version 1.0: Initial version	-rtj
+     version 2.1: updates for compatibility with geant4 -rtj
+                  a) Eliminate redundant planes from TARM volume.
  
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "Target"
-         version     = "2.0"
+         version     = "2.1"
          date        = "2006-11-22"
          author      = "R.T. Jones"
          top_volume  = "TARG"
@@ -36,8 +38,6 @@
     <polyplane Rio_Z="0.0 8.5 -52.4" />
     <polyplane Rio_Z="0.0 8.5 -35.2" />
     <polyplane Rio_Z="0.0 7.9 -29.2" />
-    <polyplane Rio_Z="0.0 7.9 -5.0" />
-    <polyplane Rio_Z="0.0 7.9 -5.0"/>
     <polyplane Rio_Z="0.0 7.9 -4.0"/>
     <polyplane Rio_Z="0.0 6.9 -4.0"/>
     <polyplane Rio_Z="0.0 6.9 1.0"/>

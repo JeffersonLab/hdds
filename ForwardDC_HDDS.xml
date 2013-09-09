@@ -5,13 +5,29 @@
   **************************************************
 
      version 1.0: Initial version
+     version 3.1: updates for compatibility with geant4 -rtj
+                  a) Many shifts, most of them small, to eliminate overlaps.
+                  b) Moved support rails (FDXN) in phi from starting at 
+                     phi=0 to starting at phi = 7.5 degrees, because of
+                     the large number of overlaps otherwise.
+                  c) Converted FDPP into composition "forwardDC_plastic_gasket"
+                     and moved the tensioning rods (FDRU) inside it.
+                  d) Converted FDKS into composition "forwardDC_cathode_comp_ring"
+                     and moved the tensioning nuts (FDRX) inside it.
+                  e) Reconstructed the wire planes (FDCW) and inner dead zones
+                     (FDXW) as tubes that fit inside each other, custom solids
+                     forwardDC_gasVolume_N (N=1,2,3,4) for dead zones, and
+                     forwardDC_activeVolume_N (N=1,2,3,4) for active layers,
+                     for each of the 4 packages.
+                  f) Restructured the alignment fixture ("fiducial_frame") to
+                     eliminate overlaps with the tensioning nuts.
  
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "ForwardDC"
-         version     = "3.0"
-         date        = "2007-12-07"
+         version     = "3.1"
+         date        = "2013-09-08"
          author      = "R.T. Jones"
          top_volume  = "FDC"
          specification = "v1.0">
@@ -22,14 +38,14 @@
   <composition name="ForwardDC">
     <posXYZ volume="forwardDC" X_Y_Z="0.0  0.0  92.9621" />
     <!-- The following four volumes model the FDC cables in the region of the CDC -->
-    <posXYZ volume="FDQ1" />
-    <posXYZ volume="FDQ2" />
-    <posXYZ volume="FDQ3" />
-    <posXYZ volume="FDQ4" />
+    <posXYZ volume="FDQ1" X_Y_Z="0.0  0.0  9.0"/>
+    <posXYZ volume="FDQ2" X_Y_Z="0.0  0.0  9.0"/>
+    <posXYZ volume="FDQ3" X_Y_Z="0.0  0.0  9.0"/>
+    <posXYZ volume="FDQ4" X_Y_Z="0.0  0.0  9.0"/>
   </composition>
 
   <composition name="forwardDC" envelope="FDC">
-    <posXYZ volume="FDCS" X_Y_Z="0.0 0.0 -97.96"/>
+    <posXYZ volume="FDCS" X_Y_Z="0.0 0.0 -97.965"/>
     <posXYZ volume="FDGS" X_Y_Z="0.0 0.0 0.0"/>
    
 <!--Upstream gusset ring ledge-->
@@ -51,22 +67,22 @@
     </posXYZ>  
 
 <!--Interpackage support rods -->
-    <mposPhi volume="FDRL" ncopy="4" R_Z="52.25 -58.4234" />
+    <mposPhi volume="FDRL" ncopy="4" R_Z="52.25 -58.4324" />
     <mposPhi volume="FDRL" ncopy="4" R_Z="52.25 0.0" /> 
-    <mposPhi volume="FDZL" ncopy="4" R_Z="52.25 48.4234" />
+    <mposPhi volume="FDZL" ncopy="4" R_Z="52.25 48.4324" />
 <!-- Package compression nuts -->
-    <mposPhi volume="FDXN" ncopy="24" R_Z="52.25 -95.0348" /> 
-    <mposPhi volume="FDXN" ncopy="24" R_Z="52.25 -80.2624" />
-    <mposPhi volume="FDXN" ncopy="24" R_Z="52.25 -36.6024" />
-    <mposPhi volume="FDXN" ncopy="24" R_Z="52.25 -21.83" />
-    <mposPhi volume="FDXN" ncopy="24" R_Z="52.25 +21.83" />
-    <mposPhi volume="FDXN" ncopy="24" R_Z="52.25 +36.6024" />
-    <mposPhi volume="FDXN" ncopy="24" R_Z="52.25 +60.2624" />  
-    <mposPhi volume="FDXN" ncopy="24" R_Z="52.25 +75.0348" /> 
+    <mposPhi volume="FDXN" ncopy="24" Phi0="7.5" R_Z="52.25 -95.0348" /> 
+    <mposPhi volume="FDXN" ncopy="24" Phi0="7.5" R_Z="52.25 -80.2624" />
+    <mposPhi volume="FDXN" ncopy="24" Phi0="7.5" R_Z="52.25 -36.6024" />
+    <mposPhi volume="FDXN" ncopy="24" Phi0="7.5" R_Z="52.25 -21.83" />
+    <mposPhi volume="FDXN" ncopy="24" Phi0="7.5" R_Z="52.25 +21.83" />
+    <mposPhi volume="FDXN" ncopy="24" Phi0="7.5" R_Z="52.25 +36.6024" />
+    <mposPhi volume="FDXN" ncopy="24" Phi0="7.5" R_Z="52.25 +60.2624" />  
+    <mposPhi volume="FDXN" ncopy="24" Phi0="7.5" R_Z="52.25 +75.0348" /> 
 
 <!-- Interpackage spacers -->   
-    <mposZ volume="forwardDC_inter_package" ncopy="2" Z0="-58.4324" dZ="58.4234" />
-    <mposZ volume="forwardDC_inter_package_last" ncopy="1" Z0="48.4324" dZ="58.4234" />
+    <mposZ volume="forwardDC_inter_package" ncopy="2" Z0="-58.4324" dZ="58.4324" />
+    <posXYZ volume="forwardDC_inter_package_last" X_Y_Z="0. 0. 48.4324" />
 
 <!-- Fiducial targets -->
     <posXYZ volume="forwardDC_fiducial_mother" X_Y_Z="0.0 0.0 +74.94355" rot="0.0 0.0 -36.5" />
@@ -236,6 +252,7 @@
     <posXYZ volume="FDK1" X_Y_Z="0.0 0.0 +0.50135" />
     <posXYZ volume="FDJ1" X_Y_Z="0.0 0.0 -0.5013" />
     <posXYZ volume="FDJ1" X_Y_Z="0.0 0.0 +0.5013" />
+    <posXYZ volume="forwardDC_activeVolume_1" />
     <posXYZ volume="forwardDC_gasVolume_1" />
   </composition>
   <composition name="forwardDC_chamber_2" envelope="FDC2">
@@ -244,6 +261,7 @@
     <posXYZ volume="FDK2" X_Y_Z="0.0 0.0 +0.50135" />
     <posXYZ volume="FDJ2" X_Y_Z="0.0 0.0 -0.5013" />
     <posXYZ volume="FDJ2" X_Y_Z="0.0 0.0 +0.5013" />
+    <posXYZ volume="forwardDC_activeVolume_2" />
     <posXYZ volume="forwardDC_gasVolume_2" />
   </composition>
   <composition name="forwardDC_chamber_3" envelope="FDC3">
@@ -252,6 +270,7 @@
     <posXYZ volume="FDK3" X_Y_Z="0.0 0.0 +0.50135" />
     <posXYZ volume="FDJ3" X_Y_Z="0.0 0.0 -0.5013" />
     <posXYZ volume="FDJ3" X_Y_Z="0.0 0.0 +0.5013" />
+    <posXYZ volume="forwardDC_activeVolume_3" />
     <posXYZ volume="forwardDC_gasVolume_3" />
   </composition>
   <composition name="forwardDC_chamber_4" envelope="FDC4">
@@ -260,6 +279,7 @@
     <posXYZ volume="FDK4" X_Y_Z="0.0 0.0 +0.50135" />
     <posXYZ volume="FDJ4" X_Y_Z="0.0 0.0 -0.5013" />
     <posXYZ volume="FDJ4" X_Y_Z="0.0 0.0 +0.5013" />
+    <posXYZ volume="forwardDC_activeVolume_4" />
     <posXYZ volume="forwardDC_gasVolume_4" />
   </composition>
 
@@ -295,7 +315,10 @@
   </composition>
 
   <composition name="forwardDC_plastic_spacer" envelope="FDPS">
-    <posXYZ volume="FDPP" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="forwardDC_plastic_gasket"/>
+  </composition>
+
+  <composition name="forwardDC_plastic_gasket" envelope="FDPP">
     <mposPhi volume="FDRU" ncopy="24" R_Z="52.25 0.0" />
   </composition>
 
@@ -311,11 +334,14 @@
      <posXYZ volume="FDLF" X_Y_Z="0.0 0.0 0.0"/>
    </composition>
 
+  <composition name="forwardDC_cathode_comp_ring" envelope="FDKS">
+    <mposPhi volume="FDRX" ncopy="24" R_Z="52.25 0.0" /> 
+  </composition>
+
   <composition name="forwardDC_narrow_spacer" envelope="FDNS">
     <posXYZ volume="forwardDC_narrow_spacer_cover" X_Y_Z="0.0 0.0 -0.24" />
     <posXYZ volume="forwardDC_narrow_spacer_cover" X_Y_Z="0.0 0.0 +0.24" />
-    <posXYZ volume="FDKS" X_Y_Z="0.0 0.0 0.0"/>
-    <mposPhi volume="FDRX" ncopy="24" R_Z="52.25 0.0" /> 
+    <posXYZ volume="forwardDC_cathode_comp_ring" X_Y_Z="0.0 0.0 0.0"/>
     <posXYZ volume="FDML" X_Y_Z="0.0 0.0 +0.27935" />
   </composition>
   <composition name="forwardDC_wide_spacer_cover" envelope="FDWC">
@@ -332,42 +358,38 @@
   </composition>
 
   <composition name="forwardDC_gasVolume_1" envelope="FDG1">
-    <posXYZ volume="forwardDC_activeVolume_1" />
-    <posXYZ volume="FDCW" />
+    <posXYZ volume="FDW1" />
   </composition>
   <composition name="forwardDC_activeVolume_1" envelope="FDA1">
-    <posXYZ volume="FDXW" />
+    <posXYZ volume="FDX1" />
   </composition>
   <composition name="forwardDC_gasVolume_2" envelope="FDG2">
-    <posXYZ volume="forwardDC_activeVolume_2" />
-    <posXYZ volume="FDCW" />
+    <posXYZ volume="FDW2" />
   </composition>
   <composition name="forwardDC_activeVolume_2" envelope="FDA2">
-    <posXYZ volume="FDXW" />
+    <posXYZ volume="FDX2" />
   </composition>
   <composition name="forwardDC_gasVolume_3" envelope="FDG3">
-    <posXYZ volume="forwardDC_activeVolume_3" />
-    <posXYZ volume="FDCW" />
+    <posXYZ volume="FDW3" />
   </composition>
   <composition name="forwardDC_activeVolume_3" envelope="FDA3">
-    <posXYZ volume="FDXW" />
+    <posXYZ volume="FDX3" />
   </composition>
   <composition name="forwardDC_gasVolume_4" envelope="FDG4">
-    <posXYZ volume="forwardDC_activeVolume_4" />
-    <posXYZ volume="FDCW" />
+    <posXYZ volume="FDW4" />
   </composition>
   <composition name="forwardDC_activeVolume_4" envelope="FDA4">
-    <posXYZ volume="FDXW" />
+    <posXYZ volume="FDX4" />
   </composition>
 
   <composition name="forwardDC_fiducial_mother" envelope="FDFM">
     <posXYZ volume="FDFC" X_Y_Z="0 63.0 0.0"/>
-    <posXYZ volume="forwardDC_fiducial_frame" X_Y_Z="0 57.2 0.0" rot="-90 0 0"/>
+    <posXYZ volume="forwardDC_fiducial_frame" X_Y_Z="0 58.05 0.0" rot="-90 0 0"/>
   </composition>
 
   <composition name="forwardDC_fiducial_frame" envelope="FDF0">
-   <posXYZ volume="FDF1" X_Y_Z="0.0 0.0 0.9"/>
-   <posXYZ volume="FDF2" X_Y_Z="0.0 0.0 -4.95"/>
+   <posXYZ volume="FDF1" X_Y_Z="0.0 0.0 0.05"/>
+   <!--posXYZ volume="FDF2" X_Y_Z="0.0 0.0 -5.80"/-->
   </composition>
 
 
@@ -397,13 +419,13 @@
                                  comment="fdc chamber 3 container" />
   <tubs name="FDC4" Rio_Z=" 0.0 48.50 2.1254" material="FDchamberGas"
                                  comment="fdc chamber 4 container" />
-  <tubs name="FDG1" Rio_Z=" 0.0 48.50 1.00" material="FDchamberGas"
+  <tubs name="FDG1" Rio_Z=" 0.0 2.3 1.00" material="FDchamberGas"
 	                     comment="fdc chamber gas volume, package 1" />
-  <tubs name="FDG2" Rio_Z=" 0.0 48.50 1.00" material="FDchamberGas"
+  <tubs name="FDG2" Rio_Z=" 0.0 3.2 1.00" material="FDchamberGas"
 	                     comment="fdc chamber gas volume, package 2" />
-  <tubs name="FDG3" Rio_Z=" 0.0 48.50 1.00" material="FDchamberGas"
+  <tubs name="FDG3" Rio_Z=" 0.0 3.9 1.00" material="FDchamberGas"
 	                     comment="fdc chamber gas volume, package 3" />
-  <tubs name="FDG4" Rio_Z=" 0.0 48.50 1.00" material="FDchamberGas"
+  <tubs name="FDG4" Rio_Z=" 0.0 4.6 1.00" material="FDchamberGas"
 	                     comment="fdc chamber gas volume, package 4" />
   <tubs name="FDA1" Rio_Z=" 2.3 48.50 1.00" material="FDchamberGas"
 	    sensitive="true" comment="fdc chamber 1 active region" />
@@ -413,9 +435,21 @@
 	    sensitive="true" comment="fdc chamber 3 active region" />
   <tubs name="FDA4" Rio_Z=" 4.6 48.50 1.00" material="FDchamberGas"
 	    sensitive="true" comment="fdc chamber 4 active region" />
-  <tubs name="FDCW" Rio_Z=" 0.0 48.50 0.0100" material="FDCwirePlaneComposite"
+  <tubs name="FDW1" Rio_Z=" 0.0 2.3 0.0100" material="FDCwirePlaneComposite"
 	                     comment="fdc chamber anode wire plane" />
-  <tubs name="FDXW" Rio_Z=" 2.3 48.50 0.0100" material="FDCwirePlaneComposite"
+  <tubs name="FDW2" Rio_Z=" 0.0 3.2 0.0100" material="FDCwirePlaneComposite"
+	                     comment="fdc chamber anode wire plane" />
+  <tubs name="FDW3" Rio_Z=" 0.0 3.9 0.0100" material="FDCwirePlaneComposite"
+	                     comment="fdc chamber anode wire plane" />
+  <tubs name="FDW4" Rio_Z=" 0.0 4.6 0.0100" material="FDCwirePlaneComposite"
+	                     comment="fdc chamber anode wire plane" />
+  <tubs name="FDX1" Rio_Z=" 2.3 48.50 0.0100" material="FDCwirePlaneComposite"
+	    sensitive="false" comment="fdc chamber anode wire plane" />
+  <tubs name="FDX2" Rio_Z=" 3.2 48.50 0.0100" material="FDCwirePlaneComposite"
+	    sensitive="false" comment="fdc chamber anode wire plane" />
+  <tubs name="FDX3" Rio_Z=" 3.9 48.50 0.0100" material="FDCwirePlaneComposite"
+	    sensitive="false" comment="fdc chamber anode wire plane" />
+  <tubs name="FDX4" Rio_Z=" 4.6 48.50 0.0100" material="FDCwirePlaneComposite"
 	    sensitive="false" comment="fdc chamber anode wire plane" />
   <tubs name="FDK1" Rio_Z=" 2.3 48.50 0.0027" material="CopperKapton"
                              comment="cathode strip plane for chamber 1" />
@@ -497,8 +531,8 @@
                  comment="Inter-package spacer mother volume 4 last package"/>
 
   <pcon name="FDGS" material="Noryl" comment="cable support gusset" >
-    <polyplane Rio_Z="59.8 60.1 -96.96" />
-    <polyplane Rio_Z="53.35 53.65 -94.78" />
+    <polyplane Rio_Z="59.8 60.1 -96.965" />
+    <polyplane Rio_Z="53.35 53.65 -94.785" />
   </pcon>
   <tubs name="FDCL" Rio_Z="59.9 60.25 0.358" material="Copper"
                  comment="Cooling loop"/>
@@ -519,14 +553,14 @@
   <tubs name="FDKS" Rio_Z="51.2 52.80 0.40" material="FR-4"
                  comment="Ring for supporting O-ring compression for cathode frames"/>
 
-  <trd name="FDF0" Xmp_Ymp_Z="9.2 1.8 0.3175 0.3175 11.6" material="FR-4"
+  <trd name="FDF0" Xmp_Ymp_Z="9.2 1.8 0.3175 0.3175 9.9" material="FR-4"
                  comment="Frame for fiducial target" />
   <trd name="FDF1" Xmp_Ymp_Z="4.52 0.0 0.3175 0.3175 7.2" material="Air"
                  comment="First fiducial frame cut-out " />
   <box name="FDF2" X_Y_Z="4.1 0.3175 1.7" material="Air"
                  comment="Second fiducial frame cut-out" />
   <tubs name="FDFC" Rio_Z="0.0 0.9 0.3175" profile="0.0 180" material="FR-4" />
-  <tubs name="FDFM" Rio_Z="51.4 64.2485 0.3175" profile="84.886 10.228" material="Air" 
+  <tubs name="FDFM" Rio_Z="53.1 64.2485 0.3175" profile="84.886 10.228" material="Air" 
                  comment="mother volume for fdc fiducial frame"/>
 
  <!-- In the following the FDC cables are routed upstream over the CDCs instead
@@ -542,7 +576,7 @@
     <polyplane Rio_Z=" 77.55  77.68 -238.32" />
     <polyplane Rio_Z=" 61.00  61.13 -190.66" />
     <polyplane Rio_Z=" 61.00  61.11 -190.63" />
-    <polyplane Rio_Z=" 61.00  61.11  -14.3" />
+    <polyplane Rio_Z=" 61.00  61.11  -15.04" />
   </pcon>
   <pcon name="FDQ2" material="SignalCables" comment="fdc cables to package 2">
     <polyplane Rio_Z="137.25 137.25 -247.23" />
@@ -553,18 +587,18 @@
     <polyplane Rio_Z=" 77.92  78.04 -237.96" />
     <polyplane Rio_Z=" 61.50  61.63 -190.52" />
     <polyplane Rio_Z=" 61.50  61.61 -190.49" />
-    <polyplane Rio_Z=" 61.50  61.61 -14.3" />
+    <polyplane Rio_Z=" 61.50  61.61 -15.04" />
   </pcon>
   <pcon name="FDQ3" material="SignalCables" comment="fdc cables to package 3">
     <polyplane Rio_Z="137.29 137.29 -246.74" />
     <polyplane Rio_Z="136.05 137.30 -246.63" />
-    <polyplane Rio_Z=" 86.31  87.56 -246.28" />
-    <polyplane Rio_Z=" 85.12  86.34 -246.17" />
-    <polyplane Rio_Z=" 77.33  78.55 -237.67" />
-    <polyplane Rio_Z=" 77.28  78.41 -237.59" />
+    <polyplane Rio_Z=" 87.31  87.56 -246.28" />
+    <polyplane Rio_Z=" 86.12  86.34 -246.17" />
+    <polyplane Rio_Z=" 78.33  78.55 -237.67" />
+    <polyplane Rio_Z=" 78.28  78.41 -237.59" />
     <polyplane Rio_Z=" 62.00  62.13 -190.39" />
     <polyplane Rio_Z=" 62.00  62.11 -190.36" />
-    <polyplane Rio_Z=" 62.00  62.11  -14.3" />
+    <polyplane Rio_Z=" 62.00  62.11  -15.04" />
   </pcon>
   <pcon name="FDQ4" material="SignalCables" comment="fdc cables to package 4">
     <polyplane Rio_Z="137.34 137.34 -246.24" />
@@ -575,7 +609,7 @@
     <polyplane Rio_Z=" 78.65  78.77 -237.23" />
     <polyplane Rio_Z=" 62.50  62.62 -190.25" />
     <polyplane Rio_Z=" 62.50  62.61 -190.22" />
-    <polyplane Rio_Z=" 62.50  62.61  -14.3" />
+    <polyplane Rio_Z=" 62.50  62.61  -15.04" />
   </pcon>
 
   <tubs name="FDE4" Rio_Z="61.00 61.11 173.5848"  profile="0.0 45.0" material="SignalCables" 
