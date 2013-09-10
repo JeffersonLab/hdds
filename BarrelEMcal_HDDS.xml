@@ -19,11 +19,11 @@
                      generating overlaps.
                   e) Move the Winston cones out of the aluminum plate into
                      the main BCal readout volume.  Then place the aluminum
-                     plate into the same volume, on a separate layer so that
-                     the Winston cones can penetrate through it.
+                     plate into the same volume, on a separate geometry layer
+                     so that the Winston cones can penetrate through it.
                   f) Place the coolant coupling tubes (CoolingCon) onto a
-                     separate layer so that they can interleave with the
-                     readout layers without generating overlaps.
+                     separate geometry layer so that they can interleave with
+                     the readout layers without generating overlaps.
  
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
@@ -113,9 +113,9 @@ caused conflict with drift chamber cable supports.
     <posRPhiZ volume="BCALWinstonCones" R_Phi_Z="77.1658 0. 202.76125" rot="-90. -90. -90."/>
     <!-- The following are aluminum plates with holes through which the light guides stick -->
     <posRPhiZ volume="ALPL" R_Phi_Z="77.1658 0. -202.76125" rot="90. 90. 90."
-                                                            layer="1"/>
+                                                            geometry_layer="1"/>
     <posRPhiZ volume="ALPL" R_Phi_Z="77.1658 0.  202.76125" rot="-90. -90. -90."
-                                                            layer="1"/>
+                                                            geometry_layer="1"/>
   </composition>
 
   <composition name="BCALWinstonCones">
@@ -482,9 +482,9 @@ caused conflict with drift chamber cable supports.
 
     <posXYZ volume="ALP1" X_Y_Z="0.0325  0. 0.  "/>
     <posXYZ volume="CoolingCon" X_Y_Z="0.3125 -2. -10." rot="0. 75. 0."
-                                                        layer="1"/>
+                                                        geometry_layer="1"/>
     <posXYZ volume="CoolingCon" X_Y_Z="0.3125 +2. -10." rot="0. 75. 0."
-                                                        layer="1"/>
+                                                        geometry_layer="1"/>
   
     <posXYZ volume="ReadoutStandoffs" X_Y_Z="0. 0. -11." rot="0. 90. 0."/>
     <posXYZ volume="ReadoutStandoffs" X_Y_Z="0. -3.5 -12." rot="0. 90. 0."/>

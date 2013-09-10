@@ -18,13 +18,13 @@
      from the AGGD project of the Atlas collaboration.
 
      version 1.0 - original release
-     version 1.1 - added the layer[=0] attribute to the volume positioning tags
-                   posXYZ, posRPhiZ, mposR, mposPhi, mposX, mposY, mposZ
-                   to support placement of volumes in secondary layers of the
-                   geometry.  Objects in the default layer 0 of the geometry
-                   are on top, with subsequent layers placed sequentially
-                   underneath, such that any object in a lower layer supersedes
-                   an object in a higher-numbered layer that overlaps with it.
+     version 1.1 - added the geometry_layer[=0] attribute to the volume
+                   positioning tags to support placement of volumes in
+                   secondary layers of the geometry.  Objects in the default
+                   layer 0 of the geometry are on top, with subsequent layers
+                   placed sequentially underneath, such that any object in a
+                   lower layer supersedes an object in a higher-numbered layer
+                   that overlaps with it.
 
 
 1) General structure of a detector description
@@ -569,11 +569,11 @@
 
      attributes :
 
-        volume      : the volume they are positioning.
-        unit_length : the units used to specify the coordinates.
-        unit_angle  : the units used to specify rotation angles.
-        layer       : the geometry layer (see section 1.5.2 below)
-                      in which to place the volume.
+        volume         : the volume they are positioning.
+        unit_length    : the units used to specify the coordinates.
+        unit_angle     : the units used to specify rotation angles.
+        geometry_layer : the geometry layer (see section 1.5.2 below)
+                         in which to place the volume.
 
      member elements :
 
@@ -689,13 +689,13 @@
    layers in different parts of the geometry if it is placed multiple times.
    The layer on which an object is placed is defined to be 0 by default, but
    can be set to any higher integer (1,2,...) by the explicit use of the
-   layer="int" attribute in the placement tag.  Objects placed on higher-
-   indexed layers are superseded by objects in lower-indexed layers anywhere
-   that they overlap.  Objects placed within any given layer must not overlap.
-   Placement of any object on a non-default layer automatically triggers the
-   creation of an image of its mother on the same layer, and so on all the
-   way up the hierarchy to the root, so that the coordinates for placement
-   are the same no matter which layer is specified.
+   geometry_layer="int" attribute in the placement tag.  Objects placed on
+   higher-indexed layers are superseded by objects in lower-indexed layers
+   anywhere that they overlap.  Objects placed within any given layer must
+   not overlap.  Placement of any object on a non-default layer automatically
+   triggers the creation of an image of its mother on the same layer, and so
+   on all the way up the hierarchy to the root, so that the coordinates for
+   placement are the same no matter which layer is specified.
 
 
 1.6) Regions
@@ -1432,7 +1432,7 @@
     <xs:attribute name="shift0" default="0" type="xs:float"/>
     <xs:attribute name="unit_angle" default="deg" type="angleUnit"/>
     <xs:attribute name="unit_length" default="cm" type="lengthUnit"/>
-    <xs:attribute name="layer" default="0" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="geometry_layer" default="0" type="xs:nonNegativeInteger"/>
     <xs:attribute name="volume" use="required" type="xs:IDREF"/>
   </xs:complexType>
 </xs:element>
@@ -1459,7 +1459,7 @@
     <xs:attribute name="shift" default="0" type="xs:float"/>
     <xs:attribute name="unit_angle" default="deg" type="angleUnit"/>
     <xs:attribute name="unit_length" default="cm" type="lengthUnit"/>
-    <xs:attribute name="layer" default="0" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="geometry_layer" default="0" type="xs:nonNegativeInteger"/>
     <xs:attribute name="volume" use="required" type="xs:IDREF"/>
   </xs:complexType>
 </xs:element>
@@ -1879,7 +1879,7 @@
     </xs:attribute>
     <xs:attribute name="unit_angle" default="deg" type="angleUnit"/>
     <xs:attribute name="unit_length" default="cm" type="lengthUnit"/>
-    <xs:attribute name="layer" default="0" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="geometry_layer" default="0" type="xs:nonNegativeInteger"/>
     <xs:attribute name="volume" use="required" type="xs:IDREF"/>
   </xs:complexType>
 </xs:element>
@@ -1918,7 +1918,7 @@
     </xs:attribute>
     <xs:attribute name="unit_angle" default="deg" type="angleUnit"/>
     <xs:attribute name="unit_length" default="cm" type="lengthUnit"/>
-    <xs:attribute name="layer" default="0" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="geometry_layer" default="0" type="xs:nonNegativeInteger"/>
     <xs:attribute name="volume" use="required" type="xs:IDREF"/>
   </xs:complexType>
 </xs:element>
@@ -1957,7 +1957,7 @@
     </xs:attribute>
     <xs:attribute name="unit_angle" default="deg" type="angleUnit"/>
     <xs:attribute name="unit_length" default="cm" type="lengthUnit"/>
-    <xs:attribute name="layer" default="0" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="geometry_layer" default="0" type="xs:nonNegativeInteger"/>
     <xs:attribute name="volume" use="required" type="xs:IDREF"/>
   </xs:complexType>
 </xs:element>
@@ -1996,7 +1996,7 @@
     </xs:attribute>
     <xs:attribute name="unit_angle" default="deg" type="angleUnit"/>
     <xs:attribute name="unit_length" default="cm" type="lengthUnit"/>
-    <xs:attribute name="layer" default="0" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="geometry_layer" default="0" type="xs:nonNegativeInteger"/>
     <xs:attribute name="volume" use="required" type="xs:IDREF"/>
   </xs:complexType>
 </xs:element>
@@ -2036,7 +2036,7 @@
     </xs:attribute>
     <xs:attribute name="unit_angle" default="deg" type="angleUnit"/>
     <xs:attribute name="unit_length" default="cm" type="lengthUnit"/>
-    <xs:attribute name="layer" default="0" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="geometry_layer" default="0" type="xs:nonNegativeInteger"/>
     <xs:attribute name="volume" use="required" type="xs:IDREF"/>
   </xs:complexType>
 </xs:element>
@@ -2224,7 +2224,7 @@
     <xs:attribute name="rot" default="0 0 0" type="xs:string"/>
     <xs:attribute name="unit_angle" default="deg" type="angleUnit"/>
     <xs:attribute name="unit_length" default="cm" type="lengthUnit"/>
-    <xs:attribute name="layer" default="0" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="geometry_layer" default="0" type="xs:nonNegativeInteger"/>
     <xs:attribute name="volume" use="required" type="xs:IDREF"/>
   </xs:complexType>
 </xs:element>
@@ -2260,7 +2260,7 @@
     </xs:attribute>
     <xs:attribute name="unit_angle" default="deg" type="angleUnit"/>
     <xs:attribute name="unit_length" default="cm" type="lengthUnit"/>
-    <xs:attribute name="layer" default="0" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="geometry_layer" default="0" type="xs:nonNegativeInteger"/>
     <xs:attribute name="volume" use="required" type="xs:IDREF"/>
   </xs:complexType>
 </xs:element>

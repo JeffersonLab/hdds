@@ -40,9 +40,9 @@
                   c) Move the aluminum mesh (CSAM) volume to align with the 
                      center of the straw volume.
                   d) Remove extra copies of the upstream and downstream plates
-                     in the gas volume, moved to another layer - see below.
+                     in the gas volume, moved to another geometry layer.
                   e) Add the upstream (CDPU) and downstream (CDPD) end plates
-                     to the "cdcLayers" (DCLS) volume, specify layer=1.
+                     to the "cdcLayers" (DCLS) volume, set geometry_layer=1.
                   f) Shift the upstream (UWIN) and downstream (DWIN) gas plenum
                      to eliminate overlaps.
                   g) Increase the length of the "cdcLayers" (DCLS) volume to
@@ -87,9 +87,9 @@
     <posXYZ volume="CDGI" X_Y_Z="0.0 0.0 +79.398"/> <!-- downstream rhoacell inner ring #1 --> 
     <posXYZ volume="CDG2" X_Y_Z="0.0 0.0 +80.668"/> <!-- downstream rhoacell inner ring #2 -->
     <posXYZ volume="CDPU" X_Y_Z="0.0 0.0 -72.18625"
-                          layer="1"/>               <!-- upstream end plate -->
+                          geometry_layer="1"/>      <!-- upstream end plate -->
     <posXYZ volume="CDPD" X_Y_Z="0.0 0.0 +78.590" 
-                          layer="1"/>             <!-- downstream end plate -->
+                          geometry_layer="1"/>      <!-- downstream end plate -->
     <posXYZ volume="CDGW" X_Y_Z="0.0 0.0 +81.435"/> <!-- downstream mylar gas window -->
     <posXYZ volume="CDGU" X_Y_Z="0.0 0.0 -76.63125"/> <!-- upstream plexiglass gas plate -->
     <posXYZ volume="CDGS" X_Y_Z="0.0 0.0 -74.25"/> <!-- upstream gas plenum shell -->  
