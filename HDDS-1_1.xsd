@@ -24,7 +24,7 @@
                    layer 0 of the geometry are on top, with subsequent layers
                    placed sequentially underneath, such that any object in a
                    lower layer supersedes an object in a higher-numbered layer
-                   that overlaps with it.
+                   that overlaps with it.  See section 1.5.2 for details.
 
 
 1) General structure of a detector description
@@ -665,22 +665,22 @@
      attributes. In the positioning-direction it is defined by the
      attributes R0, X0, Y0 or Z0. 
 
-1.5.2) Layers [new in release 1.1]
+1.5.2) Geometry layers [new in release 1.1]
 
    Some geometries, which are readily described in terms of elementary solids,
-   become very complicated to implement when overlaps between any two members
-   of the same containing object are forbidden.  This was the case for hdds
-   geometries in release 1.0, but in 1.1 a new feature was introduced that
+   become very complicated to implement in hdds when overlaps between any two
+   members of the same containing object are forbidden.  This was the case for
+   hdds geometries in release 1.0, but in 1.1 a new feature was introduced that
    can accommodate certain kinds of overlaps within the geometry hierarchy.
    Daughter solids which extend outside the bounds of their container are
    still strictly forbidden, but it is now possible to place daughters within
    a mother volume such that they overlap with each other, provided that they
    are placed in different "layers".  This feature was inspired by the
    "layered mass geometry" that was introduced in geant4.9.5, and follows
-   those semantics closely, except that the layer priorities are reversed,
-   with the default layer 0 having top priority in hdds, layer 1 second,
-   and so on.  Geometries conforming to hdds version 1.0 are also valid
-   in version 1.1, with all objects being filled and located on layer 0.
+   those semantics closely, except that the layer priorities are reversed.
+   The default layer 0 has top priority in hdds, layer 1 second, and so on.
+   Geometries conforming to hdds version 1.0 are still valid in version 1.1,
+   all objects simply being placed in geometry layer 0.
 
    In a layered geometry, the interior of certain volumes are treated as if
    they were transparent layers in a CAD system, such that objects defined
@@ -694,8 +694,20 @@
    anywhere that they overlap.  Objects placed within any given layer must
    not overlap.  Placement of any object on a non-default layer automatically
    triggers the creation of an image of its mother on the same layer, and so
-   on all the way up the hierarchy to the root, so that the coordinates for
+   on all the way up the hierarchy to the root.  This way, coordinates for
    placement are the same no matter which layer is specified.
+
+   Once an object is placed on a non-default layer, any objects placed inside
+   it also inherit that base layer and will automatically be placed on that
+   layer or higher in the global geometry.  For example, if volume X is on
+   layer 5, and then volume U and V are placed inside it with hdds attributes
+   geometry_layer="2" and geometry_layer="1", then this causes new copies of
+   U and V to be constructed on layers 7 and 6, respectively.  Placing a third
+   daughter volume W inside X in hdds without any geometry_layer attribute is
+   the same as specifying geometry_layer="0", and results in a new copy of W
+   being constructed inside W on layer 5 in the global geometry.  This scheme
+   guards against accidental collisions when complex objects (volumes with
+   many layers of nested volumes) are placed on non-default layers.
 
 
 1.6) Regions

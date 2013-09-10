@@ -141,6 +141,7 @@ Refsys::Refsys()			// empty constructor
    fRegion(0),
    fPhiOffset(0),
    fRegionID(0),
+   fGeometryLayer(0),
    fIdentifier()
 {
    fMOrigin[0] = fMOrigin[1] = fMOrigin[2] = 0;
@@ -155,6 +156,7 @@ Refsys::Refsys(const Refsys& src)	// copy constructor
    fRegion(src.fRegion),
    fPhiOffset(src.fPhiOffset),
    fRegionID(src.fRegionID),
+   fGeometryLayer(src.fGeometryLayer),
    fIdentifier(src.fIdentifier),
    fPartition(src.fPartition)
 {
@@ -179,6 +181,7 @@ Refsys& Refsys::operator=(Refsys& src)	// copy operator (deep sematics)
    fMother = src.fMother;
    fRegion = src.fRegion;
    fRegionID = src.fRegionID;
+   fGeometryLayer = src.fGeometryLayer;
    fPhiOffset = src.fPhiOffset;
    fPartition = src.fPartition;
    for (int i=0; i<3; i++)
@@ -1386,6 +1389,15 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             XString valueS(identEl->getAttribute(X("value")));
             XString stepS(identEl->getAttribute(X("step")));
             drs.addIdentifier(fieldS,atoi(S(valueS)),atoi(S(stepS)));
+         }
+
+         XString geolayerS(contEl->getAttribute(X("geometry_layer")));
+         if (geolayerS.size() != 0)
+         {
+            int geolayer;
+            std::stringstream geolayerStr(geolayerS);
+            geolayerStr >> geolayer;
+            drs.fGeometryLayer += geolayer;
          }
 
          if (comdS == "posXYZ")
