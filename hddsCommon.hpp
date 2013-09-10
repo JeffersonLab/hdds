@@ -82,7 +82,8 @@ class Refsys
    double fRmatrix[3][3];       // rotation matrix (daughter -> mother)
    int fRotation;        	// unique Rmatrix identifier
    int fRegionID;        	// unique region identifier
-   int fGeometryLayer;		// current geometry layer
+   int fGeometryLayer;		// current absolute geometry layer
+   int fRelativeLayer;		// current relative geometry layer
 
    double fMOrigin[3];        	// same as fOrigin, but with MRS as mother
    double fMRmatrix[3][3];      // same as fRmatrix, but with MRS as mother

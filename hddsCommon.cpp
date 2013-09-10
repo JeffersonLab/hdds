@@ -3,9 +3,15 @@
  *  Author: richard.t.jones@uconn.edu
  *
  *  Original version - Richard Jones, January 6, 2006.
+ *  Revision 1.1 - Richard Jones, September 10, 2013.
  *
- *  Notes:
- *  ------
+ *  Revision 1.1 Notes:
+ *  -------------------
+ * 1. Updated to HDDS-1.1 which adds support for geometry layers, using
+ *    the geometry_layer="int" attribute of the object placement tags.
+ *
+ *  Original Notes:
+ *  ---------------
  * 1. The HDDS specification is an xml document in the standard W3C
  *    schema namespace http://www.gluex.org/hdds, as described by the
  *    HDDS-1_0.xsd schema document.
@@ -142,6 +148,7 @@ Refsys::Refsys()			// empty constructor
    fPhiOffset(0),
    fRegionID(0),
    fGeometryLayer(0),
+   fRelativeLayer(0),
    fIdentifier()
 {
    fMOrigin[0] = fMOrigin[1] = fMOrigin[2] = 0;
@@ -157,6 +164,7 @@ Refsys::Refsys(const Refsys& src)	// copy constructor
    fPhiOffset(src.fPhiOffset),
    fRegionID(src.fRegionID),
    fGeometryLayer(src.fGeometryLayer),
+   fRelativeLayer(src.fRelativeLayer),
    fIdentifier(src.fIdentifier),
    fPartition(src.fPartition)
 {
@@ -182,6 +190,7 @@ Refsys& Refsys::operator=(Refsys& src)	// copy operator (deep sematics)
    fRegion = src.fRegion;
    fRegionID = src.fRegionID;
    fGeometryLayer = src.fGeometryLayer;
+   fRelativeLayer = src.fRelativeLayer;
    fPhiOffset = src.fPhiOffset;
    fPartition = src.fPartition;
    for (int i=0; i<3; i++)
@@ -1394,11 +1403,14 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
          XString geolayerS(contEl->getAttribute(X("geometry_layer")));
          if (geolayerS.size() != 0)
          {
-            int geolayer;
             std::stringstream geolayerStr(geolayerS);
-            geolayerStr >> geolayer;
-            drs.fGeometryLayer += geolayer;
+            geolayerStr >> drs.fRelativeLayer;
          }
+         else
+         {
+            drs.fRelativeLayer = 0;
+         }
+         drs.fGeometryLayer += drs.fRelativeLayer;
 
          if (comdS == "posXYZ")
          {
