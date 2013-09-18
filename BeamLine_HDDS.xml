@@ -805,7 +805,7 @@
 <!--  <box name="DET4" X_Y_Z="1700.0  1200.0  2.0" material="Vacuum" /> -->
   <box name="DET5" X_Y_Z="1700.0  1200.0  2.0" material="Air" />
   <box name="DET6" X_Y_Z="1700.0  2.0  3000.0" material="Air" />
-  <box name="DET7" X_Y_Z="1700.0  1200.0  2.0" material="Air" />
+  <box name="DET7" X_Y_Z="1700.0  1198.0  2.0" material="Air" />
   
 
 <!-- Hall Pipe -->
