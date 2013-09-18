@@ -433,11 +433,11 @@ caused conflict with drift chamber cable supports.
        material="Plexiglas" comment="light collector for layer 1"/>
   <trd name="BCN2" Xmp_Ymp_Z="2.050 1.416 2.190 1.416 7.5225" 
        material="Plexiglas" comment="light collector for layer 2"/>
-  <trd name="BCN3" Xmp_Ymp_Z="2.050 1.420 2.260 1.420 7.5225" 
+  <trd name="BCN3" Xmp_Ymp_Z="2.050 1.420 2.230 1.420 7.5225" 
        material="Plexiglas" comment="light collector for layer 3"/>
-  <trd name="BCN4" Xmp_Ymp_Z="2.050 1.424 2.320 1.424 7.5225" 
+  <trd name="BCN4" Xmp_Ymp_Z="2.050 1.424 2.260 1.424 7.5225" 
        material="Plexiglas" comment="light collector for layer 4"/>
-  <trd name="BCN5" Xmp_Ymp_Z="2.050 1.428 2.390 1.428 7.5225" 
+  <trd name="BCN5" Xmp_Ymp_Z="2.050 1.428 2.300 1.428 7.5225" 
        material="Plexiglas" comment="light collector for layer 5"/>
   <trd name="BCN6" Xmp_Ymp_Z="2.048 1.432 2.430 1.432 7.5225" 
        material="Plexiglas" comment="light collector for layer 6"/>
@@ -493,7 +493,7 @@ caused conflict with drift chamber cable supports.
 
   <composition name="CoolingCon" envelope="COCO">
     <posXYZ volume="PIP1"/>
-    <posXYZ volume="PIP2" X_Y_Z="0. 0. 3."/>	  
+    <posXYZ volume="PIP2" X_Y_Z="0. 0. 2.75"/>	  
   </composition>
 
   <composition name="CoolingTransition" envelope="COTR">
