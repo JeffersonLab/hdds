@@ -72,11 +72,11 @@
 
    <!-- Fixtures for attachment to rail system -->
    <!--- Package 1 beam left -->
-    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 -95.61785" rot="0 0 60.0" />  
+    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 -95.618" rot="0 0 60.0" />  
     <posXYZ volume="FBA1" X_Y_Z="56.351 0.3549 -94.98285"/>
     <posXYZ volume="FBA3" X_Y_Z="61.2386 0.3549 -87.6486"/>  
     <posXYZ volume="FBA1" X_Y_Z="56.351 0.3549 -80.31435"/> 
-    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 -79.67935" rot="0 0 60.0" /> 
+    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 -79.6792" rot="0 0 60.0" /> 
     <posXYZ volume="FBA4" X_Y_Z="62.0245 0.3549 -93.8591" />
     <posXYZ volume="FBA4" X_Y_Z="62.0245 0.3549 -81.4541" />
     <posXYZ volume="FBA5" X_Y_Z="59.6845 0.3549 -79.99675" />   
@@ -88,11 +88,11 @@
     <posXYZ volume="FBA7" X_Y_Z="63.75075 0.37945 -93.8591"/>
     <posXYZ volume="FBA7" X_Y_Z="63.75075 0.37945 -81.4541"/>
    <!--- Package 1 beam right -->
-    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 -95.61785" rot="0 0 -60.0" />  
+    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 -95.618" rot="0 0 -60.0" />  
     <posXYZ volume="FBA1" X_Y_Z="-56.351 0.3549 -94.98285"/>
     <posXYZ volume="FBA3" X_Y_Z="-61.2386 0.3549 -87.6486"/>  
     <posXYZ volume="FBA1" X_Y_Z="-56.351 0.3549 -80.31435"/> 
-    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 -79.67935" rot="0 0 -60.0" />
+    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 -79.6792" rot="0 0 -60.0" />
     <posXYZ volume="FBA4" X_Y_Z="-62.0245 0.3549 -93.8591" />
     <posXYZ volume="FBA4" X_Y_Z="-62.0245 0.3549 -81.4541" />
     <posXYZ volume="FBA5" X_Y_Z="-59.6845 0.3549 -79.99675" />   
@@ -104,14 +104,14 @@
     <posXYZ volume="FBA7" X_Y_Z="-63.75075 0.37945 -93.8591"/>
     <posXYZ volume="FBA7" X_Y_Z="-63.75075 0.37945 -81.4541"/>
    <!-- Nuts for package 1 -->
-    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 -96.02665" Phi0="0.0"/>
-    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 -79.2705"  Phi0="0.0"/>
+    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 -96.0268" Phi0="0.0"/>
+    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 -79.269"  Phi0="0.0"/>
    <!--- Package 2 beam left -->
-    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 -37.18545" rot="0 0 60.0" />  
+    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 -37.1856" rot="0 0 60.0" />  
     <posXYZ volume="FBA1" X_Y_Z="56.351 0.3549 -36.55045"/>
     <posXYZ volume="FBA3" X_Y_Z="61.2386 0.3549 -29.2162"/>  
     <posXYZ volume="FBA1" X_Y_Z="56.351 0.3549 -21.88195"/> 
-    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 -21.24695" rot="0 0 60.0" />
+    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 -21.2468" rot="0 0 60.0" />
     <posXYZ volume="FBA4" X_Y_Z="62.0245 0.3549 -35.4267" />
     <posXYZ volume="FBA4" X_Y_Z="62.0245 0.3549 -23.0217" />
     <posXYZ volume="FBA5" X_Y_Z="59.6845 0.3549 -21.56435" />   
@@ -123,11 +123,11 @@
     <posXYZ volume="FBA7" X_Y_Z="63.75075 0.37945 -35.4267"/>
     <posXYZ volume="FBA7" X_Y_Z="63.75075 0.37945 -23.0217"/>
    <!--- Package 2 beam right -->
-    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 -37.18545" rot="0 0 -60.0" />  
+    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 -37.1856" rot="0 0 -60.0" />  
     <posXYZ volume="FBA1" X_Y_Z="-56.351 0.3549 -36.55045"/>
     <posXYZ volume="FBA3" X_Y_Z="-61.2386 0.3549 -29.2162"/>  
     <posXYZ volume="FBA1" X_Y_Z="-56.351 0.3549 -21.88195"/> 
-    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 -21.24695" rot="0 0 -60.0" />
+    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 -21.2468" rot="0 0 -60.0" />
     <posXYZ volume="FBA4" X_Y_Z="-62.0245 0.3549 -35.4267" />
     <posXYZ volume="FBA4" X_Y_Z="-62.0245 0.3549 -23.0217" />
     <posXYZ volume="FBA5" X_Y_Z="-59.6845 0.3549 -21.56435" />   
@@ -139,14 +139,14 @@
     <posXYZ volume="FBA7" X_Y_Z="-63.75075 0.37945 -35.4267"/>
     <posXYZ volume="FBA7" X_Y_Z="-63.75075 0.37945 -23.0217"/>
    <!-- Nuts for package 2 -->
-    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 -37.59825" Phi0="0.0"/>
-    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 -20.76"  Phi0="0.0"/>
+    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 -37.5944" Phi0="0.0"/>
+    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 -20.8380"  Phi0="0.0"/>
    <!--- Package 3 beam left -->
-    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 37.18545" rot="0 0 60.0" />  
+    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 37.1856" rot="0 0 60.0" />  
     <posXYZ volume="FBA1" X_Y_Z="56.351 0.3549 36.55045"/>
     <posXYZ volume="FBA3" X_Y_Z="61.2386 0.3549 29.2162"/>  
     <posXYZ volume="FBA1" X_Y_Z="56.351 0.3549 21.88195"/> 
-    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 21.24695" rot="0 0 60.0" />
+    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 21.2468" rot="0 0 60.0" />
     <posXYZ volume="FBA4" X_Y_Z="62.0245 0.3549 35.4267" />
     <posXYZ volume="FBA4" X_Y_Z="62.0245 0.3549 23.0217" />
     <posXYZ volume="FBA5" X_Y_Z="59.6845 0.3549 21.56435" />   
@@ -158,11 +158,11 @@
     <posXYZ volume="FBA7" X_Y_Z="63.75075 0.37945 35.4267"/>
     <posXYZ volume="FBA7" X_Y_Z="63.75075 0.37945 23.0217"/>
    <!--- Package 3 beam right -->
-    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 37.18545" rot="0 0 -60.0" />  
+    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 37.1856" rot="0 0 -60.0" />  
     <posXYZ volume="FBA1" X_Y_Z="-56.351 0.3549 36.55045"/>
     <posXYZ volume="FBA3" X_Y_Z="-61.2386 0.3549 29.2162"/>  
     <posXYZ volume="FBA1" X_Y_Z="-56.351 0.3549 21.88195"/> 
-    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 21.24695" rot="0 0 -60.0" />
+    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 21.2468" rot="0 0 -60.0" />
     <posXYZ volume="FBA4" X_Y_Z="-62.0245 0.3549 35.4267" />
     <posXYZ volume="FBA4" X_Y_Z="-62.0245 0.3549 23.0217" />
     <posXYZ volume="FBA5" X_Y_Z="-59.6845 0.3549 21.56435" />   
@@ -174,8 +174,8 @@
     <posXYZ volume="FBA7" X_Y_Z="-63.75075 0.37945 35.4267"/>
     <posXYZ volume="FBA7" X_Y_Z="-63.75075 0.37945 23.0217"/>
   <!-- Nuts for package 3 -->
-    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 37.59825" Phi0="0.0"/>
-    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 20.76"  Phi0="0.0"/>
+    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 37.5944" Phi0="0.0"/>
+    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 20.8380"  Phi0="0.0"/>
   <!--- Package 4 beam left -->
     <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 75.61785" rot="0 0 60.0" />  
     <posXYZ volume="FBA1" X_Y_Z="56.351 0.3549  74.98285"/>
@@ -193,11 +193,11 @@
     <posXYZ volume="FBA7" X_Y_Z="63.75075 0.37945 73.8591"/>
     <posXYZ volume="FBA7" X_Y_Z="63.75075 0.37945 61.4541"/>
    <!--- Package 4 beam right -->
-    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 75.61785" rot="0 0 -60.0" />  
+    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 75.618" rot="0 0 -60.0" />  
     <posXYZ volume="FBA1" X_Y_Z="-56.351 0.3549 74.98285"/>
     <posXYZ volume="FBA3" X_Y_Z="-61.2386 0.3549 67.6486"/>  
     <posXYZ volume="FBA1" X_Y_Z="-56.351 0.3549 60.31435"/> 
-    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 59.67935" rot="0 0 -60.0" />
+    <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 59.6792" rot="0 0 -60.0" />
     <posXYZ volume="FBA4" X_Y_Z="-62.0245 0.3549 73.8591" />
     <posXYZ volume="FBA4" X_Y_Z="-62.0245 0.3549 61.4541" />
     <posXYZ volume="FBA5" X_Y_Z="-59.6845 0.3549 59.9968" />   
@@ -209,8 +209,8 @@
     <posXYZ volume="FBA7" X_Y_Z="-63.75075 0.37945 73.8591"/>
     <posXYZ volume="FBA7" X_Y_Z="-63.75075 0.37945 61.4541"/>  
    <!-- Nuts for package 4 -->
-    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 76.02665" Phi0="0.0"/>
-    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 59.2705"  Phi0="0.0"/>
+    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 76.0268" Phi0="0.0"/>
+    <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 59.2690"  Phi0="0.0"/>
 
 <!--Upstream gusset ring ledge-->
     <posXYZ volume="FDGU" X_Y_Z="0.0 0.0 -95.9548"/>   
@@ -250,10 +250,10 @@
     <mposPhi volume="FDXN" ncopy="12" R_Z="52.25 -80.2624" Phi0="15.0"/> 
     <mposPhi volume="FDXN" ncopy="6" R_Z="52.25 -80.2624" Phi0="90.0"/>
     <mposPhi volume="FDXN" ncopy="2" R_Z="52.25 -79.9056" Phi0="0.0"/>
-    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 -96.02665"/>
-    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 -79.2705"/> 
-    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 -96.02665"/>
-    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 -79.2705"/>
+    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 -96.0268"/>
+    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 -79.269"/> 
+    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 -96.0268"/>
+    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 -79.269"/>
     <!-- Package 2 -->
     <mposPhi volume="FDXN" ncopy="12" R_Z="52.25 -36.6024" Phi0="15.0"/> 
     <mposPhi volume="FDXN" ncopy="6" R_Z="52.25 -36.6024" Phi0="90.0"/>
@@ -269,10 +269,10 @@
     <mposPhi volume="FDXN" ncopy="12" R_Z="52.25 -21.83" Phi0="15.0"/> 
     <mposPhi volume="FDXN" ncopy="6" R_Z="52.25 -21.83" Phi0="90.0"/>
     <mposPhi volume="FDXN" ncopy="2" R_Z="52.25 -21.4731" Phi0="0.0"/>
-    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 -37.59825"/>
-    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 -20.83815"/> 
-    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 -37.59825"/>
-    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 -20.83815"/>
+    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 -37.5944"/>
+    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 -20.8380"/> 
+    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 -37.5944"/>
+    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 -20.8380"/>
     <!-- Package 3 -->
     <mposPhi volume="FDXN" ncopy="12" R_Z="52.25 36.6024" Phi0="15.0"/> 
     <mposPhi volume="FDXN" ncopy="6" R_Z="52.25 36.6024" Phi0="90.0"/>
@@ -288,10 +288,10 @@
     <mposPhi volume="FDXN" ncopy="12" R_Z="52.25 21.83" Phi0="15.0"/> 
     <mposPhi volume="FDXN" ncopy="6" R_Z="52.25 21.83" Phi0="90.0"/>
     <mposPhi volume="FDXN" ncopy="2" R_Z="52.25 21.4731" Phi0="0.0"/>
-    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 37.59825"/>
-    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 20.8382"/> 
-    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 37.59825"/>
-    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 20.8382"/>
+    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 37.5944"/>
+    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 20.8380"/> 
+    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 37.5944"/>
+    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 20.8380"/>
     <!-- Package 4 -->
     <mposPhi volume="FDXN" ncopy="12" R_Z="52.25 75.0348" Phi0="15.0"/> 
     <mposPhi volume="FDXN" ncopy="6" R_Z="52.25 75.0348" Phi0="90.0"/>
@@ -307,10 +307,10 @@
     <mposPhi volume="FDXN" ncopy="12" R_Z="52.25 60.2624" Phi0="15.0"/> 
     <mposPhi volume="FDXN" ncopy="6" R_Z="52.25 60.2624" Phi0="90.0"/>
     <mposPhi volume="FDXN" ncopy="2" R_Z="52.25 59.90555" Phi0="0.0"/>
-    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 76.02665"/>
-    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 59.27055"/> 
-    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 76.02665"/>
-    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 59.27055"/>
+    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 76.0268"/>
+    <posXYZ volume="FDXN" X_Y_Z="50.44 -13.48 59.269"/> 
+    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 76.0268"/>
+    <posXYZ volume="FDXN" X_Y_Z="-50.44 -13.48 59.269"/>
 
 <!-- Interpackage spacers -->   
     <mposZ volume="forwardDC_inter_package" ncopy="2" Z0="-58.4324" dZ="58.4324" />
@@ -752,10 +752,10 @@
    </composition>
 
    <composition name="forwardDC_upstream_manifold" envelope="FDMU">   
-     <posXYZ volume="forwardDC_cooling_manifold_cylinder" X_Y_Z="-0.15 -4.0776 -4.402" rot="180.0 0.0 180.0"/>
+     <posXYZ volume="forwardDC_cooling_manifold_cylinder" X_Y_Z="-0.15 -4.0776 -4.484" rot="180.0 0.0 180.0"/>
      <posXYZ volume="forwardDC_cooling_manifold_central_piece" X_Y_Z="-0.15 -4.1663 1.0"/>
-     <posXYZ volume="forwardDC_swagelock_fitting" X_Y_Z="-0.15 -4.0776 -7.1802"/>
-     <posXYZ volume="forwardDC_tygon_stub" X_Y_Z="-0.15 -4.0776 -9.6802"/>
+     <posXYZ volume="forwardDC_swagelock_fitting" X_Y_Z="-0.15 -4.0776 -7.254"/>
+     <posXYZ volume="forwardDC_tygon_stub" X_Y_Z="-0.15 -4.0776 -9.754"/>
      <posXYZ volume="FDMB" X_Y_Z="-0.15 -1.7408 1.0"  rot="-90 0 0"/>   
      <posXYZ volume="FMF3" X_Y_Z="-0.15 -1.7408 1.0"  rot="-90 0 0"/>   
      <posXYZ volume="FDMB" X_Y_Z="-0.15 -1.7408 4.54"  rot="-90 0 0"/>   
@@ -778,8 +778,8 @@
      <posXYZ volume="FMG3" X_Y_Z="0.97395 -3.5433 1.0"/>
 
      <posXYZ volume="forwardDC_cooling_manifold_central_piece" X_Y_Z="-0.15 +4.1663 -1.0" rot="180.0 0.0 0.0"/>
-    <posXYZ volume="forwardDC_cooling_manifold_cylinder" X_Y_Z="-0.15 +4.0776 -6.402" rot="0.0 180.0 180.0"/>
-     <posXYZ volume="forwardDC_swagelock_fitting" X_Y_Z="-0.15 +4.0776 -9.1802"/>
+    <posXYZ volume="forwardDC_cooling_manifold_cylinder" X_Y_Z="-0.15 +4.0776 -6.484" rot="0.0 180.0 180.0"/>
+     <posXYZ volume="forwardDC_swagelock_fitting" X_Y_Z="-0.1582 +4.0776 -9.254"/>
      <posXYZ volume="FDMB" X_Y_Z="-0.15 +1.7408 -1.0"  rot="-90 0 0"/>   
      <posXYZ volume="FMF3" X_Y_Z="-0.15 +1.7408 -1.0"  rot="-90 0 0"/>   
      <posXYZ volume="FDMB" X_Y_Z="-0.15 +1.7408 2.54"  rot="-90 0 0"/>   
@@ -798,11 +798,11 @@
 
    <composition name="forwardDC_cooling_manifold" envelope="FDMM">
      <posXYZ volume="forwardDC_cooling_manifold_central_piece" X_Y_Z="-0.15 -4.1663 1.0"/>
-     <posXYZ volume="forwardDC_cooling_manifold_cylinder" X_Y_Z="-0.15 -4.0776 6.402"/>
-     <posXYZ volume="forwardDC_cooling_manifold_cylinder" X_Y_Z="-0.15 -4.0776 -4.402" rot="180.0 0.0 180.0"/>
-     <posXYZ volume="forwardDC_swagelock_fitting" X_Y_Z="-0.15 -4.0776 9.1802"/>
-     <posXYZ volume="forwardDC_swagelock_fitting" X_Y_Z="-0.15 -4.0776 -7.1802"/> 
-     <posXYZ volume="forwardDC_tygon_stub" X_Y_Z="-0.15 -4.0776 -9.6802"/>
+     <posXYZ volume="forwardDC_cooling_manifold_cylinder" X_Y_Z="-0.15 -4.0776 6.484"/>
+     <posXYZ volume="forwardDC_cooling_manifold_cylinder" X_Y_Z="-0.15 -4.0776 -4.484" rot="180.0 0.0 180.0"/>
+     <posXYZ volume="forwardDC_swagelock_fitting" X_Y_Z="-0.15 -4.0776 9.254"/>
+     <posXYZ volume="forwardDC_swagelock_fitting" X_Y_Z="-0.15 -4.0776 -7.254"/> 
+     <posXYZ volume="forwardDC_tygon_stub" X_Y_Z="-0.15 -4.0776 -9.754"/>
      <posXYZ volume="FDMB" X_Y_Z="-0.15 -1.7408 1.0"  rot="-90 0 0"/>   
      <posXYZ volume="FMF3" X_Y_Z="-0.15 -1.7408 1.0"  rot="-90 0 0"/>   
      <posXYZ volume="FDMB" X_Y_Z="-0.15 -1.7408 4.54"  rot="-90 0 0"/>   
@@ -824,11 +824,11 @@
      <posXYZ volume="FMG3" X_Y_Z="0.97395 -3.5433 1.0"/>
 
      <posXYZ volume="forwardDC_cooling_manifold_central_piece" X_Y_Z="-0.15 +4.1663 -1.0" rot="180.0 0.0 0.0"/>
-     <posXYZ volume="forwardDC_cooling_manifold_cylinder" X_Y_Z="-0.15 +4.0776 -6.402" rot="0.0 180.0 180.0"/>
-     <posXYZ volume="forwardDC_cooling_manifold_cylinder" X_Y_Z="-0.15 +4.0776 +4.402" rot="180.0 180.0 0.0"/>
-     <posXYZ volume="forwardDC_swagelock_fitting" X_Y_Z="-0.15 +4.0776 7.1802"/>
-     <posXYZ volume="forwardDC_swagelock_fitting" X_Y_Z="-0.15 +4.0776 -9.1802"/>
-     <posXYZ volume="forwardDC_tygon_stub" X_Y_Z="-0.15 +4.0776 +9.6802"/>
+     <posXYZ volume="forwardDC_cooling_manifold_cylinder" X_Y_Z="-0.15 +4.0776 -6.484" rot="0.0 180.0 180.0"/>
+     <posXYZ volume="forwardDC_cooling_manifold_cylinder" X_Y_Z="-0.15 +4.0776 +4.484" rot="180.0 180.0 0.0"/>
+     <posXYZ volume="forwardDC_swagelock_fitting" X_Y_Z="-0.15 +4.0776 7.254"/>
+     <posXYZ volume="forwardDC_swagelock_fitting" X_Y_Z="-0.15 +4.0776 -9.254"/>
+     <posXYZ volume="forwardDC_tygon_stub" X_Y_Z="-0.15 +4.0776 +9.754"/>
      <posXYZ volume="FDMB" X_Y_Z="-0.15 +1.7408 -1.0"  rot="-90 0 0"/>   
      <posXYZ volume="FMF3" X_Y_Z="-0.15 +1.7408 -1.0"  rot="-90 0 0"/>   
      <posXYZ volume="FDMB" X_Y_Z="-0.15 +1.7408 2.54"  rot="-90 0 0"/>   
@@ -1030,7 +1030,7 @@
 	comment="thin tube of Fluorinert for cooling manifold" />
   <tubs name="FMF2" Rio_Z="0.0 0.9525 2.54" material="Fluorinert"
 	comment="thick tube of Fluorinert for cooling manifold" />
-  <tubs name="FMF3" Rio_Z="0.0 0.2 2.1844" material="Fluorinert"
+  <tubs name="FMF3" Rio_Z="0.0 0.2 2.184" material="Fluorinert"
 	comment="fluorinert stubs for cooling manifold"/>
   <tubs name="FMF4" Rio_Z="0.0 0.79375 1.7526" material="Fluorinert" 
         comment="Fluorinert for cylindrical part of manifold"/>
@@ -1042,7 +1042,7 @@
         comment="fluorinert for copper tube stubs" />
   <tubs name="FDMC" Rio_Z="0.1395 0.2 3.2" material="Copper" 
         comment="Copper cooling tube stubs" />
-  <tubs name="FDMB" Rio_Z="0.2 0.6 2.1844" material="Brass" 
+  <tubs name="FDMB" Rio_Z="0.2 0.6 2.184" material="Brass" 
 	comment="Brass swagelock fitting for cooling manifold"/>  
   <tubs name="FDSM" Rio_Z="0.0 1.19 3.0" material="Fluorinert"
         comment="Mother volume for swagelock fitting" />
@@ -1060,9 +1060,9 @@
        comment="Support piece for manifold" />
   <box name="FMG3" X_Y_Z="0.5969 1.0414 8.2804" material="FR-4"
        comment="Support piece for manifold" />
-  <box name="FDMM" X_Y_Z="3.1448 11.0 21.3604" material="Air"
+  <box name="FDMM" X_Y_Z="3.1448 11.0 21.508" material="Air"
        comment="Mother volume for cooling manifold" />
-  <box name="FDMU" X_Y_Z="3.1448 11.0 21.3604" material="Air"
+  <box name="FDMU" X_Y_Z="3.1448 11.0 21.508" material="Air"
        comment="Mother volume for cooling manifold" />
   <tubs name="FDT1" Rio_Z="0.47625 0.79375 3.0" material="Polyurethane"
        comment="Tygon tubing stub" />
@@ -1070,13 +1070,13 @@
        comment="Mother volume for small Tygon tube stub"/>
   <tubs name="FDT2" Rio_Z="0.47625 0.79375 2.0" material="Polyurethane"
        comment="Short Tygon tube stub"/>
-  <tubs name="FFM2" Rio_Z="0. 0.79375 37.06" material="Fluorinert"
+  <tubs name="FFM2" Rio_Z="0. 0.79375 36.9244" material="Fluorinert"
        comment="Mother volume for long Tygon tube"/>
-  <tubs name="FDT3" Rio_Z="0.46725 0.79375 37.06" material="Polyurethane"
+  <tubs name="FDT3" Rio_Z="0.46725 0.79375 36.9244" material="Polyurethane"
        comment="Long Tygon tube" />
-  <tubs name="FFM3" Rio_Z="0. 0.79375 17.06" material="Fluorinert"
+  <tubs name="FFM3" Rio_Z="0. 0.79375 16.9244" material="Fluorinert"
        comment="Mother volume for long Tygon tube"/>
-  <tubs name="FDT4" Rio_Z="0.46725 0.79375 17.06" material="Polyurethane"
+  <tubs name="FDT4" Rio_Z="0.46725 0.79375 16.9244" material="Polyurethane"
        comment="Long Tygon tube" />
   <box name="FCBS" X_Y_Z="7.7 3.81 0.5" material="Aluminum"
        comment="Side piece for cooling bracket"/>
