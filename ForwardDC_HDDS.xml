@@ -177,14 +177,14 @@
     <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 37.5944" Phi0="0.0"/>
     <mposPhi volume="FDXN" ncopy="2" R_Z="58.8 20.8380"  Phi0="0.0"/>
   <!--- Package 4 beam left -->
-    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 75.61785" rot="0 0 60.0" />  
+    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 75.618" rot="0 0 60.0" />  
     <posXYZ volume="FBA1" X_Y_Z="56.351 0.3549  74.98285"/>
     <posXYZ volume="FBA3" X_Y_Z="61.2386 0.3549 67.6486"/>  
     <posXYZ volume="FBA1" X_Y_Z="56.351 0.3549 60.31435"/> 
-    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 59.67935" rot="0 0 60.0" />
+    <posXYZ volume="FBA2" X_Y_Z="55.0 -6.5 59.6792" rot="0 0 60.0" />
     <posXYZ volume="FBA4" X_Y_Z="62.0245 0.3549 73.8591" />
     <posXYZ volume="FBA4" X_Y_Z="62.0245 0.3549 61.4541" />
-    <posXYZ volume="FBA5" X_Y_Z="59.6845 0.3549 59.9968" />   
+    <posXYZ volume="FBA5" X_Y_Z="59.6845 0.3549 59.99675" />   
     <posXYZ volume="FBA5" X_Y_Z="59.6845 0.3549 75.30045" />
     <posXYZ volume="FBA6" X_Y_Z="63.270 0.9857 73.8591" />
     <posXYZ volume="FBA6" X_Y_Z="63.270 0.9857 61.4541" />
@@ -200,7 +200,7 @@
     <posXYZ volume="FBA2" X_Y_Z="-55.0 -6.5 59.6792" rot="0 0 -60.0" />
     <posXYZ volume="FBA4" X_Y_Z="-62.0245 0.3549 73.8591" />
     <posXYZ volume="FBA4" X_Y_Z="-62.0245 0.3549 61.4541" />
-    <posXYZ volume="FBA5" X_Y_Z="-59.6845 0.3549 59.9968" />   
+    <posXYZ volume="FBA5" X_Y_Z="-59.6845 0.3549 59.99675" />   
     <posXYZ volume="FBA5" X_Y_Z="-59.6845 0.3549 75.30045" />
     <posXYZ volume="FBA6" X_Y_Z="-63.270 0.9857 73.8591" />
     <posXYZ volume="FBA6" X_Y_Z="-63.270 0.9857 61.4541" />
@@ -638,7 +638,6 @@
     <posXYZ volume="FDCP" X_Y_Z="0.0 0.0 -0.75" />
     <posXYZ volume="FDCP" X_Y_Z="0.0 0.0 -0.25" />
     <posXYZ volume="FDCP" X_Y_Z="0.0 0.0 +0.75" />
-    <posXYZ volume="forwardDC_cooling_loop" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
   <composition name="forwardDC_plastic_spacer" envelope="FDPS">
