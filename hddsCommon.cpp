@@ -1538,7 +1538,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                double phipull = dphi/2;
                if (phiMax < phiMin + 360)
                {
-                  phipull = (phipull > phi0-phiMin)? phi0-phiMin : phipull;
+                  phipull = (phipull > phigap)? phigap : phipull;
                }
                if (phi0 - phipull + ncopy*dphi > phiMax)
                {
