@@ -1535,10 +1535,8 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                phi0 *= unit.rad /unit.deg;
                dphi *= unit.rad /unit.deg;
                double phigap = phi0-phiMin;
-               double phipull = (phigap > dphi/2)? dphi/2 : phigap;
-               phipull = (phiMin+phigap+ncopy*dphi-phipull > phiMax)?
-                          phiMin+phigap+ncopy*dphi-phiMax : phipull;
-               if (phipull < phiMin-0.001 || phipull > dphi)
+               double phipull = dphi/2;
+               if (phi0 - phipull + ncopy*dphi > phiMax)
                {
                   std::cerr
                        << APP_NAME << " error: volume " << S(nameS)
