@@ -1513,8 +1513,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             if (noRotation && (nSiblings == 1) &&
                 (containerTypeS == "pcon"  ||
                  containerTypeS == "cons"  ||
-                 containerTypeS == "tubs"  ||
-		 containerTypeS == "eltu") &&
+                 containerTypeS == "tubs") &&
                 (implrotS == "true"))
             {
                double phiMax, phiMin, dphiM;
@@ -1994,8 +1993,6 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                  containerTypeS == "cons" ||
                  containerTypeS == "pcon" ||
                  containerTypeS == "pgon" ||
-                 containerTypeS == "trap" ||
-                 containerTypeS == "eltu" ||
                  containerTypeS == "box") &&
                 (containerS.size() != 0))
             {
