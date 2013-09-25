@@ -1536,6 +1536,10 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                dphi *= unit.rad /unit.deg;
                double phigap = phi0-phiMin;
                double phipull = dphi/2;
+               if (phiMax < phiMin + 360)
+               {
+                  phipull = (phipull > phi0-phiMin)? phi0-phiMin : phipull;
+               }
                if (phi0 - phipull + ncopy*dphi > phiMax)
                {
                   std::cerr
