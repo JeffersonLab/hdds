@@ -83,19 +83,23 @@
     <posXYZ volume="CDOC" X_Y_Z="0.0 0.0 77.04"/>  <!-- downstream outer collar -->
     <posXYZ volume="CDIU" X_Y_Z="0.0 0.0 -70.46"/> <!-- upstream inner collar -->
     <posXYZ volume="CDID" X_Y_Z="0.0 0.0 77.04"/>  <!-- downstream inner collar -->
-    <posXYZ volume="CDGD" X_Y_Z="0.0 0.0 +80.16"/> <!-- downstream rhoacell outer ring -->
-    <posXYZ volume="CDGI" X_Y_Z="0.0 0.0 +79.398"/> <!-- downstream rhoacell inner ring #1 --> 
-    <posXYZ volume="CDG2" X_Y_Z="0.0 0.0 +80.668"/> <!-- downstream rhoacell inner ring #2 -->
+    <posXYZ volume="CDGD" X_Y_Z="0.0 0.0 +80.16"
+                          geometry_layer="1"/>     <!-- downstream rhoacell outer ring -->
+    <posXYZ volume="CDGI" X_Y_Z="0.0 0.0 +79.398"
+                          geometry_layer="1"/>     <!-- downstream rhoacell inner ring #1 --> 
+    <posXYZ volume="CDG2" X_Y_Z="0.0 0.0 +80.668"
+                          geometry_layer="1"/>     <!-- downstream rhoacell inner ring #2 -->
     <posXYZ volume="CDPU" X_Y_Z="0.0 0.0 -72.18625"
-                          geometry_layer="1"/>      <!-- upstream end plate -->
+                          geometry_layer="1"/>     <!-- upstream end plate -->
     <posXYZ volume="CDPD" X_Y_Z="0.0 0.0 +78.590" 
-                          geometry_layer="1"/>      <!-- downstream end plate -->
+                          geometry_layer="1"/>     <!-- downstream end plate -->
     <posXYZ volume="CDGW" X_Y_Z="0.0 0.0 +81.435"/> <!-- downstream mylar gas window -->
     <posXYZ volume="CDGU" X_Y_Z="0.0 0.0 -76.63125"/> <!-- upstream plexiglass gas plate -->
-    <posXYZ volume="CDGS" X_Y_Z="0.0 0.0 -74.25"/> <!-- upstream gas plenum shell -->  
+    <posXYZ volume="CDGS" X_Y_Z="0.0 0.0 -74.25"
+                          geometry_layer="1"/>     <!-- upstream gas plenum shell -->  
     <posXYZ volume="CDIS" X_Y_Z="0.0 0.0 -74.25"/> <!-- upstream gas plenum inner shell -->
     <posXYZ volume="CDRO" X_Y_Z="0.0 0.0 -79.425"/> <!-- CDC readout cables outside plexiglas -->  
-    <posXYZ volume="CDHU" X_Y_Z="0.0 0.0 -74.25"/> <!-- CDC readout cables inside gas volume-->
+    <posXYZ volume="CDHU" X_Y_Z="0.0 0.0 -75.0"/>  <!-- CDC readout cables inside gas volume-->
     <posXYZ volume="CSAM" X_Y_Z="0.0 0.0 3.29" />  <!-- aluminum mesh -->   
  </composition>
 
@@ -418,11 +422,11 @@
   </pcon>
   <tubs name="CRPI" Rio_Z="0.01  0.0735  1.206" material="Copper" /> 
 
-  <tubs name="DCLS"  Rio_Z="9.9344 55.5338 156.0" material="CDchamberGas" />
+  <tubs name="DCLS"  Rio_Z="9.9344 55.5338 155.1" material="CDchamberGas" />
  
   <tubs name="CDSS" Rio_Z="0.0 0.635 3.175" material="StainlessSteel"/>
   <tubs name="CDRO" Rio_Z="9.9 55.5 4.0" material="SignalCables"/>  
-  <tubs name="CDHU" Rio_Z="9.9 55.3 3.175" material="CDCHookupCables"/>
+  <tubs name="CDHU" Rio_Z="9.9 55.3 1.4" material="CDCHookupCables"/>
 
   <!-- The following elements describe an early rendition of the GlueX
        detector simulated using a fast Monte Carlo program MCFast.  They
