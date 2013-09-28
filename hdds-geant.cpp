@@ -799,7 +799,9 @@ int FortranWriter::createVolume(DOMElement* el, Refsys& ref)
            << "      y = " << fRef.fOrigin[1] << std::endl
            << "      z = " << fRef.fOrigin[2] << std::endl
            << "      irot = " << irot << std::endl
-           << "      chonly = \'ONLY\'" << std::endl
+           << "      chonly = \'"
+           << ((fRef.fGeometryLayer == 0)? "ONLY" : "MANY")
+           << "\'" << std::endl
            << "      call gspos(chname,nr,chmoth,x,y,z,irot,chonly)"
            << std::endl;
       fPending = false;
