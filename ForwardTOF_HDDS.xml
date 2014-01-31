@@ -10,7 +10,7 @@
 -->
 
 <section name        = "ForwardTOF"
-         version     = "2.0"
+         version     = "2.1"
          date        = "2006-11-22"
          author      = "M. Shepherd, R.T. Jones"
          top_volume  = "FTOF"
@@ -25,6 +25,16 @@
 <!-- changed order of paddle counting: 1-40 bottom to top and south to north      -->
 <!-- the half paddles are counted separately 41,43 north halfs, 42,44 south halfs -->
 
+
+<!-- Fri Jan 24 10:00:12 EST 2014  B. Zihlmann                                            -->
+<!-- change the width of the innermost long paddles from 6cm to 3cm                       -->
+<!-- e.g. the 2 long paddles closest to the center hole are split in half (lengthwise)    -->
+<!-- CHANGE NUMBERING SCHEEME!!: paddles are counted through from the bottom up and where -->
+<!-- they are split paddles the continue counting the north side only, the south side     -->
+<!-- paddles are added in the end as counters                                             -->
+<!-- 18(long wide paddles)(18) 4(long narrow paddles)(22) 2(short paddles)(24)            -->
+<!-- 4(long narrow paddles)(28) 18(long wide paddles)(46) 2(short paddles top/south) (48) -->
+
   <composition name="ForwardTOF">
     <posXYZ volume="forwardTOF" X_Y_Z="0.0  0.0 1.27" rot="0 0 -90">
       <plane value="0" />
@@ -35,46 +45,65 @@
   </composition>
 
   <composition name="forwardTOF" envelope="FTOF">
-    <posXYZ volume="forwardTOF_bottom" X_Y_Z="0.0 -66.0 0.0" />
+    <posXYZ volume="forwardTOF_bottom1" X_Y_Z="0.0 -72.0 0.0" />
+    <posXYZ volume="forwardTOF_bottom2" X_Y_Z="0.0 -12.0 0.0" />
     <posXYZ volume="forwardTOF_north" X_Y_Z="+66.0 0.0 0.0" />
     <posXYZ volume="forwardTOF_south" X_Y_Z="-66.0 0.0 0.0" />
-    <posXYZ volume="forwardTOF_top" X_Y_Z="0.0 +66.0 0.0" />
+    <posXYZ volume="forwardTOF_top2" X_Y_Z="0.0 +12.0 0.0" />
+    <posXYZ volume="forwardTOF_top1" X_Y_Z="0.0 +72.0 0.0" />
   </composition>
 
 <!-- the attribute 'row' is synonymous with 'bar' -->
-  <composition name="forwardTOF_top" envelope="FTOT">
-    <mposY volume="FTOC" ncopy="20" Z_X="0.0 0.0" Y0="-57.0" dY="6.00">
-      <row value="21" step="1" />
+  <composition name="forwardTOF_top1" envelope="FTOT">
+    <mposY volume="FTOC" ncopy="18" Z_X="0.0 0.0" Y0="-51.0" dY="6.00">
+      <row value="27" step="1" />
       <column value="0" />
     </mposY>
   </composition>
-  <composition name="forwardTOF_bottom" envelope="FTOB">
-    <mposY volume="FTOC" ncopy="20" Z_X="0.0 0.0" Y0="-57.00" dY="6.00">
+  <composition name="forwardTOF_top2" envelope="FTOY">
+    <mposY volume="FTOX" ncopy="4" Z_X="0.0 0.0" Y0="-4.5" dY="3.00">
+      <row value="23" step="1" />
+      <column value="0" />
+    </mposY>
+  </composition>
+  <composition name="forwardTOF_bottom1" envelope="FTOB">
+    <mposY volume="FTOC" ncopy="18" Z_X="0.0 0.0" Y0="-51.0" dY="6.00">
       <row value="1" step="1" />
       <column value="0" />
     </mposY>
   </composition>
+  <composition name="forwardTOF_bottom2" envelope="FTOZ">
+    <mposY volume="FTOX" ncopy="4" Z_X="0.0 0.0" Y0="-4.5" dY="3.00">
+      <row value="19" step="1" />
+      <column value="0" />
+    </mposY>
+  </composition>
+
   <composition name="forwardTOF_north" envelope="FTON">
     <mposY volume="FTOH" ncopy="2" Z_X = "0.0 0.0" Y0="-3.0" dY="6.0">
-      <row value="42" step="2" />
+      <row value="46" step="2" />
       <column value="1" />
     </mposY>
   </composition>
   <composition name="forwardTOF_south" envelope="FTOS">
     <mposY volume="FTOH" ncopy="2" Z_X="0.0 0.0" Y0="-3.0" dY="6.0">
-      <row value="41" step="2" />
+      <row value="45" step="2" />
       <column value="2" />
     </mposY>
   </composition>
 
   <box name="FTOF" X_Y_Z="252.0 252.0 2.55" material="Air" />
-  <box name="FTOB" X_Y_Z="252.0 120.0 2.55" material="Air" />
-  <box name="FTOT" X_Y_Z="252.0 120.0 2.55" material="Air" />
+  <box name="FTOB" X_Y_Z="252.0 108.0 2.55" material="Air" />
+  <box name="FTOT" X_Y_Z="252.0 108.0 2.55" material="Air" />
+  <box name="FTOY" X_Y_Z="252.0  12.0 2.55" material="Air" />
+  <box name="FTOZ" X_Y_Z="252.0  12.0 2.55" material="Air" />
   <box name="FTON" X_Y_Z="120.0  12.0 2.55" material="Air" />
   <box name="FTOS" X_Y_Z="120.0  12.0 2.55" material="Air" />
   <box name="FTOC" X_Y_Z="252.0   6.0 2.54" material="Scintillator"
 					    sensitive="true" />
   <box name="FTOH" X_Y_Z="120.0   6.0 2.54" material="Scintillator"
+					    sensitive="true" />
+  <box name="FTOX" X_Y_Z="252.0   3.0 2.54" material="Scintillator"
 					    sensitive="true" />
 
   <!-- The following elements describe an early rendition of the GlueX
