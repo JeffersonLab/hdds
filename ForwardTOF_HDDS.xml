@@ -56,13 +56,13 @@
 <!-- the attribute 'row' is synonymous with 'bar' -->
   <composition name="forwardTOF_top1" envelope="FTOT">
     <mposY volume="FTOC" ncopy="18" Z_X="0.0 0.0" Y0="-51.0" dY="6.00">
-      <row value="27" step="1" />
+      <row value="29" step="1" />
       <column value="0" />
     </mposY>
   </composition>
   <composition name="forwardTOF_top2" envelope="FTOY">
     <mposY volume="FTOX" ncopy="4" Z_X="0.0 0.0" Y0="-4.5" dY="3.00">
-      <row value="23" step="1" />
+      <row value="25" step="1" />
       <column value="0" />
     </mposY>
   </composition>
@@ -81,13 +81,13 @@
 
   <composition name="forwardTOF_north" envelope="FTON">
     <mposY volume="FTOH" ncopy="2" Z_X = "0.0 0.0" Y0="-3.0" dY="6.0">
-      <row value="46" step="2" />
+      <row value="23" step="1" />
       <column value="1" />
     </mposY>
   </composition>
   <composition name="forwardTOF_south" envelope="FTOS">
     <mposY volume="FTOH" ncopy="2" Z_X="0.0 0.0" Y0="-3.0" dY="6.0">
-      <row value="45" step="2" />
+      <row value="47" step="1" />
       <column value="2" />
     </mposY>
   </composition>
