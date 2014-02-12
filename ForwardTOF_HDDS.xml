@@ -55,25 +55,25 @@
 
 <!-- the attribute 'row' is synonymous with 'bar' -->
   <composition name="forwardTOF_top1" envelope="FTOT">
-    <mposY volume="FTOC" ncopy="19" Z_X="0.0 0.0" Y0="-51.0" dY="6.00">
+    <mposY volume="FTOC" ncopy="19" Z_X="0.0 0.0" Y0="-54.0" dY="6.00">
       <row value="26" step="1" />
       <column value="0" />
     </mposY>
   </composition>
   <composition name="forwardTOF_top2" envelope="FTOY">
-    <mposY volume="FTOX" ncopy="2" Z_X="0.0 0.0" Y0="-4.5" dY="3.00">
+    <mposY volume="FTOX" ncopy="2" Z_X="0.0 0.0" Y0="-1.5" dY="3.00">
       <row value="24" step="1" />
       <column value="0" />
     </mposY>
   </composition>
   <composition name="forwardTOF_bottom1" envelope="FTOB">
-    <mposY volume="FTOC" ncopy="19" Z_X="0.0 0.0" Y0="-51.0" dY="6.00">
+    <mposY volume="FTOC" ncopy="19" Z_X="0.0 0.0" Y0="-54.0" dY="6.00">
       <row value="1" step="1" />
       <column value="0" />
     </mposY>
   </composition>
   <composition name="forwardTOF_bottom2" envelope="FTOZ">
-    <mposY volume="FTOX" ncopy="2" Z_X="0.0 0.0" Y0="-4.5" dY="3.00">
+    <mposY volume="FTOX" ncopy="2" Z_X="0.0 0.0" Y0="-1.5" dY="3.00">
       <row value="20" step="1" />
       <column value="0" />
     </mposY>
@@ -93,10 +93,10 @@
   </composition>
 
   <box name="FTOF" X_Y_Z="252.0 252.0 2.55" material="Air" />
-  <box name="FTOB" X_Y_Z="252.0 108.0 2.55" material="Air" />
-  <box name="FTOT" X_Y_Z="252.0 108.0 2.55" material="Air" />
-  <box name="FTOY" X_Y_Z="252.0  12.0 2.55" material="Air" />
-  <box name="FTOZ" X_Y_Z="252.0  12.0 2.55" material="Air" />
+  <box name="FTOB" X_Y_Z="252.0 114.0 2.55" material="Air" />
+  <box name="FTOT" X_Y_Z="252.0 114.0 2.55" material="Air" />
+  <box name="FTOY" X_Y_Z="252.0   6.0 2.55" material="Air" />
+  <box name="FTOZ" X_Y_Z="252.0   6.0 2.55" material="Air" />
   <box name="FTON" X_Y_Z="120.0  12.0 2.55" material="Air" />
   <box name="FTOS" X_Y_Z="120.0  12.0 2.55" material="Air" />
   <box name="FTOC" X_Y_Z="252.0   6.0 2.54" material="Scintillator"
