@@ -1,0 +1,21 @@
+# Default GNU fortran compiler is based
+# on whether we're using gcc3 or not
+GCCVERSION = $(shell ./gccversion.sh)
+ifeq ($(strip $(GCCVERSION)), 3)
+	# Using gcc3
+	FC_GNU = g77
+else
+	# Using gcc4
+        FC_GNU = gfortran
+endif
+
+# FC is now set to f77 by default so simply checking if it's not defined always fails
+ifeq ($(FC), f77)
+FC              = $(FC_GNU)
+endif
+ifndef CC
+CC              = gcc
+endif
+ifndef CXX
+CXX     = g++
+endif
