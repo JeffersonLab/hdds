@@ -345,15 +345,15 @@ int RootMacroWriter::createSolid(DOMElement* el, Refsys& ref)
    else if (shapeS == "eltu")
    {
       shapeS = "ELTU";
-      double ri, ro, zl;
+      double rx, ry, zl;
       // double phi0, dphi;
-      XString riozS(el->getAttribute(X("Rio_Z")));
-      std::stringstream listr(riozS);
-      listr >> ri >> ro >> zl;
+      XString rxyzS(el->getAttribute(X("Rxy_Z")));
+      std::stringstream listr(rxyzS);
+      listr >> rx >> ry >> zl;
 
       npar = 3;
-      par[0] = ri /unit.cm;
-      par[1] = ro /unit.cm;
+      par[0] = rx /unit.cm;
+      par[1] = ry /unit.cm;
       par[2] = zl/2 /unit.cm;
 
       std::cout
