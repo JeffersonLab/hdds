@@ -269,7 +269,7 @@
   </composition>
   <composition name="CDCstrawLong" envelope="STLM">
     <posXYZ volume="STLA" X_Y_Z="0. 0.   0.0"/>
-    <posXYZ volume="STRW" X_Y_Z="0. 0.   0.0"/>
+    <posXYZ volume="STLW" X_Y_Z="0. 0.   0.0"/>
     <posXYZ volume="WILE" X_Y_Z="0. 0.  -0.17625"/>
     <posXYZ volume="DPLG" X_Y_Z="0. 0.  74.92375"/>
     <posXYZ volume="DFTH" X_Y_Z="0. 0.  76.050"/>
