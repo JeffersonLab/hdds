@@ -24,12 +24,13 @@
                   f) Place the coolant coupling tubes (CoolingCon) onto a
                      separate geometry layer so that they can interleave with
                      the readout layers without generating overlaps.
- 
+     version 4.1: Removed overall rotation by 2 sectors to match actual installation -dl
+
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name = "BarrelEMcal"
-         version = "4.0"
+         version = "4.1"
          date = "2007-12-08"
          author = "R.T. Jones"
          top_volume = "BCAL"
@@ -79,7 +80,7 @@ caused conflict with drift chamber cable supports.
   </composition>
 
   <composition name="barrelEMcal" envelope="BCAL">
-    <mposPhi volume="barrelModule" ncopy="48" Phi0="3.75" impliedRot="true">
+    <mposPhi volume="barrelModule" ncopy="48" Phi0="0.0" impliedRot="true">
       <module value="1" step="1" />
     </mposPhi>
   </composition>
