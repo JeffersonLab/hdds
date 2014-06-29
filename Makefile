@@ -15,7 +15,7 @@ ifeq ($(OStype),SunOS)
         COPTS = -D_REENTRANT -DBASENAME_IN_LIBGEN
 endif
 ifeq ($(OStype),Darwin)
-	CC = g++
+	CC = c++
         COPTS = -D_REENTRANT -DBASENAME_IN_LIBGEN
 endif
 

@@ -125,42 +125,42 @@
 
 <!-- FIRST AND SECOND STEREO SUPER LAYERS 4+ and 4- -->
 
-    <mposPhi volume="CDCstrawLong" ncopy="66" R_Z="16.9320 0.0" Phi0="0.0"
+    <mposPhi volume="CDCstrawLong" ncopy="66" R_Z="16.9320 0.0" Phi0="-21.81818182"
                         unit_length="cm" rot="+6.0 0 0" unit_angle="deg">
       <ring value="5" />
       <sector value="1" step="1" />
     </mposPhi>
-    <mposPhi volume="CDCstrawLong" ncopy="66" R_Z="18.3087 0.0" Phi0="2.7273"
+    <mposPhi volume="CDCstrawLong" ncopy="66" R_Z="18.3087 0.0" Phi0="-24.54542727"
                         unit_length="cm" rot="+6.4838 0 0" unit_angle="deg">
       <ring value="6" />
       <sector value="1" step="1" />
     </mposPhi>
-    <mposPhi volume="CDCstrawLong" ncopy="80" R_Z="20.5213 0.0" Phi0="-0.9230"
+    <mposPhi volume="CDCstrawLong" ncopy="80" R_Z="20.5213 0.0" Phi0="-18.923"
                          unit_length="cm" rot="+6.0 0 0" unit_angle="deg">
       <ring value="7" />
       <sector value="1" step="1" />
     </mposPhi>
-    <mposPhi volume="CDCstrawLong" ncopy="80" R_Z="21.9010 0.0" Phi0="1.3270"
+    <mposPhi volume="CDCstrawLong" ncopy="80" R_Z="21.9010 0.0" Phi0="-21.173"
                          unit_length="cm" rot="+6.4001 0 0" unit_angle="deg">
       <ring value="8" />
       <sector value="1" step="1" />
     </mposPhi>
-    <mposPhi volume="CDCstrawLong" ncopy="93" R_Z="23.8544 0.0" Phi0="0.0"
+    <mposPhi volume="CDCstrawLong" ncopy="93" R_Z="23.8544 0.0" Phi0="19.35483871"
                          unit_length="cm" rot="-6.0 0 0" unit_angle="deg">
       <ring value="9" />
       <sector value="1" step="1" />
     </mposPhi>
-    <mposPhi volume="CDCstrawLong" ncopy="93" R_Z="25.2362 0.0" Phi0="1.9355"
+    <mposPhi volume="CDCstrawLong" ncopy="93" R_Z="25.2362 0.0" Phi0="21.29033871"
                          unit_length="cm" rot="-6.3448 0 0" unit_angle="deg">
       <ring value="10" />
       <sector value="1" step="1" />
     </mposPhi>
-    <mposPhi volume="CDCstrawLong" ncopy="106" R_Z="27.1876 0.0" Phi0="-0.5041"
+    <mposPhi volume="CDCstrawLong" ncopy="106" R_Z="27.1876 0.0" Phi0="16.47703208"
                          unit_length="cm" rot="-6.0 0 0" unit_angle="deg">
       <ring value="11" />
       <sector value="1" step="1" />
     </mposPhi>
-    <mposPhi volume="CDCstrawLong" ncopy="106" R_Z="28.5712 0.0" Phi0="1.1940"
+    <mposPhi volume="CDCstrawLong" ncopy="106" R_Z="28.5712 0.0" Phi0="18.17513208"
                          unit_length="cm" rot="-6.3029 0 0" unit_angle="deg">
       <ring value="12" />
       <sector value="1" step="1" />
@@ -168,7 +168,7 @@
 
 <!-- Second set of axial wires -->
 
-    <mposPhi volume="CDCstrawShort" ncopy="123" Phi0="-0.59503" R_Z="31.3799 0.0" dPhi="2.926829">
+    <mposPhi volume="CDCstrawShort" ncopy="123" Phi0="2.331799268" R_Z="31.3799 0.0" dPhi="2.926829">
       <ring value="13" />
       <sector value="1" step="1" />
     </mposPhi>
@@ -188,45 +188,45 @@
 
 <!-- THIRD AND FOURTH STEREO LAYER -->
 
-    <mposPhi volume="CDCstrawLong" ncopy="146" R_Z="37.4446 0.0" Phi0="0.8330"
+    <mposPhi volume="CDCstrawLong" ncopy="146" R_Z="37.4446 0.0" Phi0="13.16176712"
                          unit_length="cm" rot="-6.0 0 0" unit_angle="deg">
       <ring value="17" />
       <sector value="1" step="1" />
     </mposPhi>
-    <mposPhi volume="CDCstrawLong" ncopy="146" R_Z="38.8313 0.0" Phi0="2.0659"
+    <mposPhi volume="CDCstrawLong" ncopy="146" R_Z="38.8313 0.0" Phi0="11.9289137"
                          unit_length="cm" rot="-6.2205 0 0" unit_angle="deg">
       <ring value="18" />
       <sector value="1" step="1" />
     </mposPhi>
 
-    <mposPhi volume="CDCstrawLong" ncopy="158" R_Z="40.5368 0.0" Phi0="-0.3295"
+    <mposPhi volume="CDCstrawLong" ncopy="158" R_Z="40.5368 0.0" Phi0="11.06290506"
                          unit_length="cm" rot="-6.0 0 0" unit_angle="deg">
       <ring value="19" />
       <sector value="1" step="1" />
     </mposPhi>
-    <mposPhi volume="CDCstrawLong" ncopy="158" R_Z="41.9247 0.0" Phi0="0.8097"
+    <mposPhi volume="CDCstrawLong" ncopy="158" R_Z="41.9247 0.0" Phi0="12.20210506"
                          unit_length="cm" rot="-6.2039 0 0" unit_angle="deg">
       <ring value="20" />
       <sector value="1" step="1" />
     </mposPhi>
 
-    <mposPhi volume="CDCstrawLong" ncopy="170" R_Z="43.6152 0.0" Phi0="0.4285"
+    <mposPhi volume="CDCstrawLong" ncopy="170" R_Z="43.6152 0.0" Phi0="-10.15973529"
                          unit_length="cm" rot="+6.0 0 0" unit_angle="deg">
       <ring value="21" />
       <sector value="1" step="1" />
     </mposPhi>
-    <mposPhi volume="CDCstrawLong" ncopy="170" R_Z="45.0038 0.0" Phi0="1.4873"
+    <mposPhi volume="CDCstrawLong" ncopy="170" R_Z="45.0038 0.0" Phi0="-9.100935294"
                          unit_length="cm" rot="+6.1896 0 0" unit_angle="deg">
       <ring value="22" />
       <sector value="1" step="1" />
     </mposPhi>
  
-    <mposPhi volume="CDCstrawLong" ncopy="182" R_Z="46.6850 0.0" Phi0="-0.6665"
+    <mposPhi volume="CDCstrawLong" ncopy="182" R_Z="46.6850 0.0" Phi0="-8.578587912"
                          unit_length="cm" rot="+6.0 0 0" unit_angle="deg">
       <ring value="23" />
       <sector value="1" step="1" />
     </mposPhi>
-    <mposPhi volume="CDCstrawLong" ncopy="182" R_Z="48.0736 0.0" Phi0="0.3225"
+    <mposPhi volume="CDCstrawLong" ncopy="182" R_Z="48.0736 0.0" Phi0="-9.56760989"
                          unit_length="cm" rot="6.1771 0 0" unit_angle="deg">
       <ring value="24" />
       <sector value="1" step="1" />
@@ -234,7 +234,7 @@
 
 <!-- LAST FOUR AXIAL LAYERS -->
 
-    <mposPhi volume="CDCstrawShort" ncopy="197" Phi0="-0.60612" R_Z="50.3747 0.0" dPhi="1.827411168">
+    <mposPhi volume="CDCstrawShort" ncopy="197" Phi0="1.221291168" R_Z="50.3747 0.0" dPhi="1.827411168">
       <ring value="25" />
       <sector value="1" step="1" />
     </mposPhi>
