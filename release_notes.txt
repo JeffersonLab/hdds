@@ -1,0 +1,84 @@
+Release Notes for HDDS 2.1
+
+From revision 13999 of trunk. This release includes:
+
+* Changes to TOF geometry from Beni and Simon.
+* Fix to length of stereo straws in CDC from Richard.
+* Bug fix for elliptical tubes from Richard.
+* Rotation of BCAL from David.
+* Tweaks to the CDC geometry from Richard.
+* Update to phi 0 for CDC from David. 
+
+Changes since HDDS 2.0:
+
+------------------------------------------------------------------------
+r12504 | zihlmann | 2014-01-31 13:02:39 -0500 (Fri, 31 Jan 2014) | 2 lines
+Changed paths:
+   M /trunk/hdds/ForwardTOF_HDDS.xml
+
+put the half width paddles into the geometry
+
+------------------------------------------------------------------------
+r12553 | zihlmann | 2014-02-06 14:22:30 -0500 (Thu, 06 Feb 2014) | 2 lines
+Changed paths:
+   M /trunk/hdds/ForwardTOF_HDDS.xml
+
+fix numbering assignement mistake with bar numbers
+
+------------------------------------------------------------------------
+r12583 | zihlmann | 2014-02-12 14:46:56 -0500 (Wed, 12 Feb 2014) | 2 lines
+Changed paths:
+   M /trunk/hdds/ForwardTOF_HDDS.xml
+
+change wrong TOF configuration to 4 long narrow paddles per plane
+
+------------------------------------------------------------------------
+r12587 | staylor | 2014-02-12 17:43:41 -0500 (Wed, 12 Feb 2014) | 1 line
+Changed paths:
+   M /trunk/hdds/ForwardTOF_HDDS.xml
+
+Change sizes of mother volume for the 2 half-width paddles and adjust the positions of the paddles in these volumes.
+------------------------------------------------------------------------
+r13051 | jonesrt | 2014-03-26 10:17:16 -0400 (Wed, 26 Mar 2014) | 5 lines
+Changed paths:
+   M /trunk/hdds/CentralDC_HDDS.xml
+
+* CentralDC_HDDS.xml [rtj]
+   - fixed a bug in the CDC geometry for the stereo straws, where
+     the length of the aluminum tube was set to be the same as the
+     straight straws, whereas these should be a few mm longer.
+
+------------------------------------------------------------------------
+r13052 | jonesrt | 2014-03-26 10:19:19 -0400 (Wed, 26 Mar 2014) | 5 lines
+Changed paths:
+   M /trunk/hdds/hdds-root_h.cpp
+
+* hdds-root_h.cpp [rtj]
+   - fixed a bug in hdds-root_h which caused the TGeoManager to
+     contruct faulty dimensions for elliptical tube (ELTU) objects
+     in the geometry.
+
+------------------------------------------------------------------------
+r13969 | davidl | 2014-06-27 10:30:22 -0400 (Fri, 27 Jun 2014) | 1 line
+Changed paths:
+   M /trunk/hdds/BarrelEMcal_HDDS.xml
+
+Rotate entire BCAL by half a module so that modules are centered on cardinal directions rather than boundaries. This now matches the installed orientation.
+------------------------------------------------------------------------
+r13977 | jonesrt | 2014-06-27 16:06:13 -0400 (Fri, 27 Jun 2014) | 5 lines
+Changed paths:
+   M /trunk/hdds/CentralDC_HDDS.xml
+
+* CentralDC_HDDS.xml [rtj]
+  - improve the layout of the CDC without substantial changes to the straw positions;
+    tweak the stereo angles and phi offsets of the non-axial layers to better reflect
+    the ideal geometry of closest-packing layer stacks, as suggested by Beni.
+
+------------------------------------------------------------------------
+r13985 | davidl | 2014-06-29 16:55:08 -0400 (Sun, 29 Jun 2014) | 1 line
+Changed paths:
+   M /trunk/hdds/CentralDC_HDDS.xml
+   M /trunk/hdds/Makefile
+
+Updated Phi0 for CDC rings to match what is in translation table.
+------------------------------------------------------------------------
