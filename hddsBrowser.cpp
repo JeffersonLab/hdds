@@ -343,7 +343,7 @@ std::vector<Refsys>* hddsBrowser::find(const XString volume,
          dref->rotate(angle);
          for (int inst = 0; inst < ncopy; inst++) {
             double y = y0 + inst * dy;
-            double phi = atan2(y,x);
+            //double phi = atan2(y,x);
             origin[0] = x;
             origin[1] = y;
             origin[2] = z;

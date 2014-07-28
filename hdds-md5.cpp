@@ -119,7 +119,8 @@ int main(int argC, char* argV[])
 
 	// Parse the XML input file, calculating the checksum at the end
 	// and leaving it in the global variable "last_md5_checksum"
-	DOMDocument* document = parseInputDocument(xmlFile,false);
+	//DOMDocument* document =  // commented out to avoid compiler warnings
+	parseInputDocument(xmlFile,false);
 	
 	std::cout << "HDDS Geometry MD5 Checksum: " << last_md5_checksum << std::endl;
 	
