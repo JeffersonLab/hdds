@@ -94,6 +94,8 @@ env.Append(BUILDERS = {'HDDSrootc'  : hddsrootbld  })
 env.Append(BUILDERS = {'HDDSrooth'  : hddsroothbld })
 
 # --- Use builders to generate source from XML ---
+if os.getenv('LD_LIBRARY_PATH'  ) != None : env.AppendENVPath('LD_LIBRARY_PATH'  , '%s/lib' % xerces )  # so libxerces-c.so can be found
+if os.getenv('DYLD_LIBRARY_PATH') != None : env.AppendENVPath('DYLD_LIBRARY_PATH', '%s/lib' % xerces )  # so libxerces-c.so can be found
 HDDSGEANT3 = env.HDDSgeant(target='%s/hddsGeant3.F' % builddir, source='main_HDDS.xml')
 HDDSROOTC  = env.HDDSrootc(target='%s/hddsroot.C'   % builddir, source='main_HDDS.xml')
 HDDSROOTH  = env.HDDSrooth(target='%s/hddsroot.h'   % builddir, source='main_HDDS.xml')
