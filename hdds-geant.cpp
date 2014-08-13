@@ -856,7 +856,9 @@ void FortranWriter::createHeader()
         << "      integer irot"                                   << std::endl
         << "      real theta1,phi1,theta2,phi2,theta3,phi3"       << std::endl
         << "      integer nr,ndiv,iaxis,numed,ndvmax"             << std::endl
+        << "      data nr,ndiv,iaxis,numed,ndvmax/0,0,0,0,0/"     << std::endl
         << "      real step,c0"                                   << std::endl
+        << "      data step,c0/0,0/"                              << std::endl
         << "      real x,y"                                       << std::endl
         << "      character*4 chonly"                             << std::endl;
 #ifdef LINUX_CPUTIME_PROFILING
@@ -1436,7 +1438,9 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
         << "      subroutine gufld" << map << "(r,B)" << std::endl
         << "      implicit none" << std::endl
         << "      real r(3),B(3),Br(3)" << std::endl
+        << "      data Br/0,0,0/" << std::endl
         << "      real rho,phi,alpha" << std::endl
+        << "      data rho,phi,alpha/0,0,0/" << std::endl
         << "      real u(3)" << std::endl
         << "      real twopi" << std::endl
         << "      parameter (twopi=6.28318530717959)" << std::endl
@@ -1794,29 +1798,21 @@ void FortranWriter::createUtilityFunctions(DOMElement* el, const XString& ident)
          ++ifclauses;
       }
    }
-   if (ifclauses)
-   {
-      std::cout
-           << std::endl
-           << "        refl = 0" << std::endl
-           << "        absl = 0" << std::endl
-           << "        rind = 0" << std::endl
-           << "        plsh = 1" << std::endl
-           << "        eff = 0" << std::endl
-           << "      endif" << std::endl
-           << "      end" << std::endl;
-   }
-   else
-   {
-      std::cout
-           << std::endl
-           << "      refl = 0" << std::endl
-           << "      absl = 0" << std::endl
-           << "      rind = 0" << std::endl
-           << "      plsh = 1" << std::endl
-           << "      eff = 0" << std::endl
-           << "      end" << std::endl;
-   }
+   std::cout
+        << "if (imat.le.0 .or. E.le.0) then" << std::endl
+        << "        refl = 0" << std::endl
+        << "        absl = 0" << std::endl
+        << "        rind = 0" << std::endl
+        << "        plsh = 0" << std::endl
+        << "        eff = 0" << std::endl
+        << "      else" << std::endl
+        << "        refl = 0" << std::endl
+        << "        absl = 0" << std::endl
+        << "        rind = 0" << std::endl
+        << "        plsh = 1" << std::endl
+        << "        eff = 0" << std::endl
+        << "      endif" << std::endl
+        << "      end" << std::endl;
 
    std::cout
         << std::endl
@@ -1831,6 +1827,10 @@ void FortranWriter::createUtilityFunctions(DOMElement* el, const XString& ident)
         << "      real fieldm,tmaxfd,stemax,deemax,epsil,stmin" << std::endl
         << "      integer nwbuf" << std::endl
         << "      real ubuf(99)" << std::endl
+        << "      if (medi0 .eq. medi1) then" << std::endl
+        << "         guplsh = 1" << std::endl
+        << "         return" << std::endl
+        << "      endif" << std::endl
         << "      call GFTMED(medi1,"
         << "natmed,nmat,isvol,ifield,fieldm," << std::endl
         << "     +  tmaxfd,stemax,deemax,epsil,stmin,ubuf,nwbuf)" << std::endl
