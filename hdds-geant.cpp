@@ -1626,8 +1626,8 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
 
       std::cout
            << "      if (.not.loaded) then" << std::endl
-           << "        open(unit=78,file='" << mapS << "',status='old',err=7)"
-           << std::endl
+           << "        open(unit=78,status='old',err=7," << std::endl
+           << "     +   file='" << mapS << "')" << std::endl
            << "        read(unit=78,fmt=*,err=5,end=6)" << std::endl
            << "     +      ((((Bmap(i,i1,i2,i3),i=1,3)," << std::endl
            << "     +         i" << axorder[2] << "=1," 
