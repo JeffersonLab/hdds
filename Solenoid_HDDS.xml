@@ -33,10 +33,10 @@
     <polyplane Rio_Z="12.65 188.0  -70.8" />   
     <polyplane Rio_Z="12.65 188.0  -12.5" />
     <polyplane Rio_Z="8.5   188.0   4.7" />
-    <polyplane Rio_Z="7.9   188.0   10.7" />
-    <polyplane Rio_Z="7.9   188.0   34.9" />
-    <polyplane Rio_Z="6.9   188.0   34.9" />
-    <polyplane Rio_Z="6.9   188.0   39.9" />
+    <polyplane Rio_Z="7.6327   188.0   10.7" />
+    <polyplane Rio_Z="7.6327   188.0   31.14" />
+    <polyplane Rio_Z="6.6726   188.0   31.14" />
+    <polyplane Rio_Z="6.6726   188.0   39.9" />
     <polyplane Rio_Z="4.7   188.0   43.9" />
     <polyplane Rio_Z="4.7   188.0   86.1" />
     <polyplane Rio_Z="0.0   188.0   86.1" />
