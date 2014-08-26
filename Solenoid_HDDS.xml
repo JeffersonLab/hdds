@@ -38,8 +38,8 @@
     <polyplane Rio_Z="6.6726   188.0   31.14" />
     <polyplane Rio_Z="6.6726   188.0   39.9" />
     <polyplane Rio_Z="4.7   188.0   43.9" />
-    <polyplane Rio_Z="4.7   188.0   86.1" />
-    <polyplane Rio_Z="0.0   188.0   86.1" />
+    <polyplane Rio_Z="4.7   188.0   85.1" /> <!--was 86.1"/-->
+    <polyplane Rio_Z="0.0   188.0   85.1" /> <!--was 86.1"/-->
     <polyplane Rio_Z="0.0   188.0  460.0" />
   </pcon>
 

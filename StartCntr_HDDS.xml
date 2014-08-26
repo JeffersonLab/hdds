@@ -31,9 +31,7 @@
      at the upstream limit of the sensitive region.        -->
 
   <composition name="StartCntr">
-     <posXYZ volume="startCntr" X_Y_Z="0.0  0.0  0.0" />
-     <posXYZ volume="startCntrReadout2" X_Y_Z="0.0 0.0 -3.212" />
-     <posXYZ volume="startCntrCables" X_Y_Z="0. 0. -16.34 "/>
+     <posXYZ volume="startCntr" X_Y_Z="0.0  0.0  0.0" />   
   </composition>
 
   <composition name="startCntrCables" envelope="STCM">
@@ -78,7 +76,12 @@
      <posXYZ volume="STAO" />
      <posXYZ volume="STWR" />
      <posXYZ volume="STSR" />
+     <posXYZ volume="STAN" />
+     <posXYZ volume="STTD" X_Y_Z="0 0 5.25" />
+     <posXYZ volume="STRI" X_Y_Z="0 0 10.25"/>
      <posXYZ volume="startCntrReadout" X_Y_Z="0 0 -0.14" />
+     <posXYZ volume="startCntrReadout2" X_Y_Z="0.0 0.0 -3.212" />
+     <posXYZ volume="startCntrCables" X_Y_Z="0. 0. -16.34 "/>
   </composition>
 
   <composition name="startCntrReadout" envelope="STRO">
@@ -233,8 +236,19 @@
                    comment="Silicon PM substrate for start counter readout" />
   <tubs name="STRB" Rio_Z="7.0 8.32 0.08" material="FR-4"
                    comment="Silicon PM readout board" />
-  
 
+  <pcon name="STAN" material="Nylon" 
+	comment="Right angle piece for light tightness" >
+    <polyplane Rio_Z="7.9 8.42 -0.38"/>
+    <polyplane Rio_Z="7.9 8.42 -0.28"/>
+    <polyplane Rio_Z="8.32 8.42 -0.28"/>
+    <polyplane Rio_Z="8.32 8.42 0.72"/>
+  </pcon> 
+
+  <tubs name="STRI" Rio_Z="8.2 8.42 1.0" material="Nylon" 
+	comment="Flexible ring for light tightness" />
+  <tubs name="STTD" Rio_Z="8.42 8.44 10.0" material="Tedlar"
+	comment="Tedlar cylinder for light tightness"/>
 
 
   <!-- The following elements describe an early rendition of the GlueX
