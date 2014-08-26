@@ -798,8 +798,8 @@
 <!--    <posXYZ volume="DET4"     X_Y_Z="  0.0     0.0 -1400.0"/> -->
     <posXYZ volume="DET5"     X_Y_Z="  0.0     0.0  1400.0"/> 
     <posXYZ volume="DET6"     X_Y_Z="  0.0   600.0     0.0"/>
-    <posXYZ volume="DET7"     X_Y_Z="  0.0     0.0  -591.0"/> 
-    <posXYZ volume="HallPipe" X_Y_Z="150.0  -350.0  -817.0"/>
+    <!--posXYZ volume="DET7"     X_Y_Z="  0.0     0.0  -591.0"/--> 
+    <posXYZ volume="HallPipe" X_Y_Z="150.0  -350.0  -1042.0"/>
   </composition>
 
 <!--  <box name="DET4" X_Y_Z="1700.0  1200.0  2.0" material="Vacuum" /> -->
@@ -814,12 +814,12 @@
   </composition>
 
   <composition name="InnerHallPipe" envelope="IHPI" >
-    <posXYZ volume="CAP2" X_Y_Z="0.0  0.0  224.975" />
+    <posXYZ volume="CAP2" X_Y_Z="0.0  0.0  99.9" />
   </composition>
 
-  <tubs name="OHPI" Rio_Z="0.0  2.54  450.0" material="Iron" />
-  <tubs name="IHPI" Rio_Z="0.0  2.38  450.0" material="Vacuum" />
-  <tubs name="CAP2" Rio_Z="0.0  2.38   0.05" material="Mylar" />
+  <tubs name="OHPI" Rio_Z="0.0  2.54  200.0" material="Iron" />
+  <tubs name="IHPI" Rio_Z="0.0  2.38  200.0" material="Vacuum" />
+  <tubs name="CAP2" Rio_Z="0.0  2.38   0.2" material="Polyethylene" />
 
 
 <!-- Following is the definition of the active collimator.  It sits
