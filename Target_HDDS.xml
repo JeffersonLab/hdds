@@ -11,7 +11,7 @@
          version     = "1.0"
          date        = "2014-08-22"
          author      = "S. Taylor"
-         top_volume  = "TARG"
+         top_volume  = "TGTU"
          specification = "v1.0">
 
 <!-- Commissioning target geometry -->
@@ -38,22 +38,6 @@
     <posXYZ volume="CH2T" X_Y_Z="0. 0. 0.0" />
   </composition>
 
-  <tubs name="TARG" Rio_Z="0.00 4.70 42.2" material="Air"
-	                        comment="target vessel mother volume" />
-  <tubs name="TGTV" Rio_Z="0.00 3.7 42.2" material="Air"
-	                        comment="target cell"      />
-  <tubs name="LIH2" Rio_Z="0.00 1.500 30.000" material="LiqHydrogen"
-	                        comment="target contents"  />
-  <tubs name="CYLW" Rio_Z="3.70 4.70 42.2" material="HighDensityROHACELL"
-				comment="target vessel cylindrical wall"  />
-  <tubs name="UFLT" Rio_Z="2.00 3.70 0.5" material="Aluminum"
-				comment="target vessel entrance flange"  />
-  <tubs name="DFLT" Rio_Z="2.00 3.70 1.0" material="HighDensityROHACELL"
-				comment="target vessel exit flange"  />
-  <tubs name="UWIT" Rio_Z="0.00 2.00 0.007" material="Aluminum"
-				comment="target vessel entrance window"   />
-  <tubs name="DWIT" Rio_Z="0.00 2.00 0.007" material="Aluminum"
-                                comment="target vessel exit window" />
   <tubs name="PVCP" Rio_Z="1.9177 2.4625 220.472" material="PVC" />
   <tubs name="PVC1" Rio_Z="2.4625 3.01625 191.465" material="PVC" />
   <tubs name="NYLP" Rio_Z="1.82626 1.905 42.545" material="Nylon" />
