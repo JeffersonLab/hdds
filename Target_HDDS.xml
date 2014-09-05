@@ -18,7 +18,7 @@
 
   <composition name="Target">
     <posXYZ volume="targetSupportArm" X_Y_Z="0. 0. -110.7825" />
-    <posXYZ volume="targetVessel" X_Y_Z="0. 0. -115.4788" />
+    <posXYZ volume="targetVessel" X_Y_Z="0. 0. -115.5" />
   </composition>
 
   <composition name="targetSupportArm">
@@ -35,7 +35,8 @@
   <composition name="targetVessel" envelope="TGTU">
     <posXYZ volume="PVCP" X_Y_Z="0. 0. -20.364"/>
     <posXYZ volume="NYLP" X_Y_Z="0. 0. 109.327"/>
-    <posXYZ volume="CH2T" X_Y_Z="0. 0. 0.0" />
+    <posXYZ volume="CH2R" X_Y_Z="0. 0. 130.25" />
+    <posXYZ volume="CH2T" X_Y_Z="0. 0. 130.5" />
   </composition>
 
   <tubs name="PVCP" Rio_Z="1.9177 2.4625 220.472" material="PVC" />
@@ -45,13 +46,8 @@
   <tubs name="NYSP" Rio_Z="3.01625 4.445 2.54" material="Nylon" />
   <tubs name="NYSR" Rio_Z="4.445 5.08 0.34" material="Nylon"/>
   <tubs name="ALUT" Rio_Z="4.445 5.08 190.7794" material="Aluminum"/>
-
-  <pcon name="CH2T" material="Polyethylene">
-    <polyplane Rio_Z="1.6 1.82626 129.9"/>
-    <polyplane Rio_Z="1.6 1.82626 130.4"/>
-    <polyplane Rio_Z="0.0 1.82626 130.4"/>
-    <polyplane Rio_Z="0.0 1.82626 130.6"/>
-  </pcon>
+  <tubs name="CH2R" Rio_Z="1.6 1.82626 0.7" material="Polyethylene"/>
+  <tubs name="CH2T" Rio_Z="0.0 1.6 0.2" material="Polyethylene"/>
 
   <pcon name="NYST" material="Nylon">
      <polyplane Rio_Z="5.08 5.08 90.9066"/>
