@@ -77,8 +77,7 @@
      <posXYZ volume="STWR" />
      <posXYZ volume="STSR" />
      <posXYZ volume="STAN" />
-     <posXYZ volume="STTD" X_Y_Z="0 0 5.25" />
-     <posXYZ volume="STRI" X_Y_Z="0 0 10.25"/>
+     <posXYZ volume="STTD" />
      <posXYZ volume="startCntrReadout" X_Y_Z="0 0 -0.14" />
      <posXYZ volume="startCntrReadout2" X_Y_Z="0.0 0.0 -3.212" />
      <posXYZ volume="startCntrCables" X_Y_Z="0. 0. -16.34 "/>
@@ -96,8 +95,8 @@
   <pgon name="STRT" segments="30" material="Air"
 				  comment="start counter assembly">
     <polyplane Rio_Z="7.6327 8.750000 -27.50000"/>
-    <polyplane Rio_Z="7.6327 8.750000 -7.60000"/>
-    <polyplane Rio_Z="6.6726 8.750000 -7.60000" />
+    <polyplane Rio_Z="7.6327 8.750000 -7.66060"/>
+    <polyplane Rio_Z="6.6726 8.750000 -7.66060" />
     <polyplane Rio_Z="6.6726 8.750000 37.0" />
     <polyplane Rio_Z="5.9998 8.750000 43.057375"/>
     <polyplane Rio_Z="2.4637 8.750000 53.8226"/>
@@ -216,13 +215,13 @@
     <polyplane Rio_Z=" 2.31809 2.37081 58.594"/>
   </pgon>
 
-  <pcon name="STSR" material="HighDensityROHACELL"
+  <pcon name="STSR" material="Aluminum"
 	comment="Support ring for attaching to target flange">
-    <polyplane Rio_Z="7.6327 7.9756 -8.616"/>
-    <polyplane Rio_Z="7.6327 7.9756 -7.6"/>
-    <polyplane Rio_Z="6.6726 7.9756 -7.6"/>
-    <polyplane Rio_Z="6.6726 7.9756 -7.3"/>
-    <polyplane Rio_Z="6.6726 6.9726 -7.3"/>
+    <polyplane Rio_Z="7.6327 7.9756 -8.6766"/>
+    <polyplane Rio_Z="7.6327 7.9756 -7.6606"/>
+    <polyplane Rio_Z="6.6726 7.9756 -7.6606"/>
+    <polyplane Rio_Z="6.6726 7.9756 -7.3431"/>
+    <polyplane Rio_Z="6.6726 6.9726 -7.3431"/>
     <polyplane Rio_Z="6.6726 6.9726 -0.3556"/>
     <polyplane Rio_Z="6.81128 6.9726 -0.3556"/>
     <polyplane Rio_Z="6.81128 6.9726 0.0"/>
@@ -245,10 +244,23 @@
     <polyplane Rio_Z="8.32 8.42 0.72"/>
   </pcon> 
 
-  <tubs name="STRI" Rio_Z="8.2 8.42 1.0" material="Nylon" 
-	comment="Flexible ring for light tightness" />
-  <tubs name="STTD" Rio_Z="8.42 8.44 10.0" material="Tedlar"
-	comment="Tedlar cylinder for light tightness"/>
+  <pcon name="STTD" material="Tedlar" comment="Wrapping for light tightness">
+    <polyplane Rio_Z="8.42 8.425 0." />
+    <polyplane Rio_Z="8.42 8.425 1." />
+    <polyplane Rio_Z="8.15 8.155 4." />
+    <polyplane Rio_Z="8.15 8.155 39.465000" />
+    <polyplane Rio_Z="8.13 8.135 40.176676" />
+    <polyplane Rio_Z="8.124 8.129 40.194574" />
+    <polyplane Rio_Z="8.07 8.075 40.885848" />
+    <polyplane Rio_Z="8.06 8.065 40.921580" />
+    <polyplane Rio_Z="7.96 7.9651 41.590017" />
+    <polyplane Rio_Z="7.95 7.9551 41.643458" />
+    <polyplane Rio_Z="7.82 7.8252 42.286705" />
+    <polyplane Rio_Z="7.81 7.8152 42.357668" />
+    <polyplane Rio_Z="7.64 7.6453 42.973460" />
+    <polyplane Rio_Z="7.62 7.6253 43.057375" />
+    <polyplane Rio_Z="2.38 2.3853 58.75 "/>
+  </pcon>
 
 
   <!-- The following elements describe an early rendition of the GlueX
