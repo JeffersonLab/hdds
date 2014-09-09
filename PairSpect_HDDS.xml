@@ -5,21 +5,21 @@
   ********************************************
 
      version 1.0: Initial version
-
+     version 2.0: Substantial changes by S. Taylor
  
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "PairSpectrometer"
-         version     = "1.0"
-         date        = "2008-12-19"
+         version     = "2.0"
+         date        = "2014-09-09"
          author      = "A.Somov"
          top_volume  = "HALL"
          specification = "v1.0">
 
 
 <!-- Origin of PairSpectrometer is center of the hall.
-     The pair spectrometer is situdated in the detector hall 
+     The pair spectrometer is situated in the detector hall 
      after the collimator cave. The pair spectrometer converter
      is defined in the BeamLine_HDDS.xml file, in the volume PTAR.
 -->
@@ -27,12 +27,12 @@
 
   <composition name="PairSpectrometer">
     <posXYZ volume="PairMagnet"    X_Y_Z="0.0   0.0   -247.9" />
-    <posXYZ volume="MagnetLead"    X_Y_Z="0.0   0.0   114.25" />
-    <posXYZ volume="PairVacChamb"  X_Y_Z="0.0   0.0   -115.05" />
+    <!--posXYZ volume="MagnetLead"    X_Y_Z="0.0   0.0   114.25" /-->
+    <posXYZ volume="PairVacChamb"  X_Y_Z="0.0   0.0   -115.6447" />
     <posXYZ volume="PairHodoscope" X_Y_Z="0.0   0.0   242.45" />
-    <posXYZ volume="PairPipe2"     X_Y_Z="0.0   0.0   273.25"/> 
-    <posXYZ volume="PairShielding" X_Y_Z="0.0   0.0   116.32" />
-    <posXYZ volume="PairSEGblocks" X_Y_Z="0.0   0.0   137.82" />
+    <posXYZ volume="PairPipe2"     X_Y_Z="0.0   0.0   31.3271"/> 
+    <!--posXYZ volume="PairShielding" X_Y_Z="0.0   0.0   116.32" /-->
+    <posXYZ volume="PairSEGblocks" X_Y_Z="0.0   0.0   128.82" />
   </composition >
 	
 
@@ -49,13 +49,12 @@
 
   <composition name="PairMagnet">
     <posXYZ volume="EffectRegion" X_Y_Z="0.0 0.0  0.0"/> 
-    <posXYZ volume="SidePlane"    X_Y_Z="0.0 0.0  100.35"/>
   </composition>
 
   <composition name="EffectRegion" envelope="MAG3">
     <posXYZ volume="PairPipe1"     X_Y_Z="0.0   0.0  -63.373"/>
-    <posXYZ volume="POL3" X_Y_Z="0.0 +31.4845 1.0" />
-    <posXYZ volume="POL3" X_Y_Z="0.0 -31.4845 1.0" />
+    <posXYZ volume="POL3" X_Y_Z="0.0 +29.591  1.0" />
+    <posXYZ volume="POL3" X_Y_Z="0.0 -29.591  1.0" />
     <posXYZ volume="GAP3" X_Y_Z="+75.2475 0.0 1.0" />
     <posXYZ volume="GAP3" X_Y_Z="-75.2475 0.0 1.0" />
     <posXYZ volume="PairUpstrVacFlange1" X_Y_Z="0. 0. -59.69"/>
@@ -66,7 +65,7 @@
   <box name="MAG3" X_Y_Z="209.55  110.744 132.842" material="Air" >
     <apply region="PairBfield" /> 
   </box> 
-  <box name="POL3" X_Y_Z="209.55  47.775  91.44" material="Iron" />
+  <box name="POL3" X_Y_Z="209.55  51.562  91.44" material="Iron" />
   <box name="GAP3" X_Y_Z="59.055   7.62   91.44" material="Iron" />
 
   <composition name="PairUpstrVacFlange1" envelope="PFO1">
@@ -87,31 +86,12 @@
     <posXYZ volume="PCI2"/>
   </composition>
   
-  <trd name="PCO2" Xmp_Ymp_Z="10.084 45.914 6.6548 6.6548 123.698" material="Iron"/>
+  <trd name="PCO2" Xmp_Ymp_Z="10.137 45.545 6.6548 6.6548 123.698" material="Iron"/>
   <trd name="PCI2" Xmp_Ymp_Z="8.509 43.917 5.08 5.08 123.698" material="Vacuum"/>
+
+  <trd name="PCO1" Xmp_Ymp_Z="45.545 113.134 6.6548 6.6548 128.143" material="Iron"/>
+  <trd name="PCI1" Xmp_Ymp_Z="43.917 111.506  5.08 5.08 128.143" material="Vacuum"/>
   
-
-  <composition name="SidePlane" envelope="PASP">
-    <posXYZ volume="SideGap" X_Y_Z="0.0  0.0  0.0"/>
-  </composition>
-
-  <composition name="SideGap" envelope="PSPH">
-    <posXYZ volume="TCL1" X_Y_Z=" 33.8  0.0  0.0"/>
-    <posXYZ volume="TCL2" X_Y_Z="-33.8  0.0  0.0"/>
-  </composition>
-  
-
-  <trd name="PCO1" Xmp_Ymp_Z="46.195 123.2 6.6548 6.6548 128.143" material="Iron"/>
-  <trd name="PCI1" Xmp_Ymp_Z="8.509 43.917 5.08 5.08 123.698" material="Vacuum"/>
-  
-  
-
-  <box  name="PASP" X_Y_Z="272.0  137.0  17.8" material="Iron" />
-  <box  name="PSPH" X_Y_Z="72.0   3.0    17.8" material="Vacuum" />
-
-  <trd name="TCL1" Xmp_Ymp_Z="6.9  1. 3. 3. 17.8" inclination=" 9.410012 0"  material="Lead" />
-  <trd name="TCL2" Xmp_Ymp_Z="6.9  1. 3. 3. 17.8" inclination="-9.410012 0"  material="Lead" />
-
 <!-- MagnetLead -->
 
   <composition name="MagnetLead">
@@ -125,30 +105,49 @@
 <!-- Pair Spectrometer Vacuum Chamber -->
 
   <composition name="PairVacChamb">
+    <posXYZ volume="VacFlange3" X_Y_Z="0.0 0.0 -64.9605" />
     <posXYZ volume="VacTRD" X_Y_Z="0.0 0.0 0.0" />
-    <posXYZ volume="VacSidePlane" X_Y_Z="0.0 0.0 62.738" /> 
+    <posXYZ volume="VacSidePlane" X_Y_Z="0.0 0.0 65.024" /> 
+    <posXYZ volume="VacSideClamp" X_Y_Z="30.83 0.0 66.6115"/>
+    <posXYZ volume="VacSideClamp" X_Y_Z="-30.83 0.0 66.6115"/>
   </composition>
+
+  <composition name="VacSideClamp" envelope="PWCO">
+    <posXYZ volume="PWCI"/>
+  </composition>
+  
+  <box name="PWCO" X_Y_Z="57.4218 13.2842 1.27" material="Iron"/>
+  <box name="PWCI" X_Y_Z="49.8475 5.08 1.27" material="Air"/>
 
   <composition name="VacTRD" envelope="PCO1">
     <posXYZ volume="PCI1" X_Y_Z="0.0 0.0 0.0" />
   </composition>
 
+  <composition name="VacFlange3" envelope="PFO3">
+    <posXYZ volume="PFI3"/>
+  </composition>
+
+  <box name="PFO3" X_Y_Z="52.8066 13.97 1.778" material="Iron"/>
+  <box name="PFI3" X_Y_Z="43.9166 5.08  1.778" material="Vacuum"/>
+
+
   <composition name="VacSidePlane" envelope="VSPL">
-    <posXYZ volume="VHB1" X_Y_Z="+50.0 0.0 -0.0125" />
-    <posXYZ volume="VBW1" X_Y_Z="+50.0 0.0  0.2875" />
-    <posXYZ volume="VHB2" X_Y_Z="-50.0 0.0 -0.0125" />
-    <posXYZ volume="VBW2" X_Y_Z="-50.0 0.0  0.2875" />
+    <posXYZ volume="VHB1" X_Y_Z="+30.83  0.0 -0.0125" />
+    <posXYZ volume="VBW1" X_Y_Z="+30.83  0.0  0.940" />
+    <posXYZ volume="VHB1" X_Y_Z="-30.83  0.0 -0.0125" />
+    <posXYZ volume="VBW1" X_Y_Z="-30.83  0.0  0.940" />
     <posXYZ volume="VVPH" X_Y_Z=" +0.0 0.0  0.0" />
   </composition>
 
-  <box name="VSPL" X_Y_Z="52.832 13.97  1.778" material="Iron" />
-  <box name="VHB1" X_Y_Z="43.917 5.08  0.575" material="Vacuum" />
-  <box name="VBW1" X_Y_Z="43.917 5.08  0.025" material="Kapton" />
+  <box name="VSPL" X_Y_Z="119.964 13.284 1.905" material="Iron" />
+  <box name="VHB1" X_Y_Z="49.8475 5.08  1.88" material="Vacuum" />
+  <box name="VBW1" X_Y_Z="49.8475 5.08  0.025" material="Kapton" />
+
 
   <box name="VHB2" X_Y_Z="62.0   3.4  0.575" material="Vacuum" />
   <box name="VBW2" X_Y_Z="62.0   3.4  0.025" material="Kapton" />
 
-  <tubs name="VVPH" Rio_Z="0.0   2.5  0.6" material="Vacuum"/>
+  <tubs name="VVPH" Rio_Z="0.0 1.74625 1.905" material="Vacuum"/>
 
 <!-- Hodoscope Counters -->
 
@@ -229,10 +228,8 @@
     <posXYZ volume="HPI2" X_Y_Z="0.0 0.0 0.0"/> 
   </composition>
 
-  <tubs name="HPO2" Rio_Z="0.0  2.54  62.4" material="Iron" /> 
-  <tubs name="HPI2" Rio_Z="0.0  2.38  62.4" material="Vacuum" />
-
-
+  <tubs name="HPO2" Rio_Z="0.0  1.905  162.0   " material="Iron" /> 
+  <tubs name="HPI2" Rio_Z="0.0  1.74625  162.0   " material="Vacuum"/>
 
 <!--Pair Lead Shielding -->
 
