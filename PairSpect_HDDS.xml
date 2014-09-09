@@ -26,14 +26,13 @@
 
 
   <composition name="PairSpectrometer">
-    <posXYZ volume="PairPipe1"     X_Y_Z="0.0   0.0  -101.0"/>
-    <posXYZ volume="PairMagnet"    X_Y_Z="0.0   0.0   0.0" />
+    <posXYZ volume="PairMagnet"    X_Y_Z="0.0   0.0   -247.9" />
     <posXYZ volume="MagnetLead"    X_Y_Z="0.0   0.0   114.25" />
-    <posXYZ volume="PairVacChamb"  X_Y_Z="0.0   0.0   175.35" />
+    <posXYZ volume="PairVacChamb"  X_Y_Z="0.0   0.0   -115.05" />
     <posXYZ volume="PairHodoscope" X_Y_Z="0.0   0.0   242.45" />
     <posXYZ volume="PairPipe2"     X_Y_Z="0.0   0.0   273.25"/> 
-    <posXYZ volume="PairShielding" X_Y_Z="0.0   0.0   309.45" />
-    <posXYZ volume="PairSEGblocks" X_Y_Z="0.0   0.0   330.95" />
+    <posXYZ volume="PairShielding" X_Y_Z="0.0   0.0   116.32" />
+    <posXYZ volume="PairSEGblocks" X_Y_Z="0.0   0.0   137.82" />
   </composition >
 	
 
@@ -43,8 +42,8 @@
     <posXYZ volume="HPI1" X_Y_Z="0.0 0.0 0.0"/> 
   </composition>
 
-  <tubs name="HPO1" Rio_Z="0.0  2.54  19.1" material="Iron" /> 
-  <tubs name="HPI1" Rio_Z="0.0  2.38  19.1" material="Vacuum" />
+  <tubs name="HPO1" Rio_Z="0.0  1.905  6.096" material="Iron" /> 
+  <tubs name="HPI1" Rio_Z="0.0  1.74  6.096" material="Vacuum" />
 
 <!-- Pair Spectrometer Magnet -->
 
@@ -54,18 +53,43 @@
   </composition>
 
   <composition name="EffectRegion" envelope="MAG3">
-    <posXYZ volume="POL3" X_Y_Z="0.0 +35.0 0.0" />
-    <posXYZ volume="POL3" X_Y_Z="0.0 -35.0 0.0" />
-    <posXYZ volume="GAP3" X_Y_Z="+86.0 0.0 0.0" />
-    <posXYZ volume="GAP3" X_Y_Z="-86.0 0.0 0.0" />
+    <posXYZ volume="PairPipe1"     X_Y_Z="0.0   0.0  -63.373"/>
+    <posXYZ volume="POL3" X_Y_Z="0.0 +31.4845 1.0" />
+    <posXYZ volume="POL3" X_Y_Z="0.0 -31.4845 1.0" />
+    <posXYZ volume="GAP3" X_Y_Z="+75.2475 0.0 1.0" />
+    <posXYZ volume="GAP3" X_Y_Z="-75.2475 0.0 1.0" />
+    <posXYZ volume="PairUpstrVacFlange1" X_Y_Z="0. 0. -59.69"/>
+    <posXYZ volume="PairUpstreamVacChamb" X_Y_Z="0 0 2.794" />
+    <posXYZ volume="PairUpstrVacFlange2" X_Y_Z="0. 0. 65.532"/>
   </composition>
 
-  <box name="MAG3" X_Y_Z="272.0  137.0  182.9" material="Vacuum" >
+  <box name="MAG3" X_Y_Z="209.55  110.744 132.842" material="Air" >
     <apply region="PairBfield" /> 
   </box> 
+  <box name="POL3" X_Y_Z="209.55  47.775  91.44" material="Iron" />
+  <box name="GAP3" X_Y_Z="59.055   7.62   91.44" material="Iron" />
 
-  <box name="POL3" X_Y_Z="272.0   67.0  182.9" material="Iron" />
-  <box name="GAP3" X_Y_Z="100.0   3.0   182.9" material="Iron" />
+  <composition name="PairUpstrVacFlange1" envelope="PFO1">
+    <posXYZ volume="PFI1"/>
+  </composition>
+
+  <box name="PFO1" X_Y_Z="10.16 6.6548 1.27" material="Iron"/>
+  <tubs name="PFI1" Rio_Z="0.0 1.74625 1.27" material="Vacuum"/>
+
+  <composition name="PairUpstrVacFlange2" envelope="PFO2">
+    <posXYZ volume="PFI2"/>
+  </composition>
+
+  <box name="PFO2" X_Y_Z="52.832 13.97 1.778" material="Iron"/>
+  <box name="PFI2" X_Y_Z="44.036 5.08  1.778" material="Vacuum"/>
+
+  <composition name="PairUpstreamVacChamb" envelope="PCO2">
+    <posXYZ volume="PCI2"/>
+  </composition>
+  
+  <trd name="PCO2" Xmp_Ymp_Z="10.084 45.914 6.6548 6.6548 123.698" material="Iron"/>
+  <trd name="PCI2" Xmp_Ymp_Z="8.509 43.917 5.08 5.08 123.698" material="Vacuum"/>
+  
 
   <composition name="SidePlane" envelope="PASP">
     <posXYZ volume="SideGap" X_Y_Z="0.0  0.0  0.0"/>
@@ -75,6 +99,12 @@
     <posXYZ volume="TCL1" X_Y_Z=" 33.8  0.0  0.0"/>
     <posXYZ volume="TCL2" X_Y_Z="-33.8  0.0  0.0"/>
   </composition>
+  
+
+  <trd name="PCO1" Xmp_Ymp_Z="46.195 123.2 6.6548 6.6548 128.143" material="Iron"/>
+  <trd name="PCI1" Xmp_Ymp_Z="8.509 43.917 5.08 5.08 123.698" material="Vacuum"/>
+  
+  
 
   <box  name="PASP" X_Y_Z="272.0  137.0  17.8" material="Iron" />
   <box  name="PSPH" X_Y_Z="72.0   3.0    17.8" material="Vacuum" />
@@ -96,15 +126,12 @@
 
   <composition name="PairVacChamb">
     <posXYZ volume="VacTRD" X_Y_Z="0.0 0.0 0.0" />
-    <posXYZ volume="VacSidePlane" X_Y_Z="0.0 0.0 66.4" /> 
+    <posXYZ volume="VacSidePlane" X_Y_Z="0.0 0.0 62.738" /> 
   </composition>
 
   <composition name="VacTRD" envelope="PCO1">
     <posXYZ volume="PCI1" X_Y_Z="0.0 0.0 0.0" />
   </composition>
-
-  <trd name="PCO1" Xmp_Ymp_Z="73.2 181.2 8.8 8.8 132.2" material="Iron"/>
-  <trd name="PCI1" Xmp_Ymp_Z="72.0 180.0 8.8 8.8 132.2" material="Vacuum"/>
 
   <composition name="VacSidePlane" envelope="VSPL">
     <posXYZ volume="VHB1" X_Y_Z="+50.0 0.0 -0.0125" />
@@ -114,9 +141,9 @@
     <posXYZ volume="VVPH" X_Y_Z=" +0.0 0.0  0.0" />
   </composition>
 
-  <box name="VSPL" X_Y_Z="181.2  8.8  0.6" material="Iron" />
-  <box name="VHB1" X_Y_Z="62.0   3.4  0.575" material="Vacuum" />
-  <box name="VBW1" X_Y_Z="62.0   3.4  0.025" material="Kapton" />
+  <box name="VSPL" X_Y_Z="52.832 13.97  1.778" material="Iron" />
+  <box name="VHB1" X_Y_Z="43.917 5.08  0.575" material="Vacuum" />
+  <box name="VBW1" X_Y_Z="43.917 5.08  0.025" material="Kapton" />
 
   <box name="VHB2" X_Y_Z="62.0   3.4  0.575" material="Vacuum" />
   <box name="VBW2" X_Y_Z="62.0   3.4  0.025" material="Kapton" />
