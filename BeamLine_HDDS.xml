@@ -235,7 +235,9 @@
   </composition>
 
   <box  name="PCTT"  X_Y_Z="5.08   5.08   20." material="Tungsten" />
-  <tubs name="PCTH"  Rio_Z="0.0    0.17   20." material="Air" />
+  <!--tubs name="PCTH"  Rio_Z="0.0    0.17   20." material="Air" /-->
+  <!-- Wider collimator diameter for commissioning -->
+  <tubs name="PCTH"  Rio_Z="0.0    0.25   20." material="Air" />
 
 
 <!-- Flange 1 -->
@@ -798,7 +800,7 @@
 <!--    <posXYZ volume="DET4"     X_Y_Z="  0.0     0.0 -1400.0"/> -->
     <posXYZ volume="DET5"     X_Y_Z="  0.0     0.0  1400.0"/> 
     <posXYZ volume="DET6"     X_Y_Z="  0.0   600.0     0.0"/>
-    <!--posXYZ volume="DET7"     X_Y_Z="  0.0     0.0  -591.0"/--> 
+    <posXYZ volume="DET7"     X_Y_Z="  0.0     0.0  -705.0"/> 
     <posXYZ volume="HallBellows" X_Y_Z="150.0 -350.0 -1223.287"/>
     <posXYZ volume="HallPipe" X_Y_Z="150.0  -350.0  -1026.76"/>
   </composition>
