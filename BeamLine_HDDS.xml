@@ -799,7 +799,8 @@
     <posXYZ volume="DET5"     X_Y_Z="  0.0     0.0  1400.0"/> 
     <posXYZ volume="DET6"     X_Y_Z="  0.0   600.0     0.0"/>
     <!--posXYZ volume="DET7"     X_Y_Z="  0.0     0.0  -591.0"/--> 
-    <posXYZ volume="HallPipe" X_Y_Z="150.0  -350.0  -1025.0"/>
+    <posXYZ volume="HallBellows" X_Y_Z="150.0 -350.0 -1223.287"/>
+    <posXYZ volume="HallPipe" X_Y_Z="150.0  -350.0  -1026.76"/>
   </composition>
 
 <!--  <box name="DET4" X_Y_Z="1700.0  1200.0  2.0" material="Vacuum" /> -->
@@ -807,6 +808,27 @@
   <box name="DET6" X_Y_Z="1700.0  2.0  3000.0" material="Air" />
   <box name="DET7" X_Y_Z="1700.0  1198.0  2.0" material="Air" />
   
+<!-- Hall bellows -->
+<composition name="HallBellows" envelope="BLWO">
+  <posXYZ volume="BLWI" X_Y_Z="0.0 0.0 -3.5"/>
+</composition>
+
+<pcon name="BLWO" material="Iron">
+  <polyplane Rio_Z="0.0 1.90500 -13.4"/>
+  <polyplane Rio_Z="0.0 1.90500 -7.9148"/>
+  <polyplane Rio_Z="0.0 4.27355 -7.9148"/>
+  <polyplane Rio_Z="0.0 4.27355 -4.7652"/>
+  <polyplane Rio_Z="0.0 1.905 -4.7652"/>
+  <polyplane Rio_Z="0.0 1.905 -2.8602"/>
+  <polyplane Rio_Z="0.0 2.0726 -2.8602"/>
+  <polyplane Rio_Z="0.0 2.0726 2.8602"/>
+  <polyplane Rio_Z="0.0 1.905 2.8602"/>
+  <polyplane Rio_Z="0.0 1.905 4.7652"/>
+  <polyplane Rio_Z="0.0 4.27355 4.7652"/>
+  <polyplane Rio_Z="0.0 4.27355 6.4000"/>
+</pcon>
+
+<tubs name="BLWI" Rio_Z="0. 1.7399 19.8" material="Vacuum"/>
 
 <!-- Hall Pipe -->
   <composition name="HallPipe" envelope="OHPI" >
