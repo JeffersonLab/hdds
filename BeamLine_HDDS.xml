@@ -803,6 +803,8 @@
     <posXYZ volume="DET7"     X_Y_Z="  0.0     0.0  -705.0"/> 
     <posXYZ volume="HallBellows" X_Y_Z="150.0 -350.0 -1223.287"/>
     <posXYZ volume="HallPipe" X_Y_Z="150.0  -350.0  -1026.76"/>
+    <!-- Plastic cap at end of Hall pipe -->
+    <posXYZ volume="CAP2" X_Y_Z="150 -350.0 -836.54"/>
   </composition>
 
 <!--  <box name="DET4" X_Y_Z="1700.0  1200.0  2.0" material="Vacuum" /> -->
