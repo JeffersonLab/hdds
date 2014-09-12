@@ -451,7 +451,7 @@
   </composition>
 
   <tubs name="OCOL" Rio_Z="0.0  10.0  50.8" material="Iron" />
-  <tubs name="ICOL" Rio_Z="0.0   0.3  50.8" material="Vacuum" />
+  <tubs name="ICOL" Rio_Z="0.0   2.38  50.8" material="Vacuum" />
 
 <!-- Flange 4 -->
 
