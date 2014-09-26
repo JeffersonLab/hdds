@@ -804,7 +804,7 @@
     <posXYZ volume="HallBellows" X_Y_Z="150.0 -350.0 -1223.287"/>
     <posXYZ volume="HallPipe" X_Y_Z="150.0  -350.0  -1026.76"/>
     <!-- Plastic cap at end of Hall pipe -->
-    <posXYZ volume="CAP2" X_Y_Z="150 -350.0 -836.54"/>
+    <posXYZ volume="CAP2" X_Y_Z="150 -350.0 -836.48125"/>
   </composition>
 
 <!--  <box name="DET4" X_Y_Z="1700.0  1200.0  2.0" material="Vacuum" /> -->
@@ -855,7 +855,7 @@
 
   <tubs name="IHPI" Rio_Z="0.0  1.7399  380.238" material="Vacuum" />
   <tubs name="CAP1" Rio_Z="0.0  1.7399 0.0127" material="Kapton"/>
-  <tubs name="CAP2" Rio_Z="0.0 4.27355 0.2" material="Polyethylene" />
+  <tubs name="CAP2" Rio_Z="0.0 4.27355 0.3175" material="Plexiglas" />
 
 
 <!-- Following is the definition of the active collimator.  It sits
