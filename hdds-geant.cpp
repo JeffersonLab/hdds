@@ -1427,6 +1427,7 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
         << "      end" << std::endl;
 
    int map = 1;
+   int interpol3_made = 0;
    std::list<DOMElement*>::iterator iter;
    for (iter = fieldMap.begin(); iter != fieldMap.end(); ++iter, ++map)
    {
@@ -1625,8 +1626,8 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
 
       std::cout
            << "      if (.not.loaded) then" << std::endl
-           << "        open(unit=78,file='" << mapS << "',status='old',err=7)"
-           << std::endl
+           << "        open(unit=78,status='old',err=7," << std::endl
+           << "     +   file='" << mapS << "')" << std::endl
            << "        read(unit=78,fmt=*,err=5,end=6)" << std::endl
            << "     +      ((((Bmap(i,i1,i2,i3),i=1,3)," << std::endl
            << "     +         i" << axorder[2] << "=1," 
@@ -1709,7 +1710,12 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
            << "      B(3) = 0" << std::endl
            << "      return" << std::endl
            << "      end" << std::endl
-           << std::endl
+           << std::endl;
+
+      if (interpol3_made == 0)
+      {
+         interpol3_made++;
+         std::cout
            << "      subroutine interpol3(Bmap,nsites,u,B)" << std::endl
            << "      implicit none" << std::endl
            << "      integer nsites(3)" << std::endl
@@ -1753,6 +1759,7 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
            << "     +       +ugrad(3,1)*dur(1)+ugrad(3,2)*dur(2)"
            <<              "+ugrad(3,3)*dur(3)" << std::endl
            << "      end" << std::endl;
+      }
    }
 #ifdef LINUX_CPUTIME_PROFILING
    timestr << " ( " << timer.getUserDelta() << " ) ";
