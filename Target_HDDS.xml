@@ -50,11 +50,10 @@
   <tubs name="CH2T" Rio_Z="0.0 1.6 0.2" material="Polyethylene"/>
 
   <pcon name="NYST" material="Nylon">
-     <polyplane Rio_Z="5.08 5.08 90.9066"/>
-     <polyplane Rio_Z="5.08 7.6327 90.9066"/> 
-     <polyplane Rio_Z="5.08 7.6327 91.9226"/>
-     <polyplane Rio_Z="5.08 6.6548 91.9226"/>
-     <polyplane Rio_Z="5.08 6.6548 95.7326"/>  
+    <polyplane Rio_Z="5.08 7.6327 90.9066"/> 
+    <polyplane Rio_Z="5.08 7.6327 91.9226"/>
+    <polyplane Rio_Z="5.08 6.6548 91.9226"/>
+    <polyplane Rio_Z="5.08 6.6548 95.7326"/>  
   </pcon>
 
   <!-- The following elements describe an early rendition of the GlueX
