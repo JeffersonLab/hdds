@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: Target
+  **********************************
+ 
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name        = "Target"
+         version     = "1.0"
+         date        = "2014-08-22"
+         author      = "S. Taylor"
+         top_volume  = "TGTU"
+         specification = "v1.0">
+
+<!-- Commissioning target geometry -->
+
+  <composition name="Target">
+    <posXYZ volume="targetSupportArm" X_Y_Z="0. 0. -110.7825" />
+    <posXYZ volume="targetVessel" X_Y_Z="0. 0. -115.5" />
+  </composition>
+
+  <composition name="targetSupportArm">
+    <posXYZ volume="PVC1" X_Y_Z="0.0 0.0 0.0"/>
+    <posXYZ volume="ALUT" X_Y_Z="0. 0. 0."/>
+    <posXYZ volume="NYST" X_Y_Z="0. 0. 0.0"/>
+    <posXYZ volume="NYSP" X_Y_Z="0. 0. 0."/>
+    <posXYZ volume="NYSR" X_Y_Z="0. 0. 95.5626"/> 
+    <posXYZ volume="NYSR" X_Y_Z="0. 0. -95.5626"/>
+    <posXYZ volume="NYSP" X_Y_Z="0. 0. 94.4626"/>
+    <posXYZ volume="NYSP" X_Y_Z="0. 0. -94.4626"/>
+  </composition>
+
+  <composition name="targetVessel" envelope="TGTU">
+    <posXYZ volume="PVCP" X_Y_Z="0. 0. -20.364"/>
+    <posXYZ volume="NYLP" X_Y_Z="0. 0. 109.327"/>
+    <posXYZ volume="CH2R" X_Y_Z="0. 0. 130.25" />
+    <posXYZ volume="CH2T" X_Y_Z="0. 0. 130.5" />
+  </composition>
+
+  <tubs name="PVCP" Rio_Z="1.9177 2.4625 220.472" material="PVC" />
+  <tubs name="PVC1" Rio_Z="2.4625 3.01625 191.465" material="PVC" />
+  <tubs name="NYLP" Rio_Z="1.82626 1.905 42.545" material="Nylon" />
+  <tubs name="TGTU" Rio_Z="0. 2.4625 263.2" material="Air" />
+  <tubs name="NYSP" Rio_Z="3.01625 4.445 2.54" material="Nylon" />
+  <tubs name="NYSR" Rio_Z="4.445 5.08 0.34" material="Nylon"/>
+  <tubs name="ALUT" Rio_Z="4.445 5.08 190.7794" material="Aluminum"/>
+  <tubs name="CH2R" Rio_Z="1.6 1.82626 0.7" material="Polyethylene"/>
+  <tubs name="CH2T" Rio_Z="0.0 1.6 0.2" material="Polyethylene"/>
+
+  <pcon name="NYST" material="Nylon">
+    <polyplane Rio_Z="5.08 7.6327 90.9066"/> 
+    <polyplane Rio_Z="5.08 7.6327 91.9226"/>
+    <polyplane Rio_Z="5.08 6.6548 91.9226"/>
+    <polyplane Rio_Z="5.08 6.6548 95.7326"/>  
+  </pcon>
+
+  <!-- The following elements describe an early rendition of the GlueX
+       detector simulated using a fast Monte Carlo program MCFast.  They
+       are retained for future reference, do not rely on their values. -->
+
+  <parameters name="targetTube_pars" type="mcfast">
+    <real name="rmin" value="0.00"  unit="cm" comment="inner radius" />
+    <real name="rmax" value="9.50"  unit="cm" comment="outer radius" />
+    <real name="z0"   value="1.50" unit="cm" comment="from origin"  />
+    <real name="zlen" value="183.5" unit="cm" comment="cover the target" />
+    <reference name="mat_fill" value="Vacuum"  comment="what fills the pipe" />
+    <real_array name="bndrthk" comment="innner outer upstream downstream
+           wall thicknesses" values="0.00   0.10   0.00      0.00"
+                             unit="cm" />
+    <reference_vector name="matrbnd"    comment="window materials"   >
+      <reference_data value="Vacuum"    comment="inner wall??"      />
+      <reference_data value="Beryllium" comment="outer wall"        />
+      <reference_data value="Vacuum"    comment="upstream window"   />
+      <reference_data value="Vacuum"    comment="downstream window" />
+    </reference_vector>
+  </parameters>
+
+  <parameters name="target_pars" type="mixed">
+    <real_array name="xyz" values="0.   0.   65." comment="center of target"
+                           unit="cm" />
+    <real_array name="sig" values="0.30 0.30 15." comment="size of target"
+                           unit="cm" />
+    <real name="rmax"      value="2.50"  comment="radius of target vessel"
+                           unit="cm" />
+    <real name="zlen"      value="30.0"  comment="length of target vessel"
+                           unit="cm" />
+    <reference name="mat_fill" value="LiqHydrogen" comment="target material" />
+    <real_array name="bndrthk" comment="cylinder upstream downstream
+           wall thicknesses"   values="0.02     0.02      0.02"
+                               unit="cm" />
+    <reference_vector name="matrbnd"   comment="target vessel materials">
+      <reference_data value="Aluminum" comment="cylinder wall"     />
+      <reference_data value="Aluminum" comment="upstream window"   />
+      <reference_data value="Aluminum" comment="downstream window" />
+    </reference_vector>
+  </parameters>
+
+  <mcfast model="BPipe" template="db/beampipe.db"
+			parameters="targetTube_pars">
+    <string name="name" value="beam"  />
+  </mcfast>
+
+  <mcfast model="BeamVrtx" template="db/beamvrtx.db" parameters="target_pars">
+  </mcfast>
+
+</section>
+
+<!-- </HDDS> -->
