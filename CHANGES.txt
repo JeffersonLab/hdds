@@ -1,0 +1,8 @@
+The following changes have been made to the geometry:
+-- A model for the beam profiler has been added just after the entrance of the 
+beam pipe to the collimator cave.  This consists of a lead sheet as a converter
+and two layers of scintillating fibers.
+-- The 1x10^-3 pair converter was put in the beam line just before the pair 
+spectrometer magnet.
+-- A 1 cm thick piece of scintillator (active target) was placed downstream of the beam pipe in the hall before the commissioning target assembly.
+-- The 2 mm thick plastic target was replaced with a 1 cm thick plastic target
