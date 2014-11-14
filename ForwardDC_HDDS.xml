@@ -470,22 +470,22 @@
     <posXYZ volume="FDCG" X_Y_Z="0.0 0.0 -6.93555" />
     <posXYZ volume="FDCG" X_Y_Z="0.0 0.0 +6.93555" />
     <posXYZ volume="FDCG" X_Y_Z="0.0 0.0 +6.37685" />
-    <posXYZ volume="forwardDC_chamber_1" X_Y_Z="0.0 0.0 -5.3135" rot="0   0    0">
+    <posXYZ volume="forwardDC_chamber_1" X_Y_Z="0.0 0.0 -5.3135" rot="0   0  180">
       <layer value="1" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_1" X_Y_Z="0.0 0.0 -3.1881" rot="0   0  +60">
+    <posXYZ volume="forwardDC_chamber_1" X_Y_Z="0.0 0.0 -3.1881" rot="0   0  120">
       <layer value="2" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_1" X_Y_Z="0.0 0.0 -1.0627" rot="0   0  120">
+    <posXYZ volume="forwardDC_chamber_1" X_Y_Z="0.0 0.0 -1.0627" rot="0   0  60">
       <layer value="3" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_1" X_Y_Z="0.0 0.0 +1.0627" rot="0   0  180" >
+    <posXYZ volume="forwardDC_chamber_1" X_Y_Z="0.0 0.0 +1.0627" rot="0   0  0" >
       <layer value="4" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_1" X_Y_Z="0.0 0.0 +3.1881" rot="0   0  240">
+    <posXYZ volume="forwardDC_chamber_1" X_Y_Z="0.0 0.0 +3.1881" rot="0   0  -60">
       <layer value="5" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_1" X_Y_Z="0.0 0.0 +5.3135" rot="0   0  300">
+    <posXYZ volume="forwardDC_chamber_1" X_Y_Z="0.0 0.0 +5.3135" rot="0   0  -120">
       <layer value="6" />
     </posXYZ>
   </composition>  
@@ -494,22 +494,22 @@
     <posXYZ volume="FDCG" X_Y_Z="0.0 0.0 -6.93555" />
     <posXYZ volume="FDCG" X_Y_Z="0.0 0.0 +6.93555" />
     <posXYZ volume="FDCG" X_Y_Z="0.0 0.0 +6.37685" />
-    <posXYZ volume="forwardDC_chamber_2" X_Y_Z="0.0 0.0 -5.3135" rot="0   0    0">
+    <posXYZ volume="forwardDC_chamber_2" X_Y_Z="0.0 0.0 -5.3135" rot="0   0   180">
       <layer value="1" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_2" X_Y_Z="0.0 0.0 -3.1881" rot="0   0  +60">
+    <posXYZ volume="forwardDC_chamber_2" X_Y_Z="0.0 0.0 -3.1881" rot="0   0   120">
       <layer value="2" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_2" X_Y_Z="0.0 0.0 -1.0627" rot="0   0  120">
+    <posXYZ volume="forwardDC_chamber_2" X_Y_Z="0.0 0.0 -1.0627" rot="0   0   60">
       <layer value="3" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_2" X_Y_Z="0.0 0.0 +1.0627" rot="0   0  180">
+    <posXYZ volume="forwardDC_chamber_2" X_Y_Z="0.0 0.0 +1.0627" rot="0   0  0">
       <layer value="4" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_2" X_Y_Z="0.0 0.0 +3.1881" rot="0   0  240">
+    <posXYZ volume="forwardDC_chamber_2" X_Y_Z="0.0 0.0 +3.1881" rot="0   0  -60">
       <layer value="5" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_2" X_Y_Z="0.0 0.0 +5.3135" rot="0   0  300">
+    <posXYZ volume="forwardDC_chamber_2" X_Y_Z="0.0 0.0 +5.3135" rot="0   0  -120">
       <layer value="6" />
     </posXYZ>
   </composition>  
@@ -518,22 +518,22 @@
     <posXYZ volume="FDCG" X_Y_Z="0.0 0.0 -6.93555" />
     <posXYZ volume="FDCG" X_Y_Z="0.0 0.0 +6.93555" />
     <posXYZ volume="FDCG" X_Y_Z="0.0 0.0 +6.37685" />
-    <posXYZ volume="forwardDC_chamber_3" X_Y_Z="0.0 0.0 -5.3135" rot="0   0    0">
+    <posXYZ volume="forwardDC_chamber_3" X_Y_Z="0.0 0.0 -5.3135" rot="0   0  180">
       <layer value="1" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_3" X_Y_Z="0.0 0.0 -3.1881" rot="0   0  +60">
+    <posXYZ volume="forwardDC_chamber_3" X_Y_Z="0.0 0.0 -3.1881" rot="0   0  120">
       <layer value="2" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_3" X_Y_Z="0.0 0.0 -1.0627" rot="0   0  120">
+    <posXYZ volume="forwardDC_chamber_3" X_Y_Z="0.0 0.0 -1.0627" rot="0   0  60">
       <layer value="3" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_3" X_Y_Z="0.0 0.0 +1.0627" rot="0   0  180">
+    <posXYZ volume="forwardDC_chamber_3" X_Y_Z="0.0 0.0 +1.0627" rot="0   0  0">
       <layer value="4" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_3" X_Y_Z="0.0 0.0 +3.1881" rot="0   0  240">
+    <posXYZ volume="forwardDC_chamber_3" X_Y_Z="0.0 0.0 +3.1881" rot="0   0  -60">
       <layer value="5" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_3" X_Y_Z="0.0 0.0 +5.3135" rot="0   0  300">
+    <posXYZ volume="forwardDC_chamber_3" X_Y_Z="0.0 0.0 +5.3135" rot="0   0  -120">
       <layer value="6" />
     </posXYZ>
   </composition>  
@@ -542,22 +542,22 @@
     <posXYZ volume="FDCG" X_Y_Z="0.0 0.0 -6.93555" />
     <posXYZ volume="FDCG" X_Y_Z="0.0 0.0 +6.93555" />
     <posXYZ volume="FDCG" X_Y_Z="0.0 0.0 +6.37685" />
-    <posXYZ volume="forwardDC_chamber_4" X_Y_Z="0.0 0.0 -5.3135" rot="0   0    0">
+    <posXYZ volume="forwardDC_chamber_4" X_Y_Z="0.0 0.0 -5.3135" rot="0   0  180">
       <layer value="1" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_4" X_Y_Z="0.0 0.0 -3.1881" rot="0   0  +60">
+    <posXYZ volume="forwardDC_chamber_4" X_Y_Z="0.0 0.0 -3.1881" rot="0   0  120">
       <layer value="2" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_4" X_Y_Z="0.0 0.0 -1.0627" rot="0   0  120">
+    <posXYZ volume="forwardDC_chamber_4" X_Y_Z="0.0 0.0 -1.0627" rot="0   0  60">
       <layer value="3" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_4" X_Y_Z="0.0 0.0 +1.0627" rot="0   0  180">
+    <posXYZ volume="forwardDC_chamber_4" X_Y_Z="0.0 0.0 +1.0627" rot="0   0  0">
       <layer value="4" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_4" X_Y_Z="0.0 0.0 +3.1881" rot="0   0  240">
+    <posXYZ volume="forwardDC_chamber_4" X_Y_Z="0.0 0.0 +3.1881" rot="0   0  -60">
       <layer value="5" />
     </posXYZ>
-    <posXYZ volume="forwardDC_chamber_4" X_Y_Z="0.0 0.0 +5.3135" rot="0   0  300">
+    <posXYZ volume="forwardDC_chamber_4" X_Y_Z="0.0 0.0 +5.3135" rot="0   0  -120">
       <layer value="6" />
     </posXYZ>
   </composition>
