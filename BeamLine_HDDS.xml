@@ -153,9 +153,9 @@
 
   <composition name="collimatorStack">
     <posXYZ volume="BeamPipe0"     X_Y_Z="0.0  0.0  -150.0"  />
-    <posXYZ volume="PFLD"          X_Y_Z="0.0  0.0  -99.0"  />
+    <!--posXYZ volume="PFLD"          X_Y_Z="0.0  0.0  -99.0"  />
     <posXYZ volume="PFSC"          X_Y_Z="0.0  0.0  -97.0"   />
-    <posXYZ volume="PFSC"          X_Y_Z="0.0  0.0  -93.0"   />
+    <posXYZ volume="PFSC"          X_Y_Z="0.0  0.0  -93.0"   /-->
     <posXYZ volume="DET1"          X_Y_Z="0.0  0.0  -89.46"  />
     <posXYZ volume="ColDetector"   X_Y_Z="0.0  0.0  -86.16"  />
     <posXYZ volume="PrimaryCol"    X_Y_Z="0.0  0.0  -73.96"  />
