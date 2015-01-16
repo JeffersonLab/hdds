@@ -35,7 +35,7 @@
   </composition>
 
   <composition name="startCntrCables" envelope="STCM">
-     <mposPhi volume="STCC" ncopy="10" Phi0="18.000000" R_Z="8.3  0.0"
+     <mposPhi volume="STCC" ncopy="10" Phi0="18.000000" R_Z="8.05  0.0"
               impliedRot="true">
          <sector value="1" step="1" />
      </mposPhi>
@@ -56,7 +56,7 @@
     </mposPhi>
   </composition>
 
- <tubs name="STCM" Rio_Z="8.0 8.75 22.00" material="Air"
+ <tubs name="STCM" Rio_Z="8.0 8.25 22.00" material="Air"
                    comment="Start counter cables mother volume" />
 
  <tubs name="STCB" Rio_Z="7.0 7.9 5.864" material="Air"/> 
@@ -94,13 +94,16 @@
                    comment="Start counter readout mother volume"/>
   
   <pcon name="STRT" material="Air" comment="start counter assembly">
-    <polyplane Rio_Z="7.6327 8.750000 -27.50000"/>
-    <polyplane Rio_Z="7.6327 8.750000 -7.66060"/>
-    <polyplane Rio_Z="6.6726 8.750000 -7.66060" />
-    <polyplane Rio_Z="6.6726 8.750000 37.0" />
-    <polyplane Rio_Z="5.9998 8.750000 43.057375"/>
-    <polyplane Rio_Z="2.4637 8.750000 53.8226"/>
-    <polyplane Rio_Z="1.0 8.75 61.5" />
+    <polyplane Rio_Z="7.6327 8.250000 -27.50000"/>
+    <polyplane Rio_Z="7.6327 8.250000 -7.66060"/>
+    <polyplane Rio_Z="6.667 8.250000 -7.66060" />
+    <polyplane Rio_Z="6.667 8.250000 -0.4"/>
+    <polyplane Rio_Z="6.667 8.450000 -0.4"/>
+    <polyplane Rio_Z="6.667 8.450000 1.0" />
+    <polyplane Rio_Z="6.66 8.25 39.465"/> 
+    <polyplane Rio_Z="6.2 8.1 42.057375"/>
+    <polyplane Rio_Z="2.4637 4.24 53.8226"/>
+    <polyplane Rio_Z="1.0 1.7 61.5" />
   </pcon>
   <pgon name="STAI" segments="30" material="Aluminum"
 	comment="Aluminum foil wrapping">
@@ -136,7 +139,7 @@
     <polyplane Rio_Z=" 7.51305 7.51490 43.057375" />
     <polyplane Rio_Z=" 2.31635 2.31809 58.594" />
   </pgon>
-  <pgon name="STRC" segments="1" profile="-6.000000 12.000000" material="Scintillator"
+  <pgon name="STRC" segments="1" profile="-6.0 12.0" material="Scintillator"
 		sensitive="true" comment="start counter scintillator">
     <polyplane Rio_Z="7.74926 8.04926 0.000000" />
     <polyplane Rio_Z="7.74926 8.04926 39.465000" />
