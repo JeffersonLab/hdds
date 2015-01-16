@@ -454,7 +454,7 @@
   </composition>
 
   <tubs name="OCOL" Rio_Z="0.0  10.0  50.8" material="Iron" />
-  <tubs name="ICOL" Rio_Z="0.0   2.38  50.8" material="Vacuum" />
+  <tubs name="ICOL" Rio_Z="0.0   0.5  50.8" material="Vacuum" />
 
 <!-- Flange 4 -->
 
@@ -823,7 +823,7 @@
     <!-- Plastic cap at end of Hall pipe -->
     <posXYZ volume="CAP2" X_Y_Z="150 -350.0 -835.48125"/>
     <!-- Plastic scintillator for beam diagonistics -->
-    <posXYZ volume="DET8" X_Y_Z="150 -350.0 -834.0 "/>
+    <!--posXYZ volume="DET8" X_Y_Z="150 -350.0 -834.0 "/-->
   </composition>
 
 <!--  <box name="DET4" X_Y_Z="1700.0  1200.0  2.0" material="Vacuum" /> -->
