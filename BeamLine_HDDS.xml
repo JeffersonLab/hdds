@@ -153,6 +153,9 @@
 
   <composition name="collimatorStack">
     <posXYZ volume="BeamPipe0"     X_Y_Z="0.0  0.0  -150.0"  />
+    <!--posXYZ volume="PFLD"          X_Y_Z="0.0  0.0  -99.0"  />
+    <posXYZ volume="PFSC"          X_Y_Z="0.0  0.0  -97.0"   />
+    <posXYZ volume="PFSC"          X_Y_Z="0.0  0.0  -93.0"   /-->
     <posXYZ volume="DET1"          X_Y_Z="0.0  0.0  -89.46"  />
     <posXYZ volume="ColDetector"   X_Y_Z="0.0  0.0  -86.16"  />
     <posXYZ volume="PrimaryCol"    X_Y_Z="0.0  0.0  -73.96"  />
@@ -235,7 +238,9 @@
   </composition>
 
   <box  name="PCTT"  X_Y_Z="5.08   5.08   20." material="Tungsten" />
-  <tubs name="PCTH"  Rio_Z="0.0    0.17   20." material="Air" />
+  <!--tubs name="PCTH"  Rio_Z="0.0    0.17   20." material="Air" /-->
+  <!-- Wider collimator diameter for commissioning -->
+  <tubs name="PCTH"  Rio_Z="0.0    0.25   20." material="Air" />
 
 
 <!-- Flange 1 -->
@@ -449,7 +454,7 @@
   </composition>
 
   <tubs name="OCOL" Rio_Z="0.0  10.0  50.8" material="Iron" />
-  <tubs name="ICOL" Rio_Z="0.0   0.3  50.8" material="Vacuum" />
+  <tubs name="ICOL" Rio_Z="0.0   0.5  50.8" material="Vacuum" />
 
 <!-- Flange 4 -->
 
@@ -772,12 +777,26 @@
 <!-- Beam Pipe2 -->
 
   <composition name="BeamPipe2" envelope="BPO2">
-    <posXYZ volume="BPI2" X_Y_Z="0.0 0.0 0.0"/>
+    <posXYZ volume="BeamPipe2Inner" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
+  
+  <composition name="BeamPipe2Inner" envelope="BPI2">
+    <posXYZ volume="PSCV" X_Y_Z="0.0 0.0 -22.42"/>
+    <posXYZ volume="PSCH" X_Y_Z="0.0 0.0 -22.42"/>
+  </composition>
+  
 
   <tubs name="BPO2" Rio_Z="0.0  2.54   127.72" material="Iron" />
   <tubs name="BPI2" Rio_Z="0.0  2.38   127.72" material="Vacuum" />
 
+  <composition name="PairSpecConverter" envelope="PSCM">
+    <posXYZ volume="PSCV"/>
+    <posXYZ volume="PSCH"/>
+  </composition>
+  
+  <tubs name="PSCM" Rio_Z="0.0 2.38 0.53" material="Vacuum"/>
+  <tubs name="PSCV" Rio_Z="0.0 1.143 0.01" material="Aluminum"/>
+  <tubs name="PSCH" Rio_Z="1.143 2.38 0.53" material="Iron"/>
 
   <tubs name="DET1" Rio_Z="0.   50.  2." material="Air" />
   <box name="DET2" X_Y_Z=" 450. 270. 0.1" material="Vacuum" />
@@ -798,15 +817,42 @@
 <!--    <posXYZ volume="DET4"     X_Y_Z="  0.0     0.0 -1400.0"/> -->
     <posXYZ volume="DET5"     X_Y_Z="  0.0     0.0  1400.0"/> 
     <posXYZ volume="DET6"     X_Y_Z="  0.0   600.0     0.0"/>
-    <posXYZ volume="DET7"     X_Y_Z="  0.0     0.0  -591.0"/> 
-    <posXYZ volume="HallPipe" X_Y_Z="150.0  -350.0  -817.0"/>
+    <posXYZ volume="DET7"     X_Y_Z="  0.0     0.0  -705.0"/> 
+    <posXYZ volume="HallBellows" X_Y_Z="150.0 -350.0 -1223.287"/>
+    <posXYZ volume="HallPipe" X_Y_Z="150.0  -350.0  -1026.76"/>
+    <!-- Plastic cap at end of Hall pipe -->
+    <posXYZ volume="CAP2" X_Y_Z="150 -350.0 -835.48125"/>
+    <!-- Plastic scintillator for beam diagonistics -->
+    <!--posXYZ volume="DET8" X_Y_Z="150 -350.0 -834.0 "/-->
   </composition>
 
 <!--  <box name="DET4" X_Y_Z="1700.0  1200.0  2.0" material="Vacuum" /> -->
   <box name="DET5" X_Y_Z="1700.0  1198.0  2.0" material="Air" />
   <box name="DET6" X_Y_Z="1700.0  2.0  3000.0" material="Air" />
   <box name="DET7" X_Y_Z="1700.0  1198.0  2.0" material="Air" />
-  
+  <box name="DET8" X_Y_Z="10.0 10.0 1.0" material="Scintillator" sensitive="true"/>
+
+<!-- Hall bellows -->
+<composition name="HallBellows" envelope="BLWO">
+  <posXYZ volume="BLWI" X_Y_Z="0.0 0.0 -3.5"/>
+</composition>
+
+<pcon name="BLWO" material="Iron">
+  <polyplane Rio_Z="0.0 1.90500 -13.4"/>
+  <polyplane Rio_Z="0.0 1.90500 -7.9148"/>
+  <polyplane Rio_Z="0.0 4.27355 -7.9148"/>
+  <polyplane Rio_Z="0.0 4.27355 -4.7652"/>
+  <polyplane Rio_Z="0.0 1.905 -4.7652"/>
+  <polyplane Rio_Z="0.0 1.905 -2.8602"/>
+  <polyplane Rio_Z="0.0 2.0726 -2.8602"/>
+  <polyplane Rio_Z="0.0 2.0726 2.8602"/>
+  <polyplane Rio_Z="0.0 1.905 2.8602"/>
+  <polyplane Rio_Z="0.0 1.905 4.7652"/>
+  <polyplane Rio_Z="0.0 4.27355 4.7652"/>
+  <polyplane Rio_Z="0.0 4.27355 6.4000"/>
+</pcon>
+
+<tubs name="BLWI" Rio_Z="0. 1.7399 19.8" material="Vacuum"/>
 
 <!-- Hall Pipe -->
   <composition name="HallPipe" envelope="OHPI" >
@@ -814,13 +860,26 @@
   </composition>
 
   <composition name="InnerHallPipe" envelope="IHPI" >
-    <posXYZ volume="CAP2" X_Y_Z="0.0  0.0  224.975" />
+    <posXYZ volume="CAP1" X_Y_Z="0.0  0.0  190.11265" />
   </composition>
 
-  <tubs name="OHPI" Rio_Z="0.0  2.54  450.0" material="Iron" />
-  <tubs name="IHPI" Rio_Z="0.0  2.38  450.0" material="Vacuum" />
-  <tubs name="CAP2" Rio_Z="0.0  2.38   0.05" material="Mylar" />
 
+  <pcon name="OHPI" material="Iron">
+    <polyplane Rio_Z="0.0 4.27355 -190.1190"/>
+    <polyplane Rio_Z="0.0 4.27355 -188.5442"/>
+    <polyplane Rio_Z="0.0 1.90500 -188.5442"/>
+    <polyplane Rio_Z="0.0 1.90500 +188.5442"/>
+    <polyplane Rio_Z="0.0 4.27355 +188.5442"/>
+    <polyplane Rio_Z="0.0 4.27355 +190.1190"/>
+  </pcon>
+
+  <tubs name="IHPI" Rio_Z="0.0  1.7399  380.238" material="Vacuum" />
+  <tubs name="CAP1" Rio_Z="0.0  1.7399 0.0127" material="Kapton"/>
+  <tubs name="CAP2" Rio_Z="1.0 4.27355 0.3175" material="Plexiglas" />
+  
+<!-- Approximation for the beam profiler -->
+<box name="PFSC" X_Y_Z="12.8 12.8 0.2" material="Scintillator" sensitive="true"/>
+<box name="PFLD" X_Y_Z="10.0 10.0 0.1" material="Lead"/>
 
 <!-- Following is the definition of the active collimator.  It sits
      on the upstream end of the primary collimator and acts as an
