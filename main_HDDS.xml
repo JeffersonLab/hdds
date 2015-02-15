@@ -60,16 +60,16 @@
 
   <box name="SITE" X_Y_Z="5000. 5000. 5000." material="Air"
        				comment="master volume for description" />
-  <box name="HALL" X_Y_Z="1700. 1500. 3000." material="Air"
+  <box name="HALL" X_Y_Z="1700. 1500. 3408." material="Air"
        				comment="master volume for description">
     <apply region="solenoidBfield" origin="150.0 -350.0 -500.0" />
   </box>
 
   <composition name="barrelPackage" envelope="LASS">
     <posXYZ volume="Solenoid" />
-    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 38.75" />
-    <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.0" />
-    <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.2379" />
+    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 37.127"  rot="0.0 0. 0."/>
+    <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 18.185" />
+    <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 177.4379" />
     <posXYZ volume="BarrelEMcal" X_Y_Z="0.0 0.0 17.0" />
   </composition>
 
@@ -96,7 +96,7 @@
 
   <composition name="experimentalHall" envelope="HALL">
     <posXYZ volume="GlueXdetector" X_Y_Z="150.0 -350.0 -500.0" />
-    <posXYZ volume="PairSpectrometer" X_Y_Z="150.0 -350.0 -1389.45" />  
+    <posXYZ volume="PairSpectrometer" X_Y_Z="150.0 -350.0 -1389.66" />  
     <posXYZ volume="beamPipe" X_Y_Z="0.0 0.0 0.0" />
   </composition>
 
@@ -105,7 +105,7 @@
   </composition>
 
   <composition name="everything" envelope="SITE">
-    <posXYZ volume="collimatorPackage" X_Y_Z="0.0 0.0 -2050." />
+    <posXYZ volume="collimatorPackage" X_Y_Z="0.0 0.0 -2254." />
     <posXYZ volume="LASSfieldVolume" X_Y_Z="0. 0. 0." />
   </composition>
 
