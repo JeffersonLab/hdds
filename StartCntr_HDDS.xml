@@ -103,7 +103,7 @@
     <polyplane Rio_Z="6.66 8.25 39.465"/> 
     <polyplane Rio_Z="6.2 8.1 42.057375"/>
     <polyplane Rio_Z="2.4637 4.24 53.8226"/>
-    <polyplane Rio_Z="1.0 1.7 61.5" />
+    <polyplane Rio_Z="1.95 2.39 58.8" />
   </pcon>
   <pgon name="STAI" segments="30" material="Aluminum"
 	comment="Aluminum foil wrapping">
@@ -230,7 +230,7 @@
 
   <pcon name="STT1" material="Tedlar" comment="Wrapping for light tightness">
     <polyplane Rio_Z="3.56 3.565 53.8226"/>
-    <polyplane Rio_Z="1.0 1.05 61.5"/>
+    <polyplane Rio_Z="1.995 2.0 58.594"/>
   </pcon>
 
   <pcon name="STTD" material="Tedlar" comment="Wrapping for light tightness">
