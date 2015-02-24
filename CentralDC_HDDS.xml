@@ -258,9 +258,9 @@
     <posXYZ volume="STRA" X_Y_Z="0. 0.   0.0"/>
     <posXYZ volume="STRW" X_Y_Z="0. 0.   0.0"/>
     <posXYZ volume="WIRE" X_Y_Z="0. 0.  -0.17625"/>
-    <posXYZ volume="DPLG" X_Y_Z="0. 0.  74.52375"/>
+    <posXYZ volume="DPLG" X_Y_Z="0. 0.  74.5237"/>
     <posXYZ volume="DFTH" X_Y_Z="0. 0.  75.6000"/>
-    <posXYZ volume="UPLG" X_Y_Z="0. 0. -74.52375"/>
+    <posXYZ volume="UPLG" X_Y_Z="0. 0. -74.5237"/>
     <posXYZ volume="UFTH" X_Y_Z="0. 0. -75.9525"/>
     <posXYZ volume="PHLD" X_Y_Z="0. 0. -75.9525"/>
     <posXYZ volume="PHLD" X_Y_Z="0. 0.  75.600" rot="0 180 0"/>
@@ -396,7 +396,7 @@
   </pcon>
   <tubs name="CRPI" Rio_Z="0.01  0.0735  1.206" material="Copper" /> 
 
-  <tubs name="DCLS"  Rio_Z="9.9344 55.5338 155.1" material="CDchamberGas" />
+  <tubs name="DCLS"  Rio_Z="9.934 55.534 155.1" material="CDchamberGas" />
  
   <tubs name="CDSS" Rio_Z="0.0 0.635 3.175" material="StainlessSteel"/>
   <tubs name="CDRO" Rio_Z="9.9 55.5 4.0" material="SignalCables"/>  
