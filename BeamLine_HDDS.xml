@@ -817,11 +817,11 @@
 <!--    <posXYZ volume="DET4"     X_Y_Z="  0.0     0.0 -1400.0"/> -->
     <posXYZ volume="DET5"     X_Y_Z="  0.0     0.0  1400.0"/> 
     <posXYZ volume="DET6"     X_Y_Z="  0.0   600.0     0.0"/>
-    <posXYZ volume="DET7"     X_Y_Z="  0.0     0.0  -705.0"/> 
+    <!--posXYZ volume="DET7"     X_Y_Z="  0.0     0.0  -705.0"/--> 
     <posXYZ volume="HallBellows" X_Y_Z="150.0 -350.0 -1223.287"/>
-    <posXYZ volume="HallPipe" X_Y_Z="150.0  -350.0  -1026.76"/>
-    <!-- Plastic cap at end of Hall pipe -->
-    <posXYZ volume="CAP2" X_Y_Z="150 -350.0 -835.48125"/>
+    <posXYZ volume="HallPipe" X_Y_Z="150.0  -350.0  -1026.77"/>
+    <!-- Plastic target at end of start counter -->
+    <!--posXYZ volume="CAP2" X_Y_Z="150 -350.0 -404.0"/-->
     <!-- Plastic scintillator for beam diagonistics -->
     <!--posXYZ volume="DET8" X_Y_Z="150 -350.0 -834.0 "/-->
   </composition>
@@ -856,27 +856,101 @@
 
 <!-- Hall Pipe -->
   <composition name="HallPipe" envelope="OHPI" >
-    <posXYZ volume="InnerHallPipe" X_Y_Z="0.0 0.0 0.0"/> 
+    <posXYZ volume="IHPI" X_Y_Z="0 0 98.6305"/>
+    <!---posXYZ volume="InnerHallPipe" X_Y_Z="0.0 0.0 0.0"/--> 
   </composition>
 
-  <composition name="InnerHallPipe" envelope="IHPI" >
+  <!--composition name="InnerHallPipe" envelope="IHPI" >
     <posXYZ volume="CAP1" X_Y_Z="0.0  0.0  190.11265" />
-  </composition>
+  </composition-->
 
 
   <pcon name="OHPI" material="Iron">
     <polyplane Rio_Z="0.0 4.27355 -190.1190"/>
     <polyplane Rio_Z="0.0 4.27355 -188.5442"/>
     <polyplane Rio_Z="0.0 1.90500 -188.5442"/>
-    <polyplane Rio_Z="0.0 1.90500 +188.5442"/>
-    <polyplane Rio_Z="0.0 4.27355 +188.5442"/>
-    <polyplane Rio_Z="0.0 4.27355 +190.1190"/>
+    <polyplane Rio_Z="0.0 1.90500 +385.678"/>
+    <polyplane Rio_Z="0.0 22.504 +385.678"/>
+    <polyplane Rio_Z="0.0 22.504 +387.38"/>
   </pcon>
 
-  <tubs name="IHPI" Rio_Z="0.0  1.7399  380.238" material="Vacuum" />
+  <tubs name="IHPI" Rio_Z="0.0  1.7399 577.499" material="Vacuum" />
   <tubs name="CAP1" Rio_Z="0.0  1.7399 0.0127" material="Kapton"/>
-  <tubs name="CAP2" Rio_Z="1.0 4.27355 0.3175" material="Plexiglas" />
+  <tubs name="CAP2" Rio_Z="0.0 1.27 0.1" material="Polyethylene" />
+
+<composition name="SixWayCross" envelope="SWCM">
+  <posXYZ volume="sixWayTube" X_Y_Z="0 0 0"/>
+  <posXYZ volume="sixWayTube" X_Y_Z="0. 0 0." rot="0. 180. 0."/>
+  <posXYZ volume="sixWayTube" X_Y_Z="0. 0. 0." rot="0. 90. 0."/>
+  <posXYZ volume="sixWayTube" X_Y_Z="0. 0. 0." rot="0. 270. 0."/>
+  <posXYZ volume="sixWayTube" X_Y_Z="0. 0. 0." rot="90. 0. 0."/>
+  <posXYZ volume="sixWayTube" X_Y_Z="0. 0. 0." rot="270. 0. 0."/>
+  <posXYZ volume="sixWayBox" X_Y_Z="0. 0. 0."/> 
+</composition>
+
+<box name="SWCM" X_Y_Z="67.9196 67.9196 67.9196" material="Air"
+     comment="Six-way cross mother volume"/>
+<pcon name="SWCP" material="StainlessSteel" comment="Vacuum pipe for 6-way cross">
+  <polyplane Rio_Z="0. 20.32 20.32"/>
+  <polyplane Rio_Z="0. 20.32 32.258"/>
+  <polyplane Rio_Z="0. 22.504 32.258"/>
+  <polyplane Rio_Z="0. 22.504 33.9598"/>
+</pcon>
   
+<composition name="sixWayTube" envelope="SWCP">
+  <posXYZ volume="SWC2" X_Y_Z="0.0 0.0 27.1399"/>
+</composition>
+
+<composition name="sixWayBox" envelope="SWCB">
+  <posXYZ volume="SWC1" X_Y_Z="0.0 0.0 20.08125"/>
+  <posXYZ volume="SWC1" X_Y_Z="0.0 0.0 -20.08125"/>
+  <posXYZ volume="SWC1" X_Y_Z="0.0 20.08125 0.0" rot="90 0 0"/>
+  <posXYZ volume="SWC1" X_Y_Z="0.0 -20.08125 0.0" rot="90 0 0"/>
+  <posXYZ volume="SWC1" X_Y_Z="20.08125 0. 0." rot="0 90 0 "/>
+  <posXYZ volume="SWC1" X_Y_Z="-20.08125 0. 0." rot="0 90 0"/>
+  <posXYZ volume="coldCubeMotherVolume" X_Y_Z="0. 0. 0." />
+</composition>
+
+<composition name="coldCubeMotherVolume" envelope="CBXM">
+  <posXYZ volume="CBX1" X_Y_Z="0. -7.712  0."/>
+  <posXYZ volume="coldCubeBeamPlate" X_Y_Z="0. 4.28 12.1444"/>
+  <posXYZ volume="coldCubeBeamPlate" X_Y_Z="0. 4.28 12.3032"/>
+  <posXYZ volume="coldCubeBeamPlate" X_Y_Z="0. 4.28 -12.1444"/>
+  <posXYZ volume="CBXS" X_Y_Z="12.1444 4.28 0."/>
+  <posXYZ volume="CBXS" X_Y_Z="-12.1444 4.28 0."/>
+  <posXYZ volume="coldCubeTopPlate" X_Y_Z="0. 16.272 0." rot="90 90 0"/>
+  <posXYZ volume="coldCubeSidePlate" X_Y_Z="0. 4.28 11.9856"/>
+  <posXYZ volume="coldCubeSidePlate" X_Y_Z="0. 4.28 -11.9856"/>
+  <posXYZ volume="coldCubeSidePlate" X_Y_Z="11.9856 4.28 0." rot="0 90 0"/>
+  <posXYZ volume="coldCubeSidePlate" X_Y_Z="-11.9856 4.28 0." rot="0 90 0"/>
+</composition>
+
+<composition name="coldCubeBeamPlate" envelope="CBXB">
+  <posXYZ volume="CBH0" X_Y_Z="0. -4.2926 0."/>
+</composition>
+
+<composition name="coldCubeSidePlate" envelope="CBSP">
+  <posXYZ volume="CBH2" X_Y_Z="0. 0. 0."/>
+</composition>
+
+<composition name="coldCubeTopPlate" envelope="CHXT">
+  <posXYZ volume="CBH1" X_Y_Z="0. 0. 0." />
+</composition>
+
+<box name="CBSP" X_Y_Z="23.8252 23.8252 0.15875" material="Copper"/>
+<box name="CHXT" X_Y_Z="24.13 24.13 0.15875" material="Copper"/>
+<tubs name="CBH1" Rio_Z="0. 10.795 0.15875" material="Vacuum"/>
+<tubs name="CBH0" Rio_Z="0 1.27 0.15875" material="Vacuum" 
+      comment="Hole for beam"/>
+<box name="CBH2" X_Y_Z="19.05 19.05 0.15875" material="Vacuum"/>
+<box name="CBXB" X_Y_Z="21.8948 21.8948 0.15875" material="Copper"/>
+<box name="CBXS" X_Y_Z="0.15875 21.8948 21.8948" material="Copper"/>
+<box name="CBX1" X_Y_Z="24.13 0.15875 24.13" material="Copper"/>
+<box name="CBXM" X_Y_Z="39.685 39.685 39.685" material="Vacuum"/>
+<box name="SWCB" X_Y_Z="40.64 40.64 40.64" material="StainlessSteel"/>
+<tubs name="SWC1" Rio_Z="0 19.84248 0.4775" material="Vacuum"/>
+<tubs name="SWC2" Rio_Z="0. 19.84248 13.6398" material="Vacuum"/>
+
 <!-- Approximation for the beam profiler -->
 <box name="PFSC" X_Y_Z="12.8 12.8 0.2" material="Scintillator" sensitive="true"/>
 <box name="PFLD" X_Y_Z="10.0 10.0 0.1" material="Lead"/>
