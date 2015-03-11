@@ -876,7 +876,7 @@
 
   <tubs name="IHPI" Rio_Z="0.0  1.7399 577.499" material="Vacuum" />
   <tubs name="CAP1" Rio_Z="0.0  1.7399 0.0127" material="Kapton"/>
-  <tubs name="CAP2" Rio_Z="0.0 1.27 0.1" material="Polyethylene" />
+  <tubs name="CAP2" Rio_Z="0.0 2.375 0.1" material="Polyethylene" />
 
 <composition name="SixWayCross" envelope="SWCM">
   <posXYZ volume="sixWayTube" X_Y_Z="0 0 0"/>
