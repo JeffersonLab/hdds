@@ -101,6 +101,7 @@
     <polyplane Rio_Z="0.0 0.72389  +14.5162"/>
     <polyplane Rio_Z="0.0 0.5040  +14.8162"/>
     <polyplane Rio_Z="0.0 0.29715 +14.9873"/>
+    <real name="length" value="29.9746" unit="cm"/>
   </pcon>
 
   <pcon name="CYLW" material="HighDensityROHACELL" comment="target vessel cylindrical wall">
