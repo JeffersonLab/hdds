@@ -1151,10 +1151,13 @@
              <specify E="2.50" refindex="1.462" abslen="1000" />
              <specify E="3.00" refindex="1.468" abslen="1000" />
              <specify E="3.50" refindex="1.475" abslen="1000" />
-             <specify E="4.00" refindex="1.484" abslen="600" />
-             <specify E="4.50" refindex="1.495" abslen="300" />
-             <specify E="5.00" refindex="1.508" abslen="200" />
-             <specify E="5.50" refindex="1.508" abslen="0.1" />
+             <specify E="4.00" refindex="1.484" abslen="1000" /> 
+	     <specify E="4.13" refindex="1.487" abslen="1000" />
+<!--
+	     <specify E="4.50" refindex="1.495" abslen="300" />
+	     <specify E="5.00" refindex="1.508" abslen="200" />
+	     <specify E="5.50" refindex="1.508" abslen="0.1" />
+-->
         </optical_properties>
   </composite>
 
