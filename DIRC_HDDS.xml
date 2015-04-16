@@ -20,7 +20,7 @@
 
 <composition name="DIRC">
 	<apply region="nullBfield"/>
-    <posXYZ volume="DRCC" X_Y_Z="0.0  -20.0  -30.0" rot="0.0 0.0 -90.0"/>
+    <posXYZ volume="DRCC" X_Y_Z="-20.0  0.0  -30.0" rot="0.0 0.0 0.0"/>
 </composition>
 
 <!-- DIRC detector
@@ -57,7 +57,7 @@
 	<posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -4.775" />
 	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
 	<posXYZ volume="WNGL" X_Y_Z="500.0875 0.0 -4.775" />
-	<posXYZ volume="NWDG" X_Y_Z="503.99 0.0 -3.6577925" rot="0.0 90.0 0.0" />
+	<!--posXYZ volume="NWDG" X_Y_Z="503.99 0.0 -3.6577925" rot="0.0 90.0 0.0" /-->
 	<posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
 </composition>
 
@@ -105,8 +105,8 @@
 <!-- Single focusing optics box for all bar boxes: x positions
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	FTMR: 507.99	        to 508:		Flat mirror coating
-	BTFB: 508		to 529.7:	Bottom focusing block
-	TPFB: 508		to 529.7:	Top focusing block
+	BTFB: 508		to 529.7:	Bottom focusing block (box containing 3-segment mirror)
+	TPFB: 508		to 529.7:	Top focusing block (trapezoid near readout plane)
 	RDCD: 508.9		to 529.7:	Photocathode
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
@@ -115,8 +115,11 @@
         <posXYZ volume="FTMR" X_Y_Z="507.995 0.0 -32.725" />
 	<posXYZ volume="RDCD" X_Y_Z="519.35 0.0 -42.725" rot="0.0 42.12454632 0.0" />
         <posXYZ volume="BTFB" X_Y_Z="518.85 0.0 -14.725" />
-	<posXYZ volume="TPFB" X_Y_Z="513.65 0.0 -42.675" />
-	<!-- <posXYZ volume="BTBL" X_Y_Z="518.85 0.0 -14.725" /> # quartz block but no mirror -->
+	<posXYZ volume="TPFB" X_Y_Z="513.65 0.0 -42.675" /> 
+	<posXYZ volume="FWM1" X_Y_Z="512.05 0.0 1.725" /> 
+	<posXYZ volume="FWM2" X_Y_Z="505.1  0.0 -9.601" rot="0.0 30.0 0.0"/>
+	<posXYZ volume="FSM1" X_Y_Z="518.85 -109.9 -26.225" /> 
+	<posXYZ volume="FSM2" X_Y_Z="518.85 109.9 -26.225" /> <!-- should be 110 at ends of focusing box -->
 	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" />
 </composition>	
 
@@ -129,20 +132,35 @@
 
 <!-- bottom focusing block with mirror -->
 <composition name="BTFB" envelope="BTBL">
-	<posXYZ volume="SPMR" X_Y_Z="-107.75 0.0 -29.55" rot="90.0 0.0 0.0" />
+	<!--posXYZ volume="SPMR" X_Y_Z="-107.75 0.0 -29.55" rot="90.0 0.0 0.0" /-->
+	<posXYZ volume="TSM1" X_Y_Z="9.90 0.0 -6.53" rot="0.0 -11.386 0.0" />
+	<posXYZ volume="TSM2" X_Y_Z="7.63 0.0 2.81" rot="0.0 -15.981 0.0" />
+	<posXYZ volume="TSM3" X_Y_Z="4.61 0.0 11.93" rot="0.0 -20.576 0.0" />
 </composition>
 
 <!-- bottom silica block -->
-<box name="BTBL" X_Y_Z="21.7 220.0 32.9" material="fusedSilica" />
+<box name="BTBL" X_Y_Z="21.7 220.0 32.9" material="OpticalH2O" /> <!--fusedSilica" /-->
 
 <!-- cylindrical mirror center 96.9 46 -->
 <tubs name="SPMR" Rio_Z="119.99 120.0 220.0" profile="8.76061 13.7797"
 	material="ThickCerenkovMirror" />
 
+<!-- 3 segment mirrors -->
+<box name="TSM1" X_Y_Z="0.01 220.0 9.6" material="ThickCerenkovMirror" />
+<box name="TSM2" X_Y_Z="0.01 220.0 9.6" material="ThickCerenkovMirror" />
+<box name="TSM3" X_Y_Z="0.01 220.0 9.6" material="ThickCerenkovMirror" />
+
+<!-- flat wedge mirrors to replace new wedge -->
+<box name="FWM1" X_Y_Z="19.70 220.0 0.01" material="ThickCerenkovMirror" />
+<box name="FWM2" X_Y_Z="6.697 220.0 0.01" material="ThickCerenkovMirror" />
+
+<!-- flat side mirrors on ends of box -->
+<box name="FSM1" X_Y_Z="21.83 0.01 55.9" material="ThickCerenkovMirror" />
+<box name="FSM2" X_Y_Z="21.83 0.01 55.9" material="ThickCerenkovMirror" />
+
 <!-- top focusing block -->
 <trd name="TPFB" Xmp_Ymp_Z="0.9 21.7 220.0 220.0 23.0"
-	inclination="24.33124192 0.0" material="fusedSilica" />
-
+	inclination="24.33124192 0.0" material="OpticalH2O" /> <!--fusedSilica" /-->
 
 <!-- Al Container for bar box module -->
 <composition name="ALCM">
@@ -170,10 +188,11 @@
 	<posXYZ volume="ABH3" X_Y_Z="519.0 0.0 -55.325" />
 	<posXYZ volume="ABH4" X_Y_Z="510.0 0.0 2.775" />
 	
+	<!-- Al plates for the ends of the focusing optics box
 	<posXYZ volume="ABV2" X_Y_Z="497.9 -21.3 -4.775" />
 	<posXYZ volume="ABV2" X_Y_Z="497.9 21.3 -4.775" />
 	<posXYZ volume="ABV3" X_Y_Z="519.0 -21.3 -25.775" />
-	<posXYZ volume="ABV3" X_Y_Z="519.0 21.3 -26.275" />
+	<posXYZ volume="ABV3" X_Y_Z="519.0 21.3 -26.275" /-->
 </composition>
 
 <box name="ABT2" X_Y_Z="0.1 220.5 12.175" material="Aluminum" />

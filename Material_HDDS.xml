@@ -1161,6 +1161,23 @@
         </optical_properties>
   </composite>
 
+  <composite name="OpticalH2O">
+        <addmaterial material="Hydrogen">  <natoms n="2"  /> </addmaterial>
+        <addmaterial material="Oxygen">  <natoms n="1"  /> </addmaterial>
+        <real name="density"    value="1.00"        unit="g/cm^3"   />
+        <optical_properties>
+	     <specify E="1.50" refindex="1.452" abslen="1000" />
+             <specify E="2.00" refindex="1.457" abslen="1000" />
+             <specify E="2.50" refindex="1.462" abslen="1000" />
+             <specify E="3.00" refindex="1.468" abslen="1000" />
+             <specify E="3.50" refindex="1.475" abslen="1000" />
+             <specify E="4.00" refindex="1.484" abslen="1000" /> 
+	     <specify E="4.50" refindex="1.495" abslen="1000" />
+	     <specify E="5.00" refindex="1.508" abslen="1000" />
+	     <specify E="5.50" refindex="1.508" abslen="1000" />
+        </optical_properties>
+  </composite>
+
   <composite name="CerenkovPhotocathode">
 	<addmaterial material="Cesium">
 		<fractionmass fraction="1.0" />
