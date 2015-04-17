@@ -23,15 +23,15 @@
      liquid hydrogen target - not the start of the vacuum vessel.  -->
 
   <composition name="Target">
-    <posXYZ volume="targetSupportArm" X_Y_Z="0. 0. -71.645"/>
-    <posXYZ volume="targetVessel" X_Y_Z="0. 0. 15.0" />
+    <posXYZ volume="targetSupportArm" X_Y_Z="0. 0. -71.221"/>
+    <posXYZ volume="targetVessel" X_Y_Z="0. 0. 15.424" />
   </composition>
 
   <composition name="targetSupportArm" envelope="TARM">
     <posXYZ volume="TGB1" X_Y_Z="0. 0. -11.1916"/>
     <posXYZ volume="TGB2" X_Y_Z="0. 0. +38.644"/>
     <posXYZ volume="TGF1" X_Y_Z="0. 0. -48.9752"/>
-    <posXYZ volume="TGF2" X_Y_Z="0. 0. -46.1727"/>
+    <posXYZ volume="TGF2" X_Y_Z="0. 0. -46.5325"/>
     <posXYZ volume="TGF3" X_Y_Z="0. 0. 28.1018"/>
     <posXYZ volume="TGF4" X_Y_Z="0. 0. 30.0068"/>
     <posXYZ volume="TGF5" X_Y_Z="0. 0. 48.55"/>
@@ -45,8 +45,8 @@
     <polyplane Rio_Z="0.0 22.5 -49.8252" />
     <polyplane Rio_Z="0.0 22.5 -48.12" />
     <polyplane Rio_Z="0.0 10.4775 -48.12"/>
-    <polyplane Rio_Z="0.0 10.4775 -45.58" />
-    <polyplane Rio_Z="0.0 10.16 -45.58" />
+    <polyplane Rio_Z="0.0 10.4775 -45.2625" />
+    <polyplane Rio_Z="0.0 10.16 -45.2625" />
     <polyplane Rio_Z="0.0 10.16 +28.7368"/>
     <polyplane Rio_Z="0.0 7.9375 28.7368"/>
     <polyplane Rio_Z="0.0 7.9375 31.2768"/>
@@ -56,8 +56,8 @@
 
  <pcon name="TGBM" material="Aluminum">
    <polyplane Rio_Z="6.0325 7.62 -36.825"/>
-   <polyplane Rio_Z="6.0325 7.62 -35.555"/>
-   <polyplane Rio_Z="6.0325 6.35 -35.555"/>
+   <polyplane Rio_Z="6.0325 7.62 -35.585"/>
+   <polyplane Rio_Z="6.0325 6.35 -35.585"/>
    <polyplane Rio_Z="6.0325 6.35 -24.975"/>
    <polyplane Rio_Z="3.699 4.118 -22.1565"/>
    <polyplane Rio_Z="3.699 4.699 -22.1565"/>
@@ -68,11 +68,11 @@
   <composition name="targetVessel" envelope="TARG">
     <posXYZ volume="CYLW" X_Y_Z="0. 0. 0." />
     <posXYZ volume="TGBM" X_Y_Z="0. 0. 0."/>
-    <posXYZ volume="DWIT" X_Y_Z="0. 0. +18.0326"/>
-    <posXYZ volume="TGR0" X_Y_Z="0. 0. -25.8175"/>
-    <posXYZ volume="TGR0" X_Y_Z="0. 0. -28.675"/>
-    <posXYZ volume="targetInput" X_Y_Z="0. 0. 0.0"/>
-    <posXYZ volume="targetTube" X_Y_Z="0. 0. 0.0" />
+    <posXYZ volume="DWIT" X_Y_Z="0. 0. +18.24505"/>
+    <posXYZ volume="TGR0" X_Y_Z="0. 0. -27.5015"/>
+    <posXYZ volume="TGR0" X_Y_Z="0. 0. -30.359"/>
+    <posXYZ volume="targetInput" X_Y_Z="0. 0. -1.608"/>
+    <posXYZ volume="targetTube" X_Y_Z="0. 0. -1.608" />
   </composition>
 
   <composition name="targetTube" envelope="TGTV">
@@ -112,7 +112,7 @@
     <polyplane Rio_Z="2.726 3.979 +16.2435"/>
     <polyplane Rio_Z="1.905 3.135 +17.2435"/>
     <polyplane Rio_Z="1.905 2.466 +17.7435"/>
-    <polyplane Rio_Z="1.905 1.905 +18.039"/>
+    <polyplane Rio_Z="1.905 1.905 +18.2514"/>
   </pcon>
 
 
@@ -164,8 +164,8 @@
     
   <pcon name="TARG" material="Vacuum" comment="target vessel mother volume">
     <polyplane Rio_Z="0. 7.62 -36.825"/>
-    <polyplane Rio_Z="0. 7.62 -35.555"/>
-    <polyplane Rio_Z="0. 6.35 -35.555"/>
+    <polyplane Rio_Z="0. 7.62 -35.585"/>
+    <polyplane Rio_Z="0. 6.35 -35.585"/>
     <polyplane Rio_Z="0. 6.35 -24.975"/>
     <polyplane Rio_Z="0. 4.118 -22.1565"/>
     <polyplane Rio_Z="0. 4.699 -22.1565"/>
@@ -175,7 +175,7 @@
     <polyplane Rio_Z="0.0 3.979 +16.2435"/>
     <polyplane Rio_Z="0.0 3.135 +17.2435"/>
     <polyplane Rio_Z="0.0 2.466 +17.7435"/>
-    <polyplane Rio_Z="0.0 1.905 +18.039"/>
+    <polyplane Rio_Z="0.0 1.905 +18.2514"/>
   </pcon>
 
   <tubs name="TGR0" Rio_Z="3.81 5.842 0.635" material="FR-4"/>
