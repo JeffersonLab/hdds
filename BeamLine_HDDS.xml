@@ -856,7 +856,7 @@
 
 <!-- Hall Pipe -->
   <composition name="HallPipe" envelope="OHPI" >
-    <posXYZ volume="IHPI" X_Y_Z="0 0 98.6305"/>
+    <posXYZ volume="IHPI" X_Y_Z="0 0 98.8425"/>
     <!---posXYZ volume="InnerHallPipe" X_Y_Z="0.0 0.0 0.0"/--> 
   </composition>
 
@@ -869,12 +869,12 @@
     <polyplane Rio_Z="0.0 4.27355 -190.1190"/>
     <polyplane Rio_Z="0.0 4.27355 -188.5442"/>
     <polyplane Rio_Z="0.0 1.90500 -188.5442"/>
-    <polyplane Rio_Z="0.0 1.90500 +385.678"/>
-    <polyplane Rio_Z="0.0 22.504 +385.678"/>
-    <polyplane Rio_Z="0.0 22.504 +387.38"/>
+    <polyplane Rio_Z="0.0 1.90500 +386.102"/>
+    <polyplane Rio_Z="0.0 22.504 +386.102"/>
+    <polyplane Rio_Z="0.0 22.504 +387.804"/>
   </pcon>
 
-  <tubs name="IHPI" Rio_Z="0.0  1.7399 577.499" material="Vacuum" />
+  <tubs name="IHPI" Rio_Z="0.0  1.7399 577.923" material="Vacuum" />
   <tubs name="CAP1" Rio_Z="0.0  1.7399 0.0127" material="Kapton"/>
   <tubs name="CAP2" Rio_Z="0.0 2.375 0.1" material="Polyethylene" />
 
