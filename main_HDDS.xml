@@ -69,8 +69,8 @@
 
   <composition name="barrelPackage" envelope="LASS">
     <posXYZ volume="Solenoid" />
-    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 37.127"  rot="0.0 0. 0."/>
-    <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 18.185" />
+    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 37.551"  rot="0.0 0. 0."/>
+    <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.56" />
     <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 177.4379" />
     <posXYZ volume="BarrelEMcal" X_Y_Z="0.0 0.0 17.0" />
   </composition>
@@ -79,9 +79,9 @@
     <!--<posXYZ volume="CerenkovCntr" X_Y_Z="0.0 0.0 466.0" /> -->
     <!--posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
     <!-- To simulate DIRC hits uncomment the line below -->
-    <!--posXYZ volume="DIRC" X_Y_Z="0.0 0.0 600.0" /-->
-    <posXYZ volume="ForwardTOF" X_Y_Z="0.0 0.0 616.25" />
-    <posXYZ volume="ForwardEMcal" X_Y_Z="0.0 0.0 625.3" />
+    <!--posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.0" /-->
+    <posXYZ volume="ForwardTOF" X_Y_Z="0.0 0.0 606.293" />
+    <posXYZ volume="ForwardEMcal" X_Y_Z="0.0 0.0 625.406" />
     <posXYZ volume="ComptonEMcal" X_Y_Z="0.0 0.0 1025.3" />
   </composition>
 
