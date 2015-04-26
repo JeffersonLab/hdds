@@ -144,9 +144,9 @@ int main(int argC, char* argV[])
       return 1;
    }
 
-   DOMNode* docEl;
+   // DOMNode* docEl;  commented out to avoid compiler warnings 4/26/2015 DL
    try {
-      docEl = document->getDocumentElement();
+      /*docEl =*/ document->getDocumentElement();
    }
    catch (DOMException& e) {
       std::cerr << "Woops " << e.msg << std::endl;

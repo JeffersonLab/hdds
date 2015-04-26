@@ -95,16 +95,13 @@ int main(int argC, char* argV[])
    }
 
    XString xmlFile;
-   bool geantOutput = true;
    int argInd;
    for (argInd = 1; argInd < argC; argInd++)
    {
       if (argV[argInd][0] != '-')
          break;
 
-      if (strcmp(argV[argInd], "-v") == 0)
-         geantOutput = false;
-      else
+      if ( ! strcmp(argV[argInd], "-v") == 0)
          std::cerr
               << "Unknown option \'" << argV[argInd]
               << "\', ignoring it\n" << std::endl;

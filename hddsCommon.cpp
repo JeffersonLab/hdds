@@ -1668,7 +1668,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             if (noRotation && (nSiblings == 1) &&
                 (containerTypeS == "tubs" ))
             {
-               double rMax, rMin, drM;
+               double rMax, rMin;
                XString envRioZS(env->getAttribute(X("Rio_Z")));
                if (envRioZS.size() > 0)
                {
@@ -1678,7 +1678,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                   munit.getConversions(env);
                   rMin /= munit.deg;
                   rMax /= munit.deg;
-                  drM = rMax-rMin;
+                  // drM = rMax-rMin;  commented out to avoid compiler warnings 4/26/2015 DL
                }
                else
                {
@@ -1771,7 +1771,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             if (noRotation && (nSiblings == 1) && 
                 containerTypeS == "box")
             {
-               double xMax, xMin, dxM;
+               double xMax, xMin;
                XString envXYZS(env->getAttribute(X("X_Y_Z")));
                if (envXYZS.size() > 0)
                {
@@ -1782,7 +1782,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                   munit.getConversions(env);
                   xMax = hx/2 /munit.cm;
                   xMin = -xMax;
-                  dxM = hx;
+                  // dxM = hx;  commented out to avoid compiler warnings 4/26/2015 DL
                }
                else
                {
@@ -1875,7 +1875,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
             if (noRotation && (nSiblings == 1) && 
                 containerTypeS == "box")
             {
-               double yMax, yMin, dyM;
+               double yMax, yMin;
                XString envXYZS(env->getAttribute(X("X_Y_Z")));
                if (envXYZS.size() > 0)
                {
@@ -1886,7 +1886,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                   munit.getConversions(env);
                   yMax = hy/2 /munit.cm;
                   yMin = -yMax;
-                  dyM = hy;
+                  // dyM = hy;  commented out to avoid compiler warnings 4/26/2015 DL
                }
                else
                {
@@ -1998,7 +1998,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                  containerTypeS == "box") &&
                 (containerS.size() != 0))
             {
-               double zMax, zMin, dzM;
+               double zMax, zMin;
                XString envXYZS(env->getAttribute(X("X_Y_Z")));
                XString envRioZS(el->getAttribute(X("Rio_Z")));
                XString envRxyZS(el->getAttribute(X("Rxy_Z")));
@@ -2012,7 +2012,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                   munit.getConversions(env);
                   zMax = hz/2 /munit.cm;
                   zMin = -zMax;
-                  dzM = hz;
+                  // dzM = hz; commented out to avoid compiler warnings 4/26/2015 DL
                }
                else if (envRioZS.size() > 0)
                {
@@ -2023,7 +2023,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                   munit.getConversions(env);
                   zMax = hz/2 /munit.cm;
                   zMin = -zMax;
-                  dzM = hz;
+                  // dzM = hz; commented out to avoid compiler warnings 4/26/2015 DL
                }
                else if (envRxyZS.size() > 0)
                {
@@ -2034,7 +2034,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                   munit.getConversions(env);
                   zMax = hz/2 /munit.cm;
                   zMin = -zMax;
-                  dzM = hz;
+                  // dzM = hz; commented out to avoid compiler warnings 4/26/2015 DL
                }
                else if (envXmpYmpZS.size() > 0)
                {
@@ -2045,7 +2045,7 @@ int CodeWriter::createVolume(DOMElement* el, Refsys& ref)
                   munit.getConversions(env);
                   zMax = hz/2 /munit.cm;
                   zMin = -zMax;
-                  dzM = hz;
+                  // dzM = hz;  commented out to avoid compiler warnings 4/26/2015 DL
                }
                else
                {
