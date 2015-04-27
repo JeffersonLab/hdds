@@ -69,7 +69,7 @@
 
   <composition name="barrelPackage" envelope="LASS">
     <posXYZ volume="Solenoid" />
-    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 37.551"  rot="0.0 0. 0."/>
+    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 37.551"  rot="0.0 0.0 -11.25"/>
     <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.56" />
     <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 177.4379" />
     <posXYZ volume="BarrelEMcal" X_Y_Z="0.0 0.0 17.0" />
