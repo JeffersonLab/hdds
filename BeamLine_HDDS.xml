@@ -821,7 +821,7 @@
     <posXYZ volume="HallBellows" X_Y_Z="150.0 -350.0 -1223.287"/>
     <posXYZ volume="HallPipe" X_Y_Z="150.0  -350.0  -1026.77"/>
     <!-- Plastic target at end of start counter -->
-    <!--posXYZ volume="CAP2" X_Y_Z="150 -350.0 -404.0"/-->
+    <posXYZ volume="CAP2" X_Y_Z="150 -350.0 -404.0"/>
     <!-- Plastic scintillator for beam diagonistics -->
     <!--posXYZ volume="DET8" X_Y_Z="150 -350.0 -834.0 "/-->
   </composition>
