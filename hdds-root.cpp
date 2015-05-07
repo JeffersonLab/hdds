@@ -49,11 +49,13 @@ using namespace xercesc;
 #include <iomanip>
 #include <vector>
 #include <list>
+using namespace std;
 
 #define X(str) XString(str).unicode_str()
 #define S(str) str.c_str()
 
 int first_volume_placement = 0;
+string macroname;
 
 void usage()
 {
@@ -130,6 +132,24 @@ int main(int argC, char* argV[])
       return 1;
    }
    xmlFile = argV[argInd];
+   
+   // Determine name of root macro name from input file name.
+   // For historic reasons, the file "main_HDDS.xml" is converted
+   // to "hddsroot". All others look for a pattern like "XXX_HDDS.xml"
+   // and set the macro name to "XXXroot". If the input pattern
+   // does not match either of the above, the suffix (if any) is replaced
+   // with ".C" to form the macro filename.
+   size_t pos_underscore = xmlFile.find("_");
+   size_t pos_dot = xmlFile.find_last_of(".");
+   if(xmlFile == "main_HDDS.xml"){
+      macroname = "hddsroot";
+   }else if( pos_underscore != string::npos ){
+      macroname = xmlFile.substr(0, pos_underscore) + "root";
+   }else if( pos_dot != string::npos ){
+      macroname = xmlFile.substr(0, pos_dot);
+   }else{
+      macroname = xmlFile;
+   }
 
 #if defined OLD_STYLE_XERCES_PARSER
    DOMDocument* document = parseInputDocument(xmlFile,false);
@@ -741,7 +761,7 @@ void RootMacroWriter::createHeader()
    CodeWriter::createHeader();
 
    std::cout
-       << "void hddsroot()" << std::endl
+       << "void " << macroname << "()" << std::endl
        << "{" << std::endl
        << "//" << std::endl
        << "//  This file has been generated automatically via the " << std::endl
@@ -752,7 +772,7 @@ void RootMacroWriter::createHeader()
        << "TGeoRotation *rot;" << std::endl
        << "TGeoNode *Node, *Node1;" << std::endl
        << " " << std::endl
-       << "TGeoManager *detector = new TGeoManager(\"hddsroot\",\"hddsroot.C\");" << std::endl
+       << "TGeoManager *detector = new TGeoManager(\"" << macroname << "\",\"" << macroname << ".C\");" << std::endl
        << " " << std::endl
        << " " << std::endl
        << "//-----------List of Materials and Mixtures--------------" << std::endl
