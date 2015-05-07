@@ -101,7 +101,7 @@ int main(int argC, char* argV[])
       if (argV[argInd][0] != '-')
          break;
 
-      if ( ! strcmp(argV[argInd], "-v") == 0)
+      if ( ! (strcmp(argV[argInd], "-v") == 0))
          std::cerr
               << "Unknown option \'" << argV[argInd]
               << "\', ignoring it\n" << std::endl;
