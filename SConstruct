@@ -17,7 +17,16 @@ SHOWBUILD = ARGUMENTS.get('SHOWBUILD', 0)
 
 # Get platform-specific name
 osname = os.getenv('BMS_OSNAME', 'build')
+
+# Check for GDML support in ROOT
+hasGDMLsupport = False
 rootsys = os.getenv('ROOTSYS')  # needed to run root to generate GDML
+if rootsys != None:
+	if os.path.exists('%s/include/TGDMLWrite.h'): hasGDMLsupport = True
+if hasGDMLsupport:
+	print 'ROOT GDML support found. GDML files will be generated.'
+else:
+	print 'No ROOT support for GDML. GDML files will NOT be generated.'
 
 # Setup initial environment
 builddir   = ".%s" % (osname)
@@ -89,20 +98,23 @@ if SHOWBUILD==0:
 	hddsgeantaction = SCons.Script.Action("%s/hdds-geant  $SOURCE > $TARGET" % (builddir), 'HDDS-GEANT [$SOURCE -> $TARGET]')
 	hddsrootaction  = SCons.Script.Action("%s/hdds-root   $SOURCE > $TARGET" % (builddir), 'HDDS-ROOTC [$SOURCE -> $TARGET]')
 	hddsroothaction = SCons.Script.Action("%s/hdds-root_h $SOURCE > $TARGET" % (builddir), 'HDDS-ROOTH [$SOURCE -> $TARGET]')
-	hddsgdmlaction  = SCons.Script.Action('%s/bin/root -b -q $SOURCE "mkGDML.C(\\"$TARGET\\")" >& /dev/null' % (rootsys) , 'HDDS-GDML  [$SOURCE -> $TARGET]')
+	if hasGDMLsupport:
+		hddsgdmlaction  = SCons.Script.Action('%s/bin/root -b -q $SOURCE "mkGDML.C(\\"$TARGET\\")" >& /dev/null' % (rootsys) , 'HDDS-GDML  [$SOURCE -> $TARGET]')
 else:
 	hddsgeantaction = SCons.Script.Action("%s/hdds-geant  $SOURCE > $TARGET" % (builddir))
 	hddsrootaction  = SCons.Script.Action("%s/hdds-root   $SOURCE > $TARGET" % (builddir))
 	hddsroothaction = SCons.Script.Action("%s/hdds-root_h $SOURCE > $TARGET" % (builddir))
-	hddsgdmlaction  = SCons.Script.Action('%s/bin/root -b -q $SOURCE "mkGDML.C(\\"$TARGET\\")"' % (rootsys))
+	if hasGDMLsupport:
+		hddsgdmlaction  = SCons.Script.Action('%s/bin/root -b -q $SOURCE "mkGDML.C(\\"$TARGET\\")"' % (rootsys))
 hddsgeantbld = SCons.Script.Builder(action = hddsgeantaction )
 hddsrootbld  = SCons.Script.Builder(action = hddsrootaction  )
 hddsroothbld = SCons.Script.Builder(action = hddsroothaction )
-hddsgdmlbld  = SCons.Script.Builder(action = hddsgdmlaction  )
 env.Append(BUILDERS = {'HDDSgeant'  : hddsgeantbld })
 env.Append(BUILDERS = {'HDDSrootc'  : hddsrootbld  })
 env.Append(BUILDERS = {'HDDSrooth'  : hddsroothbld })
-env.Append(BUILDERS = {'HDDSgdml'   : hddsgdmlbld  })
+if hasGDMLsupport:
+	hddsgdmlbld  = SCons.Script.Builder(action = hddsgdmlaction  )
+	env.Append(BUILDERS = {'HDDSgdml'   : hddsgdmlbld  })
 
 # --- Use builders to generate source from XML ---
 if os.getenv('LD_LIBRARY_PATH'  ) != None : env.AppendENVPath('LD_LIBRARY_PATH'  , '%s/lib' % xerces )  # so libxerces-c.so can be found
@@ -110,15 +122,17 @@ if os.getenv('DYLD_LIBRARY_PATH') != None : env.AppendENVPath('DYLD_LIBRARY_PATH
 HDDSGEANT3 = env.HDDSgeant(target='%s/hddsGeant3.F' % builddir, source=['main_HDDS.xml']+XMLDEPS)
 HDDSROOTC  = env.HDDSrootc(target='%s/hddsroot.C'   % builddir, source=['main_HDDS.xml']+XMLDEPS)
 HDDSROOTH  = env.HDDSrooth(target='%s/hddsroot.h'   % builddir, source=['main_HDDS.xml']+XMLDEPS)
-HDDSGDML   = env.HDDSgdml( target='%s/hddsroot.gdml' % builddir, source='%s/hddsroot.C' % builddir)
 CPPROOTC   = env.HDDSrootc(target='%s/cpproot.C'    % builddir, source=['cpp_HDDS.xml','ForwardMWPC_HDDS.xml']+XMLDEPS)
-CPPGDML    = env.HDDSgdml( target='%s/cpproot.gdml' % builddir, source='%s/cpproot.C' % builddir)
+if hasGDMLsupport:
+	HDDSGDML   = env.HDDSgdml( target='%s/hddsroot.gdml' % builddir, source='%s/hddsroot.C' % builddir)
+	CPPGDML    = env.HDDSgdml( target='%s/cpproot.gdml' % builddir, source='%s/cpproot.C' % builddir)
 env.Requires([HDDSGEANT3], hdds_geant)
 env.Requires([HDDSROOTC] , hdds_rootc)
 env.Requires([HDDSROOTH] , hdds_rooth)
-env.Requires([HDDSGDML]  , HDDSROOTC  )
 env.Requires([CPPROOTC]  , hdds_rootc)
-env.Requires([CPPGDML]   , CPPROOTC  )
+if hasGDMLsupport:
+	env.Requires([HDDSGDML]  , HDDSROOTC  )
+	env.Requires([CPPGDML]   , CPPROOTC  )
 
 # --- Build libhddsGeant3.a
 libhddsgeant3 = env.Library(target='%s/hddsGeant3' % builddir, source=HDDSGEANT3)
@@ -138,9 +152,10 @@ if len(build_targets)>0:
 		env.Install('%s/src' % installdir, HDDSGEANT3)
 		env.Install('%s/src' % installdir, HDDSROOTC)
 		env.Install('%s/src' % installdir, HDDSROOTH)
-		env.Install('%s/src' % installdir, HDDSGDML)
 		env.Install('%s/src' % installdir, CPPROOTC)
-		env.Install('%s/src' % installdir, CPPGDML)
+		if hasGDMLsupport:
+			env.Install('%s/src' % installdir, HDDSGDML)
+			env.Install('%s/src' % installdir, CPPGDML)
 
 		env.Install(lib, libhddsgeant3)		
 
