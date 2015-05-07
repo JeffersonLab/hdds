@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: Forward MWPC for Charged Pion Polarizability
+  **************************************************
+
+     version 1.0: Initial version	-DL
+	 
+By default this detector is not enabled in the standard Hall-D geometry in
+HDDS. Here is how to enable it and the rest of the geometry changes needed
+for the CPP experiment:
+
+in main_HDDS.xml
+=================
+1. uncomment the line for the ForwardMWPC in the "forwardPackage" compisition
+
+2. comment out the line for the ComptonEMcal in the "forwardPackage" compisition
+   (since it occupies the same space)
+
+3. 
+
+
+ 
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name        = "ForwardMWPC"
+         version     = "1.0"
+         date        = "2015-05-07"
+         author      = "D. Lawrence"
+         top_volume  = "MWPC"
+         specification = "v1.0">
+
+<!-- Origin of ForwardMWPC is center of upstream face of the first MWPC -->
+
+ <composition name="ForwardMWPC" envelope="MWPC">
+
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0   1.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0   7.0" />
+
+    <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0  22.0" />
+
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  37.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  43.0" />
+
+    <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0  58.0" />
+
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  73.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  79.0" />
+
+    <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0  94.0" />
+
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0 109.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0 115.0" />
+  </composition>
+
+ <composition name="CPPAbsorber" envelope="CPPA">
+    <posXYZ volume="CPPH" X_Y_Z="0.0 0.0 0.0" />
+ </composition>
+
+ <composition name="CPPChamber" envelope="CPPF">
+    <posXYZ volume="CPPG" X_Y_Z="0.0 0.0 0.0" />
+ </composition>
+
+  <box name="MWPC" X_Y_Z="165.0 165.0 234.0"  material="Air" comment="forward MWPC mother" />
+
+  <!-- Absorber block is 64" x 64" x 20cm  with 12cm x 12cm beam hole -->
+  <box name="CPPA" X_Y_Z="162.56 162.56 20.0"  material="Iron" comment="Iron Absorber" />
+  <box name="CPPH" X_Y_Z="12.0 12.0 20.0"  material="Air" comment="Iron Absorber beam hole" />
+
+  <!-- MWPC frame is 64" x 64" x 2cm  -->
+  <box name="CPPF" X_Y_Z="162.56 162.56 2.0"  material="FR-4" comment="G10 frame" />
+
+  <!-- MWPC gas is 60" x 60" x 2cm  -->
+  <box name="CPPG" X_Y_Z="152.4 152.4 2.0"  material="FDchamberGas" comment="Chamber gas" />
+
+</section>
+
