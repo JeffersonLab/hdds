@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+1;3409;0c<?xml version="1.0" encoding="UTF-8"?>
 <!--DOCTYPE HDDS>
 
   Hall D Geometry Data Base: Fields
@@ -25,8 +25,13 @@
   <!-- Pair Spectrometer dipole fields -->
 
   <region name="PairBfield"
-          comment="photon beam collimator cleanup dipole field">
+          comment="photon beam pair spetrometer">
     <uniformBfield Bx_By_Bz="0  16.4  0" unit="kG"/>
+
+    <!--  hook to use field loaded from CCDB
+    <computedBfield function="gufld_ps(r,B)" maxBfield="2.5" unit="T"/>
+    <swim method="RungeKutta"/>
+    -->
   </region>
 
 
