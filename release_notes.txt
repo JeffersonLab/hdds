@@ -1,0 +1,157 @@
+------------------------------------------------------------------------
+r17290 | staylor | 2015-02-15 17:30:11 -0500 (Sun, 15 Feb 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/StartCntr_HDDS.xml
+
+Merge changes to start counter geometry from commissioning branch
+------------------------------------------------------------------------
+r17293 | staylor | 2015-02-15 17:31:29 -0500 (Sun, 15 Feb 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/Solenoid_HDDS.xml
+   M /trunk/hdds/Target_HDDS.xml
+
+Modify target geometry and target beam pipe to correspond to most current drawings.  Adjust LASS volume to account for these changes.
+------------------------------------------------------------------------
+r17294 | staylor | 2015-02-15 17:33:30 -0500 (Sun, 15 Feb 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/main_HDDS.xml
+
+merge changes from commissioning branch.  Adjust position of start counter to correspond to hydrogen target beam pipe and set rotation angles to 0 until we know otherwise.
+------------------------------------------------------------------------
+r17295 | staylor | 2015-02-15 17:51:34 -0500 (Sun, 15 Feb 2015) | 1 line
+Changed paths:
+   M /trunk/hdds
+   M /trunk/hdds/BeamLine_HDDS.xml
+   M /trunk/hdds/ForwardDC_HDDS.xml
+   M /trunk/hdds/PairSpect_HDDS.xml
+
+Merge more changes from the commissioning branch into the trunk
+------------------------------------------------------------------------
+r17365 | staylor | 2015-02-24 10:44:43 -0500 (Tue, 24 Feb 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/Target_HDDS.xml
+
+Modify target cell, scattering chamber, and beam line components to correspond to most recent engineering drawings.
+------------------------------------------------------------------------
+r17366 | staylor | 2015-02-24 10:46:15 -0500 (Tue, 24 Feb 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/BeamLine_HDDS.xml
+
+Add 6-way-cross (just before target region)  to beam line and extend beam pipe to the solenoid region.
+------------------------------------------------------------------------
+r17367 | staylor | 2015-02-24 10:47:08 -0500 (Tue, 24 Feb 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/PairSpect_HDDS.xml
+
+Adjust magnet position to remove overlap issue
+------------------------------------------------------------------------
+r17368 | staylor | 2015-02-24 10:48:40 -0500 (Tue, 24 Feb 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/StartCntr_HDDS.xml
+
+Remove tedlar tape extending beyond the start counter and adjust mother volume
+------------------------------------------------------------------------
+r17369 | staylor | 2015-02-24 10:49:34 -0500 (Tue, 24 Feb 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/main_HDDS.xml
+
+Add 6-way-cross to beam line
+------------------------------------------------------------------------
+r17370 | staylor | 2015-02-24 10:50:48 -0500 (Tue, 24 Feb 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/CentralDC_HDDS.xml
+
+Widen DCLS in radial extent. Adjust DPLG and UPLG positions a little.
+------------------------------------------------------------------------
+r17582 | staylor | 2015-03-11 09:50:03 -0400 (Wed, 11 Mar 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/BeamLine_HDDS.xml
+   M /trunk/hdds/Target_HDDS.xml
+
+More flanges and other structures in the beam pipe near the target
+------------------------------------------------------------------------
+r17731 | jrsteven | 2015-03-19 17:55:48 -0400 (Thu, 19 Mar 2015) | 1 line
+Changed paths:
+   A /trunk/hdds/DIRC_HDDS.xml
+   M /trunk/hdds/Material_HDDS.xml
+   M /trunk/hdds/main_HDDS.xml
+
+Initial DIRC geometry for studies in fully simulated events.  The DIRC is _not_ in the default geometry, but is easily added by uncommenting the appropriate line in main_HDDS.xml
+------------------------------------------------------------------------
+r17772 | jrsteven | 2015-03-23 22:46:07 -0400 (Mon, 23 Mar 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/Target_HDDS.xml
+
+add length parameter to LH2 target definition for DGeometry
+------------------------------------------------------------------------
+r18001 | jrsteven | 2015-04-15 08:49:04 -0400 (Wed, 15 Apr 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/Material_HDDS.xml
+
+cutoff CKOV photon generation at 300 nm in fused silica bars
+------------------------------------------------------------------------
+r18045 | jrsteven | 2015-04-16 14:21:58 -0400 (Thu, 16 Apr 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/DIRC_HDDS.xml
+   M /trunk/hdds/Material_HDDS.xml
+
+updated DIRC geometry with 3-segment mirror, water instead of quartz and no small wedge glued to window
+------------------------------------------------------------------------
+r18069 | staylor | 2015-04-17 13:35:11 -0400 (Fri, 17 Apr 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/StartCntr_HDDS.xml
+
+Redefine start counter mother volume to exclude the cables, which are in a separate mother volume.  Put in rotation values from survey for spring run configuration
+------------------------------------------------------------------------
+r18073 | staylor | 2015-04-17 14:23:24 -0400 (Fri, 17 Apr 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/Target_HDDS.xml
+
+Tweak position of target cell/assembly based on survey results from before beginning of spring run
+------------------------------------------------------------------------
+r18074 | staylor | 2015-04-17 14:24:03 -0400 (Fri, 17 Apr 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/Solenoid_HDDS.xml
+
+Adjust LASS volume to accommodate latest revision of target geometry.
+------------------------------------------------------------------------
+r18075 | staylor | 2015-04-17 14:25:18 -0400 (Fri, 17 Apr 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/BeamLine_HDDS.xml
+
+Adjust beam line to be consistent with latest revison of beam pipe in target region.
+------------------------------------------------------------------------
+r18076 | staylor | 2015-04-17 14:43:31 -0400 (Fri, 17 Apr 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/main_HDDS.xml
+
+Adjust TOF, CDC, and start counter positions based on most recent survey results.  Adjust position of DIRC (still commented out) so that its mother volume does not overlap the TOF.
+------------------------------------------------------------------------
+r18162 | davidl | 2015-04-26 09:55:57 -0400 (Sun, 26 Apr 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/hdds-geant.cpp
+   M /trunk/hdds/hdds-md5.cpp
+   M /trunk/hdds/hdds-root.cpp
+   M /trunk/hdds/hdds-root_h.cpp
+   M /trunk/hdds/hddsCommon.cpp
+
+Cleanup to avoid compiler warnings on lorentz.jlab.org (RHEL7)
+------------------------------------------------------------------------
+r18177 | staylor | 2015-04-27 11:54:10 -0400 (Mon, 27 Apr 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/main_HDDS.xml
+
+Rotate start counter by 11.25 degrees as per survey.
+------------------------------------------------------------------------
+r18188 | staylor | 2015-04-28 07:55:00 -0400 (Tue, 28 Apr 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/StartCntr_HDDS.xml
+
+Adjust rotation angles for Start counter (swapped yaw with pitch..; phi rotation about z is elsewhere now.)
+------------------------------------------------------------------------
+r18189 | staylor | 2015-04-28 07:56:22 -0400 (Tue, 28 Apr 2015) | 1 line
+Changed paths:
+   M /trunk/hdds/BeamLine_HDDS.xml
+
+Add thin plastic disk at end of start counter nose.
+------------------------------------------------------------------------
