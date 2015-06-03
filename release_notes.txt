@@ -1,3 +1,9 @@
+Release notes for hdds-3.2, May 28, 2015
+
+From revision 18553 of trunk. Used for simulation of Spring 2015 data
+and for Data Challenge 3.
+
+Changes since the last release:
 ------------------------------------------------------------------------
 r18306 | staylor | 2015-05-06 18:48:17 -0400 (Wed, 06 May 2015) | 1 line
 Changed paths:
