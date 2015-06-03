@@ -1,3 +1,8 @@
+Release notes for hdds-3.1, April 29, 2015
+
+From revision 18204 of trunk. Changes merged in from commissioning branch.
+
+Changes since the last release:
 ------------------------------------------------------------------------
 r17290 | staylor | 2015-02-15 17:30:11 -0500 (Sun, 15 Feb 2015) | 1 line
 Changed paths:
