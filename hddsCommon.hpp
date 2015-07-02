@@ -13,6 +13,9 @@
 #include <list>
 #include <map>
 #include "XString.hpp"
+#include <xercesc/dom/DOM.hpp>
+
+using namespace xercesc;
 
 class Refsys
 {
@@ -171,7 +174,7 @@ class Units
    double percent;
 
    Units();				// empty constructor
-   Units(Units& u);			// copy constructor
+   Units(const Units& u);		// copy constructor
    void getConversions(DOMElement* el);	// get conversion constants from tag
 
  private:
@@ -195,8 +198,9 @@ class Substance
   */
  public:
    Substance();
-   Substance(Substance& src);
    Substance(DOMElement* elem);
+   Substance(const Substance& src);
+   Substance &operator=(const Substance& src);
    ~Substance();
 
    XString getName();		// return name of material
@@ -209,8 +213,6 @@ class Substance
    double getColLength();	// return nucl.col.len. [cm]
    double getMIdEdx();		// return min. dE/dx [MeV/g/cm^3]
    DOMElement* getDOMElement();	// return DOM element ptr
-
-   Substance& operator=(const Substance& src);
 
    int fUniqueID;		// user-assignable index
    class Brew
@@ -267,7 +269,7 @@ class CodeWriter
    virtual void createMapFunctions(DOMElement* el,
                          const XString& ident);	// generate field map functions
    virtual void createUtilityFunctions(DOMElement* el,
-			 const XString& ident);	// generate utility functions
+                         const XString& ident);	// generate utility functions
 
  protected:
    bool fPending;       // indicates a volume positioning request is pending

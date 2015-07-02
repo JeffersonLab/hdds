@@ -30,13 +30,12 @@ class XString: public std::string
    XString(const char* const s);
    XString(const std::string& str);
    XString(const XString& X);
+   XString& operator=(const XString& src);
    ~XString();
 
    const XString basename() const;  // implements basename() from strings.h
    const XMLCh* unicode_str();      // must modify the object because it
                                     // has to keep track of memory usage.
-
-   XString& operator=(const XString& src);
 
  private:
    std::list<char*> fStringCollection;

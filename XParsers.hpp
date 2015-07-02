@@ -84,6 +84,8 @@ class MyEntityResolver : public xercesc::EntityResolver
 {
 public:
 	MyEntityResolver(const XString& xmlFile);
+        MyEntityResolver(const MyEntityResolver &src);
+        MyEntityResolver &operator=(const MyEntityResolver &src);
 	~MyEntityResolver();
 	
 	xercesc::InputSource* resolveEntity(const XMLCh* const publicId, const XMLCh* const systemId);

@@ -443,7 +443,7 @@ Substance::Substance()
    fMIdEdx(0)
 {}
 
-Substance::Substance(Substance& src)
+Substance::Substance(const Substance& src)
  : fUniqueID(src.fUniqueID),
    fMaterialEl(src.fMaterialEl),
    fAtomicWeight(src.fAtomicWeight),
@@ -454,7 +454,7 @@ Substance::Substance(Substance& src)
    fColLen(src.fColLen),
    fMIdEdx(src.fMIdEdx)
 {
-   std::list<Brew>::iterator iter;
+   std::list<Brew>::const_iterator iter;
    for (iter = src.fBrewList.begin();
         iter != src.fBrewList.end();
         ++iter)
@@ -744,7 +744,7 @@ Units::Units()
    percent = 0.01;
 }
 
-Units::Units(Units& u)
+Units::Units(const Units& u)
 {
    set_1s(u.s);
    set_1cm(u.cm);
