@@ -586,11 +586,11 @@ Substance::Substance(DOMElement* elem)
       densitySum += weight/iter->sub->fDensity;
       densityNorm += weight;
       weight /= iter->sub->fDensity;
-      radlenSum += weight/iter->sub->fRadLen;
+      radlenSum += weight/(iter->sub->fRadLen + 1e-99);
       radlenNorm += weight;
-      abslenSum += weight/iter->sub->fAbsLen;
+      abslenSum += weight/(iter->sub->fAbsLen + 1e-99);
       abslenNorm += weight;
-      collenSum += weight/iter->sub->fColLen;
+      collenSum += weight/(iter->sub->fColLen + 1e-99);
       collenNorm += weight;
       dedxSum += weight*iter->sub->fMIdEdx;
       dedxNorm += weight;
