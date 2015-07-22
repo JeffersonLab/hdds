@@ -85,6 +85,7 @@ HDDSROOTSRC  = [builddir + '/' + s for s in HDDSROOTSRC ]
 HDDSROOTHSRC = [builddir + '/' + s for s in HDDSROOTHSRC]
 HDDSMD5SRC   = [builddir + '/' + s for s in HDDSMD5SRC  ]
 FINDALLSRC   = [builddir + '/' + s for s in FINDALLSRC  ]
+COMMONBSRC   = [builddir + '/' + s for s in COMMONSRC   ]
 
 # Make programs
 hdds_geant  = env.Program(target='%s/hdds-geant'  % builddir, source=HDDSGEANTSRC )
@@ -136,6 +137,7 @@ if hasGDMLsupport:
 
 # --- Build libhddsGeant3.a
 libhddsgeant3 = env.Library(target='%s/hddsGeant3' % builddir, source=HDDSGEANT3)
+libhdds = env.SharedLibrary(target='%s/hdds' % builddir, source = COMMONBSRC, SHLIBSUFFIX='.so')
 
 # Configure for installation. In principle, we should not need to explicitly
 # check if the "install" target was specified. For some unknown reason though,
@@ -158,6 +160,7 @@ if len(build_targets)>0:
 			env.Install('%s/src' % installdir, CPPGDML)
 
 		env.Install(lib, libhddsgeant3)		
+		env.Install(lib, libhdds)		
 
 # Make install target
 env.Alias('install', installdir)
