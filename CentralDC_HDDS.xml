@@ -252,6 +252,7 @@
       <sector value="1" step="1" />
     </mposPhi>
 
+    <posXYZ volume="DCL2" geometry_layer="2"/>
   </composition>
 
   <composition name="CDCstrawShort" envelope="STRM">
@@ -313,7 +314,7 @@
 	                           comment="CDC upstream gas plenum shell" /> 
   <tubs name="CDIS" Rio_Z="8.75   8.85     3.175" material="Aluminum"
 	                           comment="CDC upstream gas plenum inner shell" />
-  <tubs name="CDGD" Rio_Z="55.3974  57.9374    2.54" material="MediumDensityROHACELL"
+  <tubs name="CDGD" Rio_Z="55.5374  57.9374    2.54" material="MediumDensityROHACELL"
 	                           comment="CDC downstream gas plenum ring" />
   <tubs name="CDGI" Rio_Z="8.75  11.29  1.016" material="MediumDensityROHACELL"
 	                           comment="first part of CDC downstream gas plenum inner ring" /> 
@@ -397,6 +398,11 @@
   <tubs name="CRPI" Rio_Z="0.01  0.0735  1.206" material="Copper" /> 
 
   <tubs name="DCLS"  Rio_Z="9.934 55.534 155.1" material="CDchamberGas" />
+  <!-- Add dummy ring of chamber gas to be placed in DCLS on geometry layer 2.
+       This tells the layered geometry that the chamber gas in DCLS lives
+       behind the endplates and support structures on geometry layer 1
+       and should flow around and between them, but not overlay them. -->
+  <tubs name="DCL2"  Rio_Z="55.530 55.534 0.1" material="CDchamberGas"/>
  
   <tubs name="CDSS" Rio_Z="0.0 0.635 3.175" material="StainlessSteel"/>
   <tubs name="CDRO" Rio_Z="9.9 55.5 4.0" material="SignalCables"/>  

@@ -33,7 +33,7 @@
     <posXYZ volume="PairCoarseSouth" X_Y_Z="-34.3 0.0 74.7"/>
     <posXYZ volume="PairCoarseNorth" X_Y_Z="+34.3 0.0 74.7"/>
     <posXYZ volume="PairPipe2"     X_Y_Z="0.0   0.0   31.3271"/> 
-    <posXYZ volume="PairShielding" X_Y_Z="0.0   0.0  132.64" />
+    <posXYZ volume="PairShielding" X_Y_Z="0.0   0.0  132.6500" />
     <!--The following models the SEG blocks and additional lead shielding-->
     <posXYZ volume="SEG1" X_Y_Z="-87.63 0.0 128.82"/>
     <posXYZ volume="SEG1" X_Y_Z="+87.63 0.0 128.82"/>
@@ -41,8 +41,8 @@
     <posXYZ volume="SEG2" X_Y_Z="+153.6 0.0 95.74"/>
     <posXYZ volume="PSH1" X_Y_Z="-32.4 0.0 109.78"/> 
     <posXYZ volume="PSH1" X_Y_Z="+32.4 0.0 109.78"/>
-    <posXYZ volume="PSH2" X_Y_Z="0.0 19.03 132.64"/>  
-    <posXYZ volume="PSH2" X_Y_Z="0.0 -19.03 132.64"/>
+    <posXYZ volume="PSH2" X_Y_Z="0.0 19.05 132.65"/>  
+    <posXYZ volume="PSH2" X_Y_Z="0.0 -19.05 132.65"/>
   </composition >
 	
 
@@ -107,7 +107,7 @@
   <composition name="PairVacChamb">
     <posXYZ volume="VacFlange3" X_Y_Z="0.0 0.0 -64.9605" />
     <posXYZ volume="VacTRD" X_Y_Z="0.0 0.0 0.0" />
-    <posXYZ volume="VacSidePlane" X_Y_Z="0.0 0.0 65.024" /> 
+    <posXYZ volume="VacSidePlane" X_Y_Z="0.0 0.0 65.019" /> 
     <posXYZ volume="VacSideClamp" X_Y_Z="30.83 0.0 66.6115"/>
     <posXYZ volume="VacSideClamp" X_Y_Z="-30.83 0.0 66.6115"/>
   </composition>

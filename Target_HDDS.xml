@@ -154,10 +154,10 @@
     <polyplane Rio_Z="2.84392 3.81 -25.482"/>
     <polyplane Rio_Z="1.15062 3.81 -23.79"/>
     <polyplane Rio_Z="1.15062 3.81 -23.45"/>
-    <polyplane Rio_Z="1.15062 3.03 -22.6617"/>
-    <polyplane Rio_Z="0.92456 3.03 -22.6617"/>
-    <polyplane Rio_Z="0.92456 2.38 -22.0"/>
-    <polyplane Rio_Z="1.3554 2.38 -22.0"/>
+    <polyplane Rio_Z="1.15062 3.02 -22.6617"/>
+    <polyplane Rio_Z="0.92456 3.02 -22.6617"/>
+    <polyplane Rio_Z="0.92456 2.35 -22.0"/>
+    <polyplane Rio_Z="1.3554 2.35 -22.0"/>
     <polyplane Rio_Z="1.3554 1.3554 -21.0"/>
   </pcon>
     

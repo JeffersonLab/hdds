@@ -820,8 +820,6 @@
     <!--posXYZ volume="DET7"     X_Y_Z="  0.0     0.0  -705.0"/--> 
     <posXYZ volume="HallBellows" X_Y_Z="150.0 -350.0 -1223.287"/>
     <posXYZ volume="HallPipe" X_Y_Z="150.0  -350.0  -1026.77"/>
-    <!-- Plastic target at end of start counter -->
-    <posXYZ volume="CAP2" X_Y_Z="150 -350.0 -404.0"/>
     <!-- Plastic scintillator for beam diagonistics -->
     <!--posXYZ volume="DET8" X_Y_Z="150 -350.0 -834.0 "/-->
   </composition>
@@ -849,7 +847,7 @@
   <polyplane Rio_Z="0.0 1.905 2.8602"/>
   <polyplane Rio_Z="0.0 1.905 4.7652"/>
   <polyplane Rio_Z="0.0 4.27355 4.7652"/>
-  <polyplane Rio_Z="0.0 4.27355 6.4000"/>
+  <polyplane Rio_Z="0.0 4.27355 6.3978"/>
 </pcon>
 
 <tubs name="BLWI" Rio_Z="0. 1.7399 19.8" material="Vacuum"/>
@@ -869,14 +867,13 @@
     <polyplane Rio_Z="0.0 4.27355 -190.1190"/>
     <polyplane Rio_Z="0.0 4.27355 -188.5442"/>
     <polyplane Rio_Z="0.0 1.90500 -188.5442"/>
-    <polyplane Rio_Z="0.0 1.90500 +386.102"/>
-    <polyplane Rio_Z="0.0 22.504 +386.102"/>
-    <polyplane Rio_Z="0.0 22.504 +387.804"/>
+    <polyplane Rio_Z="0.0 1.90500 +385.678"/>
+    <polyplane Rio_Z="0.0 22.504 +385.678"/>
+    <polyplane Rio_Z="0.0 22.504 +387.380"/>
   </pcon>
 
   <tubs name="IHPI" Rio_Z="0.0  1.7399 577.923" material="Vacuum" />
   <tubs name="CAP1" Rio_Z="0.0  1.7399 0.0127" material="Kapton"/>
-  <tubs name="CAP2" Rio_Z="0.0 2.375 0.1" material="Polyethylene" />
 
 <composition name="SixWayCross" envelope="SWCM">
   <posXYZ volume="sixWayTube" X_Y_Z="0 0 0"/>
@@ -919,8 +916,8 @@
   <posXYZ volume="CBXS" X_Y_Z="12.1444 4.28 0."/>
   <posXYZ volume="CBXS" X_Y_Z="-12.1444 4.28 0."/>
   <posXYZ volume="coldCubeTopPlate" X_Y_Z="0. 16.272 0." rot="90 90 0"/>
-  <posXYZ volume="coldCubeSidePlate" X_Y_Z="0. 4.28 11.9856"/>
-  <posXYZ volume="coldCubeSidePlate" X_Y_Z="0. 4.28 -11.9856"/>
+  <posXYZ volume="coldCubeSidePlate" X_Y_Z="0. 4.28 11.99"/>
+  <posXYZ volume="coldCubeSidePlate" X_Y_Z="0. 4.28 -11.99"/>
   <posXYZ volume="coldCubeSidePlate" X_Y_Z="11.9856 4.28 0." rot="0 90 0"/>
   <posXYZ volume="coldCubeSidePlate" X_Y_Z="-11.9856 4.28 0." rot="0 90 0"/>
 </composition>

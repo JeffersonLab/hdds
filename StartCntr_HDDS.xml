@@ -33,7 +33,11 @@
   <composition name="StartCntr">  
     <posXYZ volume="startCntrCables" X_Y_Z="0. 0. -17. "/>
     <posXYZ volume="startCntr" X_Y_Z="0.03  0.123  0.0"  rot="-0.14122 0.09168 0.0"/>   
+    <!-- Plastic target at end of start counter -->
+    <posXYZ volume="CAP2" X_Y_Z="0 0.0 58.89"/>
   </composition>
+
+  <tubs name="CAP2" Rio_Z="0.0 2.375 0.1" material="Polyethylene" />
 
   <composition name="startCntrCables" envelope="STCM">
      <mposPhi volume="STCC" ncopy="10" Phi0="18.000000" R_Z="8.3  0.0"
@@ -130,7 +134,7 @@
     <polyplane Rio_Z=" 8.04926 8.05091 0.000000" /> 
     <polyplane Rio_Z=" 8.04926 8.05091 39.465000" />
     <polyplane Rio_Z=" 8.02827 8.02992 40.176676" />
-    <polyplane Rio_Z=" 8.02442 8.02774 40.194574" />
+    <polyplane Rio_Z=" 8.02774 8.02939 40.194574" />
     <polyplane Rio_Z=" 7.96605 7.96771 40.885848" />
     <polyplane Rio_Z=" 7.96286 7.96454 40.921580" />
     <polyplane Rio_Z=" 7.86296 7.86465 41.590017" />
@@ -189,7 +193,7 @@
     <polyplane Rio_Z=" 8.05091 8.10091 0.000000" /> 
     <polyplane Rio_Z=" 8.05091 8.10091 39.465000" />
     <polyplane Rio_Z=" 8.02992 8.07992 40.176676" />
-    <polyplane Rio_Z=" 8.02442 8.07442 40.194574" />
+    <polyplane Rio_Z=" 8.02939 8.07939 40.194574" />
     <polyplane Rio_Z=" 7.96771 8.01798 40.885848" />
     <polyplane Rio_Z=" 7.96454 8.01487 40.921580" />
     <polyplane Rio_Z=" 7.86465 7.91547 41.590017" />
@@ -232,7 +236,7 @@
 
   <pcon name="STT1" material="Tedlar" comment="Wrapping for light tightness">
     <polyplane Rio_Z="3.56 3.565 53.8226"/>
-    <polyplane Rio_Z="1.995 2.0 58.594"/>
+    <polyplane Rio_Z="1.993 1.998 58.594"/>
   </pcon>
 
   <pcon name="STTD" material="Tedlar" comment="Wrapping for light tightness">
