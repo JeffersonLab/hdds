@@ -832,7 +832,7 @@
 
 <!-- Hall bellows -->
 <composition name="HallBellows" envelope="BLWO">
-  <posXYZ volume="BLWI" X_Y_Z="0.0 0.0 -3.5"/>
+  <posXYZ volume="BLWI" X_Y_Z="0.0 0.0 -3.5011"/>
 </composition>
 
 <pcon name="BLWO" material="Iron">
@@ -850,11 +850,11 @@
   <polyplane Rio_Z="0.0 4.27355 6.3978"/>
 </pcon>
 
-<tubs name="BLWI" Rio_Z="0. 1.7399 19.8" material="Vacuum"/>
+<tubs name="BLWI" Rio_Z="0. 1.7399 19.7978" material="Vacuum"/>
 
 <!-- Hall Pipe -->
   <composition name="HallPipe" envelope="OHPI" >
-    <posXYZ volume="IHPI" X_Y_Z="0 0 98.8425"/>
+    <posXYZ volume="IHPI" X_Y_Z="0 0 98.6305"/>
     <!---posXYZ volume="InnerHallPipe" X_Y_Z="0.0 0.0 0.0"/--> 
   </composition>
 
@@ -872,7 +872,7 @@
     <polyplane Rio_Z="0.0 22.504 +387.380"/>
   </pcon>
 
-  <tubs name="IHPI" Rio_Z="0.0  1.7399 577.923" material="Vacuum" />
+  <tubs name="IHPI" Rio_Z="0.0  1.7399 577.499" material="Vacuum" />
   <tubs name="CAP1" Rio_Z="0.0  1.7399 0.0127" material="Kapton"/>
 
 <composition name="SixWayCross" envelope="SWCM">
@@ -916,8 +916,8 @@
   <posXYZ volume="CBXS" X_Y_Z="12.1444 4.28 0."/>
   <posXYZ volume="CBXS" X_Y_Z="-12.1444 4.28 0."/>
   <posXYZ volume="coldCubeTopPlate" X_Y_Z="0. 16.272 0." rot="90 90 0"/>
-  <posXYZ volume="coldCubeSidePlate" X_Y_Z="0. 4.28 11.99"/>
-  <posXYZ volume="coldCubeSidePlate" X_Y_Z="0. 4.28 -11.99"/>
+  <posXYZ volume="coldCubeSidePlate" X_Y_Z="0. 4.28 11.9856"/>
+  <posXYZ volume="coldCubeSidePlate" X_Y_Z="0. 4.28 -11.9856"/>
   <posXYZ volume="coldCubeSidePlate" X_Y_Z="11.9856 4.28 0." rot="0 90 0"/>
   <posXYZ volume="coldCubeSidePlate" X_Y_Z="-11.9856 4.28 0." rot="0 90 0"/>
 </composition>
@@ -934,7 +934,7 @@
   <posXYZ volume="CBH1" X_Y_Z="0. 0. 0." />
 </composition>
 
-<box name="CBSP" X_Y_Z="23.8252 23.8252 0.15875" material="Copper"/>
+<box name="CBSP" X_Y_Z="23.8124 23.8124 0.15875" material="Copper"/>
 <box name="CHXT" X_Y_Z="24.13 24.13 0.15875" material="Copper"/>
 <tubs name="CBH1" Rio_Z="0. 10.795 0.15875" material="Vacuum"/>
 <tubs name="CBH0" Rio_Z="0 1.27 0.15875" material="Vacuum" 
