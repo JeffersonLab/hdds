@@ -32,7 +32,7 @@
     <posXYZ volume="PairHodoscopeNorth" X_Y_Z="+34.3   0.0   41.7" />
     <posXYZ volume="PairCoarseSouth" X_Y_Z="-34.3 0.0 74.7"/>
     <posXYZ volume="PairCoarseNorth" X_Y_Z="+34.3 0.0 74.7"/>
-    <posXYZ volume="PairPipe2"     X_Y_Z="0.0   0.0   31.3271"/> 
+    <posXYZ volume="PairPipe2"     X_Y_Z="0.0   0.0   31.3395"/> 
     <posXYZ volume="PairShielding" X_Y_Z="0.0   0.0  132.6500" />
     <!--The following models the SEG blocks and additional lead shielding-->
     <posXYZ volume="SEG1" X_Y_Z="-87.63 0.0 128.82"/>
@@ -107,9 +107,9 @@
   <composition name="PairVacChamb">
     <posXYZ volume="VacFlange3" X_Y_Z="0.0 0.0 -64.9605" />
     <posXYZ volume="VacTRD" X_Y_Z="0.0 0.0 0.0" />
-    <posXYZ volume="VacSidePlane" X_Y_Z="0.0 0.0 65.019" /> 
-    <posXYZ volume="VacSideClamp" X_Y_Z="30.83 0.0 66.6115"/>
-    <posXYZ volume="VacSideClamp" X_Y_Z="-30.83 0.0 66.6115"/>
+    <posXYZ volume="VacSidePlane" X_Y_Z="0.0 0.0 65.044" /> 
+    <posXYZ volume="VacSideClamp" X_Y_Z="30.83 0.0 66.6315"/>
+    <posXYZ volume="VacSideClamp" X_Y_Z="-30.83 0.0 66.6315"/>
   </composition>
 
   <composition name="VacSideClamp" envelope="PWCO">
@@ -133,16 +133,16 @@
 
   <composition name="VacSidePlane" envelope="VSPL">
     <posXYZ volume="VHB1" X_Y_Z="+30.83  0.0 -0.0125" />
-    <posXYZ volume="VBW1" X_Y_Z="+30.83  0.0  0.940" />
+    <posXYZ volume="VBW1" X_Y_Z="+30.83  0.0  0.9375" />
     <posXYZ volume="VHB1" X_Y_Z="-30.83  0.0 -0.0125" />
-    <posXYZ volume="VBW1" X_Y_Z="-30.83  0.0  0.940" />
+    <posXYZ volume="VBW1" X_Y_Z="-30.83  0.0  0.9375" />
     <posXYZ volume="VVPH" X_Y_Z=" +0.0 0.0  0.0" />
   </composition>
 
-  <box name="VSPL" X_Y_Z="119.964 13.284 1.905" material="Iron" />
-  <box name="VHB1" X_Y_Z="49.8475 5.08  1.88" material="Vacuum" />
+  <box name="VSPL" X_Y_Z="119.964 13.284 1.900" material="Iron" />
+  <box name="VHB1" X_Y_Z="49.8475 5.08  1.875" material="Vacuum" />
   <box name="VBW1" X_Y_Z="49.8475 5.08  0.025" material="Kapton" />
-  <tubs name="VVPH" Rio_Z="0.0 1.74625 1.905" material="Vacuum"/>
+  <tubs name="VVPH" Rio_Z="0.0 1.74625 1.900" material="Vacuum"/>
 
 <!-- Hodoscope Counters -->
 
@@ -196,8 +196,8 @@
     <posXYZ volume="HPI2" X_Y_Z="0.0 0.0 0.0"/> 
   </composition>
 
-  <tubs name="HPO2" Rio_Z="0.0  1.905  162.0   " material="Iron" /> 
-  <tubs name="HPI2" Rio_Z="0.0  1.74625  162.0   " material="Vacuum"/>
+  <tubs name="HPO2" Rio_Z="0.0  1.905  161.9752 " material="Iron" /> 
+  <tubs name="HPI2" Rio_Z="0.0  1.74625  161.9752 " material="Vacuum"/>
 
 <!--Pair Lead Shielding -->
 

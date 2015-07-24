@@ -50,12 +50,14 @@
                   g) Decrease slightly the outer radius of the readout cables
                      to prevent extrusion from the envelope of the CDC.
 
+     version 3.2: fix problems with incorrect embedding and overlaps -rtj
+
 <HDDS specification="v1.1" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "CentralDC"
-         version     = "3.1"
-         date        = "2013-09-07"
+         version     = "3.2"
+         date        = "2015-07-15"
          author      = "R.T. Jones, C.A.Meyer"
          top_volume  = "CDC"
          specification = "v1.1">
@@ -83,20 +85,12 @@
     <posXYZ volume="CDOC" X_Y_Z="0.0 0.0 77.04"/>  <!-- downstream outer collar -->
     <posXYZ volume="CDIU" X_Y_Z="0.0 0.0 -70.46"/> <!-- upstream inner collar -->
     <posXYZ volume="CDID" X_Y_Z="0.0 0.0 77.04"/>  <!-- downstream inner collar -->
-    <posXYZ volume="CDGD" X_Y_Z="0.0 0.0 +80.16"
-                          geometry_layer="1"/>     <!-- downstream rhoacell outer ring -->
-    <posXYZ volume="CDGI" X_Y_Z="0.0 0.0 +79.398"
-                          geometry_layer="1"/>     <!-- downstream rhoacell inner ring #1 --> 
-    <posXYZ volume="CDG2" X_Y_Z="0.0 0.0 +80.668"
-                          geometry_layer="1"/>     <!-- downstream rhoacell inner ring #2 -->
-    <posXYZ volume="CDPU" X_Y_Z="0.0 0.0 -72.18625"
-                          geometry_layer="1"/>     <!-- upstream end plate -->
-    <posXYZ volume="CDPD" X_Y_Z="0.0 0.0 +78.590" 
-                          geometry_layer="1"/>     <!-- downstream end plate -->
-    <posXYZ volume="CDGW" X_Y_Z="0.0 0.0 +81.435"/> <!-- downstream mylar gas window -->
+    <posXYZ volume="CDGD" X_Y_Z="0.0 0.0 +80.16"/> <!-- downstream rhoacell outer ring -->
+    <posXYZ volume="CDGI" X_Y_Z="0.0 0.0 +79.653"/> <!-- downstream rhoacell inner ring #1 --> 
+    <posXYZ volume="CDG2" X_Y_Z="0.0 0.0 +80.923"/> <!-- downstream rhoacell inner ring #2 -->
+    <posXYZ volume="CDGW" X_Y_Z="0.0 0.0 +81.436"/> <!-- downstream mylar gas window -->
     <posXYZ volume="CDGU" X_Y_Z="0.0 0.0 -76.63125"/> <!-- upstream plexiglass gas plate -->
-    <posXYZ volume="CDGS" X_Y_Z="0.0 0.0 -74.25"
-                          geometry_layer="1"/>     <!-- upstream gas plenum shell -->  
+    <posXYZ volume="CDGS" X_Y_Z="0.0 0.0 -74.25"/> <!-- upstream gas plenum shell -->  
     <posXYZ volume="CDIS" X_Y_Z="0.0 0.0 -74.25"/> <!-- upstream gas plenum inner shell -->
     <posXYZ volume="CDRO" X_Y_Z="0.0 0.0 -79.425"/> <!-- CDC readout cables outside plexiglas -->  
     <posXYZ volume="CDHU" X_Y_Z="0.0 0.0 -75.0"/>  <!-- CDC readout cables inside gas volume-->
@@ -104,6 +98,10 @@
  </composition>
 
   <composition name="CDClayers" envelope="DCLS">
+    <posXYZ volume="CDPD" X_Y_Z="0.0 0.0 +75.300" 
+                          geometry_layer="1"/>     <!-- downstream end plate -->
+    <posXYZ volume="CDPU" X_Y_Z="0.0 0.0 -75.47625"
+                          geometry_layer="1"/>     <!-- upstream end plate -->
 
     <mposPhi volume="CDCstrawShort" ncopy="42" Phi0="0.0" R_Z="10.7218 0.0" dPhi="8.571428">
       <ring value="1" />
@@ -252,7 +250,6 @@
       <sector value="1" step="1" />
     </mposPhi>
 
-    <posXYZ volume="DCL2" geometry_layer="2"/>
   </composition>
 
   <composition name="CDCstrawShort" envelope="STRM">
@@ -310,17 +307,17 @@
                                    comment="CDC downstream endplate" />
   <tubs name="CDGU" Rio_Z="8.75   57.785    1.5875" material="Plexiglas"
 	                           comment="CDC upstream gas plenum" />
-  <tubs name="CDGS" Rio_Z="55.3   56.0     3.175" material="Aluminum"
+  <tubs name="CDGS" Rio_Z="55.42  56.02    3.175" material="Aluminum"
 	                           comment="CDC upstream gas plenum shell" /> 
   <tubs name="CDIS" Rio_Z="8.75   8.85     3.175" material="Aluminum"
 	                           comment="CDC upstream gas plenum inner shell" />
   <tubs name="CDGD" Rio_Z="55.5374  57.9374    2.54" material="MediumDensityROHACELL"
 	                           comment="CDC downstream gas plenum ring" />
-  <tubs name="CDGI" Rio_Z="8.75  11.29  1.016" material="MediumDensityROHACELL"
+  <tubs name="CDGI" Rio_Z="8.8392  10.033  1.524" material="MediumDensityROHACELL"
 	                           comment="first part of CDC downstream gas plenum inner ring" /> 
-  <tubs name="CDG2" Rio_Z="8.75   9.9438  1.524" material="MediumDensityROHACELL"
+  <tubs name="CDG2" Rio_Z="8.8392  11.1252  1.016" material="MediumDensityROHACELL"
 	                           comment="second part of CDC downstream gas plenum inner ring" />
-  <tubs name="CDGW" Rio_Z="8.75   57.9374    0.01" material="AluminizedMylar"
+  <tubs name="CDGW" Rio_Z="8.8392   57.9374    0.01" material="AluminizedMylar"
 	                           comment="CDC downstream gas plenum window" />
   <tubs name="CDTF" Rio_Z="0.6289 0.794 150.0" material="Aluminum"
                                    comment="Aluminum tubes for chamber support"/>
@@ -397,12 +394,20 @@
   </pcon>
   <tubs name="CRPI" Rio_Z="0.01  0.0735  1.206" material="Copper" /> 
 
-  <tubs name="DCLS"  Rio_Z="9.934 55.534 155.1" material="CDchamberGas" />
-  <!-- Add dummy ring of chamber gas to be placed in DCLS on geometry layer 2.
-       This tells the layered geometry that the chamber gas in DCLS lives
-       behind the endplates and support structures on geometry layer 1
-       and should flow around and between them, but not overlay them. -->
-  <tubs name="DCL2"  Rio_Z="55.530 55.534 0.1" material="CDchamberGas"/>
+  <pcon name="DCLS" material="CDchamberGas" comment="CDC straw container">
+    <polyplane Rio_Z="9.934 55.420 -77.55" />
+    <polyplane Rio_Z="9.934 55.420 -75.9525" />
+    <polyplane Rio_Z="8.75  59.741 -75.9525" />
+    <polyplane Rio_Z="8.75  59.741 -75.0000" />
+    <polyplane Rio_Z="9.934 55.534 -75.0000" />
+    <polyplane Rio_Z="9.934 55.534 +75.0000" />
+    <polyplane Rio_Z="8.75  59.741 +75.0000" />
+    <polyplane Rio_Z="8.75  59.741 +75.6000" />
+    <polyplane Rio_Z="10.04 55.534 +75.6000" />
+    <polyplane Rio_Z="10.04 55.534 +77.1200" />
+    <polyplane Rio_Z="11.14 55.534 +77.1200" />
+    <polyplane Rio_Z="11.14 55.534 +77.2000" />
+  </pcon>
  
   <tubs name="CDSS" Rio_Z="0.0 0.635 3.175" material="StainlessSteel"/>
   <tubs name="CDRO" Rio_Z="9.9 55.5 4.0" material="SignalCables"/>  
