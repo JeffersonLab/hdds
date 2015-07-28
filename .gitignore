@@ -1,0 +1,7 @@
+build
+Linux_*
+Darwin_*
+SunOS_*
+.*
+!.gitignore
+*~
