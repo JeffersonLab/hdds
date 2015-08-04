@@ -34,7 +34,8 @@ installdir = "#%s" %(osname)
 include    = "%s/include" % (installdir)
 bin        = "%s/bin" % (installdir)
 lib        = "%s/lib" % (installdir)
-env = Environment(CXX         = os.getenv('CXX', 'c++'),
+env = Environment(ENV = os.environ,  # Bring in full environement, including PATH
+                  CXX         = os.getenv('CXX', 'c++'),
                   CC          = os.getenv('CC' , 'cc'),
                   FC          = os.getenv('FC' , 'gfortran'),
                   CPPPATH     = ['.'])
