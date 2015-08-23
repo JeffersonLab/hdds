@@ -86,7 +86,6 @@ caused conflict with drift chamber cable supports.
   </composition>
 
   <composition name="barrelModule" envelope="BCAM">
-    <apply region="nullBfield"/>
     <posXYZ volume="BCL0" />
     <posXYZ volume="BCALlayer_1" />
     <posXYZ volume="BCALlayer_2" />
@@ -319,7 +318,9 @@ caused conflict with drift chamber cable supports.
                                       comment="barrel EMcal mother" />
   <tubs name="BCAM" Rio_Z="64.2485 90.5185 425.0" profile="-3.75 7.5"
                     unit_length="cm" unit_angle="deg"
-                    material="Air" comment="barrel calorimeter module" />
+                    material="Air" comment="barrel calorimeter module">
+    <apply region="nullBfield"/>
+  </tubs>
   <tubs name="BCAS" Rio_Z="87.3435 90.5185 390.0" profile="-3.75 7.5"
                     unit_length="cm" unit_angle="deg"
                     material="Aluminum" comment="bcal module support bar" />
