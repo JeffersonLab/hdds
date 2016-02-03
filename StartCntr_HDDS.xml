@@ -34,7 +34,7 @@
     <posXYZ volume="startCntrCables" X_Y_Z="0. 0. -17. "/>
     <posXYZ volume="startCntr" X_Y_Z="0.03  0.123  0.0"  rot="-0.14122 0.09168 0.0"/>   
     <!-- Plastic target at end of start counter -->
-    <posXYZ volume="CAP2" X_Y_Z="0 0.0 58.89"/>
+    <!--posXYZ volume="CAP2" X_Y_Z="0 0.0 58.89"/-->
   </composition>
 
   <tubs name="CAP2" Rio_Z="0.0 2.375 0.1" material="Polyethylene" />
