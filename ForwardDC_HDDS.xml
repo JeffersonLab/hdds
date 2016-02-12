@@ -64,8 +64,8 @@
     <mposPhi volume="FMT3" ncopy="2" R_Z="61.53 -97.9512"/>
 
     <!-- Rails -->
-    <posXYZ volume="FRA2" X_Y_Z="-63.8285 -1.45074 0. "/>
-    <posXYZ volume="FRA2" X_Y_Z="+63.8285 -1.45074 0. "/>
+    <posXYZ volume="FRA2" X_Y_Z="-63.6285 -1.6207 0. "/>
+    <posXYZ volume="FRA2" X_Y_Z="+63.6285 -1.6207 0. "/>
     <posXYZ volume="FRA1" X_Y_Z="-63.1535 0. 0. "/>
     <posXYZ volume="FRA1" X_Y_Z="+63.1535 0. 0. "/>
 
@@ -845,7 +845,7 @@
 
 
 
-  <tubs name="FDC" Rio_Z="0.0 64.2485 198.0" material="Air"
+  <tubs name="FDC" Rio_Z="0.0 64.0485 198.0" material="Air"
                                  comment="forward drift chambers" />
   <tubs name="FDP1" Rio_Z="0.0 59.0 14.2724" material="Air"
                                  comment="forward drift chamber package 1" />

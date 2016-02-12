@@ -67,7 +67,7 @@
 
   <composition name="CentralDC">
     <posXYZ volume="centralDC" X_Y_Z="0.0  0.0  71.71" />
-    <posXYZ volume="CDCB" X_Y_Z="0.0 0.0 -9.74" />    <!-- upstream cables  -->
+    <posXYZ volume="CDCB" X_Y_Z="0.0 0.0 -9.75" />    <!-- upstream cables  -->
   </composition>
 
   <composition name="centralDC" envelope="CDC">
