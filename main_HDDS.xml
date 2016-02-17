@@ -70,9 +70,9 @@
   <composition name="barrelPackage" envelope="LASS">
     <posXYZ volume="Solenoid" />
     <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 37.051"  rot="0.0 0.0 -11.25"/>
-    <posXYZ volume="CentralDC" X_Y_Z="0.003 -0.032 17.06" rot="-0.00115 0.01834 0.0455" />
-    <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.9379" />
-    <posXYZ volume="BarrelEMcal" X_Y_Z="0.1 -0.098 16.788" />
+    <posXYZ volume="CentralDC" X_Y_Z="0.003 -0.032 17.06" rot="0.01834 -0.00115 0.0455" />
+    <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.938" />
+    <posXYZ volume="BarrelEMcal" X_Y_Z="0.1 -0.098 16.788" rot="-0.0424 -0.01633 0.0046" />
   </composition>
 
   <composition name="forwardPackage">
@@ -80,8 +80,8 @@
     <!--posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
     <!-- To simulate DIRC hits uncomment the line below -->
     <!--posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.0" /-->
-    <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0461 -0.0427 -0.1813"/>
-    <posXYZ volume="ForwardEMcal" X_Y_Z="0.529 -0.002 624.906" rot="0.07019 -0.0418 -0.0149" />
+    <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0427 -0.0461 -0.1813"/>
+    <posXYZ volume="ForwardEMcal" X_Y_Z="0.529 -0.002 624.906" rot="-0.0418 0.07019 -0.0149" />
     <!--posXYZ volume="ComptonEMcal" X_Y_Z="0.0 0.0 1025.3" /-->
   </composition>
 

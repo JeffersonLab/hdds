@@ -70,8 +70,8 @@
     <posXYZ volume="DWIT" X_Y_Z="0. 0. +34.8465"/>
     <posXYZ volume="TGR0" X_Y_Z="0. 0. -12.5015"/>
     <posXYZ volume="TGR0" X_Y_Z="0. 0. -15.359"/>
-    <posXYZ volume="targetInput" X_Y_Z="0. 0. 15.00" rot="0.0076 0.004 0.0"/>
-    <posXYZ volume="targetTube" X_Y_Z="0. 0. 15.00" rot="0.0076 0.004 0.0"/>
+    <posXYZ volume="targetInput" X_Y_Z="0. 0. 15.00" rot="0.004 0.0076 0.0"/>
+    <posXYZ volume="targetTube" X_Y_Z="0. 0. 15.00" rot="0.004 0.0076 0.0"/>
   </composition>
 
   <composition name="targetTube" envelope="TGTV">
