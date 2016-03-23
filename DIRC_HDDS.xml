@@ -35,7 +35,9 @@
 	<posXYZ volume="DCML" X_Y_Z="-270.0 -36.5 30.0" />
 	<posXYZ volume="DCML" X_Y_Z="-270.0 36.5  30.0" />
 	<posXYZ volume="DCML" X_Y_Z="-270.0 79.5  30.0" />
-	<posXYZ volume="DFOB" X_Y_Z="-270.0 0.0  30.0" />
+	<!--	<posXYZ volume="DFOB" X_Y_Z="-270.0 0.0  30.0" /> -->
+	<posXYZ volume="DFOB" X_Y_Z="-270.0 -58.0 30.0" />
+	<posXYZ volume="DFOB" X_Y_Z="-270.0 58.0 30.0" />
 </composition>
 
 <box name="DCMV" X_Y_Z="560.0 220.0 80.0" material="OpticalAir" />
@@ -102,7 +104,7 @@
 	inclination="16.10211 0.0" material="fusedSilica" />
 
 
-<!-- Single focusing optics box for all bar boxes: x positions
+<!-- Two focusing optics boxes for all bar boxes: x positions
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	FTMR: 507.99	        to 508:		Flat mirror coating
 	BTFB: 508		to 529.7:	Bottom focusing block (box containing 3-segment mirror)
@@ -118,16 +120,18 @@
 	<posXYZ volume="TPFB" X_Y_Z="513.65 0.0 -42.675" /> 
 	<posXYZ volume="FWM1" X_Y_Z="512.05 0.0 1.725" /> 
 	<posXYZ volume="FWM2" X_Y_Z="505.1  0.0 -9.601" rot="0.0 30.0 0.0"/>
-	<posXYZ volume="FSM1" X_Y_Z="518.85 -109.9 -26.225" /> 
-	<posXYZ volume="FSM2" X_Y_Z="518.85 109.9 -26.225" /> <!-- should be 110 at ends of focusing box -->
+	<posXYZ volume="FSM1" X_Y_Z="518.85 -44.9 -26.225" /> <!-- -109.9 ... 109.9-->
+	<posXYZ volume="FSM2" X_Y_Z="518.85 44.9 -26.225" /> <!-- should be 110 at ends of focusing box -->
 	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" />
 </composition>	
 
 <!-- flat mirror -->
-<box name="FTMR" X_Y_Z="0.01 220.0 42.9" material="ThickCerenkovMirror" />
+<box name="FTMR" X_Y_Z="0.01 90.0 42.9"
+     material="ThickCerenkovMirror" />
+
 
 <!-- photocathode -->
-<box name="RDCD" X_Y_Z="0.01 220.0 31.0"
+<box name="RDCD" X_Y_Z="0.01 90.0 31.45"
 	material="CerenkovPhotocathode" sensitive="true" />
 
 <!-- bottom focusing block with mirror -->
@@ -139,27 +143,28 @@
 </composition>
 
 <!-- bottom silica block -->
-<box name="BTBL" X_Y_Z="21.7 220.0 32.9" material="OpticalH2O" /> <!--fusedSilica" /-->
+<box name="BTBL" X_Y_Z="21.7 90.0 32.9" material="OpticalH2O" />  <!--x
+was 21.7!!! fusedSilica" /-->
 
 <!-- cylindrical mirror center 96.9 46 -->
-<tubs name="SPMR" Rio_Z="119.99 120.0 220.0" profile="8.76061 13.7797"
+<tubs name="SPMR" Rio_Z="119.99 120.0 90.0" profile="8.76061 13.7797"
 	material="ThickCerenkovMirror" />
 
 <!-- 3 segment mirrors -->
-<box name="TSM1" X_Y_Z="0.01 220.0 9.6" material="ThickCerenkovMirror" />
-<box name="TSM2" X_Y_Z="0.01 220.0 9.6" material="ThickCerenkovMirror" />
-<box name="TSM3" X_Y_Z="0.01 220.0 9.6" material="ThickCerenkovMirror" />
+<box name="TSM1" X_Y_Z="0.01 90.0 9.6" material="ThickCerenkovMirror" />
+<box name="TSM2" X_Y_Z="0.01 90.0 9.6" material="ThickCerenkovMirror" />
+<box name="TSM3" X_Y_Z="0.01 90.0 9.6" material="ThickCerenkovMirror" />
 
 <!-- flat wedge mirrors to replace new wedge -->
-<box name="FWM1" X_Y_Z="19.70 220.0 0.01" material="ThickCerenkovMirror" />
-<box name="FWM2" X_Y_Z="6.697 220.0 0.01" material="ThickCerenkovMirror" />
+<box name="FWM1" X_Y_Z="19.70 90.0 0.01" material="ThickCerenkovMirror" />
+<box name="FWM2" X_Y_Z="6.697 90.0 0.01" material="ThickCerenkovMirror" />
 
 <!-- flat side mirrors on ends of box -->
 <box name="FSM1" X_Y_Z="21.83 0.01 55.9" material="ThickCerenkovMirror" />
 <box name="FSM2" X_Y_Z="21.83 0.01 55.9" material="ThickCerenkovMirror" />
 
 <!-- top focusing block -->
-<trd name="TPFB" Xmp_Ymp_Z="0.9 21.7 220.0 220.0 23.0"
+<trd name="TPFB" Xmp_Ymp_Z="0.9 21.7 90.0 90.0 23.0"
 	inclination="24.33124192 0.0" material="OpticalH2O" /> <!--fusedSilica" /-->
 
 <!-- Al Container for bar box module -->
@@ -195,14 +200,14 @@
 	<posXYZ volume="ABV3" X_Y_Z="519.0 21.3 -26.275" /-->
 </composition>
 
-<box name="ABT2" X_Y_Z="0.1 220.5 12.175" material="Aluminum" />
-<box name="ABT3" X_Y_Z="0.1 220.5 0.9" material="Aluminum" />
-<box name="ABT4" X_Y_Z="0.1 220.5 43.1" material="Aluminum" />
-<box name="ABT5" X_Y_Z="0.1 220.5 58.2" material="Aluminum" />
+<box name="ABT2" X_Y_Z="0.1 90.5 12.175" material="Aluminum" />
+<box name="ABT3" X_Y_Z="0.1 90.5 0.9" material="Aluminum" />
+<box name="ABT4" X_Y_Z="0.1 90.5 43.1" material="Aluminum" />
+<box name="ABT5" X_Y_Z="0.1 90.5 58.2" material="Aluminum" />
 
-<box name="ABH2" X_Y_Z="17.9 220.5 0.1" material="Aluminum" />
-<box name="ABH3" X_Y_Z="24.0 220.5 0.1" material="Aluminum" />
-<box name="ABH4" X_Y_Z="42.0 220.5 0.1" material="Aluminum" />
+<box name="ABH2" X_Y_Z="17.9 90.5 0.1" material="Aluminum" />
+<box name="ABH3" X_Y_Z="24.0 90.5 0.1" material="Aluminum" />
+<box name="ABH4" X_Y_Z="42.0 90.5 0.1" material="Aluminum" />
 
 <box name="ABV2" X_Y_Z="18.0 0.1 15.2" material="Aluminum" />
 <box name="ABV3" X_Y_Z="24.2 0.1 58.2" material="Aluminum" />
