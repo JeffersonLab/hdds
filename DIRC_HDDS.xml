@@ -116,9 +116,9 @@
 <composition name ="DFOB">
         <posXYZ volume="FTMR" X_Y_Z="507.995 0.0 -32.725" />
 	<posXYZ volume="RDCD" X_Y_Z="519.35 0.0 -42.725" rot="0.0 42.12454632 0.0" />
-        <posXYZ volume="BTFB" X_Y_Z="518.85 0.0 -14.725" />
+        <posXYZ volume="BTFB" X_Y_Z="518.5 0.0 -14.725" />
 	<posXYZ volume="TPFB" X_Y_Z="513.65 0.0 -42.675" /> 
-	<posXYZ volume="FWM1" X_Y_Z="512.05 0.0 1.725" /> 
+	<posXYZ volume="FWM1" X_Y_Z="511.7 0.0 1.725" /> 
 	<posXYZ volume="FWM2" X_Y_Z="505.1  0.0 -9.601" rot="0.0 30.0 0.0"/>
 	<posXYZ volume="FSM1" X_Y_Z="518.85 -44.9 -26.225" /> <!-- -109.9 ... 109.9-->
 	<posXYZ volume="FSM2" X_Y_Z="518.85 44.9 -26.225" /> <!-- should be 110 at ends of focusing box -->
@@ -143,7 +143,7 @@
 </composition>
 
 <!-- bottom silica block -->
-<box name="BTBL" X_Y_Z="21.7 90.0 32.9" material="OpticalH2O" />  <!--x
+<box name="BTBL" X_Y_Z="21. 90.0 32.9" material="OpticalH2O" />  <!--x
 was 21.7!!! fusedSilica" /-->
 
 <!-- cylindrical mirror center 96.9 46 -->
@@ -156,7 +156,7 @@ was 21.7!!! fusedSilica" /-->
 <box name="TSM3" X_Y_Z="0.01 90.0 9.6" material="ThickCerenkovMirror" />
 
 <!-- flat wedge mirrors to replace new wedge -->
-<box name="FWM1" X_Y_Z="19.70 90.0 0.01" material="ThickCerenkovMirror" />
+<box name="FWM1" X_Y_Z="19.0 90.0 0.01" material="ThickCerenkovMirror" />
 <box name="FWM2" X_Y_Z="6.697 90.0 0.01" material="ThickCerenkovMirror" />
 
 <!-- flat side mirrors on ends of box -->
