@@ -844,10 +844,15 @@
    </composition>
 
 
+  <pcon name="FDC" material="Air" comment="forward drift chambers">
+    <polyplane Rio_Z= "58.05 64.0485 -99.0"/>
+    <polyplane Rio_Z= "58.05 64.0485 -97.5"/>
+    <polyplane Rio_Z= "0.0 64.0485 -97.5"/>
+    <polyplane Rio_Z= "0.0 64.0485 99.0"/>
+  </pcon>
 
-
-  <tubs name="FDC" Rio_Z="0.0 64.0485 198.0" material="Air"
-                                 comment="forward drift chambers" />
+  <!--tubs name="FDC" Rio_Z="0.0 64.0485 190.0" material="Air"
+                                 comment="forward drift chambers" /-->
   <tubs name="FDP1" Rio_Z="0.0 59.0 14.2724" material="Air"
                                  comment="forward drift chamber package 1" />
   <tubs name="FDP2" Rio_Z="0.0 59.0 14.2724" material="Air"
@@ -1086,9 +1091,9 @@
   <tubs name="FDS2" Rio_Z="58.66 58.74 21.0" material="FR-4"
        comment="Inter-package support skin for cables, package 4" />
 
-  <box name="FRA1" X_Y_Z="0.75 0.75 198.0" material="StainlessSteel"
+  <box name="FRA1" X_Y_Z="0.75 0.75 190.0" material="StainlessSteel"
        comment="FDC support rail part 1"/>
-  <box name="FRA2" X_Y_Z="0.6 2.49 198.0" material="StainlessSteel"
+  <box name="FRA2" X_Y_Z="0.6 2.49 190.0" material="StainlessSteel"
        comment="FDC support rail part 2"/>
 
   <box name="FBA1" X_Y_Z="10.0 2.2098 0.3175" material="Aluminum"
