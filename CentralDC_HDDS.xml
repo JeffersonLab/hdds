@@ -289,8 +289,15 @@
   <!-- Sat Sep 27 15:00:14 EDT 2008 B.Z. -->
   <!-- CDC volume 5cm shorter and fill it with Ar/CO2 gas-->
 
-  <tubs name="CDC" Rio_Z="8.75   60.5663   162.9" material="Air"
-	                           comment="CDC mother volume"/>
+  <pcon name="CDC" material="Air" comment="CDC mother volume">
+    <polyplane Rio_Z="8.75 60.5663 -81.45"/>
+    <polyplane Rio_Z="8.75 60.5663 78.91"/>
+    <polyplane Rio_Z="8.75 57.9374 78.91"/>
+    <polyplane Rio_Z="8.75 57.9374 81.45"/>
+  </pcon>
+
+  <!--tubs name="CDC" Rio_Z="8.75   60.5663   162.9" material="Air"
+	                           comment="CDC mother volume"/-->
   <tubs name="CDCI" Rio_Z="9.1821  9.2329 150.0" material="E-fiberGlass"
 	                           comment="CDC inner cylinder"/>
   <tubs name="CDOC" Rio_Z="57.6326  57.8612 2.5" material="E-fiberGlass"
