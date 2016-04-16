@@ -29,12 +29,12 @@
 
   <composition name="targetSupportArm" envelope="TARM">
     <posXYZ volume="TGB1" X_Y_Z="0. 0. -11.1916"/>
-    <posXYZ volume="TGB2" X_Y_Z="0. 0. +38.644"/>
+    <posXYZ volume="TGB2" X_Y_Z="0. 0. +39.074"/>
     <posXYZ volume="TGF1" X_Y_Z="0. 0. -48.9752"/>
     <posXYZ volume="TGF2" X_Y_Z="0. 0. -46.5325"/>
     <posXYZ volume="TGF3" X_Y_Z="0. 0. 28.1018"/>
     <posXYZ volume="TGF4" X_Y_Z="0. 0. 30.0068"/>
-    <posXYZ volume="TGF5" X_Y_Z="0. 0. 48.55"/>
+    <posXYZ volume="TGF5" X_Y_Z="0. 0. 48.98"/>
     <posXYZ volume="TGF6" X_Y_Z="0. 0. 24.9268"/>
     <posXYZ volume="TGR1" X_Y_Z="0. 0. 22.517"/>
     <posXYZ volume="TGR2" X_Y_Z="0. 0. -43.9"/>
@@ -70,8 +70,8 @@
     <posXYZ volume="DWIT" X_Y_Z="0. 0. +34.8465"/>
     <posXYZ volume="TGR0" X_Y_Z="0. 0. -12.5015"/>
     <posXYZ volume="TGR0" X_Y_Z="0. 0. -15.359"/>
-    <posXYZ volume="targetInput" X_Y_Z="0. 0. 15.00" rot="0.004 0.0076 0.0"/>
-    <posXYZ volume="targetTube" X_Y_Z="0. 0. 15.00" rot="0.004 0.0076 0.0"/>
+    <posXYZ volume="targetInput" X_Y_Z="-0.018 -0.002 15.00" rot="0.004 0.0076 0.0"/>
+    <posXYZ volume="targetTube" X_Y_Z="-0.018 -0.002 15.00" rot="0.004 0.0076 0.0"/>
   </composition>
 
   <composition name="targetTube" envelope="TGTV">
@@ -91,7 +91,7 @@
   </pcon>
 
   <pcon name="LIH2" material="LiqHydrogen" comment="target contents">
-    <polyplane Rio_Z="0.0 0.29715 -14.9873"/>
+    <polyplane Rio_Z="0.0 0.29715 -14.9925"/>
     <polyplane Rio_Z="0.0 0.5040  -14.8162"/>
     <polyplane Rio_Z="0.0 0.72389  -14.5162"/>
     <polyplane Rio_Z="0.0 0.78359 -14.2162"/>
@@ -99,7 +99,7 @@
     <polyplane Rio_Z="0.0 0.78359 +14.2162"/>
     <polyplane Rio_Z="0.0 0.72389  +14.5162"/>
     <polyplane Rio_Z="0.0 0.5040  +14.8162"/>
-    <polyplane Rio_Z="0.0 0.29715 +14.9873"/>
+    <polyplane Rio_Z="0.0 0.29715 +14.9925"/>
     <real name="length" value="29.9746" unit="cm"/>
   </pcon>
 
