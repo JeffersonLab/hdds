@@ -115,14 +115,15 @@
 
 <composition name ="DFOB">
         <posXYZ volume="FTMR" X_Y_Z="507.995 0.0 -32.725" />
-	<posXYZ volume="RDCD" X_Y_Z="519.35 0.0 -42.725" rot="0.0 42.12454632 0.0" />
+<!--	<posXYZ volume="RDCD" X_Y_Z="519.35 0.0 -42.725" rot="0.0 42.12454632 0.0" /> -->
+        <posXYZ volume="PMTgrid" X_Y_Z="519.35 0.0 -42.725" rot="0.0 42.12454632 0.0" />
         <posXYZ volume="BTFB" X_Y_Z="518.5 0.0 -14.725" />
 	<posXYZ volume="TPFB" X_Y_Z="513.65 0.0 -42.675" /> 
 	<posXYZ volume="FWM1" X_Y_Z="511.7 0.0 1.725" /> 
 	<posXYZ volume="FWM2" X_Y_Z="505.1  0.0 -9.601" rot="0.0 30.0 0.0"/>
 	<posXYZ volume="FSM1" X_Y_Z="518.85 -44.9 -26.225" /> <!-- -109.9 ... 109.9-->
 	<posXYZ volume="FSM2" X_Y_Z="518.85 44.9 -26.225" /> <!-- should be 110 at ends of focusing box -->
-	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" />
+<!--	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" /> -->
 </composition>	
 
 <!-- flat mirror -->
@@ -133,6 +134,33 @@
 <!-- photocathode -->
 <box name="RDCD" X_Y_Z="0.01 90.0 31.45"
 	material="CerenkovPhotocathode" sensitive="true" />
+
+<!-- window of the optical box -->
+<box name="OBWI" X_Y_Z="1.27 90.0 31.8" material="fusedSilica" />
+
+<!-- PMT -->
+<box name="PMTV" X_Y_Z="0.05 5.2 5.2"
+     material="fusedSilica"/>
+
+<composition name="PMTC" envelope="PMTV">
+  <mposZ volume="PIXrow" ncopy="8" X_Y="0.0 0.0" Z0="-2.275" dZ="0.65" />
+</composition>
+
+<composition name="PMTrow">
+  <mposY volume="PMTC" ncopy="17" Z_X="0.0 0.0" Y0="-42.4" dY="5.3" />
+</composition>
+
+<composition name="PMTgrid">
+  <mposZ volume="PMTrow" ncopy="6" X_Y="0.0 0.0" Z0="-13.25" dZ="5.3" />
+</composition>
+
+<!-- pixel -->
+<box name="PIXV" X_Y_Z="0.01 0.65 0.65"
+       material="CerenkovPhotocathode" sensitive="true" />
+
+<composition name="PIXrow">
+  <mposY volume="PIXV" ncopy="8" Z_X="0.0 0.0" Y0="-2.275" dY="0.65" />
+</composition>
 
 <!-- bottom focusing block with mirror -->
 <composition name="BTFB" envelope="BTBL">
