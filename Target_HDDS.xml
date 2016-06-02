@@ -24,17 +24,17 @@
 
   <composition name="Target">
     <posXYZ volume="targetSupportArm" X_Y_Z="0. 0. -70.461"/>
-    <posXYZ volume="targetVessel" X_Y_Z="0. 0. 0.0" />
+    <posXYZ volume="targetVessel" X_Y_Z="0. 0.3 0.0" rot="0.3 0.0 0.0" />
   </composition>
 
   <composition name="targetSupportArm" envelope="TARM">
     <posXYZ volume="TGB1" X_Y_Z="0. 0. -11.1916"/>
-    <posXYZ volume="TGB2" X_Y_Z="0. 0. +39.074"/>
+    <posXYZ volume="TGB2" X_Y_Z="0. 0. +38.824"/>
     <posXYZ volume="TGF1" X_Y_Z="0. 0. -48.9752"/>
     <posXYZ volume="TGF2" X_Y_Z="0. 0. -46.5325"/>
     <posXYZ volume="TGF3" X_Y_Z="0. 0. 28.1018"/>
     <posXYZ volume="TGF4" X_Y_Z="0. 0. 30.0068"/>
-    <posXYZ volume="TGF5" X_Y_Z="0. 0. 48.98"/>
+    <posXYZ volume="TGF5" X_Y_Z="0. 0. 48.88"/>
     <posXYZ volume="TGF6" X_Y_Z="0. 0. 24.9268"/>
     <posXYZ volume="TGR1" X_Y_Z="0. 0. 22.517"/>
     <posXYZ volume="TGR2" X_Y_Z="0. 0. -43.9"/>
@@ -51,7 +51,7 @@
     <polyplane Rio_Z="0.0 7.9375 28.7368"/>
     <polyplane Rio_Z="0.0 7.9375 31.2768"/>
     <polyplane Rio_Z="0.0 7.62   31.2768"/>
-    <polyplane Rio_Z="0.0 7.62   50.25"/>
+    <polyplane Rio_Z="0.0 7.62   50.15"/>
  </pcon>
 
  <pcon name="TGBM" material="Aluminum">
@@ -190,7 +190,7 @@
                                 comment="target vessel exit window" />
   <tubs name="TGB1" Rio_Z="9.8425 10.16 77.2668" material="Aluminum"
 	comment="Target arm beam pipe"/>
-  <tubs name="TGB2" Rio_Z="7.3025 7.62 22.352" material="Aluminum" 
+  <tubs name="TGB2" Rio_Z="7.3025 7.62 22.5" material="Aluminum" 
 	comment="Target arm beam pipe"/>
  <tubs name="TGF1" Rio_Z="10.16 22.5 1.7" material="StainlessSteel" 
        comment="flange"/>
