@@ -292,6 +292,10 @@
 
   <pcon name="CDC" material="Air" comment="CDC mother volume">
     <polyplane Rio_Z="8.75 60.5663 -81.45"/>
+    <polyplane Rio_Z="8.75 60.5663 -69.0"/>
+    <polyplane Rio_Z="9.18 60.5663 -69.0"/>
+    <polyplane Rio_Z="9.18 60.5663 75.5"/>
+    <polyplane Rio_Z="8.75 60.5663 75.5"/>
     <polyplane Rio_Z="8.75 60.5663 78.91"/>
     <polyplane Rio_Z="8.75 57.9374 78.91"/>
     <polyplane Rio_Z="8.75 57.9374 81.45"/>
