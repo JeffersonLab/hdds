@@ -217,17 +217,17 @@
 <!--Downstream gusset ring ledge-->  
     <posXYZ volume="FDGU" X_Y_Z="0.0 0.0 +76.5928"/>
  
-    <posXYZ volume="forwardDC_package_1" X_Y_Z="-0.09  0.033  -87.648 " rot="0.0493 -0.01633 0.0882">
+    <posXYZ volume="forwardDC_package_1" X_Y_Z="-0.09  0.033  -87.648 " rot="0.0493 0.01633 0.0882">
 
       <identifier field="package" value="1" />
     </posXYZ>
-    <posXYZ volume="forwardDC_package_2" X_Y_Z="-0.069  0.06  -29.078 " rot="0.0352 -0.02263 0.0080">
+    <posXYZ volume="forwardDC_package_2" X_Y_Z="-0.069  0.06  -29.078 " rot="0.0352 0.02263 0.0089">
       <identifier field="package" value="2" />
     </posXYZ>
-    <posXYZ volume="forwardDC_package_3" X_Y_Z="0.001  -0.033  +29.511 " rot="0.0682 -0.02922 0.0295">
+    <posXYZ volume="forwardDC_package_3" X_Y_Z="0.001  -0.033  +29.511 " rot="0.0682 0.02922 0.0295">
       <identifier field="package" value="3" />
     </posXYZ>
-    <posXYZ volume="forwardDC_package_4" X_Y_Z="0.018  0.023  +68.186 "  rot="-0.1097 0.00172 0.0066" >
+    <posXYZ volume="forwardDC_package_4" X_Y_Z="0.018  0.023  +68.186 "  rot="-0.1097 -0.00172 0.0066" >
       <identifier field="package" value="4" />
     </posXYZ>  
 
