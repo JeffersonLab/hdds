@@ -67,7 +67,7 @@
 
   <composition name="CentralDC">
     <posXYZ volume="centralDC" X_Y_Z="0.0  0.0  71.71" />
-    <posXYZ volume="CDCB" X_Y_Z="0.0 0.0 -9.74" />    <!-- upstream cables  -->
+    <posXYZ volume="CDCB" X_Y_Z="0.0 0.0 -9.75" />    <!-- upstream cables  -->
   </composition>
 
   <composition name="centralDC" envelope="CDC">
@@ -86,8 +86,8 @@
     <posXYZ volume="CDIU" X_Y_Z="0.0 0.0 -70.46"/> <!-- upstream inner collar -->
     <posXYZ volume="CDID" X_Y_Z="0.0 0.0 77.04"/>  <!-- downstream inner collar -->
     <posXYZ volume="CDGD" X_Y_Z="0.0 0.0 +80.16"/> <!-- downstream rhoacell outer ring -->
-    <posXYZ volume="CDGI" X_Y_Z="0.0 0.0 +79.653"/> <!-- downstream rhoacell inner ring #1 --> 
-    <posXYZ volume="CDG2" X_Y_Z="0.0 0.0 +80.923"/> <!-- downstream rhoacell inner ring #2 -->
+    <posXYZ volume="CDGI" X_Y_Z="0.0 0.0 +80.16"/> <!-- downstream rhoacell inner ring #1 --> 
+    <!--posXYZ volume="CDG2" X_Y_Z="0.0 0.0 +79.399"/> <downstream rhoacell inner ring #2, moved to DCLS volume -->
     <posXYZ volume="CDGW" X_Y_Z="0.0 0.0 +81.436"/> <!-- downstream mylar gas window -->
     <posXYZ volume="CDGU" X_Y_Z="0.0 0.0 -76.63125"/> <!-- upstream plexiglass gas plate -->
     <posXYZ volume="CDGS" X_Y_Z="0.0 0.0 -74.25"/> <!-- upstream gas plenum shell -->  
@@ -98,6 +98,7 @@
  </composition>
 
   <composition name="CDClayers" envelope="DCLS">
+    <posXYZ volume="CDG2" X_Y_Z="0.0 0.0 +76.108"/> <!-- downstream rhoacell inner ring #2 -->
     <posXYZ volume="CDPD" X_Y_Z="0.0 0.0 +75.300" 
                           geometry_layer="1"/>     <!-- downstream end plate -->
     <posXYZ volume="CDPU" X_Y_Z="0.0 0.0 -75.47625"
@@ -289,8 +290,19 @@
   <!-- Sat Sep 27 15:00:14 EDT 2008 B.Z. -->
   <!-- CDC volume 5cm shorter and fill it with Ar/CO2 gas-->
 
-  <tubs name="CDC" Rio_Z="8.75   60.5663   162.9" material="Air"
-	                           comment="CDC mother volume"/>
+  <pcon name="CDC" material="Air" comment="CDC mother volume">
+    <polyplane Rio_Z="8.75 60.5663 -81.45"/>
+    <polyplane Rio_Z="8.75 60.5663 -69.0"/>
+    <polyplane Rio_Z="9.18 60.5663 -69.0"/>
+    <polyplane Rio_Z="9.18 60.5663 75.5"/>
+    <polyplane Rio_Z="8.75 60.5663 75.5"/>
+    <polyplane Rio_Z="8.75 60.5663 78.91"/>
+    <polyplane Rio_Z="8.75 57.9374 78.91"/>
+    <polyplane Rio_Z="8.75 57.9374 81.45"/>
+  </pcon>
+
+  <!--tubs name="CDC" Rio_Z="8.75   60.5663   162.9" material="Air"
+	                           comment="CDC mother volume"/-->
   <tubs name="CDCI" Rio_Z="9.1821  9.2329 150.0" material="E-fiberGlass"
 	                           comment="CDC inner cylinder"/>
   <tubs name="CDOC" Rio_Z="57.6326  57.8612 2.5" material="E-fiberGlass"
@@ -313,9 +325,9 @@
 	                           comment="CDC upstream gas plenum inner shell" />
   <tubs name="CDGD" Rio_Z="55.5374  57.9374    2.54" material="MediumDensityROHACELL"
 	                           comment="CDC downstream gas plenum ring" />
-  <tubs name="CDGI" Rio_Z="8.8392  10.033  1.524" material="MediumDensityROHACELL"
+  <tubs name="CDGI" Rio_Z="8.8392  10.033  2.54" material="MediumDensityROHACELL"
 	                           comment="first part of CDC downstream gas plenum inner ring" /> 
-  <tubs name="CDG2" Rio_Z="8.8392  11.1252  1.016" material="MediumDensityROHACELL"
+  <tubs name="CDG2" Rio_Z="10.04  11.1252  1.016" material="MediumDensityROHACELL"
 	                           comment="second part of CDC downstream gas plenum inner ring" />
   <tubs name="CDGW" Rio_Z="8.8392   57.9374    0.01" material="AluminizedMylar"
 	                           comment="CDC downstream gas plenum window" />

@@ -62,17 +62,18 @@
 
   <box name="SITE" X_Y_Z="5000. 5000. 5000." material="Air"
        				comment="master volume for description" />
-  <box name="HALL" X_Y_Z="1700. 1500. 3408." material="Air"
+  <box name="HALL" X_Y_Z="1700. 1500. 3409." material="Air"
        				comment="master volume for description">
     <apply region="solenoidBfield" origin="150.0 -350.0 -500.0" />
   </box>
 
   <composition name="barrelPackage" envelope="LASS">
-    <posXYZ volume="Solenoid" />
-    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 37.551"  rot="0.0 0.0 -11.25"/>
-    <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.56" />
-    <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 177.4379" />
-    <posXYZ volume="BarrelEMcal" X_Y_Z="0.0 0.0 17.0" />
+    <posXYZ volume="Solenoid" X_Y_Z="0.03 0.0 0.0"/>
+    <posXYZ volume="Target" X_Y_Z="0.0 0.0 48.316"/>
+    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 37.12"  rot="0.0 0.0 -11.25"/>
+    <posXYZ volume="CentralDC" X_Y_Z="0.0 -0.080 17.68" rot="0.0218 0.008 0.045" />
+    <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.938" />
+    <posXYZ volume="BarrelEMcal" X_Y_Z="0.1 -0.098 16.788" rot="-0.0424 0.01633 0.0046" />
   </composition>
 
   <composition name="forwardPackage">
@@ -80,9 +81,9 @@
     <!--posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
     <!-- To simulate DIRC hits uncomment the line below -->
     <!--posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.0" /-->
-    <posXYZ volume="ForwardTOF" X_Y_Z="0.0 0.0 606.293" />
-    <posXYZ volume="ForwardEMcal" X_Y_Z="0.0 0.0 625.406" />
-    <posXYZ volume="ComptonEMcal" X_Y_Z="0.0 0.0 1025.3" />
+    <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0427 0.0461 -0.1813"/>
+    <posXYZ volume="ForwardEMcal" X_Y_Z="0.529 -0.002 624.906" rot="-0.0418 -0.07019 -0.0149" />
+    <!--posXYZ volume="ComptonEMcal" X_Y_Z="0.0 0.0 1025.3" /-->
   </composition>
 
   <composition name="backwardPackage">
@@ -90,7 +91,8 @@
   </composition> 
 
   <composition name="GlueXdetector">
-    <posXYZ volume="Target" X_Y_Z="0.0 0.0 50.0" />
+    <!--The following is the position of the entrance window of the target cell-->
+    <!--posXYZ volume="Target" X_Y_Z="0.0 0.0 48.316" /> Moved the target to the LASS volume SJT 6/2/2016 -->
     <posXYZ volume="barrelPackage" />
     <posXYZ volume="forwardPackage" />
 <!-- removed from standard geometry 12/11/2007 -rtj
@@ -100,9 +102,9 @@
 
   <composition name="experimentalHall" envelope="HALL">
     <posXYZ volume="GlueXdetector" X_Y_Z="150.0 -350.0 -500.0" />
-    <posXYZ volume="PairSpectrometer" X_Y_Z="150.0 -350.0 -1389.66" />  
-    <posXYZ volume="beamPipe" X_Y_Z="0.0 0.0 0.0" />
-    <posXYZ volume="SixWayCross" X_Y_Z="150 -350 -605.43"/>
+    <posXYZ volume="PairSpectrometer" X_Y_Z="150.0 -350.0 -1390.16" />  
+    <posXYZ volume="beamPipe" X_Y_Z="0.0 0.0 -0.5" />
+    <posXYZ volume="SixWayCross" X_Y_Z="150 -350 -605.93"/>
   </composition>
 
   <composition name="LASSfieldVolume">
@@ -110,7 +112,7 @@
   </composition>
 
   <composition name="everything" envelope="SITE">
-    <posXYZ volume="collimatorPackage" X_Y_Z="0.0 0.0 -2254." />
+    <posXYZ volume="collimatorPackage" X_Y_Z="0.0 0.0 -2254.5" />
     <posXYZ volume="LASSfieldVolume" X_Y_Z="0. 0. 0." />
   </composition>
 
