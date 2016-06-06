@@ -90,7 +90,8 @@
     <polyplane Rio_Z="0.0 0.29715 +15.0"/>
   </pcon>
 
-  <pcon name="LIH2" material="LiqHydrogen" comment="target contents">
+<!--  <pcon name="LIH2" material="LiqHydrogen" comment="target contents"> -->
+ <pcon name="LIH2" material="Vacuum" comment="target contents"> <!--for simulation of foil targets -->
     <polyplane Rio_Z="0.0 0.29715 -14.9873"/>
     <polyplane Rio_Z="0.0 0.5040  -14.8162"/>
     <polyplane Rio_Z="0.0 0.72389  -14.5162"/>
