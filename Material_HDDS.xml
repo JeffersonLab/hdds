@@ -891,6 +891,13 @@
 	<real name="density"	value="1.18"	unit="g/cm^3" />
   </composite>
 
+  <composite name="LeadTungstate">
+    <addmaterial material="Lead"> <natoms n="1"/> </addmaterial>
+    <addmaterial material="Tungsten"> <natoms n="1"/> </addmaterial>
+    <addmaterial material="Oxygen"> <natoms n="4"/> </addmaterial>
+    <real name="density" value="8.28" unit="g/cm^3"/>
+  </composite>
+
   <composite name="leadScint">
 	<addmaterial material="BCF-12">
 		<fractionmass	fraction="0.1036"	/>
