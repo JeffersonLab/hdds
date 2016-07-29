@@ -116,7 +116,7 @@
 <composition name ="DFOB">
         <posXYZ volume="FTMR" X_Y_Z="507.995 0.0 -32.725" />
 <!--	<posXYZ volume="RDCD" X_Y_Z="519.35 0.0 -42.725" rot="0.0 42.12454632 0.0" /> -->
-        <posXYZ volume="PMTgrid" X_Y_Z="519.35 0.0 -42.725" rot="0.0 42.12454632 0.0" />
+        <!--posXYZ volume="PMTgrid" X_Y_Z="519.35 0.0 -42.725" rot="0.0 42.12454632 0.0" /-->
         <posXYZ volume="BTFB" X_Y_Z="518.5 0.0 -14.725" />
 	<posXYZ volume="TPFB" X_Y_Z="513.65 0.0 -42.675" /> 
 	<posXYZ volume="FWM1" X_Y_Z="511.7 0.0 1.725" /> 
