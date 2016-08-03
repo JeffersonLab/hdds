@@ -61,8 +61,9 @@
          specification = "v1.0">
 
   <box name="SITE" X_Y_Z="5000. 5000. 5000." material="Air"
+  <!--box name="SITE" X_Y_Z="1700. 1500. 3400." material="Air" -->
        				comment="master volume for description" />
-  <box name="HALL" X_Y_Z="1700. 1500. 3409." material="Air"
+  <box name="HALL" X_Y_Z="1700. 1500. 3400." material="Air"
        				comment="master volume for description">
     <apply region="solenoidBfield" origin="150.0 -350.0 -500.0" />
   </box>
@@ -80,7 +81,7 @@
     <!--<posXYZ volume="CerenkovCntr" X_Y_Z="0.0 0.0 466.0" /> -->
     <!--posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
     <!-- To simulate DIRC hits uncomment the line below -->
-    <!--posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.0" /-->
+    <posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.0" />
     <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0427 0.0461 -0.1813"/>
     <posXYZ volume="ForwardEMcal" X_Y_Z="0.529 -0.002 624.906" rot="-0.0418 -0.07019 -0.0149" />
     <!--posXYZ volume="ComptonEMcal" X_Y_Z="0.0 0.0 1025.3" /-->
