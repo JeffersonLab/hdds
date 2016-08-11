@@ -61,9 +61,8 @@
          specification = "v1.0">
 
   <box name="SITE" X_Y_Z="5000. 5000. 5000." material="Air"
-  <!--box name="SITE" X_Y_Z="1700. 1500. 3400." material="Air" -->
        				comment="master volume for description" />
-  <box name="HALL" X_Y_Z="1700. 1500. 3400." material="Air"
+  <box name="HALL" X_Y_Z="1700. 1500. 3408." material="Air"
        				comment="master volume for description">
     <apply region="solenoidBfield" origin="150.0 -350.0 -500.0" />
   </box>
