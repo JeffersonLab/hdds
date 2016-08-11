@@ -1146,13 +1146,13 @@
 	<addmaterial material="Oxygen"> <natoms n="2"/> </addmaterial>
 	<real name="density"	value="2.20"	unit="g/cm^3" />
         <optical_properties>
-	     <specify E="1.50" refindex="1.452" abslen="1000" />
-             <specify E="2.00" refindex="1.457" abslen="1000" />
-             <specify E="2.50" refindex="1.462" abslen="1000" />
-             <specify E="3.00" refindex="1.468" abslen="1000" />
-             <specify E="3.50" refindex="1.475" abslen="1000" />
-             <specify E="4.00" refindex="1.484" abslen="1000" /> 
-	     <specify E="4.13" refindex="1.487" abslen="1000" />
+	     <specify E="1.50" refindex="1.452" abslen="445169" />
+             <specify E="2.00" refindex="1.457" abslen="159561" />
+             <specify E="2.50" refindex="1.462" abslen="64725" />
+             <specify E="3.00" refindex="1.468" abslen="31620" />
+             <specify E="3.50" refindex="1.475" abslen="17068" />
+             <specify E="4.00" refindex="1.484" abslen="9908" /> 
+	     <specify E="4.13" refindex="1.487" abslen="6307" />
 <!--
 	     <specify E="4.50" refindex="1.495" abslen="300" />
 	     <specify E="5.00" refindex="1.508" abslen="200" />
