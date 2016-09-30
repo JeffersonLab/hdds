@@ -71,7 +71,7 @@
     <posXYZ volume="Solenoid" X_Y_Z="0.03 0.0 0.0"/>
     <posXYZ volume="Target" X_Y_Z="0.0 0.0 48.316"/>
     <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 37.12"  rot="0.0 0.0 -11.25"/>
-    <posXYZ volume="CentralDC" X_Y_Z="0.0 -0.080 17.68" rot="0.0218 0.008 0.045" />
+    <posXYZ volume="CentralDC" X_Y_Z="0.128 -0.078 17.68" rot="0.0 0.0 0.045" />
     <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.938" />
     <posXYZ volume="BarrelEMcal" X_Y_Z="0.1 -0.098 16.788" rot="-0.0424 0.01633 0.0046" />
   </composition>
