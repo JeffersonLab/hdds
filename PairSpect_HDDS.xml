@@ -21,7 +21,7 @@
 <!-- Origin of PairSpectrometer is center of the hall.
      The pair spectrometer is situated in the detector hall 
      after the collimator cave. The pair spectrometer converter
-     is defined in the BeamLine_HDDS.xml file, in the volume PTAR.
+     is defined in the BeamLine_HDDS.xml file, in the volume CONV.
 -->
 
 
@@ -43,7 +43,7 @@
     <posXYZ volume="PSH1" X_Y_Z="+32.4 0.0 109.78"/>
     <posXYZ volume="PSH2" X_Y_Z="0.0 19.05 132.65"/>  
     <posXYZ volume="PSH2" X_Y_Z="0.0 -19.05 132.65"/>
-  </composition >
+  </composition>
 	
 
 <!-- Vacuum Pipe 1 -->
