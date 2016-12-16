@@ -60,7 +60,7 @@
          top_volume  = "SITE"
          specification = "v1.0">
 
-  <box name="SITE" X_Y_Z="5000. 5000. 5000." material="Air"
+  <box name="SITE" X_Y_Z="10000. 10000. 10000." material="Air"
        				comment="master volume for description" />
   <box name="HALL" X_Y_Z="1700. 1500. 3409." material="Air"
        				comment="master volume for description">
