@@ -115,13 +115,19 @@
        b) Changes to dimensions of the active collimator wedges, and even
           the number of pins per row, so that all overlaps are eliminated.
 
+     Revision 3.2 12/12/2016
+       Updates to introduce the triplet polarimeter -rtj
+       a) renamed downstream PS converter target from PTAR to CONV
+       b) reserved the name PTAR for the triplet polarimeter target
+       c) incorporated a detailed geometric model of the triplet polarimeter
+          from the ASU group into the beamline geometry
 
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "BeamLine"
-         version     = "3.1"
-         date        = "2013-09-06"
+         version     = "3.2"
+         date        = "2016-12-12"
          author      = "R.T. Jones"
          top_volume  = "collimatorPackage"
          specification = "v1.0">
@@ -130,18 +136,18 @@
      primary collimator.  					-->
 
   <composition name="collimatorPackage">
-    <posXYZ volume="ShieldedCollimator" X_Y_Z="0.0  0.0  425.0" />
+    <posXYZ volume="ShieldedCollimator" X_Y_Z="0.0  0.0  400.0" />
   </composition>
 
-  <box name="SHLD" X_Y_Z="550.  550.  1250." material="Concrete"/>
+  <box name="SHLD" X_Y_Z="550.  550.  1300." material="Concrete"/>
   <composition name="ShieldedCollimator" envelope="SHLD">
-    <posXYZ volume="pipeFromTaggerHall" X_Y_Z="0.0  0.0  -600.0" />
+    <posXYZ volume="pipeFromTaggerHall" X_Y_Z="0.0  0.0  -625.0" />
     <posXYZ volume="collimatorCave" X_Y_Z="0.0  35.0  25.0" />
   </composition>  
  
-  <box  name="CAVE" X_Y_Z="450. 270. 1200." material="Air" />
+  <box  name="CAVE" X_Y_Z="450. 270. 1250." material="Air" />
   <composition name="collimatorCave" envelope="CAVE">
-    <posXYZ volume="collimatorStack" X_Y_Z="0.0 -35.0 -450.0"/>     
+    <posXYZ volume="collimatorStack" X_Y_Z="0.0 -35.0 -500.0"/>     
 <!--  <posXYZ volume="DET2" X_Y_Z="0.0  0.0  225.0" /> -->
     <posXYZ volume="DET3" X_Y_Z="0.0  132.0  0.0" />
   </composition>
@@ -150,38 +156,36 @@
     <posXYZ volume="collimatorStack" />
   </composition>
 
-
   <composition name="collimatorStack">
-    <posXYZ volume="BeamPipe0"     X_Y_Z="0.0  0.0  -150.0"  />
+    <posXYZ volume="BeamPipe0"     X_Y_Z="0.0  0.0  -125.0"  />
     <!--posXYZ volume="PFLD"          X_Y_Z="0.0  0.0  -99.0"  />
     <posXYZ volume="PFSC"          X_Y_Z="0.0  0.0  -97.0"   />
     <posXYZ volume="PFSC"          X_Y_Z="0.0  0.0  -93.0"   /-->
-    <posXYZ volume="DET1"          X_Y_Z="0.0  0.0  -89.46"  />
-    <posXYZ volume="ColDetector"   X_Y_Z="0.0  0.0  -86.16"  />
-    <posXYZ volume="PrimaryCol"    X_Y_Z="0.0  0.0  -73.96"  />
-    <posXYZ volume="Flange1"       X_Y_Z="0.0  0.0  -23.48"  />
-    <posXYZ volume="sweepMagnet1"  X_Y_Z="0.0  0.0   154.32" />
-    <posXYZ volume="ConcreteWall1" X_Y_Z="0.0  0.0   67.96"  />
-    <posXYZ volume="Flange2"       X_Y_Z="0.0  0.0   332.12" />
-    <posXYZ volume="VacuumChamber" X_Y_Z="0.0  0.0   391.54" />
-    <posXYZ volume="LeadBand1"     X_Y_Z="0.0  0.0   422.02" />
-    <posXYZ volume="Flange3"       X_Y_Z="0.0  0.0   427.10" />
-    <posXYZ volume="COL2"          X_Y_Z="0.0  0.0   482.04" />
-    <posXYZ volume="Flange4"       X_Y_Z="0.0  0.0   507.44" />
-    <posXYZ volume="sweepMagnet2"  X_Y_Z="0.0  0.0   555.28" />
-    <posXYZ volume="Flange5"       X_Y_Z="0.0  0.0   573.28" />
-    <posXYZ volume="BeamPipe1"     X_Y_Z="0.0  0.0   653.28" />
-    <posXYZ volume="LeadBand2"     X_Y_Z="0.0  0.0   708.52" />
-    <posXYZ volume="DET2"          X_Y_Z="0.0  35.0  713.65" /> 
-<!--  Without DET 2  <posXYZ volume="Flange6"       X_Y_Z="0.0  0.0   713.6"  /> -->
-    <posXYZ volume="Flange6"       X_Y_Z="0.0  0.0   713.7"  />
-    <posXYZ volume="TargetBox"     X_Y_Z="0.0  0.0   754.44" />
-    <posXYZ volume="Flange7"       X_Y_Z="0.0  0.0   765.44"  />
-    <posXYZ volume="ConcreteWall2" X_Y_Z="0.0  33.0  856.24" />
-    <posXYZ volume="shieldingWall" X_Y_Z="0.0  35.0  919.74" />     
-    <posXYZ volume="BeamPipe2"     X_Y_Z="0.0  0.0   986.14" />
+    <posXYZ volume="DET1"          X_Y_Z="0.0  0.0  -49.46"  />
+    <posXYZ volume="ColDetector"   X_Y_Z="0.0  0.0  -46.16"  />
+    <posXYZ volume="PrimaryCol"    X_Y_Z="0.0  0.0  -33.96"  />
+    <posXYZ volume="Flange1"       X_Y_Z="0.0  0.0   11.52"  />
+    <posXYZ volume="sweepMagnet1"  X_Y_Z="0.0  0.0   189.32" />
+    <posXYZ volume="ConcreteWall1" X_Y_Z="0.0  0.0   107.96" />
+    <posXYZ volume="Flange2"       X_Y_Z="0.0  0.0   367.12" />
+    <posXYZ volume="VacuumChamber" X_Y_Z="0.0  0.0   426.54" />
+    <posXYZ volume="LeadBand1"     X_Y_Z="0.0  0.0   457.02" />
+    <posXYZ volume="Flange3"       X_Y_Z="0.0  0.0   462.10" />
+    <posXYZ volume="COL2"          X_Y_Z="0.0  0.0   555.04" />
+    <posXYZ volume="Flange4"       X_Y_Z="0.0  0.0   580.44" />
+    <posXYZ volume="sweepMagnet2"  X_Y_Z="0.0  0.0   630.28" />
+    <posXYZ volume="Flange5"       X_Y_Z="0.0  0.0   648.28" />
+    <posXYZ volume="BeamPipe1"     X_Y_Z="0.0  0.0   712.28" />
+    <posXYZ volume="LeadBand2"     X_Y_Z="0.0  0.0   743.52" />
+    <posXYZ volume="DET2"          X_Y_Z="0.0  35.0  748.65" /> 
+    <posXYZ volume="Flange6"       X_Y_Z="0.0  0.0   748.70" />
+    <posXYZ volume="TripletPolar"  X_Y_Z="0.0 0.0    820.00" />
+    <posXYZ volume="Flange7"       X_Y_Z="0.0  0.0   840.954" />
+    <posXYZ volume="ConcreteWall2" X_Y_Z="0.0  33.0  941.24" />
+    <posXYZ volume="shieldingWall" X_Y_Z="0.0  35.0 1004.74" />     
+    <!-- <posXYZ volume="TargetBox"     X_Y_Z="50.0  0.0 1085.00" /> -->
+    <posXYZ volume="BeamPipe2"     X_Y_Z="0.0  0.0  1071.14" />
   </composition>
-
 
 <!-- Beam Pipe 0 -->
 
@@ -193,18 +197,18 @@
   <tubs name="PFTV" Rio_Z="0.0   12.4  50.0" material="Vacuum" />
 
   <composition name="BeamPipe0">
-    <posXYZ volume="BeamPipeTube"    X_Y_Z="0.0  0.0  15.24" />
-    <posXYZ volume="BeamPipeFlange1" X_Y_Z="0.0  0.0  29.06" />
-    <posXYZ volume="BeamPipeExitWindow" X_Y_Z="0.0  0.0  30.48" />
-    <posXYZ volume="BeamPipeFlange2" X_Y_Z="0.0  0.0  31.90"  />
+    <posXYZ volume="BeamPipeTube"    X_Y_Z="0.0  0.0  25.0" />
+    <posXYZ volume="BeamPipeFlange1" X_Y_Z="0.0  0.0  48.58" />
+    <posXYZ volume="BeamPipeExitWindow" X_Y_Z="0.0  0.0  50.0" />
+    <posXYZ volume="BeamPipeFlange2" X_Y_Z="0.0  0.0  51.42"  />
   </composition>
 
   <composition name="BeamPipeTube" envelope="BPTO">
     <posXYZ volume="BPTI" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <tubs name="BPTO" Rio_Z="0.0   12.7  30.48" material="Iron" />
-  <tubs name="BPTI" Rio_Z="0.0   12.4  30.48" material="Vacuum" />
+  <tubs name="BPTO" Rio_Z="0.0   12.7  50.0" material="Iron" />
+  <tubs name="BPTI" Rio_Z="0.0   12.4  50.0" material="Vacuum" />
 
   <composition name="BeamPipeFlange1">
     <posXYZ volume="BFO1" X_Y_Z="0.0 0.0 0.0"/>
@@ -404,19 +408,19 @@
 <!-- Flange 3 -->
 
   <composition name="Flange3">
-    <posXYZ volume="FlangeThreeDisk1" X_Y_Z="0.0  0.0  5.56" />
-    <posXYZ volume="FlangeThreeDisk2" X_Y_Z="0.0  0.0  12.7"/>
-    <posXYZ volume="FlangeThreeDisk3" X_Y_Z="0.0  0.0  17.78"/>
-    <posXYZ volume="FlangeThreeDisk4" X_Y_Z="0.0  0.0  22.86"/>
-    <posXYZ volume="FlangeThreeDisk5" X_Y_Z="0.0  0.0  26.99"/>
+    <posXYZ volume="FlangeThreeDisk1" X_Y_Z="0.0  0.0  24.56" />
+    <posXYZ volume="FlangeThreeDisk2" X_Y_Z="0.0  0.0  50.70"/>
+    <posXYZ volume="FlangeThreeDisk3" X_Y_Z="0.0  0.0  55.78"/>
+    <posXYZ volume="FlangeThreeDisk4" X_Y_Z="0.0  0.0  60.86"/>
+    <posXYZ volume="FlangeThreeDisk5" X_Y_Z="0.0  0.0  64.99"/>
   </composition>
 
   <composition name="FlangeThreeDisk1" envelope="F3O1">
     <posXYZ volume="F3I1" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <tubs name="F3O1" Rio_Z="0.0  2.54  11.12" material="Iron" />
-  <tubs name="F3I1" Rio_Z="0.0  2.38  11.12" material="Vacuum" />
+  <tubs name="F3O1" Rio_Z="0.0  2.54  49.12" material="Iron" />
+  <tubs name="F3I1" Rio_Z="0.0  2.38  49.12" material="Vacuum" />
 
   <composition name="FlangeThreeDisk2" envelope="F3O2">
     <posXYZ volume="F3I2" X_Y_Z="0.0 0.0 0.0"/>
@@ -463,7 +467,7 @@
     <posXYZ volume="FlangeFourDisk2" X_Y_Z="0.0  0.0  9.84"/>
     <posXYZ volume="FlangeFourDisk3" X_Y_Z="0.0  0.0  14.92"/>
     <posXYZ volume="FlangeFourDisk4" X_Y_Z="0.0  0.0  20.0"/>
-    <posXYZ volume="FlangeFourDisk5" X_Y_Z="0.0  0.0  25.71"/>
+    <posXYZ volume="FlangeFourDisk5" X_Y_Z="0.0  0.0  26.71"/>
   </composition>
 
   <composition name="FlangeFourDisk1" envelope="F4O1">
@@ -498,8 +502,8 @@
     <posXYZ volume="F4I5" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <tubs name="F4O5" Rio_Z="0.0  1.905   8.26" material="Iron" />
-  <tubs name="F4I5" Rio_Z="0.0  1.745   8.26" material="Vacuum" />
+  <tubs name="F4O5" Rio_Z="0.0  1.905   10.26" material="Iron" />
+  <tubs name="F4I5" Rio_Z="0.0  1.745   10.26" material="Vacuum" />
 
 
 <!-- 2nd Sweeping Magnet -->
@@ -536,7 +540,7 @@
     <posXYZ volume="FlangeFiveDisk2" X_Y_Z="0.0  0.0  9.84" />
     <posXYZ volume="FlangeFiveDisk3" X_Y_Z="0.0  0.0  14.92"/>
     <posXYZ volume="FlangeFiveDisk4" X_Y_Z="0.0  0.0  20.0" />
-    <posXYZ volume="FlangeFiveDisk5" X_Y_Z="0.0  0.0  25.71"/>
+    <posXYZ volume="FlangeFiveDisk5" X_Y_Z="0.0  0.0  29.71"/>
   </composition>
 
   <composition name="FlangeFiveDisk1" envelope="F5O1">
@@ -571,8 +575,8 @@
     <posXYZ volume="F5I5" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <tubs name="F5O5" Rio_Z="0.0  2.54   8.26" material="Iron" />
-  <tubs name="F5I5" Rio_Z="0.0  2.38   8.26" material="Vacuum" />
+  <tubs name="F5O5" Rio_Z="0.0  2.54  16.26" material="Iron" />
+  <tubs name="F5I5" Rio_Z="0.0  2.38  16.26" material="Vacuum" />
 
 
 <!-- Beam Pipe1 -->
@@ -581,8 +585,8 @@
     <posXYZ volume="BPI1" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <tubs name="BPO1" Rio_Z="0.0  2.54   100.32" material="Iron" />
-  <tubs name="BPI1" Rio_Z="0.0  2.38   100.32" material="Vacuum" />
+  <tubs name="BPO1" Rio_Z="0.0  2.54  52.32" material="Iron" />
+  <tubs name="BPI1" Rio_Z="0.0  2.38  52.32" material="Vacuum" />
 
 <!-- Lead Band 2 -->
 
@@ -616,7 +620,7 @@
     <posXYZ volume="FlangeSixDisk2" X_Y_Z="0.0  0.0  9.74" />
     <posXYZ volume="FlangeSixDisk3" X_Y_Z="0.0  0.0  14.82"/>
     <posXYZ volume="FlangeSixDisk4" X_Y_Z="0.0  0.0  19.9" />
-    <posXYZ volume="FlangeSixDisk5" X_Y_Z="0.0  0.0  25.61"/>
+    <posXYZ volume="FlangeSixDisk5" X_Y_Z="0.0  0.0  35.98"/>
   </composition>
 
   <composition name="FlangeSixDisk1" envelope="F6O1">
@@ -656,10 +660,12 @@
     <posXYZ volume="F6I5" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <tubs name="F6O5" Rio_Z="0.0  2.54   8.26" material="Iron" />
-  <tubs name="F6I5" Rio_Z="0.0  2.38   8.26" material="Vacuum" />
+  <tubs name="F6O5" Rio_Z="0.0  2.54   29.0" material="Iron" />
+  <tubs name="F6I5" Rio_Z="0.0  2.38   29.0" material="Vacuum" />
 
-<!-- Target Box -->
+<!-- pair spectrometer converter target box -
+This construction is not in use at the present time
+
   <composition name="TargetBox">
     <posXYZ volume="TargetBoxDisk1" X_Y_Z="0.0 0.0 -10.9"/>
     <posXYZ volume="TargetBoxDisk2" X_Y_Z="0.0 0.0  0.0" />
@@ -678,7 +684,7 @@
   </composition>
 
   <composition name="TargetInnerBox" envelope="TBI2">
-    <posXYZ volume="PTAR" X_Y_Z="0.0 0.0 0.0"/>
+    <posXYZ volume="CONV" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
   <box name="TBO2" X_Y_Z="22.0  20.0  21.6" material="Iron" />
@@ -690,26 +696,25 @@
 
   <box name="TBO3" X_Y_Z="22.0  20.0  0.2" material="Iron" />
   <tubs name="TBI3" Rio_Z="0.0  2.38  0.2" material="Vacuum" />
-<!--  <box  name="PTAR" X_Y_Z="1.0  1.0  0.0445" material="Aluminum" />  -->
-  <box  name="PTAR" X_Y_Z="1.0  1.0  0.0445" material="Vacuum" /> 
-
+  <box  name="CONV" X_Y_Z="1.0  1.0  0.0445" material="Aluminum" />
+-->
 
 <!-- Flange 7 -->
 
   <composition name="Flange7">
-    <posXYZ volume="FlangeSevenDisk1" X_Y_Z="0.0  0.0  4.13" />
-    <posXYZ volume="FlangeSevenDisk2" X_Y_Z="0.0  0.0  9.84" />
-    <posXYZ volume="FlangeSevenDisk3" X_Y_Z="0.0  0.0  14.92"/>
-    <posXYZ volume="FlangeSevenDisk4" X_Y_Z="0.0  0.0  20.0" />
-    <posXYZ volume="FlangeSevenDisk5" X_Y_Z="0.0  0.0  25.71"/>
+    <posXYZ volume="FlangeSevenDisk1" X_Y_Z="0.0  0.0  8.8721" />
+    <posXYZ volume="FlangeSevenDisk2" X_Y_Z="0.0  0.0  19.3224" />
+    <posXYZ volume="FlangeSevenDisk3" X_Y_Z="0.0  0.0  24.4024" />
+    <posXYZ volume="FlangeSevenDisk4" X_Y_Z="0.0  0.0  29.4824" />
+    <posXYZ volume="FlangeSevenDisk5" X_Y_Z="0.0  0.0  35.1924" />
   </composition>
 
   <composition name="FlangeSevenDisk1" envelope="F7O1">
     <posXYZ volume="F7I1" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <tubs name="F7O1" Rio_Z="0.0  2.54  8.26" material="Iron" />
-  <tubs name="F7I1" Rio_Z="0.0  2.38  8.26" material="Vacuum" />
+  <tubs name="F7O1" Rio_Z="0.0  2.54  17.7424" material="Iron" />
+  <tubs name="F7I1" Rio_Z="0.0  2.38  17.7424" material="Vacuum" />
 
   <composition name="FlangeSevenDisk2" envelope="F7O2">
     <posXYZ volume="F7I2" X_Y_Z="0.0 0.0 0.0"/>
@@ -777,14 +782,19 @@
 <!-- Beam Pipe2 -->
 
   <composition name="BeamPipe2" envelope="BPO2">
-    <posXYZ volume="BeamPipe2Inner" X_Y_Z="0.0 0.0 0.0"/>
+  <!-- MUST COMMENT OUt either one or the other of the two lines below -->
+    <!-- <posXYZ volume="BeamPipe2Inner" /> enables the photon beam harp -->
+    <posXYZ volume="BPI2" /> <!-- disables the photon beam harp -->
   </composition>
   
   <composition name="BeamPipe2Inner" envelope="BPI2">
-    <posXYZ volume="PSCV" X_Y_Z="0.0 0.0 -22.42"/>
-    <posXYZ volume="PSCH" X_Y_Z="0.0 0.0 -22.42"/>
+    <posXYZ volume="photonBeamHarp" X_Y_Z="0.0 0.0 -32.42" />
   </composition>
   
+  <composition name="photonBeamHarp">
+    <posXYZ volume="PSCV" />
+    <posXYZ volume="PSCH" />
+  </composition>
 
   <tubs name="BPO2" Rio_Z="0.0  2.54   127.72" material="Iron" />
   <tubs name="BPI2" Rio_Z="0.0  2.38   127.72" material="Vacuum" />
@@ -803,10 +813,6 @@
   <box name="DET3" X_Y_Z=" 450. 2. 918." material="Air" />
 
   
-  <tubs name="CONV" Rio_Z="0.0  2.0  0.0240"  material="Vacuum"
-        comment="set to Carbon for 0.1% converter, vacuum to remove" />
-
-
 <!-- The composition 'beamPipe' extends the vacuum from the pair 
      spectrometer to the position of the target.
 
@@ -1094,6 +1100,475 @@
 
   <box name="PIN1" X_Y_Z="0.051 0.051 1.7" material="SoftTungsten" />
  
+<!-- Following is the definition of the triplet polarimeter.  It sits
+     just before of the shielding wall at the downstream end of the
+     collimator cave, and contains a retractable pair conversion target
+     called PTAR. Forward pairs are detected in the pair spectrometer.
+-->
+
+<!-- Origin of TripletPolar is the beam axis midpoint
+     of the polarimeter vacuum box, as set by the outside walls. -->
+
+  <composition name="TripletPolar">
+     <apply region="nullBfield"/>
+     <posXYZ volume="tripletPolar" X_Y_Z="1.5 0.0 0.0" unit_length="in" />
+  </composition>
+
+  <composition name="tripletPolar">
+     <posXYZ volume="tpolEnclosure" />
+     <posXYZ volume="tpolVacuumBoxFlange" X_Y_Z="6.50 0.0 0.0" unit_length="in" />
+     <posXYZ volume="PTPB" X_Y_Z="-1.5 0.0 -7.25" unit_length="in" />
+     <posXYZ volume="PTPB" X_Y_Z="-1.5 0.0 +7.25" unit_length="in" />
+     <posXYZ volume="PTPF" X_Y_Z="-6.775 0.0 -2.0" rot="0 90 0" unit_length="in" />
+     <posXYZ volume="PTPT" X_Y_Z="0.0 -7.25 -2.0" rot="90 0 0" unit_length="in" />
+     <posXYZ volume="PTPM" X_Y_Z="-4.0 4.0 +7.25" unit_length="in" />
+     <posXYZ volume="PTPX" X_Y_Z="2.0 3.0 -7.25" unit_length="in" />
+     <posXYZ volume="PTPX" X_Y_Z="2.0 3.0 +7.25" unit_length="in" />
+     <posXYZ volume="PTIB" X_Y_Z="-1.5 0.0 -7.25" unit_length="in" />
+     <posXYZ volume="PTIB" X_Y_Z="-1.5 0.0 +7.25" unit_length="in" />
+     <posXYZ volume="PTIF" X_Y_Z="-6.775 0.0 -2.0" rot="0 90 0" unit_length="in" />
+     <posXYZ volume="PTIT" X_Y_Z="0.0 -7.25 -2.0" rot="90 0 0" unit_length="in" />
+     <posXYZ volume="PTIM" X_Y_Z="-4.0 4.0 +7.25" unit_length="in" />
+     <posXYZ volume="PTIX" X_Y_Z="2.0 3.0 -7.25" unit_length="in" />
+     <posXYZ volume="PTIX" X_Y_Z="2.0 3.0 +7.25" unit_length="in" />
+     <posXYZ volume="PTFB" X_Y_Z="-1.5 0.0 -7.94" unit_length="in" />
+     <posXYZ volume="PTFB" X_Y_Z="-1.5 0.0 +7.94" unit_length="in" />
+     <posXYZ volume="PTFX" X_Y_Z="2.0 3.0 -7.94" unit_length="in" />
+     <posXYZ volume="PTFX" X_Y_Z="2.0 3.0 +7.94" unit_length="in" />
+     <posXYZ volume="PTFT" X_Y_Z="0.0 -7.91 -2.0" rot="90 0 0" unit_length="in" />
+     <posXYZ volume="PTFM" X_Y_Z="-4.0 4.0 +7.91" unit_length="in" />
+     <posXYZ volume="PTFF" X_Y_Z="-6.910 0.0 -2.0" rot="0 90 0" unit_length="in" />
+     <posXYZ volume="PTKX" X_Y_Z="2.0 3.0 +8.5" unit_length="in" />
+     <posXYZ volume="PTKX" X_Y_Z="2.0 3.0 -8.5" unit_length="in" />
+     <posXYZ volume="PTKM" X_Y_Z="-4.0 4.0 +8.5" unit_length="in" />
+     <posXYZ volume="PTKF" X_Y_Z="-7.550 0.0 -2.0" rot="0 90 0" unit_length="in" />
+     <posXYZ volume="PTDR" X_Y_Z="7.25 0.0 0.0" unit_length="in" />
+  </composition>
+
+  <composition name="tpolVacuumBox" envelope="PTB0">
+     <posXYZ volume="tpolRailGuide" X_Y_Z="0.375 5.131 -3.380" unit_length="in" />
+     <posXYZ volume="tpolTargetCarrier" X_Y_Z="0.25 2.146 -3.380" rot="0 180 0" unit_length="in" />
+     <posXYZ volume="tpolTargetMotor" X_Y_Z="-1.625 4.1449 -1.6284" unit_length="in" />
+     <posXYZ volume="tpolRecoilDetectorCard" X_Y_Z="-1.625 0.0 -2.0" rot="0 0 22.5" unit_length="in" />
+     <posXYZ volume="PTA1" X_Y_Z="-1.625 0.0 -1.9796" unit_length="in" />
+     <posXYZ volume="PTA2" X_Y_Z="-1.625 0.0 -1.9795" unit_length="in" />
+     <posXYZ volume="PTA3" X_Y_Z="-1.625 0.0 -1.9794" unit_length="in" />
+     <posXYZ volume="PTA4" X_Y_Z="-1.625 0.0 -2.0204" unit_length="in" />
+     <!-- <posXYZ volume="PTA5" X_Y_Z="-1.625 0.0 -3.3651" unit_length="in" /> -->
+     <posXYZ volume="PTMP" X_Y_Z="0.0 5.8125 0.0" unit_length="in" />
+     <posXYZ volume="PTVR" X_Y_Z="0.0 5.745 -5.125" unit_length="in" />
+     <posXYZ volume="PTHR" X_Y_Z="0.0 5.5525 -4.625" unit_length="in" />
+     <posXYZ volume="PTVR" X_Y_Z="0.0 5.745 5.125" unit_length="in" />
+     <posXYZ volume="PTHR" X_Y_Z="0.0 5.5525 4.625" unit_length="in" />
+     <posXYZ volume="PTVR" X_Y_Z="-5.125 5.745 0.0" rot="0 90 0" unit_length="in" />
+     <posXYZ volume="PTHR" X_Y_Z="-4.625 5.5525 0.0" rot="0 90 0" unit_length="in" />
+     <posXYZ volume="PTBR" X_Y_Z="-1.625 2.1122 -2.0903" unit_length="in" />
+     <posXYZ volume="PTBR" X_Y_Z="-1.625 -2.1122 -2.0903" unit_length="in" />
+     <posXYZ volume="PTLG" X_Y_Z="0.4872 1.6315 -2.1841" unit_length="in" />
+     <posXYZ volume="PTLG" X_Y_Z="-3.7372 1.6315 -2.1841" unit_length="in" />
+     <posXYZ volume="PTVS" X_Y_Z="0.4872 4.375 -1.9966" unit_length="in" />
+     <posXYZ volume="PTVS" X_Y_Z="-3.7372 4.375 -1.9966" unit_length="in" />
+     <posXYZ volume="PTHS" X_Y_Z="0.4872 5.5 -0.6216" unit_length="in" />
+     <posXYZ volume="PTHS" X_Y_Z="-3.7372 5.5 -0.6216" unit_length="in" />
+  </composition>
+
+  <composition name="tpolEnclosure" envelope="PTBO">
+     <posXYZ volume="tpolVacuumBox" X_Y_Z="0.125 0.0 0.0" unit_length="in" />
+     <posXYZ volume="PTH2" X_Y_Z="-1.5 0.0 6.125" unit_length="in" />
+     <posXYZ volume="PTH2" X_Y_Z="-1.5 0.0 -6.125" unit_length="in" />
+     <posXYZ volume="PTH3" X_Y_Z="-4.0 4.0 6.125" unit_length="in" />
+     <posXYZ volume="PTH6" X_Y_Z="0.0 -6.125 -2.0" rot="90 0 0" unit_length="in" />
+     <posXYZ volume="PTH4" X_Y_Z="2.0 3.0 6.125" unit_length="in" />
+     <posXYZ volume="PTH4" X_Y_Z="2.0 3.0 -6.125" unit_length="in" />
+     <posXYZ volume="PTH5" X_Y_Z="-6.125 0.0 -2.0" rot="0 90 0" unit_length="in" />
+  </composition>
+
+  <tubs name="PTAR" Rio_Z="0.0 0.375 0.003" material="Beryllium" unit_length="in"
+                   comment="polarimeter converter target" />
+  <box name="PTBO" X_Y_Z="12.5 12.5 12.5" material="Iron" unit_length="in"
+                   comment="polarimeter vacuum box enclosure cube1" />
+  <box name="PTB0" X_Y_Z="12.25 12.0 12.0" material="Vacuum" unit_length="in"
+                   comment="polarimeter vacuum box enclosure cube2" />
+  <box name="PTB1" X_Y_Z="0.5 12.0 12.0" material="Vacuum" unit_length="in"
+                   comment="polarimeter vacuum box flange subtraction" />
+  <box name="PTB2" X_Y_Z="0.5 15.0 17.0" material="Iron" unit_length="in"
+                   comment="polarimeter vacuum box door flange" />
+  <box name="PTB3" X_Y_Z="9.25 0.988 0.625" material="Aluminum" unit_length="in"
+                   comment="polarimeter rail guide" />
+  <box name="PTB4" X_Y_Z="9.25 0.312 0.125" material="Vacuum" unit_length="in"
+                   comment="polarimeter rail gap subtraction" />
+  <box name="PTB5" X_Y_Z="9.25 0.365 0.375" material="Vacuum" unit_length="in"
+                   comment="polarimeter rail box subtraction" />
+  <box name="PTB6" X_Y_Z="42.0 42.0 2.0" material="Iron" unit_length="mm"
+                   comment="polarimeter motor plate" />
+  <box name="PTB7" X_Y_Z="5.25 5.792 0.118" material="Aluminum" unit_length="in"
+                   comment="polarimeter target holder" />
+  <box name="PTB8" X_Y_Z="4.325 4.292 0.118" material="Vacuum" unit_length="in"
+                   comment="polarimeter target holder subtraction" />
+  <tubs name="PTH0" Rio_Z="0.0 21.0 69.0" material="Iron" unit_length="mm"
+                   comment="polarimeter target motor" />
+  <tubs name="PTH1" Rio_Z="0.0 10.5 32.0" material="Iron" unit_length="mm"
+                   comment="polarimeter target motion gear" />
+  <tubs name="PTH2" Rio_Z="0.0 0.9375 0.25" material="Vacuum" unit_length="in"
+                   comment="polarimeter beam hole subtraction" />
+  <tubs name="PTH3" Rio_Z="0.0 1.3125 0.25" material="Vacuum" unit_length="in"
+                   comment="polarimeter motor hole subtraction" />
+  <tubs name="PTH4" Rio_Z="0.0 0.9375 0.25" material="Vacuum" unit_length="in"
+                   comment="polarimeter auxilliary hole subtraction" />
+  <tubs name="PTH5" Rio_Z="0.0 1.9375 0.25" material="Vacuum" unit_length="in"
+                   comment="polarimeter feed hole subtraction" />
+  <tubs name="PTH6" Rio_Z="0.0 1.3125 0.25" material="Vacuum" unit_length="in"
+                   comment="polarimeter turbo pump hole subtraction" />
+  <tubs name="PTH7" Rio_Z="0.0 0.375 0.118" material="Vacuum" unit_length="in"
+                   comment="polarimeter converter tray subtraction" />
+
+  <composition name="tpolVacuumBoxFlange" envelope="PTB2">
+     <posXYZ volume="PTB1" />
+  </composition>
+  <composition name="tpolRailGuide" envelope="PTB3">
+     <posXYZ volume="PTB4" X_Y_Z="0.0 -0.338 0.0" unit_length="in" />
+     <posXYZ volume="PTB5" />
+  </composition>
+  <composition name="tpolTargetDisk" envelope="PTH7">
+     <posXYZ volume="PTAR" />
+  </composition>
+  <composition name="tpolTargetCarrier" envelope="PTB7">
+     <posXYZ volume="PTB8" X_Y_Z="0.4625 0.75 0.0" unit_length="in" />
+     <posXYZ volume="tpolTargetDisk" X_Y_Z="1.875 -2.146 0.0" unit_length="in" />
+     <posXYZ volume="tpolTargetDisk" X_Y_Z="0.625 -2.146 0.0" unit_length="in" />
+     <posXYZ volume="tpolTargetDisk" X_Y_Z="-0.625 -2.146 0.0" unit_length="in" />
+  </composition>
+  <composition name="tpolTargetMotor">
+     <posXYZ volume="PTH0" />
+     <posXYZ volume="PTB6" X_Y_Z="0.0 0.0 -35.5" unit_length="mm" />
+     <posXYZ volume="PTH1" X_Y_Z="0.0 0.0 -52.5" unit_length="mm" />
+  </composition>
+  
+  <composition name="tpolRecoilDetector" envelope="PTDE">
+     <posXYZ volume="tpolRecoilRing1" />
+     <posXYZ volume="tpolRecoilRing2" />
+     <posXYZ volume="tpolRecoilRing3" />
+     <posXYZ volume="tpolRecoilRing4" />
+     <posXYZ volume="tpolRecoilRing5" />
+     <posXYZ volume="tpolRecoilRing6" />
+     <posXYZ volume="tpolRecoilRing7" />
+     <posXYZ volume="tpolRecoilRing8" />
+     <posXYZ volume="tpolRecoilRing9" />
+     <posXYZ volume="tpolRecoilRing10" />
+     <posXYZ volume="tpolRecoilRing11" />
+     <posXYZ volume="tpolRecoilRing12" />
+     <posXYZ volume="tpolRecoilRing13" />
+     <posXYZ volume="tpolRecoilRing14" />
+     <posXYZ volume="tpolRecoilRing15" />
+     <posXYZ volume="tpolRecoilRing16" />
+     <posXYZ volume="tpolRecoilRing17" />
+     <posXYZ volume="tpolRecoilRing18" />
+     <posXYZ volume="tpolRecoilRing19" />
+     <posXYZ volume="tpolRecoilRing20" />
+     <posXYZ volume="tpolRecoilRing21" />
+     <posXYZ volume="tpolRecoilRing22" />
+     <posXYZ volume="tpolRecoilRing23" />
+     <posXYZ volume="tpolRecoilRing24" />
+  </composition>
+  <tubs name="PTDE" Rio_Z="11.0 35.0 1.5" material="Vacuum" unit_length="mm" 
+                   comment="container for the triplet polarimeter detector" />
+
+  <composition name="tpolRecoilRing1" envelope="PTRA">
+     <mposPhi volume="PTSA" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="1" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing2" envelope="PTRB">
+     <mposPhi volume="PTSB" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="2" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing3" envelope="PTRC">
+     <mposPhi volume="PTSC" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="3" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing4" envelope="PTRD">
+     <mposPhi volume="PTSD" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="4" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing5" envelope="PTRE">
+     <mposPhi volume="PTSE" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="5" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing6" envelope="PTRF">
+     <mposPhi volume="PTSF" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="6" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing7" envelope="PTRG">
+     <mposPhi volume="PTSG" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="7" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing8" envelope="PTRH">
+     <mposPhi volume="PTSH" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="8" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing9" envelope="PTRI">
+     <mposPhi volume="PTSI" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="9" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing10" envelope="PTRJ">
+     <mposPhi volume="PTSJ" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="10" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing11" envelope="PTRK">
+     <mposPhi volume="PTSK" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="11" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing12" envelope="PTRL">
+     <mposPhi volume="PTSL" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="12" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing13" envelope="PTRM">
+     <mposPhi volume="PTSM" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="13" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing14" envelope="PTRN">
+     <mposPhi volume="PTSN" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="14" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing15" envelope="PTRO">
+     <mposPhi volume="PTSO" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="15" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing16" envelope="PTRP">
+     <mposPhi volume="PTSP" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="16" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing17" envelope="PTRQ">
+     <mposPhi volume="PTSQ" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="17" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing18" envelope="PTRR">
+     <mposPhi volume="PTSR" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="18" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing19" envelope="PTRS">
+     <mposPhi volume="PTSS" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="19" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing20" envelope="PTRT">
+     <mposPhi volume="PTST" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="20" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing21" envelope="PTRU">
+     <mposPhi volume="PTSU" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="21" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing22" envelope="PTRV">
+     <mposPhi volume="PTSV" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="22" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing23" envelope="PTRW">
+     <mposPhi volume="PTSW" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="23" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+  <composition name="tpolRecoilRing24" envelope="PTRX">
+     <mposPhi volume="PTSX" ncopy="32" Phi0="-16.875" dPhi="11.25">
+        <ring value="24" />
+        <sector value="1" step="1" />
+     </mposPhi>
+  </composition>
+
+  <tubs name="PTRA" Rio_Z="11 12 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRB" Rio_Z="12 13 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRC" Rio_Z="13 14 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRD" Rio_Z="14 15 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRE" Rio_Z="15 16 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRF" Rio_Z="16 17 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRG" Rio_Z="17 18 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRH" Rio_Z="18 19 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRI" Rio_Z="19 20 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRJ" Rio_Z="20 21 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRK" Rio_Z="21 22 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRL" Rio_Z="22 23 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRM" Rio_Z="23 24 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRN" Rio_Z="24 25 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRO" Rio_Z="25 26 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRP" Rio_Z="26 27 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRQ" Rio_Z="27 28 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRR" Rio_Z="28 29 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRS" Rio_Z="29 30 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRT" Rio_Z="30 31 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRU" Rio_Z="31 32 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRV" Rio_Z="32 33 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRW" Rio_Z="33 34 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTRX" Rio_Z="34 35 1.034" material="Silicon" unit_length="mm" />
+  <tubs name="PTSA" Rio_Z="11 12 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSB" Rio_Z="12 13 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSC" Rio_Z="13 14 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSD" Rio_Z="14 15 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSE" Rio_Z="15 16 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSF" Rio_Z="16 17 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSG" Rio_Z="17 18 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSH" Rio_Z="18 19 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSI" Rio_Z="19 20 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSJ" Rio_Z="20 21 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSK" Rio_Z="21 22 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSL" Rio_Z="22 23 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSM" Rio_Z="23 24 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSN" Rio_Z="24 25 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSO" Rio_Z="25 26 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSP" Rio_Z="26 27 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSQ" Rio_Z="27 28 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSR" Rio_Z="28 29 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSS" Rio_Z="29 30 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTST" Rio_Z="30 31 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSU" Rio_Z="31 32 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSV" Rio_Z="32 33 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSW" Rio_Z="33 34 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+  <tubs name="PTSX" Rio_Z="34 35 1.034" profile="-5.625 5.625" unit_length="mm"
+        material="Silicon" sensitive="true" />
+
+  <tubs name="PTA1" Rio_Z="11 35 0.0006" material="Aluminum" unit_length="mm"
+                    comment="called blank1, whatever that is" />
+  <tubs name="PTA2" Rio_Z="11 35 0.0035" material="Silicon" unit_length="mm" 
+                    comment="called blank2, whatever that is" />
+  <tubs name="PTA3" Rio_Z="11 35 0.0015" material="Aluminum" unit_length="mm"
+                    comment="called blank3, whatever that is" />
+  <tubs name="PTA4" Rio_Z="11 35 0.0015" material="Aluminum" unit_length="mm"
+                    comment="called blank4, whatever that is" />
+  <tubs name="PTA5" Rio_Z="0.0 9.525 0.5" material="Vacuum" unit_length="mm"
+                    comment="called blank5, whatever that is" />
+
+  <composition name="tpolRecoilDetectorCard" envelope="PTCA">
+     <posXYZ volume="tpolRecoilDetector" />
+     <posXYZ volume="PTCH" />
+  </composition>
+
+  <pgon name="PTCA" segments="8" material="FR-4" unit_length="mm"
+                   comment="card that carries the recoil polarimeter detector">
+     <polyplane Rio_Z="0 60 -0.75" unit_length="mm" />
+     <polyplane Rio_Z="0 60 0.75" unit_length="mm" />
+  </pgon>
+  <tubs name="PTCH" Rio_Z="0.0 11.0 1.5" material="Vacuum" unit_length="mm"
+                   comment="central hole through the polarimeter card" />
+  
+  <tubs name="PTPB" Rio_Z="0.9375 1.0 2.0" material="Iron" unit_length="in"
+                   comment="beam pipe to the upstream/downstream" />
+  <tubs name="PTIB" Rio_Z="0.0 0.9375 2.0" material="Vacuum" unit_length="in"
+                   comment="beam vacuum to the upstream/downstream" />
+  <tubs name="PTPF" Rio_Z="1.9375 2.0 1.05" material="Iron" unit_length="in"
+                   comment="feed pipe to the side" />
+  <tubs name="PTIF" Rio_Z="0.0 1.9375 1.05" material="Vacuum" unit_length="in"
+                   comment="feed vacuum to the side" />
+  <tubs name="PTPT" Rio_Z="1.3125 1.375 2.0" material="Iron" unit_length="in"
+                   comment="turbo pump port pipe" />
+  <tubs name="PTIT" Rio_Z="0.0 1.3125 2.0" material="Vacuum" unit_length="in"
+                   comment="turbo pump port vacuum" />
+  <tubs name="PTPM" Rio_Z="1.3125 1.375 2.0" material="Iron" unit_length="in"
+                   comment="motor port pipe" />
+  <tubs name="PTIM" Rio_Z="0.0 1.3125 2.0" material="Vacuum" unit_length="in"
+                   comment="motor port vacuum" />
+  <tubs name="PTPX" Rio_Z="0.9375 1.0 2.0" material="Iron" unit_length="in"
+                   comment="aux port pipe" />
+  <tubs name="PTIX" Rio_Z="0.0 0.9375 2.0" material="Vacuum" unit_length="in"
+                   comment="aux port vacuum" />
+  <tubs name="PTFB" Rio_Z="1.0 1.6875 0.620" material="Iron" unit_length="in"
+                   comment="beam pipe flange to the upstream/downstream" />
+  <tubs name="PTFX" Rio_Z="1.0 1.6875 0.620" material="Iron" unit_length="in"
+                   comment="aux port pipe flange" />
+  <tubs name="PTFT" Rio_Z="1.375 2.250 0.680" material="Iron" unit_length="in"
+                   comment="turbo pump port pipe flange" />
+  <tubs name="PTFM" Rio_Z="1.375 2.250 0.680" material="Iron" unit_length="in"
+                   comment="motor port pipe flange" />
+  <tubs name="PTFF" Rio_Z="2.0 3.0 0.78" material="Iron" unit_length="in"
+                   comment="feed pipe flange" />
+  <tubs name="PTKX" Rio_Z="0.0 1.6875 0.5" material="Iron" unit_length="in"
+                   comment="aux port pipe cap" />
+  <tubs name="PTKM" Rio_Z="0.0 2.250 0.5" material="Iron" unit_length="in"
+                   comment="motor port pipe cap" />
+  <tubs name="PTKF" Rio_Z="0.0 3.0 0.5" material="Iron" unit_length="in"
+                   comment="feed pipe cap" />
+
+  <box name="PTMP" X_Y_Z="10.0 0.375 10.0" material="Aluminum" unit_length="in"
+                   comment="mounting plate" />
+  <box name="PTVR" X_Y_Z="6.0 0.51 0.25" material="Iron" unit_length="in"
+                   comment="vertical rack piece" />
+  <box name="PTHR" X_Y_Z="6.0 0.125 0.75" material="Iron" unit_length="in"
+                   comment="horizontal rack piece" />
+  <box name="PTBR" X_Y_Z="4.75 0.50 0.0625" material="Aluminum" unit_length="in"
+                   comment="horizontal bar piece" />
+  <box name="PTLG" X_Y_Z="0.5 7.987 0.125" material="Aluminum" unit_length="in"
+                   comment="support leg" />
+  <box name="PTVS" X_Y_Z="0.5 2.5 0.25" material="Aluminum" unit_length="in"
+                   comment="vertical support piece" />
+  <box name="PTHS" X_Y_Z="0.5 0.25 2.5" material="Aluminum" unit_length="in"
+                   comment="horizontal support piece" />
+  <box name="PTDR" X_Y_Z="1.0 15.0 17.0" material="Aluminum" unit_length="in"
+                   comment="vacuum box door" />
+
   <!-- there is no mcfast model of the photon beamline -->
 
 </section>
