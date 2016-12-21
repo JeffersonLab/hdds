@@ -5,9 +5,9 @@
   ***********************************************
 
      version 1.0: Initial version	-rtj
-     version 2.0: Updated version, refined geometry of the optical box
-     added pixels
-     added volume ids to use for the reconstruction
+
+SINGLE OPTICAL BOX, PHOTOCATHODE!!!!
+ Cylinder mirror!!!
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
@@ -35,23 +35,14 @@
 <composition name="DRCC" envelope="DCMV">
 	<posXYZ volume="DCML" X_Y_Z="-270.0 -79.5 30.0" />
 	<posXYZ volume="DCML" X_Y_Z="-270.0 -36.5 30.0" />
-	<!--posXYZ volume="DCML" X_Y_Z="-270.0 36.5  30.0" /-->
-	<!--posXYZ volume="DCML" X_Y_Z="-270.0 79.5  30.0" /-->
-	<mposY volume="DCML" ncopy="2" Z_X="30.0 -270.0" Y0="-79.5" dY="43.0">
-	  <plane value="1" step="1"/>
-	</mposY>
-	<mposY volume="DCML" ncopy="2" Z_X="30.0 -270.0" Y0="36.5" dY="43.0">
-          <plane value="3" step="1"/>
-        </mposY>
+	<posXYZ volume="DCML" X_Y_Z="-270.0 36.5  30.0" />
+	<posXYZ volume="DCML" X_Y_Z="-270.0 79.5  30.0" />
 	<!-- Maria's focusing block -->
-	<!--posXYZ volume="OBC" X_Y_Z="247.59 -58.0 3.85" /--> <!-- z was 30.0 -->
-        <!--posXYZ volume="OBC" ncopy="2" X_Y_Z="247.59 58.0 3.85" /-->  <!-- z was 30.0 -->
-	<mposY volume="OBC" ncopy="2" Z_X="3.58 247.59" Y0="-58.0" dY="116.0">
-	  <sector value="1" step="1"/>
-	</mposY>
+	<posXYZ volume="OBC" X_Y_Z="247.59 0.0 3.85" /> <!-- z was 30.0 -->
+	<!--posXYZ volume="OBC" X_Y_Z="247.59 58.0 3.85" /-->  <!-- z was 30.0 -->
 </composition>
 
-<box name="DCMV" X_Y_Z="560.0 250.0 150.0" material="OpticalAir" /> <!-- x was 560, y was  220, z was 80 -->
+<box name="DCMV" X_Y_Z="560.0 500.0 100.0" material="OpticalAir" /> <!-- x was 560, y was  220, z was 80 -->
 
 
 <!-- DIRC bar box module (12 individual bars): x positions
@@ -66,9 +57,7 @@
 -->
 
 <composition name="DCML">
-	<mposY volume="DCBR" ncopy="12" Z_X="0.0 0.0" Y0="-19.3325" dY="3.515">
-	  <module value="0" step="1"/>
-	</mposY>
+	<mposY volume="DCBR" ncopy="12" Z_X="0.0 0.0" Y0="-19.3325" dY="3.515" />
 	<posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -4.775" />
 	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
 	<posXYZ volume="WNGL" X_Y_Z="500.0875 0.0 -4.775" />
@@ -122,82 +111,52 @@
 -->
 
 <!-- optical box made of water -->
-<box name="OBV" X_Y_Z="35.0 91.2 58.2" material="OpticalH2O"/>
+<box name="OBV" X_Y_Z="35.0 219.7 58.2" material="fusedSilica"/>
 
 <composition name="OBC" envelope="OBV">
         <posXYZ volume="FTMR" X_Y_Z="-9.695 0.0 -6.179" /> <!-- z was -32.225 -->
         <posXYZ volume="BWPG" X_Y_Z="1.297 0.0 -16.126" rot="0.0 42.12454632 0.0" /> <!-- z was -42.211 -->
-	<posXYZ volume="TSM1" X_Y_Z="10.48 0.0 4.861" rot="0.0 -11.386 0.0" /> <!-- z was -21.224, x was 10.48 -->
-        <posXYZ volume="TSM2" X_Y_Z="8.21 0.0 14.20" rot="0.0 -15.981 0.0" /> <!-- z was -11.88 -->
-        <posXYZ volume="TSM3" X_Y_Z="5.19 0.0 23.321" rot="0.0 -20.576 0.0" /> <!-- z was -2.764 -->
+	<!--posXYZ volume="TSM1" X_Y_Z="10.48 0.0 4.861" rot="0.0 -11.386 0.0" /-->
+        <!--posXYZ volume="TSM2" X_Y_Z="8.21 0.0 14.20" rot="0.0 -15.981 0.0" /-->
+        <!--posXYZ volume="TSM3" X_Y_Z="5.19 0.0 23.321" rot="0.0 -20.576 0.0" /-->
+	<posXYZ volume="SPMR" X_Y_Z="-107.26 0.0 -18.6" rot="90.0 0.0 0.0" /><!-- z was -29.55 -->
         <posXYZ volume="FWM1" X_Y_Z="-6.0 0.0 27.855" /> <!--z was 1.73 -->
         <posXYZ volume="FWM2" X_Y_Z="-12.6 0.0 16.455" rot="0.0 30.0 0.0"/> <!--z was -9.6297 -->
-	<posXYZ volume="FSM1" X_Y_Z="-0.5 -45.505 -0.14" /> <!-- z was -26.225-->
-        <posXYZ volume="FSM2" X_Y_Z="-0.5 45.505 -0.14" />
+	<posXYZ volume="FSM1" X_Y_Z="-0.5 -109.9 -0.14" /> <!-- z was -26.225-->
+        <posXYZ volume="FSM2" X_Y_Z="-0.5 109.9 -0.14" />
 </composition>
 
 <!-- flat mirror -->
-<box name="FTMR" X_Y_Z="0.01 90.1 41.9"
+<box name="FTMR" X_Y_Z="0.01 219.7 41.9"
      material="ThickCerenkovMirror" /><!-- z was 42.9 -->
 
 
 <!-- photocathode -->
-<box name="RDCD" X_Y_Z="0.01 90.1 31.45"
+<box name="RDCD" X_Y_Z="0.01 219.7 31.45"
 	material="CerenkovPhotocathode" sensitive="true" />
 
 <!-- window of the optical box -->
-<box name="OBWI" X_Y_Z="1.27 90.1 31.8" material="fusedSilica" />
+<box name="OBWI" X_Y_Z="1.27 219.7 31.8" material="fusedSilica" />
 
 <composition name="BWPG" envelope="OBWI">
-  <posXYZ volume="PMTgrid" X_Y_Z="0.62 0.0 0.0" />
+  <!--posXYZ volume="PMTgrid" X_Y_Z="0.62 0.0 0.0" /-->
+  <posXYZ volume="RDCD" X_Y_Z="0.62 0.0 0.0" />
 </composition>
 
 <!-- PMT -->
 <box name="PMTV" X_Y_Z="0.01 5.2 5.2"
      material="fusedSilica"/>
 
-
-<!-- pixel numbering 1..64 within one PMT -->
 <composition name="PMTC" envelope="PMTV">
-  <!--mposZ volume="PIXrow" ncopy="8" X_Y="0.0 0.0" Z0="-2.121" dZ="0.606" /-->
-  <mposY volume="PIXV" ncopy="8" Z_X="-2.121 0.0" Y0="-2.121" dY="0.606" >
-    <cell value="1" step="1"/>
-  </mposY> 
-  <mposY volume="PIXV" ncopy="8" Z_X="-1.515 0.0" Y0="-2.121" dY="0.606" >
-    <cell value="9" step="1"/>
-  </mposY>
-  <mposY volume="PIXV" ncopy="8" Z_X="-0.909 0.0" Y0="-2.121" dY="0.606" >
-    <cell value="17" step="1"/>
-  </mposY>
-  <mposY volume="PIXV" ncopy="8" Z_X="-0.303 0.0" Y0="-2.121" dY="0.606" >
-    <cell value="25" step="1"/>
-  </mposY>
-  <mposY volume="PIXV" ncopy="8" Z_X="0.303 0.0" Y0="-2.121" dY="0.606" >
-    <cell value="33" step="1"/>
-  </mposY>
-  <mposY volume="PIXV" ncopy="8" Z_X="0.909 0.0" Y0="-2.121" dY="0.606" >
-    <cell value="41" step="1"/>
-  </mposY>
-  <mposY volume="PIXV" ncopy="8" Z_X="1.515 0.0" Y0="-2.121" dY="0.606" >
-    <cell value="49" step="1"/>
-  </mposY>
-  <mposY volume="PIXV" ncopy="8" Z_X="2.121 0.0" Y0="-2.121" dY="0.606" >
-    <cell value="57" step="1"/>
-  </mposY>
+  <mposZ volume="PIXrow" ncopy="8" X_Y="0.0 0.0" Z0="-2.121" dZ="0.606" />
 </composition>
 
-<!-- PMT rows 1..17 -->
 <composition name="PMTrow">
-  <mposY volume="PMTC" ncopy="17" Z_X="0.0 0.0" Y0="-42.4" dY="5.3" >
-    <row value="1" step="1"/>
-  </mposY>
+  <mposY volume="PMTC" ncopy="17" Z_X="0.0 0.0" Y0="-42.4" dY="5.3" />
 </composition>
 
-<!-- PMT column 1..6-->
 <composition name="PMTgrid">
-  <mposZ volume="PMTrow" ncopy="6" X_Y="0.0 0.0" Z0="-13.25" dZ="5.3" >
-    <column value="1" step="1"/>
-  </mposZ>
+  <mposZ volume="PMTrow" ncopy="6" X_Y="0.0 0.0" Z0="-13.25" dZ="5.3" />
 </composition>
 
 <!-- pixel -->
@@ -208,14 +167,18 @@
   <mposY volume="PIXV" ncopy="8" Z_X="0.0 0.0" Y0="-2.121" dY="0.606" /> 
 </composition>
 
+<!-- cylindrical mirror center 96.9 46 -->
+<tubs name="SPMR" Rio_Z="119.99 120.0 219.7" profile="9. 13.7846"
+      material="ThickCerenkovMirror" /> <!-- profile was 8.76061 -->
+
 <!-- 3 segment mirrors -->
-<box name="TSM1" X_Y_Z="0.01 90.1 9.6" material="ThickCerenkovMirror" />
-<box name="TSM2" X_Y_Z="0.01 90.1 9.6" material="ThickCerenkovMirror" />
-<box name="TSM3" X_Y_Z="0.01 90.1 9.6" material="ThickCerenkovMirror" />
+<box name="TSM1" X_Y_Z="0.01 219.7 9.6" material="ThickCerenkovMirror" />
+<box name="TSM2" X_Y_Z="0.01 219.7 9.6" material="ThickCerenkovMirror" />
+<box name="TSM3" X_Y_Z="0.01 219.7 9.6" material="ThickCerenkovMirror" />
 
 <!-- flat wedge mirrors to replace new wedge -->
-<box name="FWM1" X_Y_Z="19.0 90.1 0.01" material="ThickCerenkovMirror" />
-<box name="FWM2" X_Y_Z="6.697 90.1 0.01" material="ThickCerenkovMirror" /> <!-- x was 6.697-->
+<box name="FWM1" X_Y_Z="19.0 219.7 0.01" material="ThickCerenkovMirror" />
+<box name="FWM2" X_Y_Z="6.697 219.7 0.01" material="ThickCerenkovMirror" /> <!-- x was 6.697-->
 
 <!-- flat side mirrors on ends of box -->
 <box name="FSM1" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" />
@@ -244,7 +207,7 @@
 	<posXYZ volume="ABT5" X_Y_Z="536. 0.0 -26.175" /> <!-- x was 531.05 -->
 		
 	<posXYZ volume="ABH2" X_Y_Z="494.05 0.0 -12.325" /> <!--x was 497.95 -->
-	<posXYZ volume="ABH3" X_Y_Z="517.75 0.0 -55.5" /> <!-- x was 519.0, z was -55.325 -->
+	<posXYZ volume="ABH3" X_Y_Z="517.75 0.0 -55.325" /> <!-- x was 519.0 -->
 	<posXYZ volume="ABH4" X_Y_Z="512.5 0.0 3." /> <!-- x was 510.0 -->
 	
 	<!-- Al plates for the ends of the focusing optics box
@@ -254,14 +217,14 @@
 	<posXYZ volume="ABV3" X_Y_Z="519.0 21.3 -26.275" /-->
 </composition>
 
-<box name="ABT2" X_Y_Z="0.1 90.2 12.175" material="Aluminum" />
-<box name="ABT3" X_Y_Z="0.1 90.2 1.1" material="Aluminum" />
-<box name="ABT4" X_Y_Z="0.1 90.2 43.1" material="Aluminum" />
-<box name="ABT5" X_Y_Z="0.1 90. 58.4" material="Aluminum" />
+<box name="ABT2" X_Y_Z="0.1 220. 12.175" material="Aluminum" />
+<box name="ABT3" X_Y_Z="0.1 220. 1.1" material="Aluminum" />
+<box name="ABT4" X_Y_Z="0.1 220. 43.1" material="Aluminum" />
+<box name="ABT5" X_Y_Z="0.1 220. 58.4" material="Aluminum" />
 
-<box name="ABH2" X_Y_Z="11.1 90.2 0.1" material="Aluminum" /> <!--x was 17.9 -->
-<box name="ABH3" X_Y_Z="36.25 90.2 0.1" material="Aluminum" /> <!--x was 24.0 -->
-<box name="ABH4" X_Y_Z="47. 90.2 0.1" material="Aluminum" /><!-- x was 42.0 -->
+<box name="ABH2" X_Y_Z="11.1 220. 0.1" material="Aluminum" /> <!--x was 17.9 -->
+<box name="ABH3" X_Y_Z="36.25 220. 0.1" material="Aluminum" /> <!--x was 24.0 -->
+<box name="ABH4" X_Y_Z="47. 220. 0.1" material="Aluminum" /><!-- x was 42.0 -->
 
 <box name="ABV2" X_Y_Z="18.0 0.1 15.2" material="Aluminum" />
 <box name="ABV3" X_Y_Z="24.2 0.1 58.2" material="Aluminum" />
