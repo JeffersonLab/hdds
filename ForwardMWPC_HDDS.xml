@@ -35,23 +35,39 @@ in main_HDDS.xml
 
  <composition name="ForwardMWPC" envelope="MWPC">
 
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0   1.0" />
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0   7.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0   1.0">
+        <layer value="1" />
+    </posXYZ>
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0   7.0">
+        <layer value="2" />
+    </posXYZ>
 
     <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0  22.0" />
 
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  37.0" />
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  43.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  37.0">
+        <layer value="3" />
+    </posXYZ>
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  43.0">
+        <layer value="4" />
+    </posXYZ>
 
     <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0  58.0" />
 
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  73.0" />
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  79.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  73.0">
+        <layer value="5" />
+    </posXYZ>
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  79.0">
+        <layer value="6" />
+    </posXYZ>
 
     <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0  94.0" />
 
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0 109.0" />
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0 115.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0 109.0">
+        <layer value="7" />
+    </posXYZ>
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0 115.0">
+        <layer value="8" />
+    </posXYZ>
   </composition>
 
  <composition name="CPPAbsorber" envelope="CPPA">
@@ -72,7 +88,8 @@ in main_HDDS.xml
   <box name="CPPF" X_Y_Z="162.56 162.56 2.0"  material="FR-4" comment="G10 frame" />
 
   <!-- MWPC gas is 60" x 60" x 2cm  -->
-  <box name="CPPG" X_Y_Z="152.4 152.4 2.0"  material="FDchamberGas" comment="Chamber gas" />
+  <box name="CPPG" X_Y_Z="152.4 152.4 2.0"  material="FDchamberGas" 
+       sensitive="true" comment="Chamber gas" />
 
 </section>
 

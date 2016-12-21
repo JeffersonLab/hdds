@@ -60,9 +60,9 @@
          top_volume  = "SITE"
          specification = "v1.0">
 
-  <box name="SITE" X_Y_Z="5000. 5000. 5000." material="Air"
+  <box name="SITE" X_Y_Z="10000. 10000. 10000." material="Air"
        				comment="master volume for description" />
-  <box name="HALL" X_Y_Z="1700. 1500. 3408." material="Air"
+  <box name="HALL" X_Y_Z="1700. 1500. 3409." material="Air"
        				comment="master volume for description">
     <apply region="solenoidBfield" origin="150.0 -350.0 -500.0" />
   </box>
@@ -71,7 +71,7 @@
     <posXYZ volume="Solenoid" X_Y_Z="0.03 0.0 0.0"/>
     <posXYZ volume="Target" X_Y_Z="0.0 0.0 48.316"/>
     <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 37.12"  rot="0.0 0.0 -11.25"/>
-    <posXYZ volume="CentralDC" X_Y_Z="0.0 -0.080 17.68" rot="0.0218 0.008 0.045" />
+    <posXYZ volume="CentralDC" X_Y_Z="0.174 -0.034 17.68" rot="0.0 0.0 0.045" />
     <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.938" />
     <posXYZ volume="BarrelEMcal" X_Y_Z="0.1 -0.098 16.788" rot="-0.0424 0.01633 0.0046" />
   </composition>
@@ -80,7 +80,7 @@
     <!--<posXYZ volume="CerenkovCntr" X_Y_Z="0.0 0.0 466.0" /> -->
     <!--posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
     <!-- To simulate DIRC hits uncomment the line below -->
-    <posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.0" />
+    <!--posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.0" /-->
     <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0427 0.0461 -0.1813"/>
     <posXYZ volume="ForwardEMcal" X_Y_Z="0.529 -0.002 624.906" rot="-0.0418 -0.07019 -0.0149" />
     <!--posXYZ volume="ComptonEMcal" X_Y_Z="0.0 0.0 1025.3" /-->

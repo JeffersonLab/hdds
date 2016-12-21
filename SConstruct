@@ -101,7 +101,7 @@ if SHOWBUILD==0:
 	hddsrootaction  = SCons.Script.Action("%s/hdds-root   $SOURCE > $TARGET" % (builddir), 'HDDS-ROOTC [$SOURCE -> $TARGET]')
 	hddsroothaction = SCons.Script.Action("%s/hdds-root_h $SOURCE > $TARGET" % (builddir), 'HDDS-ROOTH [$SOURCE -> $TARGET]')
 	if hasGDMLsupport:
-		hddsgdmlaction  = SCons.Script.Action('%s/bin/root -b -q $SOURCE "mkGDML.C(\\"$TARGET\\")" >& /dev/null' % (rootsys) , 'HDDS-GDML  [$SOURCE -> $TARGET]')
+		hddsgdmlaction  = SCons.Script.Action('%s/bin/root -b -q $SOURCE "mkGDML.C(\\"$TARGET\\")" > /dev/null 2>&1' % (rootsys) , 'HDDS-GDML  [$SOURCE -> $TARGET]')
 else:
 	hddsgeantaction = SCons.Script.Action("%s/hdds-geant  $SOURCE > $TARGET" % (builddir))
 	hddsrootaction  = SCons.Script.Action("%s/hdds-root   $SOURCE > $TARGET" % (builddir))
