@@ -26,12 +26,13 @@
 
   <region name="PairBfield"
           comment="photon beam pair spetrometer">
+    <!-- use the line below to get a uniform field, useful for debugging 
     <uniformBfield Bx_By_Bz="0  16.4  0" unit="kG"/>
+    -->
 
-    <!--  hook to use field loaded from CCDB
+    <!--  hook to use field loaded from CCDB-->
     <computedBfield function="gufld_ps(r,B)" maxBfield="2.5" unit="T"/>
     <swim method="RungeKutta"/>
-    -->
   </region>
 
 
