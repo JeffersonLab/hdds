@@ -767,7 +767,7 @@
 
         name      : a short descriptive ID of this field region
         modifies  : name of another region to provide default values
-       comment   : a more verbose description
+        comment   : a more verbose description
 
   The region name must be a NMTOKEN type (begin with a letter, contain
   alphanumeric characters and underscores, and contain no spaces) like
