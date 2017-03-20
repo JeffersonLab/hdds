@@ -41,43 +41,43 @@
 
    <composition name="LeadTungstateLower" envelope="LTLW">
     <mposY volume="LeadTungstateFullRow" ncopy="23" Z_X="0.0 0.0" Y0="-22.825" dY="2.075">
-      <row value="4000" step="1" />
+      <row value="100" step="1" />
     </mposY>
   </composition>
 
   <composition name="LeadTungstateNorth" envelope="LTNO">
     <mposY volume="LeadTungstateHalfRowNorth" ncopy="5" Y0="-4.15" dY="2.075">
-      <row value="4023" step="1" />
+      <row value="123" step="1" />
     </mposY>
   </composition>
 
   <composition name="LeadTungstateSouth" envelope="LTSO">
     <mposY volume="LeadTungstateHalfRowSouth" ncopy="5" Y0="-4.15" dY="2.075">
-      <row value="4023" step="1" />
+      <row value="123" step="1" />
     </mposY>
   </composition>
 
   <composition name="LeadTungstateUpper" envelope="LTUP">
     <mposY volume="LeadTungstateFullRow" ncopy="23" Z_X="0.0 0.0" Y0="-22.825" dY="2.075">
-      <row value="4028" step="1" />
+      <row value="128" step="1" />
     </mposY>
   </composition>
 
   <composition name="LeadTungstateFullRow">
     <mposX volume="LTBK" ncopy="51" Y_Z="0.0 0.0" X0="-51.875" dX="2.075">
-      <column value="4000" step="1" />
+      <column value="100" step="1" />
     </mposX>
   </composition>
 
   <composition name="LeadTungstateHalfRowNorth">
     <mposX volume="LTBK" ncopy="23" Y_Z="0.0 0.0" X0="-22.825" dX="2.075">
-      <column value="4027" step="1" />
+      <column value="128" step="1" />
     </mposX>
   </composition>
 
   <composition name="LeadTungstateHalfRowSouth">
     <mposX volume="LTBK" ncopy="23" Y_Z="0.0 0.0" X0="-22.825" dX="2.075">
-      <column value="4000" step="1" />
+      <column value="100" step="1" />
     </mposX>
   </composition>
 
