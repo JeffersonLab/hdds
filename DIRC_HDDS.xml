@@ -33,8 +33,8 @@
 -->
 
 <composition name="DRCC" envelope="DCMV">
-	<posXYZ volume="DCML" X_Y_Z="-270.0 -79.5 30.0" />
-	<posXYZ volume="DCML" X_Y_Z="-270.0 -36.5 30.0" />
+	<!--posXYZ volume="DCML" X_Y_Z="-270.0 -79.5 30.0" /-->
+	<!--posXYZ volume="DCML" X_Y_Z="-270.0 -36.5 30.0" /-->
 	<!--posXYZ volume="DCML" X_Y_Z="-270.0 36.5  30.0" /-->
 	<!--posXYZ volume="DCML" X_Y_Z="-270.0 79.5  30.0" /-->
 	<mposY volume="DCML" ncopy="2" Z_X="30.0 -270.0" Y0="-79.5" dY="43.0">
