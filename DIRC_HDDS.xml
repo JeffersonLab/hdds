@@ -33,10 +33,6 @@
 -->
 
 <composition name="DRCC" envelope="DCMV">
-	<posXYZ volume="DCML" X_Y_Z="-270.0 -79.5 30.0" />
-	<posXYZ volume="DCML" X_Y_Z="-270.0 -36.5 30.0" />
-	<!--posXYZ volume="DCML" X_Y_Z="-270.0 36.5  30.0" /-->
-	<!--posXYZ volume="DCML" X_Y_Z="-270.0 79.5  30.0" /-->
 	<mposY volume="DCML" ncopy="2" Z_X="30.0 -270.0" Y0="-79.5" dY="43.0">
 	  <plane value="1" step="1"/>
 	</mposY>
@@ -97,7 +93,7 @@
 <box name="FNMR" X_Y_Z="0.1 3.4493 1.9761" material="ThickCerenkovMirror" />
 
 <!-- Individual synthetic fused Silica bar -->
-<box name="QZBL" X_Y_Z="122.5 3.5 1.725" material="fusedSilica" />
+<box name="QZBL" X_Y_Z="122.5 3.5 1.725" material="fusedSilica" sensitive="true" />
 
 <!-- Silica bar glue to old wedge -->
 <box name="EPGL" X_Y_Z="0.005 3.5 1.725" material="Epotek301" />
@@ -142,8 +138,8 @@
 
 
 <!-- photocathode -->
-<box name="RDCD" X_Y_Z="0.01 90.1 31.45"
-	material="CerenkovPhotocathode" sensitive="true" />
+<!-- <box name="RDCD" X_Y_Z="0.01 90.1 31.45" -->
+<!-- 	material="CerenkovPhotocathode" sensitive="true" /> -->
 
 <!-- window of the optical box -->
 <box name="OBWI" X_Y_Z="1.27 90.1 31.8" material="fusedSilica" />
@@ -153,9 +149,7 @@
 </composition>
 
 <!-- PMT -->
-<box name="PMTV" X_Y_Z="0.01 5.2 5.2"
-     material="fusedSilica"/>
-
+<box name="PMTV" X_Y_Z="0.01 5.2 5.2" material="fusedSilica"/>
 
 <!-- pixel numbering 1..64 within one PMT -->
 <composition name="PMTC" envelope="PMTV">
@@ -231,7 +225,7 @@
 </composition>
 
 <box name="ABT1" X_Y_Z="0.1 42.5 2.325" material="Aluminum" />
-<box name="RAWN" X_Y_Z="489.9 42.5 0.1" material="Aluminum" sensitive="true" />
+<box name="RAWN" X_Y_Z="489.9 42.5 0.1" material="Aluminum" />
 <box name="ABH1" X_Y_Z="489.9 42.5 0.1" material="Aluminum" />
 <box name="ABV1" X_Y_Z="490.0 0.1 2.325" material="Aluminum" />
 
