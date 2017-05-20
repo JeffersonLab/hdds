@@ -35,39 +35,22 @@ in main_HDDS.xml
 
  <composition name="ForwardMWPC" envelope="MWPC">
 
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0   1.0">
-        <layer value="1" />
-    </posXYZ>
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0   7.0">
-        <layer value="2" />
-    </posXYZ>
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0   1.0"> <layer value="1" /> </posXYZ>
+    <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0  13.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  25.0"> <layer value="2" /> </posXYZ>
+    <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0  37.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  49.0"> <layer value="3" /> </posXYZ>
+    <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0  61.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  73.0"> <layer value="4" /> </posXYZ>
+    <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0  85.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  97.0"> <layer value="5" /> </posXYZ>
+    <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0 109.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0 121.0"> <layer value="6" /> </posXYZ>
+    <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0 133.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0 145.0"> <layer value="7" /> </posXYZ>
+    <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0 157.0" />
+    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0 169.0"> <layer value="8" /> </posXYZ>
 
-    <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0  22.0" />
-
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  37.0">
-        <layer value="3" />
-    </posXYZ>
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  43.0">
-        <layer value="4" />
-    </posXYZ>
-
-    <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0  58.0" />
-
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  73.0">
-        <layer value="5" />
-    </posXYZ>
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0  79.0">
-        <layer value="6" />
-    </posXYZ>
-
-    <posXYZ volume="CPPAbsorber" X_Y_Z="0.0  0.0  94.0" />
-
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0 109.0">
-        <layer value="7" />
-    </posXYZ>
-    <posXYZ volume="CPPChamber"  X_Y_Z="0.0  0.0 115.0">
-        <layer value="8" />
-    </posXYZ>
   </composition>
 
  <composition name="CPPAbsorber" envelope="CPPA">
@@ -78,7 +61,7 @@ in main_HDDS.xml
     <posXYZ volume="CPPG" X_Y_Z="0.0 0.0 0.0" />
  </composition>
 
-  <box name="MWPC" X_Y_Z="165.0 165.0 234.0"  material="Air" comment="forward MWPC mother" />
+  <box name="MWPC" X_Y_Z="165.0 165.0 340.0"  material="Air" comment="forward MWPC mother" />
 
   <!-- Absorber block is 64" x 64" x 20cm  with 12cm x 12cm beam hole -->
   <box name="CPPA" X_Y_Z="162.56 162.56 20.0"  material="Iron" comment="Iron Absorber" />
