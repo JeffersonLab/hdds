@@ -24,7 +24,7 @@
 
   <composition name="Target">
     <posXYZ volume="targetSupportArm" X_Y_Z="0. 0. -70.461"/>
-    <posXYZ volume="targetVessel" X_Y_Z="0. 0.3 0.0" rot="0.3 0.0 0.0" />
+    <posXYZ volume="targetVessel" X_Y_Z="0.044 0.112 0.0" rot="0.0 0.0 0.0" />
   </composition>
 
   <composition name="targetSupportArm" envelope="TARM">
@@ -67,11 +67,11 @@
   <composition name="targetVessel" envelope="TARG">
     <posXYZ volume="CYLW" X_Y_Z="0. 0. 0." />
     <posXYZ volume="TGBM" X_Y_Z="0. 0. 0."/>
-    <posXYZ volume="DWIT" X_Y_Z="0. 0. +34.8465"/>
+    <posXYZ volume="DWIT" X_Y_Z="0. 0. +34.1967"/>
     <posXYZ volume="TGR0" X_Y_Z="0. 0. -12.5015"/>
     <posXYZ volume="TGR0" X_Y_Z="0. 0. -15.359"/>
-    <posXYZ volume="targetInput" X_Y_Z="-0.018 -0.002 15.00" rot="0.004 0.0076 0.0"/>
-    <posXYZ volume="targetTube" X_Y_Z="-0.018 -0.002 15.00" rot="0.004 0.0076 0.0"/>
+    <posXYZ volume="targetInput" X_Y_Z="-0.018 -0.002 14.775" rot="0.004 0.0076 0.0"/>
+    <posXYZ volume="targetTube" X_Y_Z="-0.018 -0.002 14.775" rot="0.004 0.0076 0.0"/>
   </composition>
 
   <composition name="targetTube" envelope="TGTV">
@@ -79,28 +79,28 @@
   </composition>
 
   <pcon name="TGTV" material="Kapton" comment="target cell">
-    <polyplane Rio_Z="0.0 0.29715 -15.0"/>
-    <polyplane Rio_Z="0.0 0.5235  -14.8162"/>
-    <polyplane Rio_Z="0.0 0.7376  -14.5162"/>
-    <polyplane Rio_Z="0.0 0.79629 -14.2162"/>
-    <polyplane Rio_Z="0.0 1.25    -14.2162"/>
-    <polyplane Rio_Z="0.0 0.79629 +14.2162"/>
-    <polyplane Rio_Z="0.0 0.7376  +14.5162"/>
-    <polyplane Rio_Z="0.0 0.5235  +14.8162"/>
-    <polyplane Rio_Z="0.0 0.29715 +15.0"/>
+    <polyplane Rio_Z="0.0 0.29715 -14.775"/>
+    <polyplane Rio_Z="0.0 0.5235  -14.5912"/>
+    <polyplane Rio_Z="0.0 0.7376  -14.2912"/>
+    <polyplane Rio_Z="0.0 0.79629 -13.9912"/>
+    <polyplane Rio_Z="0.0 1.25    -13.9912"/>
+    <polyplane Rio_Z="0.0 0.79629 +13.9912"/>
+    <polyplane Rio_Z="0.0 0.7376  +14.2912"/>
+    <polyplane Rio_Z="0.0 0.5235  +14.5912"/>
+    <polyplane Rio_Z="0.0 0.29715 +14.775"/>
   </pcon>
 
   <pcon name="LIH2" material="LiqHydrogen" comment="target contents">
-    <polyplane Rio_Z="0.0 0.29715 -14.9925"/>
-    <polyplane Rio_Z="0.0 0.5040  -14.8162"/>
-    <polyplane Rio_Z="0.0 0.72389  -14.5162"/>
-    <polyplane Rio_Z="0.0 0.78359 -14.2162"/>
-    <polyplane Rio_Z="0.0 1.2373  -14.2162"/>
-    <polyplane Rio_Z="0.0 0.78359 +14.2162"/>
-    <polyplane Rio_Z="0.0 0.72389  +14.5162"/>
-    <polyplane Rio_Z="0.0 0.5040  +14.8162"/>
-    <polyplane Rio_Z="0.0 0.29715 +14.9925"/>
-    <real name="length" value="29.9746" unit="cm"/>
+    <polyplane Rio_Z="0.0 0.29715 -14.7675"/>
+    <polyplane Rio_Z="0.0 0.5040  -14.5912"/>
+    <polyplane Rio_Z="0.0 0.72389  -14.2912"/>
+    <polyplane Rio_Z="0.0 0.78359 -13.9912"/>
+    <polyplane Rio_Z="0.0 1.2373  -13.9912"/>
+    <polyplane Rio_Z="0.0 0.78359 +13.9912"/>
+    <polyplane Rio_Z="0.0 0.72389  +14.2912"/>
+    <polyplane Rio_Z="0.0 0.5040  +14.5912"/>
+    <polyplane Rio_Z="0.0 0.29715 +14.775"/>
+    <real name="length" value="29.535" unit="cm"/>
   </pcon>
 
   <pcon name="CYLW" material="HighDensityROHACELL" comment="target vessel cylindrical wall">
@@ -108,10 +108,10 @@
     <polyplane Rio_Z="3.699 4.699 29.8451"/>
     <polyplane Rio_Z="3.665 4.672 30.8451"/>
     <polyplane Rio_Z="3.381 4.453 31.8451"/>
-    <polyplane Rio_Z="2.726 3.979 32.8451"/>
-    <polyplane Rio_Z="1.905 3.135 33.8451"/>
-    <polyplane Rio_Z="1.905 2.466 34.3451"/>
-    <polyplane Rio_Z="1.905 1.905 34.853"/>
+    <polyplane Rio_Z="2.726 3.979 32.81"/>
+    <polyplane Rio_Z="1.905 3.135 33.81"/>
+    <polyplane Rio_Z="1.905 2.8 33.999"/>
+    <polyplane Rio_Z="1.905 1.905 34.203"/>
   </pcon>
 
 
@@ -125,13 +125,13 @@
   <pcon name="TGI1" material="Kapton" comment="Target vessel input outer wall">
     <polyplane Rio_Z="1.3427 1.3554 -22.0"/>
     <polyplane Rio_Z="1.3427 1.3554 -21.0"/>
-    <polyplane Rio_Z="1.2373 1.25 -14.2162"/>
+    <polyplane Rio_Z="1.2373 1.25 -13.9912"/>
   </pcon>
 
   <pcon name="TGI2" material="LiqHydrogen" comment="Liquid hydrogen input to cell">
     <polyplane Rio_Z="0.92456 1.3427 -22.0   "/>
     <polyplane Rio_Z="0.92456 1.3427 -21.0   "/>
-    <polyplane Rio_Z="0.92456 1.2373 -14.2162"/>
+    <polyplane Rio_Z="0.92456 1.2373 -13.9912"/>
   </pcon>
 
   <pcon name="TGI3" material="Kapton" comment="Torlon tube">
@@ -140,14 +140,14 @@
     <polyplane Rio_Z="0.79756 1.15062 -22.7887"/>
     <polyplane Rio_Z="0.79756 1.15062 -22.6617"/>
     <polyplane Rio_Z="0.79756 0.92456 -22.6617"/>
-    <polyplane Rio_Z="0.79756 0.92456 -14.2162"/>
+    <polyplane Rio_Z="0.79756 0.92456 -13.9912"/>
   </pcon>
 
   <pcon name="TGIN" material="Vacuum" comment="Target vessel input mother volume">
     <polyplane Rio_Z="0.79756 3.81 -25.482"/>
     <polyplane Rio_Z="0.79756 3.81  -23.45"/>
     <polyplane Rio_Z="0.79756 1.3554 -21.000"/>     
-    <polyplane Rio_Z="0.79756 1.25 -14.2162"/>
+    <polyplane Rio_Z="0.79756 1.25 -13.9912"/>
   </pcon>
 
   <pcon name="TGAL" material="Aluminum" comment="Target vessel input" >
@@ -171,10 +171,10 @@
     <polyplane Rio_Z="0. 4.699  29.8451"/>
     <polyplane Rio_Z="0.0 4.672 30.8451"/>
     <polyplane Rio_Z="0.0 4.453 31.8451"/>
-    <polyplane Rio_Z="0.0 3.979 32.8451"/>
-    <polyplane Rio_Z="0.0 3.135 33.8451"/>
-    <polyplane Rio_Z="0.0 2.466 34.3451"/>
-    <polyplane Rio_Z="0.0 1.905 34.853"/>
+    <polyplane Rio_Z="0.0 3.979 32.81"/>
+    <polyplane Rio_Z="0.0 3.135 33.81"/>
+    <polyplane Rio_Z="0.0 2.8 33.999"/>
+    <polyplane Rio_Z="0.0 1.905 34.203"/>
   </pcon>
 
   <tubs name="TGR0" Rio_Z="3.81 5.842 0.635" material="FR-4"/>
