@@ -115,7 +115,7 @@ class Refsys
 
    Refsys();				// empty constructor
    Refsys(const Refsys& src);		// copy constructor
-   Refsys& operator=(Refsys& src);	// copy operator
+   Refsys& operator=(const Refsys& src);	// copy operator
    Refsys& reset();			// reset origin, Rmatrix
    Refsys& reset(const Refsys& ref);	// reset origin, Rmatrix to ref
    Refsys& shift(const double vector[3]); // translate origin

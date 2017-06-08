@@ -60,7 +60,7 @@
          top_volume  = "SITE"
          specification = "v1.0">
 
-  <box name="SITE" X_Y_Z="5000. 5000. 5000." material="Air"
+  <box name="SITE" X_Y_Z="10000. 10000. 10000." material="Air"
        				comment="master volume for description" />
   <box name="HALL" X_Y_Z="1700. 1500. 3409." material="Air"
        				comment="master volume for description">
@@ -69,9 +69,9 @@
 
   <composition name="barrelPackage" envelope="LASS">
     <posXYZ volume="Solenoid" X_Y_Z="0.03 0.0 0.0"/>
-    <posXYZ volume="Target" X_Y_Z="0.0 0.0 48.316"/>
-    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 37.12"  rot="0.0 0.0 -11.25"/>
-    <posXYZ volume="CentralDC" X_Y_Z="0.174 -0.034 17.68" rot="0.0 0.0 0.045" />
+    <posXYZ volume="Target" X_Y_Z="0.0 0.0 50.429"/>
+    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 38.84"  rot="0.0 0.0 -11.25"/>
+    <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.68" rot="0.0 0.0 0.0" />
     <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.938" />
     <posXYZ volume="BarrelEMcal" X_Y_Z="0.1 -0.098 16.788" rot="-0.0424 0.01633 0.0046" />
   </composition>

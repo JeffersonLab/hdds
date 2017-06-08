@@ -183,7 +183,7 @@ Refsys::Refsys(const Refsys& src)	// copy constructor
    reset(src);
 }
 
-Refsys& Refsys::operator=(Refsys& src)	// copy operator (deep sematics)
+Refsys& Refsys::operator=(const Refsys& src)	// copy operator (deep sematics)
 {
    fIdentifier = src.fIdentifier;
    fMother = src.fMother;
@@ -200,7 +200,7 @@ Refsys& Refsys::operator=(Refsys& src)	// copy operator (deep sematics)
       fMRmatrix[i][1] = src.fMRmatrix[i][1];
       fMRmatrix[i][2] = src.fMRmatrix[i][2];
    }
-   std::map<std::string,double>::iterator iter;
+   std::map<std::string,double>::const_iterator iter;
    for (iter = src.fPar.begin(); iter != src.fPar.end(); ++iter)
    {
       fPar[iter->first] = iter->second;
