@@ -33,23 +33,32 @@ in main_HDDS.xml
 
 <!-- Origin of ForwardMWPC is center of upstream face of the first MWPC -->
 
+<!-- 
+  Absorber thicknesses determined from shower development in Iron. (See
+  CPPsim slides of June 6, 2017 CPP meeting.)
+  
+  Spacing between absorbers is 3" for chambers. Exact position values
+  come from Google Spreadsheet "CPP Beam Intensity" sheet 2 titled
+  "FMWPC positions" in david.lawrence.nn@gmail.com account.
+-->
+
  <composition name="ForwardMWPC" envelope="MWPC">
 
     <posXYZ volume="CPPAbsorber1" X_Y_Z="0.0  0.0   3.075" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0   8.15"> <layer value="1" /> </posXYZ>
-    <posXYZ volume="CPPAbsorber2" X_Y_Z="0.0  0.0  12.95" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  17.70"> <layer value="2" /> </posXYZ>
-    <posXYZ volume="CPPAbsorber3" X_Y_Z="0.0  0.0  22.475" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  27.25"> <layer value="3" /> </posXYZ>
-    <posXYZ volume="CPPAbsorber4" X_Y_Z="0.0  0.0  32.7" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  38.15"> <layer value="4" /> </posXYZ>
-    <posXYZ volume="CPPAbsorber5" X_Y_Z="0.0  0.0  44.85" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  51.55"> <layer value="5" /> </posXYZ>
-    <posXYZ volume="CPPAbsorber6" X_Y_Z="0.0  0.0  61.55" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  71.55"> <layer value="6" /> </posXYZ>
-    <posXYZ volume="CPPAbsorber7" X_Y_Z="0.0  0.0 118.775" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 166.0"> <layer value="7" /> </posXYZ>
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 170.0"> <layer value="8" /> </posXYZ>
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0   9.96"> <layer value="1" /> </posXYZ>
+    <posXYZ volume="CPPAbsorber2" X_Y_Z="0.0  0.0  16.545" />
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  23.13"> <layer value="2" /> </posXYZ>
+    <posXYZ volume="CPPAbsorber3" X_Y_Z="0.0  0.0  29.715" />
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  36.3"> <layer value="3" /> </posXYZ>
+    <posXYZ volume="CPPAbsorber4" X_Y_Z="0.0  0.0  43.56" />
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  50.82"> <layer value="4" /> </posXYZ>
+    <posXYZ volume="CPPAbsorber5" X_Y_Z="0.0  0.0  59.33" />
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  67.84"> <layer value="5" /> </posXYZ>
+    <posXYZ volume="CPPAbsorber6" X_Y_Z="0.0  0.0  79.65" />
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  91.46"> <layer value="6" /> </posXYZ>
+    <posXYZ volume="CPPAbsorber7" X_Y_Z="0.0  0.0 140.495" />
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 189.53"> <layer value="7" /> </posXYZ>
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 197.15"> <layer value="8" /> </posXYZ>
 
   </composition>
 
@@ -65,16 +74,16 @@ in main_HDDS.xml
     <posXYZ volume="CPPG" X_Y_Z="0.0 0.0 0.0" />
  </composition>
 
-  <box name="MWPC" X_Y_Z="165.0 165.0 340.0"  material="Air" comment="forward MWPC mother" />
-
-  <!-- Absorber block is 64" x 64" with various depths and a 12cm x 12cm beam hole -->
-  <box name="CPA1" X_Y_Z="162.56 162.56  6.15"  material="Iron" comment="Iron Absorber" />
-  <box name="CPA2" X_Y_Z="162.56 162.56  5.55"  material="Iron" comment="Iron Absorber" />
-  <box name="CPA3" X_Y_Z="162.56 162.56  5.55"  material="Iron" comment="Iron Absorber" />
-  <box name="CPA4" X_Y_Z="162.56 162.56  6.90"  material="Iron" comment="Iron Absorber" />
-  <box name="CPA5" X_Y_Z="162.56 162.56  9.40"  material="Iron" comment="Iron Absorber" />
-  <box name="CPA6" X_Y_Z="162.56 162.56 16.00"  material="Iron" comment="Iron Absorber" />
-  <box name="CPA7" X_Y_Z="162.56 162.56 90.45"  material="Iron" comment="Iron Absorber" />
+  <box name="MWPC" X_Y_Z="165.0 165.0 401.92"  material="Air" comment="forward MWPC mother" />
+  
+  <!-- Absorbers are round with diameter 60" with various depths and a 12cm x 12cm square beam hole -->
+  <tubs name="CPA1" Rio_Z="0.0 76.2 6.15" material="Iron" comment="Iron Absorber"/>
+  <tubs name="CPA2" Rio_Z="0.0 76.2 5.55" material="Iron" comment="Iron Absorber"/>
+  <tubs name="CPA3" Rio_Z="0.0 76.2 5.55" material="Iron" comment="Iron Absorber"/>
+  <tubs name="CPA4" Rio_Z="0.0 76.2 6.90" material="Iron" comment="Iron Absorber"/>
+  <tubs name="CPA5" Rio_Z="0.0 76.2 9.40" material="Iron" comment="Iron Absorber"/>
+  <tubs name="CPA6" Rio_Z="0.0 76.2 16.00" material="Iron" comment="Iron Absorber"/>
+  <tubs name="CPA7" Rio_Z="0.0 76.2 90.45" material="Iron" comment="Iron Absorber"/>
   <box name="CPH1" X_Y_Z="12.0 12.0 6.15"  material="Air" comment="Iron Absorber beam hole" />
   <box name="CPH2" X_Y_Z="12.0 12.0 5.55"  material="Air" comment="Iron Absorber beam hole" />
   <box name="CPH3" X_Y_Z="12.0 12.0 5.55"  material="Air" comment="Iron Absorber beam hole" />
