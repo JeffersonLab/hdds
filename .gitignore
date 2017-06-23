@@ -5,3 +5,4 @@ SunOS_*
 .*
 !.gitignore
 *~
+main_flat_HDDS.xml
