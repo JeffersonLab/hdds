@@ -857,6 +857,16 @@
 	<real name="density"	value="1.47"	unit="g/cm^3" />
   </composite>
 
+  <composite name="AluminumComb">
+	<addmaterial material="Aluminum">
+		<fractionmass	fraction="0.0378"	/>
+ 	</addmaterial>
+	<addmaterial material="Air">
+		<fractionmass	fraction="0.9622"	/>
+ 	</addmaterial>
+	<real name="density"	value="0.102"	unit="g/cm^3" />
+  </composite>
+
   <composite name="FDchamberGas">
 	<addmaterial material="Argon">
 		<fractionmass	fraction="0.38"	/>
