@@ -76,13 +76,13 @@ in main_HDDS.xml
     <posXYZ volume="CPPWall" X_Y_Z="0.0 0.0 1.815" />
  </composition>
 
- <composition name="CPPWall" envelope="CPPW" comment="Aluminum panel">
+ <composition name="CPPWall" envelope="CPPW">
     <posXYZ volume="CPPPlate" X_Y_Z="0.0 0.0 -0.735" />
     <posXYZ volume="CPPC" X_Y_Z="0.0 0.0 0.0" />
     <posXYZ volume="CPPPlate" X_Y_Z="0.0 0.0 0.735" />
  </composition>
 
- <composition name="CPPPlate" envelope="CPPP" comment="Aluminum plate with beam hole">
+ <composition name="CPPPlate" envelope="CPPP">
     <posXYZ volume="CPPH" X_Y_Z="0.0 0.0 0.0" />
  </composition>
 
