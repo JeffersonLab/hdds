@@ -71,33 +71,56 @@ in main_HDDS.xml
  <composition name="CPPAbsorber7" envelope="CPA7"> <posXYZ volume="CPH7" X_Y_Z="0.0 0.0 0.0" /> </composition>
 
  <composition name="CPPChamber" envelope="CPPF">
+    <posXYZ volume="CPPWall" X_Y_Z="0.0 0.0 -1.815" />
     <posXYZ volume="CPPG" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="CPPWall" X_Y_Z="0.0 0.0 1.815" />
+ </composition>
+
+ <composition name="CPPWall" envelope="CPPW">
+    <posXYZ volume="CPPPlate" X_Y_Z="0.0 0.0 -0.735" />
+    <posXYZ volume="CPPC" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="CPPPlate" X_Y_Z="0.0 0.0 0.735" />
+ </composition>
+
+ <composition name="CPPPlate" envelope="CPPP">
+    <posXYZ volume="CPPH" X_Y_Z="0.0 0.0 0.0" />
  </composition>
 
   <box name="MWPC" X_Y_Z="165.0 165.0 401.92"  material="Air" comment="forward MWPC mother" />
   
-  <!-- Absorbers are round with diameter 60" with various depths and a 12cm x 12cm square beam hole -->
-  <tubs name="CPA1" Rio_Z="0.0 76.2 6.15" material="Iron" comment="Iron Absorber"/>
-  <tubs name="CPA2" Rio_Z="0.0 76.2 5.55" material="Iron" comment="Iron Absorber"/>
-  <tubs name="CPA3" Rio_Z="0.0 76.2 5.55" material="Iron" comment="Iron Absorber"/>
-  <tubs name="CPA4" Rio_Z="0.0 76.2 6.90" material="Iron" comment="Iron Absorber"/>
-  <tubs name="CPA5" Rio_Z="0.0 76.2 9.40" material="Iron" comment="Iron Absorber"/>
-  <tubs name="CPA6" Rio_Z="0.0 76.2 16.00" material="Iron" comment="Iron Absorber"/>
-  <tubs name="CPA7" Rio_Z="0.0 76.2 90.45" material="Iron" comment="Iron Absorber"/>
-  <box name="CPH1" X_Y_Z="12.0 12.0 6.15"  material="Air" comment="Iron Absorber beam hole" />
-  <box name="CPH2" X_Y_Z="12.0 12.0 5.55"  material="Air" comment="Iron Absorber beam hole" />
-  <box name="CPH3" X_Y_Z="12.0 12.0 5.55"  material="Air" comment="Iron Absorber beam hole" />
-  <box name="CPH4" X_Y_Z="12.0 12.0 6.90"  material="Air" comment="Iron Absorber beam hole" />
-  <box name="CPH5" X_Y_Z="12.0 12.0 9.40"  material="Air" comment="Iron Absorber beam hole" />
-  <box name="CPH6" X_Y_Z="12.0 12.0 16.00" material="Air" comment="Iron Absorber beam hole" />
-  <box name="CPH7" X_Y_Z="12.0 12.0 90.45" material="Air" comment="Iron Absorber beam hole" />
+  <!-- Absorbers are 61"x61" square with various thicknesses and a 8cm round beam hole -->
+  <box name="CPA1" X_Y_Z="154.94 154.94  6.15" material="Iron" comment="Iron Absorber"/>
+  <box name="CPA2" X_Y_Z="154.94 154.94  5.55" material="Iron" comment="Iron Absorber"/>
+  <box name="CPA3" X_Y_Z="154.94 154.94  5.55" material="Iron" comment="Iron Absorber"/>
+  <box name="CPA4" X_Y_Z="154.94 154.94  6.90" material="Iron" comment="Iron Absorber"/>
+  <box name="CPA5" X_Y_Z="154.94 154.94  9.40" material="Iron" comment="Iron Absorber"/>
+  <box name="CPA6" X_Y_Z="154.94 154.94 16.00" material="Iron" comment="Iron Absorber"/>
+  <box name="CPA7" X_Y_Z="154.94 154.94 90.45" material="Iron" comment="Iron Absorber"/>
+  <tubs name="CPH1" Rio_Z="0.0 4.0 6.15"  material="Air" comment="Iron Absorber beam hole" />
+  <tubs name="CPH2" Rio_Z="0.0 4.0 5.55"  material="Air" comment="Iron Absorber beam hole" />
+  <tubs name="CPH3" Rio_Z="0.0 4.0 5.55"  material="Air" comment="Iron Absorber beam hole" />
+  <tubs name="CPH4" Rio_Z="0.0 4.0 6.90"  material="Air" comment="Iron Absorber beam hole" />
+  <tubs name="CPH5" Rio_Z="0.0 4.0 9.40"  material="Air" comment="Iron Absorber beam hole" />
+  <tubs name="CPH6" Rio_Z="0.0 4.0 16.00" material="Air" comment="Iron Absorber beam hole" />
+  <tubs name="CPH7" Rio_Z="0.0 4.0 90.45" material="Air" comment="Iron Absorber beam hole" />
 
-  <!-- MWPC frame is 64" x 64" x 2cm  -->
-  <box name="CPPF" X_Y_Z="162.56 162.56 2.0"  material="FR-4" comment="G10 frame" />
+  <!-- MWPC frame is 64" x 64" x 5.26cm  -->
+  <box name="CPPF" X_Y_Z="162.56 162.56 5.26"  material="FR-4" comment="G10 frame" />
 
   <!-- MWPC gas is 60" x 60" x 2cm  -->
   <box name="CPPG" X_Y_Z="152.4 152.4 2.0"  material="FDchamberGas" 
        sensitive="true" comment="Chamber gas" />
+
+  <!-- MWPC aluminum wall 60" x 60" x 1.63cm  -->
+  <box name="CPPW" X_Y_Z="152.4 152.4 1.63"  material="Air" comment="Aluminum panel mother" />
+
+  <!-- MWPC aluminum comb 60" x 60" x 1.27cm  -->
+  <box name="CPPC" X_Y_Z="152.4 152.4 1.27"  material="AluminumComb" comment="Aluminum comb" />
+
+  <!-- MWPC aluminum plate 60" x 60" x 1/16"  -->
+  <box name="CPPP" X_Y_Z="152.4 152.4 0.159"  material="Aluminum" comment="Aluminum plate" />
+
+  <tubs name="CPPH" Rio_Z="0.0 2.54 0.159" material="Air" comment="Aluminum Plate Hole"/>
 
 </section>
 
