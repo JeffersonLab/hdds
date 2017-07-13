@@ -21,78 +21,123 @@
 <!-- Thr Jan 29 08:14:30 EST 2009                                  -->
 <!-- changed order of counting columns: 0-58 from south to north   -->
 
+<!-- July 7, 2017, Richard Jones                                   -->
+<!-- Added front steel frame and side straps to the LGD blocks.    -->
+<!-- Added mylar wrapping around the blocks.                       -->
+<!-- Increased the size of the FCAL block unit cell to account for
+     the space needed for wrapping, strips, and front frame.       -->
+<!-- Added plexiglass sheet (0.5") in front of the LGD.            -->
+<!-- Extended the stainless tube around the beam hole to the full 
+     length (32.75") shown in the drawings, with front flush with
+     the front of the wrapped blocks.                              -->
+
   <composition name="ForwardEMcal">
-    <apply region="nullBfield"/>
-    <posXYZ volume="forwardEMcal" X_Y_Z="0.0  0.0  22.5" />
+    <posXYZ volume="forwardEMcal" X_Y_Z="0.0  0.0  22.8" />
+    <posXYZ volume="plexiSheet" X_Y_Z="0.0  0.0  -1.0" />
+    <posXYZ volume="FCBX" X_Y_Z="0.0  0.0  45.6" />
   </composition>
 
   <composition name="forwardEMcal" envelope="FCAL">
-    <posXYZ volume="LGDlower" X_Y_Z="  0.0 -62.0  0.0" />
-    <posXYZ volume="LGDsouth" X_Y_Z="-62.0   0.0  0.0" />
-    <posXYZ volume="LGDnorth" X_Y_Z="+62.0   0.0  0.0" />
-    <posXYZ volume="LGDupper" X_Y_Z="  0.0 +62.0  0.0" />
-    <posXYZ volume="FCBI" X_Y_Z="0.0 0.0 0.0" />
+    <apply region="nullBfield"/>
+    <posXYZ volume="LGDlower" X_Y_Z="  0.0 -62.2440  0.0" />
+    <posXYZ volume="LGDsouth" X_Y_Z="-62.2440   0.0  0.0" />
+    <posXYZ volume="LGDnorth" X_Y_Z="+62.2440   0.0  0.0" />
+    <posXYZ volume="LGDupper" X_Y_Z="  0.0 +62.2440  0.0" />
+    <posXYZ volume="FCBI" X_Y_Z="0.0  0.0  0.0" />
   </composition>
 
   <composition name="LGDlower" envelope="LGDB">
-    <mposY volume="LGDfullRow" ncopy="28" Z_X="0.0 0.0" Y0="-54.0" dY="4.0">
+    <mposY volume="LGDfullRow" ncopy="28" Z_X="0.0 0.0" Y0="-54.2120" dY="4.0157">
       <row value="0" step="1" />
     </mposY>
   </composition>
 
   <composition name="LGDnorth" envelope="LGDN">
-    <mposY volume="LGDhalfRowNorth" ncopy="3" Y0="-4.0" dY="4.0">
+    <mposY volume="LGDhalfRowNorth" ncopy="3" Y0="-4.0157" dY="4.0157">
       <row value="28" step="1" />
     </mposY>
   </composition>
 
   <composition name="LGDsouth" envelope="LGDS">
-    <mposY volume="LGDhalfRowSouth" ncopy="3" Y0="-4.0" dY="4.0">
+    <mposY volume="LGDhalfRowSouth" ncopy="3" Y0="-4.0157" dY="4.0157">
       <row value="28" step="1" />
     </mposY>
   </composition>
 
   <composition name="LGDupper" envelope="LGDT">
-    <mposY volume="LGDfullRow" ncopy="28" Z_X="0.0 0.0" Y0="-54.0" dY="4.0">
+    <mposY volume="LGDfullRow" ncopy="28" Z_X="0.0 0.0" Y0="-54.2120" dY="4.0157">
       <row value="31" step="1" />
     </mposY>
   </composition>
   <composition name="LGDfullRow">
-    <mposX volume="LGBL" ncopy="59" Y_Z="0.0 0.0" X0="-116.0" dX="4.0">
+    <mposX volume="LGDblock" ncopy="59" Y_Z="0.0 0.0" X0="-116.4553" dX="4.0157">
       <column value="0" step="1" />
     </mposX>
   </composition>
 
   <composition name="LGDhalfRowNorth">
-    <mposX volume="LGBL" ncopy="28" Y_Z="0.0 0.0" X0="-54.0" dX="4.0">
+    <mposX volume="LGDblock" ncopy="28" Y_Z="0.0 0.0" X0="-54.2120" dX="4.0157">
       <column value="31" step="1" />
     </mposX>
   </composition>
 
   <composition name="LGDhalfRowSouth">
-    <mposX volume="LGBL" ncopy="28" Y_Z="0.0 0.0" X0="-54.0" dX="4.0">
+    <mposX volume="LGDblock" ncopy="28" Y_Z="0.0 0.0" X0="-54.2120" dX="4.0157">
       <column value="0" step="1" />
     </mposX>
   </composition>
 
-  <box name="FCAL" X_Y_Z="236.0  236.0  45.0"  material="Air"
-	                              	comment="forward EMcal mother" />
-  <box name="LGDB" X_Y_Z="236.0  112.0  45.0"  material="Air"
-					comment="LGD bottom section"   />
-  <box name="LGDT" X_Y_Z="236.0  112.0  45.0"  material="Air"
-					comment="LGD top section"      />
-  <box name="LGDN" X_Y_Z="112.0   12.0  45.0"  material="Air"
-					comment="LGD north section"     />
-  <box name="LGDS" X_Y_Z="112.0   12.0  45.0"  material="Air"
-					comment="LGD south section"    />
-  <box name="LGBL" X_Y_Z="  4.0    4.0  45.0"  material="leadGlassF800"
-		sensitive="true"	comment="lead glass block"     />
+  <composition name="LGDblock" envelope="LGBU">
+    <posXYZ volume="LGBLwrapped" X_Y_Z="-0.0038 -0.0038 0"/>
+    <posXYZ volume="LGBS" X_Y_Z="2.0021 0 0"/>
+    <posXYZ volume="LGBS" X_Y_Z="0 2.0021 0" rot="0 0 90"/>
+    <posXYZ volume="LGBF" X_Y_Z="-0.0038 -0.0038 -22.5"/>
+  </composition>
 
+  <composition name="LGBLwrapped" envelope="LGBW">
+    <posXYZ volume="LGBL"/>
+  </composition>
+
+  <box name="FCAL" X_Y_Z="236.9263  236.9263  45.6"  material="Air"
+	                              	comment="forward EMcal mother" />
+  <box name="LGDB" X_Y_Z="236.9263  112.4396  45.6"  material="Air"
+					comment="LGD bottom section"   />
+  <box name="LGDT" X_Y_Z="236.9263  112.4396  45.6"  material="Air"
+					comment="LGD top section"      />
+  <box name="LGDN" X_Y_Z="112.4396   12.0471  45.6"  material="Air"
+					comment="LGD north section"     />
+  <box name="LGDS" X_Y_Z="112.4396   12.0471  45.6"  material="Air"
+					comment="LGD south section"    />
+  <box name="LGBU" X_Y_Z="4.0157  4.0157  45.6"  material="Air"
+		            comment="lead glass block stacking unit cell"/>
+  <box name="LGBL" X_Y_Z="4.0030  4.0030  45.0"  material="leadGlassF800"
+		sensitive="true" comment="lead glass block" />
+  <box name="LGBW" X_Y_Z="4.0081  4.0081  45.0"  material="Mylar"
+		            comment="aluminized mylar wrapping around the block"/>
+  <box name="LGBS" X_Y_Z="0.0076 2.8575 45.6" material="StainlessSteel"
+		            comment="SS strap holding the tube assy to the block"/>
+  <pgon name="LGBF" segments="4" profile="-45 360" material="StainlessSteel"
+		            comment="SS frame fixing the straps to the front of the block">
+   <polyplane Rio_Z="1.5875 2.0015 -0.300"/>
+   <polyplane Rio_Z="1.5875 2.0015 0.000"/>
+  </pgon>
   <pgon name="FCBI" segments="4" profile="-45 360" material="StainlessSteel"
                     comment="FCal beam hole support insert">
-   <polyplane Rio_Z="4.73 6.00 -22.5"  />
-   <polyplane Rio_Z="4.73 6.00 +22.5" />
+   <polyplane Rio_Z="4.7536 6.0236  -22.800"/>
+   <polyplane Rio_Z="4.7536 6.0236  +22.800"/>
   </pgon>
+  <pgon name="FCBX" segments="4" profile="-45 360" material="StainlessSteel"
+                    comment="FCal beam hole support extension">
+   <polyplane Rio_Z="4.7536 6.0236   0.000"/>
+   <polyplane Rio_Z="4.7536 6.0236  37.585"/>
+  </pgon>
+
+  <composition name="plexiSheet" envelope="LGPS">
+    <posXYZ volume="LGPH"/>
+  </composition>
+  <tubs name="LGPS" Rio_Z="0.0  123.190  1.270" material="Plexiglas"/>
+  <box name="LGPH" X_Y_Z="9.500 9.500 1.270" material="Air"/>
+
 
   <!-- The following elements describe an early rendition of the GlueX
        detector simulated using a fast Monte Carlo program MCFast.  They
