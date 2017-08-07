@@ -47,7 +47,7 @@
   </composition>
 
   <composition name="LGDlower" envelope="LGDB">
-    <mposY volume="LGDfullRow" ncopy="28" Z_X="0.0 0.0" Y0="-54.2120" dY="4.0157">
+    <mposY volume="LGDfullRow" ncopy="28" Z_X="0.0 0.0" Y0="-54.21195" dY="4.0157">
       <row value="0" step="1" />
     </mposY>
   </composition>
@@ -65,7 +65,7 @@
   </composition>
 
   <composition name="LGDupper" envelope="LGDT">
-    <mposY volume="LGDfullRow" ncopy="28" Z_X="0.0 0.0" Y0="-54.2120" dY="4.0157">
+    <mposY volume="LGDfullRow" ncopy="28" Z_X="0.0 0.0" Y0="-54.21195" dY="4.0157">
       <row value="31" step="1" />
     </mposY>
   </composition>
@@ -76,13 +76,13 @@
   </composition>
 
   <composition name="LGDhalfRowNorth">
-    <mposX volume="LGDblock" ncopy="28" Y_Z="0.0 0.0" X0="-54.2120" dX="4.0157">
+    <mposX volume="LGDblock" ncopy="28" Y_Z="0.0 0.0" X0="-54.21195" dX="4.0157">
       <column value="31" step="1" />
     </mposX>
   </composition>
 
   <composition name="LGDhalfRowSouth">
-    <mposX volume="LGDblock" ncopy="28" Y_Z="0.0 0.0" X0="-54.2120" dX="4.0157">
+    <mposX volume="LGDblock" ncopy="28" Y_Z="0.0 0.0" X0="-54.21195" dX="4.0157">
       <column value="0" step="1" />
     </mposX>
   </composition>
