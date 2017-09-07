@@ -1272,6 +1272,19 @@
  	</addmaterial>
   </composite>
 
+  <composite name="PWO">
+        <addmaterial material="Tungsten">
+                <fractionmass   fraction="0.4040"       />
+        </addmaterial>
+        <addmaterial material="Lead">
+                <fractionmass   fraction="0.4554"       />
+        </addmaterial>
+        <addmaterial material="Oxygen">
+                <fractionmass   fraction="0.1406"       />
+        </addmaterial>
+        <real name="density"    value="8.28" unit="g/cm^3" />
+  </composite>
+
   <composite name="StainlessSteel">
 	<addmaterial material="Iron">
 		<fractionmass fraction="0.6996"/>
