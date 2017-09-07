@@ -5,6 +5,11 @@
   **************************************************
 
      version 1.0: Initial version	-rtj
+     version 2.0: Changes by A.Somov
+       - change the calorimeter size to 10x10 blocks
+       - change Z-position of the CCAL
+       - add PWO material
+     
 
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
@@ -24,67 +29,75 @@
   </composition>
 
   <composition name="comptonEMcal" envelope="CCAL">
-    <posXYZ volume="LTDlower" X_Y_Z="0.0 -9.0  0.0" />
-    <posXYZ volume="LTDeast" X_Y_Z="-9.0  0.0  0.0" />
-    <posXYZ volume="LTDwest" X_Y_Z="+9.0  0.0  0.0" />
-    <posXYZ volume="LTDupper" X_Y_Z="0.0 +9.0  0.0" />
+    <posXYZ volume="LTDlower" X_Y_Z="0.0 -6.0  0.0" />
+    <posXYZ volume="LTDeast" X_Y_Z="-6.0  0.0  0.0" />
+    <posXYZ volume="LTDwest" X_Y_Z="+6.0  0.0  0.0" />
+    <posXYZ volume="LTDupper" X_Y_Z="0.0 +6.0  0.0" /> 
   </composition>
+  
 
   <composition name="LTDlower" envelope="LTDB">
-    <mposY volume="LTDfullRow" ncopy="7" Z_X="0.0 0.0" Y0="-6.0" dY="2.0">
+    <mposY volume="LTDfullRow" ncopy="4" Z_X="0.0 0.0" Y0="-3.0" dY="2.0">
       <row value="0" step="1" />
     </mposY>
   </composition>
-
-  <composition name="LTDwest" envelope="LTDW">
-    <mposY volume="LTDhalfRowWest" ncopy="2" Y0="-1.0" dY="2.0">
-      <row value="7" step="1" />
+  
+  <composition name="LTDupper" envelope="LTDT">
+    <mposY volume="LTDfullRow" ncopy="4" Z_X="0.0 0.0" Y0="-3.0" dY="2.0">
+      <row value="6" step="1" />
     </mposY>
   </composition>
-
+  
+  
+ <composition name="LTDwest" envelope="LTDW">
+    <mposY volume="LTDhalfRowWest" ncopy="2" Y0="-1.0" dY="2.0">
+      <row value="4" step="1" />
+    </mposY>
+  </composition>
+  
   <composition name="LTDeast" envelope="LTDE">
     <mposY volume="LTDhalfRowEast" ncopy="2" Y0="-1.0" dY="2.0">
-      <row value="7" step="1" />
+      <row value="4" step="1" />
     </mposY>
   </composition>
 
-  <composition name="LTDupper" envelope="LTDT">
-    <mposY volume="LTDfullRow" ncopy="7" Z_X="0.0 0.0" Y0="-6.0" dY="2.0">
-      <row value="9" step="1" />
-    </mposY>
-  </composition>
 
   <composition name="LTDfullRow">
-    <mposX volume="LTBL" ncopy="16" Y_Z="0.0 0.0" X0="-15.0" dX="2.0">
+    <mposX volume="LTBL" ncopy="10" Y_Z="0.0 0.0" X0="-9.0" dX="2.0">
       <column value="0" step="1" />
     </mposX>
   </composition>
 
+  
   <composition name="LTDhalfRowWest">
-    <mposX volume="LTBL" ncopy="7" Y_Z="0.0 0.0" X0="-6.0" dX="2.0">
-      <column value="9" step="1" />
+    <mposX volume="LTBL" ncopy="4" Y_Z="0.0 0.0" X0="-3.0" dX="2.0">
+      <column value="6" step="1" />
     </mposX>
-  </composition>
-
+  </composition> 
+  
+  
   <composition name="LTDhalfRowEast">
-    <mposX volume="LTBL" ncopy="7" Y_Z="0.0 0.0" X0="-6.0" dX="2.0">
+    <mposX volume="LTBL" ncopy="4" Y_Z="0.0 0.0" X0="-3.0" dX="2.0">
       <column value="0" step="1" />
     </mposX>
-  </composition>
+  </composition>    
+  
 
-  <box name="CCAL" X_Y_Z="32.0  32.0  18.0"  material="Air"
-	                              	comment="Compton EMcal mother" />
-  <box name="LTDB" X_Y_Z="32.0  14.0  18.0"  material="Air"
-					comment="LTD bottom section"   />
-  <box name="LTDT" X_Y_Z="32.0  14.0  18.0"  material="Air"
-					comment="LTD top section"      />
-  <box name="LTDW" X_Y_Z="14.0   4.0  18.0"  material="Air"
-					comment="LTD west section"     />
-  <box name="LTDE" X_Y_Z="14.0   4.0  18.0"  material="Air"
-					comment="LTD east section"    />
- <!-- LOOK UP MATERIAL FOR PWO4 -->
-  <box name="LTBL" X_Y_Z="  2.0    2.0  18.0"  material="leadGlassF800"
-		sensitive="true"	 comment="lead tungstate block"     />
+  <box name="CCAL" X_Y_Z="20.0  20.0  18.0"  material="Air"
+       comment="Compton EMcal mother" />
+
+  <box name="LTDB" X_Y_Z="20.0  8.0  18.0"  material="Air"
+       comment="LTD bottom section"   />
+  <box name="LTDT" X_Y_Z="20.0  8.0  18.0"  material="Air"
+       comment="LTD top section"      />
+  <box name="LTDW" X_Y_Z="8.0   4.0  18.0"  material="Air"
+       comment="LTD west section"     />
+  <box name="LTDE" X_Y_Z="8.0   4.0  18.0"  material="Air"
+       comment="LTD east section"    />
+
+  <box name="LTBL" X_Y_Z="  2.0    2.0  18.0"  material="PWO"
+       sensitive="true"	 comment="lead tungstate block"     />
+
 
   <!-- The following elements describe an early rendition of the GlueX
        detector simulated using a fast Monte Carlo program MCFast.  They
