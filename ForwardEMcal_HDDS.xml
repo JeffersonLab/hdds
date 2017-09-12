@@ -35,10 +35,10 @@
 <!-- Added light cover in front of entrance face to the FCal       -->
 
   <composition name="ForwardEMcal">
-    <posXYZ volume="forwardEMcal" X_Y_Z="0.0  0.0  22.8" />
+    <posXYZ volume="forwardEMcal" X_Y_Z="0.0  0.0  25.4" />
     <posXYZ volume="plexiSheet" X_Y_Z="0.0  0.0  -1.0" />
     <posXYZ volume="FCLC" X_Y_Z="0.0  0.0  -2.0" />
-    <posXYZ volume="FCBX" X_Y_Z="0.0  0.0  45.6" />
+    <posXYZ volume="FCBX" X_Y_Z="0.0  0.0  50.8" />
   </composition>
 
   <composition name="forwardEMcal" envelope="FCAL">
@@ -92,33 +92,36 @@
   </composition>
 
   <composition name="LGDblock" envelope="LGBU">
-    <posXYZ volume="LGBLwrapped" X_Y_Z="-0.0038 -0.0038 0"/>
+    <posXYZ volume="LGBLwrapped" X_Y_Z="-0.0038 -0.0038 -2.600"/>
     <posXYZ volume="LGBS" X_Y_Z="2.0021 0 0"/>
     <posXYZ volume="LGBS" X_Y_Z="0 2.0021 0" rot="0 0 90"/>
-    <posXYZ volume="LGBF" X_Y_Z="-0.0038 -0.0038 -22.5"/>
+    <posXYZ volume="LGBF" X_Y_Z="-0.0038 -0.0038 -25.100"/>
+    <posXYZ volume="LGLG" X_Y_Z="-0.0038 -0.0038  22.450"/>
   </composition>
 
   <composition name="LGBLwrapped" envelope="LGBW">
     <posXYZ volume="LGBL"/>
   </composition>
 
-  <box name="FCAL" X_Y_Z="236.9263  236.9263  45.6"  material="Air"
+  <box name="FCAL" X_Y_Z="236.9263  236.9263  50.8"  material="Air"
 	                              	comment="forward EMcal mother" />
-  <box name="LGDB" X_Y_Z="236.9263  112.4396  45.6"  material="Air"
+  <box name="LGDB" X_Y_Z="236.9263  112.4396  50.8"  material="Air"
 					comment="LGD bottom section"   />
-  <box name="LGDT" X_Y_Z="236.9263  112.4396  45.6"  material="Air"
+  <box name="LGDT" X_Y_Z="236.9263  112.4396  50.8"  material="Air"
 					comment="LGD top section"      />
-  <box name="LGDN" X_Y_Z="112.4396   12.0471  45.6"  material="Air"
+  <box name="LGDN" X_Y_Z="112.4396   12.0471  50.8"  material="Air"
 					comment="LGD north section"     />
-  <box name="LGDS" X_Y_Z="112.4396   12.0471  45.6"  material="Air"
+  <box name="LGDS" X_Y_Z="112.4396   12.0471  50.8"  material="Air"
 					comment="LGD south section"    />
-  <box name="LGBU" X_Y_Z="4.0157  4.0157  45.6"  material="Air"
+  <box name="LGBU" X_Y_Z="4.0157  4.0157  50.8"  material="Air"
 		            comment="lead glass block stacking unit cell"/>
   <box name="LGBL" X_Y_Z="4.0030  4.0030  45.0"  material="leadGlassF800"
 		sensitive="true" comment="lead glass block" />
+  <tubs name="LGLG" Rio_Z="0.0  1.5875  5.08" material="Plexiglas"
+		sensitive="true" comment="lead glass block plexiglass light guide" />
   <box name="LGBW" X_Y_Z="4.0081  4.0081  45.0"  material="Mylar"
 		            comment="aluminized mylar wrapping around the block"/>
-  <box name="LGBS" X_Y_Z="0.0076 2.8575 45.6" material="StainlessSteel"
+  <box name="LGBS" X_Y_Z="0.0076 2.8575 50.8" material="StainlessSteel"
 		            comment="SS strap holding the tube assy to the block"/>
   <pgon name="LGBF" segments="4" profile="-45 360" material="StainlessSteel"
 		            comment="SS frame fixing the straps to the front of the block">
@@ -127,13 +130,13 @@
   </pgon>
   <pgon name="FCBI" segments="4" profile="-45 360" material="StainlessSteel"
                     comment="FCal beam hole support insert">
-   <polyplane Rio_Z="4.7536 6.0236  -22.800"/>
-   <polyplane Rio_Z="4.7536 6.0236  +22.800"/>
+   <polyplane Rio_Z="4.7536 6.0236  -25.400"/>
+   <polyplane Rio_Z="4.7536 6.0236  +25.400"/>
   </pgon>
   <pgon name="FCBX" segments="4" profile="-45 360" material="StainlessSteel"
                     comment="FCal beam hole support extension">
    <polyplane Rio_Z="4.7536 6.0236   0.000"/>
-   <polyplane Rio_Z="4.7536 6.0236  37.585"/>
+   <polyplane Rio_Z="4.7536 6.0236  32.385"/>
   </pgon>
 
   <composition name="plexiSheet" envelope="LGPS">
