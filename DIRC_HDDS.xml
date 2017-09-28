@@ -22,7 +22,7 @@
 
 <composition name="DIRC">
 	<apply region="nullBfield"/>
-    <posXYZ volume="DRCC" X_Y_Z="-20.0  0.0  -30.0" rot="0.0 0.0 0.0"/>
+    <posXYZ volume="DRCC" X_Y_Z="0.0  0.0  -30.0" rot="0.0 0.0 0.0"/>
 </composition>
 
 <!-- DIRC detector
@@ -33,21 +33,25 @@
 -->
 
 <composition name="DRCC" envelope="DCMV">
-	<mposY volume="DCML" ncopy="2" Z_X="30.0 -270.0" Y0="-79.5" dY="43.0">
+	<mposY volume="DCML" ncopy="2" Z_X="30. 196." Y0="-81.25" dY="51.5" rot="0. 0. 180." >
 	  <plane value="1" step="1"/>
 	</mposY>
-	<mposY volume="DCML" ncopy="2" Z_X="30.0 -270.0" Y0="36.5" dY="43.0">
+	<mposY volume="DCML" ncopy="2" Z_X="30. -196." Y0="29.76" dY="51.5" > <!-- Y0 was 36.5, dY was 43, x was -270. -->
           <plane value="3" step="1"/>
         </mposY>
-	<!-- Maria's focusing block -->
-	<!--posXYZ volume="OBC" X_Y_Z="247.59 -58.0 3.85" /--> <!-- z was 30.0 -->
-        <!--posXYZ volume="OBC" ncopy="2" X_Y_Z="247.59 58.0 3.85" /-->  <!-- z was 30.0 -->
-	<mposY volume="OBC" ncopy="2" Z_X="3.58 247.59" Y0="-58.0" dY="116.0">
-	  <sector value="1" step="1"/>
-	</mposY>
+	<!--mposY volume="OBC" ncopy="2" Z_X="3.91 246.59" Y0="-55.4268" dY="109.594"-->
+	  <!--sector value="1" step="1"/-->
+	<!--/mposY-->
+	<posXYZ volume="OBC" X_Y_Z="-320.59 -55.4268 3.91" rot="0. 0. 180.">
+	  <plane value="0" />
+	</posXYZ>
+	<posXYZ volume="OBC" X_Y_Z=" 320.59  55.4268 3.91" rot="0. 0. 0." >
+	  <plane value="1" />
+	</posXYZ >
+	  
 </composition>
 
-<box name="DCMV" X_Y_Z="560.0 250.0 150.0" material="OpticalAir" /> <!-- x was 560, y was  220, z was 80 -->
+<box name="DCMV" X_Y_Z="10000.0 10000.0 10000.0" material="OpticalAir" /> <!-- x was 560, y was  220, z was 80 -->
 
 
 <!-- DIRC bar box module (12 individual bars): x positions
@@ -69,7 +73,7 @@
 	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
 	<posXYZ volume="WNGL" X_Y_Z="500.0875 0.0 -4.775" />
 	<posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
-	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" />
+
 </composition>
 
 
@@ -110,7 +114,7 @@
 
 <!-- Two focusing optics boxes for all bar boxes: x positions
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	FTMR: 507.99	        to 508:		Fla -4.775" t mirror coating
+	FTMR: 507.99	        to 508:		Flat mirror coating
 	BTFB: 508		to 529.1:	Bottom focusing block (box containing 3-segment mirror)
 	TPFB: 508		to 529.1:	Top focusing block (trapezoid near readout plane)
 	RDCD: 508.9		to 529.1:	Photocathode
@@ -118,31 +122,32 @@
 -->
 
 <!-- optical box made of water -->
-<box name="OBV" X_Y_Z="35.0 91.2 58.2" material="OpticalH2O"/>
+<box name="OBV" X_Y_Z="35.0 100. 58.2" material="OpticalH2O"/>
 
 <composition name="OBC" envelope="OBV">
-        <posXYZ volume="FTMR" X_Y_Z="-9.695 0.0 -6.179" /> <!-- z was -32.225 -->
-        <posXYZ volume="BWPG" X_Y_Z="1.297 0.0 -16.126" rot="0.0 42.12454632 0.0" /> <!-- z was -42.211 -->
-	<posXYZ volume="TSM1" X_Y_Z="10.48 0.0 4.861" rot="0.0 -11.386 0.0" /> <!-- z was -21.224, x was 10.48 -->
-        <posXYZ volume="TSM2" X_Y_Z="8.21 0.0 14.20" rot="0.0 -15.981 0.0" /> <!-- z was -11.88 -->
-        <posXYZ volume="TSM3" X_Y_Z="5.19 0.0 23.321" rot="0.0 -20.576 0.0" /> <!-- z was -2.764 -->
-        <posXYZ volume="FWM1" X_Y_Z="-6.0 0.0 27.855" /> <!--z was 1.73 -->
-        <posXYZ volume="FWM2" X_Y_Z="-12.6 0.0 16.455" rot="0.0 30.0 0.0"/> <!--z was -9.6297 -->
-	<posXYZ volume="FSM1" X_Y_Z="-0.5 -45.505 -0.14" /> <!-- z was -26.225-->
-        <posXYZ volume="FSM2" X_Y_Z="-0.5 45.505 -0.14" />
+        <posXYZ volume="FTMR" X_Y_Z="-8.74 0.0 -6.18885" /> <!-- z was -6.179, x was -9.695 -->
+        <posXYZ volume="BWPG" X_Y_Z="3. 0.0 -16.7" rot="0.0 42.12454632 0.0" /> <!-- z was -42.211 -->
+	<posXYZ volume="TSM1" X_Y_Z="12.3211 0.0 4.97" rot="0.0 -9.067 0.0" /> <!-- z was 4.861, -21.224, angle was -11.386 -->
+        <posXYZ volume="TSM2" X_Y_Z="10.2496 0.0 14.33" rot="0.0 -15.9020 0.0" /> <!-- z was 14.20, -11.88, angle was -15.981 -->
+        <posXYZ volume="TSM3" X_Y_Z="7.06723 0.0 23.3881" rot="0.0 -22.8934 0.0" /> <!-- z was 23.321, -2.764, angle was =20.576 -->
+        <posXYZ volume="FWM1" X_Y_Z="-6.0 0.0 27.81" /> <!--z was 27.855, 27.2875 -->
+        <posXYZ volume="FWM2" X_Y_Z="-12. 0.0 16.5" rot="0.0 30.0 0.0"/> <!--x was -12.6, z was 15.9118 -->
+	<posXYZ volume="FSM1" X_Y_Z="-0.5 -49.05 -0.14" />
+        <posXYZ volume="FSM2" X_Y_Z="-0.5 49.05 -0.14" />
+	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" />
 </composition>
 
 <!-- flat mirror -->
-<box name="FTMR" X_Y_Z="0.01 90.1 41.9"
+<box name="FTMR" X_Y_Z="0.01 98.072 40.2"
      material="ThickCerenkovMirror" /><!-- z was 42.9 -->
 
 
 <!-- photocathode -->
-<!-- <box name="RDCD" X_Y_Z="0.01 90.1 31.45" -->
+<!-- <box name="RDCD" X_Y_Z="0.01 98.072 31.45" -->
 <!-- 	material="CerenkovPhotocathode" sensitive="true" /> -->
 
 <!-- window of the optical box -->
-<box name="OBWI" X_Y_Z="1.27 90.1 31.8" material="fusedSilica" />
+<box name="OBWI" X_Y_Z="1.27 98.072 31.8" material="fusedSilica" />
 
 <composition name="BWPG" envelope="OBWI">
   <posXYZ volume="PMTgrid" X_Y_Z="0.62 0.0 0.0" />
@@ -180,9 +185,9 @@
   </mposY>
 </composition>
 
-<!-- PMT rows 1..17 -->
+<!-- PMT rows 1..18 -->
 <composition name="PMTrow">
-  <mposY volume="PMTC" ncopy="17" Z_X="0.0 0.0" Y0="-42.4" dY="5.3" >
+  <mposY volume="PMTC" ncopy="18" Z_X="0.0 0.0" Y0="-44.95" dY="5.3" >
     <row value="1" step="1"/>
   </mposY>
 </composition>
@@ -203,13 +208,13 @@
 </composition>
 
 <!-- 3 segment mirrors -->
-<box name="TSM1" X_Y_Z="0.01 90.1 9.6" material="ThickCerenkovMirror" />
-<box name="TSM2" X_Y_Z="0.01 90.1 9.6" material="ThickCerenkovMirror" />
-<box name="TSM3" X_Y_Z="0.01 90.1 9.6" material="ThickCerenkovMirror" />
+<box name="TSM1" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" />
+<box name="TSM2" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" />
+<box name="TSM3" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" />
 
 <!-- flat wedge mirrors to replace new wedge -->
-<box name="FWM1" X_Y_Z="19.0 90.1 0.01" material="ThickCerenkovMirror" />
-<box name="FWM2" X_Y_Z="6.697 90.1 0.01" material="ThickCerenkovMirror" /> <!-- x was 6.697-->
+<box name="FWM1" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" />
+<box name="FWM2" X_Y_Z="6.66 98.072 0.01" material="ThickCerenkovMirror" /> <!-- x was 6.697-->
 
 <!-- flat side mirrors on ends of box -->
 <box name="FSM1" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" />
@@ -221,7 +226,7 @@
         <posXYZ volume="RAWN" X_Y_Z="243.95 0.0 -0.25" />   <!-- front of bar box module -->
 	<posXYZ volume="ABH1" X_Y_Z="243.95 0.0 1.975" />   <!-- back of bar box module  -->
 	<posXYZ volume="ABV1" X_Y_Z="243.9 -21.3 0.8625" /> <!-- side of bar box module  -->
-	<posXYZ volume="ABV1" X_Y_Z="243.9 21.3 0.8625" />  <!-- side of bar box module  -->
+	<posXYZ volume="ABV1" X_Y_Z="243.9  21.3 0.8625" />  <!-- side of bar box module  -->
 </composition>
 
 <box name="ABT1" X_Y_Z="0.1 42.5 2.325" material="Aluminum" />
@@ -232,33 +237,31 @@
 
 <!-- Al Container for focusing optics box -->
 <composition name="ALCF">
-        <posXYZ volume="ABT2" X_Y_Z="488.95 0.0 -6.2875" />
-	<posXYZ volume="ABT3" X_Y_Z="488.95 0.0 2.475" />
-	<posXYZ volume="ABT4" X_Y_Z="499.5 0.0 -33.825" /> <!--x was 506.95 -->
-	<posXYZ volume="ABT5" X_Y_Z="536. 0.0 -26.175" /> <!-- x was 531.05 -->
+        <!--posXYZ volume="ABT2" X_Y_Z="-17. 0.0 0." /-->
+	<!--posXYZ volume="ABT3" X_Y_Z="-17. 0.0 2.475" /-->
+	<posXYZ volume="ABT4" X_Y_Z="-9. 0.0 -7." />
+	<posXYZ volume="ABT5" X_Y_Z="17. 0.0 0." />
 		
-	<posXYZ volume="ABH2" X_Y_Z="494.05 0.0 -12.325" /> <!--x was 497.95 -->
-	<posXYZ volume="ABH3" X_Y_Z="517.75 0.0 -55.5" /> <!-- x was 519.0, z was -55.325 -->
-	<posXYZ volume="ABH4" X_Y_Z="512.5 0.0 3." /> <!-- x was 510.0 -->
+	<posXYZ volume="ABH2" X_Y_Z="-12.5 0.0 14." /> 
+	<posXYZ volume="ABH3" X_Y_Z="0. 0.0 -29." />
+	<posXYZ volume="ABH4" X_Y_Z="0. 0.0 29." />
 	
-	<!-- Al plates for the ends of the focusing optics box
-	<posXYZ volume="ABV2" X_Y_Z="497.9 -21.3 -4.775" />
-	<posXYZ volume="ABV2" X_Y_Z="497.9 21.3 -4.775" />
-	<posXYZ volume="ABV3" X_Y_Z="519.0 -21.3 -25.775" />
-	<posXYZ volume="ABV3" X_Y_Z="519.0 21.3 -26.275" /-->
+	<!-- Al plates for the ends of the focusing optics box -->
+	<posXYZ volume="ABV2" X_Y_Z="0. -49.1 0." />
+	<posXYZ volume="ABV3" X_Y_Z="0.  49.1 0." />
 </composition>
 
-<box name="ABT2" X_Y_Z="0.1 90.2 12.175" material="Aluminum" />
+<box name="ABT2" X_Y_Z="0.1 90.2 12.175" material="Aluminum" /> 
 <box name="ABT3" X_Y_Z="0.1 90.2 1.1" material="Aluminum" />
-<box name="ABT4" X_Y_Z="0.1 90.2 43.1" material="Aluminum" />
-<box name="ABT5" X_Y_Z="0.1 90. 58.4" material="Aluminum" />
+<box name="ABT4" X_Y_Z="0.1 90.2 41." material="Aluminum" />
+<box name="ABT5" X_Y_Z="0.1 90.2 58." material="Aluminum" />
 
-<box name="ABH2" X_Y_Z="11.1 90.2 0.1" material="Aluminum" /> <!--x was 17.9 -->
-<box name="ABH3" X_Y_Z="36.25 90.2 0.1" material="Aluminum" /> <!--x was 24.0 -->
-<box name="ABH4" X_Y_Z="47. 90.2 0.1" material="Aluminum" /><!-- x was 42.0 -->
+<box name="ABH2" X_Y_Z="7.1  98.2 0.1" material="Aluminum" />
+<box name="ABH3" X_Y_Z="35. 98.2 0.1" material="Aluminum" />
+<box name="ABH4" X_Y_Z="35. 98.2 0.1" material="Aluminum" />
 
-<box name="ABV2" X_Y_Z="18.0 0.1 15.2" material="Aluminum" />
-<box name="ABV3" X_Y_Z="24.2 0.1 58.2" material="Aluminum" />
+<box name="ABV2" X_Y_Z="35.0 0.1 58.2" material="Aluminum" />
+<box name="ABV3" X_Y_Z="35.0 0.1 58.2" material="Aluminum" />
 
 </section>
 
