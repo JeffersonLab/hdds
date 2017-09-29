@@ -43,10 +43,10 @@
 	  <!--sector value="1" step="1"/-->
 	<!--/mposY-->
 	<posXYZ volume="OBC" X_Y_Z="-320.59 -55.4268 3.91" rot="0. 0. 180.">
-	  <plane value="0" />
+	  <plane value="1" />
 	</posXYZ>
 	<posXYZ volume="OBC" X_Y_Z=" 320.59  55.4268 3.91" rot="0. 0. 0." >
-	  <plane value="1" />
+	  <plane value="2" />
 	</posXYZ >
 	  
 </composition>
