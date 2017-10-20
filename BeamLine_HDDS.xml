@@ -48,7 +48,7 @@
       chosen to make a 0.1% converter if the material is set to Carbon.
 
 
-     Revision 2.1  12/12/2008
+     Revision 2.1  12/12/2008, A.S., rtj
        Made the following changes in the composition 'collimatorStack':
   	  1. Added the composition BeamPipe0 describing a vacuum beam pipe at the entrance 
              of the collimator cave:
@@ -183,10 +183,10 @@
     <posXYZ volume="Flange7"       X_Y_Z="0.0  0.0   840.954" />
     <posXYZ volume="ConcreteWall2" X_Y_Z="0.0  33.0  941.24" />
     <posXYZ volume="shieldingWall" X_Y_Z="0.0  35.0 1004.74" />     
-    <!-- <posXYZ volume="TargetBox"     X_Y_Z="50.0  0.0 1085.00" /> -->
-    <posXYZ volume="BeamPipe2"     X_Y_Z="0.0  0.0  1066.146" />
+    <!--    <posXYZ volume="TargetBox"     X_Y_Z="0.0  0.0 1085.00" />   -->
+    <posXYZ volume="BeamPipe2"     X_Y_Z="0.0  0.0  1066.668" /> 
   </composition>
-
+  
 <!-- Beam Pipe 0 -->
 
   <composition name="pipeFromTaggerHall" envelope="PFTH">
@@ -671,8 +671,9 @@
   <tubs name="F6O5" Rio_Z="0.0  2.54   29.0" material="Iron" />
   <tubs name="F6I5" Rio_Z="0.0  2.38   29.0" material="Vacuum" />
 
-<!-- pair spectrometer converter target box -
-This construction is not in use at the present time
+
+
+
 
   <composition name="TargetBox">
     <posXYZ volume="TargetBoxDisk1" X_Y_Z="0.0 0.0 -10.9"/>
@@ -705,7 +706,11 @@ This construction is not in use at the present time
   <box name="TBO3" X_Y_Z="22.0  20.0  0.2" material="Iron" />
   <tubs name="TBI3" Rio_Z="0.0  2.38  0.2" material="Vacuum" />
   <box  name="CONV" X_Y_Z="1.0  1.0  0.0445" material="Aluminum" />
--->
+
+
+
+
+
 
 <!-- Flange 7 -->
 
@@ -804,9 +809,9 @@ This construction is not in use at the present time
     <posXYZ volume="PSCH" />
   </composition>
 
-  <tubs name="BPO2" Rio_Z="0.0  2.54   117.723" material="Iron" />
-  <tubs name="BPI2" Rio_Z="0.0  2.38   117.723" material="Vacuum" />
-
+  <tubs name="BPO2" Rio_Z="0.0  2.54   118.767" material="Iron" />
+  <tubs name="BPI2" Rio_Z="0.0  2.38   118.767" material="Vacuum" />
+    
   <composition name="PairSpecConverter" envelope="PSCM">
     <posXYZ volume="PSCV"/>
     <posXYZ volume="PSCH"/>
@@ -1194,8 +1199,11 @@ This construction is not in use at the present time
      <posXYZ volume="PTH5" X_Y_Z="-6.125 0.0 -2.0" rot="0 90 0" unit_length="in" />
   </composition>
 
-  <tubs name="PTAR" Rio_Z="0.0 0.375 0.003" material="Beryllium" unit_length="in"
-                   comment="polarimeter converter target" />
+  
+  <tubs name="PTAR" Rio_Z="0.0 0.375 0.0075" material="Beryllium" 
+	comment="polarimeter converter target" /> 
+  
+  
   <box name="PTBO" X_Y_Z="12.5 12.5 12.5" material="Iron" unit_length="in"
                    comment="polarimeter vacuum box enclosure cube1" />
   <box name="PTB0" X_Y_Z="12.25 12.0 12.0" material="Vacuum" unit_length="in"
