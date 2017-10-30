@@ -1010,6 +1010,17 @@
 		<fractionmass	fraction="0.015" />
  	</addmaterial>
 	<real name="density"	value="2.30"		unit="g/cm^3" />
+	<optical_properties>
+	  <specify E="1.50" refindex="1.510" abslen="7.8" />
+	  <specify E="2.00" refindex="1.520" abslen="7.8" />
+	  <specify E="2.50" refindex="1.522" abslen="7.8" />
+	  <specify E="3.00" refindex="1.529" abslen="7.8" />
+	  <specify E="3.50" refindex="1.539" abslen="7.44" />
+	  <specify E="4.00" refindex="1.550" abslen="3.36" />
+	  <specify E="4.50" refindex="1.553" abslen="0.24" />
+	  <specify E="5.00" refindex="1.553" abslen="0.24" />
+	  <specify E="5.50" refindex="1.553" abslen="0.24" />
+	</optical_properties>
   </composite>
 
   <composite name="E-glass">
@@ -1145,18 +1156,16 @@
 	<addmaterial material="Oxygen"> <natoms n="2"/> </addmaterial>
 	<real name="density"	value="2.20"	unit="g/cm^3" />
         <optical_properties>
-	     <specify E="1.50" refindex="1.452" abslen="445169" />
-             <specify E="2.00" refindex="1.457" abslen="159561" />
-             <specify E="2.50" refindex="1.462" abslen="64725" />
-             <specify E="3.00" refindex="1.468" abslen="31620" />
-             <specify E="3.50" refindex="1.475" abslen="17068" />
-             <specify E="4.00" refindex="1.484" abslen="9908" /> 
-	     <specify E="4.13" refindex="1.487" abslen="6307" />
-<!--
-	     <specify E="4.50" refindex="1.495" abslen="300" />
-	     <specify E="5.00" refindex="1.508" abslen="200" />
-	     <specify E="5.50" refindex="1.508" abslen="0.1" />
--->
+	     <specify E="1.50" refindex="1.453" abslen="445169" />
+             <specify E="2.00" refindex="1.458" abslen="159561" />
+             <specify E="2.50" refindex="1.463" abslen="64725" />
+             <specify E="3.00" refindex="1.469" abslen="31620" />
+             <specify E="3.50" refindex="1.476" abslen="17068" />
+             <specify E="4.00" refindex="1.485" abslen="9908" /> 
+	     <specify E="4.13" refindex="1.488" abslen="6307" />
+	     <specify E="4.50" refindex="1.495" abslen="6216" />
+	     <specify E="5.00" refindex="1.508" abslen="4111" />
+	     <specify E="5.50" refindex="1.508" abslen="2785" />
         </optical_properties>
   </composite>
 
@@ -1165,15 +1174,15 @@
         <addmaterial material="Oxygen">  <natoms n="1"  /> </addmaterial>
         <real name="density"    value="1.00"        unit="g/cm^3"   />
         <optical_properties>
-	     <specify E="1.50" refindex="1.452" abslen="1000" />
-             <specify E="2.00" refindex="1.457" abslen="1000" />
-             <specify E="2.50" refindex="1.462" abslen="1000" />
-             <specify E="3.00" refindex="1.468" abslen="1000" />
-             <specify E="3.50" refindex="1.475" abslen="1000" />
-             <specify E="4.00" refindex="1.484" abslen="1000" /> 
-	     <specify E="4.50" refindex="1.495" abslen="1000" />
-	     <specify E="5.00" refindex="1.508" abslen="1000" />
-	     <specify E="5.50" refindex="1.508" abslen="1000" />
+	     <specify E="1.50" refindex="1.329" abslen="281" />
+             <specify E="2.00" refindex="1.332" abslen="281" />
+             <specify E="2.50" refindex="1.335" abslen="3934" />
+             <specify E="3.00" refindex="1.339" abslen="4623" />
+             <specify E="3.50" refindex="1.343" abslen="2768" />
+             <specify E="4.00" refindex="1.347" abslen="1753" /> 
+	     <specify E="4.50" refindex="1.354" abslen="635" />
+	     <specify E="5.00" refindex="1.362" abslen="635" />
+	     <specify E="5.50" refindex="1.373" abslen="635" />
         </optical_properties>
   </composite>
 
@@ -1220,6 +1229,51 @@
 	  <specify E="5.00" refindex="1.52" abslen="0.001" effic="0.002" />
         </optical_properties>
   </composite>
+
+  <composite name="CerenkovPhotocathodeEffective">
+	<addmaterial material="Cesium">
+		<fractionmass fraction="1.0" />
+ 	</addmaterial>
+        <optical_properties>
+	  <specify E="1.50" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="1.60" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="1.70" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="1.80" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="1.90" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="2.00" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="2.10" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="2.20" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="2.30" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="2.40" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="2.50" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="2.60" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="2.70" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="2.80" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="2.90" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="3.00" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="3.10" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="3.20" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="3.30" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="3.40" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="3.50" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="3.60" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="3.70" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="3.80" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="3.90" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="4.00" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="4.10" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="4.20" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="4.30" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="4.40" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="4.50" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="4.60" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="4.70" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="4.80" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="4.90" refindex="1.52" abslen="0.0001" effic="1." />
+	  <specify E="5.00" refindex="1.52" abslen="0.0001" effic="1." />
+        </optical_properties>
+  </composite>
+  
 
   <composite name="BoronNitride"> 
 	<addmaterial material="Boron">
@@ -1455,14 +1509,15 @@
     </addmaterial>
     <real name="density" value="1.3" unit="g/cm^3" />
     <optical_properties>
-      <specify E="1.50" refindex="1.452" abslen="5" />
-      <specify E="2.00" refindex="1.457" abslen="5" />
-      <specify E="2.50" refindex="1.462" abslen="5" />
-      <specify E="3.00" refindex="1.468" abslen="5" />
-      <specify E="3.50" refindex="1.475" abslen="2" />
-      <specify E="4.00" refindex="1.484" abslen="1" />
-      <specify E="4.50" refindex="1.495" abslen="0.01" />
-      <specify E="5.00" refindex="1.508" abslen="0.001" />
+      <specify E="1.50" refindex="1.452" abslen="10000" />
+      <specify E="2.00" refindex="1.457" abslen="10000" />
+      <specify E="2.50" refindex="1.462" abslen="10000" />
+      <specify E="3.00" refindex="1.468" abslen="25" />
+      <specify E="3.50" refindex="1.475" abslen="0.84" />
+      <specify E="4.00" refindex="1.484" abslen="0.20" />
+      <specify E="4.10" refindex="1.484" abslen="0.1" />      
+      <specify E="4.50" refindex="1.495" abslen="0.00" />
+      <specify E="5.00" refindex="1.508" abslen="0.00" />
     </optical_properties>
   </composite>
 
@@ -1472,14 +1527,15 @@
     </addmaterial>
     <real name="density" value="1.3" unit="g/cm^3" />
     <optical_properties>
-      <specify E="1.50" refindex="1.452" abslen="5" />
-      <specify E="2.00" refindex="1.457" abslen="5" />
-      <specify E="2.50" refindex="1.462" abslen="5" />
-      <specify E="3.00" refindex="1.468" abslen="5" />
-      <specify E="3.50" refindex="1.475" abslen="2" />
-      <specify E="4.00" refindex="1.484" abslen="1" />
-      <specify E="4.50" refindex="1.495" abslen="0.01" />
-      <specify E="5.00" refindex="1.508" abslen="0.001" />
+      <specify E="1.50" refindex="1.406" abslen="2.4" />
+      <specify E="2.00" refindex="1.406" abslen="2.4" />
+      <specify E="2.50" refindex="1.406" abslen="2.4" />
+      <specify E="3.00" refindex="1.406" abslen="2.37" />
+      <specify E="3.50" refindex="1.406" abslen="1.86" />
+      <specify E="4.00" refindex="1.406" abslen="1.37" />
+      <specify E="4.10" refindex="1.406" abslen="0.1" />      
+      <specify E="4.50" refindex="1.406" abslen="0.1" />
+      <specify E="5.00" refindex="1.406" abslen="0.1" />
     </optical_properties>
   </composite>
 

@@ -154,7 +154,7 @@
 </composition>
 
 <!-- PMT -->
-<box name="PMTV" X_Y_Z="0.01 5.2 5.2" material="fusedSilica"/>
+<box name="PMTV" X_Y_Z="0.01 5.2 5.2" material="BorosilicateGlass"/>
 
 <!-- pixel numbering 1..64 within one PMT -->
 <composition name="PMTC" envelope="PMTV">
@@ -201,7 +201,7 @@
 
 <!-- pixel -->
 <box name="PIXV" X_Y_Z="0.01 0.6 0.6"
-       material="CerenkovPhotocathode" sensitive="true" />
+       material="CerenkovPhotocathodeEffective" sensitive="true" />
 
 <composition name="PIXrow">
   <mposY volume="PIXV" ncopy="8" Z_X="0.0 0.0" Y0="-2.121" dY="0.606" /> 
