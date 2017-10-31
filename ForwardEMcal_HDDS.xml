@@ -31,9 +31,13 @@
      length (32.75") shown in the drawings, with front flush with
      the front of the wrapped blocks.                              -->
 
+<!-- July 7, 2017, Richard Jones                                   -->
+<!-- Added light cover in front of entrance face to the FCal       -->
+
   <composition name="ForwardEMcal">
     <posXYZ volume="forwardEMcal" X_Y_Z="0.0  0.0  22.8" />
     <posXYZ volume="plexiSheet" X_Y_Z="0.0  0.0  -1.0" />
+    <posXYZ volume="FCLC" X_Y_Z="0.0  0.0  -2.0" />
     <posXYZ volume="FCBX" X_Y_Z="0.0  0.0  45.6" />
   </composition>
 
@@ -137,6 +141,7 @@
   </composition>
   <tubs name="LGPS" Rio_Z="0.0  123.190  1.270" material="Plexiglas"/>
   <box name="LGPH" X_Y_Z="9.500 9.500 1.270" material="Air"/>
+  <box name="FCLC" X_Y_Z="243.8 243.8 0.3175" material="ABS-PVC"/>
 
 
   <!-- The following elements describe an early rendition of the GlueX

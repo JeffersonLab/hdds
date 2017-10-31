@@ -703,6 +703,13 @@
 	<real name="density"	value="1.32"	unit="g/cm^3"	/>
   </composite>
 
+  <composite name="ABS-PVC">
+	<addmaterial material="Carbon">   <natoms n="15"	/> </addmaterial>
+	<addmaterial material="Hydrogen"> <natoms n="17"	/> </addmaterial>
+	<addmaterial material="Nitrogen"> <natoms n="1"	/> </addmaterial>
+	<real name="density"	value="1.11"	unit="g/cm^3"	/>
+  </composite>
+
   <composite name="Teflon">
 	<addmaterial material="Carbon">   <natoms n="1"	/> </addmaterial>
 	<addmaterial material="Fluorine"> <natoms n="2"	/> </addmaterial>
