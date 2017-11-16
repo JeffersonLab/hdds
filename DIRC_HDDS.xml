@@ -126,7 +126,7 @@
 
 <composition name="OBC" envelope="OBV">
         <posXYZ volume="FTMR" X_Y_Z="-8.74 0.0 -6.18885" />
-        <posXYZ volume="BWPG" X_Y_Z="3.15 0.0 -16.4" rot="0.0 42.12454632 0.0" />
+        <posXYZ volume="BWPG" X_Y_Z="3.15 0.0 -16.05" rot="0.0 42.12454632 0.0" />
 	<posXYZ volume="TSM1" X_Y_Z="12.3211 0.0 4.97" rot="0.0 -9.067 0.0" /> 
         <posXYZ volume="TSM2" X_Y_Z="10.2496 0.0 14.33" rot="0.0 -15.9020 0.0" />
         <posXYZ volume="TSM3" X_Y_Z="7.06723 0.0 23.3881" rot="0.0 -22.8934 0.0" />
@@ -149,43 +149,47 @@
 <!-- window of the optical box -->
 <box name="OBWI" X_Y_Z="1.27 98.072 31.8" material="fusedSilica" />
 
-<composition name="BWPG" envelope="OBWI">
-  <posXYZ volume="PMTgrid" X_Y_Z="0.62 0.0 0.0" />
+<composition name="BWPG">
+  <posXYZ volume="OBWI" X_Y_Z="0.0 0.0 0.0" />
+  <posXYZ volume="SICO" X_Y_Z="0.735 0.0 0.0" />
+  <posXYZ volume="PMTgrid" X_Y_Z="0.915 0.0 0.0" /> <!-- 0.62 -->
 </composition>
 
+<!-- silicone cookie -->
+<box name="SICO" X_Y_Z="0.2 98.072 31.8" material="OpticalRTV" />
+
 <!-- PMT -->
-<box name="PMTV" X_Y_Z="0.01 5.2 5.2" material="BorosilicateGlass"/>
+<box name="PMTV" X_Y_Z="0.16 5.2 5.2" material="BorosilicateGlass"/>
 
 <!-- pixel numbering 1..64 within one PMT -->
 <composition name="PMTC" envelope="PMTV">
-  <!--mposZ volume="PIXrow" ncopy="8" X_Y="0.0 0.0" Z0="-2.121" dZ="0.606" /-->
-  <mposY volume="PIXV" ncopy="8" Z_X="-2.121 0.0" Y0="-2.121" dY="0.606" >
+  <mposY volume="PIXV" ncopy="8" Z_X="-2.121 0.075" Y0="-2.121" dY="0.606" >
     <cell value="1" step="1"/>
   </mposY> 
-  <mposY volume="PIXV" ncopy="8" Z_X="-1.515 0.0" Y0="-2.121" dY="0.606" >
+  <mposY volume="PIXV" ncopy="8" Z_X="-1.515 0.075" Y0="-2.121" dY="0.606" >
     <cell value="9" step="1"/>
   </mposY>
-  <mposY volume="PIXV" ncopy="8" Z_X="-0.909 0.0" Y0="-2.121" dY="0.606" >
+  <mposY volume="PIXV" ncopy="8" Z_X="-0.909 0.075" Y0="-2.121" dY="0.606" >
     <cell value="17" step="1"/>
   </mposY>
-  <mposY volume="PIXV" ncopy="8" Z_X="-0.303 0.0" Y0="-2.121" dY="0.606" >
+  <mposY volume="PIXV" ncopy="8" Z_X="-0.303 0.075" Y0="-2.121" dY="0.606" >
     <cell value="25" step="1"/>
   </mposY>
-  <mposY volume="PIXV" ncopy="8" Z_X="0.303 0.0" Y0="-2.121" dY="0.606" >
+  <mposY volume="PIXV" ncopy="8" Z_X="0.303 0.075" Y0="-2.121" dY="0.606" >
     <cell value="33" step="1"/>
   </mposY>
-  <mposY volume="PIXV" ncopy="8" Z_X="0.909 0.0" Y0="-2.121" dY="0.606" >
+  <mposY volume="PIXV" ncopy="8" Z_X="0.909 0.075" Y0="-2.121" dY="0.606" >
     <cell value="41" step="1"/>
   </mposY>
-  <mposY volume="PIXV" ncopy="8" Z_X="1.515 0.0" Y0="-2.121" dY="0.606" >
+  <mposY volume="PIXV" ncopy="8" Z_X="1.515 0.075" Y0="-2.121" dY="0.606" >
     <cell value="49" step="1"/>
   </mposY>
-  <mposY volume="PIXV" ncopy="8" Z_X="2.121 0.0" Y0="-2.121" dY="0.606" >
+  <mposY volume="PIXV" ncopy="8" Z_X="2.121 0.075" Y0="-2.121" dY="0.606" >
     <cell value="57" step="1"/>
   </mposY>
 </composition>
 
-<!-- PMT rows 1..18 -->
+<!-- PMT row, length is 1..18 -->
 <composition name="PMTrow">
   <mposY volume="PMTC" ncopy="18" Z_X="0.0 0.0" Y0="-44.95" dY="5.3" >
     <row value="1" step="1"/>
