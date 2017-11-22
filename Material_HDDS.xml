@@ -1486,20 +1486,20 @@
         </addmaterial>
         <real name="density"    value="0.001214"        unit="g/cm^3" />
     <optical_properties>
-          <specify E="1.50" refindex="1." abslen="10000" />
-          <specify E="2.00" refindex="1." abslen="10000" />
-          <specify E="2.50" refindex="1." abslen="10000" />
-          <specify E="3.00" refindex="1." abslen="10000" />
-          <specify E="3.50" refindex="1." abslen="10000" />
-          <specify E="4.00" refindex="1." abslen="10000" />
-          <specify E="4.50" refindex="1." abslen="10000" />
-          <specify E="5.00" refindex="1." abslen="10000" />
-          <specify E="5.50" refindex="1." abslen="10000" />
-          <specify E="6.00" refindex="1." abslen="10000" />
-          <specify E="6.50" refindex="1." abslen="10000" />
-          <specify E="7.00" refindex="1." abslen="10000" />
-          <specify E="7.50" refindex="1." abslen="10000" />
-          <specify E="8.00" refindex="1." abslen="10000" />
+          <specify E="1.50" refindex="1." abslen="456403" />
+          <specify E="2.00" refindex="1." abslen="138800" />
+          <specify E="2.50" refindex="1." abslen="67116" />
+          <specify E="3.00" refindex="1." abslen="29182" />
+          <specify E="3.50" refindex="1." abslen="17000" />
+          <specify E="4.00" refindex="1." abslen="9768" />
+          <specify E="4.50" refindex="1." abslen="6298" />
+          <specify E="5.00" refindex="1." abslen="4000" />
+          <specify E="5.50" refindex="1." abslen="4000" />
+          <specify E="6.00" refindex="1." abslen="4000" />
+          <specify E="6.50" refindex="1." abslen="4000" />
+          <specify E="7.00" refindex="1." abslen="4000" />
+          <specify E="7.50" refindex="1." abslen="4000" />
+          <specify E="8.00" refindex="1." abslen="4000" />
     </optical_properties>
   </composite>
 
