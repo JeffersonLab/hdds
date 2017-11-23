@@ -703,6 +703,13 @@
 	<real name="density"	value="1.32"	unit="g/cm^3"	/>
   </composite>
 
+  <composite name="ABS-PVC">
+	<addmaterial material="Carbon">   <natoms n="15"	/> </addmaterial>
+	<addmaterial material="Hydrogen"> <natoms n="17"	/> </addmaterial>
+	<addmaterial material="Nitrogen"> <natoms n="1"	/> </addmaterial>
+	<real name="density"	value="1.11"	unit="g/cm^3"	/>
+  </composite>
+
   <composite name="Teflon">
 	<addmaterial material="Carbon">   <natoms n="1"	/> </addmaterial>
 	<addmaterial material="Fluorine"> <natoms n="2"	/> </addmaterial>
@@ -855,6 +862,16 @@
 		<fractionmass	fraction="0.929"	/>
  	</addmaterial>
 	<real name="density"	value="1.47"	unit="g/cm^3" />
+  </composite>
+
+  <composite name="AluminumComb">
+	<addmaterial material="Aluminum">
+		<fractionmass	fraction="0.0378"	/>
+ 	</addmaterial>
+	<addmaterial material="Air">
+		<fractionmass	fraction="0.9622"	/>
+ 	</addmaterial>
+	<real name="density"	value="0.102"	unit="g/cm^3" />
   </composite>
 
   <composite name="FDchamberGas">
@@ -1314,6 +1331,19 @@
 	<addmaterial material="Copper">
 		<fractionmass	fraction="0.05"	/>
  	</addmaterial>
+  </composite>
+
+  <composite name="PWO">
+        <addmaterial material="Tungsten">
+                <fractionmass   fraction="0.4040"       />
+        </addmaterial>
+        <addmaterial material="Lead">
+                <fractionmass   fraction="0.4554"       />
+        </addmaterial>
+        <addmaterial material="Oxygen">
+                <fractionmass   fraction="0.1406"       />
+        </addmaterial>
+        <real name="density"    value="8.28" unit="g/cm^3" />
   </composite>
 
   <composite name="StainlessSteel">
