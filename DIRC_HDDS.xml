@@ -104,7 +104,7 @@
 
 <!-- Old wedge -->
 <trd name="OWDG" Xmp_Ymp_Z="2.7 7.89929 3.325 3.325 9.1"
-	inclination="16.26065 0.0" material="fusedSilica" />
+	inclination="16.26065 0.0" material="fusedSilica" sensitive="true"/>
 
 <!-- Window glue -->
 <box name="WNGL" X_Y_Z="0.005 42.5 15.0" material="Epotek301" />
@@ -139,7 +139,7 @@
 
 <!-- flat mirror -->
 <box name="FTMR" X_Y_Z="0.01 98.072 40.2"
-     material="ThickCerenkovMirror" /><!-- z was 42.9 -->
+     material="ThickCerenkovMirror" sensitive="true"/>
 
 
 <!-- photocathode -->
@@ -156,7 +156,7 @@
 </composition>
 
 <!-- silicone cookie -->
-<box name="SICO" X_Y_Z="0.2 98.072 31.8" material="OpticalRTV" />
+<box name="SICO" X_Y_Z="0.2 98.072 31.8" material="OpticalAir" />
 
 <!-- PMT -->
 <box name="PMTV" X_Y_Z="0.16 5.2 5.2" material="BorosilicateGlass"/>
@@ -212,17 +212,17 @@
 </composition>
 
 <!-- 3 segment mirrors -->
-<box name="TSM1" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" />
-<box name="TSM2" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" />
-<box name="TSM3" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" />
+<box name="TSM1" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="TSM2" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="TSM3" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
 
 <!-- flat wedge mirrors to replace new wedge -->
-<box name="FWM1" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" />
-<box name="FWM2" X_Y_Z="6.66 98.072 0.01" material="ThickCerenkovMirror" /> <!-- x was 6.697-->
+<box name="FWM1" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="FWM2" X_Y_Z="6.66 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
 
 <!-- flat side mirrors on ends of box -->
-<box name="FSM1" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" />
-<box name="FSM2" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" />
+<box name="FSM1" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="FSM2" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" sensitive="true"/>
 
 <!-- Al Container for bar box module -->
 <composition name="ALCM">
