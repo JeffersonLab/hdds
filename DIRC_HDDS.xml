@@ -156,7 +156,7 @@
 </composition>
 
 <!-- silicone cookie -->
-<box name="SICO" X_Y_Z="0.2 98.072 31.8" material="OpticalAir" />
+<box name="SICO" X_Y_Z="0.2 98.072 31.8" material="OpticalRTV" />
 
 <!-- PMT -->
 <box name="PMTV" X_Y_Z="0.16 5.2 5.2" material="BorosilicateGlass"/>
