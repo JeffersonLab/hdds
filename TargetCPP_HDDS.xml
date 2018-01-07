@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: TargetCPP
+  (Nuclear target to be used in CPP experiment)
+  **********************************
+
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name        = "TargetCPP"
+         version     = "1.0"
+         date        = "2017-06-08"
+         author      = "David Lawrence"
+         top_volume  = "TARG"
+         specification = "v1.0">
+
+
+<!-- Origin of Target is the center of the entrance window to the
+     liquid hydrogen target - not the start of the vacuum vessel.  -->
+
+  <composition name="TargetCPP">
+    <posXYZ volume="TARG" X_Y_Z="0.0 0.0 0.0" />
+  </composition>
+
+  <composition name="TARG">
+  	<posXYZ volume="TGT0" X_Y_Z="0. 0. 0."/>
+  </composition>
+  
+  <tubs name="TGT0" Rio_Z="0.0 2.0 0.028" material="Lead"/>
+
+</section>
+
+<!-- </HDDS> -->

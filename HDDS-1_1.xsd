@@ -87,7 +87,7 @@
     names taken from the following list.  Any element that is valid within
     a parameter block (see section 1.3) is allowed.
 
-            density     : density 		     (g/cm^3)
+            density     : density                    (g/cm^3)
             radlen      : radiation length           (g/cm^2)
             collen      : nuclear collision length   (g/cm^2)
             abslen      : nuclear interaction length (g/cm^2)
@@ -129,7 +129,7 @@
 
   Parameters are named and typed values. Possible types are :
 
-        int		 : an int value
+        int              : an int value
         real             : a float value
         string           : a text string
         reference        : an IDREF to a parameter block.
@@ -153,7 +153,7 @@
   units are:
 
      m cm mm              for lengths
-     deg rad mrad 	  for angles
+     deg rad mrad         for angles
      percent              for fractions
 
    or simply
@@ -186,13 +186,13 @@
 
         1) solid volume (have a "material" and may be "sensitive"))
            |-> box      3-rectangle
-           |-> tubs	tube section
-	   |-> eltu     elliptical tube
-           |-> trd	trapezoid
-           |-> pcon	poly-cone (sequence of joined cons)
-           |-> pgon	polyhedron (sequence of joined polygons)
-           |-> cons 	cone section
-           +-> sphere	sphere (or a section thereof)
+           |-> tubs     tube section
+           |-> eltu     elliptical tube
+           |-> trd      trapezoid
+           |-> pcon     poly-cone (sequence of joined cons)
+           |-> pgon     polyhedron (sequence of joined polygons)
+           |-> cons     cone section
+           +-> sphere   sphere (or a section thereof)
 
         2) composition (build a logical composition)
 
@@ -467,7 +467,7 @@
          a shift : distance between the coordinate origin of the stack and the
                    coordinate origin of the first stacked volume, or between
                    the coordinate origin of the previously stacked volume and
-		   the coordinate origin of the first stacked volume.
+                   the coordinate origin of the first stacked volume.
 
          a gap   : distance between the coordinate origin of the stack and the
                    lowest dimension of the first stacked volume, or between the
@@ -504,7 +504,7 @@
                         To avoid ambiguities when gap0 is smaller than zero:
                         Define point A at the "stack start" (from which gap0 is 
                         measured), and define the last physical part of the
-			stack as B. The center of the stack is then defined at 
+                        stack as B. The center of the stack is then defined at 
                         position (A+B)/2.  In the simple case of zero gap0
                         and shift0, the coordinate system is shifted to
                         the center of the stack of volumes.
@@ -765,9 +765,9 @@
   field and/or some other set of tracking properties.  The region tag has
   the following attributes:
 
-	    name      : a short descriptive ID of this field region
-            modifies  : name of another region to provide default values
-	    comment   : a more verbose description
+        name      : a short descriptive ID of this field region
+        modifies  : name of another region to provide default values
+        comment   : a more verbose description
 
   The region name must be a NMTOKEN type (begin with a letter, contain
   alphanumeric characters and underscores, and contain no spaces) like
@@ -801,35 +801,35 @@
 
   The uniformBfield tag supports the following attributes.
 
-	    Bx_By_Bz  : space-separated list of the three Cartesian
-			components of the uniform magnetic field.
-	    unit      : units for specifying magnetic field, eg. kG, T
-			(default is kG).
+        Bx_By_Bz  : space-separated list of the three Cartesian
+                    components of the uniform magnetic field.
+        unit      : units for specifying magnetic field, eg. kG, T
+                    (default is kG).
 
   The computedBfield tag supports the following attributes.
 
-	    function  : name of the global function that computes the
-			magnetic field at a point r.  The syntax of this
-			string is user-defined, and may be a global function
-			call in some language, a lookup key for a database,
-			or some keyword-based selector.  In any case, the
-			language-specific interpreter needs to translate
-			this string into the function or method invocation
-			that is appropriate in that context.
-            maxBfield : maximum magnitude of the magnetic field within the
-                        range specified by the map
-	    unit      : units for the magnetic field values returned by the
-			funtion, eg. kG, T (default is kG).
+        function  : name of the global function that computes the
+                    magnetic field at a point r.  The syntax of this
+                    string is user-defined, and may be a global function
+                    call in some language, a lookup key for a database,
+                    or some keyword-based selector.  In any case, the
+                    language-specific interpreter needs to translate
+                    this string into the function or method invocation
+                    that is appropriate in that context.
+        maxBfield : maximum magnitude of the magnetic field within the
+                    range specified by the map
+        unit      : units for the magnetic field values returned by the
+                    function, eg. kG, T (default is kG).
 
   The mappedBfield element has the following attributes:
 
-	    map       : URL pointing to where the field map values are found.
-	    encoding  : indicates how the values are stored, eg. utf-8 for
-			a plain-text file, base-64, and so on.
-            maxBfield : maximum magnitude of the magnetic field within the
-                        range specified by the map
-	    unit      : units for specifying magnetic field, eg. kG, T
-			(default is kG).
+        map       : URL pointing to where the field map values are found.
+        encoding  : indicates how the values are stored, eg. utf-8 for
+                    a plain-text file, base-64, and so on.
+        maxBfield : maximum magnitude of the magnetic field within the
+                    range specified by the map
+        unit      : units for specifying magnetic field, eg. kG, T
+                    (default is kG).
 
   The mappedBfield requires additional information that explain how to
   interpret the list of field values stored in the map file in terms of
@@ -854,7 +854,7 @@
   the grid axes are defined by content elements within the grid tag.  The
   grid tag itself only has a single attribute.
 
-	    type      : "cartesian" or "cylindrical"
+        type      : "cartesian" or "cylindrical"
 
 1.6.2.1.1) Cartesian grid
 
@@ -864,10 +864,10 @@
   upper coordinates and the number of samples contained within those bounds.
   The attributes of the samples tags are as follows.
 
-            axis      	: one of "x", "y" or "z".
-	    n         	: number of samples along the given axis.
-            bounds    	: space-separated list of the lower and upper bounds
-			  of the sampled grid along the given axis.
+            axis        : one of "x", "y" or "z".
+            n           : number of samples along the given axis.
+            bounds      : space-separated list of the lower and upper bounds
+                          of the sampled grid along the given axis.
             sense       : whether the sign of the field component corresponding
                           to this axis in the map is "forward" or "reverse",
                           introduced to fold maps with mirror symmetry. 
@@ -888,9 +888,9 @@
   upper coordinates and the number of samples contained within those bounds.
   The attributes of the samples tags are as follows.
 
-            axis      	: one of "r", "phi" or "z".
-	    n         	: number of samples along the given axis.
-            bounds    	: space-separated list of the lower and upper bounds
+            axis        : one of "r", "phi" or "z".
+            n           : number of samples along the given axis.
+            bounds      : space-separated list of the lower and upper bounds
                           of the sampled grid along the given axis.
             unit_length : length unit for bounds attribute [default: cm]
                           of r,z grid points within the grid tube section.
@@ -933,13 +933,13 @@
   integrate the path of a charged particle in the magnetic field.  The
   following attributes are provided.
 
-	    method    : can take on one of the following values
-            *) method="helix" [default] is appropriate if the field is close
-			enough to uniform that a charged particle path is 
-			approximated well by helical track segments.
-	    *) method="RungeKutta" is appropriate if the field is sufficiently
-			nonuniform that charged particle tracks should be
-			found by numerical integration of the Lorentz equation.
+       method    : can take on one of the following values
+        *) method="helix" [default] is appropriate if the field is close
+           enough to uniform that a charged particle path is 
+           approximated well by helical track segments.
+        *) method="RungeKutta" is appropriate if the field is sufficiently
+           nonuniform that charged particle tracks should be
+           found by numerical integration of the Lorentz equation.
             maxArcStep: maximum step size before needing to sample the field
                         again, specified in terms of the angle subtended by
                         the arc segment, default is 1.
@@ -1013,14 +1013,14 @@
   the coordinates of the newly defined volume.  The association is done
   using the the "apply" tag.  The attributes of the apply tag are:
 
-	    region    : name of the region being applied
-	    origin    : space-separated list of 3 coordinates "x y z"
-			of the region origin in the local coordinates of
-			the newly defined volume.
-	    rot	      : space-separated list of 3 angles "a b c", with
-			the X rotation of a angle done first,
-			the Y rotation of b angle done second, and
-			the Z rotation of c angle done last.
+          region      : name of the region being applied
+          origin      : space-separated list of 3 coordinates "x y z"
+                        of the region origin in the local coordinates of
+                        the newly defined volume.
+          rot         : space-separated list of 3 angles "a b c", with
+                        the X rotation of a angle done first,
+                        the Y rotation of b angle done second, and
+                        the Z rotation of c angle done last.
           unit_length : the units used to specify the coordinates [cm].
           unit_angle  : the units used to specify rotation angles [deg].
 
@@ -1052,16 +1052,16 @@
 
     field      : a symbolic name characterizing the affected field. Legal names
                  should be conventionally specified. Currently six symbols
-		 have been introduced :
+                 have been introduced :
 
-		 row    (typically Y in rectangular arrays)
-		 column (typically X in rectangular arrays)
+                 row    (typically Y in rectangular arrays)
+                 column (typically X in rectangular arrays)
                  layer  (typically R in barrels and Z in end-caps)
                  ring   (typically Z in barrels and R in end-caps)
                  sector (typically Phi in barrels)
                  plane  (typically Z in stacks)
-		 module (generic)
-		 cell   (generic)
+                 module (generic)
+                 cell   (generic)
 
     value        the exact value to be entered in single positioning or
                  the first value in multiple positioning.
@@ -1101,12 +1101,12 @@
 
    mcfast attributes:
 
-   model	: a symbolic name from a list of valid mcfast detector types.
-   template:	: the string "db/aaaa.db" where aaaa is the mcfast template
-		  file corresponding to the model.  These two are required.
-   parameters	: the name of a parameters element containing a subset of the
-		  definitions required by the model template.  The rest of the
-		  necessary parameters must appear as content (see below).
+   model       : a symbolic name from a list of valid mcfast detector types.
+   template    : the string "db/aaaa.db" where aaaa is the mcfast template
+                 file corresponding to the model.  These two are required.
+   parameters  : the name of a parameters element containing a subset of the
+                 definitions required by the model template.  The rest of the
+                 necessary parameters must appear as content (see below).
 
    mcfast content:
 
@@ -1118,7 +1118,7 @@
    | real_array
    | string_vector
    | reference_vector
-   mcfast	: one or more other mcfast blocks
+   mcfast : one or more other mcfast blocks
 
 
 2) Some examples showing typical usage of different elements
@@ -2207,6 +2207,7 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
+    <xs:attribute name="unit_length" default="cm" type="lengthUnit"/>
   </xs:complexType>
 </xs:element>
 

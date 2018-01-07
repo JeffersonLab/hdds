@@ -5,7 +5,7 @@
   <!ENTITY Material_s SYSTEM "Material_HDDS.xml">
   <!ENTITY BeamLine_s SYSTEM "BeamLine_HDDS.xml">
   <!ENTITY PairSpect_s SYSTEM "PairSpect_HDDS.xml">
-  <!ENTITY Target_s SYSTEM "Target_HDDS.xml"  >
+  <!ENTITY Target_s SYSTEM "TargetCPP_HDDS.xml"  >
   <!ENTITY Solenoid_s SYSTEM "Solenoid_HDDS.xml">
   <!ENTITY CentralDC_s SYSTEM "CentralDC_HDDS.xml">
   <!ENTITY ForwardDC_s SYSTEM "ForwardDC_HDDS.xml">
@@ -70,6 +70,7 @@ The ForwardMWPC has been added.
 
   <composition name="barrelPackage" envelope="LASS">
     <posXYZ volume="Solenoid" />
+    <posXYZ volume="TargetCPP" X_Y_Z="0.0 0.0 1.0" />
     <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.56" />
     <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 177.4379" />
     <posXYZ volume="BarrelEMcal" X_Y_Z="0.0 0.0 17.0" />
@@ -84,7 +85,6 @@ The ForwardMWPC has been added.
   </composition>
 
   <composition name="GlueXdetector">
-    <posXYZ volume="Target" X_Y_Z="0.0 0.0 50.0" />
     <posXYZ volume="barrelPackage" />
     <posXYZ volume="forwardPackage" />
   </composition>

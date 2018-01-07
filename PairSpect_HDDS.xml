@@ -6,7 +6,13 @@
 
      version 1.0: Initial version
      version 2.0: Substantial changes by S. Taylor
- 
+     version 3.0: A.S. 
+        - correct size of the PS/PSC counters. 	
+        - rotate counters
+	- correct positions and counter numbering
+        - shift PS magnet (according to the alignment chart)
+        
+
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
@@ -21,18 +27,18 @@
 <!-- Origin of PairSpectrometer is center of the hall.
      The pair spectrometer is situated in the detector hall 
      after the collimator cave. The pair spectrometer converter
-     is defined in the BeamLine_HDDS.xml file, in the volume PTAR.
+     is defined in the BeamLine_HDDS.xml file, in the volume CONV.
 -->
 
 
   <composition name="PairSpectrometer">
-    <posXYZ volume="PairMagnet"    X_Y_Z="0.0   0.0   -247.9185" />
-    <posXYZ volume="PairVacChamb"  X_Y_Z="0.0   0.0   -115.6447" />
-    <posXYZ volume="PairHodoscopeSouth" X_Y_Z="-34.3   0.0   41.7" />  
-    <posXYZ volume="PairHodoscopeNorth" X_Y_Z="+34.3   0.0   41.7" />
-    <posXYZ volume="PairCoarseSouth" X_Y_Z="-34.3 0.0 74.7"/>
-    <posXYZ volume="PairCoarseNorth" X_Y_Z="+34.3 0.0 74.7"/>
-    <posXYZ volume="PairPipe2"     X_Y_Z="0.0   0.0   31.3395"/> 
+    <posXYZ volume="PairMagnet"    X_Y_Z="0.0   0.0   -246.8745" />
+    <posXYZ volume="PairVacChamb"  X_Y_Z="0.0   0.0   -114.6007" />
+    <posXYZ volume="PairHodoscopeNorth" X_Y_Z="+36.3201   0.0   44.4012"  rot="0.0  4.57077 0.0"/>
+    <posXYZ volume="PairHodoscopeSouth" X_Y_Z="-36.3271   0.0   44.3715"  rot="0.0 -4.65958 0.0"/>  
+    <posXYZ volume="PairCoarseNorth" X_Y_Z="+43.5331 0.0 94.4875" rot="0.0  4.6742 0.0" /> 
+    <posXYZ volume="PairCoarseSouth" X_Y_Z="-43.5345 0.0 94.4855" rot="0.0 -4.7067  0.0" />
+    <posXYZ volume="PairPipe2"     X_Y_Z="0.0   0.0   30.8175"/> 
     <posXYZ volume="PairShielding" X_Y_Z="0.0   0.0  132.6500" />
     <!--The following models the SEG blocks and additional lead shielding-->
     <posXYZ volume="SEG1" X_Y_Z="-87.63 0.0 128.82"/>
@@ -43,7 +49,7 @@
     <posXYZ volume="PSH1" X_Y_Z="+32.4 0.0 109.78"/>
     <posXYZ volume="PSH2" X_Y_Z="0.0 19.05 132.65"/>  
     <posXYZ volume="PSH2" X_Y_Z="0.0 -19.05 132.65"/>
-  </composition >
+  </composition>
 	
 
 <!-- Vacuum Pipe 1 -->
@@ -52,8 +58,10 @@
     <posXYZ volume="HPI1" X_Y_Z="0.0 0.0 0.0"/> 
   </composition>
 
+  
   <tubs name="HPO1" Rio_Z="0.0  1.905  6.096" material="Iron" /> 
-  <tubs name="HPI1" Rio_Z="0.0  1.74  6.096" material="Vacuum" />
+  <tubs name="HPI1" Rio_Z="0.0  1.74  6.096" material="Vacuum" /> 
+
 
 <!-- Pair Spectrometer Magnet -->
 
@@ -146,21 +154,21 @@
 
 <!-- Hodoscope Counters -->
 
-  <composition name="PairHodoscopeSouth" envelope="PSFS">
-    <mposX volume="PSF2" Y_Z="0.0 0.0" ncopy="105" X0="-12.4" dX="0.2">
-      <column value="1" step="1"/>
+  <composition name="PairHodoscopeNorth" envelope="PSFN">
+    <mposX volume="PSF1" Y_Z="0.0 0.0" ncopy="40" X0="-12.45" dX="0.1">
+      <column value="145" step="-1"/>
     </mposX>
-    <mposX volume="PSF1" Y_Z="0.0 0.0" ncopy="40" X0="8.55" dX="0.1">
-      <column value="106" step="1"/>
+    <mposX volume="PSF2" Y_Z="0.0 0.0" ncopy="105" X0="-8.4" dX="0.2">
+      <column value="105" step="-1"/>
     </mposX>
   </composition>
 
-  <composition name="PairHodoscopeNorth" envelope="PSFN">
-    <mposX volume="PSF1" Y_Z="0.0 0.0" ncopy="40" X0="-12.45" dX="0.1">
+  <composition name="PairHodoscopeSouth" envelope="PSFS">
+    <mposX volume="PSF2" Y_Z="0.0 0.0" ncopy="105" X0="-12.4" dX="0.2">
       <column value="146" step="1"/>
     </mposX>
-    <mposX volume="PSF2" Y_Z="0.0 0.0" ncopy="105" X0="-8.4" dX="0.2">
-      <column value="186" step="1"/>
+    <mposX volume="PSF1" Y_Z="0.0 0.0" ncopy="40" X0="8.55" dX="0.1">
+      <column value="251" step="1"/>
     </mposX>
   </composition>
 
@@ -169,26 +177,31 @@
   <box name="PSFN" X_Y_Z="25.0 3.0 1.0" material="Air" comment="Mother volume for pair spectrometer fine counters" />
   <box name="PSFS" X_Y_Z="25.0 3.0 1.0" material="Air" comment="Mother volume for pair spectrometer fine counters" />
 
-  <composition name="PairCoarseSouth" envelope="PSCS">
-    <mposX volume="PSCO" Y_Z="0.0 1.27" ncopy="4" X0="-13.3" dX="7.6">
-      <module value="1" step="2"/>
-    </mposX>
-    <mposX volume="PSCO" Y_Z="0.0 -1.27" ncopy="4" X0="-9.5" dX="7.6">
+
+
+  <composition name="PairCoarseNorth" envelope="PSCN">
+    <mposX volume="PSCO" Y_Z="0.0  1.1" ncopy="4" X0="-9.8243" dX="7.85942">
       <module value="2" step="2"/>
     </mposX>
-  </composition>
-  <composition name="PairCoarseNorth" envelope="PSCN">
-    <mposX volume="PSCO" Y_Z="0.0 1.27" ncopy="4" X0="-13.3" dX="7.6">
-      <module value="9" step="2"/>
-    </mposX>
-    <mposX volume="PSCO" Y_Z="0.0 -1.27" ncopy="4" X0="-9.5" dX="7.6">
-      <module value="10" step="2"/>
+    <mposX volume="PSCO" Y_Z="0.0 -1.1" ncopy="4" X0="-13.754" dX="7.85942">
+      <module value="1" step="2"/>
     </mposX>
   </composition>
 
-  <box name="PSCO" X_Y_Z="4.0 6.0 2.5" material="Scintillator" sensitive="true"/>
-  <box name="PSCN" X_Y_Z="31.0 6.0 5.2" material="Air" comment="Mother volume for pair spectrometer coarse counters"/>
-  <box name="PSCS" X_Y_Z="31.0 6.0 5.2" material="Air" comment="Mother volume for pair spectrometer coarse counters"/>								  
+  <composition name="PairCoarseSouth" envelope="PSCS">
+    <mposX volume="PSCO" Y_Z="0.0 1.1" ncopy="4" X0="-13.754" dX="7.85942">
+      <module value="16" step="-2"/>
+    </mposX>
+    <mposX volume="PSCO" Y_Z="0.0 -1.1" ncopy="4" X0="-9.8243" dX="7.85942">
+      <module value="15" step="-2"/>
+    </mposX>
+  </composition>
+  
+  
+  <box name="PSCO" X_Y_Z="4.4 6.0 2." material="Scintillator" sensitive="true"/>     
+  <box name="PSCN" X_Y_Z="33.0 6.2 5." material="Air" comment="Mother volume for pair spectrometer coarse counters"/>
+  <box name="PSCS" X_Y_Z="33.0 6.2 5." material="Air" comment="Mother volume for pair spectrometer coarse counters"/>	
+  
 
 <!-- Vacuum Pipe 2 -->
 
@@ -196,9 +209,10 @@
     <posXYZ volume="HPI2" X_Y_Z="0.0 0.0 0.0"/> 
   </composition>
 
-  <tubs name="HPO2" Rio_Z="0.0  1.905  161.9752 " material="Iron" /> 
-  <tubs name="HPI2" Rio_Z="0.0  1.74625  161.9752 " material="Vacuum"/>
-
+  <tubs name="HPO2" Rio_Z="0.0  1.905    163.0192 " material="Iron" /> 
+  <tubs name="HPI2" Rio_Z="0.0  1.74625  163.0192 " material="Vacuum"/>
+  
+  
 <!--Pair Lead Shielding -->
 
   <composition name="PairShielding" envelope="PSHL">

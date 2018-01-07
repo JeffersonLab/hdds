@@ -101,7 +101,7 @@ if SHOWBUILD==0:
 	hddsrootaction  = SCons.Script.Action("%s/hdds-root   $SOURCE > $TARGET" % (builddir), 'HDDS-ROOTC [$SOURCE -> $TARGET]')
 	hddsroothaction = SCons.Script.Action("%s/hdds-root_h $SOURCE > $TARGET" % (builddir), 'HDDS-ROOTH [$SOURCE -> $TARGET]')
 	if hasGDMLsupport:
-		hddsgdmlaction  = SCons.Script.Action('%s/bin/root -b -q $SOURCE "mkGDML.C(\\"$TARGET\\")" >& /dev/null' % (rootsys) , 'HDDS-GDML  [$SOURCE -> $TARGET]')
+		hddsgdmlaction  = SCons.Script.Action('%s/bin/root -b -q $SOURCE "mkGDML.C(\\"$TARGET\\")" > /dev/null 2>&1' % (rootsys) , 'HDDS-GDML  [$SOURCE -> $TARGET]')
 else:
 	hddsgeantaction = SCons.Script.Action("%s/hdds-geant  $SOURCE > $TARGET" % (builddir))
 	hddsrootaction  = SCons.Script.Action("%s/hdds-root   $SOURCE > $TARGET" % (builddir))
@@ -124,7 +124,8 @@ if os.getenv('DYLD_LIBRARY_PATH') != None : env.AppendENVPath('DYLD_LIBRARY_PATH
 HDDSGEANT3 = env.HDDSgeant(target='%s/hddsGeant3.F' % builddir, source=['main_HDDS.xml']+XMLDEPS)
 HDDSROOTC  = env.HDDSrootc(target='%s/hddsroot.C'   % builddir, source=['main_HDDS.xml']+XMLDEPS)
 HDDSROOTH  = env.HDDSrooth(target='%s/hddsroot.h'   % builddir, source=['main_HDDS.xml']+XMLDEPS)
-CPPROOTC   = env.HDDSrootc(target='%s/cpproot.C'    % builddir, source=['cpp_HDDS.xml','ForwardMWPC_HDDS.xml']+XMLDEPS)
+CPPROOTC   = env.HDDSrootc(target='%s/cpproot.C'    % builddir, source=['cpp_HDDS.xml','TargetCPP_HDDS.xml','ForwardMWPC_HDDS.xml']+XMLDEPS)
+CPPROOTH   = env.HDDSrooth(target='%s/cpproot.h'    % builddir, source=['cpp_HDDS.xml','TargetCPP_HDDS.xml','ForwardMWPC_HDDS.xml']+XMLDEPS)
 if hasGDMLsupport:
 	HDDSGDML   = env.HDDSgdml( target='%s/hddsroot.gdml' % builddir, source='%s/hddsroot.C' % builddir)
 	CPPGDML    = env.HDDSgdml( target='%s/cpproot.gdml' % builddir, source='%s/cpproot.C' % builddir)
@@ -132,6 +133,7 @@ env.Requires([HDDSGEANT3], hdds_geant)
 env.Requires([HDDSROOTC] , hdds_rootc)
 env.Requires([HDDSROOTH] , hdds_rooth)
 env.Requires([CPPROOTC]  , hdds_rootc)
+env.Requires([CPPROOTH]  , hdds_rooth)
 if hasGDMLsupport:
 	env.Requires([HDDSGDML]  , HDDSROOTC  )
 	env.Requires([CPPGDML]   , CPPROOTC  )
@@ -156,6 +158,7 @@ if len(build_targets)>0:
 		env.Install('%s/src' % installdir, HDDSROOTC)
 		env.Install('%s/src' % installdir, HDDSROOTH)
 		env.Install('%s/src' % installdir, CPPROOTC)
+		env.Install('%s/src' % installdir, CPPROOTH)
 		if hasGDMLsupport:
 			env.Install('%s/src' % installdir, HDDSGDML)
 			env.Install('%s/src' % installdir, CPPGDML)

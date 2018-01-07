@@ -494,13 +494,12 @@
   <!-- Define the composite materials -->
 
   <element name="Vacuum" symbol="Vac" z="1" a="1">
-	<real name="density"	value="1e-25"	unit="g/cm^3"	/>
+	<real name="density"	value="1e-12"	unit="g/cm^3"	/>
 	<real name="radlen"	value="1.0"	unit="g/cm^2"	/>
 	<real name="collen"	value="1.0"	unit="g/cm^2"	/>
 	<real name="abslen"	value="1.0"	unit="g/cm^2"	/>
 	<real name="dedx"	value="0.0"	unit="MeV/g/cm^2"	/>
   </element>
-
 
   <composite name="Scintillator">
 	<addmaterial material="Carbon">   <natoms n="8"	/> </addmaterial>
@@ -704,6 +703,13 @@
 	<real name="density"	value="1.32"	unit="g/cm^3"	/>
   </composite>
 
+  <composite name="ABS-PVC">
+	<addmaterial material="Carbon">   <natoms n="15"	/> </addmaterial>
+	<addmaterial material="Hydrogen"> <natoms n="17"	/> </addmaterial>
+	<addmaterial material="Nitrogen"> <natoms n="1"	/> </addmaterial>
+	<real name="density"	value="1.11"	unit="g/cm^3"	/>
+  </composite>
+
   <composite name="Teflon">
 	<addmaterial material="Carbon">   <natoms n="1"	/> </addmaterial>
 	<addmaterial material="Fluorine"> <natoms n="2"	/> </addmaterial>
@@ -856,6 +862,16 @@
 		<fractionmass	fraction="0.929"	/>
  	</addmaterial>
 	<real name="density"	value="1.47"	unit="g/cm^3" />
+  </composite>
+
+  <composite name="AluminumComb">
+	<addmaterial material="Aluminum">
+		<fractionmass	fraction="0.0378"	/>
+ 	</addmaterial>
+	<addmaterial material="Air">
+		<fractionmass	fraction="0.9622"	/>
+ 	</addmaterial>
+	<real name="density"	value="0.102"	unit="g/cm^3" />
   </composite>
 
   <composite name="FDchamberGas">
@@ -1153,13 +1169,13 @@
 	<addmaterial material="Oxygen"> <natoms n="2"/> </addmaterial>
 	<real name="density"	value="2.20"	unit="g/cm^3" />
         <optical_properties>
-	     <specify E="1.50" refindex="1.452" abslen="1000" />
-             <specify E="2.00" refindex="1.457" abslen="1000" />
-             <specify E="2.50" refindex="1.462" abslen="1000" />
-             <specify E="3.00" refindex="1.468" abslen="1000" />
-             <specify E="3.50" refindex="1.475" abslen="1000" />
-             <specify E="4.00" refindex="1.484" abslen="1000" /> 
-	     <specify E="4.13" refindex="1.487" abslen="1000" />
+	     <specify E="1.50" refindex="1.452" abslen="445169" />
+             <specify E="2.00" refindex="1.457" abslen="159561" />
+             <specify E="2.50" refindex="1.462" abslen="64725" />
+             <specify E="3.00" refindex="1.468" abslen="31620" />
+             <specify E="3.50" refindex="1.475" abslen="17068" />
+             <specify E="4.00" refindex="1.484" abslen="9908" /> 
+	     <specify E="4.13" refindex="1.487" abslen="6307" />
 <!--
 	     <specify E="4.50" refindex="1.495" abslen="300" />
 	     <specify E="5.00" refindex="1.508" abslen="200" />
@@ -1268,6 +1284,19 @@
 	<addmaterial material="Copper">
 		<fractionmass	fraction="0.05"	/>
  	</addmaterial>
+  </composite>
+
+  <composite name="PWO">
+        <addmaterial material="Tungsten">
+                <fractionmass   fraction="0.4040"       />
+        </addmaterial>
+        <addmaterial material="Lead">
+                <fractionmass   fraction="0.4554"       />
+        </addmaterial>
+        <addmaterial material="Oxygen">
+                <fractionmass   fraction="0.1406"       />
+        </addmaterial>
+        <real name="density"    value="8.28" unit="g/cm^3" />
   </composite>
 
   <composite name="StainlessSteel">
