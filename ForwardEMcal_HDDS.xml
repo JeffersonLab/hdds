@@ -42,81 +42,80 @@
   </composition>
 
   <composition name="forwardEMcal2" envelope="FCAL" >
-   <posXYZ volume="LeadTungstateLower" X_Y_Z="0.0 -29.05 0.0 "/>
-   <posXYZ volume="LeadTungstateSouth" X_Y_Z="-29.05 0. 0. "/>
-   <posXYZ volume="LeadTungstateNorth" X_Y_Z="29.05 0. 0.0 "/>
-   <posXYZ volume="LeadTungstateUpper" X_Y_Z="0.0 29.05 0.0 "/>    
-   <posXYZ volume="LGDlower" X_Y_Z="  0.0 -86.0  0.0" />
-   <posXYZ volume="LGDsouth" X_Y_Z="-86.0   0.0  0.0" />
-   <posXYZ volume="LGDnorth" X_Y_Z="+86.0   0.0  0.0" />
-   <posXYZ volume="LGDupper" X_Y_Z="  0.0 +86.0  0.0" />
+   <posXYZ volume="LeadTungstateLower" X_Y_Z="0.0 -17.6375 0.0 "/>
+   <posXYZ volume="LeadTungstateSouth" X_Y_Z="-17.6375 0. 0. "/>
+   <posXYZ volume="LeadTungstateNorth" X_Y_Z="17.6375 0. 0.0 "/>
+   <posXYZ volume="LeadTungstateUpper" X_Y_Z="0.0 17.6375 0.0 "/>    
+   <posXYZ volume="LGDlower" X_Y_Z="  0.0 -74.2904  0.0" />
+   <posXYZ volume="LGDsouth" X_Y_Z="-74.2904   0.0  0.0" />
+   <posXYZ volume="LGDnorth" X_Y_Z="+74.2904  0.0  0.0" />
+   <posXYZ volume="LGDupper" X_Y_Z="  0.0 +74.2904  0.0" />
    <posXYZ volume="FCBI" X_Y_Z="0.0 0.0 0.0" />
   </composition>
 
    <composition name="LeadTungstateLower" envelope="LTLW">
-    <mposY volume="LeadTungstateFullRow" ncopy="23" Z_X="0.0 0.0" Y0="-22.825" dY="2.075">
+    <mposY volume="LeadTungstateFullRow" ncopy="12" Z_X="0.0 0.0" Y0="-11.4125" dY="2.075">
       <row value="100" step="1" />
     </mposY>
   </composition>
 
   <composition name="LeadTungstateNorth" envelope="LTNO">
     <mposY volume="LeadTungstateHalfRowNorth" ncopy="5" Y0="-4.15" dY="2.075">
-      <row value="123" step="1" />
+      <row value="112" step="1" />
     </mposY>
   </composition>
 
   <composition name="LeadTungstateSouth" envelope="LTSO">
     <mposY volume="LeadTungstateHalfRowSouth" ncopy="5" Y0="-4.15" dY="2.075">
-      <row value="123" step="1" />
+      <row value="112" step="1" />
     </mposY>
   </composition>
 
   <composition name="LeadTungstateUpper" envelope="LTUP">
-    <mposY volume="LeadTungstateFullRow" ncopy="23" Z_X="0.0 0.0" Y0="-22.825" dY="2.075">
-      <row value="128" step="1" />
+    <mposY volume="LeadTungstateFullRow" ncopy="12" Z_X="0.0 0.0" Y0="-11.4125" dY="2.075">
+      <row value="118" step="1" />
     </mposY>
   </composition>
 
   <composition name="LeadTungstateFullRow">
-    <mposX volume="LTBK" ncopy="51" Y_Z="0.0 0.0" X0="-51.875" dX="2.075">
+    <mposX volume="LTBK" ncopy="29" Y_Z="0.0 0.0" X0="-29.05" dX="2.075">
       <column value="100" step="1" />
     </mposX>
   </composition>
 
   <composition name="LeadTungstateHalfRowNorth">
-    <mposX volume="LTBK" ncopy="23" Y_Z="0.0 0.0" X0="-22.825" dX="2.075">
-      <column value="128" step="1" />
+    <mposX volume="LTBK" ncopy="12" Y_Z="0.0 0.0" X0="-11.4125" dX="2.075">
+      <column value="118" step="1" />
     </mposX>
   </composition>
 
   <composition name="LeadTungstateHalfRowSouth">
-    <mposX volume="LTBK" ncopy="23" Y_Z="0.0 0.0" X0="-22.825" dX="2.075">
+    <mposX volume="LTBK" ncopy="12" Y_Z="0.0 0.0" X0="-11.4125" dX="2.075">
       <column value="100" step="1" />
     </mposX>
   </composition>
 
   <composition name="LGDlower" envelope="LGDB">
-    <mposY volume="LGDfullRow" ncopy="28" Z_X="0.0 0.0" Y0="-54.21195" dY="4.015
+    <mposY volume="LGDfullRow" ncopy="22" Z_X="0.0 0.0" Y0="-42.16485" dY="4.0157">
       <row value="0" step="1" />
     </mposY>
   </composition>
 
   <composition name="LGDnorth" envelope="LGDN">
-    <mposY volume="LGDhalfRowNorth" ncopy="27" Y0="-52.4239" dY="4.0157">
-      <row value="16" step="1" />
+    <mposY volume="LGDhalfRowNorth" ncopy="15" Y0="-28.1099" dY="4.0157">
+      <row value="22" step="1" />
     </mposY>
   </composition>
 
   <composition name="LGDsouth" envelope="LGDS">
-    <mposY volume="LGDhalfRowSouth" ncopy="27" Y0="-52.4239" dY="4.0157">
-      <row value="16" step="1" />
+    <mposY volume="LGDhalfRowSouth" ncopy="15" Y0="-28.1099" dY="4.0157">
+      <row value="22" step="1" />
     </mposY>
   </composition>
 
   <composition name="LGDupper" envelope="LGDT">
-<<<<<<< HEAD
-    <mposY volume="LGDfullRow" ncopy="16" Z_X="0.0 0.0" Y0="-30.2512" dY="4.0157">
-      <row value="43" step="1" />
+    <mposY volume="LGDfullRow" ncopy="22" Z_X="0.0 0.0" Y0="-42.16485" dY="4.0157">
+      <row value="37" step="1" />
     </mposY>
   </composition>
   <composition name="LGDfullRow">
@@ -126,13 +125,13 @@
   </composition>
 
   <composition name="LGDhalfRowNorth">
-    <mposX volume="LGDblock" ncopy="16" Y_Z="0.0 0.0" X0="-30.2512" dX="4.0157">
+    <mposX volume="LGDblock" ncopy="22" Y_Z="0.0 0.0" X0="-42.16485" dX="4.0157">
       <column value="43" step="1" />
     </mposX>
   </composition>
 
   <composition name="LGDhalfRowSouth">
-    <mposX volume="LGBblock" ncopy="16" Y_Z="0.0 0.0" X0="-30.2512" dX="4.0157">
+    <mposX volume="LGDblock" ncopy="22" Y_Z="0.0 0.0" X0="-42.16485" dX="4.0157">
       <column value="0" step="1" />
     </mposX>
   </composition>
@@ -152,24 +151,24 @@
   <box name="FCAL" X_Y_Z="236.9263  236.9263  50.8"  material="Air"
 	                              	comment="forward EMcal mother" />
 
-  <box name="LTLW" X_Y_Z="105.825  47.725  18.0"  material="Air"
+  <box name="LTLW" X_Y_Z="60.175  24.9  18.0"  material="Air"
 					comment="PbWO4 bottom section"   />
-  <box name="LTUP" X_Y_Z="105.825  47.725  18.0"  material="Air"
+  <box name="LTUP" X_Y_Z="60.175  24.9  18.0"  material="Air"
 					comment="PbWO4 top section"      />
-  <box name="LTNO" X_Y_Z="47.725   10.375  18.0"  material="Air"
+  <box name="LTNO" X_Y_Z="24.9   10.375  18.0"  material="Air"
 					comment="PbWO4 north section"     />
-  <box name="LTSO" X_Y_Z="47.725   10.375  18.0"  material="Air"
+  <box name="LTSO" X_Y_Z="24.9   10.375  18.0"  material="Air"
 					comment="PbWO4 south section"    />
-  <box name="LTBK" X_Y_Z="  2.075    2.05  18.0"  material="LeadTungstate"
+  <box name="LTBK" X_Y_Z="  2.05    2.05  18.0"  material="LeadTungstate"
 		sensitive="true"	comment="lead glass block"     />
 
-  <box name="LGDB" X_Y_Z="236.9263  112.4396  50.8"  material="Air"
+  <box name="LGDB" X_Y_Z="236.9263 88.3454  50.8"  material="Air"
 					comment="LGD bottom section"   />
-  <box name="LGDT" X_Y_Z="236.9263  112.4396  50.8"  material="Air"
+  <box name="LGDT" X_Y_Z="236.9263  88.3454  50.8"  material="Air"
 					comment="LGD top section"      />
-  <box name="LGDN" X_Y_Z="112.4396   12.0471  50.8"  material="Air"
+  <box name="LGDN" X_Y_Z="88.3454  60.2355  50.8"  material="Air"
 					comment="LGD north section"     />
-  <box name="LGDS" X_Y_Z="112.4396   12.0471  50.8"  material="Air"
+  <box name="LGDS" X_Y_Z="88.3454   60.2355  50.8"  material="Air"
 					comment="LGD south section"    />
   <box name="LGBU" X_Y_Z="4.0157  4.0157  50.8"  material="Air"
 		            comment="lead glass block stacking unit cell"/>
