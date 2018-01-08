@@ -42,10 +42,10 @@
   </composition>
 
   <composition name="forwardEMcal2" envelope="FCAL" >
-   <posXYZ volume="LeadTungstateLower" X_Y_Z="0.0 -17.6375 0.0 "/>
-   <posXYZ volume="LeadTungstateSouth" X_Y_Z="-17.6375 0. 0. "/>
-   <posXYZ volume="LeadTungstateNorth" X_Y_Z="17.6375 0. 0.0 "/>
-   <posXYZ volume="LeadTungstateUpper" X_Y_Z="0.0 17.6375 0.0 "/>    
+   <posXYZ volume="LeadTungstateLower" X_Y_Z="0.0 -16.0 0.0 "/>
+   <posXYZ volume="LeadTungstateSouth" X_Y_Z="-16.0 0. 0. "/>
+   <posXYZ volume="LeadTungstateNorth" X_Y_Z="16.0 0. 0.0 "/>
+   <posXYZ volume="LeadTungstateUpper" X_Y_Z="0.0 16.0 0.0 "/>    
    <posXYZ volume="LGDlower" X_Y_Z="  0.0 -74.2904  0.0" />
    <posXYZ volume="LGDsouth" X_Y_Z="-74.2904   0.0  0.0" />
    <posXYZ volume="LGDnorth" X_Y_Z="+74.2904  0.0  0.0" />
@@ -54,43 +54,43 @@
   </composition>
 
    <composition name="LeadTungstateLower" envelope="LTLW">
-    <mposY volume="LeadTungstateFullRow" ncopy="12" Z_X="0.0 0.0" Y0="-11.4125" dY="2.075">
+    <mposY volume="LeadTungstateFullRow" ncopy="14" Z_X="0.0 0.0" Y0="-13.0" dY="2.0">
       <row value="100" step="1" />
     </mposY>
   </composition>
 
   <composition name="LeadTungstateNorth" envelope="LTNO">
-    <mposY volume="LeadTungstateHalfRowNorth" ncopy="5" Y0="-4.15" dY="2.075">
-      <row value="112" step="1" />
+    <mposY volume="LeadTungstateHalfRowNorth" ncopy="2" Y0="-1.0" dY="2.0">
+      <row value="114" step="1" />
     </mposY>
   </composition>
 
   <composition name="LeadTungstateSouth" envelope="LTSO">
-    <mposY volume="LeadTungstateHalfRowSouth" ncopy="5" Y0="-4.15" dY="2.075">
-      <row value="112" step="1" />
+    <mposY volume="LeadTungstateHalfRowSouth" ncopy="2" Y0="-1.0" dY="2.0">
+      <row value="114" step="1" />
     </mposY>
   </composition>
 
   <composition name="LeadTungstateUpper" envelope="LTUP">
-    <mposY volume="LeadTungstateFullRow" ncopy="12" Z_X="0.0 0.0" Y0="-11.4125" dY="2.075">
-      <row value="118" step="1" />
+    <mposY volume="LeadTungstateFullRow" ncopy="14" Z_X="0.0 0.0" Y0="-13.0" dY="2.0">
+      <row value="116" step="1" />
     </mposY>
   </composition>
 
   <composition name="LeadTungstateFullRow">
-    <mposX volume="LTBK" ncopy="29" Y_Z="0.0 0.0" X0="-29.05" dX="2.075">
+    <mposX volume="LTBK" ncopy="30" Y_Z="0.0 0.0" X0="-29." dX="2.0">
       <column value="100" step="1" />
     </mposX>
   </composition>
 
   <composition name="LeadTungstateHalfRowNorth">
-    <mposX volume="LTBK" ncopy="12" Y_Z="0.0 0.0" X0="-11.4125" dX="2.075">
-      <column value="118" step="1" />
+    <mposX volume="LTBK" ncopy="14" Y_Z="0.0 0.0" X0="-13.0" dX="2.0">
+      <column value="116" step="1" />
     </mposX>
   </composition>
 
   <composition name="LeadTungstateHalfRowSouth">
-    <mposX volume="LTBK" ncopy="12" Y_Z="0.0 0.0" X0="-11.4125" dX="2.075">
+    <mposX volume="LTBK" ncopy="14" Y_Z="0.0 0.0" X0="-13.0" dX="2.0">
       <column value="100" step="1" />
     </mposX>
   </composition>
@@ -151,15 +151,15 @@
   <box name="FCAL" X_Y_Z="236.9263  236.9263  50.8"  material="Air"
 	                              	comment="forward EMcal mother" />
 
-  <box name="LTLW" X_Y_Z="60.175  24.9  18.0"  material="Air"
+  <box name="LTLW" X_Y_Z="60.0  36.0  18.0"  material="Air"
 					comment="PbWO4 bottom section"   />
-  <box name="LTUP" X_Y_Z="60.175  24.9  18.0"  material="Air"
+  <box name="LTUP" X_Y_Z="60.0  28.0  18.0"  material="Air"
 					comment="PbWO4 top section"      />
-  <box name="LTNO" X_Y_Z="24.9   10.375  18.0"  material="Air"
+  <box name="LTNO" X_Y_Z="28.0   4.0  18.0"  material="Air"
 					comment="PbWO4 north section"     />
-  <box name="LTSO" X_Y_Z="24.9   10.375  18.0"  material="Air"
+  <box name="LTSO" X_Y_Z="28.0   4.0  18.0"  material="Air"
 					comment="PbWO4 south section"    />
-  <box name="LTBK" X_Y_Z="  2.05    2.05  18.0"  material="LeadTungstate"
+  <box name="LTBK" X_Y_Z="  2.0    2.0  18.0"  material="LeadTungstate"
 		sensitive="true"	comment="lead glass block"     />
 
   <box name="LGDB" X_Y_Z="236.9263 88.3454  50.8"  material="Air"
@@ -187,13 +187,13 @@
   </pgon>
   <pgon name="FCBI" segments="4" profile="-45 360" material="StainlessSteel"
                     comment="FCal beam hole support insert">  
-    <polyplane Rio_Z="3.9175 5.1875 -9.0"  />
-    <polyplane Rio_Z="3.9175 5.1875 +9.0" />
+    <polyplane Rio_Z="1.0 2.0 -9.0"  />
+    <polyplane Rio_Z="1.0 2.0 +9.0" />
   </pgon>
   <pgon name="FCBX" segments="4" profile="-45 360" material="StainlessSteel"
                     comment="FCal beam hole support extension">
-   <polyplane Rio_Z="4.7536 6.0236   0.000"/>
-   <polyplane Rio_Z="4.7536 6.0236  32.385"/>
+   <polyplane Rio_Z="1.0 2.0   0.000"/>
+   <polyplane Rio_Z="1.0 2.0  32.385"/>
   </pgon>
 
   <composition name="plexiSheet" envelope="LGPS">
