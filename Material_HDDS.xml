@@ -1533,6 +1533,17 @@
     </optical_properties>
   </composite>
 
+    <composite name="OpticalAirBlack">
+        <addmaterial material="Air">
+                <fractionmass   fraction="1.0"  />
+        </addmaterial>
+        <real name="density"    value="0.001214"        unit="g/cm^3" />
+    <optical_properties>
+          <specify E="1.50" refindex="1." abslen="0.01" />
+          <specify E="8.00" refindex="1." abslen="0.01" />
+    </optical_properties>
+  </composite>
+
   <composite name="Epotek301">
     <addmaterial material="EpoxyResin">
       <fractionmass fraction="1.00" />
