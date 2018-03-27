@@ -122,6 +122,13 @@
        c) incorporated a detailed geometric model of the triplet polarimeter
           from the ASU group into the beamline geometry
 
+     Revision 3.3 3/27/2017
+     Added TAC and some material downstream the FCAL - A.S. 
+     - FCAL dark box window, FCAL platform pipe with plexiglass window, beam 
+     - intensity monitor, and TAC
+
+
+
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
@@ -672,9 +679,6 @@
   <tubs name="F6I5" Rio_Z="0.0  2.38   29.0" material="Vacuum" />
 
 
-
-
-
   <composition name="TargetBox">
     <posXYZ volume="TargetBoxDisk1" X_Y_Z="0.0 0.0 -10.9"/>
     <posXYZ volume="TargetBoxDisk2" X_Y_Z="0.0 0.0  0.0" />
@@ -835,6 +839,11 @@
   <composition name="beamPipe">
 <!--    <posXYZ volume="DET4"     X_Y_Z="  0.0     0.0 -1400.0"/> -->
     <posXYZ volume="DET5"     X_Y_Z="  0.0     0.0  1400.0"/> 
+    <posXYZ volume="TAC1" X_Y_Z="150.0  -350.0  1225.0" />  
+    <posXYZ volume="DarkWindow" X_Y_Z="  150.0  -350.0  320.0" />
+    <posXYZ volume="PlatformPipe" X_Y_Z="150.0  -350.0  650."/>
+    <posXYZ volume="PlexWindow" X_Y_Z="150.0  -350.0  830."/>
+    <posXYZ volume="IntMonitor" X_Y_Z="150.0  -350.0  834."/>
     <posXYZ volume="DET6"     X_Y_Z="  0.0   600.0     0.0"/>
     <!--posXYZ volume="DET7"     X_Y_Z="  0.0     0.0  -705.0"/--> 
     <posXYZ volume="HallBellows" X_Y_Z="150.0 -350.0 -1223.287"/>
@@ -842,6 +851,44 @@
     <!-- Plastic scintillator for beam diagonistics -->
     <!--posXYZ volume="DET8" X_Y_Z="150 -350.0 -834.0 "/-->
   </composition>
+
+  <composition name="DarkWindow">
+    <posXYZ volume="DBOW" X_Y_Z="  0.0  0.0  0.0" />
+    <posXYZ volume="DBEW" X_Y_Z="  0.0  0.0  0.0" />
+  </composition>
+
+  <tubs name="DBOW" Rio_Z="20.0  60.0  0.3"  material="Aluminum"/>
+  <tubs name="DBEW" Rio_Z="0.0   20.0  0.01" material="Tedlar"/>
+
+  <composition name="PlatformPipe">
+    <posXYZ volume="PPWD" X_Y_Z="0.0  0.0  -176.5127" />
+    <posXYZ volume="PipeSection" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="PPWD" X_Y_Z="0.0  0.0   176.5127" />
+  </composition>
+
+  <tubs name="PPWD" Rio_Z="0.0   20.32  0.0254" material="Kapton" />
+
+  <composition name="PipeSection" envelope="PPOV">
+    <posXYZ volume="PPIV" X_Y_Z="0.0 0.0 0.0"/>
+  </composition>
+
+  <tubs name="PPOV" Rio_Z="0.0   20.32  353.0" material="Iron" />
+  <tubs name="PPIV" Rio_Z="0.0   20.04  353.0" material="Vacuum" />
+
+  <composition name="PlexWindow">
+    <posXYZ volume="PPPW" X_Y_Z="0.0 0.0 0.0"/>
+  </composition>
+
+  <composition name="IntMonitor" >
+    <posXYZ volume="INTM" X_Y_Z="0.0 0.0 0.0"/>
+  </composition>
+
+  <box  name="INTM" X_Y_Z="2  6  1" material="Scintillator"  />
+
+  <tubs name="PPPW" Rio_Z="0.0   20.32  0.3" material="Plexiglas" />
+
+  <box  name="TAC1" X_Y_Z="20  20  45" material="leadGlassF800" sensitive="true" />
+
 
   <box name="DET4" X_Y_Z="1700.0  1200.0  2.0" material="Vacuum" />
   <box name="DET5" X_Y_Z="1700.0  1198.0  2.0" material="Air" />
@@ -1200,7 +1247,7 @@
   </composition>
 
   
-  <tubs name="PTAR" Rio_Z="0.0 0.375 0.0075" material="Beryllium" 
+  <tubs name="PTAR" Rio_Z="0.0 0.375 0.075" material="Beryllium" 
 	comment="polarimeter converter target" /> 
   
   
