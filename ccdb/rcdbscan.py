@@ -17,21 +17,25 @@ values = db.select_values(val_names=conds)
 run = -1
 col = 0
 con = 0
+lastrun = 0
 for value in values.rows:
    lastcol = col
    lastcon = con
    run = value[0]
-   if value[1] == "5.0mm hole":
-      col = 50
-   elif value[1] == "3.4mm hole":
-      col = 34
-   elif value[1] == "Blocking":
-      col = 0
    if value[2] == "Retracted":
       con = 0
    elif value[2] == "Be 75um":
       con = 75
    elif value[2] == "Be 750um":
       con = 750
+   if value[1] == "5.0mm hole":
+      col = 50
+   elif value[1] == "3.4mm hole":
+      col = 34
+   elif value[1] == "Blocking":
+      col = 0
+      con = 0
    if col != lastcol or con != lastcon:
-      print run, col, con
+      print "{0}-{1}".format(lastrun, run-1), lastcol, lastcon
+      lastrun = run
+print "{0}-{1}".format(lastrun, run), col, con
