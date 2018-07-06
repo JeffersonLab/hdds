@@ -33,7 +33,7 @@
 -->
 
 <composition name="DRCC" envelope="DCMV">
-	<mposY volume="DCML" ncopy="2" Z_X="30. 196." Y0="-29.76" dY="-51.5" rot="0. 0. 180." > <!--Y0="-81.25" dY="51.5"-->
+	<mposY volume="DCML" ncopy="2" Z_X="30. 196." Y0="-81.26" dY="51.5" rot="0. 0. 180." >
 	  <plane value="1" step="1"/>
 	</mposY>
 	<mposY volume="DCML" ncopy="2" Z_X="30. -196." Y0="29.76" dY="51.5" > <!-- Y0 was 36.5, dY was 43, x was -270. -->
