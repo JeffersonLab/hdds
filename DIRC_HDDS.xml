@@ -34,7 +34,7 @@
 
 
 <composition name="DRCC" envelope="DCMV">
-	<mposY volume="DCML" ncopy="2" Z_X="30. 196." Y0="-81.25" dY="51.5" rot="0. 0. 180." >
+	<mposY volume="DCML" ncopy="2" Z_X="30. 196." Y0="-29.76" dY="-51.5" rot="0. 0. 180." > <!--Y0="-81.25" dY="51.5"-->
 	  <plane value="1" step="1"/>
 	</mposY>
 	<mposY volume="DCML" ncopy="2" Z_X="30. -196." Y0="29.76" dY="51.5" > <!-- Y0 was 36.5, dY was 43, x was -270. -->
@@ -52,7 +52,7 @@
 	  
 </composition>
 
-<box name="DCMV" X_Y_Z="700.0 250.0 100.0" material="OpticalAir" /> <!-- x was 560, y was  220, z was 80 -->
+<box name="DCMV" X_Y_Z="700.0 250.0 100.0" material="OpticalAirBlack" /> <!-- x was 560, y was  220, z was 80 -->
 
 
 <!-- DIRC bar box module (12 individual bars): x positions
@@ -89,7 +89,7 @@
 
 <composition name="DCBR">
 	<posXYZ volume="FNMR" X_Y_Z="-0.05 0.02535 0.8625" />
-	<mposX volume="QZBL" ncopy="4" Y_Z="0.0 0.8625" X0="61.25" dX="122.505" />
+	<mposX volume="QZBL" ncopy="4" Y_Z="0.0 0.8625" X0="61.25" dX="122.505"/>
 	<mposX volume="EPGL" ncopy="4" Y_Z="0.0 0.8625" X0="122.5025" dX="122.505" />
 	<posXYZ volume="OWDG" X_Y_Z="494.57 0.0875 -0.9521225" rot="0.0 90.0 0.0" />
 </composition>
