@@ -28,7 +28,7 @@
 <!-- DIRC detector
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 	DCML: DIRC bar box module 
-        DFOB: DIRC focusing optics box
+        OBC:  DIRC optical box (was DFOB: DIRC focusing optics box)
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 -->
 
