@@ -157,9 +157,9 @@
 <composition name="BWPG">
   <posXYZ volume="OBWI" X_Y_Z="0.0000 0.0 0.0" />
   <posXYZ volume="OLA2" X_Y_Z="0.6355 0.0 0.0"/>
-  <posXYZ volume="SICA" X_Y_Z="0.7209 0.0 0.0" />
-  <posXYZ volume="OLA1" X_Y_Z="0.8061 0.0 0.0"/>
-  <posXYZ volume="PMTgrid" X_Y_Z="0.8813 0.0 0.0" /> 
+  <posXYZ volume="SICA" X_Y_Z="0.7210 0.0 0.0" />
+  <posXYZ volume="OLA1" X_Y_Z="0.8062 0.0 0.0"/>
+  <posXYZ volume="PMTgrid" X_Y_Z="0.8814 0.0 0.0" /> 
 </composition>
 
 <!-- silicone cookie array -->
@@ -283,7 +283,7 @@
 <!-- Al Container for bar box module -->
 <composition name="ALCM">
         <posXYZ volume="ABT1" X_Y_Z="-1.05 0.0 0.8625" />   <!-- top of bar box module   -->
-        <posXYZ volume="RAWN" X_Y_Z="243.95 0.0 -0.25" />   <!-- front of bar box module -->
+        <posXYZ volume="RAWN" X_Y_Z="243.95 0.0 -0.3" />   <!-- -0.25 front of bar box module -->
 	<posXYZ volume="ABH1" X_Y_Z="243.95 0.0 1.975" />   <!-- back of bar box module  -->
 	<posXYZ volume="ABV1" X_Y_Z="243.9 -21.3 0.8625" /> <!-- side of bar box module  -->
 	<posXYZ volume="ABV1" X_Y_Z="243.9  21.3 0.8625" />  <!-- side of bar box module  -->
