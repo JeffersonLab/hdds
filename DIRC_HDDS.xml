@@ -39,19 +39,229 @@
 	<mposY volume="DCML" ncopy="2" Z_X="30. -196." Y0="29.76" dY="51.5" >
           <plane value="3" step="1"/>
         </mposY>
-	<!--mposY volume="OBC" ncopy="2" Z_X="3.91 246.59" Y0="-55.4268" dY="109.594"-->
-	  <!--sector value="1" step="1"/-->
-	<!--/mposY-->
 	<posXYZ volume="OBC" X_Y_Z="-320.59 -55.4268 3.91" rot="0. 0. 180.">
 	  <plane value="1" />
 	</posXYZ>
 	<posXYZ volume="OBC" X_Y_Z=" 320.59  55.4268 3.91" rot="0. 0. 0." >
 	  <plane value="2" />
-	</posXYZ >
-	  
+	</posXYZ>
+        <posXYZ volume="SPST" X_Y_Z="0. 0. 30." >
+        </posXYZ>
+ 
 </composition>
 
 <box name="DCMV" X_Y_Z="700.0 250.0 100.0" material="OpticalAir" /> <!-- x was 560, y was  220, z was 80 -->
+
+
+
+<!--
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                Various names concerning the support structure
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    SPST: support structure
+
+    BSAB: bar box support for the two bar boxes above beamline (bar boxes #0 and #1) 
+    BSBL: bar box support for the two bar boxes below beamline (bar boxes #10 and #11) 
+
+    ASAB(BL): additional structure above(below) beamline
+
+    VDAB(BL): vertical supports for the two bar boxes above(below) beamline on the downstream side
+    VUAB(BL): vertical supports for the two bar boxes above(below) beamline on the uptream side
+
+    HSAB(BL): horizontal supports for the two bar boxes above(below) beamline
+
+    DSVS: downstream vertical support
+    USVS: upstream vertical support
+
+    HST#: horizontal support of type #
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+
+<composition name="SPST" >
+	<!--the Y values here should match the Y values from DCML modules--> 
+	<posXYZ volume="BSAB" X_Y_Z="0. 29.76 0." />
+	<posXYZ volume="BSAB" X_Y_Z="0. 81.26 0." />
+	<posXYZ volume="BSBL" X_Y_Z="0. -81.25 0." />
+	<posXYZ volume="BSBL" X_Y_Z="0. -29.75 0." />
+
+	<posXYZ volume="ASAB" X_Y_Z="0. 29.76. 0." />
+	<posXYZ volume="ASBL" X_Y_Z="0. -29.75. 0." />
+
+</composition>
+
+<composition name="BSAB">
+        <posXYZ volume="VDAB" X_Y_Z="0. 0. -1.90147"/> 
+        <posXYZ volume="VUAB" X_Y_Z="0. 0. 3.345"   /> 
+        <posXYZ volume="HSAB" X_Y_Z="0. 0. 2.71"  /> <!--downstream--> 
+        <posXYZ volume="HSAB" X_Y_Z="0. 0. -1.57" /> <!--upstream-->
+
+</composition>
+
+<composition name="VDAB">
+        <posXYZ volume="DSVS" X_Y_Z="259.3975   0. 0." /> <!--(01/00)DV01-->
+        <posXYZ volume="DSVS" X_Y_Z="196.9516   0. 0." /> <!--(01/00)DV02-->
+        <posXYZ volume="DSVS" X_Y_Z="145.1483   0. 0." /> <!--(01/00)DV03-->
+        <posXYZ volume="DSVS" X_Y_Z="74.4474    0. 0." /> <!--(01/00)DV04-->
+        <posXYZ volume="DSVS" X_Y_Z="22.6441    0. 0." /> <!--(01/00)DV05-->
+        <posXYZ volume="DSVS" X_Y_Z="-47.95266  0. 0." /> <!--(01/00)DV06-->
+        <posXYZ volume="DSVS" X_Y_Z="-99.75596  0. 0." /> <!--(01/00)DV07-->
+        <posXYZ volume="DSVS" X_Y_Z="-170.35272 0. 0." /> <!--(01/00)DV08-->
+        <posXYZ volume="DSVS" X_Y_Z="-181.14772 0. 0." /> <!--(01/00)DV09-->
+</composition>
+
+<composition name="VUAB">
+        <posXYZ volume="USVS" X_Y_Z="259.3975   0. 0." /> <!--(01/00)DV01-->
+        <posXYZ volume="USVS" X_Y_Z="196.9516   0. 0." /> <!--(01/00)DV02-->
+        <posXYZ volume="USVS" X_Y_Z="145.1483   0. 0." /> <!--(01/00)DV03-->
+        <posXYZ volume="USVS" X_Y_Z="74.4474    0. 0." /> <!--(01/00)DV04-->
+        <posXYZ volume="USVS" X_Y_Z="22.6441    0. 0." /> <!--(01/00)DV05-->
+        <posXYZ volume="USVS" X_Y_Z="-47.95266  0. 0." /> <!--(01/00)DV06-->
+        <posXYZ volume="USVS" X_Y_Z="-99.75596  0. 0." /> <!--(01/00)DV07-->
+        <posXYZ volume="USVS" X_Y_Z="-170.35272 0. 0." /> <!--(01/00)DV08-->
+        <posXYZ volume="USVS" X_Y_Z="-181.14772 0. 0." /> <!--(01/00)DV09-->
+</composition>
+
+
+<composition name="HSAB">
+        <posXYZ volume="HST1" X_Y_Z="260.50875 14.01953 0."  /> <!--(01/00)DH01-->
+        <posXYZ volume="HST1" X_Y_Z="260.50875 -14.01953 0." /> <!--(01/00)DH01-->
+
+        <posXYZ volume="HST2" X_Y_Z="228.17455 14.01953 0."  /> <!--(01/00)DH02-->
+        <posXYZ volume="HST2" X_Y_Z="228.17455 -14.01953 0." /> <!--(01/00)DH02-->
+
+        <posXYZ volume="HST3" X_Y_Z="171.04995 14.01953 0."  /> <!--(01/00)DH03-->
+        <posXYZ volume="HST3" X_Y_Z="171.04995 -14.01953 0." /> <!--(01/00)DH03-->
+
+        <posXYZ volume="HST4" X_Y_Z="136.07415 14.01953 0."  /> <!--(01/00)DH04-->
+        <posXYZ volume="HST4" X_Y_Z="136.07415 -14.01953 0." /> <!--(01/00)DH04-->
+
+        <posXYZ volume="HST1" X_Y_Z="75.55865 14.01953 0."  /> <!--(01/00)DH05-->
+        <posXYZ volume="HST1" X_Y_Z="75.55865 -14.01953 0." /> <!--(01/00)DH05-->
+
+        <posXYZ volume="HST3" X_Y_Z="48.54575 14.01953 0."  /> <!--(01/00)DH06-->
+        <posXYZ volume="HST3" X_Y_Z="48.54575 -14.01953 0." /> <!--(01/00)DH06-->
+
+        <posXYZ volume="HST5" X_Y_Z="13.93825 14.01953 0."  /> <!--(01/00)DH07-->
+        <posXYZ volume="HST5" X_Y_Z="13.93825 -14.01953 0." /> <!--(01/00)DH07-->
+
+        <posXYZ volume="HST1" X_Y_Z="-46.84141 14.01953 0."  /> <!--(01/00)DH08-->
+        <posXYZ volume="HST1" X_Y_Z="-46.84141 -14.01953 0." /> <!--(01/00)DH08-->
+
+        <posXYZ volume="HST3" X_Y_Z="-73.85431 14.01953 0."  /> <!--(01/00)DH09-->
+        <posXYZ volume="HST3" X_Y_Z="-73.85431 -14.01953 0." /> <!--(01/00)DH09-->
+
+        <posXYZ volume="HST5" X_Y_Z="-108.46181 14.01953 0."  /> <!--(01/00)DH10-->
+        <posXYZ volume="HST5" X_Y_Z="-108.46181 -14.01953 0." /> <!--(01/00)DH10-->
+
+        <posXYZ volume="HST1" X_Y_Z="-169.24147 14.01953 0."  /> <!--(01/00)DH11-->
+        <posXYZ volume="HST1" X_Y_Z="-169.24147 -14.01953 0." /> <!--(01/00)DH11-->
+
+        <posXYZ volume="HST6" X_Y_Z="-175.75022 14.01953 0."  /> <!--(01/00)DH12-->
+        <posXYZ volume="HST6" X_Y_Z="-175.75022 -14.01953 0." /> <!--(01/00)DH12-->
+
+        <posXYZ volume="HST7" X_Y_Z="-184.48147 14.01953 0."  /> <!--(01/00)DH13-->
+        <posXYZ volume="HST7" X_Y_Z="-184.48147 -14.01953 0." /> <!--(01/00)DH13-->
+</composition>
+
+<composition name="BSBL">
+        <posXYZ volume="VDBL" X_Y_Z="0. 0. 3.345"    /> 
+        <posXYZ volume="VUBL" X_Y_Z="0. 0. -1.90147" /> 
+	<posXYZ volume="HSBL" X_Y_Z="0. 0. 2.71"  /> <!-- downstream -->
+	<posXYZ volume="HSBL" X_Y_Z="0. 0. -1.57" /> <!-- upstream -->
+</composition>
+
+<composition name="VDBL">
+        <posXYZ volume="DSVS" X_Y_Z="-259.3975 0. 0." /> <!--11DV01/10DV01-->
+        <posXYZ volume="DSVS" X_Y_Z="-196.9516 0. 0." /> <!--11DV02/10DV02-->
+        <posXYZ volume="DSVS" X_Y_Z="-145.1483 0. 0." /> <!--11DV03/10DV03-->
+        <posXYZ volume="DSVS" X_Y_Z="-74.4474  0. 0." /> <!--11DV04/10DV04-->
+        <posXYZ volume="DSVS" X_Y_Z="-22.0599  0. 0." /> <!--11DV05/10DV05-->
+        <posXYZ volume="DSVS" X_Y_Z="47.95266  0. 0." /> <!--11DV06/10DV06-->
+        <posXYZ volume="DSVS" X_Y_Z="100.34016 0. 0." /> <!--11DV07/10DV07-->
+        <posXYZ volume="DSVS" X_Y_Z="170.35272 0. 0." /> <!--11DV08/10DV08-->
+        <posXYZ volume="DSVS" X_Y_Z="181.14772 0. 0." /> <!--11DV09/10DV09-->
+</composition>
+
+<composition name="VUBL">
+        <posXYZ volume="USVS" X_Y_Z="-259.3975 0. 0." /> <!--11DV01/10DV01-->
+        <posXYZ volume="USVS" X_Y_Z="-196.9516 0. 0." /> <!--11DV02/10DV02-->
+        <posXYZ volume="USVS" X_Y_Z="-145.1483 0. 0." /> <!--11DV03/10DV03-->
+        <posXYZ volume="USVS" X_Y_Z="-74.4474  0. 0." /> <!--11DV04/10DV04-->
+        <posXYZ volume="USVS" X_Y_Z="-22.0599  0. 0." /> <!--11DV05/10DV05-->
+        <posXYZ volume="USVS" X_Y_Z="47.95266  0. 0." /> <!--11DV06/10DV06-->
+        <posXYZ volume="USVS" X_Y_Z="100.34016 0. 0." /> <!--11DV07/10DV07-->
+        <posXYZ volume="USVS" X_Y_Z="170.35272 0. 0." /> <!--11DV08/10DV08-->
+        <posXYZ volume="USVS" X_Y_Z="181.14772 0. 0." /> <!--11DV09/10DV09-->
+</composition>
+
+
+<composition name="HSBL">
+        <posXYZ volume="HST1" X_Y_Z="-260.50875 14.01953 0."  /> <!--(11/10)DH01-->
+        <posXYZ volume="HST1" X_Y_Z="-260.50875 -14.01953 0." /> <!--(11/10)DH01-->
+
+        <posXYZ volume="HST2" X_Y_Z="-228.17455 14.01953 0."  /> <!--(11/10)DH02-->
+        <posXYZ volume="HST2" X_Y_Z="-228.17455 -14.01953 0." /> <!--(11/10)DH02-->
+
+        <posXYZ volume="HST3" X_Y_Z="-171.04995 14.01953 0."  /> <!--(11/10)DH03-->
+        <posXYZ volume="HST3" X_Y_Z="-171.04995 -14.01953 0." /> <!--(11/10)DH03-->
+
+        <posXYZ volume="HST4" X_Y_Z="-136.07415 14.01953 0."  /> <!--(11/10)DH04-->
+        <posXYZ volume="HST4" X_Y_Z="-136.07415 -14.01953 0." /> <!--(11/10)DH04-->
+
+        <posXYZ volume="HST1" X_Y_Z="-75.55865 14.01953 0."  /> <!--(11/10)DH05-->
+        <posXYZ volume="HST1" X_Y_Z="-75.55865 -14.01953 0." /> <!--(11/10)DH05-->
+
+        <posXYZ volume="HST8" X_Y_Z="-48.25365 14.01953 0."  /> <!--(11/10)DH06-->
+        <posXYZ volume="HST8" X_Y_Z="-48.25365 -14.01953 0." /> <!--(11/10)DH06-->
+
+        <posXYZ volume="HST9" X_Y_Z="-13.64615 14.01953 0."  /> <!--(11/10)DH07-->
+        <posXYZ volume="HST9" X_Y_Z="-13.64615 -14.01953 0." /> <!--(11/10)DH07-->
+
+        <posXYZ volume="HST1" X_Y_Z="46.84141 14.01953 0."  /> <!--(11/10)DH08-->
+        <posXYZ volume="HST1" X_Y_Z="46.84141 -14.01953 0." /> <!--(11/10)DH08-->
+
+        <posXYZ volume="HST8" X_Y_Z="76.14641 14.01953 0."  /> <!--(11/10)DH09-->
+        <posXYZ volume="HST8" X_Y_Z="76.14641 -14.01953 0." /> <!--(11/10)DH09-->
+
+        <posXYZ volume="HST9" X_Y_Z="108.75391 14.01953 0."  /> <!--(11/10)DH10-->
+        <posXYZ volume="HST9" X_Y_Z="108.75391 -14.01953 0." /> <!--(11/10)DH10-->
+
+        <posXYZ volume="HST1" X_Y_Z="169.24147 14.01953 0."  /> <!--(11/10)DH11-->
+        <posXYZ volume="HST1" X_Y_Z="169.24147 -14.01953 0." /> <!--(11/10)DH11-->
+
+        <posXYZ volume="HST6" X_Y_Z="175.75022 14.01953 0."  /> <!--(11/10)DH12-->
+        <posXYZ volume="HST6" X_Y_Z="175.75022 -14.01953 0." /> <!--(11/10)DH12-->
+
+        <posXYZ volume="HST7" X_Y_Z="184.48147 14.01953 0."  /> <!--(11/10)DH13-->
+        <posXYZ volume="HST7" X_Y_Z="184.48147 -14.01953 0." /> <!--(11/10)DH13-->
+
+</composition>
+
+<composition name="ASAB">
+	<posXYZ volume="HZSL" X_Y_Z="0. -25.65273 -1.15" />
+</composition>
+
+<composition name="ASBL">
+	<posXYZ volume="HZSL" X_Y_Z="0. 25.65273 -1.15" />
+</composition>
+
+
+<box name="DSVS" X_Y_Z="0.635 47.1805 2.54"    material="Aluminum" />
+<box name="USVS" X_Y_Z="0.635 47.1805 3.20294" material="Aluminum" />
+
+<box name="HST1" X_Y_Z="1.5873 2.54 1.27"  material="Aluminum" />
+<box name="HST2" X_Y_Z="61.8109 2.54 1.27" material="Aluminum" />
+<box name="HST3" X_Y_Z="51.1683 2.54 1.27" material="Aluminum" />
+<box name="HST4" X_Y_Z="17.5133 2.54 1.27" material="Aluminum" />
+<box name="HST5" X_Y_Z="16.7767 2.54 1.27" material="Aluminum" />
+<box name="HST6" X_Y_Z="10.16   2.54 1.27" material="Aluminum" />
+<box name="HST7" X_Y_Z="6.0325  2.54 1.27" material="Aluminum" />
+<box name="HST8" X_Y_Z="51.7525 2.54 1.27" material="Aluminum" />
+<box name="HST9" X_Y_Z="16.1925 2.54 1.27" material="Aluminum" />
+
+<box name="HZSL" X_Y_Z="238.76 0.3175 10.16" material="Aluminum" />
 
 
 <!-- DIRC bar box module (12 individual bars): x positions
