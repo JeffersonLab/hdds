@@ -143,7 +143,7 @@
 <!-- Al Container for bar box module -->
 <composition name="ALCM">
         <posXYZ volume="ABT1" X_Y_Z="-1.05 0.0 0.8625" />   <!-- top of bar box module   -->
-        <posXYZ volume="RAWN" X_Y_Z="243.95 0.0 -0.4" />   <!-- -0.25 front of bar box module -->
+        <posXYZ volume="RAWN" X_Y_Z="243.95 0.0 -0.35" />   <!-- -0.25 front of bar box module -->
 	<posXYZ volume="ABH1" X_Y_Z="243.95 0.0 1.975" />   <!-- back of bar box module  -->
 	<posXYZ volume="ABV1" X_Y_Z="243.9 -21.3 0.8625" /> <!-- side of bar box module  -->
 	<posXYZ volume="ABV1" X_Y_Z="243.9  21.3 0.8625" />  <!-- side of bar box module  -->
