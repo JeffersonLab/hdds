@@ -6,9 +6,10 @@
 
      version 1.0: Initial version	-rtj
      version 2.0: Updated version, refined geometry of the optical box
-     added pixels
-     added volume ids to use for the reconstruction
-     version 3.0: added as-build aluminum supports, added more comments (Y. Yang)
+     		  added pixels
+     		  added volume ids to use for the reconstruction
+     version 3.0: added as-built aluminum supports, added more comments (Y. Yang)
+
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
@@ -59,9 +60,9 @@
 <!-- DIRC bar box module (12 individual bars): x positions
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
      DCML:
-	DCBR: x12 DIRC bars(3.5 width+0.015 gap) Y from -19.3325 (-0.1      to 499.12)
+	DCBR: x12 DIRC bars(3.5 width+0.015 gap) Y from -19.3325       (-0.1      to 499.12)
 	WNGL: Epotek Glue between the old wedge and the bar box window (499.12    to 499.125)
-	QZWN: bar box window (499.125   to 500.085)
+	QZWN: bar box window                                           (499.125   to 500.085)
 	ALCM: aluminum container for the bar box modules
 
      (Legacy comments:)
@@ -88,13 +89,16 @@
         FNMR: -0.1		to -0.01	Far end mirror
 	FNAG: -0.01             to 0            air gap resembelling pressure contact   // Maria
 	QZBL: 0			to 490.015	4x122.5 Silica bars
-	EPGL: 122.5		to 490.02	Epotek glue
+	EPGL: 122.5		to 490.02	Epotek glue (4 locations in fact: 122.5 to 122.505, ..., 490.015 to 490.02)
 	OWDG: 490.02	        to 499.12	Old wedge
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 
 <composition name="DCBR">
+<!--
         <posXYZ volume="FNMR" X_Y_Z="-0.055 0.02535 0.73695" />
+-->
+        <posXYZ volume="FNMR" X_Y_Z="-0.055 0.02535 0.8625" />
 	<posXYZ volume="FNAG" X_Y_Z="-0.005 0.02535 0.8625" />
 	<mposX volume="QZBL" ncopy="4" Y_Z="0.0 0.8625" X0="61.25" dX="122.505" />
 	<mposX volume="EPGL" ncopy="4" Y_Z="0.0 0.8625" X0="122.5025" dX="122.505" />
@@ -130,41 +134,100 @@
 <!-- Aluminum container for bar box module 
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      ALCM:
-	ABT1: far end (mirror end) of the bar box module
-	RAWN: front side of the bar box module, facing upstream
-	ABH1: back side of the bar box module, facing downstream
-	ABV1: thin sides of the bar box module, facing either ceiling or floor
+	the structure of the inside support of the bar box module is as follows:
+	going from bar box to the outside is:
+	- fused sillica bars
+	- 2mm gap
+	- 0.01 inch aluminum skin
+	- cross-beams under the rollers or hex honeycomb (honeycomb not modeled)
+	- 0.01 inch aluminum skin (what's seen from the outside)
 
-     (I don't know why those are named this way, so not all of them make sense
-	to me. But they are kept as they are for legacy reasons. See the next lines for
-	previous comments. -Yunjie)
+	ALSK: aluminum skins, closest to bars
+	BTSM: buttun support modules, the assembly of those aluminum cross-beams
+	RAWN: upstream side of the outmost aluminum skin 
+	ABH1: downstream side of the outmost aluminum skin
+	ABT1: far end (mirror end) of the bar box module
+	ALE#: structures for a simplified model of the two long edges of the bar boxes
+	ALE1: outmost piece of the aluminum edge for the long edges (in replacement of ABV1 structures), normal direction pointing
+		either the ceiling or the floor (+/-y), 2 pieces per bar box
+	ALE2: connecting piece between ALE1 and ALE2, normal direction pointing downstream/upstream (+/-z), 4 pieces per bar box
+	ALE3; connecting piece between ALE2 and RAWN/ABH1, normal direction +/-y, 4 pieces per bar box
+
+     (I don't know why some of those were named this way, so not all of them make sense
+	to me. But they are kept as they are for legacy reasons. -Yunjie)
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
--->
-<!-- Al Container for bar box module -->
+
+
+Legacy configuration of the Al Container for bar box module
+
 <composition name="ALCM">
-        <posXYZ volume="ABT1" X_Y_Z="-1.05 0.0 0.8625" />   <!-- top of bar box module   -->
-        <posXYZ volume="RAWN" X_Y_Z="243.95 0.0 -0.35" />   <!-- -0.25 front of bar box module -->
-	<posXYZ volume="ABH1" X_Y_Z="243.95 0.0 1.975" />   <!-- back of bar box module  -->
-	<posXYZ volume="ABV1" X_Y_Z="243.9 -21.3 0.8625" /> <!-- side of bar box module  -->
-	<posXYZ volume="ABV1" X_Y_Z="243.9  21.3 0.8625" />  <!-- side of bar box module  -->
+        <posXYZ volume="ABT1" X_Y_Z="-1.05 0.0 0.8625" />  
+        <posXYZ volume="RAWN" X_Y_Z="243.95 0.0 -0.35" />   
+	<posXYZ volume="ABH1" X_Y_Z="243.95 0.0 1.975" />   
+	<posXYZ volume="ABV1" X_Y_Z="243.9 -21.3 0.8625" /> 
+	<posXYZ volume="ABV1" X_Y_Z="243.9  21.3 0.8625" /> 
 </composition>
 
 <box name="ABT1" X_Y_Z="0.1 42.5 2.325" material="Aluminum" />
 <box name="RAWN" X_Y_Z="489.9 42.5 0.1" material="Aluminum" />
 <box name="ABH1" X_Y_Z="489.9 42.5 0.1" material="Aluminum" />
-<box name="ABV1" X_Y_Z="490.0 0.1 2.325" material="Aluminum" />
+<box name="ABV1" X_Y_Z="490.0 0.1 2.325" material="Aluminum" /> ABV1: thin long-edge sides facing either ceiling or floor
+-->
+
+<!-- Aluminum Container for bar box module -->
+<composition name="ALCM">
+	<posXYZ volume="ALSK" X_Y_Z="244.45 0.0 -0.2127"/> <!-- upstream side Al skin between bars and honeycomb -->
+	<posXYZ volume="ALSK" X_Y_Z="244.45 0.0 1.9377" /> <!-- downstream side Al skin between bars and honeycomb -->
+	<posXYZ volume="BTSM" X_Y_Z="0.0 0.0 -0.6354"/> <!-- upstream side Al support bars under the buttons -->
+	<posXYZ volume="BTSM" X_Y_Z="0.0 0.0 2.3604" /> <!-- downstream side Al support bars under the buttons -->	
+        <posXYZ volume="RAWN" X_Y_Z="243.95 0.0 -1.0581" /> <!-- upstream side outmost Al skin-->  
+	<posXYZ volume="ABH1" X_Y_Z="243.95 0.0  2.7831" /> <!-- downstream side outmost Al skin-->
+	<posXYZ volume="ALE1" X_Y_Z="243.9 21.4325 0.8625" />
+	<posXYZ volume="ALE1" X_Y_Z="243.9 -21.4325 0.8625" />
+	<posXYZ volume="ALE2" X_Y_Z="243.95 20.39125 -0.3" />
+	<posXYZ volume="ALE2" X_Y_Z="243.95 20.39125 2.025" />
+	<posXYZ volume="ALE2" X_Y_Z="243.95 -20.39125 -0.3" />
+	<posXYZ volume="ALE2" X_Y_Z="243.95 -20.39125 2.025" />
+	<posXYZ volume="ALE3" X_Y_Z="243.95 19.6 -0.7354" />
+	<posXYZ volume="ALE3" X_Y_Z="243.95 19.6 2.4604" />
+	<posXYZ volume="ALE3" X_Y_Z="243.95 -19.6 -0.7354" />
+	<posXYZ volume="ALE3" X_Y_Z="243.95 -19.6 2.4604" />
+        <posXYZ volume="ABT1" X_Y_Z="-1.05 0.0 0.8625" />   <!-- mirror end -->
+</composition>
+
+<composition name="BTSM">
+	<posXYZ volume="BTSP" X_Y_Z="394.4 0.0 0.0" /> 
+	<posXYZ volume="BTSP" X_Y_Z="342.6 0.0 0.0" /> 
+	<posXYZ volume="BTSP" X_Y_Z="271.9 0.0 0.0" /> 
+	<posXYZ volume="BTSP" X_Y_Z="220.2 0.0 0.0" /> 
+	<posXYZ volume="BTSP" X_Y_Z="149.5 0.0 0.0" /> 
+	<posXYZ volume="BTSP" X_Y_Z="97.7  0.0 0.0" /> 
+	<posXYZ volume="BTSP" X_Y_Z="27.1  0.0 0.0" /> 
+</composition>
+
+
+<box name="ALSK" X_Y_Z="488.9 39.0 0.0254" material="Aluminum"/>
+<box name="BTSP" X_Y_Z="2.5 39.0 0.82"     material="Aluminum" />
+<box name="RAWN" X_Y_Z="489.9 39.0 0.0254" material="Aluminum" />
+<box name="ABH1" X_Y_Z="489.9 39.0 0.0254" material="Aluminum" />
+<box name="ABV1" X_Y_Z="490.0 0.1 3.8666" material="Aluminum" />
+<box name="ABT1" X_Y_Z="0.1 42.5 3.8666" material="Aluminum" /> <!-- the z value of it is the total thickness of the bar box module-->
+<box name="ALE1" X_Y_Z="490.0 0.3 2.125" material="Aluminum" />
+<box name="ALE2" X_Y_Z="489.9 1.7825 0.2" material="Aluminum" />
+<box name="ALE3" X_Y_Z="489.9 0.2 0.6708" material="Aluminum" />
+
 
 
 <!-- Optical Box (OBC) 
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
      OBC:
-	FTMR: flat mirror (opposite side of the 3-segment mirrors)
+	FTMR: flat mirror (opposite side of the 3-segment mirrors, perpendicular to bar direction)
 	TSM1: 3-segment mirror 1 (closest to PMT plane)
 	TSM2: 3-segment mirror 2 (middle one)
 	TSM3: 3-segment mirror 3 (closest to bar box window)
-	FWM1: flat wedge mirror 1 (opposite side of the PMT plane)
-	FWM2: flat wedge mirror 2 (like extension of the bar box old wedge)
+	FWM1: flat wedge mirror 1 (opposite side of the PMT plane, parallel to bars)
+	FWM2: flat wedge mirror 2 (like extension of the bar box old wedge, with some inclination angle)
 	FSM1: flat side mirror 1 (the LHS side mirror for a Cherenkov photon exiting a bar)
 	FSM2: flat side mirror 2 (the RHS side mirror for a Cherenkov photon exiting a bar)
 	BWPG: optical box window and photo dectector grid 
@@ -427,8 +490,8 @@
 
 <composition name="BSAB">
         <posXYZ volume="VBAB" X_Y_Z="0. 0. 0." />
-        <posXYZ volume="HSAB" X_Y_Z="0. 0. 2.71"  /> <!--downstream--> 
-        <posXYZ volume="HSAB" X_Y_Z="0. 0. -1.67" /> <!--upstream-->
+        <posXYZ volume="HSAB" X_Y_Z="0. 0. 3.4808"  /> <!--downstream--> 
+        <posXYZ volume="HSAB" X_Y_Z="0. 0. -1.7558" /> <!--upstream-->
 
 </composition>
 
@@ -463,8 +526,8 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 <composition name="VSML">
-        <posXYZ volume="DSVS" X_Y_Z="0. 0. 3.345" />
-        <posXYZ volume="USVS" X_Y_Z="0. 0. -2.00147" />
+        <posXYZ volume="DSVS" X_Y_Z="0. 0. 4.1158" />
+        <posXYZ volume="USVS" X_Y_Z="0. 0. -2.72227" />
 </composition>
 
 <!-- 
@@ -522,8 +585,8 @@
 
 <composition name="BSBL">
         <posXYZ volume="VSBL" X_Y_Z="0. 0. 0." />
-        <posXYZ volume="HSBL" X_Y_Z="0. 0. 2.71"  /> <!--downstream--> 
-        <posXYZ volume="HSBL" X_Y_Z="0. 0. -1.67" /> <!--upstream-->
+        <posXYZ volume="HSBL" X_Y_Z="0. 0. 3.4808"  /> <!--downstream--> 
+        <posXYZ volume="HSBL" X_Y_Z="0. 0. -1.7558" /> <!--upstream-->
 
 </composition>
 
@@ -585,79 +648,89 @@
 
 <!-- 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    ASAB:
-	HZSL: horizontal slab
+    ASAB (additional supports for bar boxes above the beamline):
+	HZML: horizontal slab module
 	AVAB: additional vertical supports for the two bar boxes above the beamline
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 <composition name="ASAB">
-	<posXYZ volume="HZSL" X_Y_Z="0. -25.65273 -1.15" />
+	<posXYZ volume="HSML" X_Y_Z="0. -25.65273 -0.3292" />
 	<posXYZ volume="AVAB" X_Y_Z="0. 0. 0." />
 </composition>
 
 <!-- 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    AVAB:
-	AMAB: additional vertical support modules for the two bar boxes 
-		above the beamline 
+    HZML:
+	HZSL: horizontal slab
+	SLED: ends of the horizontal slab
+	EDSC: end cylinders (those are screws at the end of the slabs)
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
-<composition name="AVAB">
-        <posXYZ volume="AMAB" X_Y_Z="259.3975   0. 0." />
-        <posXYZ volume="AMAB" X_Y_Z="196.9516   0. 0." /> 
-        <posXYZ volume="AMAB" X_Y_Z="145.1483   0. 0." /> 
-        <posXYZ volume="AMAB" X_Y_Z="74.4474    0. 0." />
-        <posXYZ volume="AMAB" X_Y_Z="22.6441    0. 0." />
-        <posXYZ volume="AMAB" X_Y_Z="-47.95266  0. 0." /> 
-        <posXYZ volume="AMAB" X_Y_Z="-99.75596  0. 0." /> 
-        <posXYZ volume="AMAB" X_Y_Z="-170.35272 0. 0." /> 
-        <posXYZ volume="AMAB" X_Y_Z="-181.14772 0. 0." /> 
+<composition name="HSML">
+	<posXYZ volume="HZSL" X_Y_Z="0. 0. 0." />
+	<posXYZ volume="SLED" X_Y_Z="118.4275 1.11125 0." />
+	<posXYZ volume="SLED" X_Y_Z="-118.4275 1.11125 0." />
+	<posXYZ volume="EDSC" X_Y_Z="122.3976 1.11125 2.54" rot="0. 90. 0."/>
+	<posXYZ volume="EDSC" X_Y_Z="122.3976 1.11125 -2.54" rot="0. 90. 0."/>
+	<posXYZ volume="EDSC" X_Y_Z="-122.3976 1.11125 2.54" rot="0. 90. 0."/>
+	<posXYZ volume="EDSC" X_Y_Z="-122.3976 1.11125 -2.54" rot="0. 90. 0."/>
 </composition>
 
 <!-- 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    AMAB:
+    AVAB:
+	ASML: additional vertical support modules
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+<composition name="AVAB">
+        <posXYZ volume="ASML" X_Y_Z="259.3975   0. 0." />
+        <posXYZ volume="ASML" X_Y_Z="196.9516   0. 0." /> 
+        <posXYZ volume="ASML" X_Y_Z="145.1483   0. 0." /> 
+        <posXYZ volume="ASML" X_Y_Z="74.4474    0. 0." />
+        <posXYZ volume="ASML" X_Y_Z="22.6441    0. 0." />
+        <posXYZ volume="ASML" X_Y_Z="-47.95266  0. 0." /> 
+        <posXYZ volume="ASML" X_Y_Z="-99.75596  0. 0." /> 
+        <posXYZ volume="ASML" X_Y_Z="-170.35272 0. 0." /> 
+        <posXYZ volume="ASML" X_Y_Z="-181.14772 0. 0." /> 
+</composition>
+
+<!-- 
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    ASML:
 	ADBT: additional vertical support between the two bar boxes
 	ADED: additional vertical support at the end
 	ADS#: additional structure of type # 
 		(types 1,2,3 correspond to the linking structure between the 
-		 vertical supports and the slab) 
+		 vertical supports and the slab)
+	ASC#: additional screws
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
-<composition name="AMAB">
-	<posXYZ volume="ADBT" X_Y_Z="0. 25.74925 -0.76397" />
-	<posXYZ volume="ADED" X_Y_Z="0. 79.5035 -0.76397" />
-	<posXYZ volume="ADS1" X_Y_Z="2.2225 -23.33625 0.8375" />
-	<posXYZ volume="ADS2" X_Y_Z="3.4925 -23.58898 3.6125" />
-	<posXYZ volume="ADS2" X_Y_Z="3.4925 -23.58898 -5.9125" />
-	<posXYZ volume="ADS3" X_Y_Z="3.4925 -25.01773 -1.15" />
-
+<composition name="ASML">
+	<posXYZ volume="ADBT" X_Y_Z="0. 25.74925 -0.51374" />
+	<posXYZ volume="ADED" X_Y_Z="0. 79.5035  -0.51374" />
+	<posXYZ volume="ADS1" X_Y_Z="2.2225 -23.33625  0.3058" />
+	<posXYZ volume="ADS2" X_Y_Z="3.4925 -23.58898  4.4333" />
+	<posXYZ volume="ADS2" X_Y_Z="3.4925 -23.58898 -5.0917" />
+	<posXYZ volume="ADS3" X_Y_Z="3.4925 -25.01773 -0.3292" />
+	<posXYZ volume="ASC1" X_Y_Z="3.4925 -23.33625 2.8458" />
+	<posXYZ volume="ASC2" X_Y_Z="3.4925 -23.33625 -2.8692" />
 </composition>
 
 <composition name="ASBL">
-	<posXYZ volume="HZSL" X_Y_Z="0. 25.65273 -1.15" />
+	<posXYZ volume="HSML" X_Y_Z="0. 25.65273 -0.3292" rot="0. 0. 180." />
 	<posXYZ volume="AVBL" X_Y_Z="0. 0. 0." />
 </composition>
 
 <composition name="AVBL">
-        <posXYZ volume="AMBL" X_Y_Z="-259.3975 0. 0." /> 
-        <posXYZ volume="AMBL" X_Y_Z="-196.9516 0. 0." /> 
-        <posXYZ volume="AMBL" X_Y_Z="-145.1483 0. 0." /> 
-        <posXYZ volume="AMBL" X_Y_Z="-74.4474  0. 0." /> 
-        <posXYZ volume="AMBL" X_Y_Z="-22.0599  0. 0." /> 
-        <posXYZ volume="AMBL" X_Y_Z="47.95266  0. 0." /> 
-        <posXYZ volume="AMBL" X_Y_Z="100.34016 0. 0." /> 
-        <posXYZ volume="AMBL" X_Y_Z="170.35272 0. 0." /> 
-        <posXYZ volume="AMBL" X_Y_Z="181.14772 0. 0." /> 
-</composition>
-
-<composition name="AMBL">
-	<posXYZ volume="ADBT" X_Y_Z="0. -25.74925 -0.76397" />
-	<posXYZ volume="ADED" X_Y_Z="0. -79.5035 -0.76397" />
-	<posXYZ volume="ADS1" X_Y_Z="-2.2225 23.33625 0.8375" />
-	<posXYZ volume="ADS2" X_Y_Z="-3.4925 23.58898 3.6125" />
-	<posXYZ volume="ADS2" X_Y_Z="-3.4925 23.58898 -5.9125" />
-	<posXYZ volume="ADS3" X_Y_Z="-3.4925 25.01773 -1.15" />
+        <posXYZ volume="ASML" X_Y_Z="-259.3975 0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="-196.9516 0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="-145.1483 0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="-74.4474  0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="-22.0599  0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="47.95266  0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="100.34016 0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="170.35272 0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="181.14772 0. 0." rot="0. 0. 180." /> 
 </composition>
 
 <!-- downstream vertical supports-->
@@ -680,18 +753,26 @@
 <!-- horizontal slab-->
 <box name="HZSL" X_Y_Z="238.76 0.3175 10.16" material="Aluminum" />
 
+<!-- horizontal slab ends-->
+<box name="SLED" X_Y_Z="1.905 1.905 10.16" material="Aluminum" />
+
+<!-- cylindrical screws at the ends of the slab -->
+<tubs name="EDSC" Rio_Z="0. 0.52705 6.0325" profile="0. 360." material="Aluminum" />
+
 <!-- additional structure between two bar boxes -->
-<box name="ADBT" X_Y_Z="0.635 4.318 5.67794" material="Aluminum" />
+<box name="ADBT" X_Y_Z="0.635 4.318 7.62" material="Aluminum" />
 
 <!-- additional structure at the end of vertical supports -->
-<box name="ADED" X_Y_Z="0.635 8.8265 5.67794" material="Aluminum" />
+<box name="ADED" X_Y_Z="0.635 8.8265 7.62" material="Aluminum" />
 
 <!-- additional structure of type X -->
 <!-- 1,2,3 are the linking structure between vertical supports and the slab-->
-<box name="ADS1" X_Y_Z="5.08 1.905 2.45" material="Aluminum" />
+<!-- ASC# are two screw sections -->
+<box name="ADS1" X_Y_Z="5.08 1.905 2.54" material="Aluminum" />
 <box name="ADS2" X_Y_Z="1.905 3.81 0.635" material="Aluminum" />
 <box name="ADS3" X_Y_Z="1.905 0.9525 8.89" material="Aluminum" />
-
+<tubs name="ASC1" Rio_Z="0. 0.635 2.54" material="Aluminum"/>
+<tubs name="ASC2" Rio_Z="0. 0.635 3.81" material="Aluminum"/>
 
 
 
