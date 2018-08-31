@@ -151,7 +151,7 @@
   <box name="FCAL" X_Y_Z="236.9263  236.9263  50.8"  material="Air"
 	                              	comment="forward EMcal mother" />
 
-  <box name="LTLW" X_Y_Z="60.0  36.0  18.0"  material="Air"
+  <box name="LTLW" X_Y_Z="60.0  28.0  18.0"  material="Air"
 					comment="PbWO4 bottom section"   />
   <box name="LTUP" X_Y_Z="60.0  28.0  18.0"  material="Air"
 					comment="PbWO4 top section"      />
