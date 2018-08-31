@@ -51,7 +51,7 @@
 	</mposY>
 </composition>
 
-<box name="DCMV" X_Y_Z="560.0 250.0 150.0" material="OpticalAir" /> <!-- x was 560, y was  220, z was 80 -->
+<box name="DCMV" X_Y_Z="560.0 250.0 80.0" material="OpticalAir" /> <!-- x was 560, y was  220, z was 80 -->
 
 
 <!-- DIRC bar box module (12 individual bars): x positions
