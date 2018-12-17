@@ -241,7 +241,7 @@
 <trd name="OWDG" Xmp_Ymp_Z="2.7 7.89929 3.325 3.325 9.1"
 	inclination="16.26065 0.0" material="fusedSilica" sensitive="true"/>
 <!-- far-end mirror -->
-<box name="FNMR" X_Y_Z="0.09 3.4493 1.9761" material="ThickCerenkovMirror" />
+<box name="FNMR" X_Y_Z="0.09 3.4493 1.9761" material="ThickCerenkovMirror"/>
 
 <composition name="DCBR00">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -265,7 +265,7 @@
 <box name="B00C" X_Y_Z="122.422920 3.467480 1.589110" material="fusedSilica" sensitive="true" />
 <box name="G00D" X_Y_Z="0.005000 3.467900 1.589110" material="Epotek301" />
 <box name="B00D" X_Y_Z="122.422920 3.467900 1.577340" material="fusedSilica" sensitive="true" />
-<box name="AG00" X_Y_Z="0.010000 3.467900 1.577340" material="OpticalAir" />
+<box name="AG00" X_Y_Z="0.010000 3.467900 1.577340" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR01">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -289,7 +289,7 @@
 <box name="B01C" X_Y_Z="122.422920 3.495550 1.704590" material="fusedSilica" sensitive="true" />
 <box name="G01D" X_Y_Z="0.005000 3.495550 1.704590" material="Epotek301" />
 <box name="B01D" X_Y_Z="122.422920 3.495550 1.704260" material="fusedSilica" sensitive="true" />
-<box name="AG01" X_Y_Z="0.010000 3.495550 1.704260" material="OpticalAir" />
+<box name="AG01" X_Y_Z="0.010000 3.495550 1.704260" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR02">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -313,7 +313,7 @@
 <box name="B02C" X_Y_Z="122.422920 3.484410 1.711450" material="fusedSilica" sensitive="true" />
 <box name="G02D" X_Y_Z="0.005000 3.484410 1.711450" material="Epotek301" />
 <box name="B02D" X_Y_Z="122.422920 3.484410 1.709760" material="fusedSilica" sensitive="true" />
-<box name="AG02" X_Y_Z="0.010000 3.484410 1.709760" material="OpticalAir" />
+<box name="AG02" X_Y_Z="0.010000 3.484410 1.709760" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR03">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -337,7 +337,7 @@
 <box name="B03C" X_Y_Z="122.478800 3.490470 1.709500" material="fusedSilica" sensitive="true" />
 <box name="G03D" X_Y_Z="0.005000 3.490470 1.709500" material="Epotek301" />
 <box name="B03D" X_Y_Z="122.478800 3.490470 1.707300" material="fusedSilica" sensitive="true" />
-<box name="AG03" X_Y_Z="0.010000 3.490470 1.707300" material="OpticalAir" />
+<box name="AG03" X_Y_Z="0.010000 3.490470 1.707300" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR04">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -361,7 +361,7 @@
 <box name="B04C" X_Y_Z="122.478800 3.476960 1.704170" material="fusedSilica" sensitive="true" />
 <box name="G04D" X_Y_Z="0.005000 3.476960 1.707300" material="Epotek301" />
 <box name="B04D" X_Y_Z="122.478800 3.476580 1.707300" material="fusedSilica" sensitive="true" />
-<box name="AG04" X_Y_Z="0.010000 3.476580 1.707300" material="OpticalAir" />
+<box name="AG04" X_Y_Z="0.010000 3.476580 1.707300" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR05">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -385,7 +385,7 @@
 <box name="B05C" X_Y_Z="122.478800 3.479840 1.690620" material="fusedSilica" sensitive="true" />
 <box name="G05D" X_Y_Z="0.005000 3.479840 1.690620" material="Epotek301" />
 <box name="B05D" X_Y_Z="122.478800 3.479840 1.681990" material="fusedSilica" sensitive="true" />
-<box name="AG05" X_Y_Z="0.010000 3.479840 1.681990" material="OpticalAir" />
+<box name="AG05" X_Y_Z="0.010000 3.479840 1.681990" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR06">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -409,7 +409,7 @@
 <box name="B06C" X_Y_Z="122.478800 3.485560 1.706800" material="fusedSilica" sensitive="true" />
 <box name="G06D" X_Y_Z="0.005000 3.485560 1.713150" material="Epotek301" />
 <box name="B06D" X_Y_Z="122.478800 3.485560 1.713150" material="fusedSilica" sensitive="true" />
-<box name="AG06" X_Y_Z="0.010000 3.485560 1.713150" material="OpticalAir" />
+<box name="AG06" X_Y_Z="0.010000 3.485560 1.713150" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR07">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -433,7 +433,7 @@
 <box name="B07C" X_Y_Z="122.478800 3.485730 1.713060" material="fusedSilica" sensitive="true" />
 <box name="G07D" X_Y_Z="0.005000 3.485730 1.713060" material="Epotek301" />
 <box name="B07D" X_Y_Z="122.478800 3.485730 1.711370" material="fusedSilica" sensitive="true" />
-<box name="AG07" X_Y_Z="0.010000 3.485730 1.711370" material="OpticalAir" />
+<box name="AG07" X_Y_Z="0.010000 3.485730 1.711370" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR08">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -457,7 +457,7 @@
 <box name="B08C" X_Y_Z="122.478800 3.478660 1.700020" material="fusedSilica" sensitive="true" />
 <box name="G08D" X_Y_Z="0.005000 3.478660 1.700020" material="Epotek301" />
 <box name="B08D" X_Y_Z="122.478800 3.478610 1.684950" material="fusedSilica" sensitive="true" />
-<box name="AG08" X_Y_Z="0.010000 3.478610 1.684950" material="OpticalAir" />
+<box name="AG08" X_Y_Z="0.010000 3.478610 1.684950" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR09">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -481,7 +481,7 @@
 <box name="B09C" X_Y_Z="122.478800 3.483020 1.701800" material="fusedSilica" sensitive="true" />
 <box name="G09D" X_Y_Z="0.005000 3.483020 1.709500" material="Epotek301" />
 <box name="B09D" X_Y_Z="122.478800 3.483020 1.709500" material="fusedSilica" sensitive="true" />
-<box name="AG09" X_Y_Z="0.010000 3.483020 1.709500" material="OpticalAir" />
+<box name="AG09" X_Y_Z="0.010000 3.483020 1.709500" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR10">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -505,7 +505,7 @@
 <box name="B10C" X_Y_Z="122.478800 3.488860 1.706460" material="fusedSilica" sensitive="true" />
 <box name="G10D" X_Y_Z="0.005000 3.489240 1.706460" material="Epotek301" />
 <box name="B10D" X_Y_Z="122.478800 3.489240 1.682920" material="fusedSilica" sensitive="true" />
-<box name="AG10" X_Y_Z="0.010000 3.489240 1.682920" material="OpticalAir" />
+<box name="AG10" X_Y_Z="0.010000 3.489240 1.682920" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR11">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -529,7 +529,7 @@
 <box name="B11C" X_Y_Z="122.440700 3.407960 1.699340" material="fusedSilica" sensitive="true" />
 <box name="G11D" X_Y_Z="0.005000 3.407960 1.699340" material="Epotek301" />
 <box name="B11D" X_Y_Z="122.440700 3.407750 1.693930" material="fusedSilica" sensitive="true" />
-<box name="AG11" X_Y_Z="0.010000 3.407750 1.693930" material="OpticalAir" />
+<box name="AG11" X_Y_Z="0.010000 3.407750 1.693930" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR12">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -553,7 +553,7 @@
 <box name="B12C" X_Y_Z="122.453400 3.485180 1.715600" material="fusedSilica" sensitive="true" />
 <box name="G12D" X_Y_Z="0.005000 3.485180 1.715600" material="Epotek301" />
 <box name="B12D" X_Y_Z="122.453400 3.481030 1.705100" material="fusedSilica" sensitive="true" />
-<box name="AG12" X_Y_Z="0.010000 3.481030 1.705100" material="OpticalAir" />
+<box name="AG12" X_Y_Z="0.010000 3.481030 1.705100" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR13">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -577,7 +577,7 @@
 <box name="B13C" X_Y_Z="122.453400 3.494530 1.695620" material="fusedSilica" sensitive="true" />
 <box name="G13D" X_Y_Z="0.005000 3.494530 1.708830" material="Epotek301" />
 <box name="B13D" X_Y_Z="122.453400 3.494530 1.708830" material="fusedSilica" sensitive="true" />
-<box name="AG13" X_Y_Z="0.010000 3.494530 1.708830" material="OpticalAir" />
+<box name="AG13" X_Y_Z="0.010000 3.494530 1.708830" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR14">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -601,7 +601,7 @@
 <box name="B14C" X_Y_Z="122.453400 3.493430 1.713910" material="fusedSilica" sensitive="true" />
 <box name="G14D" X_Y_Z="0.005000 3.493430 1.713910" material="Epotek301" />
 <box name="B14D" X_Y_Z="122.453400 3.493430 1.700700" material="fusedSilica" sensitive="true" />
-<box name="AG14" X_Y_Z="0.010000 3.493430 1.700700" material="OpticalAir" />
+<box name="AG14" X_Y_Z="0.010000 3.493430 1.700700" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR15">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -625,7 +625,7 @@
 <box name="B15C" X_Y_Z="122.453400 3.493300 1.716960" material="fusedSilica" sensitive="true" />
 <box name="G15D" X_Y_Z="0.005000 3.493300 1.717290" material="Epotek301" />
 <box name="B15D" X_Y_Z="122.453400 3.493300 1.717290" material="fusedSilica" sensitive="true" />
-<box name="AG15" X_Y_Z="0.010000 3.493300 1.717290" material="OpticalAir" />
+<box name="AG15" X_Y_Z="0.010000 3.493300 1.717290" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR16">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -649,7 +649,7 @@
 <box name="B16C" X_Y_Z="122.453400 3.492580 1.716870" material="fusedSilica" sensitive="true" />
 <box name="G16D" X_Y_Z="0.005000 3.492580 1.716870" material="Epotek301" />
 <box name="B16D" X_Y_Z="122.453400 3.492580 1.716620" material="fusedSilica" sensitive="true" />
-<box name="AG16" X_Y_Z="0.010000 3.492580 1.716620" material="OpticalAir" />
+<box name="AG16" X_Y_Z="0.010000 3.492580 1.716620" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR17">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -673,7 +673,7 @@
 <box name="B17C" X_Y_Z="122.433080 3.472690 1.706630" material="fusedSilica" sensitive="true" />
 <box name="G17D" X_Y_Z="0.005000 3.472690 1.706630" material="Epotek301" />
 <box name="B17D" X_Y_Z="122.433080 3.472690 1.687320" material="fusedSilica" sensitive="true" />
-<box name="AG17" X_Y_Z="0.010000 3.472690 1.687320" material="OpticalAir" />
+<box name="AG17" X_Y_Z="0.010000 3.472690 1.687320" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR18">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -697,7 +697,7 @@
 <box name="B18C" X_Y_Z="122.433080 3.485810 1.709670" material="fusedSilica" sensitive="true" />
 <box name="G18D" X_Y_Z="0.005000 3.485810 1.709670" material="Epotek301" />
 <box name="B18D" X_Y_Z="122.433080 3.485810 1.691560" material="fusedSilica" sensitive="true" />
-<box name="AG18" X_Y_Z="0.010000 3.485810 1.691560" material="OpticalAir" />
+<box name="AG18" X_Y_Z="0.010000 3.485810 1.691560" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR19">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -721,7 +721,7 @@
 <box name="B19C" X_Y_Z="122.433080 3.494660 1.706800" material="fusedSilica" sensitive="true" />
 <box name="G19D" X_Y_Z="0.005000 3.494660 1.714840" material="Epotek301" />
 <box name="B19D" X_Y_Z="122.433080 3.494660 1.714840" material="fusedSilica" sensitive="true" />
-<box name="AG19" X_Y_Z="0.010000 3.494660 1.714840" material="OpticalAir" />
+<box name="AG19" X_Y_Z="0.010000 3.494660 1.714840" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR20">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -745,7 +745,7 @@
 <box name="B20C" X_Y_Z="122.433080 3.493390 1.715350" material="fusedSilica" sensitive="true" />
 <box name="G20D" X_Y_Z="0.005000 3.493390 1.715350" material="Epotek301" />
 <box name="B20D" X_Y_Z="122.433080 3.493390 1.708070" material="fusedSilica" sensitive="true" />
-<box name="AG20" X_Y_Z="0.010000 3.493390 1.708070" material="OpticalAir" />
+<box name="AG20" X_Y_Z="0.010000 3.493390 1.708070" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR21">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -769,7 +769,7 @@
 <box name="B21C" X_Y_Z="122.433080 3.491270 1.716190" material="fusedSilica" sensitive="true" />
 <box name="G21D" X_Y_Z="0.005000 3.491270 1.717210" material="Epotek301" />
 <box name="B21D" X_Y_Z="122.433080 3.491270 1.717210" material="fusedSilica" sensitive="true" />
-<box name="AG21" X_Y_Z="0.010000 3.491270 1.717210" material="OpticalAir" />
+<box name="AG21" X_Y_Z="0.010000 3.491270 1.717210" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR22">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -793,7 +793,7 @@
 <box name="B22C" X_Y_Z="122.433080 3.491310 1.634240" material="fusedSilica" sensitive="true" />
 <box name="G22D" X_Y_Z="0.005000 3.491310 1.634240" material="Epotek301" />
 <box name="B22D" X_Y_Z="122.433080 3.491310 1.628480" material="fusedSilica" sensitive="true" />
-<box name="AG22" X_Y_Z="0.010000 3.491310 1.628480" material="OpticalAir" />
+<box name="AG22" X_Y_Z="0.010000 3.491310 1.628480" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR23">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -817,7 +817,7 @@
 <box name="B23C" X_Y_Z="122.433080 3.447420 1.680290" material="fusedSilica" sensitive="true" />
 <box name="G23D" X_Y_Z="0.005000 3.448430 1.680290" material="Epotek301" />
 <box name="B23D" X_Y_Z="122.433080 3.448430 1.669710" material="fusedSilica" sensitive="true" />
-<box name="AG23" X_Y_Z="0.010000 3.448430 1.669710" material="OpticalAir" />
+<box name="AG23" X_Y_Z="0.010000 3.448430 1.669710" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR24">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -841,7 +841,7 @@
 <box name="B24C" X_Y_Z="122.476260 3.322660 1.693500" material="fusedSilica" sensitive="true" />
 <box name="G24D" X_Y_Z="0.005000 3.323210 1.702560" material="Epotek301" />
 <box name="B24D" X_Y_Z="122.476260 3.323210 1.702560" material="fusedSilica" sensitive="true" />
-<box name="AG24" X_Y_Z="0.010000 3.323210 1.702560" material="OpticalAir" />
+<box name="AG24" X_Y_Z="0.010000 3.323210 1.702560" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR25">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -865,7 +865,7 @@
 <box name="B25C" X_Y_Z="122.476260 3.336120 1.683000" material="fusedSilica" sensitive="true" />
 <box name="G25D" X_Y_Z="0.005000 3.336120 1.687070" material="Epotek301" />
 <box name="B25D" X_Y_Z="122.476260 3.335570 1.687070" material="fusedSilica" sensitive="true" />
-<box name="AG25" X_Y_Z="0.010000 3.335570 1.687070" material="OpticalAir" />
+<box name="AG25" X_Y_Z="0.010000 3.335570 1.687070" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR26">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -889,7 +889,7 @@
 <box name="B26C" X_Y_Z="122.455940 3.383870 1.707470" material="fusedSilica" sensitive="true" />
 <box name="G26D" X_Y_Z="0.005000 3.383870 1.707470" material="Epotek301" />
 <box name="B26D" X_Y_Z="122.455940 3.383870 1.703750" material="fusedSilica" sensitive="true" />
-<box name="AG26" X_Y_Z="0.010000 3.383870 1.703750" material="OpticalAir" />
+<box name="AG26" X_Y_Z="0.010000 3.383870 1.703750" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR27">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -913,7 +913,7 @@
 <box name="B27C" X_Y_Z="122.455940 3.478230 1.693500" material="fusedSilica" sensitive="true" />
 <box name="G27D" X_Y_Z="0.005000 3.478230 1.703920" material="Epotek301" />
 <box name="B27D" X_Y_Z="122.455940 3.478230 1.703920" material="fusedSilica" sensitive="true" />
-<box name="AG27" X_Y_Z="0.010000 3.478230 1.703920" material="OpticalAir" />
+<box name="AG27" X_Y_Z="0.010000 3.478230 1.703920" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR28">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -937,7 +937,7 @@
 <box name="B28C" X_Y_Z="122.476260 3.474850 1.699010" material="fusedSilica" sensitive="true" />
 <box name="G28D" X_Y_Z="0.005000 3.474850 1.699940" material="Epotek301" />
 <box name="B28D" X_Y_Z="122.476260 3.474850 1.699940" material="fusedSilica" sensitive="true" />
-<box name="AG28" X_Y_Z="0.010000 3.474850 1.699940" material="OpticalAir" />
+<box name="AG28" X_Y_Z="0.010000 3.474850 1.699940" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR29">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -961,7 +961,7 @@
 <box name="B29C" X_Y_Z="122.476260 3.486020 1.598760" material="fusedSilica" sensitive="true" />
 <box name="G29D" X_Y_Z="0.005000 3.486020 1.630170" material="Epotek301" />
 <box name="B29D" X_Y_Z="122.476260 3.486020 1.630170" material="fusedSilica" sensitive="true" />
-<box name="AG29" X_Y_Z="0.010000 3.486020 1.630170" material="OpticalAir" />
+<box name="AG29" X_Y_Z="0.010000 3.486020 1.630170" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR30">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -985,7 +985,7 @@
 <box name="B30C" X_Y_Z="122.476260 3.475140 1.629830" material="fusedSilica" sensitive="true" />
 <box name="G30D" X_Y_Z="0.005000 3.475140 1.629830" material="Epotek301" />
 <box name="B30D" X_Y_Z="122.476260 3.475140 1.597660" material="fusedSilica" sensitive="true" />
-<box name="AG30" X_Y_Z="0.010000 3.475140 1.597660" material="OpticalAir" />
+<box name="AG30" X_Y_Z="0.010000 3.475140 1.597660" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR31">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1009,7 +1009,7 @@
 <box name="B31C" X_Y_Z="122.476260 3.480390 1.670050" material="fusedSilica" sensitive="true" />
 <box name="G31D" X_Y_Z="0.005000 3.480390 1.670050" material="Epotek301" />
 <box name="B31D" X_Y_Z="122.476260 3.480390 1.661410" material="fusedSilica" sensitive="true" />
-<box name="AG31" X_Y_Z="0.010000 3.480390 1.661410" material="OpticalAir" />
+<box name="AG31" X_Y_Z="0.010000 3.480390 1.661410" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR32">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1033,7 +1033,7 @@
 <box name="B32C" X_Y_Z="122.476260 3.479670 1.669710" material="fusedSilica" sensitive="true" />
 <box name="G32D" X_Y_Z="0.005000 3.479670 1.669710" material="Epotek301" />
 <box name="B32D" X_Y_Z="122.476260 3.479670 1.661410" material="fusedSilica" sensitive="true" />
-<box name="AG32" X_Y_Z="0.010000 3.479670 1.661410" material="OpticalAir" />
+<box name="AG32" X_Y_Z="0.010000 3.479670 1.661410" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR33">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1057,7 +1057,7 @@
 <box name="B33C" X_Y_Z="122.455940 3.488730 1.678010" material="fusedSilica" sensitive="true" />
 <box name="G33D" X_Y_Z="0.005000 3.488730 1.692910" material="Epotek301" />
 <box name="B33D" X_Y_Z="122.455940 3.488730 1.692910" material="fusedSilica" sensitive="true" />
-<box name="AG33" X_Y_Z="0.010000 3.488730 1.692910" material="OpticalAir" />
+<box name="AG33" X_Y_Z="0.010000 3.488730 1.692910" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR34">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1081,7 +1081,7 @@
 <box name="B34C" X_Y_Z="122.476260 3.381930 1.707220" material="fusedSilica" sensitive="true" />
 <box name="G34D" X_Y_Z="0.005000 3.381930 1.707220" material="Epotek301" />
 <box name="B34D" X_Y_Z="122.476260 3.381930 1.704340" material="fusedSilica" sensitive="true" />
-<box name="AG34" X_Y_Z="0.010000 3.381930 1.704340" material="OpticalAir" />
+<box name="AG34" X_Y_Z="0.010000 3.381930 1.704340" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR35">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1105,7 +1105,7 @@
 <box name="B35C" X_Y_Z="122.455940 3.346150 1.652690" material="fusedSilica" sensitive="true" />
 <box name="G35D" X_Y_Z="0.005000 3.346150 1.654130" material="Epotek301" />
 <box name="B35D" X_Y_Z="122.455940 3.346150 1.654130" material="fusedSilica" sensitive="true" />
-<box name="AG35" X_Y_Z="0.010000 3.346150 1.654130" material="OpticalAir" />
+<box name="AG35" X_Y_Z="0.010000 3.346150 1.654130" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR36">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1129,7 +1129,7 @@
 <box name="B36C" X_Y_Z="122.468640 3.339380 1.687660" material="fusedSilica" sensitive="true" />
 <box name="G36D" X_Y_Z="0.005000 3.339380 1.687660" material="Epotek301" />
 <box name="B36D" X_Y_Z="122.468640 3.339380 1.685040" material="fusedSilica" sensitive="true" />
-<box name="AG36" X_Y_Z="0.010000 3.339380 1.685040" material="OpticalAir" />
+<box name="AG36" X_Y_Z="0.010000 3.339380 1.685040" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR37">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1153,7 +1153,7 @@
 <box name="B37C" X_Y_Z="122.468640 3.376080 1.682580" material="fusedSilica" sensitive="true" />
 <box name="G37D" X_Y_Z="0.005000 3.376080 1.684530" material="Epotek301" />
 <box name="B37D" X_Y_Z="122.468640 3.376080 1.684530" material="fusedSilica" sensitive="true" />
-<box name="AG37" X_Y_Z="0.010000 3.376080 1.684530" material="OpticalAir" />
+<box name="AG37" X_Y_Z="0.010000 3.376080 1.684530" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR38">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1177,7 +1177,7 @@
 <box name="B38C" X_Y_Z="122.455940 3.478190 1.628900" material="fusedSilica" sensitive="true" />
 <box name="G38D" X_Y_Z="0.005000 3.478190 1.628900" material="Epotek301" />
 <box name="B38D" X_Y_Z="122.455940 3.478190 1.625850" material="fusedSilica" sensitive="true" />
-<box name="AG38" X_Y_Z="0.010000 3.478190 1.625850" material="OpticalAir" />
+<box name="AG38" X_Y_Z="0.010000 3.478190 1.625850" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR39">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1201,7 +1201,7 @@
 <box name="B39C" X_Y_Z="122.455940 3.477980 1.629490" material="fusedSilica" sensitive="true" />
 <box name="G39D" X_Y_Z="0.005000 3.477980 1.629490" material="Epotek301" />
 <box name="B39D" X_Y_Z="122.455940 3.477980 1.597910" material="fusedSilica" sensitive="true" />
-<box name="AG39" X_Y_Z="0.010000 3.477980 1.597910" material="OpticalAir" />
+<box name="AG39" X_Y_Z="0.010000 3.477980 1.597910" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR40">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1225,7 +1225,7 @@
 <box name="B40C" X_Y_Z="122.455940 3.487760 1.677670" material="fusedSilica" sensitive="true" />
 <box name="G40D" X_Y_Z="0.005000 3.487760 1.693080" material="Epotek301" />
 <box name="B40D" X_Y_Z="122.455940 3.487760 1.693080" material="fusedSilica" sensitive="true" />
-<box name="AG40" X_Y_Z="0.010000 3.487760 1.693080" material="OpticalAir" />
+<box name="AG40" X_Y_Z="0.010000 3.487760 1.693080" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR41">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1249,7 +1249,7 @@
 <box name="B41C" X_Y_Z="122.455940 3.480730 1.700190" material="fusedSilica" sensitive="true" />
 <box name="G41D" X_Y_Z="0.005000 3.480730 1.704850" material="Epotek301" />
 <box name="B41D" X_Y_Z="122.455940 3.480520 1.704850" material="fusedSilica" sensitive="true" />
-<box name="AG41" X_Y_Z="0.010000 3.480520 1.704850" material="OpticalAir" />
+<box name="AG41" X_Y_Z="0.010000 3.480520 1.704850" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR42">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1273,7 +1273,7 @@
 <box name="B42C" X_Y_Z="122.468640 3.480390 1.692570" material="fusedSilica" sensitive="true" />
 <box name="G42D" X_Y_Z="0.005000 3.480390 1.698750" material="Epotek301" />
 <box name="B42D" X_Y_Z="122.468640 3.480390 1.698750" material="fusedSilica" sensitive="true" />
-<box name="AG42" X_Y_Z="0.010000 3.480390 1.698750" material="OpticalAir" />
+<box name="AG42" X_Y_Z="0.010000 3.480390 1.698750" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR43">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1297,7 +1297,7 @@
 <box name="B43C" X_Y_Z="122.468640 3.466590 1.706960" material="fusedSilica" sensitive="true" />
 <box name="G43D" X_Y_Z="0.005000 3.466590 1.706960" material="Epotek301" />
 <box name="B43D" X_Y_Z="122.468640 3.466590 1.693330" material="fusedSilica" sensitive="true" />
-<box name="AG43" X_Y_Z="0.010000 3.466590 1.693330" material="OpticalAir" />
+<box name="AG43" X_Y_Z="0.010000 3.466590 1.693330" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR44">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1321,7 +1321,7 @@
 <box name="B44C" X_Y_Z="122.468640 3.483610 1.697230" material="fusedSilica" sensitive="true" />
 <box name="G44D" X_Y_Z="0.005000 3.483610 1.698500" material="Epotek301" />
 <box name="B44D" X_Y_Z="122.468640 3.483530 1.698500" material="fusedSilica" sensitive="true" />
-<box name="AG44" X_Y_Z="0.010000 3.483530 1.698500" material="OpticalAir" />
+<box name="AG44" X_Y_Z="0.010000 3.483530 1.698500" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR45">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1345,7 +1345,7 @@
 <box name="B45C" X_Y_Z="122.468640 3.483360 1.683170" material="fusedSilica" sensitive="true" />
 <box name="G45D" X_Y_Z="0.005000 3.483360 1.698160" material="Epotek301" />
 <box name="B45D" X_Y_Z="122.468640 3.483360 1.698160" material="fusedSilica" sensitive="true" />
-<box name="AG45" X_Y_Z="0.010000 3.483360 1.698160" material="OpticalAir" />
+<box name="AG45" X_Y_Z="0.010000 3.483360 1.698160" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR46">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1369,7 +1369,7 @@
 <box name="B46C" X_Y_Z="122.468640 3.481110 1.691470" material="fusedSilica" sensitive="true" />
 <box name="G46D" X_Y_Z="0.005000 3.481110 1.694520" material="Epotek301" />
 <box name="B46D" X_Y_Z="122.468640 3.481110 1.694520" material="fusedSilica" sensitive="true" />
-<box name="AG46" X_Y_Z="0.010000 3.481110 1.694520" material="OpticalAir" />
+<box name="AG46" X_Y_Z="0.010000 3.481110 1.694520" material="OpticalAir" sensitive="true" />
 
 <composition name="DCBR47">
         <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
@@ -1393,7 +1393,7 @@
 <box name="B47C" X_Y_Z="122.468640 3.317280 1.687910" material="fusedSilica" sensitive="true" />
 <box name="G47D" X_Y_Z="0.005000 3.317280 1.700450" material="Epotek301" />
 <box name="B47D" X_Y_Z="122.468640 3.317280 1.700450" material="fusedSilica" sensitive="true" />
-<box name="AG47" X_Y_Z="0.010000 3.317280 1.700450" material="OpticalAir" />
+<box name="AG47" X_Y_Z="0.010000 3.317280 1.700450" material="OpticalAir" sensitive="true" />
 
 
 
@@ -1587,7 +1587,7 @@
 </composition>
 
 <!-- window of the optical box -->
-<box name="OBWI" X_Y_Z="1.2700 98.072 31.8" material="fusedSilica" />
+<box name="OBWI" X_Y_Z="1.2700 98.072 31.8" material="Plexiglas" />
 
 <!-- silicone cookie array -->
 <composition name="SICA">

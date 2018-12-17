@@ -675,8 +675,18 @@
 	<real name="density"	value="1.20"	unit="g/cm^3"	/>
 	<real name="radlen"	value="40.49"	unit="g/cm^2"	/>
 	<real name="collen"	value="59.3"	unit="g/cm^2"	/>
-	<real name="abslen"	value="83.0"	unit="g/cm^2"	/>
 	<real name="dedx"	value="1.929"	unit="MeV/g/cm^2"	/>
+	<optical_properties>
+          <specify E="1.50" refindex="1.484" abslen="83.0" />
+          <specify E="2.00" refindex="1.4896" abslen="83.0" />
+          <specify E="2.50" refindex="1.4968" abslen="83.0" />
+          <specify E="3.00" refindex="1.5034" abslen="83.0" />
+          <specify E="3.50" refindex="1.51" abslen="50.0" />
+          <specify E="4.00" refindex="1.52" abslen="8.0" />
+          <specify E="4.50" refindex="1.53" abslen="0.0" />
+          <specify E="5.00" refindex="1.54" abslen="0.0" />
+          <specify E="5.50" refindex="1.55" abslen="0.0" />
+        </optical_properties>
   </composite>
 
   <composite name="Polystyrene">
