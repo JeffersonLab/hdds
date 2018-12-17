@@ -97,72 +97,72 @@
 -->
 
 <composition name="DCML10">
-	<posXYZ volume="DCBR00" X_Y_Z="0. -19.3325 0." />
-	<posXYZ volume="DCBR01" X_Y_Z="0. -15.8175 0." />
-	<posXYZ volume="DCBR02" X_Y_Z="0. -12.3025 0." />
-	<posXYZ volume="DCBR03" X_Y_Z="0. -8.7875 0." />
-	<posXYZ volume="DCBR04" X_Y_Z="0. -5.2725 0." />
-	<posXYZ volume="DCBR05" X_Y_Z="0. -1.7575 0." />
-	<posXYZ volume="DCBR06" X_Y_Z="0.  1.7575 0." />
-	<posXYZ volume="DCBR07" X_Y_Z="0.  5.2725 0." />
-	<posXYZ volume="DCBR08" X_Y_Z="0.  8.7875 0." />
-	<posXYZ volume="DCBR09" X_Y_Z="0.  12.3025 0." />
-	<posXYZ volume="DCBR10" X_Y_Z="0.  15.8175 0." />
-	<posXYZ volume="DCBR11" X_Y_Z="0.  19.3325 0." />
+	<posXYZ volume="DCBR00" X_Y_Z="0. -19.3325 0."> <module value="0"/> </posXYZ>
+	<posXYZ volume="DCBR01" X_Y_Z="0. -15.8175 0."> <module value="1"/> </posXYZ> 
+	<posXYZ volume="DCBR02" X_Y_Z="0. -12.3025 0."> <module value="2"/> </posXYZ> 
+	<posXYZ volume="DCBR03" X_Y_Z="0. -8.7875 0." > <module value="3"/> </posXYZ>
+	<posXYZ volume="DCBR04" X_Y_Z="0. -5.2725 0." > <module value="4"/> </posXYZ>
+	<posXYZ volume="DCBR05" X_Y_Z="0. -1.7575 0." > <module value="5"/> </posXYZ>
+	<posXYZ volume="DCBR06" X_Y_Z="0.  1.7575 0." > <module value="6"/> </posXYZ>
+	<posXYZ volume="DCBR07" X_Y_Z="0.  5.2725 0." > <module value="7"/> </posXYZ>
+	<posXYZ volume="DCBR08" X_Y_Z="0.  8.7875 0." > <module value="8"/> </posXYZ>
+	<posXYZ volume="DCBR09" X_Y_Z="0.  12.3025 0." > <module value="9"/> </posXYZ>
+	<posXYZ volume="DCBR10" X_Y_Z="0.  15.8175 0." > <module value="10"/> </posXYZ>
+	<posXYZ volume="DCBR11" X_Y_Z="0.  19.3325 0." > <module value="11"/> </posXYZ>
 	<posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -4.775" />
 	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
 	<posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
 </composition>
 
 <composition name="DCML11">
-	<posXYZ volume="DCBR12" X_Y_Z="0. -19.3325 0." />
-	<posXYZ volume="DCBR13" X_Y_Z="0. -15.8175 0." />
-	<posXYZ volume="DCBR14" X_Y_Z="0. -12.3025 0." />
-	<posXYZ volume="DCBR15" X_Y_Z="0. -8.7875 0." />
-	<posXYZ volume="DCBR16" X_Y_Z="0. -5.2725 0." />
-	<posXYZ volume="DCBR17" X_Y_Z="0. -1.7575 0." />
-	<posXYZ volume="DCBR18" X_Y_Z="0.  1.7575 0." />
-	<posXYZ volume="DCBR19" X_Y_Z="0.  5.2725 0." />
-	<posXYZ volume="DCBR20" X_Y_Z="0.  8.7875 0." />
-	<posXYZ volume="DCBR21" X_Y_Z="0.  12.3025 0." />
-	<posXYZ volume="DCBR22" X_Y_Z="0.  15.8175 0." />
-	<posXYZ volume="DCBR23" X_Y_Z="0.  19.3325 0." />
+	<posXYZ volume="DCBR12" X_Y_Z="0. -19.3325 0." > <module value="12"/> </posXYZ>
+	<posXYZ volume="DCBR13" X_Y_Z="0. -15.8175 0." > <module value="13"/> </posXYZ>
+	<posXYZ volume="DCBR14" X_Y_Z="0. -12.3025 0." > <module value="14"/> </posXYZ>
+	<posXYZ volume="DCBR15" X_Y_Z="0. -8.7875 0." > <module value="15"/> </posXYZ>
+	<posXYZ volume="DCBR16" X_Y_Z="0. -5.2725 0." > <module value="16"/> </posXYZ>
+	<posXYZ volume="DCBR17" X_Y_Z="0. -1.7575 0." > <module value="17"/> </posXYZ>
+	<posXYZ volume="DCBR18" X_Y_Z="0.  1.7575 0." > <module value="18"/> </posXYZ>
+	<posXYZ volume="DCBR19" X_Y_Z="0.  5.2725 0." > <module value="19"/> </posXYZ>
+	<posXYZ volume="DCBR20" X_Y_Z="0.  8.7875 0." > <module value="20"/> </posXYZ>
+	<posXYZ volume="DCBR21" X_Y_Z="0.  12.3025 0." > <module value="21"/> </posXYZ>
+	<posXYZ volume="DCBR22" X_Y_Z="0.  15.8175 0." > <module value="22"/> </posXYZ>
+	<posXYZ volume="DCBR23" X_Y_Z="0.  19.3325 0." > <module value="23"/> </posXYZ>
 	<posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -4.775" />
 	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
 	<posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
 </composition>
 
 <composition name="DCML01">
-	<posXYZ volume="DCBR24" X_Y_Z="0. -19.3325 0." />
-	<posXYZ volume="DCBR25" X_Y_Z="0. -15.8175 0." />
-	<posXYZ volume="DCBR26" X_Y_Z="0. -12.3025 0." />
-	<posXYZ volume="DCBR27" X_Y_Z="0. -8.7875 0." />
-	<posXYZ volume="DCBR28" X_Y_Z="0. -5.2725 0." />
-	<posXYZ volume="DCBR29" X_Y_Z="0. -1.7575 0." />
-	<posXYZ volume="DCBR30" X_Y_Z="0.  1.7575 0." />
-	<posXYZ volume="DCBR31" X_Y_Z="0.  5.2725 0." />
-	<posXYZ volume="DCBR32" X_Y_Z="0.  8.7875 0." />
-	<posXYZ volume="DCBR33" X_Y_Z="0.  12.3025 0." />
-	<posXYZ volume="DCBR34" X_Y_Z="0.  15.8175 0." />
-	<posXYZ volume="DCBR35" X_Y_Z="0.  19.3325 0." />
+	<posXYZ volume="DCBR24" X_Y_Z="0. -19.3325 0." > <module value="24"/> </posXYZ>
+	<posXYZ volume="DCBR25" X_Y_Z="0. -15.8175 0." > <module value="25"/> </posXYZ>
+	<posXYZ volume="DCBR26" X_Y_Z="0. -12.3025 0." > <module value="26"/> </posXYZ>
+	<posXYZ volume="DCBR27" X_Y_Z="0. -8.7875 0." > <module value="27"/> </posXYZ>
+	<posXYZ volume="DCBR28" X_Y_Z="0. -5.2725 0." > <module value="28"/> </posXYZ>
+	<posXYZ volume="DCBR29" X_Y_Z="0. -1.7575 0." > <module value="29"/> </posXYZ>
+	<posXYZ volume="DCBR30" X_Y_Z="0.  1.7575 0." > <module value="30"/> </posXYZ>
+	<posXYZ volume="DCBR31" X_Y_Z="0.  5.2725 0." > <module value="31"/> </posXYZ>
+	<posXYZ volume="DCBR32" X_Y_Z="0.  8.7875 0." > <module value="32"/> </posXYZ>
+	<posXYZ volume="DCBR33" X_Y_Z="0.  12.3025 0." > <module value="33"/> </posXYZ>
+	<posXYZ volume="DCBR34" X_Y_Z="0.  15.8175 0." > <module value="34"/> </posXYZ>
+	<posXYZ volume="DCBR35" X_Y_Z="0.  19.3325 0." > <module value="35"/> </posXYZ>
 	<posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -4.775" />
 	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
 	<posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
 </composition>
 
 <composition name="DCML00">
-	<posXYZ volume="DCBR36" X_Y_Z="0. -19.3325 0." />
-	<posXYZ volume="DCBR37" X_Y_Z="0. -15.8175 0." />
-	<posXYZ volume="DCBR38" X_Y_Z="0. -12.3025 0." />
-	<posXYZ volume="DCBR39" X_Y_Z="0. -8.7875 0." />
-	<posXYZ volume="DCBR40" X_Y_Z="0. -5.2725 0." />
-	<posXYZ volume="DCBR41" X_Y_Z="0. -1.7575 0." />
-	<posXYZ volume="DCBR42" X_Y_Z="0.  1.7575 0." />
-	<posXYZ volume="DCBR43" X_Y_Z="0.  5.2725 0." />
-	<posXYZ volume="DCBR44" X_Y_Z="0.  8.7875 0." />
-	<posXYZ volume="DCBR45" X_Y_Z="0.  12.3025 0." />
-	<posXYZ volume="DCBR46" X_Y_Z="0.  15.8175 0." />
-	<posXYZ volume="DCBR47" X_Y_Z="0.  19.3325 0." />
+	<posXYZ volume="DCBR36" X_Y_Z="0. -19.3325 0." > <module value="36"/> </posXYZ>
+	<posXYZ volume="DCBR37" X_Y_Z="0. -15.8175 0." > <module value="37"/> </posXYZ>
+	<posXYZ volume="DCBR38" X_Y_Z="0. -12.3025 0." > <module value="38"/> </posXYZ>
+	<posXYZ volume="DCBR39" X_Y_Z="0. -8.7875 0." > <module value="39"/> </posXYZ>
+	<posXYZ volume="DCBR40" X_Y_Z="0. -5.2725 0." > <module value="40"/> </posXYZ>
+	<posXYZ volume="DCBR41" X_Y_Z="0. -1.7575 0." > <module value="41"/> </posXYZ>
+	<posXYZ volume="DCBR42" X_Y_Z="0.  1.7575 0." > <module value="42"/> </posXYZ>
+	<posXYZ volume="DCBR43" X_Y_Z="0.  5.2725 0." > <module value="43"/> </posXYZ>
+	<posXYZ volume="DCBR44" X_Y_Z="0.  8.7875 0." > <module value="44"/> </posXYZ>
+	<posXYZ volume="DCBR45" X_Y_Z="0.  12.3025 0." > <module value="45"/> </posXYZ>
+	<posXYZ volume="DCBR46" X_Y_Z="0.  15.8175 0." > <module value="46"/> </posXYZ>
+	<posXYZ volume="DCBR47" X_Y_Z="0.  19.3325 0." > <module value="47"/> </posXYZ>
 	<posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -4.775" />
 	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
 	<posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
