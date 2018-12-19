@@ -1587,7 +1587,7 @@
 </composition>
 
 <!-- window of the optical box -->
-<box name="OBWI" X_Y_Z="1.2700 98.072 31.8" material="Plexiglas" />
+<box name="OBWI" X_Y_Z="1.2700 98.072 31.8" material="fusedSilica" />
 
 <!-- silicone cookie array -->
 <composition name="SICA">
