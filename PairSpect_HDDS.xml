@@ -11,13 +11,14 @@
         - rotate counters
 	- correct positions and counter numbering
         - shift PS magnet (according to the alignment chart)
+	- version 3.1: small tweaks to eliminate overlaps between volumes. [rtj]
         
 
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "PairSpectrometer"
-         version     = "2.0"
+         version     = "3.1"
          date        = "2014-09-09"
          author      = "A.Somov"
          top_volume  = "HALL"
@@ -38,7 +39,7 @@
     <posXYZ volume="PairHodoscopeSouth" X_Y_Z="-36.3271   0.0   44.3715"  rot="0.0 -4.65958 0.0"/>  
     <posXYZ volume="PairCoarseNorth" X_Y_Z="+43.5331 0.0 94.4875" rot="0.0  4.6742 0.0" /> 
     <posXYZ volume="PairCoarseSouth" X_Y_Z="-43.5345 0.0 94.4855" rot="0.0 -4.7067  0.0" />
-    <posXYZ volume="PairPipe2"     X_Y_Z="0.0   0.0   30.8175"/> 
+    <posXYZ volume="PairPipe2"     X_Y_Z="0.0   0.0   31.8602"/> 
     <posXYZ volume="PairShielding" X_Y_Z="0.0   0.0  132.6500" />
     <!--The following models the SEG blocks and additional lead shielding-->
     <posXYZ volume="SEG1" X_Y_Z="-87.63 0.0 128.82"/>
@@ -209,8 +210,8 @@
     <posXYZ volume="HPI2" X_Y_Z="0.0 0.0 0.0"/> 
   </composition>
 
-  <tubs name="HPO2" Rio_Z="0.0  1.905    163.0192 " material="Iron" /> 
-  <tubs name="HPI2" Rio_Z="0.0  1.74625  163.0192 " material="Vacuum"/>
+  <tubs name="HPO2" Rio_Z="0.0  1.905    160.9338 " material="Iron" /> 
+  <tubs name="HPI2" Rio_Z="0.0  1.74625  160.9338 " material="Vacuum"/>
   
   
 <!--Pair Lead Shielding -->

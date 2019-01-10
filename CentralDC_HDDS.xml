@@ -52,11 +52,13 @@
 
      version 3.2: fix problems with incorrect embedding and overlaps -rtj
 
+     version 3.3: fix problems with overlap of CDG2 with inner straw ring -rtj
+
 <HDDS specification="v1.1" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "CentralDC"
-         version     = "3.2"
+         version     = "3.3"
          date        = "2015-07-15"
          author      = "R.T. Jones, C.A.Meyer"
          top_volume  = "CDC"
@@ -81,24 +83,25 @@
                           X_Y_Z="0.0 0.0 3.29" />  <!-- straw container -->
     <posXYZ volume="CDCI" X_Y_Z="0.0 0.0 3.29"/>   <!-- inner shell -->
     <posXYZ volume="CDCO" X_Y_Z="0.0 0.0 3.29"/>   <!-- outer shell -->
-    <posXYZ volume="CDOC" X_Y_Z="0.0 0.0 -70.46"/> <!-- upstream outer collar -->
-    <posXYZ volume="CDOC" X_Y_Z="0.0 0.0 77.04"/>  <!-- downstream outer collar -->
-    <posXYZ volume="CDIU" X_Y_Z="0.0 0.0 -70.46"/> <!-- upstream inner collar -->
-    <posXYZ volume="CDID" X_Y_Z="0.0 0.0 77.04"/>  <!-- downstream inner collar -->
-    <posXYZ volume="CDGD" X_Y_Z="0.0 0.0 +80.16"/> <!-- downstream rhoacell outer ring -->
-    <posXYZ volume="CDGI" X_Y_Z="0.0 0.0 +80.16"/> <!-- downstream rhoacell inner ring #1 --> 
+    <posXYZ volume="CDOC" X_Y_Z="0.0 0.0 -70.45"/> <!-- upstream outer collar -->
+    <posXYZ volume="CDOC" X_Y_Z="0.0 0.0 77.03"/>  <!-- downstream outer collar -->
+    <posXYZ volume="CDIU" X_Y_Z="0.0 0.0 -70.45"/> <!-- upstream inner collar -->
+    <posXYZ volume="CDID" X_Y_Z="0.0 0.0 77.03"/>  <!-- downstream inner collar -->
+    <posXYZ volume="CDGD" X_Y_Z="0.0 0.0 +80.165"/> <!-- downstream rhoacell outer ring -->
+    <posXYZ volume="CDGI" X_Y_Z="0.0 0.0 +80.165"/> <!-- downstream rhoacell inner ring #1 --> 
     <!--posXYZ volume="CDG2" X_Y_Z="0.0 0.0 +79.399"/> <downstream rhoacell inner ring #2, moved to DCLS volume -->
-    <posXYZ volume="CDGW" X_Y_Z="0.0 0.0 +81.436"/> <!-- downstream mylar gas window -->
-    <posXYZ volume="CDGU" X_Y_Z="0.0 0.0 -76.63125"/> <!-- upstream plexiglass gas plate -->
-    <posXYZ volume="CDGS" X_Y_Z="0.0 0.0 -74.25"/> <!-- upstream gas plenum shell -->  
-    <posXYZ volume="CDIS" X_Y_Z="0.0 0.0 -74.25"/> <!-- upstream gas plenum inner shell -->
-    <posXYZ volume="CDRO" X_Y_Z="0.0 0.0 -79.425"/> <!-- CDC readout cables outside plexiglas -->  
+    <posXYZ volume="CDGW" X_Y_Z="0.0 0.0 +81.441"/> <!-- downstream mylar gas window -->
+    <posXYZ volume="CDGU" X_Y_Z="0.0 0.0 -76.6425"/> <!-- upstream plexiglass gas plate -->
+    <posXYZ volume="CDGS" X_Y_Z="0.0 0.0 -74.26"/> <!-- upstream gas plenum shell -->  
+    <posXYZ volume="CDIS" X_Y_Z="0.0 0.0 -74.26"/> <!-- upstream gas plenum inner shell -->
+    <posXYZ volume="CDRO" X_Y_Z="0.0 0.0 -79.440"/> <!-- CDC readout cables outside plexiglas -->  
     <posXYZ volume="CDHU" X_Y_Z="0.0 0.0 -75.0"/>  <!-- CDC readout cables inside gas volume-->
     <posXYZ volume="CSAM" X_Y_Z="0.0 0.0 3.29" />  <!-- aluminum mesh -->   
  </composition>
 
   <composition name="CDClayers" envelope="DCLS">
-    <posXYZ volume="CDG2" X_Y_Z="0.0 0.0 +76.108"/> <!-- downstream rhoacell inner ring #2 -->
+    <posXYZ volume="CDG2" X_Y_Z="0.0 0.0 +76.108"
+                          geometry_layer="1"/>     <!-- downstream rhoacell inner ring #2 -->
     <posXYZ volume="CDPD" X_Y_Z="0.0 0.0 +75.300" 
                           geometry_layer="1"/>     <!-- downstream end plate -->
     <posXYZ volume="CDPU" X_Y_Z="0.0 0.0 -75.47625"
@@ -259,7 +262,7 @@
     <posXYZ volume="WIRE" X_Y_Z="0. 0.  -0.17625"/>
     <posXYZ volume="DPLG" X_Y_Z="0. 0.  74.5237"/>
     <posXYZ volume="DFTH" X_Y_Z="0. 0.  75.6000"/>
-    <posXYZ volume="UPLG" X_Y_Z="0. 0. -74.5237"/>
+    <posXYZ volume="UPLG" X_Y_Z="0. 0. -74.5235"/>
     <posXYZ volume="UFTH" X_Y_Z="0. 0. -75.9525"/>
     <posXYZ volume="PHLD" X_Y_Z="0. 0. -75.9525"/>
     <posXYZ volume="PHLD" X_Y_Z="0. 0.  75.600" rot="0 180 0"/>
@@ -270,9 +273,9 @@
     <posXYZ volume="STLA" X_Y_Z="0. 0.   0.0"/>
     <posXYZ volume="STLW" X_Y_Z="0. 0.   0.0"/>
     <posXYZ volume="WILE" X_Y_Z="0. 0.  -0.17625"/>
-    <posXYZ volume="DPLG" X_Y_Z="0. 0.  74.92375"/>
+    <posXYZ volume="DPLG" X_Y_Z="0. 0.  74.9235"/>
     <posXYZ volume="DFTH" X_Y_Z="0. 0.  76.050"/>
-    <posXYZ volume="UPLG" X_Y_Z="0. 0. -74.92375"/>
+    <posXYZ volume="UPLG" X_Y_Z="0. 0. -74.9235"/>
     <posXYZ volume="UFTH" X_Y_Z="0. 0. -76.3750"/>
     <posXYZ volume="PHLD" X_Y_Z="0. 0. -76.3750"/>
     <posXYZ volume="PHLD" X_Y_Z="0. 0.  76.050" rot="0 180 0"/>
@@ -291,7 +294,9 @@
   <!-- CDC volume 5cm shorter and fill it with Ar/CO2 gas-->
 
   <pcon name="CDC" material="Air" comment="CDC mother volume">
-    <polyplane Rio_Z="8.75 60.5663 -81.45"/>
+    <polyplane Rio_Z="10.2 60.5663 -81.45"/>
+    <polyplane Rio_Z="10.2 60.5663 -80.45"/>
+    <polyplane Rio_Z="8.75 60.5663 -80.45"/>
     <polyplane Rio_Z="8.75 60.5663 -69.0"/>
     <polyplane Rio_Z="9.18 60.5663 -69.0"/>
     <polyplane Rio_Z="9.18 60.5663 75.5"/>
@@ -303,11 +308,11 @@
 
   <!--tubs name="CDC" Rio_Z="8.75   60.5663   162.9" material="Air"
 	                           comment="CDC mother volume"/-->
-  <tubs name="CDCI" Rio_Z="9.1821  9.2329 150.0" material="E-fiberGlass"
+  <tubs name="CDCI" Rio_Z="9.1821  9.2329 149.999" material="E-fiberGlass"
 	                           comment="CDC inner cylinder"/>
   <tubs name="CDOC" Rio_Z="57.6326  57.8612 2.5" material="E-fiberGlass"
 	                           comment="CDC outer collar" />
-  <tubs name="CDCO" Rio_Z="57.8612  57.9374 150.0" material="Aluminum"
+  <tubs name="CDCO" Rio_Z="57.8612  57.9374 149.999" material="Aluminum"
 	                           comment="CDC outer Aluminum shell" />
   <tubs name="CDIU" Rio_Z="8.96  9.1821 2.5" material="Aluminum"
 	                           comment="CDC upstream inner collar" />  
@@ -408,22 +413,22 @@
 
   <pcon name="DCLS" material="CDchamberGas" comment="CDC straw container">
     <polyplane Rio_Z="9.934 55.420 -77.55" />
-    <polyplane Rio_Z="9.934 55.420 -75.9525" />
+    <polyplane Rio_Z="9.934 55.420 -75.9526" />
     <polyplane Rio_Z="8.75  59.741 -75.9525" />
     <polyplane Rio_Z="8.75  59.741 -75.0000" />
-    <polyplane Rio_Z="9.934 55.534 -75.0000" />
-    <polyplane Rio_Z="9.934 55.534 +75.0000" />
+    <polyplane Rio_Z="9.934 55.534 -74.9999" />
+    <polyplane Rio_Z="9.934 55.534 +74.9999" />
     <polyplane Rio_Z="8.75  59.741 +75.0000" />
     <polyplane Rio_Z="8.75  59.741 +75.6000" />
-    <polyplane Rio_Z="10.04 55.534 +75.6000" />
+    <polyplane Rio_Z="10.04 55.534 +75.6001" />
     <polyplane Rio_Z="10.04 55.534 +77.1200" />
     <polyplane Rio_Z="11.14 55.534 +77.1200" />
     <polyplane Rio_Z="11.14 55.534 +77.2000" />
   </pcon>
  
-  <tubs name="CDSS" Rio_Z="0.0 0.635 3.175" material="StainlessSteel"/>
-  <tubs name="CDRO" Rio_Z="9.9 55.5 4.0" material="SignalCables"/>  
-  <tubs name="CDHU" Rio_Z="9.9 55.3 1.4" material="CDCHookupCables"/>
+  <tubs name="CDSS" Rio_Z="0.0 0.635 3.174" material="StainlessSteel"/>
+  <tubs name="CDRO" Rio_Z="10.2 55.5 4.0" material="SignalCables"/>  
+  <tubs name="CDHU" Rio_Z="10.2 55.3 1.4" material="CDCHookupCables"/>
 
   <!-- The following elements describe an early rendition of the GlueX
        detector simulated using a fast Monte Carlo program MCFast.  They

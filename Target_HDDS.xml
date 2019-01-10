@@ -7,12 +7,13 @@
      version 1.0: Initial version	-rtj
      version 2.1: updates for compatibility with geant4 -rtj
                   a) Eliminate redundant planes from TARM volume.
+     version 2.2: small tweaks to eliminate overlaps between volumes [rtj]
  
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "Target"
-         version     = "2.1"
+         version     = "2.2"
          date        = "2006-11-22"
          author      = "R.T. Jones"
          top_volume  = "TARG"
@@ -67,7 +68,7 @@
   <composition name="targetVessel" envelope="TARG">
     <posXYZ volume="CYLW" X_Y_Z="0. 0. 0." />
     <posXYZ volume="TGBM" X_Y_Z="0. 0. 0."/>
-    <posXYZ volume="DWIT" X_Y_Z="0. 0. +34.1967"/>
+    <posXYZ volume="DWIT" X_Y_Z="0. 0. +34.1966"/>
     <posXYZ volume="TGR0" X_Y_Z="0. 0. -12.5015"/>
     <posXYZ volume="TGR0" X_Y_Z="0. 0. -15.359"/>
     <posXYZ volume="targetInput" X_Y_Z="-0.018 -0.002 14.775" rot="0.004 0.0076 0.0"/>

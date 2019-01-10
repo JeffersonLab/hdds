@@ -10,7 +10,7 @@
 -->
 
 <section name        = "ForwardEMcal"
-         version     = "2.0"
+         version     = "2.1"
          date        = "2006-11-25"
          author      = "R.T. Jones"
          top_volume  = "FCAL"
@@ -34,6 +34,9 @@
 <!-- July 7, 2017, Richard Jones                                   -->
 <!-- Added light cover in front of entrance face to the FCal       -->
 
+<!-- version 2.1, January 8, 2019, Richard Jones                   -->
+<!-- Small tweaks to eliminate overlaps between volumnes.          -->
+
   <composition name="ForwardEMcal">
     <posXYZ volume="forwardEMcal" X_Y_Z="0.0  0.0  25.4" />
     <posXYZ volume="plexiSheet" X_Y_Z="0.0  0.0  -1.0" />
@@ -43,10 +46,10 @@
 
   <composition name="forwardEMcal" envelope="FCAL">
     <apply region="nullBfield"/>
-    <posXYZ volume="LGDlower" X_Y_Z="  0.0 -62.2440  0.0" />
-    <posXYZ volume="LGDsouth" X_Y_Z="-62.2440   0.0  0.0" />
-    <posXYZ volume="LGDnorth" X_Y_Z="+62.2440   0.0  0.0" />
-    <posXYZ volume="LGDupper" X_Y_Z="  0.0 +62.2440  0.0" />
+    <posXYZ volume="LGDlower" X_Y_Z="  0.0 -62.24335  0.0" />
+    <posXYZ volume="LGDsouth" X_Y_Z="-62.24335   0.0  0.0" />
+    <posXYZ volume="LGDnorth" X_Y_Z="+62.24335   0.0  0.0" />
+    <posXYZ volume="LGDupper" X_Y_Z="  0.0 +62.24335  0.0" />
     <posXYZ volume="FCBI" X_Y_Z="0.0  0.0  0.0" />
   </composition>
 
@@ -93,8 +96,8 @@
 
   <composition name="LGDblock" envelope="LGBU">
     <posXYZ volume="LGBLwrapped" X_Y_Z="-0.0038 -0.0038 -2.600"/>
-    <posXYZ volume="LGBS" X_Y_Z="2.0021 0 0"/>
-    <posXYZ volume="LGBS" X_Y_Z="0 2.0021 0" rot="0 0 90"/>
+    <posXYZ volume="LGBS" X_Y_Z="2.00405 0 0"/>
+    <posXYZ volume="LGBS" X_Y_Z="0 2.00405 0" rot="0 0 90"/>
     <posXYZ volume="LGBF" X_Y_Z="-0.0038 -0.0038 -25.100"/>
     <posXYZ volume="LGLG" X_Y_Z="-0.0038 -0.0038  22.450"/>
   </composition>
@@ -130,8 +133,8 @@
   </pgon>
   <pgon name="FCBI" segments="4" profile="-45 360" material="StainlessSteel"
                     comment="FCal beam hole support insert">
-   <polyplane Rio_Z="4.7536 6.0236  -25.400"/>
-   <polyplane Rio_Z="4.7536 6.0236  +25.400"/>
+   <polyplane Rio_Z="4.7536 6.0235  -25.400"/>
+   <polyplane Rio_Z="4.7536 6.0235  +25.400"/>
   </pgon>
   <pgon name="FCBX" segments="4" profile="-45 360" material="StainlessSteel"
                     comment="FCal beam hole support extension">
