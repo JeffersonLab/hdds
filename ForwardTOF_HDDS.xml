@@ -39,6 +39,9 @@
 <!--   small tweaks to eliminate overlaps between volumes.                                -->
 
   <composition name="ForwardTOF">
+    <posXYZ volume="forwardTOFshielding" X_Y_Z="0.0  0.0 -15.0">
+      <plane value="0" />
+    </posXYZ>
     <posXYZ volume="forwardTOF" X_Y_Z="0.0  0.0 3.85" rot="0 0 -90">
       <plane value="0" />
     </posXYZ>
@@ -54,6 +57,14 @@
     <posXYZ volume="forwardTOF_south" X_Y_Z="-66.0 0.0 0.0" />
     <posXYZ volume="forwardTOF_top2" X_Y_Z="0.0 +9.18 0.0" />
     <posXYZ volume="forwardTOF_top1" X_Y_Z="0.0 +70.175 0.0" />
+  </composition>
+
+  <composition name="forwardTOFshielding" envelope="FTOE">
+    <!-- n.b.  no acrylic absorber that I can see -->
+    <posXYZ volume="lead_shield" X_Y_Z="24.0 18.0 0.0" />
+    <posXYZ volume="lead_shield" X_Y_Z="-18.0 12.0 0.0" rot="90"/>
+    <posXYZ volume="lead_shield" X_Y_Z="-12.0 -18.0 0.0" />
+    <posXYZ volume="lead_shield" X_Y_Z="18.0 -12.0 0.0" rot="90"/>
   </composition>
 
 <!-- the attribute 'row' is synonymous with 'bar' -->
@@ -108,6 +119,10 @@
 					    sensitive="true" />
   <box name="FTOX" X_Y_Z="252.0   3.0 2.54" material="Scintillator"
 					    sensitive="true" />
+
+  <!-- Lead shield is made of 4 pieces placed around target -->
+  <box name="lead_shield" X_Y_Z="36.0 24.0 0.5612" material="Lead" />
+
 
   <!-- The following elements describe an early rendition of the GlueX
        detector simulated using a fast Monte Carlo program MCFast.  They

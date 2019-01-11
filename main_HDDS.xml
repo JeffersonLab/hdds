@@ -5,7 +5,7 @@
   <!ENTITY Material_s SYSTEM "Material_HDDS.xml">
   <!ENTITY BeamLine_s SYSTEM "BeamLine_HDDS.xml">
   <!ENTITY PairSpect_s SYSTEM "PairSpect_HDDS.xml">
-  <!ENTITY Target_s SYSTEM "Target_HDDS.xml"  >
+  <!ENTITY Target_s SYSTEM "TargetCPP_HDDS.xml"  >
   <!ENTITY Solenoid_s SYSTEM "Solenoid_HDDS.xml">
   <!ENTITY CentralDC_s SYSTEM "CentralDC_HDDS.xml">
   <!ENTITY ForwardDC_s SYSTEM "ForwardDC_HDDS.xml">
@@ -69,7 +69,8 @@
 
   <composition name="barrelPackage" envelope="LASS">
     <posXYZ volume="Solenoid" X_Y_Z="0.03 0.0 0.0"/>
-    <posXYZ volume="Target" X_Y_Z="0.0 0.0 50.429"/>
+    <!--<posXYZ volume="Target" X_Y_Z="0.0 0.0 50.429"/>-->
+    <posXYZ volume="TargetCPP" X_Y_Z="0.0 0.0 65.0"/>
     <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 38.84"  rot="0.0 0.0 -11.25"/>
     <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.68" rot="0.0 0.0 0.0" />
     <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.938" />
@@ -88,13 +89,27 @@
     <posXYZ volume="BarrelEMcal" X_Y_Z="0.0444 -0.2423 16.788" rot="-0.0424 0.01633 0.0046" />
   </composition>
   
+    <!--
+	  For the 2019 CPP trigger test the TOF/FCAL will be pushed downstream from
+	  the nominal position. This is partly motivated by moving it out of the
+	  solenoid field region so work on the shielding will be less risky. This
+	  also allows us to set the target to TOF distance to be similar to the nominal
+	  CPP geometry. Since the Be target will be at z=65 for this test (64cm downstream
+	  of nominal CPP) the TOF and FCAL are moved downstream by 64 cm.
+    -->
+	 
   <composition name="forwardPackage">
-    <!--<posXYZ volume="CerenkovCntr" X_Y_Z="0.0 0.0 466.0" /> -->
-    <!--posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
     <!-- To simulate DIRC hits uncomment the line below -->
     <!--posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.0" /-->
+
+    <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 669.793" rot="-0.0427 0.0461 -0.1813"/>
+    <posXYZ volume="ForwardEMcal" X_Y_Z="0.529 -0.002 688.906" rot="-0.0418 -0.07019 -0.0149" />
+
+	 <!--
     <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0427 0.0461 -0.1813"/>
     <posXYZ volume="ForwardEMcal" X_Y_Z="0.529 -0.002 624.906" rot="-0.0418 -0.07019 -0.0149" />
+    -->
+
     <!--posXYZ volume="ComptonEMcal" X_Y_Z="0.0 0.0 876.106" /-->
   </composition>
 

@@ -26,8 +26,13 @@
   <composition name="TARG">
   	<posXYZ volume="TGT0" X_Y_Z="0. 0. 0."/>
   </composition>
-  
-  <tubs name="TGT0" Rio_Z="0.0 2.0 0.028" material="Lead"/>
+
+  <!--
+	For the 2019 trigger test we expect to use a 5% Be target that PrimEx
+	will install in place of the LH2 target.
+  -->
+  <tubs name="TGT0" Rio_Z="0.0 2.0 1.76" material="Beryllium"/>
+  <!-- <tubs name="TGT0" Rio_Z="0.0 2.0 0.028" material="Lead"/> -->
 
 </section>
 
