@@ -1554,6 +1554,16 @@
 <box name="TSM1" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
 <box name="TSM2" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
 <box name="TSM3" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
+=======
+
+<!-- flat wedge mirrors to replace new wedge -->
+<box name="FWM1" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="FWM2" X_Y_Z="6.66 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
+
+<!-- flat side mirrors on ends of box -->
+<box name="FSM1" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="FSM2" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" sensitive="true"/>
+>>>>>>> 70791a5ad51d53f8f0e7ad67f3a915666bb291d1
 
 <!-- flat wedge mirrors to replace new wedge -->
 <box name="FWM1" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>

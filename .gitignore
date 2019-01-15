@@ -3,5 +3,6 @@ Linux_*
 Darwin_*
 SunOS_*
 .*
+hdds_prereqs_version.xml
 !.gitignore
 *~
