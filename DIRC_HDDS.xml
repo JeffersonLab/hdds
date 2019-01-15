@@ -1520,12 +1520,12 @@
 <box name="OBVS" X_Y_Z="33.01 100. 58.2" material="OpticalH2O"/>
 <composition name="OBCS" envelope="OBVS">
         <posXYZ volume="FTMR" X_Y_Z="-8.74 0.0 -6.18885" />
-    <posXYZ volume="TSM1" X_Y_Z="12.3211 0.0 4.97" rot="0.0 -9.067 0.0" /> 
+	<posXYZ volume="TSM1" X_Y_Z="12.3211 0.0 4.97" rot="0.0 -9.067 0.0" /> 
         <posXYZ volume="TSM2" X_Y_Z="10.2496 0.0 14.33" rot="0.0 -15.9020 0.0" />
         <posXYZ volume="TSM3" X_Y_Z="7.06723 0.0 23.3881" rot="0.0 -22.8934 0.0" />
         <posXYZ volume="FWM1" X_Y_Z="-6.0 0.0 27.81" />
         <posXYZ volume="FWM2" X_Y_Z="-12 0.0 16.65" rot="0.0 30.0 0.0"/>
-    <posXYZ volume="FSM1" X_Y_Z="-0.5 -49.15 -0.14" />
+	<posXYZ volume="FSM1" X_Y_Z="-0.5 -49.15 -0.14" />
         <posXYZ volume="FSM2" X_Y_Z="-0.5 49.15 -0.14" />
         <posXYZ volume="BWPG" X_Y_Z="3.15 0.0 -16.05" rot="0.0 42.12454632 0.0" />
     <posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" />
@@ -1534,12 +1534,12 @@
 <box name="OBVN" X_Y_Z="33.01 100. 58.2" material="OpticalH2O"/>
 <composition name="OBCN" envelope="OBVN">
         <posXYZ volume="FTMR" X_Y_Z="-8.74 0.0 -6.18885" />
-    <posXYZ volume="TSM1" X_Y_Z="12.3211 0.0 4.97" rot="0.0 -9.067 0.0" /> 
+	<posXYZ volume="TSM1" X_Y_Z="12.3211 0.0 4.97" rot="0.0 -9.067 0.0" /> 
         <posXYZ volume="TSM2" X_Y_Z="10.2496 0.0 14.33" rot="0.0 -15.9020 0.0" />
         <posXYZ volume="TSM3" X_Y_Z="7.06723 0.0 23.3881" rot="0.0 -22.8934 0.0" />
         <posXYZ volume="FWM1" X_Y_Z="-6.0 0.0 27.81" />
         <posXYZ volume="FWM2" X_Y_Z="-12 0.0 16.65" rot="0.0 30.0 0.0"/>
-    <posXYZ volume="FSM1" X_Y_Z="-0.5 -49.15 -0.14" />
+	<posXYZ volume="FSM1" X_Y_Z="-0.5 -49.15 -0.14" />
         <posXYZ volume="FSM2" X_Y_Z="-0.5 49.15 -0.14" />
         <posXYZ volume="BWPG" X_Y_Z="3.15 0.0 -16.05" rot="0.0 42.12454632 0.0" />
     <posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" />
@@ -1554,25 +1554,14 @@
 <box name="TSM1" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
 <box name="TSM2" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
 <box name="TSM3" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
-=======
 
 <!-- flat wedge mirrors to replace new wedge -->
 <box name="FWM1" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="FWM2" X_Y_Z="6.66 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="FWM2" X_Y_Z="6.66 98.072 0.01"  material="ThickCerenkovMirror" sensitive="true"/>
 
 <!-- flat side mirrors on ends of box -->
 <box name="FSM1" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" sensitive="true"/>
 <box name="FSM2" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" sensitive="true"/>
->>>>>>> 70791a5ad51d53f8f0e7ad67f3a915666bb291d1
-
-<!-- flat wedge mirrors to replace new wedge -->
-<box name="FWM1" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="FWM2" X_Y_Z="6.66 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
-
-<!-- flat side mirrors on ends of box -->
-<box name="FSM1" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="FSM2" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" sensitive="true"/>
-
 
 <!-- 
      Optical box window photo-detector grid (BWPG)
