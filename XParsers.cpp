@@ -58,6 +58,8 @@ using namespace std;
 #include "XString.hpp"
 #include "md5.h"
 
+//#define VERBOSE 1
+
 std::string last_md5_checksum = "";
 
 /*
@@ -388,6 +390,11 @@ std::string MyEntityResolver::GetMD5_checksum(void)
 		ifs.seekg (0, ios::end);
 		unsigned int length = ifs.tellg();
 		ifs.seekg (0, ios::beg);
+
+#if VERBOSE
+        // print summary
+        std::cout << xml_filenames[i] << " (" << length << " bytes)" << std::endl;
+#endif
 
 		// allocate memory:
 		char *buff = new char [length];

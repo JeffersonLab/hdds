@@ -10,7 +10,7 @@
 -->
 
 <section name        = "ForwardTOF"
-         version     = "2.1"
+         version     = "2.2"
          date        = "2006-11-22"
          author      = "M. Shepherd, R.T. Jones"
          top_volume  = "FTOF"
@@ -35,8 +35,14 @@
 <!-- 19(long wide paddles)(19) 2(long narrow paddles)(21) 2(short paddles)(23)            -->
 <!-- 2(long narrow paddles)(25) 19(long wide paddles)(44) 2(short paddles top/south) (46) -->
 
+<!-- version 2.2, January 8, 2019  Richard Jones                                          -->
+<!--   small tweaks to eliminate overlaps between volumes.                                -->
+
 <!-- Wed Dec 05 13:00:00 EST 2018 A. Ernst -->
 <!-- Added the Lucite shield to the geometry. See GlueX TOF Meeting, Dec 5, 2018 for more information-->
+
+
+
 
   <composition name="ForwardTOF">
     <posXYZ volume="forwardTOF" X_Y_Z="0.0  0.0 3.85" rot="0 0 -90">
@@ -50,12 +56,12 @@
   </composition>
 
   <composition name="forwardTOF" envelope="FTOF">
-    <posXYZ volume="forwardTOF_bottom1" X_Y_Z="0.0 -70.125 0.0" />
+    <posXYZ volume="forwardTOF_bottom1" X_Y_Z="0.0 -70.175 0.0" />
     <posXYZ volume="forwardTOF_bottom2" X_Y_Z="0.0 -9.18 0.0" />
     <posXYZ volume="forwardTOF_north" X_Y_Z="+66.0 0.0 0.0" />
     <posXYZ volume="forwardTOF_south" X_Y_Z="-66.0 0.0 0.0" />
     <posXYZ volume="forwardTOF_top2" X_Y_Z="0.0 +9.18 0.0" />
-    <posXYZ volume="forwardTOF_top1" X_Y_Z="0.0 +70.125 0.0" />
+    <posXYZ volume="forwardTOF_top1" X_Y_Z="0.0 +70.175 0.0" />
   </composition>
 
   <composition name="shield" envelope="TFSD">
