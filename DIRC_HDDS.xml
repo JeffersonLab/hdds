@@ -4,20 +4,20 @@
   Hall D Geometry Data Base: Focusing DIRC detector
   ***********************************************
 
-     version 1.0: Initial version	-rtj
+     version 1.0: Initial version    -rtj
      version 2.0: Updated version, refined geometry of the optical box
-     		  added pixels
-     		  added volume ids to use for the reconstruction
+                  added pixels
+                  added volume ids to use for the reconstruction
      version 3.0: added as-built aluminum supports;
-		  implemented dimensions of each individual short bars;
-		  each bar box and each optical box is now unique (not copied from prototypes) (Y. Yang)
+                  implemented dimensions of each individual short bars;
+                  each bar box and each optical box is now unique (not copied from prototypes) (Y. Yang)
 
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "DIRC"
-         version     = "1.1"
-         date        = "2015-03-19"
+         version     = "2.0"
+         date        = "2019-01-15"
          author      = "J. Stevens"
          top_volume  = "DCMV"
          specification = "v1.0">
@@ -25,43 +25,42 @@
 <!-- DIRC assembly, 4 modules -->
 
 <composition name="DIRC">
-	<apply region="nullBfield"/>
+    <apply region="nullBfield"/>
     <posXYZ volume="DRCC" X_Y_Z="0.0  0.0  -40.0" rot="0.0 0.0 0.0"/>
 </composition>
 
 <!-- DIRC detector
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      DRCC:
-	DCML##: DIRC bar box module for bar box number ## 
+    DCML##: DIRC bar box module for bar box number ## 
         OBCS:   DIRC optical box in the south side (lower one, below beamline)
         OBCN:   DIRC optical box in the south side (upper one, above beamline)
-	SPST:   Support structures for bar boxes
+    SPST:   Support structures for bar boxes
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 
 
 <composition name="DRCC" envelope="DCMV">
-	<posXYZ volume="DCML10" X_Y_Z="196. -29.75 30. " rot="0. 0. 180." >
-	  <plane value="1" />
-	</posXYZ>
-	<posXYZ volume="DCML11" X_Y_Z="196. -81.25 30. " rot="0. 0. 180." >
-	  <plane value="2" />
-	</posXYZ>
-        <posXYZ volume="DCML01" X_Y_Z="-196. 29.76 30" >
-          <plane value="3" />
-        </posXYZ>
-        <posXYZ volume="DCML00" X_Y_Z="-196. 81.26 30" >
-          <plane value="4" />
-        </posXYZ>
-	<posXYZ volume="OBCS" X_Y_Z="-320.59 -55.4268 3.91" rot="0. 0. 180.">
-	  <plane value="1" />
-	</posXYZ>
-	<posXYZ volume="OBCN" X_Y_Z=" 320.59  55.4268 3.91" rot="0. 0. 0." >
-	  <plane value="2" />
-	</posXYZ>
-        <posXYZ volume="SPST" X_Y_Z="0. 0. 30." >
-        </posXYZ>
- 
+    <posXYZ volume="DCML10" X_Y_Z="196. -29.75 30. " rot="0. 0. 180." >
+      <plane value="1" />
+    </posXYZ>
+    <posXYZ volume="DCML11" X_Y_Z="196. -81.25 30. " rot="0. 0. 180." >
+      <plane value="2" />
+    </posXYZ>
+    <posXYZ volume="DCML01" X_Y_Z="-196. 29.76 30" >
+      <plane value="3" />
+    </posXYZ>
+    <posXYZ volume="DCML00" X_Y_Z="-196. 81.26 30" >
+      <plane value="4" />
+    </posXYZ>
+    <posXYZ volume="OBCS" X_Y_Z="-320.59 -55.4268 3.91" rot="0. 0. 180.">
+      <plane value="1" />
+    </posXYZ>
+    <posXYZ volume="OBCN" X_Y_Z=" 320.59  55.4268 3.91" rot="0. 0. 0." >
+      <plane value="2" />
+    </posXYZ>
+    <posXYZ volume="SPST" X_Y_Z="0. 0. 30." >
+    </posXYZ>
 </composition>
 
 <box name="DCMV" X_Y_Z="700.0 250.0 100.0" material="OpticalAir" /> <!-- x was 560, y was  220, z was 80 -->
@@ -71,101 +70,100 @@
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
      DCML##: DIRC bar box module, for bar box number ## (from floor to ceiling,
              these are 11,10,01,00)
-	DCBR##: DIRC bar number ##. They are 12 bars in each bar box. This 
-		number labeling runs from 00 to 47.
-	WNGL: Epotek Glue between the old wedges and the bar box window
-	QZWN: bar box quartz window
-	ALCM: aluminum container for the bar box modules
-
+     DCBR##: DIRC bar number ##. They are 12 bars in each bar box. This 
+             number labeling runs from 00 to 47.
+     WNGL: Epotek Glue between the old wedges and the bar box window
+     QZWN: bar box quartz window
+     ALCM: aluminum container for the bar box modules
 
      **********************************************************************
-     			Legacy configuration
+                 Legacy configuration
      **********************************************************************
      DIRC bar box module (12 individual bars): x positions
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
      DCML:
-	DCBR: x12 DIRC bars(3.5 width+0.015 gap) Y from -19.3325       (-0.1      to 499.12)
-	WNGL: Epotek Glue between the old wedge and the bar box window (499.12    to 499.125)
-	QZWN: bar box window                                           (499.125   to 500.085)
-	ALCM: aluminum container for the bar box modules
+     DCBR: x12 DIRC bars(3.5 width+0.015 gap) Y from -19.3325       (-0.1      to 499.12)
+     WNGL: Epotek Glue between the old wedge and the bar box window (499.12    to 499.125)
+     QZWN: bar box window                                           (499.125   to 500.085)
+     ALCM: aluminum container for the bar box modules
 
      (Legacy comments:)
-	WNGL: 500.085	to 500.09:	Epotek Glue # the new wedge is made of water, no need glue here
-	NWDG: 500.09	to 507.89:	New Wedge
-	TRVG: 507.89	to 508:		RTV glue  #  Don't have large quartz block so don't need glue here
+     WNGL: 500.085 to 500.09: Epotek Glue # the new wedge is made of water, no need glue here
+     NWDG: 500.09  to 507.89: New Wedge
+     TRVG: 507.89  to 508:    RTV glue  #  Don't have large quartz block so don't need glue here
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 -->
 
 <composition name="DCML10">
-	<posXYZ volume="DCBR00" X_Y_Z="0. -19.3325 0."> <module value="0"/> </posXYZ>
-	<posXYZ volume="DCBR01" X_Y_Z="0. -15.8175 0."> <module value="1"/> </posXYZ> 
-	<posXYZ volume="DCBR02" X_Y_Z="0. -12.3025 0."> <module value="2"/> </posXYZ> 
-	<posXYZ volume="DCBR03" X_Y_Z="0. -8.7875 0." > <module value="3"/> </posXYZ>
-	<posXYZ volume="DCBR04" X_Y_Z="0. -5.2725 0." > <module value="4"/> </posXYZ>
-	<posXYZ volume="DCBR05" X_Y_Z="0. -1.7575 0." > <module value="5"/> </posXYZ>
-	<posXYZ volume="DCBR06" X_Y_Z="0.  1.7575 0." > <module value="6"/> </posXYZ>
-	<posXYZ volume="DCBR07" X_Y_Z="0.  5.2725 0." > <module value="7"/> </posXYZ>
-	<posXYZ volume="DCBR08" X_Y_Z="0.  8.7875 0." > <module value="8"/> </posXYZ>
-	<posXYZ volume="DCBR09" X_Y_Z="0.  12.3025 0." > <module value="9"/> </posXYZ>
-	<posXYZ volume="DCBR10" X_Y_Z="0.  15.8175 0." > <module value="10"/> </posXYZ>
-	<posXYZ volume="DCBR11" X_Y_Z="0.  19.3325 0." > <module value="11"/> </posXYZ>
-	<posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -4.775" />
-	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
-	<posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="DCBR00" X_Y_Z="0. -19.3325 0."> <module value="0"/> </posXYZ>
+    <posXYZ volume="DCBR01" X_Y_Z="0. -15.8175 0."> <module value="1"/> </posXYZ> 
+    <posXYZ volume="DCBR02" X_Y_Z="0. -12.3025 0."> <module value="2"/> </posXYZ> 
+    <posXYZ volume="DCBR03" X_Y_Z="0. -8.7875 0." > <module value="3"/> </posXYZ>
+    <posXYZ volume="DCBR04" X_Y_Z="0. -5.2725 0." > <module value="4"/> </posXYZ>
+    <posXYZ volume="DCBR05" X_Y_Z="0. -1.7575 0." > <module value="5"/> </posXYZ>
+    <posXYZ volume="DCBR06" X_Y_Z="0.  1.7575 0." > <module value="6"/> </posXYZ>
+    <posXYZ volume="DCBR07" X_Y_Z="0.  5.2725 0." > <module value="7"/> </posXYZ>
+    <posXYZ volume="DCBR08" X_Y_Z="0.  8.7875 0." > <module value="8"/> </posXYZ>
+    <posXYZ volume="DCBR09" X_Y_Z="0.  12.3025 0." > <module value="9"/> </posXYZ>
+    <posXYZ volume="DCBR10" X_Y_Z="0.  15.8175 0." > <module value="10"/> </posXYZ>
+    <posXYZ volume="DCBR11" X_Y_Z="0.  19.3325 0." > <module value="11"/> </posXYZ>
+    <posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -4.775" />
+    <posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
+    <posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
 </composition>
 
 <composition name="DCML11">
-	<posXYZ volume="DCBR12" X_Y_Z="0. -19.3325 0." > <module value="12"/> </posXYZ>
-	<posXYZ volume="DCBR13" X_Y_Z="0. -15.8175 0." > <module value="13"/> </posXYZ>
-	<posXYZ volume="DCBR14" X_Y_Z="0. -12.3025 0." > <module value="14"/> </posXYZ>
-	<posXYZ volume="DCBR15" X_Y_Z="0. -8.7875 0." > <module value="15"/> </posXYZ>
-	<posXYZ volume="DCBR16" X_Y_Z="0. -5.2725 0." > <module value="16"/> </posXYZ>
-	<posXYZ volume="DCBR17" X_Y_Z="0. -1.7575 0." > <module value="17"/> </posXYZ>
-	<posXYZ volume="DCBR18" X_Y_Z="0.  1.7575 0." > <module value="18"/> </posXYZ>
-	<posXYZ volume="DCBR19" X_Y_Z="0.  5.2725 0." > <module value="19"/> </posXYZ>
-	<posXYZ volume="DCBR20" X_Y_Z="0.  8.7875 0." > <module value="20"/> </posXYZ>
-	<posXYZ volume="DCBR21" X_Y_Z="0.  12.3025 0." > <module value="21"/> </posXYZ>
-	<posXYZ volume="DCBR22" X_Y_Z="0.  15.8175 0." > <module value="22"/> </posXYZ>
-	<posXYZ volume="DCBR23" X_Y_Z="0.  19.3325 0." > <module value="23"/> </posXYZ>
-	<posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -4.775" />
-	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
-	<posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="DCBR12" X_Y_Z="0. -19.3325 0." > <module value="12"/> </posXYZ>
+    <posXYZ volume="DCBR13" X_Y_Z="0. -15.8175 0." > <module value="13"/> </posXYZ>
+    <posXYZ volume="DCBR14" X_Y_Z="0. -12.3025 0." > <module value="14"/> </posXYZ>
+    <posXYZ volume="DCBR15" X_Y_Z="0. -8.7875 0." > <module value="15"/> </posXYZ>
+    <posXYZ volume="DCBR16" X_Y_Z="0. -5.2725 0." > <module value="16"/> </posXYZ>
+    <posXYZ volume="DCBR17" X_Y_Z="0. -1.7575 0." > <module value="17"/> </posXYZ>
+    <posXYZ volume="DCBR18" X_Y_Z="0.  1.7575 0." > <module value="18"/> </posXYZ>
+    <posXYZ volume="DCBR19" X_Y_Z="0.  5.2725 0." > <module value="19"/> </posXYZ>
+    <posXYZ volume="DCBR20" X_Y_Z="0.  8.7875 0." > <module value="20"/> </posXYZ>
+    <posXYZ volume="DCBR21" X_Y_Z="0.  12.3025 0." > <module value="21"/> </posXYZ>
+    <posXYZ volume="DCBR22" X_Y_Z="0.  15.8175 0." > <module value="22"/> </posXYZ>
+    <posXYZ volume="DCBR23" X_Y_Z="0.  19.3325 0." > <module value="23"/> </posXYZ>
+    <posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -4.775" />
+    <posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
+    <posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
 </composition>
 
 <composition name="DCML01">
-	<posXYZ volume="DCBR24" X_Y_Z="0. -19.3325 0." > <module value="24"/> </posXYZ>
-	<posXYZ volume="DCBR25" X_Y_Z="0. -15.8175 0." > <module value="25"/> </posXYZ>
-	<posXYZ volume="DCBR26" X_Y_Z="0. -12.3025 0." > <module value="26"/> </posXYZ>
-	<posXYZ volume="DCBR27" X_Y_Z="0. -8.7875 0." > <module value="27"/> </posXYZ>
-	<posXYZ volume="DCBR28" X_Y_Z="0. -5.2725 0." > <module value="28"/> </posXYZ>
-	<posXYZ volume="DCBR29" X_Y_Z="0. -1.7575 0." > <module value="29"/> </posXYZ>
-	<posXYZ volume="DCBR30" X_Y_Z="0.  1.7575 0." > <module value="30"/> </posXYZ>
-	<posXYZ volume="DCBR31" X_Y_Z="0.  5.2725 0." > <module value="31"/> </posXYZ>
-	<posXYZ volume="DCBR32" X_Y_Z="0.  8.7875 0." > <module value="32"/> </posXYZ>
-	<posXYZ volume="DCBR33" X_Y_Z="0.  12.3025 0." > <module value="33"/> </posXYZ>
-	<posXYZ volume="DCBR34" X_Y_Z="0.  15.8175 0." > <module value="34"/> </posXYZ>
-	<posXYZ volume="DCBR35" X_Y_Z="0.  19.3325 0." > <module value="35"/> </posXYZ>
-	<posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -4.775" />
-	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
-	<posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="DCBR24" X_Y_Z="0. -19.3325 0." > <module value="24"/> </posXYZ>
+    <posXYZ volume="DCBR25" X_Y_Z="0. -15.8175 0." > <module value="25"/> </posXYZ>
+    <posXYZ volume="DCBR26" X_Y_Z="0. -12.3025 0." > <module value="26"/> </posXYZ>
+    <posXYZ volume="DCBR27" X_Y_Z="0. -8.7875 0." > <module value="27"/> </posXYZ>
+    <posXYZ volume="DCBR28" X_Y_Z="0. -5.2725 0." > <module value="28"/> </posXYZ>
+    <posXYZ volume="DCBR29" X_Y_Z="0. -1.7575 0." > <module value="29"/> </posXYZ>
+    <posXYZ volume="DCBR30" X_Y_Z="0.  1.7575 0." > <module value="30"/> </posXYZ>
+    <posXYZ volume="DCBR31" X_Y_Z="0.  5.2725 0." > <module value="31"/> </posXYZ>
+    <posXYZ volume="DCBR32" X_Y_Z="0.  8.7875 0." > <module value="32"/> </posXYZ>
+    <posXYZ volume="DCBR33" X_Y_Z="0.  12.3025 0." > <module value="33"/> </posXYZ>
+    <posXYZ volume="DCBR34" X_Y_Z="0.  15.8175 0." > <module value="34"/> </posXYZ>
+    <posXYZ volume="DCBR35" X_Y_Z="0.  19.3325 0." > <module value="35"/> </posXYZ>
+    <posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -4.775" />
+    <posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
+    <posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
 </composition>
 
 <composition name="DCML00">
-	<posXYZ volume="DCBR36" X_Y_Z="0. -19.3325 0." > <module value="36"/> </posXYZ>
-	<posXYZ volume="DCBR37" X_Y_Z="0. -15.8175 0." > <module value="37"/> </posXYZ>
-	<posXYZ volume="DCBR38" X_Y_Z="0. -12.3025 0." > <module value="38"/> </posXYZ>
-	<posXYZ volume="DCBR39" X_Y_Z="0. -8.7875 0." > <module value="39"/> </posXYZ>
-	<posXYZ volume="DCBR40" X_Y_Z="0. -5.2725 0." > <module value="40"/> </posXYZ>
-	<posXYZ volume="DCBR41" X_Y_Z="0. -1.7575 0." > <module value="41"/> </posXYZ>
-	<posXYZ volume="DCBR42" X_Y_Z="0.  1.7575 0." > <module value="42"/> </posXYZ>
-	<posXYZ volume="DCBR43" X_Y_Z="0.  5.2725 0." > <module value="43"/> </posXYZ>
-	<posXYZ volume="DCBR44" X_Y_Z="0.  8.7875 0." > <module value="44"/> </posXYZ>
-	<posXYZ volume="DCBR45" X_Y_Z="0.  12.3025 0." > <module value="45"/> </posXYZ>
-	<posXYZ volume="DCBR46" X_Y_Z="0.  15.8175 0." > <module value="46"/> </posXYZ>
-	<posXYZ volume="DCBR47" X_Y_Z="0.  19.3325 0." > <module value="47"/> </posXYZ>
-	<posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -4.775" />
-	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
-	<posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="DCBR36" X_Y_Z="0. -19.3325 0." > <module value="36"/> </posXYZ>
+    <posXYZ volume="DCBR37" X_Y_Z="0. -15.8175 0." > <module value="37"/> </posXYZ>
+    <posXYZ volume="DCBR38" X_Y_Z="0. -12.3025 0." > <module value="38"/> </posXYZ>
+    <posXYZ volume="DCBR39" X_Y_Z="0. -8.7875 0." > <module value="39"/> </posXYZ>
+    <posXYZ volume="DCBR40" X_Y_Z="0. -5.2725 0." > <module value="40"/> </posXYZ>
+    <posXYZ volume="DCBR41" X_Y_Z="0. -1.7575 0." > <module value="41"/> </posXYZ>
+    <posXYZ volume="DCBR42" X_Y_Z="0.  1.7575 0." > <module value="42"/> </posXYZ>
+    <posXYZ volume="DCBR43" X_Y_Z="0.  5.2725 0." > <module value="43"/> </posXYZ>
+    <posXYZ volume="DCBR44" X_Y_Z="0.  8.7875 0." > <module value="44"/> </posXYZ>
+    <posXYZ volume="DCBR45" X_Y_Z="0.  12.3025 0." > <module value="45"/> </posXYZ>
+    <posXYZ volume="DCBR46" X_Y_Z="0.  15.8175 0." > <module value="46"/> </posXYZ>
+    <posXYZ volume="DCBR47" X_Y_Z="0.  19.3325 0." > <module value="47"/> </posXYZ>
+    <posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -4.775" />
+    <posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -4.775" />
+    <posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
 </composition>
 
 
@@ -179,48 +177,48 @@
 
 <!--
      DCBR##: configuration for DIRC bar number ##
-	- each long-bar consists of 4 short-bars, each ~1.225m, labeled as A,B,C,D
-	- labeling convention adopted from SLAC: wedge, A, B, C, D, far-end mirror
-	- dimensions of each short bar are taken from spreadsheets from SLAC and implemented
+     - each long-bar consists of 4 short-bars, each ~1.225m, labeled as A,B,C,D
+     - labeling convention adopted from SLAC: wedge, A, B, C, D, far-end mirror
+     - dimensions of each short bar are taken from spreadsheets from SLAC and implemented
 
      The convention adopted for component alignment is as follows (in GlueX coordinate system):
-	- x-direction: the bar-side of the wedge is at 490.015, 
-			and all other components are put sequentially starting from there
-	- y-direction: aligned against the lower edge. The center of each bar 
-			goes from -19.3325 to 19.3325 with 3.515 increment 
-			(nominal bar width 3.5cm + 150um bar-to-bar spacing).
-			each component is then aligned such that the lower edge is at 
-			-1.75 w.r.t. center.
-	- z-direction: aligned against upstream side, i.e. upstream face 
-			of all bars are at z=0 (w.r.t. DCML)
+     - x-direction: the bar-side of the wedge is at 490.015, 
+                    and all other components are put sequentially starting from there
+     - y-direction: aligned against the lower edge. The center of each bar 
+                    goes from -19.3325 to 19.3325 with 3.515 increment 
+                    (nominal bar width 3.5cm + 150um bar-to-bar spacing).
+                    each component is then aligned such that the lower edge is at 
+                    -1.75 w.r.t. center.
+     - z-direction: aligned against upstream side, i.e. upstream face 
+                    of all bars are at z=0 (w.r.t. DCML)
 
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      DCBR##:
-	OWDG: old wedge
-	G##A: Epotek glue between the wedge and short-bar A
-	B##A: short-bar A for bar number ##
-	G##B: Epotek glue between the short-bar A and short-bar B
-	B##B: short-bar B for bar number ##
-	G##C: Epotek glue between the short-bar B and short-bar C
-	B##C: short-bar C for bar number ##
-	G##D: Epotek glue between the short-bar C and short-bar D
-	B##D: short-bar D for bar number ##
-	AG##: air gap for number ##
-	FNMR: far-end mirror
+     OWDG: old wedge
+     G##A: Epotek glue between the wedge and short-bar A
+     B##A: short-bar A for bar number ##
+     G##B: Epotek glue between the short-bar A and short-bar B
+     B##B: short-bar B for bar number ##
+     G##C: Epotek glue between the short-bar B and short-bar C
+     B##C: short-bar C for bar number ##
+     G##D: Epotek glue between the short-bar C and short-bar D
+     B##D: short-bar D for bar number ##
+     AG##: air gap for number ##
+     FNMR: far-end mirror
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
  
      **********************************************************************
-     			Legacy configuration
+                 Legacy configuration
      **********************************************************************
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      DCBR: 
-        FNMR: -0.1		to -0.01	Far end mirror
-	FNAG: -0.01             to 0            air gap resembelling pressure contact   // Maria
-	QZBL: 0			to 490.015	4x122.5 Silica bars
-	EPGL: 122.5		to 490.02	Epotek glue (4 locations in fact: 122.5 to 122.505, ..., 490.015 to 490.02)
-	OWDG: 490.02	        to 499.12	Old wedge
+        FNMR: -0.1   to -0.01   Far end mirror
+        FNAG: -0.01  to 0       air gap resembelling pressure contact   // Maria
+        QZBL: 0      to 490.015 4x122.5 Silica bars
+        EPGL: 122.5  to 490.02  Epotek glue (4 locations in fact: 122.5 to 122.505, ..., 490.015 to 490.02)
+        OWDG: 490.02 to 499.12  Old wedge
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 <composition name="DCBR">
         <posXYZ volume="FNMR" X_Y_Z="-0.055 0.02535 0.8625" />
@@ -234,12 +232,12 @@
 <box name="QZBL" X_Y_Z="122.5 3.5 1.725" material="fusedSilica" sensitive="true" />
 <box name="EPGL" X_Y_Z="0.005 3.5 1.725" material="Epotek301" />
 <trd name="OWDG" Xmp_Ymp_Z="2.7 7.89929 3.325 3.325 9.1"
-	inclination="16.26065 0.0" material="fusedSilica" sensitive="true"/>
+    inclination="16.26065 0.0" material="fusedSilica" sensitive="true"/>
 -->
 
 <!-- Old wedge -->
 <trd name="OWDG" Xmp_Ymp_Z="2.7 7.89929 3.325 3.325 9.1"
-	inclination="16.26065 0.0" material="fusedSilica" sensitive="true"/>
+    inclination="16.26065 0.0" material="fusedSilica" sensitive="true"/>
 <!-- far-end mirror -->
 <box name="FNMR" X_Y_Z="0.09 3.4493 1.9761" material="ThickCerenkovMirror"/>
 
@@ -1406,39 +1404,39 @@
      Aluminum container for bar box module 
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      ALCM:
-	the structure of the inside support of the bar box module is as follows:
-	going from bar box to the outside is:
-	- fused sillica bars
-	- 2mm gap
-	- 0.01 inch aluminum skin
-	- cross-beams under the rollers or hex honeycomb (honeycomb not modeled)
-	- 0.01 inch aluminum skin (what's seen from the outside)
+     the structure of the inside support of the bar box module is as follows:
+     going from bar box to the outside is:
+     - fused sillica bars
+     - 2mm gap
+    - 0.01 inch aluminum skin
+     - cross-beams under the rollers or hex honeycomb (honeycomb not modeled)
+     - 0.01 inch aluminum skin (what's seen from the outside)
 
-	ALSK: aluminum skins, closest to bars
-	BTSM: buttun support modules, the assembly of those aluminum cross-beams
-	RAWN: upstream side of the outmost aluminum skin 
-	ABH1: downstream side of the outmost aluminum skin
-	ABT1: far end (mirror end) of the bar box module
-	ALE#: structures for a simplified model of the two long edges of the bar boxes
-	ALE1: outmost piece of the aluminum edge for the long edges (in replacement of ABV1 structures), normal direction pointing
-		either the ceiling or the floor (+/-y), 2 pieces per bar box
-	ALE2: connecting piece between ALE1 and ALE3, normal direction pointing downstream/upstream (+/-z), 4 pieces per bar box
-	ALE3; connecting piece between ALE2 and RAWN/ABH1, normal direction +/-y, 4 pieces per bar box
+     ALSK: aluminum skins, closest to bars
+     BTSM: buttun support modules, the assembly of those aluminum cross-beams
+     RAWN: upstream side of the outmost aluminum skin 
+     ABH1: downstream side of the outmost aluminum skin
+     ABT1: far end (mirror end) of the bar box module
+     ALE#: structures for a simplified model of the two long edges of the bar boxes
+     ALE1: outmost piece of the aluminum edge for the long edges (in replacement of ABV1 structures), normal direction pointing
+           either the ceiling or the floor (+/-y), 2 pieces per bar box
+     ALE2: connecting piece between ALE1 and ALE3, normal direction pointing downstream/upstream (+/-z), 4 pieces per bar box
+     ALE3; connecting piece between ALE2 and RAWN/ABH1, normal direction +/-y, 4 pieces per bar box
 
      (I don't know why some of those were named this way, so not all of them make sense
-	to me. But they are kept as they are for legacy reasons. -Yunjie)
+     to me. But they are kept as they are for legacy reasons. -Yunjie)
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
      **********************************************************************
-     			Legacy configuration
+                 Legacy configuration
      **********************************************************************
 <composition name="ALCM">
         <posXYZ volume="ABT1" X_Y_Z="-1.05 0.0 0.8625" />  
         <posXYZ volume="RAWN" X_Y_Z="243.95 0.0 -0.35" />   
-	<posXYZ volume="ABH1" X_Y_Z="243.95 0.0 1.975" />   
-	<posXYZ volume="ABV1" X_Y_Z="243.9 -21.3 0.8625" /> 
-	<posXYZ volume="ABV1" X_Y_Z="243.9  21.3 0.8625" /> 
+    <posXYZ volume="ABH1" X_Y_Z="243.95 0.0 1.975" />   
+    <posXYZ volume="ABV1" X_Y_Z="243.9 -21.3 0.8625" /> 
+    <posXYZ volume="ABV1" X_Y_Z="243.9  21.3 0.8625" /> 
 </composition>
 
 <box name="ABT1" X_Y_Z="0.1 42.5 2.325" material="Aluminum" />
@@ -1448,33 +1446,33 @@
 -->
 
 <composition name="ALCM">
-	<posXYZ volume="ALSK" X_Y_Z="244.45 0.0 -0.2127"/> <!-- upstream side Al skin between bars and honeycomb -->
-	<posXYZ volume="ALSK" X_Y_Z="244.45 0.0 1.9377" /> <!-- downstream side Al skin between bars and honeycomb -->
-	<posXYZ volume="BTSM" X_Y_Z="0.0 0.0 -0.6354"/> <!-- upstream side Al support bars under the buttons -->
-	<posXYZ volume="BTSM" X_Y_Z="0.0 0.0 2.3604" /> <!-- downstream side Al support bars under the buttons -->	
+    <posXYZ volume="ALSK" X_Y_Z="244.45 0.0 -0.2127"/> <!-- upstream side Al skin between bars and honeycomb -->
+    <posXYZ volume="ALSK" X_Y_Z="244.45 0.0 1.9377" /> <!-- downstream side Al skin between bars and honeycomb -->
+    <posXYZ volume="BTSM" X_Y_Z="0.0 0.0 -0.6354"/> <!-- upstream side Al support bars under the buttons -->
+    <posXYZ volume="BTSM" X_Y_Z="0.0 0.0 2.3604" /> <!-- downstream side Al support bars under the buttons -->    
         <posXYZ volume="RAWN" X_Y_Z="243.95 0.0 -1.0581" /> <!-- upstream side outmost Al skin-->  
-	<posXYZ volume="ABH1" X_Y_Z="243.95 0.0  2.7831" /> <!-- downstream side outmost Al skin-->
-	<posXYZ volume="ALE1" X_Y_Z="243.9 21.4325 0.8625" />
-	<posXYZ volume="ALE1" X_Y_Z="243.9 -21.4325 0.8625" />
-	<posXYZ volume="ALE2" X_Y_Z="243.95 20.39125 -0.3" />
-	<posXYZ volume="ALE2" X_Y_Z="243.95 20.39125 2.025" />
-	<posXYZ volume="ALE2" X_Y_Z="243.95 -20.39125 -0.3" />
-	<posXYZ volume="ALE2" X_Y_Z="243.95 -20.39125 2.025" />
-	<posXYZ volume="ALE3" X_Y_Z="243.95 19.6 -0.7354" />
-	<posXYZ volume="ALE3" X_Y_Z="243.95 19.6 2.4604" />
-	<posXYZ volume="ALE3" X_Y_Z="243.95 -19.6 -0.7354" />
-	<posXYZ volume="ALE3" X_Y_Z="243.95 -19.6 2.4604" />
+    <posXYZ volume="ABH1" X_Y_Z="243.95 0.0  2.7831" /> <!-- downstream side outmost Al skin-->
+    <posXYZ volume="ALE1" X_Y_Z="243.9 21.4325 0.8625" />
+    <posXYZ volume="ALE1" X_Y_Z="243.9 -21.4325 0.8625" />
+    <posXYZ volume="ALE2" X_Y_Z="243.95 20.39125 -0.3" />
+    <posXYZ volume="ALE2" X_Y_Z="243.95 20.39125 2.025" />
+    <posXYZ volume="ALE2" X_Y_Z="243.95 -20.39125 -0.3" />
+    <posXYZ volume="ALE2" X_Y_Z="243.95 -20.39125 2.025" />
+    <posXYZ volume="ALE3" X_Y_Z="243.95 19.6 -0.7354" />
+    <posXYZ volume="ALE3" X_Y_Z="243.95 19.6 2.4604" />
+    <posXYZ volume="ALE3" X_Y_Z="243.95 -19.6 -0.7354" />
+    <posXYZ volume="ALE3" X_Y_Z="243.95 -19.6 2.4604" />
         <posXYZ volume="ABT1" X_Y_Z="-1.05 0.0 0.8625" />   <!-- mirror end -->
 </composition>
 
 <composition name="BTSM">
-	<posXYZ volume="BTSP" X_Y_Z="394.4 0.0 0.0" /> 
-	<posXYZ volume="BTSP" X_Y_Z="342.6 0.0 0.0" /> 
-	<posXYZ volume="BTSP" X_Y_Z="271.9 0.0 0.0" /> 
-	<posXYZ volume="BTSP" X_Y_Z="220.2 0.0 0.0" /> 
-	<posXYZ volume="BTSP" X_Y_Z="149.5 0.0 0.0" /> 
-	<posXYZ volume="BTSP" X_Y_Z="97.7  0.0 0.0" /> 
-	<posXYZ volume="BTSP" X_Y_Z="27.1  0.0 0.0" /> 
+    <posXYZ volume="BTSP" X_Y_Z="394.4 0.0 0.0" /> 
+    <posXYZ volume="BTSP" X_Y_Z="342.6 0.0 0.0" /> 
+    <posXYZ volume="BTSP" X_Y_Z="271.9 0.0 0.0" /> 
+    <posXYZ volume="BTSP" X_Y_Z="220.2 0.0 0.0" /> 
+    <posXYZ volume="BTSP" X_Y_Z="149.5 0.0 0.0" /> 
+    <posXYZ volume="BTSP" X_Y_Z="97.7  0.0 0.0" /> 
+    <posXYZ volume="BTSP" X_Y_Z="27.1  0.0 0.0" /> 
 </composition>
 
 
@@ -1494,16 +1492,16 @@
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
      OBC:
-	FTMR: flat mirror (opposite side of the 3-segment mirrors, perpendicular to bar direction)
-	TSM1: 3-segment mirror 1 (closest to PMT plane)
-	TSM2: 3-segment mirror 2 (middle one)
-	TSM3: 3-segment mirror 3 (closest to bar box window)
-	FWM1: flat wedge mirror 1 (opposite side of the PMT plane, parallel to bars)
-	FWM2: flat wedge mirror 2 (like extension of the bar box old wedge, with some inclination angle)
-	FSM1: flat side mirror 1 (the LHS side mirror for a Cherenkov photon exiting a bar)
-	FSM2: flat side mirror 2 (the RHS side mirror for a Cherenkov photon exiting a bar)
-	BWPG: optical box window and photo dectector grid 
-	ALCF: aluminum container for the focusing optical box
+     FTMR: flat mirror (opposite side of the 3-segment mirrors, perpendicular to bar direction)
+     TSM1: 3-segment mirror 1 (closest to PMT plane)
+     TSM2: 3-segment mirror 2 (middle one)
+     TSM3: 3-segment mirror 3 (closest to bar box window)
+     FWM1: flat wedge mirror 1 (opposite side of the PMT plane, parallel to bars)
+     FWM2: flat wedge mirror 2 (like extension of the bar box old wedge, with some inclination angle)
+     FSM1: flat side mirror 1 (the LHS side mirror for a Cherenkov photon exiting a bar)
+     FSM2: flat side mirror 2 (the RHS side mirror for a Cherenkov photon exiting a bar)
+     BWPG: optical box window and photo dectector grid 
+     ALCF: aluminum container for the focusing optical box
 
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1511,10 +1509,10 @@
      Legacy comments: 
      Two focusing optics boxes for all bar boxes: x positions
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	FTMR: 507.99	        to 508:		Flat mirror coating
-	BTFB: 508		to 529.1:	Bottom focusing block (box containing 3-segment mirror)
-	TPFB: 508		to 529.1:	Top focusing block (trapezoid near readout plane)
-	RDCD: 508.9		to 529.1:	Photocathode
+     FTMR: 507.99            to 508:        Flat mirror coating
+     BTFB: 508        to 529.1:    Bottom focusing block (box containing 3-segment mirror)
+     TPFB: 508        to 529.1:    Top focusing block (trapezoid near readout plane)
+     RDCD: 508.9        to 529.1:    Photocathode
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 
@@ -1530,7 +1528,7 @@
 	<posXYZ volume="FSM1" X_Y_Z="-0.5 -49.15 -0.14" />
         <posXYZ volume="FSM2" X_Y_Z="-0.5 49.15 -0.14" />
         <posXYZ volume="BWPG" X_Y_Z="3.15 0.0 -16.05" rot="0.0 42.12454632 0.0" />
-	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" />
 </composition>
 
 <box name="OBVN" X_Y_Z="33.01 100. 58.2" material="OpticalH2O"/>
@@ -1544,7 +1542,7 @@
 	<posXYZ volume="FSM1" X_Y_Z="-0.5 -49.15 -0.14" />
         <posXYZ volume="FSM2" X_Y_Z="-0.5 49.15 -0.14" />
         <posXYZ volume="BWPG" X_Y_Z="3.15 0.0 -16.05" rot="0.0 42.12454632 0.0" />
-	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" />
 </composition>
 
 
@@ -1559,22 +1557,21 @@
 
 <!-- flat wedge mirrors to replace new wedge -->
 <box name="FWM1" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="FWM2" X_Y_Z="6.66 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="FWM2" X_Y_Z="6.66 98.072 0.01"  material="ThickCerenkovMirror" sensitive="true"/>
 
 <!-- flat side mirrors on ends of box -->
 <box name="FSM1" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" sensitive="true"/>
 <box name="FSM2" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" sensitive="true"/>
 
-
 <!-- 
      Optical box window photo-detector grid (BWPG)
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      BWPG:
-	OBWI: optical box window
-	OLA2: optical oil layer array between optical box window and cookies
-	SICA: silicone cookie array
-	OLA1: optical oil layer array between cookies and PMT
-	PMTgrid: PMT grid
+     OBWI: optical box window
+     OLA2: optical oil layer array between optical box window and cookies
+     SICA: silicone cookie array
+     OLA1: optical oil layer array between cookies and PMT
+     PMTgrid: PMT grid
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 
@@ -1699,28 +1696,28 @@
      Aluminum container for the focusing optical box (ALCF)
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      ALCF:
-	ABT4: flat mirror side
-	ABT5: 3-segment mirror side
-	ABH2: FWM2 side
-	ABH3: top side (behind PMT plane)
-	ABH4: bottom side (FWM1 side)
-	ABV2: FSM1 side 
-	ABV3: FSM2 side 
+     ABT4: flat mirror side
+     ABT5: 3-segment mirror side
+     ABH2: FWM2 side
+     ABH3: top side (behind PMT plane)
+     ABH4: bottom side (FWM1 side)
+     ABV2: FSM1 side 
+     ABV3: FSM2 side 
      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 <composition name="ALCF">
         <!--posXYZ volume="ABT2" X_Y_Z="-17. 0.0 0." /-->
-	<!--posXYZ volume="ABT3" X_Y_Z="-17. 0.0 2.475" /-->
-	<posXYZ volume="ABT4" X_Y_Z="-9. 0.0 -7." />
-	<posXYZ volume="ABT5" X_Y_Z="16. 0.0 0." />
-		
-	<posXYZ volume="ABH2" X_Y_Z="-12 0.0 16." rot="0.0 30.0 0.0"/> <!-- -12, 0.0, 16.7 -->
-	<posXYZ volume="ABH3" X_Y_Z="0. 0.0 -29." />
-	<posXYZ volume="ABH4" X_Y_Z="0. 0.0 28.5" />
-	
-	<!-- Al plates for the ends of the focusing optics box -->
-	<posXYZ volume="ABV2" X_Y_Z="0. -49.3 0." />
-	<posXYZ volume="ABV3" X_Y_Z="0.  49.3 0." />
+    <!--posXYZ volume="ABT3" X_Y_Z="-17. 0.0 2.475" /-->
+    <posXYZ volume="ABT4" X_Y_Z="-9. 0.0 -7." />
+    <posXYZ volume="ABT5" X_Y_Z="16. 0.0 0." />
+        
+    <posXYZ volume="ABH2" X_Y_Z="-12 0.0 16." rot="0.0 30.0 0.0"/> <!-- -12, 0.0, 16.7 -->
+    <posXYZ volume="ABH3" X_Y_Z="0. 0.0 -29." />
+    <posXYZ volume="ABH4" X_Y_Z="0. 0.0 28.5" />
+    
+    <!-- Al plates for the ends of the focusing optics box -->
+    <posXYZ volume="ABV2" X_Y_Z="0. -49.3 0." />
+    <posXYZ volume="ABV3" X_Y_Z="0.  49.3 0." />
 </composition>
 
 <box name="ABT2" X_Y_Z="0.1 90.2 12.175" material="Aluminum" /> 
@@ -1739,33 +1736,33 @@
 <!-- Support structure for bar boxes (SPST)
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	BSAB(BL): bar box support for the two bar boxes above(below) the beamline
-	ASAB(BL): additional support for the bar boxes above(below) the beamline
+    BSAB(BL): bar box support for the two bar boxes above(below) the beamline
+    ASAB(BL): additional support for the bar boxes above(below) the beamline
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 
 
 <composition name="SPST" >
-	<!--
-				!!!! IMPORTANT !!!!
-	     the Y values here should match the Y values from DCML modules
-	--> 
-	<posXYZ volume="BSAB" X_Y_Z="0. 29.76 0." />
-	<posXYZ volume="BSAB" X_Y_Z="0. 81.26 0." />
-	<posXYZ volume="BSBL" X_Y_Z="0. -81.25 0." />
-	<posXYZ volume="BSBL" X_Y_Z="0. -29.75 0." />
+    <!--
+                !!!! IMPORTANT !!!!
+         the Y values here should match the Y values from DCML modules
+    --> 
+    <posXYZ volume="BSAB" X_Y_Z="0. 29.76 0." />
+    <posXYZ volume="BSAB" X_Y_Z="0. 81.26 0." />
+    <posXYZ volume="BSBL" X_Y_Z="0. -81.25 0." />
+    <posXYZ volume="BSBL" X_Y_Z="0. -29.75 0." />
 
-	<posXYZ volume="ASAB" X_Y_Z="0. 29.76 0." />
-	<posXYZ volume="ASBL" X_Y_Z="0. -29.75 0." />
+    <posXYZ volume="ASAB" X_Y_Z="0. 29.76 0." />
+    <posXYZ volume="ASBL" X_Y_Z="0. -29.75 0." />
 
 </composition>
 
 <!-- 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     BSAB:
-	VBAB: vertical bar box support for the two bar boxes above the beamline
-	HSAB: horizontal support for the two bar boxes above the beamline
+    VBAB: vertical bar box support for the two bar boxes above the beamline
+    HSAB: horizontal support for the two bar boxes above the beamline
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 
@@ -1779,11 +1776,11 @@
 <!-- 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     VBAB:
-	VSML: vertical support module
+    VSML: vertical support module
 
     Numbers in comments:
-	bar boxes 00 or 01 Vertical Support number X, where X runs from 01 and 
-	counts from the window/optical box side 
+    bar boxes 00 or 01 Vertical Support number X, where X runs from 01 and 
+    counts from the window/optical box side 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 
@@ -1802,8 +1799,8 @@
 <!-- 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     VSML:
-	DSVS: downstream side vertical supports
-	USVS: upstream side vertical supports
+    DSVS: downstream side vertical supports
+    USVS: upstream side vertical supports
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 <composition name="VSML">
@@ -1814,12 +1811,12 @@
 <!-- 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     HSAB:
-	HST#: horizontal supports of type # 
+    HST#: horizontal supports of type # 
 
     Numbers in comments:
-	bar boxes 00 or 01 (or 11/10 for the below beamline ones)
-	Horizontal Support number X, where X runs from 01 and 
-	counts from the window/optical box side 
+    bar boxes 00 or 01 (or 11/10 for the below beamline ones)
+    Horizontal Support number X, where X runs from 01 and 
+    counts from the window/optical box side 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 
@@ -1930,37 +1927,37 @@
 <!-- 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     ASAB (additional supports for bar boxes above the beamline):
-	HZML: horizontal slab module
-	AVAB: additional vertical supports for the two bar boxes above the beamline
+    HZML: horizontal slab module
+    AVAB: additional vertical supports for the two bar boxes above the beamline
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 <composition name="ASAB">
-	<posXYZ volume="HSML" X_Y_Z="0. -25.65273 -0.3292" />
-	<posXYZ volume="AVAB" X_Y_Z="0. 0. 0." />
+    <posXYZ volume="HSML" X_Y_Z="0. -25.65273 -0.3292" />
+    <posXYZ volume="AVAB" X_Y_Z="0. 0. 0." />
 </composition>
 
 <!-- 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     HZML:
-	HZSL: horizontal slab
-	SLED: ends of the horizontal slab
-	EDSC: end cylinders (those are screws at the end of the slabs)
+    HZSL: horizontal slab
+    SLED: ends of the horizontal slab
+    EDSC: end cylinders (those are screws at the end of the slabs)
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 <composition name="HSML">
-	<posXYZ volume="HZSL" X_Y_Z="0. 0. 0." />
-	<posXYZ volume="SLED" X_Y_Z="118.4275 1.11125 0." />
-	<posXYZ volume="SLED" X_Y_Z="-118.4275 1.11125 0." />
-	<posXYZ volume="EDSC" X_Y_Z="122.3976 1.11125 2.54" rot="0. 90. 0."/>
-	<posXYZ volume="EDSC" X_Y_Z="122.3976 1.11125 -2.54" rot="0. 90. 0."/>
-	<posXYZ volume="EDSC" X_Y_Z="-122.3976 1.11125 2.54" rot="0. 90. 0."/>
-	<posXYZ volume="EDSC" X_Y_Z="-122.3976 1.11125 -2.54" rot="0. 90. 0."/>
+    <posXYZ volume="HZSL" X_Y_Z="0. 0. 0." />
+    <posXYZ volume="SLED" X_Y_Z="118.4275 1.11125 0." />
+    <posXYZ volume="SLED" X_Y_Z="-118.4275 1.11125 0." />
+    <posXYZ volume="EDSC" X_Y_Z="122.3976 1.11125 2.54" rot="0. 90. 0."/>
+    <posXYZ volume="EDSC" X_Y_Z="122.3976 1.11125 -2.54" rot="0. 90. 0."/>
+    <posXYZ volume="EDSC" X_Y_Z="-122.3976 1.11125 2.54" rot="0. 90. 0."/>
+    <posXYZ volume="EDSC" X_Y_Z="-122.3976 1.11125 -2.54" rot="0. 90. 0."/>
 </composition>
 
 <!-- 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     AVAB:
-	ASML: additional vertical support modules
+    ASML: additional vertical support modules
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 <composition name="AVAB">
@@ -1978,28 +1975,28 @@
 <!-- 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     ASML:
-	ADBT: additional vertical support between the two bar boxes
-	ADED: additional vertical support at the end
-	ADS#: additional structure of type # 
-		(types 1,2,3 correspond to the linking structure between the 
-		 vertical supports and the slab)
-	ASC#: additional screws
+    ADBT: additional vertical support between the two bar boxes
+    ADED: additional vertical support at the end
+    ADS#: additional structure of type # 
+        (types 1,2,3 correspond to the linking structure between the 
+         vertical supports and the slab)
+    ASC#: additional screws
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 <composition name="ASML">
-	<posXYZ volume="ADBT" X_Y_Z="0. 25.74925 -0.51374" />
-	<posXYZ volume="ADED" X_Y_Z="0. 79.5035  -0.51374" />
-	<posXYZ volume="ADS1" X_Y_Z="2.2225 -23.33625  0.3058" />
-	<posXYZ volume="ADS2" X_Y_Z="3.4925 -23.58898  4.4333" />
-	<posXYZ volume="ADS2" X_Y_Z="3.4925 -23.58898 -5.0917" />
-	<posXYZ volume="ADS3" X_Y_Z="3.4925 -25.01773 -0.3292" />
-	<posXYZ volume="ASC1" X_Y_Z="3.4925 -23.33625 2.8458" />
-	<posXYZ volume="ASC2" X_Y_Z="3.4925 -23.33625 -2.8692" />
+    <posXYZ volume="ADBT" X_Y_Z="0. 25.74925 -0.51374" />
+    <posXYZ volume="ADED" X_Y_Z="0. 79.5035  -0.51374" />
+    <posXYZ volume="ADS1" X_Y_Z="2.2225 -23.33625  0.3058" />
+    <posXYZ volume="ADS2" X_Y_Z="3.4925 -23.58898  4.4333" />
+    <posXYZ volume="ADS2" X_Y_Z="3.4925 -23.58898 -5.0917" />
+    <posXYZ volume="ADS3" X_Y_Z="3.4925 -25.01773 -0.3292" />
+    <posXYZ volume="ASC1" X_Y_Z="3.4925 -23.33625 2.8458" />
+    <posXYZ volume="ASC2" X_Y_Z="3.4925 -23.33625 -2.8692" />
 </composition>
 
 <composition name="ASBL">
-	<posXYZ volume="HSML" X_Y_Z="0. 25.65273 -0.3292" rot="0. 0. 180." />
-	<posXYZ volume="AVBL" X_Y_Z="0. 0. 0." />
+    <posXYZ volume="HSML" X_Y_Z="0. 25.65273 -0.3292" rot="0. 0. 180." />
+    <posXYZ volume="AVBL" X_Y_Z="0. 0. 0." />
 </composition>
 
 <composition name="AVBL">

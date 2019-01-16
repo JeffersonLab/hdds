@@ -5,14 +5,14 @@
   *************************************
 
      version 1.0: Initial version with all elements and some
-                  composites.					-rtj
+                  composites. -rtj
  
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
-<materials version="3.0"
-	   date="2006-11-22"
-	   author="R.T. Jones"
+<materials version="3.1"
+           date="2019-01-15"
+           author="R.T. Jones"
            specification="v1.0" >
 
   <!-- Define the elements -->
@@ -1114,7 +1114,7 @@
 	<addmaterial material="Carbon"> <natoms n="4" /> </addmaterial>
 	<addmaterial material="Fluorine"> <natoms n="10" /> </addmaterial>
 	<real name="density"	value="0.01012"	unit="g/cm^3" />
-        <optical_properties>
+    <optical_properties>
 	  <specify E="1.50" refindex="1.001331" abslen="10000" effic="0.0" />
 	  <specify E="2.00" refindex="1.001340" abslen="10000" effic="0.0" />
 	  <specify E="2.50" refindex="1.001353" abslen="10000" effic="0.0" />
@@ -1123,7 +1123,7 @@
 	  <specify E="4.00" refindex="1.001407" abslen="3000" effic="0.0" />
 	  <specify E="4.50" refindex="1.001430" abslen="2000" effic="0.0" />
 	  <specify E="5.00" refindex="1.001456" abslen="150" effic="0.0" />
-        </optical_properties>
+    </optical_properties>
   </composite>
 
   <composite name="ThinCerenkovMirror">
@@ -1140,7 +1140,7 @@
 		<natoms n="2"/>
  	</addmaterial>
 	<real name="density"	value="0.04"	unit="g/cm^3" />
-        <optical_properties>
+    <optical_properties>
 	  <specify E="1.50" reflect="0.98" smooth="1" effic="0.0" />
 	  <specify E="2.00" reflect="0.98" smooth="1" effic="0.0" />
 	  <specify E="2.50" reflect="0.98" smooth="1" effic="0.0" />
@@ -1149,7 +1149,7 @@
 	  <specify E="4.00" reflect="0.89" smooth="1" effic="0.0" />
 	  <specify E="4.50" reflect="0.80" smooth="1" effic="0.0" />
 	  <specify E="5.00" reflect="0.30" smooth="1" effic="0.0" />
-        </optical_properties>
+    </optical_properties>
   </composite>
 
   <composite name="ThickCerenkovMirror">
@@ -1166,7 +1166,7 @@
 		<natoms n="2"/>
  	</addmaterial>
 	<real name="density"	value="0.20"	unit="g/cm^3" />
-        <optical_properties>
+    <optical_properties>
 	  <specify E="1.50" reflect="0.98" smooth="1" effic="0.0" />
 	  <specify E="2.00" reflect="0.98" smooth="1" effic="0.0" />
 	  <specify E="2.50" reflect="0.98" smooth="1" effic="0.0" />
@@ -1175,7 +1175,7 @@
 	  <specify E="4.00" reflect="0.89" smooth="1" effic="0.0" />
 	  <specify E="4.50" reflect="0.80" smooth="1" effic="0.0" />
 	  <specify E="5.00" reflect="0.30" smooth="1" effic="0.0" />
-        </optical_properties>
+    </optical_properties>
   </composite>
 
   <composite name="fusedSilica">
@@ -1237,7 +1237,7 @@
 	<addmaterial material="Cesium">
 	  <fractionmass fraction="1.0" />
  	</addmaterial>
-        <optical_properties>
+    <optical_properties>
 	  <specify E="1.50" refindex="2.7" abslen="0.0001" effic="0.001" />
 	  <specify E="1.60" refindex="2.7" abslen="0.0001" effic="0.004" />
 	  <specify E="1.70" refindex="2.7" abslen="0.0001" effic="0.008" />
@@ -1274,7 +1274,7 @@
 	  <specify E="4.80" refindex="2.7" abslen="0.0001" effic="0.010" />
 	  <specify E="4.90" refindex="2.7" abslen="0.0001" effic="0.005" />
 	  <specify E="5.00" refindex="2.7" abslen="0.0001" effic="0.002" />
-        </optical_properties>
+    </optical_properties>
   </composite>
 
   <composite name="BoronNitride"> 
@@ -1297,16 +1297,16 @@
 	<addmaterial material="Aluminum">
 		<fractionmass	fraction="0.034"/>
  	</addmaterial>
-        <addmaterial material="Calcium">
-                <fractionmass   fraction="0.070"/>
-        </addmaterial>
-        <addmaterial material="Silicon">
-                <fractionmass   fraction="0.345"/>
-        </addmaterial>
-        <addmaterial material="Iron">
-                <fractionmass   fraction="0.038"/>
-        </addmaterial>
-        <real name="density"	value="2.35"	unit="g/cm^3" />
+    <addmaterial material="Calcium">
+        <fractionmass   fraction="0.070"/>
+    </addmaterial>
+    <addmaterial material="Silicon">
+        <fractionmass   fraction="0.345"/>
+    </addmaterial>
+    <addmaterial material="Iron">
+        <fractionmass   fraction="0.038"/>
+    </addmaterial>
+    <real name="density"	value="2.35"	unit="g/cm^3" />
   </composite>
 
   <composite name="SoftTungsten">
@@ -1319,16 +1319,16 @@
   </composite>
 
   <composite name="PWO">
-        <addmaterial material="Tungsten">
-                <fractionmass   fraction="0.4040"       />
-        </addmaterial>
-        <addmaterial material="Lead">
-                <fractionmass   fraction="0.4554"       />
-        </addmaterial>
-        <addmaterial material="Oxygen">
-                <fractionmass   fraction="0.1406"       />
-        </addmaterial>
-        <real name="density"    value="8.28" unit="g/cm^3" />
+    <addmaterial material="Tungsten">
+        <fractionmass   fraction="0.4040"       />
+    </addmaterial>
+    <addmaterial material="Lead">
+        <fractionmass   fraction="0.4554"       />
+    </addmaterial>
+    <addmaterial material="Oxygen">
+        <fractionmass   fraction="0.1406"       />
+    </addmaterial>
+    <real name="density"    value="8.28" unit="g/cm^3" />
   </composite>
 
   <composite name="StainlessSteel">
@@ -1430,11 +1430,11 @@
 
   <composite name="SignalCables">
 	<addmaterial material="Copper">
-                <fractionmass   fraction="0.40" />
-        </addmaterial>
+        <fractionmass   fraction="0.40" />
+    </addmaterial>
 	<addmaterial material="PVC">
-                <fractionmass   fraction="0.60" />
-        </addmaterial>
+        <fractionmass   fraction="0.60" />
+    </addmaterial>
   </composite>
 
   <composite name="CDCHookupCables">
@@ -1450,23 +1450,23 @@
 
   <composite name="CircuitBoards">
 	<addmaterial material="Polyethylene">
-                <fractionmass   fraction="0.35" />
-        </addmaterial>
+        <fractionmass   fraction="0.35" />
+    </addmaterial>
 	<addmaterial material="Copper">
-                <fractionmass   fraction="0.58" />
-        </addmaterial>
+        <fractionmass   fraction="0.58" />
+    </addmaterial>
 	<addmaterial material="FR-4">
-                <fractionmass   fraction="0.07" />
-        </addmaterial>
+        <fractionmass   fraction="0.07" />
+    </addmaterial>
   </composite> 
 
   <composite name="FDAnodeBoard">
 	<addmaterial material="Copper">
-                <fractionmass   fraction="0.5" />
-        </addmaterial>
+        <fractionmass   fraction="0.5" />
+    </addmaterial>
 	<addmaterial material="FR-4">
-                <fractionmass   fraction="0.5" />
-        </addmaterial>
+        <fractionmass   fraction="0.5" />
+    </addmaterial>
   </composite>
 
   <!-- The density here is adjusted so that the thickness
@@ -1490,17 +1490,17 @@
   </composite>
 
   <composite name="Fluorinert">
-        <addmaterial material="Carbon">   <natoms n="6" /></addmaterial>
+    <addmaterial material="Carbon">   <natoms n="6" /></addmaterial>
 	<addmaterial material="Fluorine"> <natoms n="14" /></addmaterial>
-        <real name="density"	value="1.68"	unit="g/cm^3"	/>
+    <real name="density"	value="1.68"	unit="g/cm^3"	/>
   </composite>
 
   <composite name="OpticalAir">
-        <addmaterial material="Air">
-                <fractionmass   fraction="1.0"  />
-        </addmaterial>
-        <real name="density"    value="0.001214"        unit="g/cm^3" />
-    <optical_properties>
+     <addmaterial material="Air">
+          <fractionmass   fraction="1.0"  />
+     </addmaterial>
+     <real name="density"    value="0.001214"        unit="g/cm^3" />
+     <optical_properties>
           <specify E="1.50" refindex="1." abslen="456403" />
           <specify E="2.00" refindex="1." abslen="138800" />
           <specify E="2.50" refindex="1." abslen="67116" />
@@ -1515,7 +1515,7 @@
           <specify E="7.00" refindex="1." abslen="4000" />
           <specify E="7.50" refindex="1." abslen="4000" />
           <specify E="8.00" refindex="1." abslen="4000" />
-    </optical_properties>
+     </optical_properties>
   </composite>
 
   <composite name="Epotek301">

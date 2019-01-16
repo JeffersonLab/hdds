@@ -139,7 +139,8 @@ if hasGDMLsupport:
 	env.Requires([CPPGDML]   , CPPROOTC  )
 
 # --- Build libhddsGeant3.a
-libhddsgeant3 = env.Library(target='%s/hddsGeant3' % builddir, source=HDDSGEANT3)
+if os.getenv('CERN'):
+	libhddsgeant3 = env.Library(target='%s/hddsGeant3' % builddir, source=HDDSGEANT3)
 libhdds = env.SharedLibrary(target='%s/hdds' % builddir, source = COMMONBSRC, SHLIBSUFFIX='.so')
 
 # Configure for installation. In principle, we should not need to explicitly
@@ -163,7 +164,7 @@ if len(build_targets)>0:
 			env.Install('%s/src' % installdir, HDDSGDML)
 			env.Install('%s/src' % installdir, CPPGDML)
 
-		env.Install(lib, libhddsgeant3)		
+		if os.getenv('CERN'): env.Install(lib, libhddsgeant3)		
 		env.Install(lib, libhdds)		
 
 # Make install target
