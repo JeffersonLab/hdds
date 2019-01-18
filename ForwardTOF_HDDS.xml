@@ -38,6 +38,9 @@
 <!-- version 2.2, January 8, 2019  Richard Jones                                          -->
 <!--   small tweaks to eliminate overlaps between volumes.                                -->
 
+<!-- Wed Dec 05 13:00:00 EST 2018 A. Ernst -->
+<!-- Added the Lucite shield to the geometry. See GlueX TOF Meeting, Dec 5, 2018 for more information-->
+
   <composition name="ForwardTOF">
     <posXYZ volume="forwardTOF" X_Y_Z="0.0  0.0 3.85" rot="0 0 -90">
       <plane value="0" />
@@ -45,6 +48,8 @@
     <posXYZ volume="forwardTOF" X_Y_Z="0.0  0.0 1.27" rot="0 0 0">
       <plane value="1" />
     </posXYZ>
+    <posXYZ volume="shield_front" X_Y_Z="0.0 0.0 -2.87" />
+    <posXYZ volume="shield_back" X_Y_Z="0.0 0.0 9.875" />
   </composition>
 
   <composition name="forwardTOF" envelope="FTOF">
@@ -54,6 +59,7 @@
     <posXYZ volume="forwardTOF_south" X_Y_Z="-66.0 0.0 0.0" />
     <posXYZ volume="forwardTOF_top2" X_Y_Z="0.0 +9.18 0.0" />
     <posXYZ volume="forwardTOF_top1" X_Y_Z="0.0 +70.175 0.0" />
+    <posXYZ volume="shield_feedthru" />
   </composition>
 
 <!-- the attribute 'row' is synonymous with 'bar' -->
@@ -95,6 +101,22 @@
     </mposY>
   </composition>
 
+  <composition name="shield_front" envelope="SHLH">
+   <posXYZ volume="shield_front_insert" />
+  </composition>
+
+  <composition name="shield_front_insert" envelope="SINS">
+   <posXYZ volume="SINA" />
+  </composition>
+
+  <composition name="shield_feedthru" envelope="SHFT">
+   <posXYZ volume="SINC" />
+  </composition>
+
+  <composition name="shield_back" envelope="SHLB">
+   <posXYZ volume="SINB" />
+  </composition>
+
   <box name="FTOF" X_Y_Z="252.0 268.8 2.55" material="Air" />
   <box name="FTOB" X_Y_Z="252.0 115.8 2.55" material="Air" />
   <box name="FTOT" X_Y_Z="252.0 115.8 2.55" material="Air" />
@@ -108,6 +130,13 @@
 					    sensitive="true" />
   <box name="FTOX" X_Y_Z="252.0   3.0 2.54" material="Scintillator"
 					    sensitive="true" />
+  <box name="SHLH" X_Y_Z="25.4 25.4 5.715" material="Plexiglas" />
+  <box name="SINS" X_Y_Z="12.0 12.0 5.715" material="Polyethylene" />
+  <box name="SINA" X_Y_Z="9.53 9.53 5.715" material="Air" />
+  <box name="SHFT" X_Y_Z="12.0 12.0 2.55" material="Polyethylene" />
+  <box name="SINC" X_Y_Z="9.53 9.53 2.55" material="Air" />
+  <box name="SHLB" X_Y_Z="12.0 12.0 9.5" material="Polyethylene" />
+  <box name="SINB" X_Y_Z="9.53 9.53 9.5" material="Air" />
 
   <!-- The following elements describe an early rendition of the GlueX
        detector simulated using a fast Monte Carlo program MCFast.  They
