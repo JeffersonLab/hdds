@@ -48,6 +48,7 @@
     <posXYZ volume="forwardTOF" X_Y_Z="0.0  0.0 1.27" rot="0 0 0">
       <plane value="1" />
     </posXYZ>
+    <!-- comment out this shield_front if you want to insert the DIRC -->
     <posXYZ volume="shield_front" X_Y_Z="0.0 0.0 -2.87" />
     <posXYZ volume="shield_back" X_Y_Z="0.0 0.0 9.875" />
   </composition>
