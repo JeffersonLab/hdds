@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# hddm2ccdb.py - script fo reading and writing from the /GEOMETRY
+# hddm2ccdb.py - script for reading and writing from the /GEOMETRY
 #                tables in ccdb.
 #
 # author: richard.t.jones at uconn.edu
