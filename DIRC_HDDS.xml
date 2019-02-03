@@ -31,10 +31,10 @@
 
 <!-- DIRC detector
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-     DRCC:
+    DRCC:
     DCML##: DIRC bar box module for bar box number ## 
-        OBCS:   DIRC optical box in the south side (lower one, below beamline)
-        OBCN:   DIRC optical box in the south side (upper one, above beamline)
+    OBCS:   DIRC optical box in the south side (lower one, below beamline)
+    OBCN:   DIRC optical box in the south side (upper one, above beamline)
     SPST:   Support structures for bar boxes
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
