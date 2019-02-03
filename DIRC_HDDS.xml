@@ -63,7 +63,7 @@
     </posXYZ>
 </composition>
 
-<box name="DCMV" X_Y_Z="700.0 250.0 100.0" material="OpticalAir" /> <!-- x was 560, y was  220, z was 80 -->
+<box name="DCMV" X_Y_Z="700.0 250.0 84.0" material="OpticalAir" /> <!-- x was 560, y was  220, z was 80 -->
 
 <!--
      DIRC bar box module (12 individual bars): 
