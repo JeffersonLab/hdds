@@ -195,8 +195,9 @@
 			(nominal bar width 3.5cm + 150um bar-to-bar spacing).
 			each component is then aligned such that the lower edge is at 
 			-1.75 w.r.t. center.
-	- z-direction: aligned against downstream side, this was supposed to be how 
-			those bars were assembled at SLAC 
+	- z-direction: aligned against downstream side, such that the downstream face of 
+			the bars and wedges are at z=1.7 w.r.t. DCBR## z position. This is
+			supposed to be how those bars were assembled at SLAC 
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	DCBR##:
