@@ -45,7 +45,6 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 
-
 <composition name="DRCC" envelope="DCMV">
 	<posXYZ volume="DCML10" X_Y_Z="196. -29.75 30. " rot="0. 0. 180." >
 	<plane value="1" />
@@ -74,6 +73,7 @@
 	<posXYZ volume="SPST" X_Y_Z="0. 0. 30." >
 	</posXYZ>
 </composition>
+
 <box name="DCMV" X_Y_Z="700.0 250.0 84.0" material="OpticalAir" /> <!-- x was 560, y was  220, z was 80 -->
 
 <!--
