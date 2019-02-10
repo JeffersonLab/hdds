@@ -14,7 +14,7 @@
      version 4: update nominal positions to JT model, for Spring 2019 commissioning
 		  include mirror surface survey for the south optical box
 		  include "in beam" position survey
-
+		
      <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
@@ -49,13 +49,13 @@
 
 <composition name="DRCC" envelope="DCMV">
 
-	<posXYZ volume="DCML10" X_Y_Z="197.06 -30.04 28.2386 " rot="-0.1255 -0.10195 180.">
-	<!--posXYZ volume="DCML10" X_Y_Z="196.225 -29.6533 27.662 " rot="0. 0. 180." --><!--Nominal-->
+	<!--posXYZ volume="DCML10" X_Y_Z="197.06 -30.04 28.2386 " rot="-0.1255 -0.10195 180."-->
+	<posXYZ volume="DCML10" X_Y_Z="196.225 -29.6533 27.662 " rot="0. 0. 180."><!--Nominal-->
 	<plane value="1" />
 	</posXYZ>
 
-	<posXYZ volume="DCML11" X_Y_Z="197.06 -81.7742 28.2166 " rot="-0.0788 -0.10195 180."> 
-	<!--posXYZ volume="DCML11" X_Y_Z="196.225 -81.3338 27.662 " rot="0. 0. 180." --><!--Nominal-->
+	<!--posXYZ volume="DCML11" X_Y_Z="197.06 -81.7742 28.2166 " rot="-0.0788 -0.10195 180."--> 
+	<posXYZ volume="DCML11" X_Y_Z="196.225 -81.3338 27.662 " rot="0. 0. 180."><!--Nominal-->
 	<plane value="2" />
 	</posXYZ>
 
@@ -67,8 +67,8 @@
 	<plane value="4" />
 	</posXYZ>
 
-	<posXYZ volume="OBCS" X_Y_Z="-323.025 -55.4935 2." rot="0. -0.10195 0.">
-	<!--posXYZ volume="OBCS" X_Y_Z="-323.86 -55.4935 2."--> <!--Nominal-->
+	<!--posXYZ volume="OBCS" X_Y_Z="-323.025 -55.4935 2." rot="0. -0.10195 0."-->
+	<posXYZ volume="OBCS" X_Y_Z="-323.86 -55.4935 2."> <!--Nominal-->
 	<plane value="1" />
 	</posXYZ>
 
@@ -1497,8 +1497,8 @@
 
 <box name="OBVS" X_Y_Z="40 110. 70." material="OpticalH2O"/>
 <composition name="OBCS" envelope="OBVS">
-        <posXYZ volume="MRAS" X_Y_Z="5.2417 50.9388 7.03305" rot="-0.238 -0.05945 0.0406"/>
-        <!--posXYZ volume="MRAS" X_Y_Z="5.4434 51.7927 6.93185" /--><!--Nominal-->
+        <!--posXYZ volume="MRAS" X_Y_Z="5.2417 50.9388 7.03305" rot="-0.238 -0.05945 0.0406"/-->
+        <posXYZ volume="MRAS" X_Y_Z="5.4434 51.7927 6.93185" /><!--Nominal-->
         <!--posXYZ volume="MRAS" X_Y_Z="6.0761 50.9388 7.0329" rot="-0.238 -0.1614 0.0406" /--><!--optical box survey only-->
 	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" rot="0. 0. 180."/>
 </composition>
