@@ -127,14 +127,15 @@
      - FCAL dark box window, FCAL platform pipe with plexiglass window, beam 
      - intensity monitor, and TAC
 
-
+     Revision 3.4 1/4/2019
+      Small adjustments to eliminate illegal overlaps between volumes -rtj
 
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "BeamLine"
-         version     = "3.2"
-         date        = "2016-12-12"
+         version     = "3.4"
+         date        = "2019-01-17"
          author      = "R.T. Jones"
          top_volume  = "collimatorPackage"
          specification = "v1.0">
@@ -191,7 +192,7 @@
     <posXYZ volume="ConcreteWall2" X_Y_Z="0.0  33.0  941.24" />
     <posXYZ volume="shieldingWall" X_Y_Z="0.0  35.0 1004.74" />     
     <!--    <posXYZ volume="TargetBox"     X_Y_Z="0.0  0.0 1085.00" />   -->
-    <posXYZ volume="BeamPipe2"     X_Y_Z="0.0  0.0  1066.668" /> 
+    <posXYZ volume="BeamPipe2"     X_Y_Z="0.0  0.0  1066.142" /> 
   </composition>
   
 <!-- Beam Pipe 0 -->
@@ -675,8 +676,8 @@
     <posXYZ volume="F6I5" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <tubs name="F6O5" Rio_Z="0.0  2.54   29.0" material="Iron" />
-  <tubs name="F6I5" Rio_Z="0.0  2.38   29.0" material="Vacuum" />
+  <tubs name="F6O5" Rio_Z="0.0  2.54   28.73" material="Iron" />
+  <tubs name="F6I5" Rio_Z="0.0  2.38   28.73" material="Vacuum" />
 
 
   <composition name="TargetBox">
@@ -730,8 +731,8 @@
     <posXYZ volume="F7I1" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
 
-  <tubs name="F7O1" Rio_Z="0.0  2.54  17.7424" material="Iron" />
-  <tubs name="F7I1" Rio_Z="0.0  2.38  17.7424" material="Vacuum" />
+  <tubs name="F7O1" Rio_Z="0.0  2.54  17.74" material="Iron" />
+  <tubs name="F7I1" Rio_Z="0.0  2.38  17.74" material="Vacuum" />
 
   <composition name="FlangeSevenDisk2" envelope="F7O2">
     <posXYZ volume="F7I2" X_Y_Z="0.0 0.0 0.0"/>
@@ -813,8 +814,8 @@
     <posXYZ volume="PSCH" />
   </composition>
 
-  <tubs name="BPO2" Rio_Z="0.0  2.54   118.767" material="Iron" />
-  <tubs name="BPI2" Rio_Z="0.0  2.38   118.767" material="Vacuum" />
+  <tubs name="BPO2" Rio_Z="0.0  2.54   117.715" material="Iron" />
+  <tubs name="BPI2" Rio_Z="0.0  2.38   117.715" material="Vacuum" />
     
   <composition name="PairSpecConverter" envelope="PSCM">
     <posXYZ volume="PSCV"/>
@@ -923,7 +924,7 @@
 <!-- Hall Pipe -->
   <composition name="HallPipe" envelope="OHPI" >
     <!--posXYZ volume="IHPI" X_Y_Z="0 0 98.6305"/-->
-    <posXYZ volume="InnerHallPipe" X_Y_Z="0.0 0.0 98.6305"/> 
+    <posXYZ volume="InnerHallPipe" X_Y_Z="0.0 0.0 98.4805"/> 
   </composition>
 
   <composition name="InnerHallPipe" envelope="IHPI">
@@ -936,12 +937,12 @@
     <polyplane Rio_Z="0.0 4.27355 -190.1190"/>
     <polyplane Rio_Z="0.0 4.27355 -188.5442"/>
     <polyplane Rio_Z="0.0 1.90500 -188.5442"/>
-    <polyplane Rio_Z="0.0 1.90500 +385.678"/>
-    <polyplane Rio_Z="0.0 22.504 +385.678"/>
-    <polyplane Rio_Z="0.0 22.504 +387.380"/>
+    <polyplane Rio_Z="0.0 1.90500 +385.378"/>
+    <polyplane Rio_Z="0.0 22.504 +385.378"/>
+    <polyplane Rio_Z="0.0 22.504 +387.080"/>
   </pcon>
 
-  <tubs name="IHPI" Rio_Z="0.0  1.7399 577.499" material="Vacuum" />
+  <tubs name="IHPI" Rio_Z="0.0  1.7399 577.199" material="Vacuum" />
   <tubs name="CAP1" Rio_Z="0.0  1.7399 0.0127" material="Kapton"/>
 
 <composition name="SixWayCross" envelope="SWCM">
@@ -1210,13 +1211,13 @@
 
   <composition name="tpolVacuumBox" envelope="PTB0">
      <posXYZ volume="tpolRailGuide" X_Y_Z="0.375 5.131 -3.380" unit_length="in" />
-     <posXYZ volume="tpolTargetCarrier" X_Y_Z="0.25 2.146 -3.380" rot="0 180 0" unit_length="in" />
+     <posXYZ volume="tpolTargetCarrier" X_Y_Z="0.25 1.941 -3.380" rot="0 180 0" unit_length="in" />
      <posXYZ volume="tpolTargetMotor" X_Y_Z="-1.625 4.1449 -1.6284" unit_length="in" />
      <posXYZ volume="tpolRecoilDetectorCard" X_Y_Z="-1.625 0.0 -2.0" rot="0 0 22.5" unit_length="in" />
-     <posXYZ volume="PTA1" X_Y_Z="-1.625 0.0 -1.9796" unit_length="in" />
-     <posXYZ volume="PTA2" X_Y_Z="-1.625 0.0 -1.9795" unit_length="in" />
-     <posXYZ volume="PTA3" X_Y_Z="-1.625 0.0 -1.9794" unit_length="in" />
-     <posXYZ volume="PTA4" X_Y_Z="-1.625 0.0 -2.0204" unit_length="in" />
+     <posXYZ volume="PTA1" X_Y_Z="-1.625 0.0 -1.9700" unit_length="in" />
+     <posXYZ volume="PTA2" X_Y_Z="-1.625 0.0 -1.9699" unit_length="in" />
+     <posXYZ volume="PTA3" X_Y_Z="-1.625 0.0 -1.9698" unit_length="in" />
+     <posXYZ volume="PTA4" X_Y_Z="-1.625 0.0 -2.0300" unit_length="in" />
      <!-- <posXYZ volume="PTA5" X_Y_Z="-1.625 0.0 -3.3651" unit_length="in" /> -->
      <posXYZ volume="PTMP" X_Y_Z="0.0 5.8125 0.0" unit_length="in" />
      <posXYZ volume="PTVR" X_Y_Z="0.0 5.745 -5.125" unit_length="in" />
@@ -1247,7 +1248,7 @@
   </composition>
 
   
-  <tubs name="PTAR" Rio_Z="0.0 0.375 0.0075" material="Beryllium" 
+  <tubs name="PTAR" Rio_Z="0.0 0.375 0.0075" material="Vacuum" 
 	comment="polarimeter converter target" /> 
   
   
@@ -1267,9 +1268,9 @@
                    comment="polarimeter rail box subtraction" />
   <box name="PTB6" X_Y_Z="42.0 42.0 2.0" material="Iron" unit_length="mm"
                    comment="polarimeter motor plate" />
-  <box name="PTB7" X_Y_Z="5.25 5.792 0.118" material="Aluminum" unit_length="in"
+  <box name="PTB7" X_Y_Z="5.25 5.382 0.118" material="Aluminum" unit_length="in"
                    comment="polarimeter target holder" />
-  <box name="PTB8" X_Y_Z="4.325 4.292 0.118" material="Vacuum" unit_length="in"
+  <box name="PTB8" X_Y_Z="4.325 3.882 0.118" material="Vacuum" unit_length="in"
                    comment="polarimeter target holder subtraction" />
   <tubs name="PTH0" Rio_Z="0.0 21.0 69.0" material="Iron" unit_length="mm"
                    comment="polarimeter target motor" />
@@ -1293,21 +1294,21 @@
   </composition>
   <composition name="tpolRailGuide" envelope="PTB3">
      <posXYZ volume="PTB4" X_Y_Z="0.0 -0.338 0.0" unit_length="in" />
-     <posXYZ volume="PTB5" />
+     <posXYZ volume="PTB5" X_Y_Z="0.0 0.0005 0.0" unit_length="in" />
   </composition>
   <composition name="tpolTargetDisk" envelope="PTH7">
      <posXYZ volume="PTAR" />
   </composition>
   <composition name="tpolTargetCarrier" envelope="PTB7">
      <posXYZ volume="PTB8" X_Y_Z="0.4625 0.75 0.0" unit_length="in" />
-     <posXYZ volume="tpolTargetDisk" X_Y_Z="1.875 -2.146 0.0" unit_length="in" />
-     <posXYZ volume="tpolTargetDisk" X_Y_Z="0.625 -2.146 0.0" unit_length="in" />
-     <posXYZ volume="tpolTargetDisk" X_Y_Z="-0.625 -2.146 0.0" unit_length="in" />
+     <posXYZ volume="tpolTargetDisk" X_Y_Z="1.875 -1.941 0.0" unit_length="in" />
+     <posXYZ volume="tpolTargetDisk" X_Y_Z="0.625 -1.941 0.0" unit_length="in" />
+     <posXYZ volume="tpolTargetDisk" X_Y_Z="-0.625 -1.941 0.0" unit_length="in" />
   </composition>
   <composition name="tpolTargetMotor">
      <posXYZ volume="PTH0" />
      <posXYZ volume="PTB6" X_Y_Z="0.0 0.0 -35.5" unit_length="mm" />
-     <posXYZ volume="PTH1" X_Y_Z="0.0 0.0 -52.5" unit_length="mm" />
+     <posXYZ volume="PTH1" X_Y_Z="0.0 0.0 -62.0" unit_length="mm" />
   </composition>
   
   <composition name="tpolRecoilDetector" envelope="PTDE">
