@@ -135,7 +135,7 @@
 
 <section name        = "BeamLine"
          version     = "3.4"
-         date        = "2016-1-19"
+         date        = "2019-01-17"
          author      = "R.T. Jones"
          top_volume  = "collimatorPackage"
          specification = "v1.0">
