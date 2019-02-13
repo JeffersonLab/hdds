@@ -11,15 +11,12 @@
      version 3: added as-built aluminum supports;
                   implemented dimensions of each individual short bars;
                   each bar box and each optical box is now unique (not copied from prototypes) 
-     version 4: update nominal positions to JT model, for Spring 2019 commissioning
-		  include mirror surface survey for the south optical box
-		  include "in beam" position survey
 
      <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "DIRC"
-         version     = "4.0"
+         version     = "3.1"
          date        = "2019-01-15"
          author      = "Richard Jones, Justin Stevens, Maria Patsyuk, Yunjie Yang"
          top_volume  = "DCMV"
@@ -47,39 +44,36 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 
-<composition name="DRCC" envelope="DCMV">
 
-	<posXYZ volume="DCML10" X_Y_Z="197.06 -30.04 28.2386 " rot="-0.1255 -0.10195 180.">
-	<!--posXYZ volume="DCML10" X_Y_Z="196.225 -29.6533 27.662 " rot="0. 0. 180." --><!--Nominal-->
+<composition name="DRCC" envelope="DCMV">
+	<posXYZ volume="DCML10" X_Y_Z="196. -29.75 30. " rot="0. 0. 180." >
 	<plane value="1" />
 	</posXYZ>
 
-	<posXYZ volume="DCML11" X_Y_Z="197.06 -81.7742 28.2166 " rot="-0.0788 -0.10195 180."> 
-	<!--posXYZ volume="DCML11" X_Y_Z="196.225 -81.3338 27.662 " rot="0. 0. 180." --><!--Nominal-->
+	<posXYZ volume="DCML11" X_Y_Z="196. -81.25 30. " rot="0. 0. 180." >
 	<plane value="2" />
 	</posXYZ>
 
-	<posXYZ volume="DCML01" X_Y_Z="-196.226 29.8605 27.662" >
+	<posXYZ volume="DCML01" X_Y_Z="-196. 29.76 30" >
 	<plane value="3" />
 	</posXYZ>
 
-	<posXYZ volume="DCML00" X_Y_Z="-196.226 81.359 27.662" >
+	<posXYZ volume="DCML00" X_Y_Z="-196. 81.26 30" >
 	<plane value="4" />
 	</posXYZ>
 
-	<posXYZ volume="OBCS" X_Y_Z="-323.025 -55.4935 2." rot="0. -0.10195 0.">
-	<!--posXYZ volume="OBCS" X_Y_Z="-323.86 -55.4935 2."--> <!--Nominal-->
+	<posXYZ volume="OBCS" X_Y_Z="-320.59 -55.4268 3.91">
 	<plane value="1" />
 	</posXYZ>
 
-	<posXYZ volume="OBCN" X_Y_Z="323.859  55.6097 2.">
+	<posXYZ volume="OBCN" X_Y_Z=" 320.59  55.4268 3.91">
 	<plane value="2" />
 	</posXYZ>
-	<posXYZ volume="SPST" X_Y_Z="0. 0. 27.662" >
+
+	<posXYZ volume="SPST" X_Y_Z="0. 0. 30." >
 	</posXYZ>
 </composition>
-
-<box name="DCMV" X_Y_Z="720.0 250.0 84.0" material="OpticalAir" />
+<box name="DCMV" X_Y_Z="700.0 250.0 84.0" material="OpticalAir" /> <!-- x was 560, y was  220, z was 80 -->
 
 <!--
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -1495,38 +1489,36 @@
 	###############################################
 -->
 
-<box name="OBVS" X_Y_Z="40 110. 70." material="OpticalH2O"/>
+<box name="OBVS" X_Y_Z="33.01 100. 58.2" material="OpticalH2O"/>
 <composition name="OBCS" envelope="OBVS">
-        <posXYZ volume="MRAS" X_Y_Z="5.2417 50.9388 7.03305" rot="-0.238 -0.05945 0.0406"/>
-        <!--posXYZ volume="MRAS" X_Y_Z="5.4434 51.7927 6.93185" /--><!--Nominal-->
-        <!--posXYZ volume="MRAS" X_Y_Z="6.0761 50.9388 7.0329" rot="-0.238 -0.1614 0.0406" /--><!--optical box survey only-->
+        <posXYZ volume="MRAS" X_Y_Z="0.0 0.0 0.0" />
+        <posXYZ volume="BWPG" X_Y_Z="-3.15 0.0 -16.05" rot="0.0 -42.12454632 0.0" />
 	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" rot="0. 0. 180."/>
 </composition>
 
 <composition name="MRAS">
-        <posXYZ volume="FTMS" X_Y_Z="7.04143 -51.701 -13.3581" />
-        <posXYZ volume="TM1S" X_Y_Z="-14.4934 -51.701 -2.40487" rot="0.0 9.1063 0.0" />
-        <posXYZ volume="TM2S" X_Y_Z="-12.4883 -51.701 7.05168" rot="0.0 16.0655 0.0" />
-        <posXYZ volume="TM3S" X_Y_Z="-9.22748 -51.701 16.0823" rot="0.0 23.001 0.0" />
-        <posXYZ volume="WM1S" X_Y_Z="3.9488 -51.701 20.8012" />
-        <posXYZ volume="WM2S" X_Y_Z="10.179 -51.701 9.05206" rot="0.0 -29.8589 0.0"/>
-        <posXYZ volume="SM1S" X_Y_Z="-4.6285 -2.3911 -5.66595" />
-        <posXYZ volume="SM2S" X_Y_Z="-4.6285 -101.19 -5.66595" />
-        <posXYZ volume="BWPG" X_Y_Z="-4.6285 -51.8593 -20.9817" rot="0.0 42.12454632 180.0" />
+        <posXYZ volume="FTMS" X_Y_Z="8.74 0.0 -6.18885" />
+        <posXYZ volume="TM1S" X_Y_Z="-12.3211 0.0 4.97" rot="0.0 9.067 0.0" />
+        <posXYZ volume="TM2S" X_Y_Z="-10.2496 0.0 14.33" rot="0.0 15.9020 0.0" />
+        <posXYZ volume="TM3S" X_Y_Z="-7.06723 0.0 23.3881" rot="0.0 22.8934 0.0" />
+        <posXYZ volume="WM1S" X_Y_Z="6.0 0.0 27.81" />
+        <posXYZ volume="WM2S" X_Y_Z="12 0.0 16.65" rot="0.0 -30.0 0.0"/>
+        <posXYZ volume="SM1S" X_Y_Z="0.5 49.15 -0.14" />
+        <posXYZ volume="SM2S" X_Y_Z="0.5 -49.15 -0.14" />
 </composition>
 
 <!-- South/Lower/Beam Right Optical Box Mirrors -->
-<box name="FTMS" X_Y_Z="0.01 98. 40.2" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="FTMS" X_Y_Z="0.01 98.072 40.2" material="ThickCerenkovMirror" sensitive="true"/>
 
 <box name="TM1S" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
 <box name="TM2S" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
 <box name="TM3S" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
 
 <box name="WM1S" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="WM2S" X_Y_Z="6.656 98. 0.01"  material="ThickCerenkovMirror" sensitive="true"/>
+<box name="WM2S" X_Y_Z="6.66 98.072 0.01"  material="ThickCerenkovMirror" sensitive="true"/>
 
-<box name="SM1S" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="SM2S" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="SM1S" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="SM2S" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" sensitive="true"/>
 
 
 <!-- 
@@ -1537,36 +1529,37 @@
 	###############################################
 -->
 
-<box name="OBVN" X_Y_Z="40. 110. 68." material="OpticalH2O"/>
+<box name="OBVN" X_Y_Z="33.01 100. 58.2" material="OpticalH2O"/>
 <composition name="OBCN" envelope="OBVN">
-        <posXYZ volume="MRAN" X_Y_Z="-5.4434 51.7927 6.93185" />
-	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" rot="0. 0. 0."/>
-</composition>
-<composition name="MRAN">
-        <posXYZ volume="FTMN" X_Y_Z="-7.04143 -51.701 -13.3581" />
-        <posXYZ volume="TM1N" X_Y_Z="14.4934 -51.701 -2.40487" rot="0.0 -9.1063 0.0" />
-        <posXYZ volume="TM2N" X_Y_Z="12.4883 -51.701 7.05168" rot="0.0 -16.0655 0.0" />
-        <posXYZ volume="TM3N" X_Y_Z="9.22748 -51.701 16.0823" rot="0.0 -23.001 0.0" />
-        <posXYZ volume="WM1N" X_Y_Z="-3.9488 -51.701 20.8012" />
-        <posXYZ volume="WM2N" X_Y_Z="-10.179 -51.701 9.05206" rot="0.0 29.8589 0.0"/>
-        <posXYZ volume="SM1N" X_Y_Z="4.6285 -2.3911 -5.66595" />
-        <posXYZ volume="SM2N" X_Y_Z="4.6285 -101.19 -5.66595" />
-        <posXYZ volume="BWPG" X_Y_Z="4.6285 -51.8593 -20.9817" rot="0.0 42.12454632 0." />
+        <posXYZ volume="MRAN" X_Y_Z="0.0 0.0 0.0" />
+        <posXYZ volume="BWPG" X_Y_Z="3.15 0.0 -16.05" rot="0.0 42.12454632 0.0" />
+	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" />
 </composition>
 
+<composition name="MRAN">
+        <posXYZ volume="FTMN" X_Y_Z="-8.74 0.0 -6.18885" />
+	<posXYZ volume="TM1N" X_Y_Z="12.3211 0.0 4.97" rot="0.0 -9.067 0.0" /> 
+        <posXYZ volume="TM2N" X_Y_Z="10.2496 0.0 14.33" rot="0.0 -15.9020 0.0" />
+        <posXYZ volume="TM3N" X_Y_Z="7.06723 0.0 23.3881" rot="0.0 -22.8934 0.0" />
+        <posXYZ volume="WM1N" X_Y_Z="-6.0 0.0 27.81" />
+        <posXYZ volume="WM2N" X_Y_Z="-12 0.0 16.65" rot="0.0 30.0 0.0"/>
+	<posXYZ volume="SM1N" X_Y_Z="-0.5 -49.15 -0.14" />
+        <posXYZ volume="SM2N" X_Y_Z="-0.5 49.15 -0.14" />
+</composition>
 
 <!-- North/Upper/Beam Left Optical Box Mirrors -->
-<box name="FTMN" X_Y_Z="0.01 98. 40.2" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="FTMN" X_Y_Z="0.01 98.072 40.2" material="ThickCerenkovMirror" sensitive="true"/>
 
 <box name="TM1N" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
 <box name="TM2N" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
 <box name="TM3N" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
 
 <box name="WM1N" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="WM2N" X_Y_Z="6.656 98. 0.01"  material="ThickCerenkovMirror" sensitive="true"/>
+<box name="WM2N" X_Y_Z="6.66 98.072 0.01"  material="ThickCerenkovMirror" sensitive="true"/>
 
-<box name="SM1N" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="SM2N" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="SM1N" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="SM2N" X_Y_Z="30. 0.01 55.9" material="ThickCerenkovMirror" sensitive="true"/>
+
 
 
 <!-- 
@@ -1707,40 +1700,39 @@
 	ALCF:
 	ABT4: flat mirror side
 	ABT5: 3-segment mirror side
-	ABH2: WM2N(S) side
+	ABH2: FWM2 side
 	ABH3: top side (behind PMT plane)
-	ABH4: bottom side (WM1N(S) side)
-	ABV2: SM1N(S) side 
-	ABV3: SM2N(S) side 
+	ABH4: bottom side (FWM1 side)
+	ABV2: FSM1 side 
+	ABV3: FSM2 side 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 <composition name="ALCF">
         <!--posXYZ volume="ABT2" X_Y_Z="-17. 0.0 0." /-->
 	<!--posXYZ volume="ABT3" X_Y_Z="-17. 0.0 2.475" /-->
-	<!--posXYZ volume="ABT4" X_Y_Z="-9. 0.0 -7." /-->
-	<posXYZ volume="ABT5" X_Y_Z="19.45 0.0 0." />
+	<posXYZ volume="ABT4" X_Y_Z="-9. 0.0 -7." />
+	<posXYZ volume="ABT5" X_Y_Z="16. 0.0 0." />
         
-	<!--posXYZ volume="ABH2" X_Y_Z="-12 0.0 16." rot="0.0 30.0 0.0"/--> <!-- -12, 0.0, 16.7 -->
-	<posXYZ volume="ABH3" X_Y_Z="0. 0.0 -33.45" />
-	<posXYZ volume="ABH4" X_Y_Z="0. 0.0 33.45" />
+	<posXYZ volume="ABH2" X_Y_Z="-12 0.0 16." rot="0.0 30.0 0.0"/> <!-- -12, 0.0, 16.7 -->
+	<posXYZ volume="ABH3" X_Y_Z="0. 0.0 -29." />
+	<posXYZ volume="ABH4" X_Y_Z="0. 0.0 28.5" />
     
     	<!-- Al plates for the ends of the focusing optics box -->
-	<posXYZ volume="ABV2" X_Y_Z="0. -54.45 0." /> 
-	<posXYZ volume="ABV3" X_Y_Z="0.  54.45 0." /> 
+	<posXYZ volume="ABV2" X_Y_Z="0. -49.3 0." />
+	<posXYZ volume="ABV3" X_Y_Z="0.  49.3 0." />
 </composition>
 
+<box name="ABT2" X_Y_Z="0.1 90.2 12.175" material="Aluminum" /> 
+<box name="ABT3" X_Y_Z="0.1 90.2 1.1" material="Aluminum" />
+<box name="ABT4" X_Y_Z="0.1 90.2 41." material="Aluminum" />
+<box name="ABT5" X_Y_Z="0.1 90.2 57." material="Aluminum" />
 
-<!--box name="ABT2" X_Y_Z="0.1 90.2 12.175" material="Aluminum" /--> 
-<!--box name="ABT3" X_Y_Z="0.1 90.2 1.1" material="Aluminum" /-->
-<!--box name="ABT4" X_Y_Z="0.1 90.2 41." material="Aluminum" /-->
-<box name="ABT5" X_Y_Z="0.1 108.8 66.8" material="Aluminum" />
+<box name="ABH2" X_Y_Z="7.1  98. 0.1" material="Aluminum" />
+<box name="ABH3" X_Y_Z="32. 98. 0.1" material="Aluminum" />
+<box name="ABH4" X_Y_Z="31. 98. 0.1" material="Aluminum" />
 
-<!--box name="ABH2" X_Y_Z="7.1  98. 0.1" material="Aluminum" /-->
-<box name="ABH3" X_Y_Z="38.8 108.8 0.1" material="Aluminum" />
-<box name="ABH4" X_Y_Z="38.8 108.8 0.1" material="Aluminum" />
-
-<box name="ABV2" X_Y_Z="38.8 0.1 66.8" material="Aluminum" />
-<box name="ABV3" X_Y_Z="38.8 0.1 66.8" material="Aluminum" />
+<box name="ABV2" X_Y_Z="32. 0.1 58.2" material="Aluminum" />
+<box name="ABV3" X_Y_Z="32. 0.1 58.2" material="Aluminum" />
 
 
 
@@ -1768,13 +1760,13 @@
 	    	!!!! IMPORTANT !!!!
 		the Y values here should match the Y values from DCML modules
 	--> 
-	<posXYZ volume="BSAB" X_Y_Z="0. 29.8605 0." />
-	<posXYZ volume="BSAB" X_Y_Z="0. 81.359 0." />
-	<posXYZ volume="BSBL" X_Y_Z="0. -81.3338 0." />
-	<posXYZ volume="BSBL" X_Y_Z="0. -29.6533 0." />
+	<posXYZ volume="BSAB" X_Y_Z="0. 29.76 0." />
+	<posXYZ volume="BSAB" X_Y_Z="0. 81.26 0." />
+	<posXYZ volume="BSBL" X_Y_Z="0. -81.25 0." />
+	<posXYZ volume="BSBL" X_Y_Z="0. -29.75 0." />
 
-	<posXYZ volume="ASAB" X_Y_Z="0. 29.8605 0." />
-	<posXYZ volume="ASBL" X_Y_Z="0. -29.6533 0." />
+	<posXYZ volume="ASAB" X_Y_Z="0. 29.76 0." />
+	<posXYZ volume="ASBL" X_Y_Z="0. -29.75 0." />
 
 </composition>
 
@@ -1790,11 +1782,8 @@
 
 <composition name="BSAB">
         <posXYZ volume="VBAB" X_Y_Z="0. 0. 0." />
-        <posXYZ volume="HSAB" X_Y_Z="0. 0. 4.9808"  /> <!--downstream--> 
-        <posXYZ volume="HSAB" X_Y_Z="0. 0. -3.2558" /> <!--upstream-->
-	<!-- Nominal: -->
-        <!--posXYZ volume="HSAB" X_Y_Z="0. 0. 3.4808"  /--> <!--downstream--> 
-        <!--posXYZ volume="HSAB" X_Y_Z="0. 0. -1.7558" /--> <!--upstream-->
+        <posXYZ volume="HSAB" X_Y_Z="0. 0. 3.4808"  /> <!--downstream--> 
+        <posXYZ volume="HSAB" X_Y_Z="0. 0. -1.7558" /> <!--upstream-->
 
 </composition>
 
@@ -1833,11 +1822,8 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 <composition name="VSML">
-        <posXYZ volume="DSVS" X_Y_Z="0. 0. 5.6158" />
-        <posXYZ volume="USVS" X_Y_Z="0. 0. -4.22227" />
-	<!-- Nominal: -->
-        <!--posXYZ volume="DSVS" X_Y_Z="0. 0. 4.1158" /-->
-        <!--posXYZ volume="USVS" X_Y_Z="0. 0. -2.72227" /-->
+        <posXYZ volume="DSVS" X_Y_Z="0. 0. 4.1158" />
+        <posXYZ volume="USVS" X_Y_Z="0. 0. -2.72227" />
 </composition>
 
 <!-- 
@@ -1897,11 +1883,8 @@
 
 <composition name="BSBL">
         <posXYZ volume="VSBL" X_Y_Z="0. 0. 0." />
-        <posXYZ volume="HSBL" X_Y_Z="0. 0. 4.9808"  />  
-        <posXYZ volume="HSBL" X_Y_Z="0. 0. -3.2558" />
-	<!-- Nominal: -->
-        <!--posXYZ volume="HSBL" X_Y_Z="0. 0. 3.4808"  /--> <!--downstream--> 
-        <!--posXYZ volume="HSBL" X_Y_Z="0. 0. -1.7558" /--> <!--upstream-->
+        <posXYZ volume="HSBL" X_Y_Z="0. 0. 3.4808"  /> <!--downstream--> 
+        <posXYZ volume="HSBL" X_Y_Z="0. 0. -1.7558" /> <!--upstream-->
 
 </composition>
 
@@ -2029,8 +2012,7 @@
 -->
 <composition name="ASML">
 	<posXYZ volume="ADBT" X_Y_Z="0. 25.74925 -0.51374" />
-	<posXYZ volume="ADED" X_Y_Z="0. 80.5035  -0.51374" />
-	<!--posXYZ volume="ADED" X_Y_Z="0. 79.5035  -0.51374" /--><!-- Nominal: -->
+	<posXYZ volume="ADED" X_Y_Z="0. 79.5035  -0.51374" />
 	<posXYZ volume="ADS1" X_Y_Z="2.2225 -23.33625  0.3058" />
 	<posXYZ volume="ADS2" X_Y_Z="3.4925 -23.58898  4.4333" />
 	<posXYZ volume="ADS2" X_Y_Z="3.4925 -23.58898 -5.0917" />
