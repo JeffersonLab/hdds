@@ -226,7 +226,7 @@
 <trd name="OWDG" Xmp_Ymp_Z="2.7 7.89929 3.325 3.325 9.1"
     inclination="16.26065 0.0" material="fusedSilica" sensitive="true"/>
 <!-- far-end mirror -->
-<box name="FNMR" X_Y_Z="0.09 3.4493 1.9761" material="ThickCerenkovMirror"/>
+<box name="FNMR" X_Y_Z="0.09 3.4493 1.9761" material="FarEndCerenkovMirror"/>
 
 <composition name="DCBR00">
         <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
