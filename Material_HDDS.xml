@@ -1126,6 +1126,32 @@
     </optical_properties>
   </composite>
 
+  <composite name="FarEndCerenkovMirror">
+	<addmaterial material="Hydrogen">
+		<natoms n="11"/>
+ 	</addmaterial>
+	<addmaterial material="Carbon">
+		<natoms n="8"/>
+ 	</addmaterial>
+	<addmaterial material="Nitrogen">
+		<natoms n="1"/>
+ 	</addmaterial>
+	<addmaterial material="Oxygen">
+		<natoms n="2"/>
+ 	</addmaterial>
+	<real name="density"	value="0.2"	unit="g/cm^3" />
+    <optical_properties>
+	  <specify E="1.50" reflect="0.98" smooth="1" effic="0.0" />
+	  <specify E="2.00" reflect="0.98" smooth="1" effic="0.0" />
+	  <specify E="2.50" reflect="0.98" smooth="1" effic="0.0" />
+	  <specify E="3.00" reflect="0.95" smooth="1" effic="0.0" />
+	  <specify E="3.50" reflect="0.93" smooth="1" effic="0.0" />
+	  <specify E="4.00" reflect="0.89" smooth="1" effic="0.0" />
+	  <specify E="4.50" reflect="0.80" smooth="1" effic="0.0" />
+	  <specify E="5.00" reflect="0.30" smooth="1" effic="0.0" />
+    </optical_properties>
+  </composite>
+
   <composite name="ThinCerenkovMirror">
 	<addmaterial material="Hydrogen">
 		<natoms n="11"/>
@@ -1169,12 +1195,12 @@
     <optical_properties>
 	  <specify E="1.50" reflect="0.98" smooth="1" effic="0.0" />
 	  <specify E="2.00" reflect="0.98" smooth="1" effic="0.0" />
-	  <specify E="2.50" reflect="0.98" smooth="1" effic="0.0" />
-	  <specify E="3.00" reflect="0.95" smooth="1" effic="0.0" />
+	  <specify E="2.50" reflect="1.00" smooth="1" effic="0.0" />
+	  <specify E="3.00" reflect="0.99" smooth="1" effic="0.0" />
 	  <specify E="3.50" reflect="0.93" smooth="1" effic="0.0" />
-	  <specify E="4.00" reflect="0.89" smooth="1" effic="0.0" />
-	  <specify E="4.50" reflect="0.80" smooth="1" effic="0.0" />
-	  <specify E="5.00" reflect="0.30" smooth="1" effic="0.0" />
+	  <specify E="4.00" reflect="0.62" smooth="1" effic="0.0" />
+	  <specify E="4.50" reflect="0.31" smooth="1" effic="0.0" />
+	  <specify E="5.00" reflect="0.00" smooth="1" effic="0.0" />
     </optical_properties>
   </composite>
 
