@@ -19,8 +19,8 @@
 -->
 
 <section name        = "DIRC"
-         version     = "4.0"
-         date        = "2019-01-15"
+         version     = "4"
+         date        = "2019-02-17"
          author      = "Richard Jones, Justin Stevens, Maria Patsyuk, Yunjie Yang"
          top_volume  = "DCMV"
          specification = "v1.0">
@@ -48,35 +48,73 @@
 -->
 
 <composition name="DRCC" envelope="DCMV">
+<!--
+## Note: comment and uncomment here to switch between nominal and Spring 2019 Commissioning geometry 
+configurations; another place to change for Spring 2019 Commissioning is South/Lower OB mirror assembly MRAS;
+v4.1: DIRC Spring 2019 commissioning (involving only BB10, BB11 and South/Lower OB)
+v4.2: DIRC gominal geometry  
+-->
 
-	<!--posXYZ volume="DCML10" X_Y_Z="197.06 -30.04 28.2386 " rot="-0.1255 -0.10195 180."-->
-	<posXYZ volume="DCML10" X_Y_Z="196.225 -29.6533 27.662 " rot="0. 0. 180."><!--Nominal-->
+
+	<!-- DIRC Nominal Geometry -->
+<!--
+	<posXYZ volume="DCML10" X_Y_Z="196.225 -29.6533 26.7995 " rot="0. 0. 180.">
 	<plane value="1" />
 	</posXYZ>
 
-	<!--posXYZ volume="DCML11" X_Y_Z="197.06 -81.7742 28.2166 " rot="-0.0788 -0.10195 180."--> 
-	<posXYZ volume="DCML11" X_Y_Z="196.225 -81.3338 27.662 " rot="0. 0. 180."><!--Nominal-->
+	<posXYZ volume="DCML11" X_Y_Z="196.225 -81.3338 26.7995 " rot="0. 0. 180.">
 	<plane value="2" />
 	</posXYZ>
 
-	<posXYZ volume="DCML01" X_Y_Z="-196.226 29.8605 27.662" >
+	<posXYZ volume="DCML01" X_Y_Z="-196.226 29.8605 26.7995" rot="0. 0. 0.">
 	<plane value="3" />
 	</posXYZ>
 
-	<posXYZ volume="DCML00" X_Y_Z="-196.226 81.359 27.662" >
+	<posXYZ volume="DCML00" X_Y_Z="-196.226 81.359 26.7995" rot="0. 0. 0.">
 	<plane value="4" />
 	</posXYZ>
 
-	<!--posXYZ volume="OBCS" X_Y_Z="-323.025 -55.4935 2." rot="0. -0.10195 0."-->
-	<posXYZ volume="OBCS" X_Y_Z="-323.86 -55.4935 2."> <!--Nominal-->
+	<posXYZ volume="OBCS" X_Y_Z="-323.86 -55.4935 2." rot="0. 0. 0."> 
+	<plane value="1" />
+	</posXYZ>
+
+	<posXYZ volume="OBCN" X_Y_Z="323.859  55.6097 2." rot="0. 0. 0.">
+	<plane value="2" />
+	</posXYZ>
+
+	<posXYZ volume="SPST" X_Y_Z="0. 0. 26.7995" >
+	</posXYZ>
+-->
+
+
+	<!-- DIRC Spring 2019 Commissioning Geometry -->
+	<posXYZ volume="DCML10" X_Y_Z="197.06 -30.304 27.3761 " rot="0.1255 0.10195 180.">
+	<plane value="1" />
+	</posXYZ>
+
+	<posXYZ volume="DCML11" X_Y_Z="197.06 -81.7742 27.3541 " rot="0.0788 0.10195 180."> 
+	<plane value="2" />
+	</posXYZ>
+
+	<posXYZ volume="DCML01" X_Y_Z="-196.226 29.8605 26.7995" >
+	<plane value="3" />
+	</posXYZ>
+
+	<posXYZ volume="DCML00" X_Y_Z="-196.226 81.359 26.7995" >
+	<plane value="4" />
+	</posXYZ>
+
+	<posXYZ volume="OBCS" X_Y_Z="-323.025 -55.4935 2." rot="0. -0.10195 0.">
 	<plane value="1" />
 	</posXYZ>
 
 	<posXYZ volume="OBCN" X_Y_Z="323.859  55.6097 2.">
 	<plane value="2" />
 	</posXYZ>
-	<posXYZ volume="SPST" X_Y_Z="0. 0. 27.662" >
+
+	<posXYZ volume="SPST" X_Y_Z="0. 0. 26.7995" >
 	</posXYZ>
+
 </composition>
 
 <box name="DCMV" X_Y_Z="720.0 250.0 84.0" material="OpticalAir" />
@@ -195,8 +233,7 @@
 
 	The convention adopted for component alignment is as follows (in GlueX coordinate system):
 	- x-direction: the bar-side of the wedge is at 490.015, 
-			and all other components are put sequentially starting from there
-	- y-direction: aligned against the lower edge. The center of each bar 
+			and all other components are put sequentially starting from there - y-direction: aligned against the lower edge. The center of each bar 
 			goes from -19.3325 to 19.3325 with 3.515 increment 
 			(nominal bar width 3.5cm + 150um bar-to-bar spacing).
 			each component is then aligned such that the lower edge is at 
@@ -1497,9 +1534,13 @@
 
 <box name="OBVS" X_Y_Z="40 110. 70." material="OpticalH2O"/>
 <composition name="OBCS" envelope="OBVS">
-        <!--posXYZ volume="MRAS" X_Y_Z="5.2417 50.9388 7.03305" rot="-0.238 -0.05945 0.0406"/-->
-        <posXYZ volume="MRAS" X_Y_Z="5.4434 51.7927 6.93185" /><!--Nominal-->
-        <!--posXYZ volume="MRAS" X_Y_Z="6.0761 50.9388 7.0329" rot="-0.238 -0.1614 0.0406" /--><!--optical box survey only-->
+	<!-- DIRC Nominal -->
+<!--
+        <posXYZ volume="MRAS" X_Y_Z="5.4434 51.7927 6.06935" rot="0. 0. 0."/>
+-->
+	<!-- DIRC Spring 2019 Commissioning -->
+        <posXYZ volume="MRAS" X_Y_Z="5.2417 50.9388 6.17055" rot="-0.238 -0.05945 0.0406"/>
+
 	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" rot="0. 0. 180."/>
 </composition>
 
@@ -1512,15 +1553,15 @@
         <posXYZ volume="WM2S" X_Y_Z="10.179 -51.701 9.05206" rot="0.0 -29.8589 0.0"/>
         <posXYZ volume="SM1S" X_Y_Z="-4.6285 -2.3911 -5.66595" />
         <posXYZ volume="SM2S" X_Y_Z="-4.6285 -101.19 -5.66595" />
-        <posXYZ volume="BWPG" X_Y_Z="-4.6285 -51.8593 -20.9817" rot="0.0 42.12454632 180.0" />
+        <posXYZ volume="BWPG" X_Y_Z="-4.813923533932168 -51.7006 -23.600916319060584" rot="0.0 42.1301 180." />
 </composition>
 
 <!-- South/Lower/Beam Right Optical Box Mirrors -->
 <box name="FTMS" X_Y_Z="0.01 98. 40.2" material="ThickCerenkovMirror" sensitive="true"/>
 
-<box name="TM1S" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="TM2S" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="TM3S" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="TM1S" X_Y_Z="0.01 98.072 9.5" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="TM2S" X_Y_Z="0.01 98.072 9.5" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="TM3S" X_Y_Z="0.01 98.072 9.5" material="ThickCerenkovMirror" sensitive="true"/>
 
 <box name="WM1S" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
 <box name="WM2S" X_Y_Z="6.656 98. 0.01"  material="ThickCerenkovMirror" sensitive="true"/>
@@ -1537,9 +1578,9 @@
 	###############################################
 -->
 
-<box name="OBVN" X_Y_Z="40. 110. 68." material="OpticalH2O"/>
+<box name="OBVN" X_Y_Z="40. 110. 70." material="OpticalH2O"/>
 <composition name="OBCN" envelope="OBVN">
-        <posXYZ volume="MRAN" X_Y_Z="-5.4434 51.7927 6.93185" />
+        <posXYZ volume="MRAN" X_Y_Z="-5.4434 51.7927 6.06935" rot="0. 0. 0."/>
 	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" rot="0. 0. 0."/>
 </composition>
 <composition name="MRAN">
@@ -1551,7 +1592,7 @@
         <posXYZ volume="WM2N" X_Y_Z="-10.179 -51.701 9.05206" rot="0.0 29.8589 0.0"/>
         <posXYZ volume="SM1N" X_Y_Z="4.6285 -2.3911 -5.66595" />
         <posXYZ volume="SM2N" X_Y_Z="4.6285 -101.19 -5.66595" />
-        <posXYZ volume="BWPG" X_Y_Z="4.6285 -51.8593 -20.9817" rot="0.0 42.12454632 0." />
+        <posXYZ volume="BWPG" X_Y_Z="4.813923533932168 -51.7006 -23.600916319060584" rot="0.0 42.1301 0." />
 </composition>
 
 
@@ -1581,13 +1622,15 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 -->
 
-<composition name="BWPG">
-  <posXYZ volume="OBWI" X_Y_Z="0.0000 0.0 0.0" />
-  <posXYZ volume="OLA2" X_Y_Z="0.6355 0.0 0.0"/>
-  <posXYZ volume="SICA" X_Y_Z="0.7210 0.0 0.0" />
-  <posXYZ volume="OLA1" X_Y_Z="0.8062 0.0 0.0"/>
-  <posXYZ volume="PMTgrid" X_Y_Z="0.8814 0.0 0.0" /> 
+<box name="BWPV" X_Y_Z="2.0 98.2 32." material="OpticalAir"/>
+<composition name="BWPG" envelope="BWPV">
+  <posXYZ volume="OBWI" X_Y_Z="-0.3650 0.0 0.0" />
+  <posXYZ volume="OLA2" X_Y_Z="0.2705 0.0 0.0"/>
+  <posXYZ volume="SICA" X_Y_Z="0.356 0.0 0.0" />
+  <posXYZ volume="OLA1" X_Y_Z="0.4412 0.0 0.0"/>
+  <posXYZ volume="PMTgrid" X_Y_Z="0.5164 0.0 0.0" /> 
 </composition>
+
 
 <!-- window of the optical box -->
 <box name="OBWI" X_Y_Z="1.2700 98.072 31.8" material="fusedSilica" />
@@ -1644,7 +1687,7 @@
 </composition>
 
 <!-- PMT window -->
-<box name="PMTW" X_Y_Z="0.15 5.2 5.2" material="BorosilicateGlass"/>
+<box name="PMTW" X_Y_Z="0.150 5.2 5.2" material="BorosilicateGlass"/>
 
 <!-- pixel numbering 1..64 within one PMT -->
 <composition name="PMTC" >
@@ -1677,26 +1720,21 @@
 
 <!-- PMT row, length is 1..18 -->
 <composition name="PMTrow">
-  <mposY volume="PMTC" ncopy="18" Z_X="0.0 0.0" Y0="-44.95" dY="5.3" >
+  <mposY volume="PMTC" ncopy="18" Z_X="0.000 0.000" Y0="-44.95" dY="5.3" >
     <row value="1" step="1"/>
   </mposY>
 </composition>
 
 <!-- PMT column 1..6-->
 <composition name="PMTgrid">
-  <mposZ volume="PMTrow" ncopy="6" X_Y="0.0 0.0" Z0="-13.25" dZ="5.3" >
+  <mposZ volume="PMTrow" ncopy="6" X_Y="0.000 0.000" Z0="-13.25" dZ="5.3" >
     <column value="1" step="1"/>
   </mposZ>
 </composition>
 
 <!-- pixel  -->
-<box name="PIXV" X_Y_Z="0.1 0.6 0.6"
+<box name="PIXV" X_Y_Z="0.100 0.600 0.600"
        material="CerenkovPhotocathode" sensitive="true" />
-
-<composition name="PIXrow">
-  <mposY volume="PIXV" ncopy="8" Z_X="0.0 0.0" Y0="-2.121" dY="0.606" /> 
-</composition>
-
 
 <!-- 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1767,6 +1805,7 @@
 	<!--
 	    	!!!! IMPORTANT !!!!
 		the Y values here should match the Y values from DCML modules
+		Use the nominal values here
 	--> 
 	<posXYZ volume="BSAB" X_Y_Z="0. 29.8605 0." />
 	<posXYZ volume="BSAB" X_Y_Z="0. 81.359 0." />
