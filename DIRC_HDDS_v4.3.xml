@@ -87,12 +87,12 @@ v4.2: DIRC gominal geometry
 -->
 
 
-	<!-- DIRC Spring 2019 Commissioning Geometry -->
-	<posXYZ volume="DCML10" X_Y_Z="197.06 -30.304 27.3761 " rot="0.1255 0.10195 180.">
+	<!-- DIRC Spring 2019 Commissioning Geometry Without Rotations -->
+	<posXYZ volume="DCML10" X_Y_Z="197.06 -30.304 27.3761 " rot="0. 0. 180.">
 	<plane value="1" />
 	</posXYZ>
 
-	<posXYZ volume="DCML11" X_Y_Z="197.06 -81.7742 27.3541 " rot="0.0788 0.10195 180."> 
+	<posXYZ volume="DCML11" X_Y_Z="197.06 -81.7742 27.3541 " rot="0. 0. 180."> 
 	<plane value="2" />
 	</posXYZ>
 
@@ -104,7 +104,7 @@ v4.2: DIRC gominal geometry
 	<plane value="4" />
 	</posXYZ>
 
-	<posXYZ volume="OBCS" X_Y_Z="-323.025 -55.4935 2." rot="0. -0.10195 0.">
+	<posXYZ volume="OBCS" X_Y_Z="-323.025 -55.4935 2." rot="0. 0. 0.">
 	<plane value="1" />
 	</posXYZ>
 
@@ -1536,12 +1536,8 @@ v4.2: DIRC gominal geometry
 
 <box name="OBVS" X_Y_Z="40 110. 70." material="OpticalH2O"/>
 <composition name="OBCS" envelope="OBVS">
-	<!-- DIRC Nominal -->
-<!--
-        <posXYZ volume="MRAS" X_Y_Z="5.4434 51.7927 6.06935" rot="0. 0. 0."/>
--->
-	<!-- DIRC Spring 2019 Commissioning -->
-        <posXYZ volume="MRAS" X_Y_Z="5.2417 50.9388 6.17055" rot="-0.238 -0.05945 0.0406"/>
+	<!-- DIRC Spring 2019 Commissioning Without Rotations -->
+        <posXYZ volume="MRAS" X_Y_Z="5.2417 50.9388 6.17055" rot="0. 0. 0."/>
 
 	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" rot="0. 0. 180."/>
 </composition>
