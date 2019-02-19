@@ -62,7 +62,7 @@ v4.2: DIRC gominal geometry
 	<plane value="1" />
 	</posXYZ>
 
-	<posXYZ volume="DCML11" X_Y_Z="196.225 -81.3338 26.7995 " rot="0. 0. 180.">
+	<posXYZ volume="DCML11" X_Y_Z="196.225 -81.1518 26.7995 " rot="0. 0. 180.">
 	<plane value="2" />
 	</posXYZ>
 
@@ -74,7 +74,7 @@ v4.2: DIRC gominal geometry
 	<plane value="4" />
 	</posXYZ>
 
-	<posXYZ volume="OBCS" X_Y_Z="-323.86 -55.4935 2." rot="0. 0. 0."> 
+	<posXYZ volume="OBCS" X_Y_Z="-323.86 -55.4025 1." rot="0. 0. 0."> 
 	<plane value="1" />
 	</posXYZ>
 
@@ -88,31 +88,30 @@ v4.2: DIRC gominal geometry
 
 
 	<!-- DIRC Spring 2019 Commissioning Geometry Without Rotations -->
-	<posXYZ volume="DCML10" X_Y_Z="197.06 -30.304 27.3761 " rot="0. 0. 180.">
+	<posXYZ volume="DCML10" X_Y_Z="197.06 -30.304 27.3761 " rot="0.1255 0.1036 180.0357">
 	<plane value="1" />
 	</posXYZ>
 
-	<posXYZ volume="DCML11" X_Y_Z="197.06 -81.7742 27.3541 " rot="0. 0. 180."> 
+	<posXYZ volume="DCML11" X_Y_Z="196.993 -81.7742 27.3541 " rot="0.0788 0.1003 180.0381"> 
 	<plane value="2" />
 	</posXYZ>
 
-	<posXYZ volume="DCML01" X_Y_Z="-196.226 29.8605 26.7995" >
+	<posXYZ volume="DCML01" X_Y_Z="-196.226 29.8605 26.7995" rot="0. 0. 0.">
 	<plane value="3" />
 	</posXYZ>
 
-	<posXYZ volume="DCML00" X_Y_Z="-196.226 81.359 26.7995" >
+	<posXYZ volume="DCML00" X_Y_Z="-196.226 81.359 26.7995" rot="0. 0. 0.">
 	<plane value="4" />
 	</posXYZ>
 
-	<posXYZ volume="OBCS" X_Y_Z="-323.025 -55.4935 2." rot="0. 0. 0.">
+	<posXYZ volume="OBCS" X_Y_Z="-322.975 -55.4025 1." rot="0. 0. 0." geometry_layer="1" >
 	<plane value="1" />
 	</posXYZ>
 
-<!--
-	<posXYZ volume="OBCN" X_Y_Z="323.859  55.6097 2.">
+	<posXYZ volume="OBCN" X_Y_Z="323.859  55.6097 1." rot="0. 0. 0." geometry_layer="1">
 	<plane value="2" />
 	</posXYZ>
--->
+
 	<posXYZ volume="SPST" X_Y_Z="0. 0. 26.7995" >
 	</posXYZ>
 
@@ -1534,10 +1533,14 @@ v4.2: DIRC gominal geometry
 	###############################################
 -->
 
-<box name="OBVS" X_Y_Z="40 110. 70." material="OpticalH2O"/>
+<box name="OBVS" X_Y_Z="40 110. 70." material="OpticalH2O" />
 <composition name="OBCS" envelope="OBVS">
+	<!-- Nominal -->
+<!--
+        <posXYZ volume="MRAS" X_Y_Z="5.4434 51.7017 7.06935" rot="0. 0. 0."/>
+-->
 	<!-- DIRC Spring 2019 Commissioning Without Rotations -->
-        <posXYZ volume="MRAS" X_Y_Z="5.2417 50.9388 6.17055" rot="0. 0. 0."/>
+        <posXYZ volume="MRAS" X_Y_Z="5.1917 50.8478 7.17055" rot="-0.238 -0.1614 0.0406"/>
 
 	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" rot="0. 0. 180."/>
 </composition>
@@ -1578,7 +1581,7 @@ v4.2: DIRC gominal geometry
 
 <box name="OBVN" X_Y_Z="40. 110. 70." material="OpticalH2O"/>
 <composition name="OBCN" envelope="OBVN">
-        <posXYZ volume="MRAN" X_Y_Z="-5.4434 51.7927 6.06935" rot="0. 0. 0."/>
+        <posXYZ volume="MRAN" X_Y_Z="5.4434 51.7017 7.06935" rot="0. 0. 0."/>
 	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" rot="0. 0. 0."/>
 </composition>
 <composition name="MRAN">
@@ -1757,8 +1760,8 @@ v4.2: DIRC gominal geometry
 	<posXYZ volume="ABT5" X_Y_Z="19.45 0.0 0." />
         
 	<!--posXYZ volume="ABH2" X_Y_Z="-12 0.0 16." rot="0.0 30.0 0.0"/--> <!-- -12, 0.0, 16.7 -->
-	<posXYZ volume="ABH3" X_Y_Z="0. 0.0 -33.45" />
-	<posXYZ volume="ABH4" X_Y_Z="0. 0.0 33.45" />
+	<posXYZ volume="ABH3" X_Y_Z="0. 0.0 -34.45" />
+	<posXYZ volume="ABH4" X_Y_Z="0. 0.0 34.45" />
     
     	<!-- Al plates for the ends of the focusing optics box -->
 	<posXYZ volume="ABV2" X_Y_Z="0. -54.45 0." /> 
@@ -1769,14 +1772,14 @@ v4.2: DIRC gominal geometry
 <!--box name="ABT2" X_Y_Z="0.1 90.2 12.175" material="Aluminum" /--> 
 <!--box name="ABT3" X_Y_Z="0.1 90.2 1.1" material="Aluminum" /-->
 <!--box name="ABT4" X_Y_Z="0.1 90.2 41." material="Aluminum" /-->
-<box name="ABT5" X_Y_Z="0.1 108.8 66.8" material="Aluminum" />
+<box name="ABT5" X_Y_Z="0.1 108.8 68.8" material="Aluminum" />
 
 <!--box name="ABH2" X_Y_Z="7.1  98. 0.1" material="Aluminum" /-->
 <box name="ABH3" X_Y_Z="38.8 108.8 0.1" material="Aluminum" />
 <box name="ABH4" X_Y_Z="38.8 108.8 0.1" material="Aluminum" />
 
-<box name="ABV2" X_Y_Z="38.8 0.1 66.8" material="Aluminum" />
-<box name="ABV3" X_Y_Z="38.8 0.1 66.8" material="Aluminum" />
+<box name="ABV2" X_Y_Z="38.8 0.1 68.8" material="Aluminum" />
+<box name="ABV3" X_Y_Z="38.8 0.1 68.8" material="Aluminum" />
 
 
 
