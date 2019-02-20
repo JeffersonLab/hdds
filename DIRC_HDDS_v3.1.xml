@@ -1492,7 +1492,7 @@
 <box name="OBVS" X_Y_Z="33.01 100. 58.2" material="OpticalH2O"/>
 <composition name="OBCS" envelope="OBVS">
         <posXYZ volume="MRAS" X_Y_Z="0.0 0.0 0.0" />
-        <posXYZ volume="BWPG" X_Y_Z="-3.15 0.0 -16.05" rot="0.0 -42.12454632 0.0" />
+        <posXYZ volume="BWPG" X_Y_Z="-3.15 0.0 -16.05" rot="0.0 42.12454632 180.0" />
 	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" rot="0. 0. 180."/>
 </composition>
 
