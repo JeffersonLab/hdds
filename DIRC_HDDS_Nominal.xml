@@ -1,0 +1,2126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: Focusing DIRC detector
+  ***********************************************
+
+     version 1: Initial version    -rtj
+     version 2: Updated version, refined geometry of the optical box
+                  added pixels
+                  added volume ids to use for the reconstruction
+     version 3: added as-built aluminum supports;
+                  implemented dimensions of each individual short bars;
+                  each bar box and each optical box is now unique (not copied from prototypes) 
+     version 4: update nominal positions to JT model, for Spring 2019 commissioning
+		  include mirror surface survey for the south optical box
+		  include "in beam" position survey
+		
+     <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name        = "DIRC"
+         version     = "4"
+         date        = "2019-02-17"
+         author      = "Richard Jones, Justin Stevens, Maria Patsyuk, Yunjie Yang"
+         top_volume  = "DCMV"
+         specification = "v1.0">
+
+<!-- DIRC assembly, 4 modules -->
+
+<composition name="DIRC">
+    <apply region="nullBfield"/>
+    <posXYZ volume="DRCC" X_Y_Z="0.0  0.0  -40.0" rot="0.0 0.0 0.0"/>
+</composition>
+
+<!-- 
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+				DIRC detector
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	DRCC is embeded in DCMV which is a rectangular volume of air	
+
+	DCML##: DIRC bar box module for bar box number ## 
+        OBCS:   DIRC optical box on the south side (South/Lower/Beam Right)
+        OBCN:   DIRC optical box on the north side (North/Upper/Beam Left)
+	SPST:   Support structures for bar boxes
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+<!--
+			DIRC Nominal Geometry
+	- standard/nominal bar sizes: L=122.5cm, W=3.5cm, D=1.725cm
+	- positions and mirror sizes according to latest JT design model 
+-->
+
+<composition name="DRCC" envelope="DCMV">
+	<posXYZ volume="DCML10" X_Y_Z="196.225 -29.6533 26.7995 " rot="0. 0. 180.">
+	<plane value="1" />
+	</posXYZ>
+
+	<posXYZ volume="DCML11" X_Y_Z="196.225 -81.1518 26.7995 " rot="0. 0. 180.">
+	<plane value="2" />
+	</posXYZ>
+
+	<posXYZ volume="DCML01" X_Y_Z="-196.226 29.8605 26.7995" rot="0. 0. 0.">
+	<plane value="3" />
+	</posXYZ>
+
+	<posXYZ volume="DCML00" X_Y_Z="-196.226 81.359 26.7995" rot="0. 0. 0.">
+	<plane value="4" />
+	</posXYZ>
+
+	<posXYZ volume="OBCS" X_Y_Z="-323.81 -55.4025 1." rot="0. 0. 0." geometry_layer="1"> 
+	<plane value="1" />
+	</posXYZ>
+
+	<posXYZ volume="OBCN" X_Y_Z="323.809  55.6097 1." rot="0. 0. 0." geometry_layer="1">
+	<plane value="2" />
+	</posXYZ>
+
+	<posXYZ volume="SPST" X_Y_Z="0. 0. 26.7995" >
+	</posXYZ>
+</composition>
+
+<box name="DCMV" X_Y_Z="720.0 250.0 84.0" material="OpticalAir" />
+
+<!--
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+			DIRC Bar Box Module (DCML)
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+	DIRC bar box module (12 individual bars): 
+	DCML##: DIRC bar box module, for bar box number ## (from floor to ceiling,
+	      	these are 11,10,01,00)
+	DCBR##: DIRC bar number ##. They are 12 bars in each bar box. This 
+		number labeling runs from 00 to 47.
+	WNGL: Epotek Glue between the old wedges and the bar box window
+	QZWN: bar box quartz window
+	ALCM: aluminum container for the bar box modules
+-->
+
+<composition name="DCML10">
+	<posXYZ volume="DCBR00" X_Y_Z="0. -19.3325 0."> <module value="0"/> </posXYZ>
+	<posXYZ volume="DCBR01" X_Y_Z="0. -15.8175 0."> <module value="1"/> </posXYZ> 
+	<posXYZ volume="DCBR02" X_Y_Z="0. -12.3025 0."> <module value="2"/> </posXYZ> 
+	<posXYZ volume="DCBR03" X_Y_Z="0. -8.7875 0." > <module value="3"/> </posXYZ>
+	<posXYZ volume="DCBR04" X_Y_Z="0. -5.2725 0." > <module value="4"/> </posXYZ>
+	<posXYZ volume="DCBR05" X_Y_Z="0. -1.7575 0." > <module value="5"/> </posXYZ>
+	<posXYZ volume="DCBR06" X_Y_Z="0.  1.7575 0." > <module value="6"/> </posXYZ>
+	<posXYZ volume="DCBR07" X_Y_Z="0.  5.2725 0." > <module value="7"/> </posXYZ>
+	<posXYZ volume="DCBR08" X_Y_Z="0.  8.7875 0." > <module value="8"/> </posXYZ>
+	<posXYZ volume="DCBR09" X_Y_Z="0.  12.3025 0." > <module value="9"/> </posXYZ>
+	<posXYZ volume="DCBR10" X_Y_Z="0.  15.8175 0." > <module value="10"/> </posXYZ>
+	<posXYZ volume="DCBR11" X_Y_Z="0.  19.3325 0." > <module value="11"/> </posXYZ>
+	<posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -2.39" />
+	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -2.39" />
+	<posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
+</composition>
+
+<composition name="DCML11">
+	<posXYZ volume="DCBR12" X_Y_Z="0. -19.3325 0." > <module value="12"/> </posXYZ>
+	<posXYZ volume="DCBR13" X_Y_Z="0. -15.8175 0." > <module value="13"/> </posXYZ>
+	<posXYZ volume="DCBR14" X_Y_Z="0. -12.3025 0." > <module value="14"/> </posXYZ>
+	<posXYZ volume="DCBR15" X_Y_Z="0. -8.7875 0." > <module value="15"/> </posXYZ>
+	<posXYZ volume="DCBR16" X_Y_Z="0. -5.2725 0." > <module value="16"/> </posXYZ>
+	<posXYZ volume="DCBR17" X_Y_Z="0. -1.7575 0." > <module value="17"/> </posXYZ>
+	<posXYZ volume="DCBR18" X_Y_Z="0.  1.7575 0." > <module value="18"/> </posXYZ>
+	<posXYZ volume="DCBR19" X_Y_Z="0.  5.2725 0." > <module value="19"/> </posXYZ>
+	<posXYZ volume="DCBR20" X_Y_Z="0.  8.7875 0." > <module value="20"/> </posXYZ>
+	<posXYZ volume="DCBR21" X_Y_Z="0.  12.3025 0." > <module value="21"/> </posXYZ>
+	<posXYZ volume="DCBR22" X_Y_Z="0.  15.8175 0." > <module value="22"/> </posXYZ>
+	<posXYZ volume="DCBR23" X_Y_Z="0.  19.3325 0." > <module value="23"/> </posXYZ>
+	<posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -2.39" />
+	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -2.39" />
+	<posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
+</composition>
+
+<composition name="DCML01">
+	<posXYZ volume="DCBR24" X_Y_Z="0. -19.3325 0." > <module value="24"/> </posXYZ>
+	<posXYZ volume="DCBR25" X_Y_Z="0. -15.8175 0." > <module value="25"/> </posXYZ>
+	<posXYZ volume="DCBR26" X_Y_Z="0. -12.3025 0." > <module value="26"/> </posXYZ>
+	<posXYZ volume="DCBR27" X_Y_Z="0. -8.7875 0." > <module value="27"/> </posXYZ>
+	<posXYZ volume="DCBR28" X_Y_Z="0. -5.2725 0." > <module value="28"/> </posXYZ>
+	<posXYZ volume="DCBR29" X_Y_Z="0. -1.7575 0." > <module value="29"/> </posXYZ>
+	<posXYZ volume="DCBR30" X_Y_Z="0.  1.7575 0." > <module value="30"/> </posXYZ>
+	<posXYZ volume="DCBR31" X_Y_Z="0.  5.2725 0." > <module value="31"/> </posXYZ>
+	<posXYZ volume="DCBR32" X_Y_Z="0.  8.7875 0." > <module value="32"/> </posXYZ>
+	<posXYZ volume="DCBR33" X_Y_Z="0.  12.3025 0." > <module value="33"/> </posXYZ>
+	<posXYZ volume="DCBR34" X_Y_Z="0.  15.8175 0." > <module value="34"/> </posXYZ>
+	<posXYZ volume="DCBR35" X_Y_Z="0.  19.3325 0." > <module value="35"/> </posXYZ>
+	<posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -2.39" />
+	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -2.39" />
+	<posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
+</composition>
+
+<composition name="DCML00">
+	<posXYZ volume="DCBR36" X_Y_Z="0. -19.3325 0." > <module value="36"/> </posXYZ>
+	<posXYZ volume="DCBR37" X_Y_Z="0. -15.8175 0." > <module value="37"/> </posXYZ>
+	<posXYZ volume="DCBR38" X_Y_Z="0. -12.3025 0." > <module value="38"/> </posXYZ>
+	<posXYZ volume="DCBR39" X_Y_Z="0. -8.7875 0." > <module value="39"/> </posXYZ>
+	<posXYZ volume="DCBR40" X_Y_Z="0. -5.2725 0." > <module value="40"/> </posXYZ>
+	<posXYZ volume="DCBR41" X_Y_Z="0. -1.7575 0." > <module value="41"/> </posXYZ>
+	<posXYZ volume="DCBR42" X_Y_Z="0.  1.7575 0." > <module value="42"/> </posXYZ>
+	<posXYZ volume="DCBR43" X_Y_Z="0.  5.2725 0." > <module value="43"/> </posXYZ>
+	<posXYZ volume="DCBR44" X_Y_Z="0.  8.7875 0." > <module value="44"/> </posXYZ>
+	<posXYZ volume="DCBR45" X_Y_Z="0.  12.3025 0." > <module value="45"/> </posXYZ>
+	<posXYZ volume="DCBR46" X_Y_Z="0.  15.8175 0." > <module value="46"/> </posXYZ>
+	<posXYZ volume="DCBR47" X_Y_Z="0.  19.3325 0." > <module value="47"/> </posXYZ>
+	<posXYZ volume="WNGL" X_Y_Z="499.1225 0.0 -2.39" />
+	<posXYZ volume="QZWN" X_Y_Z="499.605 0.0 -2.39" />
+	<posXYZ volume="ALCM" X_Y_Z="0.0 0.0 0.0" />
+</composition>
+
+
+<!-- Window glue -->
+<box name="WNGL" X_Y_Z="0.005 43.7 12.4" material="Epotek301" />
+
+<!-- Window -->
+<box name="QZWN" X_Y_Z="0.96 43.7 12.4" material="fusedSilica" />
+
+
+
+<!--
+
+     	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+			DIRC Bar Configuration (DCBR)
+
+     	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	DCBR##: configuration for DIRC bar number ##
+	- each long-bar consists of 4 short-bars, each ~1.225m, labeled as A,B,C,D
+	- labeling convention adopted from SLAC: wedge, A, B, C, D, far-end mirror
+	- dimensions of each short bar are taken from spreadsheets from SLAC and implemented
+
+	The convention adopted for component alignment is as follows (in GlueX coordinate system):
+	- x-direction: the bar-side of the wedge is at 490.015, 
+			and all other components are put sequentially starting from there - y-direction: aligned against the lower edge. The center of each bar 
+			goes from -19.3325 to 19.3325 with 3.515 increment 
+			(nominal bar width 3.5cm + 150um bar-to-bar spacing).
+			each component is then aligned such that the lower edge is at 
+			-1.75 w.r.t. center.
+	- z-direction: aligned against downstream side, such that the downstream face of 
+			the bars and wedges are at z=1.7 w.r.t. DCBR## z position. This is
+			supposed to be how those bars were assembled at SLAC 
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	DCBR##:
+	OWDG: old wedge
+	G##A: Epotek glue between the wedge and short-bar A
+	B##A: short-bar A for bar number ##
+	G##B: Epotek glue between the short-bar A and short-bar B
+	B##B: short-bar B for bar number ##
+	G##C: Epotek glue between the short-bar B and short-bar C
+	B##C: short-bar C for bar number ##
+	G##D: Epotek glue between the short-bar C and short-bar D
+	B##D: short-bar D for bar number ##
+	AG##: air gap for number ##
+	FNMR: far-end mirror
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+-->
+
+<!-- Old wedge -->
+<trd name="OWDG" Xmp_Ymp_Z="2.7 7.89929 3.325 3.325 9.1"
+    inclination="16.26065 0.0" material="fusedSilica" sensitive="true"/>
+<!-- far-end mirror -->
+<box name="FNMR" X_Y_Z="0.09 3.4493 1.9761" material="FarEndCerenkovMirror"/>
+
+<composition name="DCBR00">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G00A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B00A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G00B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B00B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G00C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B00C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G00D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B00D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG00" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G00A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B00A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G00B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B00B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G00C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B00C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G00D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B00D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG00" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR01">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G01A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B01A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G01B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B01B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G01C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B01C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G01D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B01D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG01" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G01A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B01A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G01B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B01B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G01C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B01C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G01D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B01D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG01" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR02">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G02A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B02A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G02B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B02B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G02C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B02C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G02D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B02D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG02" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G02A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B02A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G02B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B02B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G02C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B02C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G02D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B02D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG02" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR03">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G03A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B03A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G03B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B03B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G03C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B03C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G03D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B03D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG03" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G03A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B03A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G03B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B03B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G03C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B03C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G03D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B03D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG03" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR04">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G04A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B04A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G04B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B04B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G04C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B04C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G04D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B04D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG04" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G04A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B04A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G04B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B04B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G04C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B04C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G04D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B04D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG04" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR05">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G05A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B05A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G05B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B05B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G05C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B05C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G05D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B05D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG05" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G05A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B05A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G05B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B05B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G05C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B05C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G05D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B05D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG05" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR06">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G06A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B06A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G06B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B06B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G06C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B06C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G06D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B06D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG06" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G06A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B06A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G06B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B06B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G06C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B06C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G06D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B06D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG06" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR07">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G07A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B07A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G07B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B07B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G07C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B07C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G07D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B07D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG07" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G07A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B07A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G07B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B07B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G07C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B07C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G07D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B07D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG07" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR08">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G08A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B08A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G08B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B08B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G08C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B08C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G08D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B08D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG08" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G08A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B08A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G08B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B08B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G08C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B08C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G08D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B08D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG08" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR09">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G09A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B09A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G09B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B09B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G09C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B09C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G09D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B09D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG09" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G09A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B09A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G09B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B09B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G09C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B09C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G09D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B09D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG09" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR10">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G10A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B10A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G10B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B10B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G10C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B10C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G10D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B10D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG10" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G10A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B10A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G10B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B10B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G10C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B10C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G10D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B10D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG10" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR11">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G11A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B11A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G11B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B11B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G11C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B11C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G11D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B11D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG11" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G11A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B11A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G11B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B11B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G11C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B11C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G11D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B11D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG11" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR12">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G12A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B12A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G12B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B12B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G12C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B12C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G12D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B12D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG12" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G12A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B12A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G12B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B12B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G12C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B12C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G12D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B12D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG12" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR13">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G13A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B13A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G13B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B13B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G13C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B13C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G13D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B13D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG13" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G13A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B13A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G13B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B13B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G13C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B13C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G13D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B13D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG13" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR14">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G14A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B14A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G14B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B14B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G14C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B14C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G14D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B14D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG14" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G14A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B14A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G14B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B14B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G14C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B14C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G14D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B14D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG14" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR15">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G15A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B15A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G15B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B15B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G15C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B15C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G15D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B15D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG15" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G15A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B15A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G15B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B15B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G15C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B15C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G15D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B15D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG15" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR16">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G16A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B16A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G16B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B16B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G16C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B16C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G16D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B16D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG16" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G16A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B16A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G16B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B16B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G16C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B16C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G16D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B16D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG16" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR17">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G17A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B17A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G17B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B17B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G17C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B17C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G17D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B17D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG17" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G17A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B17A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G17B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B17B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G17C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B17C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G17D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B17D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG17" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR18">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G18A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B18A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G18B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B18B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G18C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B18C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G18D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B18D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG18" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G18A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B18A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G18B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B18B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G18C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B18C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G18D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B18D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG18" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR19">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G19A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B19A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G19B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B19B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G19C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B19C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G19D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B19D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG19" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G19A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B19A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G19B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B19B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G19C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B19C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G19D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B19D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG19" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR20">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G20A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B20A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G20B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B20B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G20C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B20C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G20D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B20D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG20" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G20A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B20A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G20B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B20B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G20C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B20C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G20D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B20D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG20" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR21">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G21A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B21A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G21B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B21B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G21C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B21C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G21D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B21D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG21" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G21A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B21A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G21B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B21B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G21C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B21C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G21D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B21D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG21" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR22">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G22A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B22A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G22B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B22B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G22C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B22C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G22D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B22D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG22" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G22A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B22A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G22B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B22B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G22C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B22C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G22D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B22D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG22" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR23">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G23A" X_Y_Z="490.017500 -0.000000 0.837500" />
+        <posXYZ volume="B23A" X_Y_Z="428.765000 -0.000000 0.837500" />
+        <posXYZ volume="G23B" X_Y_Z="367.512500 -0.000000 0.837500" />
+        <posXYZ volume="B23B" X_Y_Z="306.260000 -0.000000 0.837500" />
+        <posXYZ volume="G23C" X_Y_Z="245.007500 -0.000000 0.837500" />
+        <posXYZ volume="B23C" X_Y_Z="183.755000 -0.000000 0.837500" />
+        <posXYZ volume="G23D" X_Y_Z="122.502500 -0.000000 0.837500" />
+        <posXYZ volume="B23D" X_Y_Z="61.250000 -0.000000 0.837500" />
+        <posXYZ volume="AG23" X_Y_Z="-0.005000 -0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 0.025350 0.837500" />
+</composition>
+
+<box name="G23A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B23A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G23B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B23B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G23C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B23C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G23D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B23D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG23" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR24">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G24A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B24A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G24B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B24B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G24C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B24C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G24D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B24D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG24" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G24A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B24A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G24B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B24B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G24C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B24C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G24D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B24D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG24" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR25">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G25A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B25A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G25B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B25B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G25C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B25C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G25D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B25D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG25" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G25A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B25A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G25B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B25B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G25C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B25C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G25D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B25D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG25" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR26">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G26A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B26A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G26B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B26B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G26C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B26C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G26D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B26D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG26" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G26A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B26A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G26B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B26B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G26C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B26C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G26D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B26D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG26" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR27">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G27A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B27A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G27B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B27B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G27C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B27C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G27D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B27D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG27" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G27A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B27A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G27B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B27B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G27C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B27C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G27D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B27D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG27" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR28">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G28A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B28A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G28B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B28B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G28C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B28C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G28D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B28D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG28" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G28A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B28A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G28B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B28B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G28C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B28C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G28D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B28D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG28" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR29">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G29A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B29A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G29B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B29B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G29C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B29C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G29D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B29D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG29" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G29A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B29A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G29B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B29B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G29C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B29C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G29D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B29D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG29" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR30">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G30A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B30A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G30B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B30B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G30C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B30C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G30D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B30D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG30" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G30A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B30A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G30B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B30B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G30C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B30C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G30D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B30D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG30" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR31">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G31A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B31A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G31B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B31B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G31C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B31C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G31D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B31D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG31" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G31A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B31A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G31B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B31B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G31C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B31C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G31D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B31D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG31" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR32">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G32A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B32A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G32B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B32B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G32C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B32C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G32D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B32D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG32" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G32A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B32A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G32B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B32B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G32C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B32C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G32D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B32D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG32" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR33">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G33A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B33A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G33B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B33B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G33C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B33C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G33D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B33D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG33" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G33A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B33A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G33B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B33B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G33C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B33C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G33D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B33D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG33" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR34">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G34A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B34A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G34B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B34B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G34C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B34C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G34D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B34D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG34" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G34A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B34A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G34B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B34B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G34C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B34C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G34D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B34D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG34" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR35">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G35A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B35A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G35B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B35B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G35C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B35C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G35D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B35D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG35" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G35A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B35A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G35B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B35B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G35C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B35C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G35D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B35D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG35" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR36">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G36A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B36A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G36B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B36B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G36C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B36C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G36D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B36D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG36" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G36A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B36A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G36B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B36B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G36C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B36C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G36D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B36D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG36" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR37">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G37A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B37A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G37B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B37B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G37C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B37C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G37D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B37D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG37" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G37A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B37A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G37B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B37B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G37C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B37C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G37D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B37D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG37" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR38">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G38A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B38A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G38B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B38B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G38C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B38C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G38D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B38D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG38" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G38A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B38A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G38B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B38B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G38C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B38C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G38D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B38D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG38" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR39">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G39A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B39A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G39B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B39B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G39C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B39C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G39D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B39D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG39" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G39A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B39A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G39B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B39B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G39C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B39C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G39D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B39D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG39" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR40">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G40A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B40A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G40B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B40B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G40C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B40C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G40D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B40D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG40" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G40A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B40A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G40B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B40B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G40C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B40C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G40D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B40D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG40" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR41">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G41A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B41A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G41B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B41B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G41C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B41C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G41D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B41D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG41" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G41A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B41A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G41B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B41B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G41C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B41C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G41D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B41D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG41" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR42">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G42A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B42A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G42B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B42B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G42C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B42C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G42D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B42D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG42" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G42A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B42A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G42B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B42B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G42C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B42C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G42D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B42D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG42" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR43">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G43A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B43A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G43B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B43B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G43C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B43C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G43D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B43D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG43" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G43A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B43A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G43B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B43B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G43C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B43C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G43D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B43D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG43" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR44">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G44A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B44A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G44B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B44B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G44C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B44C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G44D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B44D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG44" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G44A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B44A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G44B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B44B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G44C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B44C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G44D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B44D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG44" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR45">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G45A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B45A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G45B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B45B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G45C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B45C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G45D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B45D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG45" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G45A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B45A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G45B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B45B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G45C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B45C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G45D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B45D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG45" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR46">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G46A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B46A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G46B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B46B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G46C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B46C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G46D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B46D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG46" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G46A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B46A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G46B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B46B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G46C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B46C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G46D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B46D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG46" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+<composition name="DCBR47">
+        <posXYZ volume="OWDG" X_Y_Z="494.57 -0.087500 -0.977122" rot="0.0 90.0 0.0" />
+        <posXYZ volume="G47A" X_Y_Z="490.017500 0.000000 0.837500" />
+        <posXYZ volume="B47A" X_Y_Z="428.765000 0.000000 0.837500" />
+        <posXYZ volume="G47B" X_Y_Z="367.512500 0.000000 0.837500" />
+        <posXYZ volume="B47B" X_Y_Z="306.260000 0.000000 0.837500" />
+        <posXYZ volume="G47C" X_Y_Z="245.007500 0.000000 0.837500" />
+        <posXYZ volume="B47C" X_Y_Z="183.755000 0.000000 0.837500" />
+        <posXYZ volume="G47D" X_Y_Z="122.502500 0.000000 0.837500" />
+        <posXYZ volume="B47D" X_Y_Z="61.250000 0.000000 0.837500" />
+        <posXYZ volume="AG47" X_Y_Z="-0.005000 0.000000 0.837500" />
+        <posXYZ volume="FNMR" X_Y_Z="-0.055000 -0.025350 0.837500" />
+</composition>
+
+<box name="G47A" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B47A" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G47B" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B47B" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G47C" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B47C" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="G47D" X_Y_Z="0.005000 3.500000 1.725000" material="Epotek301" />
+<box name="B47D" X_Y_Z="122.500000 3.500000 1.725000" material="fusedSilica" sensitive="true" />
+<box name="AG47" X_Y_Z="0.010000 3.500000 1.725000" material="OpticalAir" sensitive="true" />
+
+
+
+
+<!-- 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+			Aluminum container for bar box module 
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	ALCM:
+	the structure of the inside support of the bar box module is as follows:
+	going from bar box to the outside is:
+	- fused sillica bars
+	- 2mm gap
+	- 0.01 inch aluminum skin
+	- cross-beams under the rollers or hex honeycomb (honeycomb not modeled)
+	- 0.01 inch aluminum skin (what's seen from the outside)
+
+	ALSK: aluminum skins, closest to bars
+	BTSM: buttun support modules, the assembly of those aluminum cross-beams
+	RAWN: upstream side of the outmost aluminum skin 
+	ABH1: downstream side of the outmost aluminum skin
+	ABT1: far end (mirror end) of the bar box module
+	ALE#: structures for a simplified model of the two long edges of the bar boxes
+	ALE1: outmost piece of the aluminum edge for the long edges (in replacement of ABV1 structures), normal direction pointing
+		either the ceiling or the floor (+/-y), 2 pieces per bar box
+	ALE2: connecting piece between ALE1 and ALE3, normal direction pointing downstream/upstream (+/-z), 4 pieces per bar box
+	ALE3; connecting piece between ALE2 and RAWN/ABH1, normal direction +/-y, 4 pieces per bar box
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+-->
+
+<composition name="ALCM">
+	<posXYZ volume="ALSK" X_Y_Z="244.45 0.0 -0.2127"/> <!-- upstream side Al skin between bars and honeycomb -->
+	<posXYZ volume="ALSK" X_Y_Z="244.45 0.0 1.9377" /> <!-- downstream side Al skin between bars and honeycomb -->
+	<posXYZ volume="BTSM" X_Y_Z="0.0 0.0 -0.6354"/> <!-- upstream side Al support bars under the buttons -->
+	<posXYZ volume="BTSM" X_Y_Z="0.0 0.0 2.3604" /> <!-- downstream side Al support bars under the buttons -->    
+	<posXYZ volume="RAWN" X_Y_Z="243.95 0.0 -1.0581" /> <!-- upstream side outmost Al skin-->  
+	<posXYZ volume="ABH1" X_Y_Z="243.95 0.0  2.7831" /> <!-- downstream side outmost Al skin-->
+	<posXYZ volume="ALE1" X_Y_Z="243.9 21.4325 0.8625" />
+	<posXYZ volume="ALE1" X_Y_Z="243.9 -21.4325 0.8625" />
+	<posXYZ volume="ALE2" X_Y_Z="243.95 20.39125 -0.3" />
+	<posXYZ volume="ALE2" X_Y_Z="243.95 20.39125 2.025" />
+	<posXYZ volume="ALE2" X_Y_Z="243.95 -20.39125 -0.3" />
+	<posXYZ volume="ALE2" X_Y_Z="243.95 -20.39125 2.025" />
+	<posXYZ volume="ALE3" X_Y_Z="243.95 19.6 -0.7354" />
+	<posXYZ volume="ALE3" X_Y_Z="243.95 19.6 2.4604" />
+	<posXYZ volume="ALE3" X_Y_Z="243.95 -19.6 -0.7354" />
+	<posXYZ volume="ALE3" X_Y_Z="243.95 -19.6 2.4604" />
+        <posXYZ volume="ABT1" X_Y_Z="-1.05 0.0 0.8625" />   <!-- mirror end -->
+</composition>
+
+<composition name="BTSM">
+	<posXYZ volume="BTSP" X_Y_Z="394.4 0.0 0.0" /> 
+	<posXYZ volume="BTSP" X_Y_Z="342.6 0.0 0.0" /> 
+	<posXYZ volume="BTSP" X_Y_Z="271.9 0.0 0.0" /> 
+	<posXYZ volume="BTSP" X_Y_Z="220.2 0.0 0.0" /> 
+	<posXYZ volume="BTSP" X_Y_Z="149.5 0.0 0.0" /> 
+	<posXYZ volume="BTSP" X_Y_Z="97.7  0.0 0.0" /> 
+	<posXYZ volume="BTSP" X_Y_Z="27.1  0.0 0.0" /> 
+</composition>
+
+
+<box name="ALSK" X_Y_Z="488.9 39.0 0.0254" material="Aluminum"/>
+<box name="BTSP" X_Y_Z="2.5 39.0 0.82"     material="Aluminum" />
+<box name="RAWN" X_Y_Z="489.9 39.0 0.0254" material="Aluminum" />
+<box name="ABH1" X_Y_Z="489.9 39.0 0.0254" material="Aluminum" />
+<box name="ABV1" X_Y_Z="490.0 0.1 3.8666" material="Aluminum" />
+<box name="ABT1" X_Y_Z="0.1 42.5 3.8666" material="Aluminum" /> <!-- the z value of it is the total thickness of the bar box module-->
+<box name="ALE1" X_Y_Z="490.0 0.3 2.125" material="Aluminum" />
+<box name="ALE2" X_Y_Z="489.9 1.7825 0.2" material="Aluminum" />
+<box name="ALE3" X_Y_Z="489.9 0.2 0.6708" material="Aluminum" />
+
+
+
+<!-- 
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+				Optical Box (OBC) 
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	OBCS(N) is embeded in a rectangular shaped water volume OBVS(N)
+
+
+	OBC:
+	MRAS(N): mirror assembly South/Lower/Beam Right optical box
+	BWPG: optical box window and photo dectector grid 
+	ALCF: aluminum container for the focusing optical box
+
+
+
+	MRAS(N):
+	FTMS(N): flat mirror (opposite side of the 3-segment mirrors, perpendicular to bar direction)
+	TM1S(N): 3-segment mirror 1 (closest to PMT plane)
+	TM2S(N): 3-segment mirror 2 (middle one)
+	TM3S(N): 3-segment mirror 3 (closest to bar box window)
+	WM1S(N): flat wedge mirror 1 (opposite side of the PMT plane, parallel to bars)
+	WM2S(N): flat wedge mirror 2 (like extension of the bar box old wedge, with some inclination angle)
+	SM1S(N): flat side mirror 1 (the LHS side mirror for a Cherenkov photon exiting a bar)
+	SM2S(N): flat side mirror 2 (the RHS side mirror for a Cherenkov photon exiting a bar)
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+
+
+<!-- 
+	###############################################
+
+ 	     South / Lower / Beam Right Optical Box
+
+	###############################################
+-->
+
+<box name="OBVS" X_Y_Z="40 110. 70." material="OpticalH2O" />
+<composition name="OBCS" envelope="OBVS">
+        <posXYZ volume="MRAS" X_Y_Z="5.4434 51.7017 7.06935" rot="0. 0. 0."/>
+	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" rot="0. 0. 180."/>
+</composition>
+
+<composition name="MRAS">
+        <posXYZ volume="FTMS" X_Y_Z="6.8346 -51.701 -13.3581" />
+        <posXYZ volume="TM1S" X_Y_Z="-14.3306 -51.701 -2.3672" rot="0.0 9.067 0.0" />
+        <posXYZ volume="TM2S" X_Y_Z="-12.2507 -51.701 6.9798" rot="0.0 15.9803 0.0" />
+        <posXYZ volume="TM3S" X_Y_Z="-9.0676 -51.701 16.0109" rot="0.0 22.8935 0.0" />
+        <posXYZ volume="WM1S" X_Y_Z="3.9488 -51.701 20.5356" />
+        <posXYZ volume="WM2S" X_Y_Z="10.0292 -51.701 9.3078" rot="0.0 -30. 0.0"/>
+        <posXYZ volume="SM1S" X_Y_Z="-4.6285 -2.535 -5.66595" />
+        <posXYZ volume="SM2S" X_Y_Z="-4.6285 -100.867 -5.66595" />
+        <posXYZ volume="BWPG" X_Y_Z="-4.81392 -51.7006 -23.6009" rot="0.0 42.1301 180." />
+</composition>
+
+
+<!--
+<composition name="MRAS">
+        <posXYZ volume="FTMS" X_Y_Z="7.04143 -51.701 -13.3581" />
+        <posXYZ volume="TM1S" X_Y_Z="-14.4934 -51.701 -2.40487" rot="0.0 9.1063 0.0" />
+        <posXYZ volume="TM2S" X_Y_Z="-12.4883 -51.701 7.05168" rot="0.0 16.0655 0.0" />
+        <posXYZ volume="TM3S" X_Y_Z="-9.22748 -51.701 16.0823" rot="0.0 23.001 0.0" />
+        <posXYZ volume="WM1S" X_Y_Z="3.9488 -51.701 20.8012" />
+        <posXYZ volume="WM2S" X_Y_Z="10.179 -51.701 9.05206" rot="0.0 -29.8589 0.0"/>
+        <posXYZ volume="SM1S" X_Y_Z="-4.6285 -2.3911 -5.66595" />
+        <posXYZ volume="SM2S" X_Y_Z="-4.6285 -101.19 -5.66595" />
+        <posXYZ volume="BWPG" X_Y_Z="-4.813923533932168 -51.7006 -23.600916319060584" rot="0.0 42.1301 180." />
+</composition>
+-->
+
+<!-- South/Lower/Beam Right Optical Box Mirrors -->
+<box name="FTMS" X_Y_Z="0.01 98. 40.2" material="ThickCerenkovMirror" sensitive="true"/>
+
+<box name="TM1S" X_Y_Z="0.01 98.072 9.59" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="TM2S" X_Y_Z="0.01 98.072 9.59" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="TM3S" X_Y_Z="0.01 98.072 9.59" material="ThickCerenkovMirror" sensitive="true"/>
+
+<box name="WM1S" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="WM2S" X_Y_Z="6.656 98. 0.01"  material="ThickCerenkovMirror" sensitive="true"/>
+
+<box name="SM1S" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="SM2S" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirror" sensitive="true"/>
+
+
+<!-- 
+	###############################################
+
+ 	     North / Upper / Beam Left Optical Box
+
+	###############################################
+-->
+
+<box name="OBVN" X_Y_Z="40. 110. 70." material="OpticalH2O"/>
+<composition name="OBCN" envelope="OBVN">
+        <posXYZ volume="MRAN" X_Y_Z="-5.4434 51.7017 7.06935" rot="0. 0. 0."/>
+	<posXYZ volume="ALCF" X_Y_Z="0.0 0.0 0.0" rot="0. 0. 0."/>
+</composition>
+
+<composition name="MRAN">
+        <posXYZ volume="FTMN" X_Y_Z="-6.8346 -51.701 -13.3581" />
+        <posXYZ volume="TM1N" X_Y_Z="14.3306 -51.701 -2.3672" rot="0.0 -9.067 0.0" />
+        <posXYZ volume="TM2N" X_Y_Z="12.2507 -51.701 6.9798" rot="0.0 -15.9803 0.0" />
+        <posXYZ volume="TM3N" X_Y_Z="9.0676 -51.701 16.0109" rot="0.0 -22.8935 0.0" />
+        <posXYZ volume="WM1N" X_Y_Z="-3.9488 -51.701 20.5356" />
+        <posXYZ volume="WM2N" X_Y_Z="-10.0292 -51.701 9.3078" rot="0.0 30. 0.0"/>
+        <posXYZ volume="SM1N" X_Y_Z="4.6285 -2.535 -5.66595" />
+        <posXYZ volume="SM2N" X_Y_Z="4.6285 -100.867 -5.66595" />
+        <posXYZ volume="BWPG" X_Y_Z="4.81392 -51.7006 -23.6009" rot="0.0 42.1301 0." />
+</composition>
+<!--
+<composition name="MRAN">
+        <posXYZ volume="FTMN" X_Y_Z="-7.04143 -51.701 -13.3581" />
+        <posXYZ volume="TM1N" X_Y_Z="14.4934 -51.701 -2.40487" rot="0.0 -9.1063 0.0" />
+        <posXYZ volume="TM2N" X_Y_Z="12.4883 -51.701 7.05168" rot="0.0 -16.0655 0.0" />
+        <posXYZ volume="TM3N" X_Y_Z="9.22748 -51.701 16.0823" rot="0.0 -23.001 0.0" />
+        <posXYZ volume="WM1N" X_Y_Z="-3.9488 -51.701 20.8012" />
+        <posXYZ volume="WM2N" X_Y_Z="-10.179 -51.701 9.05206" rot="0.0 29.8589 0.0"/>
+        <posXYZ volume="SM1N" X_Y_Z="4.6285 -2.3911 -5.66595" />
+        <posXYZ volume="SM2N" X_Y_Z="4.6285 -101.19 -5.66595" />
+        <posXYZ volume="BWPG" X_Y_Z="4.813923533932168 -51.7006 -23.600916319060584" rot="0.0 42.1301 0." />
+</composition>
+-->
+
+<!-- North/Upper/Beam Left Optical Box Mirrors -->
+<box name="FTMN" X_Y_Z="0.01 98. 40.2" material="ThickCerenkovMirror" sensitive="true"/>
+
+<box name="TM1N" X_Y_Z="0.01 98.072 9.59" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="TM2N" X_Y_Z="0.01 98.072 9.59" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="TM3N" X_Y_Z="0.01 98.072 9.59" material="ThickCerenkovMirror" sensitive="true"/>
+
+<box name="WM1N" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="WM2N" X_Y_Z="6.656 98. 0.01"  material="ThickCerenkovMirror" sensitive="true"/>
+
+<box name="SM1N" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="SM2N" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirror" sensitive="true"/>
+
+
+<!-- 
+	Optical box window photo-detector grid (BWPG)
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	BWPG:
+	OBWI: optical box window
+	OLA2: optical oil layer array between optical box window and cookies
+	SICA: silicone cookie array
+	OLA1: optical oil layer array between cookies and PMT
+	PMTgrid: PMT grid
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+
+<box name="BWPV" X_Y_Z="2.0 98.2 32." material="OpticalAir"/>
+<composition name="BWPG" envelope="BWPV">
+  <posXYZ volume="OBWI" X_Y_Z="-0.3650 0.0 0.0" />
+  <posXYZ volume="OLA2" X_Y_Z="0.2705 0.0 0.0"/>
+  <posXYZ volume="SICA" X_Y_Z="0.356 0.0 0.0" />
+  <posXYZ volume="OLA1" X_Y_Z="0.4412 0.0 0.0"/>
+  <posXYZ volume="PMTgrid" X_Y_Z="0.5164 0.0 0.0" /> 
+</composition>
+
+
+<!-- window of the optical box -->
+<box name="OBWI" X_Y_Z="1.2700 98.072 31.8" material="fusedSilica" />
+
+<!-- silicone cookie array -->
+<composition name="SICA">
+  <mposZ volume="SICR" ncopy="2" X_Y="0.0 0.0" Z0="-7.95" dZ="15.9" >
+    <column value="1" step="1"/>
+  </mposZ>
+</composition>
+
+<!-- cookie row 1-18 -->
+<composition name="SICR">
+  <mposY volume="SICS" ncopy="18" Z_X="0.0 0.0" Y0="-44.95" dY="5.3" >
+    <row value="1" step="1"/>
+  </mposY>
+</composition>
+
+<!-- single cookie -->
+<box name="SICS" X_Y_Z="0.1700 5.2 15.8" material="OpticalRTV"/>
+
+<!-- oil layer 1 -->
+<box name="OLL1" X_Y_Z="0.0004 5.2 15.8" material="OCF446"/>
+
+<!-- oil layer 2 -->
+<box name="OLL2" X_Y_Z="0.0010 5.2 15.8" material="OCF446"/>
+
+<!-- oil1 row 1-18 -->
+<composition name="OLR1">
+  <mposY volume="OLL1" ncopy="18" Z_X="0.0 0.0" Y0="-44.95" dY="5.3" >
+    <row value="1" step="1"/>
+  </mposY>
+</composition>
+
+<!-- oil2 row 1-18 -->
+<composition name="OLR2">
+  <mposY volume="OLL2" ncopy="18" Z_X="0.0 0.0" Y0="-44.95" dY="5.3" >
+    <row value="1" step="1"/>
+  </mposY>
+</composition>
+
+<!-- oil1 array-->
+<composition name="OLA1">
+  <mposZ volume="OLR1" ncopy="2" X_Y="0.0 0.0" Z0="-7.95" dZ="15.9" >
+    <column value="1" step="1"/>
+  </mposZ>
+</composition>
+
+<!-- oil2 array-->
+<composition name="OLA2">
+  <mposZ volume="OLR2" ncopy="2" X_Y="0.0 0.0" Z0="-7.95" dZ="15.9" >
+    <column value="1" step="1"/>
+  </mposZ>
+</composition>
+
+<!-- PMT window -->
+<box name="PMTW" X_Y_Z="0.150 5.2 5.2" material="BorosilicateGlass"/>
+
+<!-- pixel numbering 1..64 within one PMT -->
+<composition name="PMTC" >
+  <posXYZ volume="PMTW" X_Y_Z="0.0 0.0 0.0"/>
+  <mposY volume="PIXV" ncopy="8" Z_X="-2.121 0.125" Y0="-2.121" dY="0.606" >
+    <cell value="1" step="1"/>
+  </mposY> 
+  <mposY volume="PIXV" ncopy="8" Z_X="-1.515 0.125" Y0="-2.121" dY="0.606" >
+    <cell value="9" step="1"/>
+  </mposY>
+  <mposY volume="PIXV" ncopy="8" Z_X="-0.909 0.125" Y0="-2.121" dY="0.606" >
+    <cell value="17" step="1"/>
+  </mposY>
+  <mposY volume="PIXV" ncopy="8" Z_X="-0.303 0.125" Y0="-2.121" dY="0.606" >
+    <cell value="25" step="1"/>
+  </mposY>
+  <mposY volume="PIXV" ncopy="8" Z_X="0.303 0.125" Y0="-2.121" dY="0.606" >
+    <cell value="33" step="1"/>
+  </mposY>
+  <mposY volume="PIXV" ncopy="8" Z_X="0.909 0.125" Y0="-2.121" dY="0.606" >
+    <cell value="41" step="1"/>
+  </mposY>
+  <mposY volume="PIXV" ncopy="8" Z_X="1.515 0.125" Y0="-2.121" dY="0.606" >
+    <cell value="49" step="1"/>
+  </mposY>
+  <mposY volume="PIXV" ncopy="8" Z_X="2.121 0.125" Y0="-2.121" dY="0.606" >
+    <cell value="57" step="1"/>
+  </mposY>
+</composition>
+
+<!-- PMT row, length is 1..18 -->
+<composition name="PMTrow">
+  <mposY volume="PMTC" ncopy="18" Z_X="0.000 0.000" Y0="-44.95" dY="5.3" >
+    <row value="1" step="1"/>
+  </mposY>
+</composition>
+
+<!-- PMT column 1..6-->
+<composition name="PMTgrid">
+  <mposZ volume="PMTrow" ncopy="6" X_Y="0.000 0.000" Z0="-13.25" dZ="5.3" >
+    <column value="1" step="1"/>
+  </mposZ>
+</composition>
+
+<!-- pixel  -->
+<box name="PIXV" X_Y_Z="0.100 0.600 0.600"
+       material="CerenkovPhotocathode" sensitive="true" />
+
+<!-- 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+		Aluminum container for the focusing optical box (ALCF)
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	ALCF:
+	ABT4: flat mirror side
+	ABT5: 3-segment mirror side
+	ABH2: WM2N(S) side
+	ABH3: top side (behind PMT plane)
+	ABH4: bottom side (WM1N(S) side)
+	ABV2: SM1N(S) side 
+	ABV3: SM2N(S) side 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+<composition name="ALCF">
+        <!--posXYZ volume="ABT2" X_Y_Z="-17. 0.0 0." /-->
+	<!--posXYZ volume="ABT3" X_Y_Z="-17. 0.0 2.475" /-->
+	<!--posXYZ volume="ABT4" X_Y_Z="-9. 0.0 -7." /-->
+	<posXYZ volume="ABT5" X_Y_Z="19.45 0.0 0." />
+        
+	<!--posXYZ volume="ABH2" X_Y_Z="-12 0.0 16." rot="0.0 30.0 0.0"/--> <!-- -12, 0.0, 16.7 -->
+	<posXYZ volume="ABH3" X_Y_Z="0. 0.0 -34.45" />
+	<posXYZ volume="ABH4" X_Y_Z="0. 0.0 34.45" />
+    
+    	<!-- Al plates for the ends of the focusing optics box -->
+	<posXYZ volume="ABV2" X_Y_Z="0. -54.45 0." /> 
+	<posXYZ volume="ABV3" X_Y_Z="0.  54.45 0." /> 
+</composition>
+
+
+<!--box name="ABT2" X_Y_Z="0.1 90.2 12.175" material="Aluminum" /--> 
+<!--box name="ABT3" X_Y_Z="0.1 90.2 1.1" material="Aluminum" /-->
+<!--box name="ABT4" X_Y_Z="0.1 90.2 41." material="Aluminum" /-->
+<box name="ABT5" X_Y_Z="0.1 108.8 68.8" material="Aluminum" />
+
+<!--box name="ABH2" X_Y_Z="7.1  98. 0.1" material="Aluminum" /-->
+<box name="ABH3" X_Y_Z="38.8 108.8 0.1" material="Aluminum" />
+<box name="ABH4" X_Y_Z="38.8 108.8 0.1" material="Aluminum" />
+
+<box name="ABV2" X_Y_Z="38.8 0.1 68.8" material="Aluminum" />
+<box name="ABV3" X_Y_Z="38.8 0.1 68.8" material="Aluminum" />
+
+
+
+
+<!--
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+			Support structure for bar boxes (SPST)
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	BSAB(BL): bar box support for the two bar boxes above(below) the beamline
+	ASAB(BL): additional support for the bar boxes above(below) the beamline
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+
+
+<composition name="SPST" >
+	<!--
+	    	!!!! IMPORTANT !!!!
+		the Y values here should match the Y values from DCML modules
+		Use the nominal values here
+	--> 
+	<posXYZ volume="BSAB" X_Y_Z="0. 29.8605 0." />
+	<posXYZ volume="BSAB" X_Y_Z="0. 81.359 0." />
+	<posXYZ volume="BSBL" X_Y_Z="0. -81.1518 0." />
+	<posXYZ volume="BSBL" X_Y_Z="0. -29.6533 0." />
+
+	<posXYZ volume="ASAB" X_Y_Z="0. 29.8605 0." />
+	<posXYZ volume="ASBL" X_Y_Z="0. -29.6533 0." />
+
+</composition>
+
+<!-- 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	BSAB:
+	VBAB: vertical bar box support for the two bar boxes above the beamline
+	HSAB: horizontal support for the two bar boxes above the beamline
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+
+<composition name="BSAB">
+        <posXYZ volume="VBAB" X_Y_Z="0. 0. 0." />
+        <posXYZ volume="HSAB" X_Y_Z="0. 0. 4.9808"  /> <!--downstream--> 
+        <posXYZ volume="HSAB" X_Y_Z="0. 0. -3.2558" /> <!--upstream-->
+	<!-- closer to BB -->
+        <!--posXYZ volume="HSAB" X_Y_Z="0. 0. 3.4808"  /--> <!--downstream--> 
+        <!--posXYZ volume="HSAB" X_Y_Z="0. 0. -1.7558" /--> <!--upstream-->
+
+</composition>
+
+<!-- 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	VBAB:
+	VSML: vertical support module
+
+	Numbers in comments:
+	bar boxes 00 or 01 Vertical Support number X, where X runs from 01 and 
+	counts from the window/optical box side 
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+
+<composition name="VBAB">
+        <posXYZ volume="VSML" X_Y_Z="259.3975   0. 0." /> <!--(01/00)VS01-->
+        <posXYZ volume="VSML" X_Y_Z="196.9516   0. 0." /> <!--(01/00)VS02-->
+        <posXYZ volume="VSML" X_Y_Z="145.1483   0. 0." /> <!--(01/00)VS03-->
+        <posXYZ volume="VSML" X_Y_Z="74.4474    0. 0." /> <!--(01/00)VS04-->
+        <posXYZ volume="VSML" X_Y_Z="22.6441    0. 0." /> <!--(01/00)VS05-->
+        <posXYZ volume="VSML" X_Y_Z="-47.95266  0. 0." /> <!--(01/00)VS06-->
+        <posXYZ volume="VSML" X_Y_Z="-99.75596  0. 0." /> <!--(01/00)VS07-->
+        <posXYZ volume="VSML" X_Y_Z="-170.35272 0. 0." /> <!--(01/00)VS08-->
+        <posXYZ volume="VSML" X_Y_Z="-181.14772 0. 0." /> <!--(01/00)VS09-->
+</composition>
+
+<!-- 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	VSML:
+	DSVS: downstream side vertical supports
+	USVS: upstream side vertical supports
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+<composition name="VSML">
+        <posXYZ volume="DSVS" X_Y_Z="0. 0. 5.6158" />
+        <posXYZ volume="USVS" X_Y_Z="0. 0. -4.22227" />
+	<!-- closer to BB -->
+        <!--posXYZ volume="DSVS" X_Y_Z="0. 0. 4.1158" /-->
+        <!--posXYZ volume="USVS" X_Y_Z="0. 0. -2.72227" /-->
+</composition>
+
+<!-- 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	HSAB:
+	HST#: horizontal supports of type # 
+
+	Numbers in comments:
+	bar boxes 00 or 01 (or 11/10 for the below beamline ones)
+	Horizontal Support number X, where X runs from 01 and 
+	counts from the window/optical box side 
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+
+<composition name="HSAB">
+        <posXYZ volume="HST1" X_Y_Z="260.50875 14.01953 0."  /> <!--(01/00)HS01-->
+        <posXYZ volume="HST1" X_Y_Z="260.50875 -14.01953 0." /> <!--(01/00)HS01-->
+
+        <posXYZ volume="HST2" X_Y_Z="228.17455 14.01953 0."  /> <!--(01/00)HS02-->
+        <posXYZ volume="HST2" X_Y_Z="228.17455 -14.01953 0." /> <!--(01/00)HS02-->
+
+        <posXYZ volume="HST3" X_Y_Z="171.04995 14.01953 0."  /> <!--(01/00)HS03-->
+        <posXYZ volume="HST3" X_Y_Z="171.04995 -14.01953 0." /> <!--(01/00)HS03-->
+
+        <posXYZ volume="HST4" X_Y_Z="136.07415 14.01953 0."  /> <!--(01/00)HS04-->
+        <posXYZ volume="HST4" X_Y_Z="136.07415 -14.01953 0." /> <!--(01/00)HS04-->
+
+        <posXYZ volume="HST1" X_Y_Z="75.55865 14.01953 0."  /> <!--(01/00)HS05-->
+        <posXYZ volume="HST1" X_Y_Z="75.55865 -14.01953 0." /> <!--(01/00)HS05-->
+
+        <posXYZ volume="HST3" X_Y_Z="48.54575 14.01953 0."  /> <!--(01/00)HS06-->
+        <posXYZ volume="HST3" X_Y_Z="48.54575 -14.01953 0." /> <!--(01/00)HS06-->
+
+        <posXYZ volume="HST5" X_Y_Z="13.93825 14.01953 0."  /> <!--(01/00)HS07-->
+        <posXYZ volume="HST5" X_Y_Z="13.93825 -14.01953 0." /> <!--(01/00)HS07-->
+
+        <posXYZ volume="HST1" X_Y_Z="-46.84141 14.01953 0."  /> <!--(01/00)HS08-->
+        <posXYZ volume="HST1" X_Y_Z="-46.84141 -14.01953 0." /> <!--(01/00)HS08-->
+
+        <posXYZ volume="HST3" X_Y_Z="-73.85431 14.01953 0."  /> <!--(01/00)HS09-->
+        <posXYZ volume="HST3" X_Y_Z="-73.85431 -14.01953 0." /> <!--(01/00)HS09-->
+
+        <posXYZ volume="HST5" X_Y_Z="-108.46181 14.01953 0."  /> <!--(01/00)HS10-->
+        <posXYZ volume="HST5" X_Y_Z="-108.46181 -14.01953 0." /> <!--(01/00)HS10-->
+
+        <posXYZ volume="HST1" X_Y_Z="-169.24147 14.01953 0."  /> <!--(01/00)HS11-->
+        <posXYZ volume="HST1" X_Y_Z="-169.24147 -14.01953 0." /> <!--(01/00)HS11-->
+
+        <posXYZ volume="HST6" X_Y_Z="-175.75022 14.01953 0."  /> <!--(01/00)HS12-->
+        <posXYZ volume="HST6" X_Y_Z="-175.75022 -14.01953 0." /> <!--(01/00)HS12-->
+
+        <posXYZ volume="HST7" X_Y_Z="-184.48147 14.01953 0."  /> <!--(01/00)HS13-->
+        <posXYZ volume="HST7" X_Y_Z="-184.48147 -14.01953 0." /> <!--(01/00)HS13-->
+</composition>
+
+<composition name="BSBL">
+        <posXYZ volume="VSBL" X_Y_Z="0. 0. 0." />
+        <posXYZ volume="HSBL" X_Y_Z="0. 0. 4.9808"  />  
+        <posXYZ volume="HSBL" X_Y_Z="0. 0. -3.2558" />
+	<!-- closer to BB -->
+        <!--posXYZ volume="HSBL" X_Y_Z="0. 0. 3.4808"  /--> <!--downstream--> 
+        <!--posXYZ volume="HSBL" X_Y_Z="0. 0. -1.7558" /--> <!--upstream-->
+
+</composition>
+
+<composition name="VSBL">
+        <posXYZ volume="VSML" X_Y_Z="-259.3975 0. 0." /> <!--(11/10)VS01-->
+        <posXYZ volume="VSML" X_Y_Z="-196.9516 0. 0." /> <!--(11/10)VS02-->
+        <posXYZ volume="VSML" X_Y_Z="-145.1483 0. 0." /> <!--(11/10)VS03-->
+        <posXYZ volume="VSML" X_Y_Z="-74.4474  0. 0." /> <!--(11/10)VS04-->
+        <posXYZ volume="VSML" X_Y_Z="-22.0599  0. 0." /> <!--(11/10)VS05-->
+        <posXYZ volume="VSML" X_Y_Z="47.95266  0. 0." /> <!--(11/10)VS06-->
+        <posXYZ volume="VSML" X_Y_Z="100.34016 0. 0." /> <!--(11/10)VS07-->
+        <posXYZ volume="VSML" X_Y_Z="170.35272 0. 0." /> <!--(11/10)VS08-->
+        <posXYZ volume="VSML" X_Y_Z="181.14772 0. 0." /> <!--(11/10)VS09-->
+</composition>
+
+
+<composition name="HSBL">
+        <posXYZ volume="HST1" X_Y_Z="-260.50875 14.01953 0."  /> <!--(11/10)HS01-->
+        <posXYZ volume="HST1" X_Y_Z="-260.50875 -14.01953 0." /> <!--(11/10)HS01-->
+
+        <posXYZ volume="HST2" X_Y_Z="-228.17455 14.01953 0."  /> <!--(11/10)HS02-->
+        <posXYZ volume="HST2" X_Y_Z="-228.17455 -14.01953 0." /> <!--(11/10)HS02-->
+
+        <posXYZ volume="HST3" X_Y_Z="-171.04995 14.01953 0."  /> <!--(11/10)HS03-->
+        <posXYZ volume="HST3" X_Y_Z="-171.04995 -14.01953 0." /> <!--(11/10)HS03-->
+
+        <posXYZ volume="HST4" X_Y_Z="-136.07415 14.01953 0."  /> <!--(11/10)HS04-->
+        <posXYZ volume="HST4" X_Y_Z="-136.07415 -14.01953 0." /> <!--(11/10)HS04-->
+
+        <posXYZ volume="HST1" X_Y_Z="-75.55865 14.01953 0."  /> <!--(11/10)HS05-->
+        <posXYZ volume="HST1" X_Y_Z="-75.55865 -14.01953 0." /> <!--(11/10)HS05-->
+
+        <posXYZ volume="HST8" X_Y_Z="-48.25365 14.01953 0."  /> <!--(11/10)HS06-->
+        <posXYZ volume="HST8" X_Y_Z="-48.25365 -14.01953 0." /> <!--(11/10)HS06-->
+
+        <posXYZ volume="HST9" X_Y_Z="-13.64615 14.01953 0."  /> <!--(11/10)HS07-->
+        <posXYZ volume="HST9" X_Y_Z="-13.64615 -14.01953 0." /> <!--(11/10)HS07-->
+
+        <posXYZ volume="HST1" X_Y_Z="46.84141 14.01953 0."  /> <!--(11/10)HS08-->
+        <posXYZ volume="HST1" X_Y_Z="46.84141 -14.01953 0." /> <!--(11/10)HS08-->
+
+        <posXYZ volume="HST8" X_Y_Z="74.14641 14.01953 0."  /> <!--(11/10)HS09-->
+        <posXYZ volume="HST8" X_Y_Z="74.14641 -14.01953 0." /> <!--(11/10)HS09-->
+
+        <posXYZ volume="HST9" X_Y_Z="108.75391 14.01953 0."  /> <!--(11/10)HS10-->
+        <posXYZ volume="HST9" X_Y_Z="108.75391 -14.01953 0." /> <!--(11/10)HS10-->
+
+        <posXYZ volume="HST1" X_Y_Z="169.24147 14.01953 0."  /> <!--(11/10)HS11-->
+        <posXYZ volume="HST1" X_Y_Z="169.24147 -14.01953 0." /> <!--(11/10)HS11-->
+
+        <posXYZ volume="HST6" X_Y_Z="175.75022 14.01953 0."  /> <!--(11/10)HS12-->
+        <posXYZ volume="HST6" X_Y_Z="175.75022 -14.01953 0." /> <!--(11/10)HS12-->
+
+        <posXYZ volume="HST7" X_Y_Z="184.48147 14.01953 0."  /> <!--(11/10)HS13-->
+        <posXYZ volume="HST7" X_Y_Z="184.48147 -14.01953 0." /> <!--(11/10)HS13-->
+
+</composition>
+
+
+<!-- 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	ASAB (additional supports for bar boxes above the beamline):
+	HZML: horizontal slab module
+	AVAB: additional vertical supports for the two bar boxes above the beamline
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+<composition name="ASAB">
+	<posXYZ volume="HSML" X_Y_Z="0. -25.65273 -0.3292" />
+	<posXYZ volume="AVAB" X_Y_Z="0. 0. 0." />
+</composition>
+
+<!-- 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	HZML:
+	HZSL: horizontal slab
+	SLED: ends of the horizontal slab
+	EDSC: end cylinders (those are screws at the end of the slabs)
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+<composition name="HSML">
+	<posXYZ volume="HZSL" X_Y_Z="0. 0. 0." />
+	<posXYZ volume="SLED" X_Y_Z="118.4275 1.11125 0." />
+	<posXYZ volume="SLED" X_Y_Z="-118.4275 1.11125 0." />
+	<posXYZ volume="EDSC" X_Y_Z="122.3976 1.11125 2.54" rot="0. 90. 0."/>
+	<posXYZ volume="EDSC" X_Y_Z="122.3976 1.11125 -2.54" rot="0. 90. 0."/>
+	<posXYZ volume="EDSC" X_Y_Z="-122.3976 1.11125 2.54" rot="0. 90. 0."/>
+	<posXYZ volume="EDSC" X_Y_Z="-122.3976 1.11125 -2.54" rot="0. 90. 0."/>
+</composition>
+
+<!-- 
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	AVAB:
+	ASML: additional vertical support modules
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+<composition name="AVAB">
+        <posXYZ volume="ASML" X_Y_Z="259.3975   0. 0." />
+        <posXYZ volume="ASML" X_Y_Z="196.9516   0. 0." /> 
+        <posXYZ volume="ASML" X_Y_Z="145.1483   0. 0." /> 
+        <posXYZ volume="ASML" X_Y_Z="74.4474    0. 0." />
+        <posXYZ volume="ASML" X_Y_Z="22.6441    0. 0." />
+        <posXYZ volume="ASML" X_Y_Z="-47.95266  0. 0." /> 
+        <posXYZ volume="ASML" X_Y_Z="-99.75596  0. 0." /> 
+        <posXYZ volume="ASML" X_Y_Z="-170.35272 0. 0." /> 
+        <posXYZ volume="ASML" X_Y_Z="-181.14772 0. 0." /> 
+</composition>
+
+<!-- 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	ASML:
+	ADBT: additional vertical support between the two bar boxes
+	ADED: additional vertical support at the end
+	ADS#: additional structure of type # 
+	(types 1,2,3 correspond to the linking structure between the 
+		vertical supports and the slab)
+	ASC#: additional screws
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-->
+<composition name="ASML">
+	<posXYZ volume="ADBT" X_Y_Z="0. 25.74925 -0.51374" />
+	<posXYZ volume="ADED" X_Y_Z="0. 80.5035  -0.51374" />
+	<posXYZ volume="ADS1" X_Y_Z="2.2225 -23.33625  0.3058" />
+	<posXYZ volume="ADS2" X_Y_Z="3.4925 -23.58898  4.4333" />
+	<posXYZ volume="ADS2" X_Y_Z="3.4925 -23.58898 -5.0917" />
+	<posXYZ volume="ADS3" X_Y_Z="3.4925 -25.01773 -0.3292" />
+	<posXYZ volume="ASC1" X_Y_Z="3.4925 -23.33625 2.8458" />
+	<posXYZ volume="ASC2" X_Y_Z="3.4925 -23.33625 -2.8692" />
+</composition>
+
+<composition name="ASBL">
+	<posXYZ volume="HSML" X_Y_Z="0. 25.65273 -0.3292" rot="0. 0. 180." />
+	<posXYZ volume="AVBL" X_Y_Z="0. 0. 0." />
+</composition>
+
+<composition name="AVBL">
+        <posXYZ volume="ASML" X_Y_Z="-259.3975 0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="-196.9516 0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="-145.1483 0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="-74.4474  0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="-22.0599  0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="47.95266  0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="100.34016 0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="170.35272 0. 0." rot="0. 0. 180." /> 
+        <posXYZ volume="ASML" X_Y_Z="181.14772 0. 0." rot="0. 0. 180." /> 
+</composition>
+
+<!-- downstream vertical supports-->
+<box name="DSVS" X_Y_Z="0.635 47.1805 2.54"    material="Aluminum" />
+<!-- upstream vertical supports-->
+<box name="USVS" X_Y_Z="0.635 47.1805 3.20294" material="Aluminum" />
+
+<!-- horizontal supports of type X-->
+<box name="HST1" X_Y_Z="1.5873 2.54 1.27"  material="Aluminum" />
+<box name="HST2" X_Y_Z="61.8109 2.54 1.27" material="Aluminum" />
+<box name="HST3" X_Y_Z="51.1683 2.54 1.27" material="Aluminum" />
+<box name="HST4" X_Y_Z="17.5133 2.54 1.27" material="Aluminum" />
+<box name="HST5" X_Y_Z="16.7767 2.54 1.27" material="Aluminum" />
+<box name="HST6" X_Y_Z="10.16   2.54 1.27" material="Aluminum" />
+<box name="HST7" X_Y_Z="6.0325  2.54 1.27" material="Aluminum" />
+<box name="HST8" X_Y_Z="51.7525 2.54 1.27" material="Aluminum" />
+<box name="HST9" X_Y_Z="16.1925 2.54 1.27" material="Aluminum" />
+
+
+<!-- horizontal slab-->
+<box name="HZSL" X_Y_Z="238.76 0.3175 10.16" material="Aluminum" />
+
+<!-- horizontal slab ends-->
+<box name="SLED" X_Y_Z="1.905 1.905 10.16" material="Aluminum" />
+
+<!-- cylindrical screws at the ends of the slab -->
+<tubs name="EDSC" Rio_Z="0. 0.52705 6.0325" profile="0. 360." material="Aluminum" />
+
+<!-- additional structure between two bar boxes -->
+<box name="ADBT" X_Y_Z="0.635 4.318 7.62" material="Aluminum" />
+
+<!-- additional structure at the end of vertical supports -->
+<box name="ADED" X_Y_Z="0.635 8.8265 7.62" material="Aluminum" />
+
+<!-- additional structure of type X -->
+<!-- 1,2,3 are the linking structure between vertical supports and the slab-->
+<!-- ASC# are two screw sections -->
+<box name="ADS1" X_Y_Z="5.08 1.905 2.54" material="Aluminum" />
+<box name="ADS2" X_Y_Z="1.905 3.81 0.635" material="Aluminum" />
+<box name="ADS3" X_Y_Z="1.905 0.9525 8.89" material="Aluminum" />
+<tubs name="ASC1" Rio_Z="0. 0.635 2.54" material="Aluminum"/>
+<tubs name="ASC2" Rio_Z="0. 0.635 3.81" material="Aluminum"/>
+
+
+
+</section>
+
+<!-- </HDDS> -->
