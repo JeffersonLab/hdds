@@ -55,7 +55,7 @@
 	<real name="dedx"	value="1.937"	unit="MeV/g/cm^2"	/>
   </element>
   <element name="LiqHelium" symbol="LHe" z="2" a="4.0026">
-	<real name="density"	value="0.125"	unit="g/cm^3"	/>
+	<real name="density" value="0.1217"	unit="g/cm^3"	/>
 	<real name="radlen"	value="94.32"	unit="g/cm^2"	/>
 	<real name="collen"	value="49.9"	unit="g/cm^2"	/>
 	<real name="abslen"	value="65.1"	unit="g/cm^2"	/>
