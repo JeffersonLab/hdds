@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HDDS [
+
+  <!ENTITY Regions_s SYSTEM "Regions_HDDS.xml">
+  <!ENTITY Material_s SYSTEM "Material_HDDS.xml">
+  <!ENTITY BeamLine_s SYSTEM "BeamLine_HDDS.xml">
+  <!ENTITY PairSpect_s SYSTEM "PairSpect_HDDS.xml">
+  <!ENTITY Target_s SYSTEM "Target_HDDS.xml"  >
+  <!ENTITY Solenoid_s SYSTEM "Solenoid_HDDS.xml">
+  <!ENTITY CentralDC_s SYSTEM "CentralDC_HDDS.xml">
+  <!ENTITY ForwardDC_s SYSTEM "ForwardDC_HDDS.xml">
+  <!ENTITY StartCntr_s SYSTEM "StartCntr_HDDS.xml">
+  <!ENTITY ForwardTOF_s SYSTEM "ForwardTOF_HDDS.xml">
+  <!ENTITY BarrelEMcal_s SYSTEM "BarrelEMcal_HDDS.xml">
+  <!ENTITY GapEMcal_s SYSTEM "GapEMcal_HDDS.xml">
+  <!ENTITY ForwardEMcal_s SYSTEM "ForwardEMcal_HDDS.xml">
+  <!ENTITY CerenkovCntr_s SYSTEM "CerenkovCntr_HDDS.xml">
+  <!ENTITY UpstreamEMveto_s SYSTEM "UpstreamEMveto_HDDS.xml">
+  <!ENTITY ComptonEMcal_s SYSTEM "ComptonEMcal_HDDS.xml">
+  <!ENTITY DIRC_s SYSTEM "DIRC_HDDS.xml">
+
+]>
+
+<!--
+This file is a copy of the main_HDDS.xml file, and contains some
+modifications needed for the PrimEx experiment:
+- no magnetic field,
+- remove DIRC, 
+- updated position of the Compton Calorimeter
+-->
+
+
+
+<HDDS specification="v1.1" xmlns="http://www.gluex.org/hdds"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.gluex.org/hdds HDDS-1_1.xsd">
+
+<!-- Include materials -->
+     &Material_s;
+
+<!-- Include magnetic fields -->
+     &Regions_s;
+
+<!-- Include spec files -->
+     &ForwardEMcal_s;
+     &BarrelEMcal_s;
+     &GapEMcal_s;
+     &ForwardTOF_s;
+     &CerenkovCntr_s;
+     &ForwardDC_s;
+     &CentralDC_s;
+     &StartCntr_s;
+     &Target_s;
+     &Solenoid_s;
+     &BeamLine_s;
+     &UpstreamEMveto_s;
+     &PairSpect_s;     
+     &ComptonEMcal_s;
+     &DIRC_s;
+<!-- End of include    -->
+
+
+<!-- Hall D Detector Specification : top volume
+     ******************************************
+-->
+<section name        = "HallD"
+         version     = "3.2"
+         date        = "2007-12-07"
+         author      = "R.T. Jones"
+         top_volume  = "SITE"
+         specification = "v1.0">
+
+  <box name="SITE" X_Y_Z="10000. 10000. 10000." material="Air"
+       				comment="master volume for description" />
+  <box name="HALL" X_Y_Z="1700. 1500. 3409." material="Air"
+       				comment="master volume for description">
+    <!--    <apply region="solenoidBfield" origin="150.0 -350.0 -500.0" /> -->
+  </box>
+
+  <composition name="barrelPackage" envelope="LASS">
+    <posXYZ volume="Solenoid" X_Y_Z="0.03 0.0 0.0"/>
+    <posXYZ volume="Target" X_Y_Z="0.0 0.0 50.1812"/>
+    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 38.84"  rot="0.0 0.0 -11.25"/>
+    <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.68" rot="0.0 0.0 0.0" />
+    <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.938" />
+    <!-- The origin of the BCAL below has to be changed because these offsets combined with
+         these rotation angles lead to a lot of overlap with the FDC at the downstream end.
+         A simple explanation for this discrepancy is that the x,y offsets were originally 
+         given as the shift of the BCAL axis from the nominal beam axis at the geometric
+         midplane of the BCAL. If that were the case then the overlap problems disappear,
+         so I assume it is correct. The offsets x,y given here need to be the position of
+         BCAL origin in the LASS coordinate system. The BCAL origin, as documented in the
+         BarrelEMcal_HDDS.xml file, is the intersection of the BCAL symmetry axis with the
+         plane that defines the upstream end of the sensitive volume of the modules.
+         The shifted origin below translates the offset (0.1,-0.988) from the BCAL center
+         to the upstream end, respecting the orientation angles in the rot argument. -->
+    <!--posXYZ volume="BarrelEMcal" X_Y_Z="0.1 -0.098 16.788" rot="-0.0424 0.01633 0.0046" /-->
+    <posXYZ volume="BarrelEMcal" X_Y_Z="0.0444 -0.2423 16.788" rot="-0.0424 0.01633 0.0046" />
+  </composition>
+  
+  <composition name="forwardPackage">
+    <!-- <posXYZ volume="CerenkovCntr" X_Y_Z="0.0 0.0 466.0" /> -->
+    <!-- posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
+    <!-- To simulate DIRC hits uncomment the line below -->
+    <!-- <posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.600" /> -->
+    <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0427 0.0461 -0.1813"/>
+    <posXYZ volume="ForwardEMcal" X_Y_Z="0.529 -0.002 624.906" rot="-0.0418 -0.07019 -0.0149" />
+    <posXYZ volume="ComptonEMcal" X_Y_Z="0.0 0.0 1279.376" />
+  </composition>
+
+  <composition name="backwardPackage">
+    <posXYZ volume="UpstreamEMveto" X_Y_Z="0.0 0.0 -86.8" />
+  </composition> 
+
+  <composition name="GlueXdetector">
+    <!--The following is the position of the entrance window of the target cell-->
+    <!--posXYZ volume="Target" X_Y_Z="0.0 0.0 48.316" /> Moved the target to the LASS volume SJT 6/2/2016 -->
+    <posXYZ volume="barrelPackage" />
+    <posXYZ volume="forwardPackage" />
+<!-- removed from standard geometry 12/11/2007 -rtj
+    <posXYZ volume="backwardPackage" />
+-->
+  </composition>
+
+  <composition name="experimentalHall" envelope="HALL">
+    <posXYZ volume="GlueXdetector" X_Y_Z="150.0 -350.0 -500.0" />
+    <posXYZ volume="PairSpectrometer" X_Y_Z="150.0 -350.0 -1390.16" />  
+    <posXYZ volume="beamPipe" X_Y_Z="0.0 0.0 -0.5" />
+    <posXYZ volume="SixWayCross" X_Y_Z="150 -350 -605.96"/>
+  </composition>
+
+  <composition name="LASSfieldVolume">
+    <posXYZ volume="experimentalHall" X_Y_Z="-150.0 350.0 500.0" />
+  </composition>
+
+  <composition name="everything" envelope="SITE">
+    <posXYZ volume="collimatorPackage" X_Y_Z="0.0 0.0 -2254.5" />
+    <posXYZ volume="LASSfieldVolume" X_Y_Z="0. 0. 0." />
+  </composition>
+
+  <!-- The following elements describe an early rendition of the GlueX
+       detector simulated using a fast Monte Carlo program MCFast.  They
+       are retained for future reference, do not rely on their values. -->
+
+  <mcfast model="detector" template="db/detector.db">
+    <string name="name" value="GLUEX" />
+    <string name="geom_id" value="CENTRAL" />
+  </mcfast>
+
+</section>
+
+</HDDS>
