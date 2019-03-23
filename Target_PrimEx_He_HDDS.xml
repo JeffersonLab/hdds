@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: Target
+  **********************************
+
+     version 1.0: Initial version	-rtj
+     version 2.1: updates for compatibility with geant4 -rtj
+                  a) Eliminate redundant planes from TARM volume.
+     version 2.2: small tweaks to eliminate overlaps between volumes [rtj]
+
+     version 2.2: Updates for PrimEx - A.S.
+     Initial implementation of the liquit He target (volume LIHE) 
+     Target position is set according to the survey in March 2019
+
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name        = "Target"
+         version     = "2.2"
+         date        = "2006-11-22"
+         author      = "R.T. Jones"
+         top_volume  = "TARG"
+         specification = "v1.0">
+
+
+<!-- Origin of Target is the center of the entrance window to the
+     liquid hydrogen target - not the start of the vacuum vessel.  -->
+
+  <composition name="Target">
+    <posXYZ volume="targetSupportArm" X_Y_Z="0. 0. -70.461"/>
+    <posXYZ volume="targetVessel" X_Y_Z="0.044 0.112 0.0" rot="0.0 0.0 0.0" />
+  </composition>
+
+  <composition name="targetSupportArm" envelope="TARM">
+    <posXYZ volume="TGB1" X_Y_Z="0. 0. -11.1916"/>
+    <posXYZ volume="TGB2" X_Y_Z="0. 0. +38.824"/>
+    <posXYZ volume="TGF1" X_Y_Z="0. 0. -48.9752"/>
+    <posXYZ volume="TGF2" X_Y_Z="0. 0. -46.5325"/>
+    <posXYZ volume="TGF3" X_Y_Z="0. 0. 28.1018"/>
+    <posXYZ volume="TGF4" X_Y_Z="0. 0. 30.0068"/>
+    <posXYZ volume="TGF5" X_Y_Z="0. 0. 48.88"/>
+    <posXYZ volume="TGF6" X_Y_Z="0. 0. 24.9268"/>
+    <posXYZ volume="TGR1" X_Y_Z="0. 0. 22.517"/>
+    <posXYZ volume="TGR2" X_Y_Z="0. 0. -43.9"/>
+    <posXYZ volume="TGR2" X_Y_Z="0. 0. 10.71"/>
+  </composition>
+
+ <pcon name="TARM" material="Vacuum"> 
+    <polyplane Rio_Z="0.0 22.5 -49.8252" />
+    <polyplane Rio_Z="0.0 22.5 -48.12" />
+    <polyplane Rio_Z="0.0 10.4775 -48.12"/>
+    <polyplane Rio_Z="0.0 10.4775 -45.2625" />
+    <polyplane Rio_Z="0.0 10.16 -45.2625" />
+    <polyplane Rio_Z="0.0 10.16 +28.7368"/>
+    <polyplane Rio_Z="0.0 7.9375 28.7368"/>
+    <polyplane Rio_Z="0.0 7.9375 31.2768"/>
+    <polyplane Rio_Z="0.0 7.62   31.2768"/>
+    <polyplane Rio_Z="0.0 7.62   50.15"/>
+ </pcon>
+
+ <pcon name="TGBM" material="Aluminum">
+   <polyplane Rio_Z="6.0325 7.62 -20.2106"/>
+   <polyplane Rio_Z="6.0325 7.62 -18.9834"/>
+   <polyplane Rio_Z="6.0325 6.35 -18.9834"/>
+   <polyplane Rio_Z="6.0325 6.35 -8.3734"/>
+   <polyplane Rio_Z="3.699 4.118 -5.5549"/>
+   <polyplane Rio_Z="2.57 4.699 -5.5549"/>
+   <polyplane Rio_Z="2.25 4.699 -5.2374"/>
+  </pcon>
+
+  <composition name="targetVessel" envelope="TARG">
+    <posXYZ volume="CYLW" X_Y_Z="0. 0. 0." />
+    <posXYZ volume="TGBM" X_Y_Z="0. 0. 0."/>
+    <posXYZ volume="DWIT" X_Y_Z="0. 0. +34.1966"/>
+    <posXYZ volume="TGR0" X_Y_Z="0. 0. -12.5015"/>
+    <posXYZ volume="TGR0" X_Y_Z="0. 0. -15.359"/>
+    <posXYZ volume="targetInput" X_Y_Z="-0.018 -0.002 14.775" rot="0.004 0.0076 0.0"/>
+    <posXYZ volume="targetTube" X_Y_Z="-0.018 -0.002 14.775" rot="0.004 0.0076 0.0"/>
+  </composition>
+
+  <composition name="targetTube" envelope="TGTV">
+    <posXYZ volume="LIHE" X_Y_Z="0. 0. 0."/>
+  </composition>
+
+  <pcon name="TGTV" material="Kapton" comment="target cell">
+    <polyplane Rio_Z="0.0 0.29715 -14.775"/>
+    <polyplane Rio_Z="0.0 0.5235  -14.5912"/>
+    <polyplane Rio_Z="0.0 0.7376  -14.2912"/>
+    <polyplane Rio_Z="0.0 0.79629 -13.9912"/>
+    <polyplane Rio_Z="0.0 1.25    -13.9912"/>
+    <polyplane Rio_Z="0.0 0.79629 +13.9912"/>
+    <polyplane Rio_Z="0.0 0.7376  +14.2912"/>
+    <polyplane Rio_Z="0.0 0.5235  +14.5912"/>
+    <polyplane Rio_Z="0.0 0.29715 +14.775"/>
+  </pcon>
+
+  <pcon name="LIHE" material="LiqHelium" comment="target contents">
+    <polyplane Rio_Z="0.0 0.29715 -14.7675"/>
+    <polyplane Rio_Z="0.0 0.5040  -14.5912"/>
+    <polyplane Rio_Z="0.0 0.72389  -14.2912"/>
+    <polyplane Rio_Z="0.0 0.78359 -13.9912"/>
+    <polyplane Rio_Z="0.0 1.2373  -13.9912"/>
+    <polyplane Rio_Z="0.0 0.78359 +13.9912"/>
+    <polyplane Rio_Z="0.0 0.72389  +14.2912"/>
+    <polyplane Rio_Z="0.0 0.5040  +14.5912"/>
+    <polyplane Rio_Z="0.0 0.29715 +14.775"/>
+    <real name="length" value="29.535" unit="cm"/>
+  </pcon>
+
+  <pcon name="CYLW" material="HighDensityROHACELL" comment="target vessel cylindrical wall">
+    <polyplane Rio_Z="3.699 4.699 -5.2374"/>
+    <polyplane Rio_Z="3.699 4.699 29.8451"/>
+    <polyplane Rio_Z="3.665 4.672 30.8451"/>
+    <polyplane Rio_Z="3.381 4.453 31.8451"/>
+    <polyplane Rio_Z="2.726 3.979 32.81"/>
+    <polyplane Rio_Z="1.905 3.135 33.81"/>
+    <polyplane Rio_Z="1.905 2.8 33.999"/>
+    <polyplane Rio_Z="1.905 1.905 34.203"/>
+  </pcon>
+
+
+  <composition name="targetInput" envelope="TGIN">
+    <posXYZ volume="TGI1" X_Y_Z="0. 0. 0."/>
+    <posXYZ volume="TGI2" X_Y_Z="0. 0. 0."/>
+    <posXYZ volume="TGI3" X_Y_Z="0. 0. 0."/>
+    <posXYZ volume="TGAL" X_Y_Z="0. 0. 0."/>
+  </composition>
+
+  <pcon name="TGI1" material="Kapton" comment="Target vessel input outer wall">
+    <polyplane Rio_Z="1.3427 1.3554 -22.0"/>
+    <polyplane Rio_Z="1.3427 1.3554 -21.0"/>
+    <polyplane Rio_Z="1.2373 1.25 -13.9912"/>
+  </pcon>
+
+  <pcon name="TGI2" material="LiqHydrogen" comment="Liquid hydrogen input to cell">
+    <polyplane Rio_Z="0.92456 1.3427 -22.0   "/>
+    <polyplane Rio_Z="0.92456 1.3427 -21.0   "/>
+    <polyplane Rio_Z="0.92456 1.2373 -13.9912"/>
+  </pcon>
+
+  <pcon name="TGI3" material="Kapton" comment="Torlon tube">
+    <polyplane Rio_Z="1.02362 1.15062 -23.7887"/>
+    <polyplane Rio_Z="1.02362 1.15062 -22.7887"/>
+    <polyplane Rio_Z="0.79756 1.15062 -22.7887"/>
+    <polyplane Rio_Z="0.79756 1.15062 -22.6617"/>
+    <polyplane Rio_Z="0.79756 0.92456 -22.6617"/>
+    <polyplane Rio_Z="0.79756 0.92456 -13.9912"/>
+  </pcon>
+
+  <pcon name="TGIN" material="Vacuum" comment="Target vessel input mother volume">
+    <polyplane Rio_Z="0.79756 3.81 -25.482"/>
+    <polyplane Rio_Z="0.79756 3.81  -23.45"/>
+    <polyplane Rio_Z="0.79756 1.3554 -21.000"/>     
+    <polyplane Rio_Z="0.79756 1.25 -13.9912"/>
+  </pcon>
+
+  <pcon name="TGAL" material="Aluminum" comment="Target vessel input" >
+    <polyplane Rio_Z="2.84392 3.81 -25.482"/>
+    <polyplane Rio_Z="1.15062 3.81 -23.79"/>
+    <polyplane Rio_Z="1.15062 3.81 -23.45"/>
+    <polyplane Rio_Z="1.15062 3.02 -22.6617"/>
+    <polyplane Rio_Z="0.92456 3.02 -22.6617"/>
+    <polyplane Rio_Z="0.92456 2.35 -22.0"/>
+    <polyplane Rio_Z="1.3554 2.35 -22.0"/>
+    <polyplane Rio_Z="1.3554 1.3554 -21.0"/>
+  </pcon>
+    
+  <pcon name="TARG" material="Vacuum" comment="target vessel mother volume">
+    <polyplane Rio_Z="0. 7.62  -20.2106"/>
+    <polyplane Rio_Z="0. 7.62  -18.9834"/>
+    <polyplane Rio_Z="0. 6.35  -18.9834"/>
+    <polyplane Rio_Z="0. 6.35   -8.3734"/>
+    <polyplane Rio_Z="0. 4.118  -5.5549"/>
+    <polyplane Rio_Z="0. 4.699  -5.5549"/>
+    <polyplane Rio_Z="0. 4.699  29.8451"/>
+    <polyplane Rio_Z="0.0 4.672 30.8451"/>
+    <polyplane Rio_Z="0.0 4.453 31.8451"/>
+    <polyplane Rio_Z="0.0 3.979 32.81"/>
+    <polyplane Rio_Z="0.0 3.135 33.81"/>
+    <polyplane Rio_Z="0.0 2.8 33.999"/>
+    <polyplane Rio_Z="0.0 1.905 34.203"/>
+  </pcon>
+
+  <tubs name="TGR0" Rio_Z="3.81 5.842 0.635" material="FR-4"/>
+  <tubs name="TGR1" Rio_Z="2.752 7.302 0.635" material="FR-4"/>
+  <tubs name="TGR2" Rio_Z="3.162 9.487 0.635" material="FR-4"/>
+  <tubs name="UFLT" Rio_Z="2.00 3.70 0.5" material="Aluminum"
+				comment="target vessel entrance flange"  />
+  <tubs name="DFLT" Rio_Z="2.00 3.70 1.0" material="HighDensityROHACELL"
+				comment="target vessel exit flange"  />
+  <tubs name="UWIT" Rio_Z="0.00 1.905 0.0127" material="Kapton"
+				comment="target vessel entrance window"   />
+  <tubs name="DWIT" Rio_Z="0.00 1.905 0.0127" material="Kapton"
+                                comment="target vessel exit window" />
+  <tubs name="TGB1" Rio_Z="9.8425 10.16 77.2668" material="Aluminum"
+	comment="Target arm beam pipe"/>
+  <tubs name="TGB2" Rio_Z="7.3025 7.62 22.5" material="Aluminum" 
+	comment="Target arm beam pipe"/>
+ <tubs name="TGF1" Rio_Z="10.16 22.5 1.7" material="StainlessSteel" 
+       comment="flange"/>
+ <tubs name="TGF2" Rio_Z="10.16 10.4775 2.54" material="StainlessSteel" 
+       comment="flange adaptor"/>
+ <tubs name="TGF3" Rio_Z="7.62 10.16 1.27" material="StainlessSteel"
+       comment="flange"/>
+ <tubs name="TGF4" Rio_Z="7.62 7.9375 2.54" material="StainlessSteel"
+       comment="flange adaptor"/>
+ <tubs name="TGF5" Rio_Z="6.0325 7.3025 2.54" material="Aluminum"/>
+ <tubs name="TGF6" Rio_Z="7.3025 9.8425 5.08" material="Aluminum"/>       
+
+  <!-- The following elements describe an early rendition of the GlueX
+       detector simulated using a fast Monte Carlo program MCFast.  They
+       are retained for future reference, do not rely on their values. -->
+
+  <parameters name="targetTube_pars" type="mcfast">
+    <real name="rmin" value="0.00"  unit="cm" comment="inner radius" />
+    <real name="rmax" value="9.50"  unit="cm" comment="outer radius" />
+    <real name="z0"   value="1.50" unit="cm" comment="from origin"  />
+    <real name="zlen" value="183.5" unit="cm" comment="cover the target" />
+    <reference name="mat_fill" value="Vacuum"  comment="what fills the pipe" />
+    <real_array name="bndrthk" comment="innner outer upstream downstream
+           wall thicknesses" values="0.00   0.10   0.00      0.00"
+                             unit="cm" />
+    <reference_vector name="matrbnd"    comment="window materials"   >
+      <reference_data value="Vacuum"    comment="inner wall??"      />
+      <reference_data value="Beryllium" comment="outer wall"        />
+      <reference_data value="Vacuum"    comment="upstream window"   />
+      <reference_data value="Vacuum"    comment="downstream window" />
+    </reference_vector>
+  </parameters>
+
+  <parameters name="target_pars" type="mixed">
+    <real_array name="xyz" values="0.   0.   65." comment="center of target"
+                           unit="cm" />
+    <real_array name="sig" values="0.30 0.30 15." comment="size of target"
+                           unit="cm" />
+    <real name="rmax"      value="2.50"  comment="radius of target vessel"
+                           unit="cm" />
+    <real name="zlen"      value="30.0"  comment="length of target vessel"
+                           unit="cm" />
+    <reference name="mat_fill" value="LiqHydrogen" comment="target material" />
+    <real_array name="bndrthk" comment="cylinder upstream downstream
+           wall thicknesses"   values="0.02     0.02      0.02"
+                               unit="cm" />
+    <reference_vector name="matrbnd"   comment="target vessel materials">
+      <reference_data value="Aluminum" comment="cylinder wall"     />
+      <reference_data value="Aluminum" comment="upstream window"   />
+      <reference_data value="Aluminum" comment="downstream window" />
+    </reference_vector>
+  </parameters>
+
+  <mcfast model="BPipe" template="db/beampipe.db"
+			parameters="targetTube_pars">
+    <string name="name" value="beam"  />
+  </mcfast>
+
+  <mcfast model="BeamVrtx" template="db/beamvrtx.db" parameters="target_pars">
+  </mcfast>
+
+</section>
+
+<!-- </HDDS> -->
