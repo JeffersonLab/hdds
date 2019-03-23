@@ -21,6 +21,16 @@
 
 ]>
 
+<!--
+This file is a copy of the main_HDDS.xml file, and contains some
+modifications needed for the PrimEx experiment:
+- no magnetic field,
+- remove DIRC, 
+- updated position of the Compton Calorimeter
+-->
+
+
+
 <HDDS specification="v1.1" xmlns="http://www.gluex.org/hdds"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.gluex.org/hdds HDDS-1_1.xsd">
@@ -64,12 +74,12 @@
        				comment="master volume for description" />
   <box name="HALL" X_Y_Z="1700. 1500. 3409." material="Air"
        				comment="master volume for description">
-    <apply region="solenoidBfield" origin="150.0 -350.0 -500.0" />
+    <!--    <apply region="solenoidBfield" origin="150.0 -350.0 -500.0" /> -->
   </box>
 
   <composition name="barrelPackage" envelope="LASS">
     <posXYZ volume="Solenoid" X_Y_Z="0.03 0.0 0.0"/>
-    <posXYZ volume="Target" X_Y_Z="0.0 0.0 50.429"/>
+    <posXYZ volume="Target" X_Y_Z="0.0 0.0 50.1812"/>
     <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 38.84"  rot="0.0 0.0 -11.25"/>
     <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.68" rot="0.0 0.0 0.0" />
     <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.938" />
@@ -89,13 +99,13 @@
   </composition>
   
   <composition name="forwardPackage">
-    <!--<posXYZ volume="CerenkovCntr" X_Y_Z="0.0 0.0 466.0" /> -->
-    <!--posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
+    <!-- <posXYZ volume="CerenkovCntr" X_Y_Z="0.0 0.0 466.0" /> -->
+    <!-- posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
     <!-- To simulate DIRC hits uncomment the line below -->
-    <posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.600" />
+    <!-- <posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.600" /> -->
     <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0427 0.0461 -0.1813"/>
     <posXYZ volume="ForwardEMcal" X_Y_Z="0.529 -0.002 624.906" rot="-0.0418 -0.07019 -0.0149" />
-    <!--posXYZ volume="ComptonEMcal" X_Y_Z="0.0 0.0 876.106" /-->
+    <posXYZ volume="ComptonEMcal" X_Y_Z="0.0 0.0 1279.376" />
   </composition>
 
   <composition name="backwardPackage">
