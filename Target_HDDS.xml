@@ -8,13 +8,12 @@
      version 2.1: updates for compatibility with geant4 -rtj
                   a) Eliminate redundant planes from TARM volume.
      version 2.2: small tweaks to eliminate overlaps between volumes [rtj]
- 
-     <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 
      version 2.2: Updates for PrimEx - A.S.
-     Initial implementation of the Be target (volume BETG)
-     Target position is set according to the survey in March 2019 
+     Initial implementation of the liquit He target (volume LIHE) 
+     Target position is set according to the survey in March 2019
 
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "Target"
@@ -77,11 +76,37 @@
     <posXYZ volume="TGR0" X_Y_Z="0. 0. -12.5015"/>
     <posXYZ volume="TGR0" X_Y_Z="0. 0. -15.359"/>
     <posXYZ volume="targetInput" X_Y_Z="-0.018 -0.002 14.775" rot="0.004 0.0076 0.0"/>
-    <posXYZ volume="BETG" X_Y_Z="0.0  0.0  14.7568"/>
+    <posXYZ volume="targetTube" X_Y_Z="-0.018 -0.002 14.775" rot="0.004 0.0076 0.0"/>
   </composition>
 
-  <tubs name="BETG" Rio_Z="0.0  1.27  1.7755" material="Beryllium"/>
+  <composition name="targetTube" envelope="TGTV">
+    <posXYZ volume="LIHE" X_Y_Z="0. 0. 0."/>
+  </composition>
 
+  <pcon name="TGTV" material="Kapton" comment="target cell">
+    <polyplane Rio_Z="0.0 0.29715 -14.775"/>
+    <polyplane Rio_Z="0.0 0.5235  -14.5912"/>
+    <polyplane Rio_Z="0.0 0.7376  -14.2912"/>
+    <polyplane Rio_Z="0.0 0.79629 -13.9912"/>
+    <polyplane Rio_Z="0.0 1.25    -13.9912"/>
+    <polyplane Rio_Z="0.0 0.79629 +13.9912"/>
+    <polyplane Rio_Z="0.0 0.7376  +14.2912"/>
+    <polyplane Rio_Z="0.0 0.5235  +14.5912"/>
+    <polyplane Rio_Z="0.0 0.29715 +14.775"/>
+  </pcon>
+
+  <pcon name="LIHE" material="LiqHelium" comment="target contents">
+    <polyplane Rio_Z="0.0 0.29715 -14.7675"/>
+    <polyplane Rio_Z="0.0 0.5040  -14.5912"/>
+    <polyplane Rio_Z="0.0 0.72389  -14.2912"/>
+    <polyplane Rio_Z="0.0 0.78359 -13.9912"/>
+    <polyplane Rio_Z="0.0 1.2373  -13.9912"/>
+    <polyplane Rio_Z="0.0 0.78359 +13.9912"/>
+    <polyplane Rio_Z="0.0 0.72389  +14.2912"/>
+    <polyplane Rio_Z="0.0 0.5040  +14.5912"/>
+    <polyplane Rio_Z="0.0 0.29715 +14.775"/>
+    <real name="length" value="29.535" unit="cm"/>
+  </pcon>
 
   <pcon name="CYLW" material="HighDensityROHACELL" comment="target vessel cylindrical wall">
     <polyplane Rio_Z="3.699 4.699 -5.2374"/>
