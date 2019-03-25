@@ -130,12 +130,6 @@
      Revision 3.4 1/4/2019
       Small adjustments to eliminate illegal overlaps between volumes -rtj
 
-      Revision 3.5 3/22/2019 
-      Some adjustments for PrimEx - A.S.
-      Adjusted position of TAC, removed pipe on the FCAL platform 
-      and PlexWindow
-
-
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
@@ -846,11 +840,11 @@
   <composition name="beamPipe">
 <!--    <posXYZ volume="DET4"     X_Y_Z="  0.0     0.0 -1400.0"/> -->
     <posXYZ volume="DET5"     X_Y_Z="  0.0     0.0  1400.0"/> 
-    <posXYZ volume="TAC1" X_Y_Z="150.0  -350.0  1149.9" />
+    <posXYZ volume="TAC1" X_Y_Z="150.0  -350.0  1225.0" />  
     <posXYZ volume="DarkWindow" X_Y_Z="  150.0  -350.0  320.0" />
-    <!--    <posXYZ volume="PlatformPipe" X_Y_Z="150.0  -350.0  650."/> -->
-    <!--    <posXYZ volume="PlexWindow" X_Y_Z="150.0  -350.0  830."/>   -->
-    <!--    <posXYZ volume="IntMonitor" X_Y_Z="150.0  -350.0  834."/> -->
+    <posXYZ volume="PlatformPipe" X_Y_Z="150.0  -350.0  650."/>
+    <posXYZ volume="PlexWindow" X_Y_Z="150.0  -350.0  830."/>
+    <posXYZ volume="IntMonitor" X_Y_Z="150.0  -350.0  834."/>
     <posXYZ volume="DET6"     X_Y_Z="  0.0   600.0     0.0"/>
     <!--posXYZ volume="DET7"     X_Y_Z="  0.0     0.0  -705.0"/--> 
     <posXYZ volume="HallBellows" X_Y_Z="150.0 -350.0 -1223.287"/>
@@ -1254,7 +1248,7 @@
   </composition>
 
   
-  <tubs name="PTAR" Rio_Z="0.0 0.375 0.0750" material="Beryllium" 
+  <tubs name="PTAR" Rio_Z="0.0 0.375 0.0075" material="Beryllium" 
 	comment="polarimeter converter target" /> 
   
   
