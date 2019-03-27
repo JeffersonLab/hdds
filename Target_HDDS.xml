@@ -95,7 +95,7 @@
     <polyplane Rio_Z="0.0 0.29715 +14.775"/>
   </pcon>
 
-  <pcon name="LIHE" material="LiqHelium" comment="target contents">
+  <pcon name="LIHE" material="Vacuum" comment="target contents">
     <polyplane Rio_Z="0.0 0.29715 -14.7675"/>
     <polyplane Rio_Z="0.0 0.5040  -14.5912"/>
     <polyplane Rio_Z="0.0 0.72389  -14.2912"/>
