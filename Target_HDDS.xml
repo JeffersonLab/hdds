@@ -77,10 +77,7 @@
     <posXYZ volume="TGR0" X_Y_Z="0. 0. -12.5015"/>
     <posXYZ volume="TGR0" X_Y_Z="0. 0. -15.359"/>
     <posXYZ volume="targetInput" X_Y_Z="-0.018 -0.002 14.775" rot="0.004 0.0076 0.0"/>
-    <posXYZ volume="BETG" X_Y_Z="0.0  0.0  14.7568"/>
   </composition>
-
-  <tubs name="BETG" Rio_Z="0.0  1.27  1.7755" material="Beryllium"/>
 
 
   <pcon name="CYLW" material="HighDensityROHACELL" comment="target vessel cylindrical wall">
