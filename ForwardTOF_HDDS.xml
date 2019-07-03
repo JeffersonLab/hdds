@@ -41,6 +41,9 @@
 <!-- Wed Dec 05 13:00:00 EST 2018 A. Ernst -->
 <!-- Added the Lucite shield to the geometry. See GlueX TOF Meeting, Dec 5, 2018 for more information-->
 
+<!-- Tue July 02, 2019 A. Ernst -->
+<!-- Updated the geometry to match the upgrade in the hall. Removed lucite shielding.-->
+
   <composition name="ForwardTOF">
     <posXYZ volume="forwardTOF" X_Y_Z="0.0  0.0 3.85" rot="0 0 -90">
       <plane value="0" />
@@ -48,95 +51,86 @@
     <posXYZ volume="forwardTOF" X_Y_Z="0.0  0.0 1.27" rot="0 0 0">
       <plane value="1" />
     </posXYZ>
-    <posXYZ volume="shield_front" X_Y_Z="0.0 0.0 -2.87" />
-    <posXYZ volume="shield_back" X_Y_Z="0.0 0.0 6.395" />
   </composition>
 
   <composition name="forwardTOF" envelope="FTOF">
-    <posXYZ volume="forwardTOF_bottom1" X_Y_Z="0.0 -70.175 0.0" />
-    <posXYZ volume="forwardTOF_bottom2" X_Y_Z="0.0 -9.18 0.0" />
+    <posXYZ volume="forwardTOF_bottom1" X_Y_Z="0.0 -76.305 0.0" />
+    <posXYZ volume="forwardTOF_bottom2" X_Y_Z="0.0 -19.95 0.0" />
+    <posXYZ volume="forwardTOF_bottom3" X_Y_Z="0.0 -12.27 0.0" />
     <posXYZ volume="forwardTOF_north" X_Y_Z="+66.0 0.0 0.0" />
     <posXYZ volume="forwardTOF_south" X_Y_Z="-66.0 0.0 0.0" />
-    <posXYZ volume="forwardTOF_top2" X_Y_Z="0.0 +9.18 0.0" />
-    <posXYZ volume="forwardTOF_top1" X_Y_Z="0.0 +70.175 0.0" />
-    <posXYZ volume="shield_feedthru" />
-  </composition>
+    <posXYZ volume="forwardTOF_top3" X_Y_Z="0.0 +12.27 0.0" />
+    <posXYZ volume="forwardTOF_top2" X_Y_Z="0.0 +19.95 0.0" />
+    <posXYZ volume="forwardTOF_top1" X_Y_Z="0.0 +76.305 0.0" />
+   </composition>
 
 <!-- the attribute 'row' is synonymous with 'bar' -->
   <composition name="forwardTOF_top1" envelope="FTOT">
-    <mposY volume="FTOC" ncopy="19" Z_X="0.0 0.0" Y0="-54.855" dY="6.09">
-      <row value="26" step="1" />
+    <mposY volume="FTOC" ncopy="17" Z_X="0.0 0.0" Y0="-48.72" dY="6.09">
+      <row value="30" step="1" />
       <column value="0" />
     </mposY>
   </composition>
   <composition name="forwardTOF_top2" envelope="FTOY">
-    <mposY volume="FTOX" ncopy="2" Z_X="0.0 0.0" Y0="-1.545" dY="3.09">
-      <row value="24" step="1" />
+    <mposY volume="FTOX" ncopy="2" Z_X="0.0 0.0" Y0="-2.295" dY="4.59">
+      <row value="28" step="1" />
+      <column value="0" />
+    </mposY>
+  </composition>
+  <composition name="forwardTOF_top3" envelope="FTOK">
+    <mposY volume="FTOL" ncopy="2" Z_X="0.0 0.0" Y0="-1.545" dY="3.09">
+      <row value="26" step="1" />
       <column value="0" />
     </mposY>
   </composition>
   <composition name="forwardTOF_bottom1" envelope="FTOB">
-    <mposY volume="FTOC" ncopy="19" Z_X="0.0 0.0" Y0="-54.855" dY="6.09">
+    <mposY volume="FTOC" ncopy="17" Z_X="0.0 0.0" Y0="-48.72" dY="6.09">
       <row value="1" step="1" />
       <column value="0" />
     </mposY>
   </composition>
   <composition name="forwardTOF_bottom2" envelope="FTOZ">
-    <mposY volume="FTOX" ncopy="2" Z_X="0.0 0.0" Y0="-1.545" dY="3.09">
+    <mposY volume="FTOX" ncopy="2" Z_X="0.0 0.0" Y0="-2.295" dY="4.59">
+      <row value="18" step="1" />
+      <column value="0" />
+    </mposY>
+  </composition>
+  <composition name="forwardTOF_bottom3" envelope="FTOJ">
+    <mposY volume="FTOL" ncopy="2" Z_X="0.0 0.0" Y0="-1.545" dY="3.09">
       <row value="20" step="1" />
       <column value="0" />
     </mposY>
   </composition>
-
   <composition name="forwardTOF_north" envelope="FTON">
-    <mposY volume="FTOH" ncopy="2" Z_X = "0.0 0.0" Y0="-3.045" dY="6.09">
+    <mposY volume="FTOH" ncopy="4" Z_X = "0.0 0.0" Y0="-6.885" dY="4.59">
       <row value="22" step="1" />
       <column value="1" />
     </mposY>
   </composition>
   <composition name="forwardTOF_south" envelope="FTOS">
-    <mposY volume="FTOH" ncopy="2" Z_X="0.0 0.0" Y0="-3.045" dY="6.09">
-      <row value="45" step="1" />
+    <mposY volume="FTOH" ncopy="4" Z_X="0.0 0.0" Y0="-6.885" dY="4.59">
+      <row value="47" step="1" />
       <column value="2" />
     </mposY>
   </composition>
 
-  <composition name="shield_front" envelope="SHLH">
-   <posXYZ volume="shield_front_insert" />
-  </composition>
-
-  <composition name="shield_front_insert" envelope="SINS">
-   <posXYZ volume="SINA" />
-  </composition>
-
-  <composition name="shield_feedthru" envelope="SHFT">
-   <posXYZ volume="SINC" />
-  </composition>
-
-  <composition name="shield_back" envelope="SHLB">
-   <posXYZ volume="SINB" />
-  </composition>
-
   <box name="FTOF" X_Y_Z="252.0 268.8 2.55" material="Air" />
-  <box name="FTOB" X_Y_Z="252.0 115.8 2.55" material="Air" />
-  <box name="FTOT" X_Y_Z="252.0 115.8 2.55" material="Air" />
-  <box name="FTOY" X_Y_Z="252.0   6.18 2.55" material="Air" />
-  <box name="FTOZ" X_Y_Z="252.0   6.18 2.55" material="Air" />
-  <box name="FTON" X_Y_Z="120.0  12.18 2.55" material="Air" />
-  <box name="FTOS" X_Y_Z="120.0  12.18 2.55" material="Air" />
+  <box name="FTOB" X_Y_Z="252.0 103.53 2.55" material="Air" />
+  <box name="FTOT" X_Y_Z="252.0 103.53 2.55" material="Air" />
+  <box name="FTOJ" X_Y_Z="252.0   6.18 2.55" material="Air" />
+  <box name="FTOK" X_Y_Z="252.0   6.18 2.55" material="Air" />
+  <box name="FTOY" X_Y_Z="252.0   9.18 2.55" material="Air" />
+  <box name="FTOZ" X_Y_Z="252.0   9.18 2.55" material="Air" />
+  <box name="FTON" X_Y_Z="120.0  18.36 2.55" material="Air" />
+  <box name="FTOS" X_Y_Z="120.0  18.36 2.55" material="Air" />
   <box name="FTOC" X_Y_Z="252.0   6.0 2.54" material="Scintillator"
 					    sensitive="true" />
-  <box name="FTOH" X_Y_Z="120.0   6.0 2.54" material="Scintillator"
+  <box name="FTOL" X_Y_Z="252.0   3.0 2.54" material="Scintillator"
 					    sensitive="true" />
-  <box name="FTOX" X_Y_Z="252.0   3.0 2.54" material="Scintillator"
+  <box name="FTOH" X_Y_Z="120.0   4.5 2.54" material="Scintillator"
 					    sensitive="true" />
-  <box name="SHLH" X_Y_Z="25.0 25.0 5.715" material="Plexiglas" />
-  <box name="SINS" X_Y_Z="12.0 12.0 5.715" material="Polyethylene" />
-  <box name="SINA" X_Y_Z="9.53 9.53 5.715" material="Air" />
-  <box name="SHFT" X_Y_Z="12.0 12.0 2.55" material="Polyethylene" />
-  <box name="SINC" X_Y_Z="9.53 9.53 2.55" material="Air" />
-  <box name="SHLB" X_Y_Z="12.0 12.0 2.54" material="Polyethylene" />
-  <box name="SINB" X_Y_Z="9.53 9.53 2.54" material="Air" />
+  <box name="FTOX" X_Y_Z="252.0   4.5 2.54" material="Scintillator"
+					    sensitive="true" />
 
   <!-- The following elements describe an early rendition of the GlueX
        detector simulated using a fast Monte Carlo program MCFast.  They
