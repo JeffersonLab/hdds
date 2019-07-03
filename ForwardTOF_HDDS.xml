@@ -127,7 +127,7 @@
 					    sensitive="true" />
   <box name="FTOL" X_Y_Z="252.0   3.0 2.54" material="Scintillator"
 					    sensitive="true" />
-  <box name="FTOH" X_Y_Z="120.0   4.5 2.54" material="Scintillator"
+  <box name="FTOH" X_Y_Z="117.0   4.5 2.54" material="Scintillator"
 					    sensitive="true" />
   <box name="FTOX" X_Y_Z="252.0   4.5 2.54" material="Scintillator"
 					    sensitive="true" />
