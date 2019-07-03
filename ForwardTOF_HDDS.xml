@@ -57,8 +57,8 @@
     <posXYZ volume="forwardTOF_bottom1" X_Y_Z="0.0 -76.305 0.0" />
     <posXYZ volume="forwardTOF_bottom2" X_Y_Z="0.0 -19.95 0.0" />
     <posXYZ volume="forwardTOF_bottom3" X_Y_Z="0.0 -12.27 0.0" />
-    <posXYZ volume="forwardTOF_north" X_Y_Z="+66.0 0.0 0.0" />
-    <posXYZ volume="forwardTOF_south" X_Y_Z="-66.0 0.0 0.0" />
+    <posXYZ volume="forwardTOF_north" X_Y_Z="+67.5 0.0 0.0" /> 
+    <posXYZ volume="forwardTOF_south" X_Y_Z="-67.5 0.0 0.0" /> 
     <posXYZ volume="forwardTOF_top3" X_Y_Z="0.0 +12.27 0.0" />
     <posXYZ volume="forwardTOF_top2" X_Y_Z="0.0 +19.95 0.0" />
     <posXYZ volume="forwardTOF_top1" X_Y_Z="0.0 +76.305 0.0" />
@@ -121,8 +121,8 @@
   <box name="FTOK" X_Y_Z="252.0   6.18 2.55" material="Air" />
   <box name="FTOY" X_Y_Z="252.0   9.18 2.55" material="Air" />
   <box name="FTOZ" X_Y_Z="252.0   9.18 2.55" material="Air" />
-  <box name="FTON" X_Y_Z="120.0  18.36 2.55" material="Air" />
-  <box name="FTOS" X_Y_Z="120.0  18.36 2.55" material="Air" />
+  <box name="FTON" X_Y_Z="117.0  18.36 2.55" material="Air" />  
+  <box name="FTOS" X_Y_Z="117.0  18.36 2.55" material="Air" /> 
   <box name="FTOC" X_Y_Z="252.0   6.0 2.54" material="Scintillator"
 					    sensitive="true" />
   <box name="FTOL" X_Y_Z="252.0   3.0 2.54" material="Scintillator"
