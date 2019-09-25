@@ -88,21 +88,21 @@
 
 
   <composition name="LTDfullRow">
-    <mposX volume="LTMD" ncopy="12" Y_Z="0.0 0.0" X0="-11.495" dX="2.09">
+    <mposX volume="Module" ncopy="12" Y_Z="0.0 0.0" X0="-11.495" dX="2.09">
       <column value="0" step="1" />
     </mposX>
   </composition>
 
 
   <composition name="LTDhalfRowWest">
-    <mposX volume="LTMD" ncopy="5" Y_Z="0.0 0.0" X0="-4.18" dX="2.09">
+    <mposX volume="Module" ncopy="5" Y_Z="0.0 0.0" X0="-4.18" dX="2.09">
       <column value="7" step="1" />
     </mposX>
   </composition> 
 
 
   <composition name="LTDhalfRowEast">
-    <mposX volume="LTMD" ncopy="5" Y_Z="0.0 0.0" X0="-4.18" dX="2.09">
+    <mposX volume="Module" ncopy="5" Y_Z="0.0 0.0" X0="-4.18" dX="2.09">
       <column value="0" step="1" />
     </mposX>
   </composition>   
