@@ -54,7 +54,7 @@
      ******************************************
 -->
 <section name        = "HallD"
-         version     = "3.0"
+         version     = "3.2"
          date        = "2007-12-07"
          author      = "R.T. Jones"
          top_volume  = "SITE"
@@ -73,17 +73,29 @@
     <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 38.84"  rot="0.0 0.0 -11.25"/>
     <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.68" rot="0.0 0.0 0.0" />
     <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.938" />
-    <posXYZ volume="BarrelEMcal" X_Y_Z="0.1 -0.098 16.788" rot="-0.0424 0.01633 0.0046" />
+    <!-- The origin of the BCAL below has to be changed because these offsets combined with
+         these rotation angles lead to a lot of overlap with the FDC at the downstream end.
+         A simple explanation for this discrepancy is that the x,y offsets were originally 
+         given as the shift of the BCAL axis from the nominal beam axis at the geometric
+         midplane of the BCAL. If that were the case then the overlap problems disappear,
+         so I assume it is correct. The offsets x,y given here need to be the position of
+         BCAL origin in the LASS coordinate system. The BCAL origin, as documented in the
+         BarrelEMcal_HDDS.xml file, is the intersection of the BCAL symmetry axis with the
+         plane that defines the upstream end of the sensitive volume of the modules.
+         The shifted origin below translates the offset (0.1,-0.988) from the BCAL center
+         to the upstream end, respecting the orientation angles in the rot argument. -->
+    <!--posXYZ volume="BarrelEMcal" X_Y_Z="0.1 -0.098 16.788" rot="-0.0424 0.01633 0.0046" /-->
+    <posXYZ volume="BarrelEMcal" X_Y_Z="0.0444 -0.2423 16.788" rot="-0.0424 0.01633 0.0046" />
   </composition>
   
   <composition name="forwardPackage">
     <!--<posXYZ volume="CerenkovCntr" X_Y_Z="0.0 0.0 466.0" /> -->
     <!--posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
     <!-- To simulate DIRC hits uncomment the line below -->
-    <!--posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.0" /-->
+    <posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.600" />
     <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0427 0.0461 -0.1813"/>
     <posXYZ volume="ForwardEMcal" X_Y_Z="0.529 -0.002 624.906" rot="-0.0418 -0.07019 -0.0149" />
-    <!--posXYZ volume="ComptonEMcal" X_Y_Z="0.0 0.0 876.106" /-->
+    <!--posXYZ volume="ComptonEMcal" X_Y_Z="0.0  0.0  1279.376" /-->
   </composition>
 
   <composition name="backwardPackage">
@@ -104,7 +116,7 @@
     <posXYZ volume="GlueXdetector" X_Y_Z="150.0 -350.0 -500.0" />
     <posXYZ volume="PairSpectrometer" X_Y_Z="150.0 -350.0 -1390.16" />  
     <posXYZ volume="beamPipe" X_Y_Z="0.0 0.0 -0.5" />
-    <posXYZ volume="SixWayCross" X_Y_Z="150 -350 -605.93"/>
+    <posXYZ volume="SixWayCross" X_Y_Z="150 -350 -605.96"/>
   </composition>
 
   <composition name="LASSfieldVolume">
