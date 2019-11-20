@@ -110,6 +110,7 @@
   <composition name="forwardTOF_south" envelope="FTOS">
     <mposY volume="FTOH" ncopy="4" Z_X="0.0 0.0" Y0="-6.885" dY="4.59">
       <row value="47" step="1" />
+      <identifier field="paired_row" value="22" step="1" />
       <column value="2" />
     </mposY>
   </composition>
