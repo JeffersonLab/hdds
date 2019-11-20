@@ -49,3 +49,7 @@ bugs, please go to http://portal.gluex.org and select "forums".
 
 7) For information about the design and use of the hddm tools, see the
    documentation in index.html.
+
+Note added April, 13, 2019
+
+We have introduced two new branches named PrimEx_He_target_spring_2019 and PrimEx_Be_target_spring_2019 for these two target configurations. The names of the geometry xml files remain the standard ones in these branches, which allows an unambiguous correspondence to the tables in ccdb. Sasha is working on making two more new branches (empty Be target, removed target without cell present; and empty He target, drained with cell present) which I will name PrimEx_He_empty_spring_2019 and PrimEx_Be_empty_spring_2019.

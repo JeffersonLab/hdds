@@ -1141,6 +1141,12 @@ int CodeWriter::createSolid(DOMElement* el, Refsys& ref)
 
    DOMDocument* document = el->getOwnerDocument();
    DOMElement* matEl = document->getElementById(X(matS));
+   if (matEl == 0)
+   {
+      std::cerr << APP_NAME << " error: material " << S(matS)
+                << " is referenced but not defined." << std::endl;
+      exit(1);
+   }
    XString imateS(matEl->getAttribute(X("HDDSmate")));
    if (imateS.size() != 0)
    {

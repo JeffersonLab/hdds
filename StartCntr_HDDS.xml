@@ -15,12 +15,13 @@
                      volume STRT.
                   b) Small shift to CircuitBoards (STC1) to eliminate
                      overlaps.
+     version 4.2: small tweaks to eliminate overlaps between volumes [rtj]
  
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "StartCntr"
-         version     = "4.1"
+         version     = "4.2"
          date        = "2012-05-03"
          author      = "W. Boeglin" 
          top_volume  = "STRT" 
@@ -99,10 +100,10 @@
   
   <pcon name="STRT" material="Air" comment="start counter assembly">
     <polyplane Rio_Z="7.79 8.1   -8.67660"/>
-    <polyplane Rio_Z="7.79 8.1 -7.6606"/>
-    <polyplane Rio_Z="6.667  8.1 -7.6606"/>
-    <polyplane Rio_Z="6.667  8.1   -7.3431"/>
-    <polyplane Rio_Z="6.667 7.9      -7.3431" />
+    <polyplane Rio_Z="7.79 8.1 -7.3606"/>
+    <polyplane Rio_Z="6.667  8.1 -7.3606"/>
+    <polyplane Rio_Z="6.667  8.1   -7.0431"/>
+    <polyplane Rio_Z="6.667 7.9      -7.0431" />
     <polyplane Rio_Z="6.667 7.9      -0.4"/>
     <polyplane Rio_Z="6.667 8.450000 -0.4"/>
     <polyplane Rio_Z="6.667 8.450000 1.0" />
@@ -208,10 +209,10 @@
   <pcon name="STSR" material="Aluminum"
 	comment="Support ring for attaching to target flange">
     <polyplane Rio_Z="7.79 8.1 -8.6766"/>
-    <polyplane Rio_Z="7.79 8.1 -7.6606"/>
-    <polyplane Rio_Z="6.6726 8.1 -7.6606"/>
-    <polyplane Rio_Z="6.6726 8.1 -7.3431"/>
-    <polyplane Rio_Z="6.6726 6.9726 -7.3431"/>
+    <polyplane Rio_Z="7.79 8.1 -7.3606"/>
+    <polyplane Rio_Z="6.6726 8.1 -7.3606"/>
+    <polyplane Rio_Z="6.6726 8.1 -7.0431"/>
+    <polyplane Rio_Z="6.6726 6.9726 -7.0431"/>
     <polyplane Rio_Z="6.6726 6.9726 -0.3556"/>
     <polyplane Rio_Z="6.81228 6.9726 -0.3556"/>
     <polyplane Rio_Z="6.81228 6.9726 0.0"/>
@@ -229,8 +230,8 @@
   <pcon name="STAN" material="Nylon" 
 	comment="Right angle piece for light tightness" >
     <polyplane Rio_Z="7.9 8.42 -0.38"/>
-    <polyplane Rio_Z="7.9 8.42 -0.28"/>
-    <polyplane Rio_Z="8.32 8.42 -0.28"/>
+    <polyplane Rio_Z="7.9 8.42 -0.29"/>
+    <polyplane Rio_Z="8.32 8.42 -0.29"/>
     <polyplane Rio_Z="8.32 8.42 0.72"/>
   </pcon> 
 

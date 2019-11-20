@@ -9,94 +9,146 @@
        - change the calorimeter size to 10x10 blocks
        - change Z-position of the CCAL
        - add PWO material
-     
+     version 3.0: Adjustments for PrimEx - A.S.
+       - ahange the size of the calorimeter to 12x12 blocks
+       - add absorber
+     version 4.0:  - A.S.
+       - change the crystal size, PWO size 20.55 mm
+       - module assembly size: 20.9 mm, average size according
+         to survey group. Currently assyme Tedlar as a wrapping 
+         material. 
+         We will need to add positions of each individual module
+
 
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
-<section name        = "ComptonEMcal"
-         version     = "1.0"
-         date        = "2010-04-17"
-         author      = "P. Ambrozewicz"
-         top_volume  = "CCAL"
-         specification = "v1.0">
+<section name          = "ComptonEMcal"
+         version       = "1.0"
+         date          = "2018-12-05"
+         author        = "A. Somov"
+         top_volume    = "CCAL"
+         specification = "v1.0" >
 
 <!-- Origin of ComptonEMcal is center of upstream face of LTD (Lead Tungstate Detector) -->
 
   <composition name="ComptonEMcal">
     <apply region="nullBfield"/>
-    <posXYZ volume="comptonEMcal" X_Y_Z="0.0  0.0  9.0" />
+    <posXYZ volume="comptonEMcal" X_Y_Z="0.0  0.0  10.0" />
   </composition>
+
 
   <composition name="comptonEMcal" envelope="CCAL">
-    <posXYZ volume="LTDlower" X_Y_Z="0.0 -6.0  0.0" />
-    <posXYZ volume="LTDeast" X_Y_Z="-6.0  0.0  0.0" />
-    <posXYZ volume="LTDwest" X_Y_Z="+6.0  0.0  0.0" />
-    <posXYZ volume="LTDupper" X_Y_Z="0.0 +6.0  0.0" /> 
-  </composition>
+    <posXYZ volume="Absorber" X_Y_Z="0.0      0.0     -13.03" />
+    <posXYZ volume="LTDlower" X_Y_Z="0.0     -7.315    0.0" />
+    <posXYZ volume="LTDeast" X_Y_Z="-7.315    0.0      0.0" />
+    <posXYZ volume="LTDwest" X_Y_Z="+7.315    0.0      0.0" />
+    <posXYZ volume="LTDupper" X_Y_Z="0.0     +7.315    0.0" /> 
+  </composition> 
   
+  <composition name="Absorber" envelope="ABDO">
+    <posXYZ volume="ABSI" X_Y_Z="0.0 0.0 0.0"/>
+  </composition>
+
+  <box name="ABDO" X_Y_Z="8.315  8.315  6.05" material="Tungsten" />
+  <tubs name="ABSI" Rio_Z="0  1.86   6.05" material="Air" />
+
+
+
 
   <composition name="LTDlower" envelope="LTDB">
-    <mposY volume="LTDfullRow" ncopy="4" Z_X="0.0 0.0" Y0="-3.0" dY="2.0">
+    <mposY volume="LTDfullRow" ncopy="5" Z_X="0.0 0.0" Y0="-4.18" dY="2.09">
       <row value="0" step="1" />
     </mposY>
   </composition>
   
+
   <composition name="LTDupper" envelope="LTDT">
-    <mposY volume="LTDfullRow" ncopy="4" Z_X="0.0 0.0" Y0="-3.0" dY="2.0">
-      <row value="6" step="1" />
+    <mposY volume="LTDfullRow" ncopy="5" Z_X="0.0 0.0" Y0="-4.18" dY="2.09">
+      <row value="7" step="1" />
     </mposY>
   </composition>
   
   
  <composition name="LTDwest" envelope="LTDW">
-    <mposY volume="LTDhalfRowWest" ncopy="2" Y0="-1.0" dY="2.0">
-      <row value="4" step="1" />
+    <mposY volume="LTDhalfRowWest" ncopy="2" Y0="-1.045" dY="2.09">
+      <row value="5 " step="1" />
     </mposY>
   </composition>
   
+
   <composition name="LTDeast" envelope="LTDE">
-    <mposY volume="LTDhalfRowEast" ncopy="2" Y0="-1.0" dY="2.0">
-      <row value="4" step="1" />
+    <mposY volume="LTDhalfRowEast" ncopy="2" Y0="-1.045" dY="2.09">
+      <row value="5" step="1" />
     </mposY>
   </composition>
+
+
+
 
 
   <composition name="LTDfullRow">
-    <mposX volume="LTBL" ncopy="10" Y_Z="0.0 0.0" X0="-9.0" dX="2.0">
+    <mposX volume="Module" ncopy="12" Y_Z="0.0 0.0" X0="-11.495" dX="2.09">
       <column value="0" step="1" />
     </mposX>
   </composition>
 
-  
+
   <composition name="LTDhalfRowWest">
-    <mposX volume="LTBL" ncopy="4" Y_Z="0.0 0.0" X0="-3.0" dX="2.0">
-      <column value="6" step="1" />
+    <mposX volume="Module" ncopy="5" Y_Z="0.0 0.0" X0="-4.18" dX="2.09">
+      <column value="7" step="1" />
     </mposX>
   </composition> 
-  
-  
+
+
   <composition name="LTDhalfRowEast">
-    <mposX volume="LTBL" ncopy="4" Y_Z="0.0 0.0" X0="-3.0" dX="2.0">
+    <mposX volume="Module" ncopy="5" Y_Z="0.0 0.0" X0="-4.18" dX="2.09">
       <column value="0" step="1" />
     </mposX>
-  </composition>    
-  
+  </composition>   
 
-  <box name="CCAL" X_Y_Z="20.0  20.0  18.0"  material="Air"
+ 
+
+
+
+
+  <box name="CCAL" X_Y_Z="25.08  25.08  34.0"  material="Air"
        comment="Compton EMcal mother" />
 
-  <box name="LTDB" X_Y_Z="20.0  8.0  18.0"  material="Air"
+
+
+  <box name="LTDB" X_Y_Z="25.08  10.45  20.0"  material="Air"
        comment="LTD bottom section"   />
-  <box name="LTDT" X_Y_Z="20.0  8.0  18.0"  material="Air"
+
+
+  <box name="LTDT" X_Y_Z="25.08  10.45  20.0"  material="Air"
        comment="LTD top section"      />
-  <box name="LTDW" X_Y_Z="8.0   4.0  18.0"  material="Air"
+
+
+  <box name="LTDW" X_Y_Z="10.45   4.18  20.0"  material="Air"
        comment="LTD west section"     />
-  <box name="LTDE" X_Y_Z="8.0   4.0  18.0"  material="Air"
+
+
+  <box name="LTDE" X_Y_Z="10.45   4.18  20.0"  material="Air"
        comment="LTD east section"    />
 
-  <box name="LTBL" X_Y_Z="  2.0    2.0  18.0"  material="PWO"
+
+
+  <composition name="Module" envelope="LTMD">
+    <posXYZ volume="LTBL" X_Y_Z="0.0 0.0 0.0"/>
+  </composition>
+
+
+
+  <box name="LTMD" X_Y_Z="  2.09    2.09   20.0"  material="Tedlar"
+       comment="lead tungstate module assembly"     />
+
+
+  <box name="LTBL" X_Y_Z="  2.055    2.055  20.0"  material="PWO"
        sensitive="true"	 comment="lead tungstate block"     />
+
+
+
 
 
   <!-- The following elements describe an early rendition of the GlueX

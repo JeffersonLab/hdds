@@ -258,7 +258,7 @@
 
   <box  name="PCTT"  X_Y_Z="5.08   5.08   20." material="Tungsten" />
   <!--tubs name="PCTH"  Rio_Z="0.0    0.17   20." material="Air" /-->
-  <tubs name="PCTH"  Rio_Z="0.0    0.25   20." material="Air" />
+  <tubs name="PCTH"  Rio_Z="0.0    0.17   20." material="Tungsten" />
   <tubs name="PCTI"  Rio_Z="0.05   0.25   10." material="Tungsten" 
         comment="pin-hole insert for reduced intensity running" />
 
@@ -1248,7 +1248,7 @@
   </composition>
 
   
-  <tubs name="PTAR" Rio_Z="0.0 0.375 0.0075" material="Beryllium" 
+  <tubs name="PTAR" Rio_Z="0.0 0.375 0.0075" material="Vacuum" 
 	comment="polarimeter converter target" /> 
   
   
