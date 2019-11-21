@@ -54,7 +54,9 @@
     <posXYZ volume="LGDsouth" X_Y_Z="-84.2934   0.0  0.0" />
     <posXYZ volume="LGDnorth" X_Y_Z="+84.2934  0.0  0.0" />
     <posXYZ volume="LGDupper" X_Y_Z="  0.0 +84.2934  0.0" />
-    <posXYZ volume="FCBI" X_Y_Z="0.0  0.0  -5.4" />
+    <posXYZ volume="FCBI" X_Y_Z="0.0  0.0  -5.4" /> 
+    <posXYZ volume="LTPS" X_Y_Z="0.0  0.0  -16.035" />
+    <posXYZ volume="TABS" X_Y_Z="0.0  0.0  -19.67" />
   </composition>
 
   <composition name="LeadTungstateLower" envelope="LTLW">
@@ -183,8 +185,8 @@
   </pgon>
   <pgon name="FCBI" segments="4" profile="-45 360" material="StainlessSteel"
                     comment="FCal beam hole support insert">
-   <polyplane Rio_Z="0.82 2.09  -10.0"/>
-   <polyplane Rio_Z="0.82 2.09  +10.0"/>
+   <polyplane Rio_Z="1.89 2.09  -10.0"/>
+   <polyplane Rio_Z="1.89 2.09  +10.0"/>
   </pgon>
   <pgon name="FCBX" segments="4" profile="-45 360" material="StainlessSteel"
                     comment="FCal beam hole support extension">
@@ -192,12 +194,25 @@
    <polyplane Rio_Z="4.7536 6.0236  32.385"/>
   </pgon>
 
+  <pgon name="TABS" segments="4" profile="-45 360" material="Tungsten"
+                    comment="Tungsten absorber">
+   <polyplane Rio_Z="2.09 5.225  -3.0"/>
+   <polyplane Rio_Z="2.09 5.225  +3.0"/>
+  </pgon>
+
+
   <composition name="plexiSheet" envelope="LGPS">
     <posXYZ volume="LGPH"/>
   </composition>
   <tubs name="LGPS" Rio_Z="0.0  123.190  1.270" material="Plexiglas"/>
   <box name="LGPH" X_Y_Z="9.500 9.500 1.270" material="Air"/>
   <box name="FCLC" X_Y_Z="243.8 243.8 0.3175" material="ABS-PVC"/>
+
+  <pgon name="LTPS" segments="4" profile="-45 360" material="Plexiglas"
+                    comment="plexiglas for light monitoring">
+   <polyplane Rio_Z="2.09 50.16  -0.635"/>
+   <polyplane Rio_Z="2.09 50.16  +0.635"/>
+  </pgon>
 
   <box name="LTM1" X_Y_Z="  2.09    2.09   20.0"  material="Tedlar"
        comment="lead tungstate module assembly"     />
