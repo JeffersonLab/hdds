@@ -46,17 +46,19 @@
 
   <composition name="forwardEMcal" envelope="FCAL">
     <apply region="nullBfield"/>  
-    <posXYZ volume="LeadTungstateLower" X_Y_Z="0.0 -26.125 -5.4 "/>
-    <posXYZ volume="LeadTungstateSouth" X_Y_Z="-26.125 0. -5.4 "/>
-    <posXYZ volume="LeadTungstateNorth" X_Y_Z="26.125 0. -5.4 "/>
-    <posXYZ volume="LeadTungstateUpper" X_Y_Z="0.0 26.125 -5.4 "/>    
+    <posXYZ volume="LeadTungstateLower" X_Y_Z="0.0 -26.125 -2.9 "/>
+    <posXYZ volume="LeadTungstateSouth" X_Y_Z="-26.125 0. -2.9 "/>
+    <posXYZ volume="LeadTungstateNorth" X_Y_Z="26.125 0. -2.9 "/>
+    <posXYZ volume="LeadTungstateUpper" X_Y_Z="0.0 26.125 -2.9 "/>    
     <posXYZ volume="LGDlower" X_Y_Z="  0.0 -84.2934  0.0" />
     <posXYZ volume="LGDsouth" X_Y_Z="-84.2934   0.0  0.0" />
     <posXYZ volume="LGDnorth" X_Y_Z="+84.2934  0.0  0.0" />
     <posXYZ volume="LGDupper" X_Y_Z="  0.0 +84.2934  0.0" />
-    <posXYZ volume="FCBI" X_Y_Z="0.0  0.0  -5.4" /> 
-    <posXYZ volume="LTPS" X_Y_Z="0.0  0.0  -16.035" />
-    <posXYZ volume="TABS" X_Y_Z="0.0  0.0  -19.67" />
+    <posXYZ volume="FCBI" X_Y_Z="0.0  0.0  -2.9" /> 
+    <posXYZ volume="LTPS" X_Y_Z="0.0  0.0  -13.535" />
+    <posXYZ volume="TABS" X_Y_Z="0.0  0.0  -17.17" /> 
+    <posXYZ volume="ROHA" X_Y_Z="0.0  0.0  -19.785" /> 
+    <posXYZ volume="INTU" X_Y_Z="0.0  0.0  -1.67" />
   </composition>
 
   <composition name="LeadTungstateLower" envelope="LTLW">
@@ -196,8 +198,8 @@
 
   <pgon name="TABS" segments="4" profile="-45 360" material="Tungsten"
                     comment="Tungsten absorber">
-   <polyplane Rio_Z="2.09 5.225  -3.0"/>
-   <polyplane Rio_Z="2.09 5.225  +3.0"/>
+   <polyplane Rio_Z="1.89 5.225  -3.0"/>
+   <polyplane Rio_Z="1.89 5.225  +3.0"/>
   </pgon>
 
 
@@ -210,8 +212,13 @@
 
   <pgon name="LTPS" segments="4" profile="-45 360" material="Plexiglas"
                     comment="plexiglas for light monitoring">
-   <polyplane Rio_Z="2.09 50.16  -0.635"/>
-   <polyplane Rio_Z="2.09 50.16  +0.635"/>
+   <polyplane Rio_Z="1.89 50.16  -0.635"/>
+   <polyplane Rio_Z="1.89 50.16  +0.635"/>
+  </pgon> 
+  <pgon name="ROHA" segments="4" profile="-45 360" material="HighDensityROHACELL"
+                    comment="Rohacell plug inside FCAL">
+   <polyplane Rio_Z="5.225 50.16  -5.615"/>
+   <polyplane Rio_Z="5.225 50.16  +5.615"/>
   </pgon>
 
   <box name="LTM1" X_Y_Z="  2.09    2.09   20.0"  material="Tedlar"
@@ -228,6 +235,9 @@
 					comment="PbWO4 north section"     />
   <box name="LTSO" X_Y_Z="48.07   4.18  20.0"  material="Air"
 					comment="PbWO4 south section"    />
+  <tubs name="INTU" Rio_Z="1.69 1.89 37.0" material="Aluminum" 
+	comment="Support tube for tungsten absorber"/>
+
 
 
   <!-- The following elements describe an early rendition of the GlueX
