@@ -69,13 +69,13 @@
 
   <composition name="LeadTungstateNorth" envelope="LTNO">
     <mposY volume="LeadTungstateHalfRowNorth" ncopy="2" Y0="-1.045" dY="2.09">
-      <row value="125" step="1" />
+      <row value="123" step="1" />
     </mposY>
   </composition>
 
   <composition name="LeadTungstateSouth" envelope="LTSO">
     <mposY volume="LeadTungstateHalfRowSouth" ncopy="2" Y0="-1.045" dY="2.09">
-      <row value="125" step="1" />
+      <row value="123" step="1" />
     </mposY>
   </composition>
 
@@ -111,19 +111,19 @@
 
   <composition name="LGDnorth" envelope="LGDN">
     <mposY volume="LGDhalfRowNorth" ncopy="25" Y0="-48.1884" dY="4.0157">
-      <row value="41" step="1" />
+      <row value="17" step="1" />
     </mposY>
   </composition>
 
   <composition name="LGDsouth" envelope="LGDS">
     <mposY volume="LGDhalfRowSouth" ncopy="25" Y0="-48.1884" dY="4.0157">
-      <row value="41" step="1" />
+      <row value="17" step="1" />
     </mposY>
   </composition>
 
   <composition name="LGDupper" envelope="LGDT">
     <mposY volume="LGDfullRow" ncopy="17" Z_X="0.0 0.0" Y0="-32.1256" dY="4.0157">
-      <row value="41" step="1" />
+      <row value="42" step="1" />
     </mposY>
   </composition>
   <composition name="LGDfullRow">
@@ -134,7 +134,7 @@
 
   <composition name="LGDhalfRowNorth">
     <mposX volume="LGDblock" ncopy="17" Y_Z="0.0 0.0" X0="-32.1256" dX="4.0157">
-      <column value="41" step="1" />
+      <column value="42" step="1" />
     </mposX>
   </composition>
 
