@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: TRD/GEM for DIRC commissioning
+  **************************************************
+	 
+By default this detector is not enabled in the standard Hall-D geometry in
+HDDS. Here is how to enable it and the rest of the geometry changes needed
+for the DIRC commissioning:
+
+in main_HDDS.xml: uncomment the line for the TRDGEM_HDDS.xml in the "forwardPackage" composition
+ 
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name        = "TRDGEM"
+         version     = "1.0"
+         date        = "2019-12-02"
+         author      = "Justin Stevens"
+         top_volume  = "TGMV"
+         specification = "v1.0">
+
+<!-- Origin of TRDGEM is the downstream face of the G10 plane -->
+ <composition name="TRDGEM">
+    <posXYZ volume="TGPK" X_Y_Z="0.0  0.0  -10.0"/>
+ </composition>
+
+ <composition name="TGPK" envelope="TGMV">
+
+    <posXYZ volume="TRDG"    X_Y_Z="0.0  0.0  -44.68"> <plane value="0" /> </posXYZ>
+    <posXYZ volume="TRDG"    X_Y_Z="0.0  0.0  -41.77"> <plane value="1" /> </posXYZ>
+    <posXYZ volume="TRDG"    X_Y_Z="0.0  0.0  -26.22"> <plane value="2" /> </posXYZ>
+    <posXYZ volume="TRDG"    X_Y_Z="0.0  0.0    -4.0"> <plane value="3" /> </posXYZ>
+    <posXYZ volume="TRDG"    X_Y_Z="0.0  0.0     2.0"> <plane value="4" /> </posXYZ>
+
+  </composition>
+
+ <box name="TGMV" X_Y_Z="20.0 20.0 90.0"  material="Air" comment="forward GEM/TRD mother" />
+
+ <!-- Fake gas volume is 10cm x 10cm x 1cm  -->
+ <box name="TRDG" X_Y_Z="20.0 20.0 2.0"  material="FDchamberGas" sensitive="true" comment="Chamber gas" />
+
+</section>
+
