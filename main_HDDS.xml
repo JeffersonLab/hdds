@@ -95,7 +95,7 @@
     <!--posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
 
     <!-- To simulate TRD/GEM hits uncomment the line below -->
-    <posXYZ volume="TRDGEM" X_Y_Z="0.0 -73.94 584.7" />
+    <!--posXYZ volume="TRDGEM" X_Y_Z="0.0 -73.94 584.7" /-->
     <!-- To simulate DIRC hits uncomment the line below -->
     <posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.600" />
     <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0427 0.0461 -0.1813"/>
