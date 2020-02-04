@@ -217,8 +217,8 @@
   </pgon> 
   <pgon name="ROHA" segments="4" profile="-45 360" material="HighDensityROHACELL"
                     comment="Rohacell plug inside FCAL">
-   <polyplane Rio_Z="5.225 50.16  -5.615"/>
-   <polyplane Rio_Z="5.225 50.16  +5.615"/>
+   <polyplane Rio_Z="5.225 41.8  -5.615"/>
+   <polyplane Rio_Z="5.225 41.8  +5.615"/>
   </pgon>
 
   <box name="LTM1" X_Y_Z="  2.09    2.09   20.0"  material="Tedlar"
