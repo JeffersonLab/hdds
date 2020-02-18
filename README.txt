@@ -49,3 +49,7 @@ bugs, please go to http://portal.gluex.org and select "forums".
 
 7) For information about the design and use of the hddm tools, see the
    documentation in index.html.
+   
+8) Remark on TOF: 
+  * ForwardTOF1_HDDS.xml corresponds to the TOF geometry before 2019 upgrade
+  * ForwardTOF2_HDDS.xml corresponds to the 2019 upgraded TOF geometry
