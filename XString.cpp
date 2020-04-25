@@ -13,24 +13,22 @@
 int dumper = 0;
 
 XString::XString(void)
- : fStringCollection()
+ : fUnicode(0)
 {}
 
 XString::XString(const XMLCh* const x)
- : std::string(),
-   fStringCollection()
+ : fUnicode(0)
 {
    if (x)
    {
       char* str = xercesc::XMLString::transcode(x);
-      fStringCollection.push_back(str);
       (std::string&)*this = str;
+      xercesc::XMLString::release(&str);
    }
 }
 
 XString::XString(const char* const s)
- : std::string(),
-   fStringCollection()
+ : fUnicode(0)
 {
    if (s)
    {
@@ -40,36 +38,39 @@ XString::XString(const char* const s)
 
 XString::XString(const std::string& s)
  : std::string(s),
-   fStringCollection()
+   fUnicode(0)
 {}
 
 XString::XString(const XString& X)
  : std::string(X),
-   fStringCollection()
+   fUnicode(0)
 {}
 
 XString::~XString()
 {
-   std::list<char*>::iterator iter;
-   for (iter = fStringCollection.begin();
-        iter != fStringCollection.end();
-        ++iter)
+   if (fUnicode)
    {
-      delete [] *iter;
+      xercesc::XMLString::release(&fUnicode);
    }
 }
 
 XString& XString::operator=(const XString& X)
 {
    (std::string&)*this = (std::string&)X;
+   if (fUnicode)
+   {
+      xercesc::XMLString::release(&fUnicode);
+   }
    return *this;
 }
 
 const XMLCh* XString::unicode_str()
 {
-   XMLCh* ustr = xercesc::XMLString::transcode(this->c_str());
-   fStringCollection.push_back((char*)ustr);
-   return ustr;
+   if (fUnicode == 0)
+   {
+      fUnicode = xercesc::XMLString::transcode(this->c_str());
+   }
+   return fUnicode;
 }
 
 const XString XString::basename() const
@@ -85,25 +86,5 @@ const XString XString::basename() const
 
 void XString::dump()
 {
-   std::cerr << ">>> XString dump:" << std::endl
-             << "  >first the addresses: ";
-   std::list<char*>::iterator iter;
-   for (iter = fStringCollection.begin();
-        iter != fStringCollection.end();
-        ++iter)
-   {
-      void* x = *iter;
-      std::cerr << x << ",";
-   }
-   std::cerr << std::endl
-             << "  >and now the strings: ";
-   for (iter = fStringCollection.begin();
-        iter != fStringCollection.end();
-        ++iter)
-   {
-      XMLCh* x = (XMLCh*)(*iter);
-      char* str = xercesc::XMLString::transcode(x);
-      std::cerr << str << ",";
-   }
-   std::cerr << std::endl;
+   std::cout << *this << std::endl;
 }

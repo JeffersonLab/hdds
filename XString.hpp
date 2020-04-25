@@ -38,7 +38,7 @@ class XString: public std::string
                                     // has to keep track of memory usage.
 
  private:
-   std::list<char*> fStringCollection;
+   XMLCh* fUnicode;
   
    void dump();
 };
