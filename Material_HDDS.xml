@@ -493,13 +493,19 @@
 
   <!-- Define the composite materials -->
 
-  <element name="Vacuum" symbol="Vac" z="1" a="1">
+  <composite name="Vacuum">
+	<addmaterial material="Helium">
+		<fractionmass	fraction="0.5"	/>
+    </addmaterial>
+	<addmaterial material="Nitrogen">
+		<fractionmass	fraction="0.5"	/>
+    </addmaterial>
 	<real name="density"	value="1e-12"	unit="g/cm^3"	/>
 	<real name="radlen"	value="1.0"	unit="g/cm^2"	/>
 	<real name="collen"	value="1.0"	unit="g/cm^2"	/>
 	<real name="abslen"	value="1.0"	unit="g/cm^2"	/>
 	<real name="dedx"	value="0.0"	unit="MeV/g/cm^2"	/>
-  </element>
+  </composite>
 
   <composite name="Scintillator">
 	<addmaterial material="Carbon">   <natoms n="8"	/> </addmaterial>
