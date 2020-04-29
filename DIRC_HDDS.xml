@@ -28,7 +28,6 @@
 <!-- DIRC assembly, 4 modules -->
 
 <composition name="DIRC">
-    <apply region="nullBfield"/>
     <posXYZ volume="DRCC" X_Y_Z="0.0  0.0  -40.0" rot="0.0 0.0 0.0"/>
 </composition>
 
@@ -88,19 +87,19 @@ v4.2: DIRC gominal geometry
 
 
 	<!-- DIRC Spring 2019 Commissioning Geometry Without Rotations -->
-	<posXYZ volume="DCML10" X_Y_Z="197.06 -30.304 27.3761 " rot="0. 0. 180.">
+	<posXYZ volume="DCML10" X_Y_Z="197.06 -30.05 27.3761 " rot="0. 0. 180.">
 	<plane value="1" />
 	</posXYZ>
 
-	<posXYZ volume="DCML11" X_Y_Z="197.06 -81.7742 27.3541 " rot="0. 0. 180."> 
+	<posXYZ volume="DCML11" X_Y_Z="197.06 -81.67 27.3541 " rot="0. 0. 180."> 
 	<plane value="2" />
 	</posXYZ>
 
-	<posXYZ volume="DCML01" X_Y_Z="-196.226 29.8605 26.7995" >
+	<posXYZ volume="DCML01" X_Y_Z="-196.226 30.11 26.7995" >
 	<plane value="3" />
 	</posXYZ>
 
-	<posXYZ volume="DCML00" X_Y_Z="-196.226 81.359 26.7995" >
+	<posXYZ volume="DCML00" X_Y_Z="-196.226 81.50 26.7995" >
 	<plane value="4" />
 	</posXYZ>
 
