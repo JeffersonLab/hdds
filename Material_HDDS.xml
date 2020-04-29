@@ -1193,14 +1193,93 @@
  	</addmaterial>
 	<real name="density"	value="0.20"	unit="g/cm^3" />
     <optical_properties>
-	  <specify E="1.50" reflect="0.98" smooth="1" effic="0.0" />
-	  <specify E="2.00" reflect="0.98" smooth="1" effic="0.0" />
-	  <specify E="2.50" reflect="1.00" smooth="1" effic="0.0" />
-	  <specify E="3.00" reflect="0.99" smooth="1" effic="0.0" />
-	  <specify E="3.50" reflect="0.93" smooth="1" effic="0.0" />
-	  <specify E="4.00" reflect="0.62" smooth="1" effic="0.0" />
-	  <specify E="4.50" reflect="0.31" smooth="1" effic="0.0" />
-	  <specify E="5.00" reflect="0.00" smooth="1" effic="0.0" />
+         <specify E="1.50" reflect="0.98" smooth="1" effic="0.0" />
+         <specify E="2.00" reflect="0.98" smooth="1" effic="0.0" />
+         <specify E="2.50" reflect="1.00" smooth="1" effic="0.0" />
+         <specify E="3.00" reflect="0.99" smooth="1" effic="0.0" />
+         <specify E="3.50" reflect="0.93" smooth="1" effic="0.0" />
+         <specify E="4.00" reflect="0.62" smooth="1" effic="0.0" />
+         <specify E="4.50" reflect="0.31" smooth="1" effic="0.0" />
+         <specify E="5.00" reflect="0.00" smooth="1" effic="0.0" />
+    </optical_properties>
+  </composite>
+
+  <composite name="ThickCerenkovMirrorUVE">
+	<addmaterial material="Hydrogen">
+		<natoms n="11"/>
+ 	</addmaterial>
+	<addmaterial material="Carbon">
+		<natoms n="8"/>
+ 	</addmaterial>
+	<addmaterial material="Nitrogen">
+		<natoms n="1"/>
+ 	</addmaterial>
+	<addmaterial material="Oxygen">
+		<natoms n="2"/>
+ 	</addmaterial>
+	<real name="density"	value="0.20"	unit="g/cm^3" />
+    <optical_properties>
+         <specify E="4.133" reflect="0.813" smooth="1" effic="0.0" />
+         <specify E="4.065" reflect="0.900" smooth="1" effic="0.0" />
+         <specify E="3.999" reflect="0.858" smooth="1" effic="0.0" />
+         <specify E="3.936" reflect="0.835" smooth="1" effic="0.0" />
+         <specify E="3.874" reflect="0.821" smooth="1" effic="0.0" />
+         <specify E="3.815" reflect="0.666" smooth="1" effic="0.0" />
+         <specify E="3.757" reflect="0.613" smooth="1" effic="0.0" />
+         <specify E="3.701" reflect="0.670" smooth="1" effic="0.0" />
+         <specify E="3.646" reflect="0.765" smooth="1" effic="0.0" />
+         <specify E="3.594" reflect="0.836" smooth="1" effic="0.0" />
+         <specify E="3.542" reflect="0.901" smooth="1" effic="0.0" />
+         <specify E="3.492" reflect="0.934" smooth="1" effic="0.0" />
+         <specify E="3.444" reflect="0.950" smooth="1" effic="0.0" />
+         <specify E="3.397" reflect="0.970" smooth="1" effic="0.0" />
+         <specify E="3.351" reflect="0.972" smooth="1" effic="0.0" />
+         <specify E="3.306" reflect="0.984" smooth="1" effic="0.0" />
+         <specify E="3.263" reflect="0.980" smooth="1" effic="0.0" />
+         <specify E="3.220" reflect="0.987" smooth="1" effic="0.0" />
+         <specify E="3.179" reflect="0.989" smooth="1" effic="0.0" />
+         <specify E="3.139" reflect="0.992" smooth="1" effic="0.0" />
+         <specify E="3.099" reflect="0.993" smooth="1" effic="0.0" />
+         <specify E="3.061" reflect="0.996" smooth="1" effic="0.0" />
+         <specify E="3.024" reflect="0.997" smooth="1" effic="0.0" />
+         <specify E="2.987" reflect="0.997" smooth="1" effic="0.0" />
+         <specify E="2.952" reflect="0.998" smooth="1" effic="0.0" />
+         <specify E="2.917" reflect="1.000" smooth="1" effic="0.0" />
+         <specify E="2.883" reflect="1.000" smooth="1" effic="0.0" />
+         <specify E="2.850" reflect="0.992" smooth="1" effic="0.0"/>
+         <specify E="2.818" reflect="0.995" smooth="1" effic="0.0" />
+         <specify E="2.786" reflect="0.998" smooth="1" effic="0.0" />
+         <specify E="2.755" reflect="0.996" smooth="1" effic="0.0" />
+         <specify E="2.725" reflect="0.999" smooth="1" effic="0.0" />
+	 <specify E="2.695" reflect="1.000" smooth="1" effic="0.0" />
+         <specify E="2.666" reflect="0.998" smooth="1" effic="0.0" />
+         <specify E="2.638" reflect="0.994" smooth="1" effic="0.0" />
+         <specify E="2.610" reflect="0.994" smooth="1" effic="0.0" />
+         <specify E="2.583" reflect="0.991" smooth="1" effic="0.0" />
+         <specify E="2.556" reflect="0.987" smooth="1" effic="0.0" />
+         <specify E="2.530" reflect="0.987" smooth="1" effic="0.0" />
+         <specify E="2.505" reflect="0.990" smooth="1" effic="0.0" />
+         <specify E="2.480" reflect="0.991" smooth="1" effic="0.0" />
+         <specify E="2.455" reflect="0.987" smooth="1" effic="0.0" />
+         <specify E="2.431" reflect="0.986" smooth="1" effic="0.0" />
+         <specify E="2.407" reflect="0.981" smooth="1" effic="0.0" />
+         <specify E="2.384" reflect="0.980" smooth="1" effic="0.0" />
+         <specify E="2.362" reflect="0.978" smooth="1" effic="0.0" />
+         <specify E="2.339" reflect="0.975" smooth="1" effic="0.0" />
+         <specify E="2.317" reflect="0.975" smooth="1" effic="0.0" />
+         <specify E="2.296" reflect="0.967" smooth="1" effic="0.0" />
+         <specify E="2.275" reflect="0.960" smooth="1" effic="0.0" />
+         <specify E="2.254" reflect="0.961" smooth="1" effic="0.0" />
+         <specify E="2.234" reflect="0.958" smooth="1" effic="0.0" />
+         <specify E="2.214" reflect="0.946" smooth="1" effic="0.0" />
+         <specify E="2.194" reflect="0.937" smooth="1" effic="0.0" />
+         <specify E="2.175" reflect="0.933" smooth="1" effic="0.0" />
+         <specify E="2.156" reflect="0.927" smooth="1" effic="0.0" />
+         <specify E="2.138" reflect="0.919" smooth="1" effic="0.0" />
+         <specify E="2.119" reflect="0.906" smooth="1" effic="0.0" />
+         <specify E="2.101" reflect="0.894" smooth="1" effic="0.0" />
+         <specify E="2.084" reflect="0.885" smooth="1" effic="0.0" />
+         <specify E="2.066" reflect="0.876" smooth="1" effic="0.0" />
     </optical_properties>
   </composite>
 
