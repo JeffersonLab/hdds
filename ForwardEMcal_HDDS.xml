@@ -145,7 +145,7 @@
   <composition name="plexiSheet" envelope="LGPS">
     <posXYZ volume="LGPH"/>
   </composition>
-  <tubs name="LGPS" Rio_Z="0.0  123.190  1.270" material="Plexiglas"/>
+  <tubs name="LGPS" Rio_Z="0.0  123.190  1.270" material="InsensitivePlexiglas"/>
   <box name="LGPH" X_Y_Z="9.500 9.500 1.270" material="Air"/>
   <box name="FCLC" X_Y_Z="243.8 243.8 0.3175" material="ABS-PVC"/>
 

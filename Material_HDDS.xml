@@ -695,6 +695,17 @@
         </optical_properties>
   </composite>
 
+  <composite name="InsensitivePlexiglas">
+        <addmaterial material="Carbon">   <natoms n="5" /> </addmaterial>
+        <addmaterial material="Hydrogen"> <natoms n="8" /> </addmaterial>
+        <addmaterial material="Oxygen">   <natoms n="2" /> </addmaterial>
+        <real name="density"    value="1.20"    unit="g/cm^3"   />
+        <real name="radlen"     value="40.49"   unit="g/cm^2"   />
+        <real name="collen"     value="59.3"    unit="g/cm^2"   />
+        <real name="abslen"     value="83.0"    unit="g/cm^2"   />
+        <real name="dedx"       value="1.929"   unit="MeV/g/cm^2"       />
+  </composite>
+
   <composite name="Polystyrene">
 	<addmaterial material="Carbon">   <natoms n="8"	/> </addmaterial>
 	<addmaterial material="Hydrogen"> <natoms n="8"	/> </addmaterial>
