@@ -28,7 +28,7 @@
 <!-- DIRC assembly, 4 modules -->
 
 <composition name="DIRC">
-    <apply region="nullBfield"/>
+    <!--apply region="nullBfield"/-->
     <posXYZ volume="DRCC" X_Y_Z="0.0  0.0  -40.0" rot="0.0 0.0 0.0"/>
 </composition>
 
