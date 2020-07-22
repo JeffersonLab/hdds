@@ -18,6 +18,12 @@ SHOWBUILD = ARGUMENTS.get('SHOWBUILD', 0)
 # Get platform-specific name
 osname = os.getenv('BMS_OSNAME', 'build')
 
+# Get gcc major version
+proc=subprocess.Popen('./gccversion.sh', shell=True, stdout=subprocess.PIPE, )
+gcc_version_str=proc.communicate()[0]
+gcc_version = int(gcc_version_str.rstrip("\n"))
+print('gcc_version =', gcc_version)
+
 # Check for GDML support in ROOT
 hasGDMLsupport = False
 rootsys = os.getenv('ROOTSYS')  # needed to run root to generate GDML
@@ -66,7 +72,10 @@ if SHOWBUILD==0:
 # Turn on debug symbols and warnings
 env.PrependUnique(      CFLAGS = ['-g', '-fPIC', '-Wall'])
 env.PrependUnique(    CXXFLAGS = ['-g', '-fPIC', '-Wall'])
-env.PrependUnique(FORTRANFLAGS = ['-g', '-fPIC', '-fallow-argument-mismatch'])
+if gcc_version >= 9:
+   env.PrependUnique(FORTRANFLAGS = ['-g', '-fPIC', '-fallow-argument-mismatch'])
+else:
+   env.PrependUnique(FORTRANFLAGS = ['-g', '-fPIC'])
 
 # Common source files used for all programs
 COMMONSRC = ['hddsCommon.cpp', 'XParsers.cpp', 'XString.cpp', 'md5.c']
