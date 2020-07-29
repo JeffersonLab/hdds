@@ -20,7 +20,7 @@ osname = os.getenv('BMS_OSNAME', 'build')
 
 # Get gcc major version
 proc=subprocess.Popen('./gccversion.sh', shell=True, stdout=subprocess.PIPE, )
-gcc_version_str=proc.communicate()[0]
+gcc_version_str=str(proc.communicate()[0], 'utf-8')
 gcc_version = int(gcc_version_str.rstrip("\n"))
 print('gcc_version =', gcc_version)
 
