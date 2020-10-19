@@ -1,4 +1,13 @@
+from __future__ import print_function
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import unicode_literals
 
+from builtins import int
+from builtins import str
+from builtins import map
+from future import standard_library
+standard_library.install_aliases()
 import os
 import sys
 import subprocess
@@ -20,7 +29,7 @@ osname = os.getenv('BMS_OSNAME', 'build')
 
 # Get gcc major version
 proc=subprocess.Popen('./gccversion.sh', shell=True, stdout=subprocess.PIPE, )
-gcc_version_str=proc.communicate()[0]
+gcc_version_str=str(proc.communicate()[0], 'utf-8')
 gcc_version = int(gcc_version_str.rstrip("\n"))
 print('gcc_version =', gcc_version)
 
