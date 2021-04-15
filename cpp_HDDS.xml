@@ -93,7 +93,7 @@ The ForwardMWPC has been added.
     <!--posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.600" /-->
     <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0427 0.0461 -0.1813"/>
     <posXYZ volume="ForwardEMcal" X_Y_Z="0.529 -0.002 624.906" rot="-0.0418 -0.07019 -0.0149" />
-    <posXYZ volume="ForwardMWPC" X_Y_Z="0.0 0.0 925.406" />
+    <posXYZ volume="ForwardMWPC" X_Y_Z="0.0 0.0 805.325" />
   </composition>
 
   <composition name="GlueXdetector">
