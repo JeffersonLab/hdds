@@ -73,18 +73,27 @@ in main_HDDS.xml
 
 
     <posXYZ volume="CPPAbsorber1" X_Y_Z="0.0  0.0   2.50" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0   7.63"> <layer value="1" /> </posXYZ>
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0   7.63" rot="0.0 0.0 90.0"> 
+      <layer value="1" /> 
+    </posXYZ>
     <posXYZ volume="CPPAbsorber2" X_Y_Z="0.0  0.0  15.26" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  22.89"> <layer value="2" /> </posXYZ>
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  22.89"> 
+      <layer value="2" /> 
+    </posXYZ>
     <posXYZ volume="CPPAbsorber3" X_Y_Z="0.0  0.0  33.02" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  43.15"> <layer value="3" /> </posXYZ>
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  43.15" rot="0.0 0.0 90.0"> 
+      <layer value="3" /> 
+    </posXYZ>
     <posXYZ volume="CPPAbsorber4" X_Y_Z="0.0  0.0  63.28" />
     <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  83.41"> <layer value="4" /> </posXYZ>
     <posXYZ volume="CPPAbsorber5" X_Y_Z="0.0  0.0 103.54" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 123.67"> <layer value="5" /> </posXYZ>
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 128.93"> <layer value="6" /> </posXYZ>
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 123.67" rot="0.0 0.0 90.0">
+      <layer value="5" /> 
+    </posXYZ>
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 128.93" rot="0.0 0.0 90.0">
+      <layer value="6" /> 
+    </posXYZ>
    
-
   </composition>
 
  <composition name="CPPAbsorber1" envelope="CPA1"> <posXYZ volume="CPH1" X_Y_Z="0.0 0.0 0.0" /> </composition>
@@ -95,18 +104,25 @@ in main_HDDS.xml
 
  <composition name="CPPChamber" envelope="CPPF">
     <posXYZ volume="CPPWall" X_Y_Z="0.0 0.0 -1.815" />
-    <posXYZ volume="CPPG" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="CPPG" X_Y_Z="0.0 0.0 -1.0" />
+    <posXYZ volume="CPPWireDeadeningRegion" X_Y_Z="0.0 0.0 0.0" rot="0.0 90.0 0.0"/>
     <posXYZ volume="CPPWall" X_Y_Z="0.0 0.0 1.815" />
  </composition>
 
  <composition name="CPPWall" envelope="CPPW">
     <posXYZ volume="CPPPlate" X_Y_Z="0.0 0.0 -0.735" />
-    <posXYZ volume="CPPC" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="CPH6" X_Y_Z="0.0 0.0 0.0" />
     <posXYZ volume="CPPPlate" X_Y_Z="0.0 0.0 0.735" />
  </composition>
 
  <composition name="CPPPlate" envelope="CPPP">
     <posXYZ volume="CPPH" X_Y_Z="0.0 0.0 0.0" />
+ </composition>
+
+ <composition name="CPPWireDeadeningRegion" envelope="CPDR">
+   <posXYZ volume="CPWI" X_Y_Z="-0.99925 0.0 0.0" rot="0.0 90.0 0.0" />  
+   <mposY volume="CPCT" ncopy="10" Z_X="0.0 0.0" Y0="-4.5" dY="1.0" />
+   <posXYZ volume="CPWI" X_Y_Z="+0.99925 0.0 0.0" rot="0.0 90.0 0.0" />
  </composition>
 
   <!--box name="MWPC" X_Y_Z="165.0 165.0 401.92"  material="Air" comment="forward MWPC mother" /-->
@@ -147,19 +163,31 @@ in main_HDDS.xml
   <box name="CPPF" X_Y_Z="162.56 162.56 5.26"  material="FR-4" comment="G10 frame" />
 
   <!-- MWPC gas is 60" x 60" x 2cm  -->
-  <box name="CPPG" X_Y_Z="152.4 152.4 2.0"  material="FDchamberGas" 
-       sensitive="true" comment="Chamber gas" />
-
+  <!--box name="CPPG" X_Y_Z="152.4 152.4 2.0"  material="FMWPCchamberGas" 
+       sensitive="true" comment="Chamber gas" /-->
+  <pgon name="CPPG" segments="4" profile="-45 360" material="FMWPCchamberGas" 
+	sensitive="true" comment="Active volume of chamber gas">
+    <polyplane Rio_Z="5.0 76.2 0.0"/>
+    <polyplane Rio_Z="5.0 76.2 2.0"/>
+  </pgon>
+  
   <!-- MWPC aluminum wall 60" x 60" x 1.63cm  -->
-  <box name="CPPW" X_Y_Z="152.4 152.4 1.63"  material="Air" comment="Aluminum panel mother" />
+  <box name="CPPW" X_Y_Z="152.4 152.4 1.63"  material="AluminumComb" comment="Aluminum panel mother" />
 
-  <!-- MWPC aluminum comb 60" x 60" x 1.27cm  -->
-  <box name="CPPC" X_Y_Z="152.4 152.4 1.27"  material="AluminumComb" comment="Aluminum comb" />
+  <!-- Hole through wall for passage of beam  -->
+  <tubs name="CPH6" Rio_Z="0. 2.54 1.312"  material="Air" comment="beam hole" />
 
   <!-- MWPC aluminum plate 60" x 60" x 1/16"  -->
   <box name="CPPP" X_Y_Z="152.4 152.4 0.159"  material="Aluminum" comment="Aluminum plate" />
 
   <tubs name="CPPH" Rio_Z="0.0 2.54 0.159" material="Air" comment="Aluminum Plate Hole"/>
+  
+  <tubs name="CPWI" Rio_Z="0.0 3.81 0.0015" material="Aluminum" comment="Aluminum window"/>
+  
+  <!-- Wire deadening region 10cm x 10 cm x 2cm  -->
+  <box name="CPDR" X_Y_Z="2.0 10.0 10.0"  material="FMWPCchamberGas" comment="Wire deadening region" />
+
+  <tubs name="CPCT" Rio_Z="0.028 0.071 10.0" material="CarbonFiber" comment="carbon fiber tubes"/>
 
 </section>
 
