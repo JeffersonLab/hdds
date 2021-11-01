@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: Downsteam scintillators for Charged Pion Polarizability
+  **************************************************
+
+     version 1.0: Initial version	-ST
+
+By default these detectors are not enabled in the standard Hall-D geometry in
+HDDS. Here is how to enable them:
+
+in main_HDDS.xml
+=================
+1. uncomment the line for the CppScint in the "forwardPackage" composition
+
+ 
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name        = "CppScint"
+         version     = "1.0"
+         date        = "2021-10-25"
+         author      = "S. Taylor"
+         top_volume  = "HALL"
+         specification = "v1.0">
+
+<!-- Origin is center of upstream face of each paddle -->
+
+ <composition name="CppScint">
+   <posXYZ volume="CPPPaddle" X_Y_Z="-58.2 0.0 0.0">
+     <column value="0"/>
+   </posXYZ>
+   <posXYZ volume="CPPPaddle" X_Y_Z="-38.1 0.0 0.0">
+     <column value="1"/>
+   </posXYZ>
+   <posXYZ volume="CPPPaddle" X_Y_Z="38.1 0.0 0.0">
+     <column value="2"/>
+   </posXYZ>
+   <posXYZ volume="CPPPaddle" X_Y_Z="58.2 0.0 0.0">
+     <column value="3"/>
+   </posXYZ>
+ </composition>
+
+ <composition name="CPPPaddle" envelope="CTFM">
+   <posXYZ volume="CTLG" X_Y_Z="0.0 -71.303 0.0" rot="90.0 90.0 0.0"/>
+   <posXYZ volume="CTOF" X_Y_Z="0.0 0.0 0.0"/>
+   <posXYZ volume="CTLG" X_Y_Z="0.0 71.303 0.0" rot="90.0 90.0 0.0"/>
+ </composition>
+ 
+ <!-- Scintillators for efficiency measurements -->
+ <box name="CTFM" X_Y_Z="20 165.212 1.27" material="Air" comment="Mother volume for downstream scintillator paddles" />
+ <box name="CTOF" X_Y_Z="20 120 1.27" material="Scintillator" sensitive="true" comment="downstream scintilator sentive volume"/>
+ <trd name="CTLG" Xmp_Ymp_Z="1.27 1.27 20.0 5.08 22.606" material="Plexiglas" comment="Light guide"/> 
+
+</section>
