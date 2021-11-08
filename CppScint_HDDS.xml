@@ -28,16 +28,16 @@ in main_HDDS.xml
 
  <composition name="CppScint">
    <posXYZ volume="CPPPaddle" X_Y_Z="-58.2 0.0 0.0">
-     <column value="0"/>
-   </posXYZ>
-   <posXYZ volume="CPPPaddle" X_Y_Z="-38.1 0.0 0.0">
      <column value="1"/>
    </posXYZ>
-   <posXYZ volume="CPPPaddle" X_Y_Z="38.1 0.0 0.0">
+   <posXYZ volume="CPPPaddle" X_Y_Z="-38.1 0.0 0.0">
      <column value="2"/>
    </posXYZ>
-   <posXYZ volume="CPPPaddle" X_Y_Z="58.2 0.0 0.0">
+   <posXYZ volume="CPPPaddle" X_Y_Z="38.1 0.0 0.0">
      <column value="3"/>
+   </posXYZ>
+   <posXYZ volume="CPPPaddle" X_Y_Z="58.2 0.0 0.0">
+     <column value="4"/>
    </posXYZ>
  </composition>
 
