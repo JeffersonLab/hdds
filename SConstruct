@@ -81,6 +81,7 @@ if SHOWBUILD==0:
 # Turn on debug symbols and warnings
 env.PrependUnique(      CFLAGS = ['-g', '-fPIC', '-Wall'])
 env.PrependUnique(    CXXFLAGS = ['-g', '-fPIC', '-Wall'])
+env.PrependUnique(    CXXFLAGS = ['-std=c++11'])
 if gcc_version >= 10:
    env.PrependUnique(FORTRANFLAGS = ['-g', '-fPIC', '-fallow-argument-mismatch'])
 else:
