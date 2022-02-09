@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: GEM-TRD for proposed GlueX upgrade
+  *************************************************************
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name        = "GEMTRD"
+         version     = "1.0"
+         date        = "2022-02-04"
+         author      = "Simon Taylor"
+         top_volume  = "GTMV"
+         specification = "v1.0">
+
+<composition name="GEMTRD" envelope="GTMV">
+  <posXYZ volume="GTRD" X_Y_Z="0.0 30.15 -1.5" />
+  <posXYZ volume="GTRD" X_Y_Z="0.0 -30.15 -1.5" />
+  <posXYZ volume="GTSV" X_Y_Z="0.0 30.15 7.0">
+    <layer value="0"/>
+  </posXYZ>
+  <posXYZ volume="GTSV" X_Y_Z="0.0 -30.15 7.0">
+    <layer value="1"/>
+  </posXYZ>
+</composition>
+
+<box name="GTRD" X_Y_Z="139.2 52.8 15." material="TRDradiator" comment="TRD/GEM radiator"/>
+<box name="GTSV" X_Y_Z="139.2 52.8 2." material="GTchamberGas" sensitive="true" comment="Chamber gas"/>
+<box name="GTMV" X_Y_Z="150. 150. 18." material="Air" comment="forward GEM/TRD mother" />
+
+</section>

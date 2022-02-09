@@ -18,7 +18,8 @@
   <!ENTITY UpstreamEMveto_s SYSTEM "UpstreamEMveto_HDDS.xml">
   <!ENTITY ComptonEMcal_s SYSTEM "ComptonEMcal_HDDS.xml">
   <!ENTITY DIRC_s SYSTEM "DIRC_HDDS.xml">
-  <!ENTITY TRDGEM_s SYSTEM "TRDGEM_HDDS.xml">
+  <!--!ENTITY TRDGEM_s SYSTEM "TRDGEM_HDDS.xml"-->
+  <!ENTITY GEMTRD_s SYSTEM "GEMTRD_HDDS.xml">
 
 ]>
 
@@ -48,7 +49,8 @@
      &PairSpect_s;     
      &ComptonEMcal_s;
      &DIRC_s;
-     &TRDGEM_s;
+     &GEMTRD_s;
+<!--     &TRDGEM_s; -->
 <!-- End of include    -->
 
 
@@ -94,8 +96,10 @@
     <!--<posXYZ volume="CerenkovCntr" X_Y_Z="0.0 0.0 466.0" /> -->
     <!--posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
 
+    <posXYZ volume="GEMTRD" X_Y_Z="0. 0. 469.0"/>
+
     <!-- To simulate TRD/GEM hits uncomment the line below -->
-    <posXYZ volume="TRDGEM" X_Y_Z="0.0 -73.94 584.7" />
+    <!--posXYZ volume="TRDGEM" X_Y_Z="0.0 -73.94 584.7" /-->
     <!-- To simulate DIRC hits uncomment the line below -->
     <posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.600" />
     <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0427 0.0461 -0.1813"/>
