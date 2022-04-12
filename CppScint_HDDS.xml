@@ -27,16 +27,16 @@ in main_HDDS.xml
 <!-- Origin is center of upstream face of each paddle -->
 
  <composition name="CppScint">
-   <posXYZ volume="CPPPaddle" X_Y_Z="-48.2 0.0 0.0">
+   <posXYZ volume="CPPPaddle" X_Y_Z="-42.1 0.0 0.0">
      <column value="1"/>
    </posXYZ>
-   <posXYZ volume="CPPPaddle" X_Y_Z="-28.0 0.0 0.0">
+   <posXYZ volume="CPPPaddle" X_Y_Z="-21.9 0.0 0.0">
      <column value="2"/>
    </posXYZ>
-   <posXYZ volume="CPPPaddle" X_Y_Z="28.0 0.0 0.0">
+   <posXYZ volume="CPPPaddle" X_Y_Z="21.9 0.0 0.0">
      <column value="3"/>
    </posXYZ>
-   <posXYZ volume="CPPPaddle" X_Y_Z="48.2 0.0 0.0">
+   <posXYZ volume="CPPPaddle" X_Y_Z="42.1 0.0 0.0">
      <column value="4"/>
    </posXYZ>
  </composition>
