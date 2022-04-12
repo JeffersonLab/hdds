@@ -21,14 +21,27 @@
 
   <composition name="TargetCPP">
     <posXYZ volume="TARG" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="HBSR" X_Y_Z="0.0 0.0 11.65"/>
+    <posXYZ volume="HeliumBag" X_Y_Z="0.0 0.0 61.965"/>
   </composition>
 
   <composition name="TARG">
-  	<posXYZ volume="TGT0" X_Y_Z="0. 0. 0."/>
+    <posXYZ volume="TGT0" X_Y_Z="0. 0. 0."/>
   </composition>
   
-  <tubs name="TGT0" Rio_Z="0.0 2.0 0.028" material="Lead"/>
+  <composition name="HeliumBag" envelope="HEBG">
+    <posXYZ volume="HEBC" X_Y_Z="0. 0. -53.34"/>
+    <posXYZ volume="HEBT" X_Y_Z="0. 0. 7.62"/>
+    <posXYZ volume="HEBW" X_Y_Z="0. 0. -60.9625"/>
+    <posXYZ volume="HEBW" X_Y_Z="0. 0. +60.9625"/>
+  </composition>
 
+  <tubs name="TGT0" Rio_Z="0.0 2.0 0.028" material="Lead"/>
+  <tubs name="HEBG" Rio_Z="0.0 8.255 121.93" material="Helium" comment="helium bag mother volume"/>
+  <tubs name="HEBC" Rio_Z="7.655 8.255 15.24" material="Polyethylene" comment="collar for helium bag"/>
+  <tubs name="HEBT" Rio_Z="8.25 8.255 106.68" material="AluminizedMylar" comment="Helium bag tube"/>
+  <tubs name="HEBW" Rio_Z="0. 8.255 0.005" material="AluminizedMylar" comment="Helium bag entrance/exit window"/>
+  <tubs name="HBSR" Rio_Z="8.255 8.75 1.0" material="ABS-PVC" comment="Helium bag support ring"/>
 </section>
 
 <!-- </HDDS> -->
