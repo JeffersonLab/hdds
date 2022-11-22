@@ -85,12 +85,14 @@ in main_HDDS.xml
       <layer value="3" /> 
     </posXYZ>
     <posXYZ volume="CPPAbsorber4" X_Y_Z="0.0  0.0  63.28" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  83.41"> <layer value="4" /> </posXYZ>
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  83.41">
+      <layer value="4" /> 
+    </posXYZ>
     <posXYZ volume="CPPAbsorber5" X_Y_Z="0.0  0.0 103.54" />
     <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 123.67" rot="0.0 0.0 90.0">
       <layer value="5" /> 
     </posXYZ>
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 128.93" rot="0.0 0.0 90.0">
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 128.93">
       <layer value="6" /> 
     </posXYZ>
    
