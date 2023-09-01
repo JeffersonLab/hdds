@@ -890,6 +890,15 @@
 	<real name="density"	value="0.102"	unit="g/cm^3" />
   </composite>
 
+  <composite name="GTchamberGas">
+	<addmaterial material="Xenon">
+		<fractionmass	fraction="0.96"	/>
+ 	</addmaterial>
+	<addmaterial material="CO2">
+		<fractionmass	fraction="0.04"	/>
+ 	</addmaterial>
+  </composite>
+
   <composite name="FDchamberGas">
 	<addmaterial material="Argon">
 		<fractionmass	fraction="0.38"	/>
@@ -1609,6 +1618,12 @@
       <specify E="4.50" refindex="1.406" abslen="2.43" />
       <specify E="5.00" refindex="1.406" abslen="2.43" />
     </optical_properties>
+  </composite>
+
+  <composite name="TRDradiator">	
+    <addmaterial material="Hydrogen"> <natoms n="6" /> </addmaterial>
+    <addmaterial material="Carbon"> <natoms n="3" /> </addmaterial>
+    <real name="density" value="0.0756" unit="g/cm^3" />
   </composite>
 
 </materials>
