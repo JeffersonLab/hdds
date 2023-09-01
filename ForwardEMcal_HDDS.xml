@@ -45,35 +45,85 @@
   </composition>
 
   <composition name="forwardEMcal" envelope="FCAL">
-    <apply region="nullBfield"/>
-    <posXYZ volume="LGDlower" X_Y_Z="  0.0 -62.24335  0.0" />
-    <posXYZ volume="LGDsouth" X_Y_Z="-62.24335   0.0  0.0" />
-    <posXYZ volume="LGDnorth" X_Y_Z="+62.24335   0.0  0.0" />
-    <posXYZ volume="LGDupper" X_Y_Z="  0.0 +62.24335  0.0" />
-    <posXYZ volume="FCBI" X_Y_Z="0.0  0.0  0.0" />
+    <apply region="nullBfield"/>  
+    <posXYZ volume="LeadTungstateLower" X_Y_Z="0.0 -21.945 -2.9 "/>
+    <posXYZ volume="LeadTungstateSouth" X_Y_Z="-21.945 0. -2.9 "/>
+    <posXYZ volume="LeadTungstateNorth" X_Y_Z="21.945 0. -2.9 "/>
+    <posXYZ volume="LeadTungstateUpper" X_Y_Z="0.0 21.945 -2.9 "/>    
+    <posXYZ volume="LGDlower" X_Y_Z="  0.0 -80.2777  0.0" />
+    <posXYZ volume="LGDsouth" X_Y_Z="-80.2777   0.0  0.0" />
+    <posXYZ volume="LGDnorth" X_Y_Z="+80.2777  0.0  0.0" />
+    <posXYZ volume="LGDupper" X_Y_Z="  0.0 +80.2777  0.0" />
+    <posXYZ volume="FCBI" X_Y_Z="0.0  0.0  -2.9" /> 
+    <posXYZ volume="TABS" X_Y_Z="0.0  0.0  -17.17" /> 
+    <!--posXYZ volume="ROHA" X_Y_Z="0.0  0.0  -19.785" /--> 
+    <posXYZ volume="INTU" X_Y_Z="0.0  0.0  -1.67" />  
+    <posXYZ volume="ITOF" X_Y_Z="0.0 0.0 -25.0"/>
+  </composition>
+
+  <composition name="LeadTungstateLower" envelope="LTLW">
+    <mposY volume="LeadTungstateFullRow" ncopy="19" Z_X="0.0 0.0" Y0="-18.81" dY="2.09">
+      <row value="100" step="1" />
+    </mposY>
+  </composition>
+
+  <composition name="LeadTungstateNorth" envelope="LTNO">
+    <mposY volume="LeadTungstateHalfRowNorth" ncopy="2" Y0="-1.045" dY="2.09">
+      <row value="119" step="1" />
+    </mposY>
+  </composition>
+
+  <composition name="LeadTungstateSouth" envelope="LTSO">
+    <mposY volume="LeadTungstateHalfRowSouth" ncopy="2" Y0="-1.045" dY="2.09">
+      <row value="119" step="1" />
+    </mposY>
+  </composition>
+
+  <composition name="LeadTungstateUpper" envelope="LTUP">
+    <mposY volume="LeadTungstateFullRow" ncopy="19" Z_X="0.0 0.0" Y0="-18.81" dY="2.09">
+      <row value="121" step="1" />
+    </mposY>
+  </composition>
+
+  <composition name="LeadTungstateFullRow">
+    <mposX volume="LTBLwrapped" ncopy="40" Y_Z="0.0 0.0" X0="-40.755" dX="2.09">
+      <column value="100" step="1" />
+    </mposX>
+  </composition>
+
+  <composition name="LeadTungstateHalfRowNorth">
+    <mposX volume="LTBLwrapped" ncopy="19" Y_Z="0.0 0.0" X0="-18.81" dX="2.09">
+      <column value="121" step="1" />
+    </mposX>
+  </composition>
+
+  <composition name="LeadTungstateHalfRowSouth">
+    <mposX volume="LTBLwrapped" ncopy="19" Y_Z="0.0 0.0" X0="-18.81" dX="2.09">
+      <column value="100" step="1" />
+    </mposX>
   </composition>
 
   <composition name="LGDlower" envelope="LGDB">
-    <mposY volume="LGDfullRow" ncopy="28" Z_X="0.0 0.0" Y0="-54.21195" dY="4.0157">
+    <mposY volume="LGDfullRow" ncopy="19" Z_X="0.0 0.0" Y0="-36.1413" dY="4.0157">
       <row value="0" step="1" />
     </mposY>
   </composition>
 
   <composition name="LGDnorth" envelope="LGDN">
-    <mposY volume="LGDhalfRowNorth" ncopy="3" Y0="-4.0157" dY="4.0157">
-      <row value="28" step="1" />
+    <mposY volume="LGDhalfRowNorth" ncopy="21" Y0="-40.157" dY="4.0157">
+      <row value="19" step="1" />
     </mposY>
   </composition>
 
   <composition name="LGDsouth" envelope="LGDS">
-    <mposY volume="LGDhalfRowSouth" ncopy="3" Y0="-4.0157" dY="4.0157">
-      <row value="28" step="1" />
+    <mposY volume="LGDhalfRowSouth" ncopy="21" Y0="-40.157" dY="4.0157">
+      <row value="19" step="1" />
     </mposY>
   </composition>
 
   <composition name="LGDupper" envelope="LGDT">
-    <mposY volume="LGDfullRow" ncopy="28" Z_X="0.0 0.0" Y0="-54.21195" dY="4.0157">
-      <row value="31" step="1" />
+    <mposY volume="LGDfullRow" ncopy="19" Z_X="0.0 0.0" Y0="-36.1413" dY="4.0157">
+      <row value="40" step="1" />
     </mposY>
   </composition>
   <composition name="LGDfullRow">
@@ -83,13 +133,13 @@
   </composition>
 
   <composition name="LGDhalfRowNorth">
-    <mposX volume="LGDblock" ncopy="28" Y_Z="0.0 0.0" X0="-54.21195" dX="4.0157">
-      <column value="31" step="1" />
+    <mposX volume="LGDblock" ncopy="19" Y_Z="0.0 0.0" X0="-36.1413" dX="4.0157">
+      <column value="40" step="1" />
     </mposX>
   </composition>
 
   <composition name="LGDhalfRowSouth">
-    <mposX volume="LGDblock" ncopy="28" Y_Z="0.0 0.0" X0="-54.21195" dX="4.0157">
+    <mposX volume="LGDblock" ncopy="19" Y_Z="0.0 0.0" X0="-36.1413" dX="4.0157">
       <column value="0" step="1" />
     </mposX>
   </composition>
@@ -104,17 +154,21 @@
 
   <composition name="LGBLwrapped" envelope="LGBW">
     <posXYZ volume="LGBL"/>
+  </composition>  
+
+  <composition name="LTBLwrapped" envelope="LTM1">
+    <posXYZ volume="LTB1"/>
   </composition>
 
   <box name="FCAL" X_Y_Z="236.9263  236.9263  50.8"  material="Air"
 	                              	comment="forward EMcal mother" />
-  <box name="LGDB" X_Y_Z="236.9263  112.4396  50.8"  material="Air"
+  <box name="LGDB" X_Y_Z="236.9263  76.2983  50.8"  material="Air"
 					comment="LGD bottom section"   />
-  <box name="LGDT" X_Y_Z="236.9263  112.4396  50.8"  material="Air"
+  <box name="LGDT" X_Y_Z="236.9263  76.2983  50.8"  material="Air"
 					comment="LGD top section"      />
-  <box name="LGDN" X_Y_Z="112.4396   12.0471  50.8"  material="Air"
+  <box name="LGDN" X_Y_Z="76.2983   84.3297  50.8"  material="Air"
 					comment="LGD north section"     />
-  <box name="LGDS" X_Y_Z="112.4396   12.0471  50.8"  material="Air"
+  <box name="LGDS" X_Y_Z="76.2983   84.3297  50.8"  material="Air"
 					comment="LGD south section"    />
   <box name="LGBU" X_Y_Z="4.0157  4.0157  50.8"  material="Air"
 		            comment="lead glass block stacking unit cell"/>
@@ -133,8 +187,8 @@
   </pgon>
   <pgon name="FCBI" segments="4" profile="-45 360" material="StainlessSteel"
                     comment="FCal beam hole support insert">
-   <polyplane Rio_Z="4.7536 6.0235  -25.400"/>
-   <polyplane Rio_Z="4.7536 6.0235  +25.400"/>
+   <polyplane Rio_Z="1.89 2.09  -10.0"/>
+   <polyplane Rio_Z="1.89 2.09  +10.0"/>
   </pgon>
   <pgon name="FCBX" segments="4" profile="-45 360" material="StainlessSteel"
                     comment="FCal beam hole support extension">
@@ -142,12 +196,49 @@
    <polyplane Rio_Z="4.7536 6.0236  32.385"/>
   </pgon>
 
+  <pgon name="TABS" segments="4" profile="-45 360" material="Tungsten"
+                    comment="Tungsten absorber">
+   <polyplane Rio_Z="1.89 5.225  -3.0"/>
+   <polyplane Rio_Z="1.89 5.225  +3.0"/>
+  </pgon>
+
+
   <composition name="plexiSheet" envelope="LGPS">
     <posXYZ volume="LGPH"/>
   </composition>
   <tubs name="LGPS" Rio_Z="0.0  123.190  1.270" material="Plexiglas"/>
-  <box name="LGPH" X_Y_Z="9.500 9.500 1.270" material="Air"/>
+  <box name="LGPH" X_Y_Z="85.00 85.00 1.270" material="Air"/>
   <box name="FCLC" X_Y_Z="243.8 243.8 0.3175" material="ABS-PVC"/>
+
+  <pgon name="ROHA" segments="4" profile="-45 360" material="HighDensityROHACELL"
+                    comment="Rohacell plug inside FCAL">
+   <polyplane Rio_Z="5.225 41.8  -5.615"/>
+   <polyplane Rio_Z="5.225 41.8  +5.615"/>
+  </pgon>
+
+  <box name="LTM1" X_Y_Z="  2.09    2.09   20.0"  material="Tedlar"
+       comment="lead tungstate module assembly"     />
+  <box name="LTB1" X_Y_Z="  2.055    2.055  20.0"  material="PWO"
+       sensitive="true"	 comment="lead tungstate block"     />
+
+
+  <box name="LTLW" X_Y_Z="83.6  39.71  20.0"  material="Air"
+					comment="PbWO4 bottom section"   />
+  <box name="LTUP" X_Y_Z="83.6  39.71  20.0"  material="Air"
+					comment="PbWO4 top section"      />
+  <box name="LTNO" X_Y_Z="39.71   4.18  20.0"  material="Air"
+					comment="PbWO4 north section"     />
+  <box name="LTSO" X_Y_Z="39.71   4.18  20.0"  material="Air"
+					comment="PbWO4 south section"    />
+  <tubs name="INTU" Rio_Z="1.69 1.89 37.0" material="Aluminum" 
+	comment="Support tube for tungsten absorber"/>
+
+  <pgon name="ITOF" segments="4" profile="-45 360" material="Scintillator"
+	sensitive="true">
+    <polyplane Rio_Z="5.0 42. 0.0"/>
+    <polyplane Rio_Z="5.0 42. 0.4"/>
+  </pgon>
+
 
 
   <!-- The following elements describe an early rendition of the GlueX
@@ -201,3 +292,5 @@
 </section>
 
 <!-- </HDDS> -->
+  
+  
