@@ -51,87 +51,92 @@
     <posXYZ volume="forwardTOF" X_Y_Z="0.0  0.0 1.27" rot="0 0 0">
       <plane value="1" />
     </posXYZ>
+     <posXYZ volume="ITOF" X_Y_Z="0.0 0.0 5.35"/>
   </composition>
 
   <composition name="forwardTOF" envelope="FTOF">
-    <posXYZ volume="forwardTOF_bottom1" X_Y_Z="0.0 -76.305 0.0" />
-    <posXYZ volume="forwardTOF_bottom2" X_Y_Z="0.0 -19.95 0.0" />
-    <posXYZ volume="forwardTOF_bottom3" X_Y_Z="0.0 -12.27 0.0" />
-    <posXYZ volume="forwardTOF_north" X_Y_Z="+67.5 0.0 0.0" /> 
-    <posXYZ volume="forwardTOF_south" X_Y_Z="-67.5 0.0 0.0" /> 
-    <posXYZ volume="forwardTOF_top3" X_Y_Z="0.0 +12.27 0.0" />
-    <posXYZ volume="forwardTOF_top2" X_Y_Z="0.0 +19.95 0.0" />
-    <posXYZ volume="forwardTOF_top1" X_Y_Z="0.0 +76.305 0.0" />
+    <posXYZ volume="forwardTOF_bottom1" X_Y_Z="0.0 -85.44 0.0" /> 
+    <posXYZ volume="forwardTOF_north2" X_Y_Z="+82.9025 24.405 0.0" /> 
+    <posXYZ volume="forwardTOF_north1" X_Y_Z="+82.9025 -24.405 0.0" /> 
+    <posXYZ volume="forwardTOF_north" X_Y_Z="+82.9025 0.0 0.0" /> 
+    <posXYZ volume="forwardTOF_south" X_Y_Z="-82.9025 0.0 0.0" /> 
+    <posXYZ volume="forwardTOF_south1" X_Y_Z="-82.9025 -24.405 0.0" /> 
+    <posXYZ volume="forwardTOF_south2" X_Y_Z="-82.9025 24.405 0.0" /> 
+    <posXYZ volume="forwardTOF_top1" X_Y_Z="0.0 +85.44 0.0" />
    </composition>
 
 <!-- the attribute 'row' is synonymous with 'bar' -->
   <composition name="forwardTOF_top1" envelope="FTOT">
-    <mposY volume="FTOC" ncopy="17" Z_X="0.0 0.0" Y0="-48.72" dY="6.09">
+    <mposY volume="FTOC" ncopy="15" Z_X="0.0 0.0" Y0="-42.63" dY="6.09">
       <row value="30" step="1" />
       <column value="0" />
     </mposY>
-  </composition>
-  <composition name="forwardTOF_top2" envelope="FTOY">
-    <mposY volume="FTOX" ncopy="2" Z_X="0.0 0.0" Y0="-2.295" dY="4.59">
-      <row value="28" step="1" />
-      <column value="0" />
-    </mposY>
-  </composition>
-  <composition name="forwardTOF_top3" envelope="FTOK">
-    <mposY volume="FTOL" ncopy="2" Z_X="0.0 0.0" Y0="-1.545" dY="3.09">
-      <row value="26" step="1" />
-      <column value="0" />
-    </mposY>
-  </composition>
+  </composition> 
   <composition name="forwardTOF_bottom1" envelope="FTOB">
-    <mposY volume="FTOC" ncopy="17" Z_X="0.0 0.0" Y0="-48.72" dY="6.09">
+    <mposY volume="FTOC" ncopy="15" Z_X="0.0 0.0" Y0="-42.63" dY="6.09">
       <row value="1" step="1" />
       <column value="0" />
     </mposY>
   </composition>
-  <composition name="forwardTOF_bottom2" envelope="FTOZ">
-    <mposY volume="FTOX" ncopy="2" Z_X="0.0 0.0" Y0="-2.295" dY="4.59">
-      <row value="18" step="1" />
-      <column value="0" />
+  <composition name="forwardTOF_north2" envelope="FTOY">
+    <mposY volume="FTOX" ncopy="5" Z_X="0.0 0.0" Y0="-12.18" dY="6.09">
+      <row value="25" step="1" />
+      <column value="1" />
     </mposY>
   </composition>
-  <composition name="forwardTOF_bottom3" envelope="FTOJ">
-    <mposY volume="FTOL" ncopy="2" Z_X="0.0 0.0" Y0="-1.545" dY="3.09">
-      <row value="20" step="1" />
-      <column value="0" />
+  <composition name="forwardTOF_south2" envelope="FTOJ">
+    <mposY volume="FTOX" ncopy="5" Z_X="0.0 0.0" Y0="-12.18" dY="6.09">
+      <row value="54" step="1" />  
+      <identifier field="paired_row" value="25" step="1" />
+      <column value="2" />
+    </mposY>
+  </composition> 
+  <composition name="forwardTOF_north1" envelope="FTOK">
+    <mposY volume="FTOX" ncopy="5" Z_X="0.0 0.0" Y0="-12.18" dY="6.09">
+      <row value="16" step="1" />
+      <column value="1" />
+    </mposY>
+  </composition>
+  <composition name="forwardTOF_south1" envelope="FTOZ">
+    <mposY volume="FTOX" ncopy="5" Z_X="0.0 0.0" Y0="-12.18" dY="6.09">
+      <row value="45" step="1" />
+      <identifier field="paired_row" value="16" step="1" />
+      <column value="2" />
     </mposY>
   </composition>
   <composition name="forwardTOF_north" envelope="FTON">
     <mposY volume="FTOH" ncopy="4" Z_X = "0.0 0.0" Y0="-6.885" dY="4.59">
-      <row value="22" step="1" />
+      <row value="21" step="1" />
       <column value="1" />
     </mposY>
   </composition>
   <composition name="forwardTOF_south" envelope="FTOS">
     <mposY volume="FTOH" ncopy="4" Z_X="0.0 0.0" Y0="-6.885" dY="4.59">
-      <row value="47" step="1" />
-      <identifier field="paired_row" value="22" step="1" />
+      <row value="50" step="1" />
+      <identifier field="paired_row" value="21" step="1" />
       <column value="2" />
     </mposY>
   </composition>
 
   <box name="FTOF" X_Y_Z="252.0 268.8 2.55" material="Air" />
-  <box name="FTOB" X_Y_Z="252.0 103.53 2.55" material="Air" />
-  <box name="FTOT" X_Y_Z="252.0 103.53 2.55" material="Air" />
-  <box name="FTOJ" X_Y_Z="252.0   6.18 2.55" material="Air" />
-  <box name="FTOK" X_Y_Z="252.0   6.18 2.55" material="Air" />
-  <box name="FTOY" X_Y_Z="252.0   9.18 2.55" material="Air" />
-  <box name="FTOZ" X_Y_Z="252.0   9.18 2.55" material="Air" />
-  <box name="FTON" X_Y_Z="117.0  18.36 2.55" material="Air" />  
-  <box name="FTOS" X_Y_Z="117.0  18.36 2.55" material="Air" /> 
-  <box name="FTOC" X_Y_Z="252.0   6.0 2.54" material="Scintillator"
-					    sensitive="true" />
-  <box name="FTOL" X_Y_Z="252.0   3.0 2.54" material="Scintillator"
-					    sensitive="true" />
-  <box name="FTOH" X_Y_Z="117.0   4.5 2.54" material="Scintillator"
-					    sensitive="true" />
-  <box name="FTOX" X_Y_Z="252.0   4.5 2.54" material="Scintillator"
-					    sensitive="true" />
+  <box name="FTOB" X_Y_Z="252.0 91.35 2.55" material="Air" />
+  <box name="FTOT" X_Y_Z="252.0 91.35 2.55" material="Air" />
+  <box name="FTOJ" X_Y_Z="86.37 30.45 2.55" material="Air" />
+  <box name="FTOK" X_Y_Z="86.37 30.45 2.55" material="Air" />
+  <box name="FTOY" X_Y_Z="86.37 30.45 2.55" material="Air" />
+  <box name="FTOZ" X_Y_Z="86.37 30.45 2.55" material="Air" />
+  <box name="FTON" X_Y_Z="86.37 18.36 2.55" material="Air" />  
+  <box name="FTOS" X_Y_Z="86.37 18.36 2.55" material="Air" /> 
+  <box name="FTOC" X_Y_Z="252.0   6.0 2.54" material="Air"/>
+  <box name="FTOH" X_Y_Z="86.37  4.5 2.54" material="Air"/>
+  <box name="FTOX" X_Y_Z="86.37  6.0 2.54" material="Air"/>
+
+  <pgon name="ITOF" segments="4" profile="-45 360" material="Scintillator"
+	sensitive="true">
+    <polyplane Rio_Z="5.0 42. 0.0"/>
+    <polyplane Rio_Z="5.0 42. 0.4"/>
+  </pgon>
+
 
   <!-- The following elements describe an early rendition of the GlueX
        detector simulated using a fast Monte Carlo program MCFast.  They
