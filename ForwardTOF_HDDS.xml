@@ -127,9 +127,9 @@
   <box name="FTOZ" X_Y_Z="86.37 30.45 2.55" material="Air" />
   <box name="FTON" X_Y_Z="86.37 18.36 2.55" material="Air" />  
   <box name="FTOS" X_Y_Z="86.37 18.36 2.55" material="Air" /> 
-  <box name="FTOC" X_Y_Z="252.0   6.0 2.54" material="Air"/>
-  <box name="FTOH" X_Y_Z="86.37  4.5 2.54" material="Air"/>
-  <box name="FTOX" X_Y_Z="86.37  6.0 2.54" material="Air"/>
+  <box name="FTOC" X_Y_Z="252.0   6.0 2.54" material="Scintillator" sensitive="true"/>
+  <box name="FTOH" X_Y_Z="86.37   4.5 2.54" material="Scintillator" sensitive="true"/>
+  <box name="FTOX" X_Y_Z="86.37   6.0 2.54" material="Scintillator" sensitive="true"/>
 
   <pgon name="ITOF" segments="4" profile="-45 360" material="Scintillator"
 	sensitive="true">
