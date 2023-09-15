@@ -58,6 +58,7 @@
     <posXYZ volume="TABS" X_Y_Z="0.0  0.0  -17.17" /> 
     <!--posXYZ volume="ROHA" X_Y_Z="0.0  0.0  -19.785" /--> 
     <posXYZ volume="INTU" X_Y_Z="0.0  0.0  -1.67" />     
+    <posXYZ volume="ITOF" X_Y_Z="0.0 0.0 -30.0"/> 
   </composition>
 
   <composition name="LeadTungstateLower" envelope="LTLW">
@@ -231,6 +232,14 @@
 					comment="PbWO4 south section"    />
   <tubs name="INTU" Rio_Z="1.69 1.89 37.0" material="Aluminum" 
 	comment="Support tube for tungsten absorber"/>
+
+  <pgon name="ITOF" segments="4" profile="-45 360" material="Scintillator"
+	sensitive="true">
+    <polyplane Rio_Z="5.0 42. 0.0"/>
+    <polyplane Rio_Z="5.0 42. 0.4"/>
+  </pgon>
+
+
 
   <!-- The following elements describe an early rendition of the GlueX
        detector simulated using a fast Monte Carlo program MCFast.  They

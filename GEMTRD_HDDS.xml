@@ -14,23 +14,30 @@
          specification = "v1.0">
 
 <composition name="GEMTRD">
-  <posXYZ volume="GTRD" X_Y_Z="0.0 30.15 -1.5" />
-  <posXYZ volume="GTRD" X_Y_Z="0.0 -30.15 -1.5" />
-  <posXYZ volume="gemTRD" X_Y_Z="0.0 0.0 7.0"/>
-</composition>
-
-<composition name="gemTRD" envelope="GTMV">
-  <posXYZ volume="GTSV" X_Y_Z="0.0 30.15 0.0">
+  <posXYZ volume="gemTRDmodule" X_Y_Z="0.0 30.15 7.0">
     <layer value="1"/>
-  </posXYZ>
-  <posXYZ volume="GTSV" X_Y_Z="0.0 -30.15 0.0" >
+  </posXYZ> 
+  <posXYZ volume="gemTRDmodule" X_Y_Z="0.0 -30.15 7.0">
     <layer value="2"/>
   </posXYZ>
 </composition>
 
-<box name="GTRD" X_Y_Z="139.2 52.8 15." material="TRDradiator" comment="TRD/GEM radiator"/>
-<box name="GTSV" X_Y_Z="139.2 52.8 2." material="GTchamberGas"
-     sensitive="true" comment="Chamber gas"/>
-<box name="GTMV" X_Y_Z="139.2 113.1 2." material="Air" comment="mother volume"/>
+<composition name="gemTRDmodule" envelope="GTMV">
+  <posXYZ volume="GTRA" X_Y_Z="0.0 0.0 -1.5"/>
+  <posXYZ volume="gemTRD" X_Y_Z="0.0 0.0 7.5"/>
+</composition>
+
+<composition name="gemTRD" envelope="GTRD">
+  <posXYZ volume="GTSV" X_Y_Z="0.0 0.0 -0.25"/>
+  <posXYZ volume="GTFO" X_Y_Z="0.0 0.0 1.25"/>
+</composition> 
+
+
+<box name="GTRA" X_Y_Z="150.0 55.8 15.0" material="TRDradiator" comment="TRD/GEM radiator"/>
+<box name="GTSV" X_Y_Z="147.0 52.8 2.5" material="GTchamberGas"
+     sensitive="true" comment="GEMTRD chamber gas"/>
+<box name="GTFO" X_Y_Z="147.0 52.8 0.5" material="CopperKapton" comment="GEM foils"/>
+<box name="GTMV" X_Y_Z="150.0 55.8 18.0" material="Air" comment="mother volume"/>
+<box name="GTRD" X_Y_Z="150.0 55.8 3.0" material="FR-4" comment="TRD/GEM detector"/>
 
 </section>
