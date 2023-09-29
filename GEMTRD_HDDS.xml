@@ -6,6 +6,8 @@
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
+<!--Origin is face of most upstream foil-->
+
 <section name        = "GEMTRD"
          version     = "1.0"
          date        = "2022-02-04"
@@ -14,12 +16,12 @@
          specification = "v1.0">
 
 <composition name="GEMTRD">
-  <posXYZ volume="gemTRDmodule" X_Y_Z="0.0 30.15 7.0">
+  <posXYZ volume="gemTRDmodule" X_Y_Z="37.5 -30.15 -8.5">
     <layer value="1"/>
   </posXYZ> 
-  <posXYZ volume="gemTRDmodule" X_Y_Z="0.0 -30.15 7.0">
+  <!--posXYZ volume="gemTRDmodule" X_Y_Z="37.5 -30.15 7.0">
     <layer value="2"/>
-  </posXYZ>
+  </posXYZ-->
 </composition>
 
 <composition name="gemTRDmodule" envelope="GTMV">
@@ -33,11 +35,11 @@
 </composition> 
 
 
-<box name="GTRA" X_Y_Z="150.0 55.8 15.0" material="TRDradiator" comment="TRD/GEM radiator"/>
-<box name="GTSV" X_Y_Z="147.0 52.8 2.5" material="GTchamberGas"
+<box name="GTRA" X_Y_Z="75.0 55.8 15.0" material="TRDradiator" comment="TRD/GEM radiator"/>
+<box name="GTSV" X_Y_Z="72.0 52.8 2.5" material="GTchamberGas"
      sensitive="true" comment="GEMTRD chamber gas"/>
-<box name="GTFO" X_Y_Z="147.0 52.8 0.5" material="CopperKapton" comment="GEM foils"/>
-<box name="GTMV" X_Y_Z="150.0 55.8 18.0" material="Air" comment="mother volume"/>
-<box name="GTRD" X_Y_Z="150.0 55.8 3.0" material="FR-4" comment="TRD/GEM detector"/>
+<box name="GTFO" X_Y_Z="72.0 52.8 0.5" material="CopperKapton" comment="GEM foils"/>
+<box name="GTMV" X_Y_Z="75.0 55.8 18.0" material="Air" comment="mother volume"/>
+<box name="GTRD" X_Y_Z="75.0 55.8 3.0" material="FR-4" comment="TRD/GEM detector"/>
 
 </section>
