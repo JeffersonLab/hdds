@@ -38,6 +38,7 @@ hasGDMLsupport = False
 rootsys = os.getenv('ROOTSYS')  # needed to run root to generate GDML
 if rootsys != None:
 	if os.path.exists('%s/include/TGDMLWrite.h' % rootsys): hasGDMLsupport = True
+	if os.path.exists('%s/include/root/TGDMLWrite.h' % rootsys): hasGDMLsupport = True
 if hasGDMLsupport:
 	print('ROOT GDML support found. GDML files will be generated.')
 else:
