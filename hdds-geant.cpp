@@ -213,12 +213,12 @@ int FortranWriter::createMaterial(DOMElement* el)
               << std::endl
               << "      imate = " << imate << std::endl
               << "      namate = \'" << S(matS) << "\'" << std::endl
-              << "      a = " << a << std::endl
-              << "      z = " << z << std::endl
+              << "      amat(1) = " << a << std::endl
+              << "      zmat(1) = " << z << std::endl
               << "      dens = " << dens << std::endl
               << "      nlmat = 1" << std::endl
               << "      wmat(1) = 1" << std::endl
-              << "      call gsmixt(imate,namate,a,z,dens,nlmat,wmat)"
+              << "      call gsmixt(imate,namate,amat,zmat,dens,nlmat,wmat)"
               << std::endl;
       }
       else
