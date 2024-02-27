@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: Lead tungstate calorimeter (ECAL)
+  ************************************************************
+
+     version 1.0:  Initial version	-A.S.
+
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name          = "CrystalECAL"
+         version       = "1.0"
+         date          = "2023-12-17"
+         author        = "A. Somov"
+         top_volume    = "ECAL"
+         specification = "v1.0" >
+
+<!-- Origin of CrystalECAL is the center of upstream face of lead tungstate modules -->
+
+<!--
+  <composition name="CrystalECAL">
+    <apply region="nullBfield"/>
+    <posXYZ volume="CrystalECAL" X_Y_Z="0.0  0.0  10.0" />
+  </composition>
+-->
+
+  <composition name="CrystalECAL" envelope="ECAL">
+    <posXYZ volume="AbsorberECAL" X_Y_Z="0.0      0.0     -13.03" />
+    <posXYZ volume="XTDlower" X_Y_Z="0.0      -21.945     0.0" />
+    <posXYZ volume="XTDeast" X_Y_Z="-21.945    0.0        0.0" />
+    <posXYZ volume="XTDwest" X_Y_Z="+21.945    0.0        0.0" />
+    <posXYZ volume="XTDupper" X_Y_Z="0.0      +21.945     0.0" /> 
+  </composition> 
+  
+
+  <composition name="AbsorberECAL" envelope="XABO">
+    <posXYZ volume="XABI" X_Y_Z="0.0 0.0 0.0"/>
+  </composition>
+
+
+  <box name="XABO" X_Y_Z="8.315  8.315  6.05" material="Tungsten" />
+  <tubs name="XABI" Rio_Z="0  1.86   6.05" material="Air" />
+
+
+
+
+
+  <composition name="XTDlower" envelope="XTDB">
+    <mposY volume="XTDfullRow" ncopy="19" Z_X="0.0 0.0" Y0="-18.81" dY="2.09">
+      <row value="0" step="1" />
+    </mposY>
+  </composition>
+  
+
+  <composition name="XTDupper" envelope="XTDT">
+    <mposY volume="XTDfullRow" ncopy="19" Z_X="0.0 0.0" Y0="-18.81" dY="2.09">
+      <row value="21" step="1" />
+    </mposY>
+  </composition>
+  
+
+  
+ <composition name="XTDwest" envelope="XTDW">
+    <mposY volume="XTDhalfRowWest" ncopy="2" Y0="-1.045" dY="2.09">
+      <row value="19 " step="1" />
+    </mposY>
+  </composition>
+  
+
+
+  <composition name="XTDeast" envelope="XTDE">
+    <mposY volume="XTDhalfRowEast" ncopy="2" Y0="-1.045" dY="2.09">
+      <row value="19" step="1" />
+    </mposY>
+  </composition>
+
+
+
+
+
+  <composition name="XTDfullRow">
+    <mposX volume="XTModule" ncopy="40" Y_Z="0.0 0.0" X0="-40.755" dX="2.09">
+      <column value="0" step="1" />
+    </mposX>
+  </composition>
+
+
+  <composition name="XTDhalfRowWest">
+    <mposX volume="XTModule" ncopy="19" Y_Z="0.0 0.0" X0="-18.81" dX="2.09">
+      <column value="21" step="1" />
+    </mposX>
+  </composition> 
+
+
+  <composition name="XTDhalfRowEast">
+    <mposX volume="XTModule" ncopy="19" Y_Z="0.0 0.0" X0="-18.81" dX="2.09">
+      <column value="0" step="1" />
+    </mposX>
+  </composition>   
+
+ 
+
+
+
+
+  <box name="ECAL" X_Y_Z="83.6  83.6  34.0"  material="Air"
+       comment="CrystalECAL mother" />
+
+
+
+  <box name="XTDB" X_Y_Z="83.6  39.71  20.0"  material="Air"
+       comment="XTD bottom section"   />
+
+
+  <box name="XTDT" X_Y_Z="83.6  39.71  20.0"  material="Air"
+       comment="XTD top section"      />
+
+
+  <box name="XTDW" X_Y_Z="39.71   4.18  20.0"  material="Air"
+       comment="XTD west section"     />
+
+
+  <box name="XTDE" X_Y_Z="39.71   4.18  20.0"  material="Air"
+       comment="XTD east section"    />
+
+
+
+
+  <composition name="XTModule" envelope="XTMD">
+    <posXYZ volume="XTBL" X_Y_Z="0.0 0.0 0.0"/>
+  </composition>
+
+
+
+  <box name="XTMD" X_Y_Z="  2.09    2.09   20.0"  material="Tedlar"
+       comment="lead tungstate module assembly"     />
+
+
+  <box name="XTBL" X_Y_Z="  2.055    2.055  20.0"  material="PWO"
+       sensitive="true"	 comment="lead tungstate block"     />
+
+
+
+
+
+  <!-- The following elements describe an early rendition of the GlueX
+       detector simulated using a fast Monte Carlo program MCFast.  They
+       are retained for future reference, do not rely on their values. -->
+
+<!--  <parameters name="forwardEMcal_pars" type="mcfast">
+    <real_array	name="xlimit"	comment="xmin  xmax limits of box"
+				values="-106.0  106.0"
+				unit="cm"	/>
+    <real_array	name="ylimit"	comment="ymin  ymax limits of box"
+				values="-106.0  106.0"
+				unit="cm"	/>
+    <real_array	name="xlimit_gap" comment="xmin  xmax of beam hole aperture"
+				values="   -6.0   6.0"
+				unit="cm"	/>
+    <real_array	name="ylimit_gap" comment="ymin  ymax of beam hole aperture"
+				values="   -6.0   6.0"
+				unit="cm"	/>
+    <real	name="z0"	value="620.07"	comment="z of midplane"
+				unit="cm"	/>
+    <real	name="zlen"	value="18.0"	comment="length of blocks"
+				unit="cm"	/>
+    <reference	name="material"	value="leadGlassF800" />
+    <reference	name="active"	value="leadGlassF800" />
+    <int	name="ncr1"	value="58"	comment="x segmentation"     />
+    <int	name="ncr2"	value="58"	comment="y segmentation"     />
+    <int	name="nlayers"	value="1"	comment="z segmentation"     />
+    <real	name="siga_em"	value="0.06"	comment="root-E coefficient"
+				unit="cm"	/>
+    <real	name="sigb_em"	value="0.01"	comment="floor term"
+				unit="cm"	/>
+    <real	name="siga_had"	value="0.0"	comment="root-E coefficient"
+				unit="cm"	/>
+    <real	name="sigb_had"	value="0.0"	comment="floor term"
+				unit="cm"	/>
+    <real	name="em_had_ratio" value="4.0"	comment="response ratio"
+				unit="cm"	/>
+  </parameters>
+-->
+<!-- The forward calorimeter is hard coded into HDFast at present
+
+  <mcfast model="CalorBox" template="db/calorbox.db"
+                           parameters="forwardEMcal_pars">
+    <string	name="name"	value="ECAL"
+    <string	name="shape"	value="BOX"
+    <int	name="type"	value="2"
+  </mcfast>
+-->
+
+</section>
+
+<!-- </HDDS> -->
