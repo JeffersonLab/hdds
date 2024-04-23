@@ -1555,17 +1555,17 @@ v4.2: DIRC gominal geometry
 </composition>
 
 <!-- South/Lower/Beam Right Optical Box Mirrors -->
-<box name="FTMS" X_Y_Z="0.01 98. 40.2" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="FTMS" X_Y_Z="0.01 98. 40.2" material="ThickCerenkovMirrorUVE" sensitive="true"/>
 
-<box name="TM1S" X_Y_Z="0.01 98.072 9.5" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="TM2S" X_Y_Z="0.01 98.072 9.5" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="TM3S" X_Y_Z="0.01 98.072 9.5" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="TM1S" X_Y_Z="0.01 98.072 9.5" material="ThickCerenkovMirrorUVE" sensitive="true"/>
+<box name="TM2S" X_Y_Z="0.01 98.072 9.5" material="ThickCerenkovMirrorUVE" sensitive="true"/>
+<box name="TM3S" X_Y_Z="0.01 98.072 9.5" material="ThickCerenkovMirrorUVE" sensitive="true"/>
 
-<box name="WM1S" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="WM2S" X_Y_Z="6.656 98. 0.01"  material="ThickCerenkovMirror" sensitive="true"/>
+<box name="WM1S" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirrorUVE" sensitive="true"/>
+<box name="WM2S" X_Y_Z="6.656 98. 0.01"  material="ThickCerenkovMirrorUVE" sensitive="true"/>
 
-<box name="SM1S" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="SM2S" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="SM1S" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirrorUVE" sensitive="true"/>
+<box name="SM2S" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirrorUVE" sensitive="true"/>
 
 
 <!-- 
@@ -1595,17 +1595,17 @@ v4.2: DIRC gominal geometry
 
 
 <!-- North/Upper/Beam Left Optical Box Mirrors -->
-<box name="FTMN" X_Y_Z="0.01 98. 40.2" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="FTMN" X_Y_Z="0.01 98. 40.2" material="ThickCerenkovMirrorUVE" sensitive="true"/>
 
-<box name="TM1N" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="TM2N" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="TM3N" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="TM1N" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirrorUVE" sensitive="true"/>
+<box name="TM2N" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirrorUVE" sensitive="true"/>
+<box name="TM3N" X_Y_Z="0.01 98.072 9.6" material="ThickCerenkovMirrorUVE" sensitive="true"/>
 
-<box name="WM1N" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="WM2N" X_Y_Z="6.656 98. 0.01"  material="ThickCerenkovMirror" sensitive="true"/>
+<box name="WM1N" X_Y_Z="18.56 98.072 0.01" material="ThickCerenkovMirrorUVE" sensitive="true"/>
+<box name="WM2N" X_Y_Z="6.656 98. 0.01"  material="ThickCerenkovMirrorUVE" sensitive="true"/>
 
-<box name="SM1N" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirror" sensitive="true"/>
-<box name="SM2N" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirror" sensitive="true"/>
+<box name="SM1N" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirrorUVE" sensitive="true"/>
+<box name="SM2N" X_Y_Z="23.1146 0.01 52.3089" material="ThickCerenkovMirrorUVE" sensitive="true"/>
 
 
 <!-- 

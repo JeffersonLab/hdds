@@ -29,16 +29,16 @@ in main_HDDS.xml: uncomment the line for the TRDGEM_HDDS.xml in the "forwardPack
 
     <posXYZ volume="TRDG"    X_Y_Z="0.0  0.0  -44.68"> <plane value="0" /> </posXYZ>
     <posXYZ volume="TRDG"    X_Y_Z="0.0  0.0  -41.77"> <plane value="1" /> </posXYZ>
-    <posXYZ volume="TRDG"    X_Y_Z="0.0  0.0  -26.22"> <plane value="2" /> </posXYZ>
+    <posXYZ volume="TRDG"    X_Y_Z="0.0  0.0  -30.07"> <plane value="2" /> </posXYZ>
     <posXYZ volume="TRDG"    X_Y_Z="0.0  0.0    -4.0"> <plane value="3" /> </posXYZ>
-    <posXYZ volume="TRDG"    X_Y_Z="0.0  0.0     2.0"> <plane value="4" /> </posXYZ>
+    <posXYZ volume="TRDG"    X_Y_Z="0.0  0.0     2.5"> <plane value="4" /> </posXYZ>
 
   </composition>
 
  <box name="TGMV" X_Y_Z="20.0 20.0 90.0"  material="Air" comment="forward GEM/TRD mother" />
 
  <!-- Fake gas volume is 10cm x 10cm x 1cm  -->
- <box name="TRDG" X_Y_Z="20.0 20.0 2.0"  material="FDchamberGas" sensitive="true" comment="Chamber gas" />
+ <box name="TRDG" X_Y_Z="10.0 10.0 2.0"  material="FDchamberGas" sensitive="true" comment="Chamber gas" />
 
 </section>
 
