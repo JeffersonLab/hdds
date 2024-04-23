@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: Forward EM calorimeter
+  **************************************************
+
+     version 1.0: Initial version	-rtj
+ 
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name        = "ForwardEMcal"
+         version     = "3.0"
+         date        = "2024-04-23"
+         author      = "S. Taylor"
+         top_volume  = "FCAL"
+         specification = "v1.0">
+
+<!-- Origin of ForwardEMcal is center of upstream face of LGD -->
+<!-- Broken up into 4 regions reflecting staggered construction of FCAL2-->
+
+<!-- Thr Jan 29 08:14:30 EST 2009                                  -->
+<!-- changed order of counting columns: 0-58 from south to north   -->
+
+  <composition name="ForwardEMcal">
+    <posXYZ volume="forwardEMcal" X_Y_Z="0.0  0.0  25.4" />
+    <posXYZ volume="plexiSheet" X_Y_Z="0.0  0.0  -1.0" />
+    <posXYZ volume="FCLC" X_Y_Z="0.0  0.0  -2.0" />   
+  </composition>
+
+  <composition name="forwardEMcal" envelope="FCAL">
+    <apply region="nullBfield"/>
+    <posXYZ volume="CrystalECAL" X_Y_Z="0.0 0.0 10.0"/>
+    <!--posXYZ volume="LGDlower" X_Y_Z="-38.14915 -80.314 0.0" />
+    <posXYZ volume="LGDsouth" X_Y_Z="-80.314 +38.14195 0.0" />
+    <posXYZ volume="LGDnorth" X_Y_Z="+80.314 -38.14915 0.0" />
+    <posXYZ volume="LGDupper" X_Y_Z="+38.14915 +80.314 0.0" /-->
+  </composition>
+
