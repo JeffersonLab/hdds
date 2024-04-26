@@ -3,7 +3,7 @@
 
   <!ENTITY Regions_s SYSTEM "Regions_HDDS.xml">
   <!ENTITY Material_s SYSTEM "Material_HDDS.xml">
-  <!ENTITY BeamLine_s SYSTEM "BeamLine_HDDS.xml">
+  <!ENTITY BeamLine_s SYSTEM "BeamLineCPP_HDDS.xml">
   <!ENTITY PairSpect_s SYSTEM "PairSpect_HDDS.xml">
   <!ENTITY Target_s SYSTEM "TargetCPP_HDDS.xml"  >
   <!ENTITY Solenoid_s SYSTEM "Solenoid_HDDS.xml">
@@ -15,7 +15,7 @@
   <!ENTITY ForwardEMcal_s SYSTEM "ForwardEMcal_HDDS.xml">
   <!ENTITY DIRC_s SYSTEM "DIRC_HDDS.xml">
   <!ENTITY ForwardMWPC_s SYSTEM "ForwardMWPC_HDDS.xml">
-
+  <!ENTITY CppScint_s SYSTEM "CppScint_HDDS.xml">
 ]>
 
 <!--
@@ -48,6 +48,7 @@ The ForwardMWPC has been added.
      &PairSpect_s;     
      &DIRC_s;
      &ForwardMWPC_s;
+     &CppScint_s;
 <!-- End of include    -->
 
 
@@ -93,7 +94,8 @@ The ForwardMWPC has been added.
     <!--posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.600" /-->
     <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0427 0.0461 -0.1813"/>
     <posXYZ volume="ForwardEMcal" X_Y_Z="0.529 -0.002 624.906" rot="-0.0418 -0.07019 -0.0149" />
-    <posXYZ volume="ForwardMWPC" X_Y_Z="0.0 0.0 925.406" />
+    <posXYZ volume="ForwardMWPC" X_Y_Z="0.0 0.0 805.325" />
+    <posXYZ volume="CppScint" X_Y_Z="0.0 0.0 938.43"/>
   </composition>
 
   <composition name="GlueXdetector">

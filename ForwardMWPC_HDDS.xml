@@ -5,7 +5,10 @@
   **************************************************
 
      version 1.0: Initial version	-DL
-	 
+
+     version 2.0: Modifications according to drawings from March 2021  -BZ
+                  Really basic, needs improvment on the first absorber layer lead	          
+
 By default this detector is not enabled in the standard Hall-D geometry in
 HDDS. Here is how to enable it and the rest of the geometry changes needed
 for the CPP experiment:
@@ -25,10 +28,10 @@ in main_HDDS.xml
 -->
 
 <section name        = "ForwardMWPC"
-         version     = "1.0"
-         date        = "2015-05-07"
-         author      = "D. Lawrence"
-         top_volume  = "MWPC"
+         version     = "2.0"
+         date        = "2021-03-17"
+         author      = "B. Zihlmann"
+         top_volume  = "HALL"
          specification = "v1.0">
 
 <!-- Origin of ForwardMWPC is center of upstream face of the first MWPC -->
@@ -42,24 +45,57 @@ in main_HDDS.xml
   "FMWPC positions" in david.lawrence.nn@gmail.com account.
 -->
 
- <composition name="ForwardMWPC" envelope="MWPC">
+ <composition name="ForwardMWPC">
+   <posXYZ volume="CPA6"  X_Y_Z="0.0  0.0 -12.70" />
+   <posXYZ volume="CPA7"  X_Y_Z="0.0  0.0  -5.06" />
+   <posXYZ volume="CPN1"  X_Y_Z=" 5.47625 13.29 -3.33" rot="90. 0.0 0.0"/>
+   <posXYZ volume="CPN1"  X_Y_Z="-5.47625 13.29 -3.33" rot="90. 0.0 0.0"/>
+   <posXYZ volume="CPN1"  X_Y_Z=" 5.47625 -7.425 -3.33" rot="90. 0.0 0.0"/>
+   <posXYZ volume="CPN1"  X_Y_Z="-5.47625 -7.425 -3.33" rot="90. 0.0 0.0"/>
+   <posXYZ volume="CPN1"  X_Y_Z=" 5.47625 -11.64 -3.33" rot="90. 0.0 0.0"/>
+   <posXYZ volume="CPN1"  X_Y_Z="-5.47625 -11.64 -3.33" rot="90. 0.0 0.0"/>
+   <posXYZ volume="CPB1"  X_Y_Z=" 5.47625  9.5325  -3.33" rot="90. 0.0 0.0"/>
+   <posXYZ volume="CPB1"  X_Y_Z="-5.47625  9.5325  -3.33" rot="90. 0.0 0.0"/>
+   <posXYZ volume="CPB1"  X_Y_Z=" 5.47625 -9.5325  -3.33" rot="90. 0.0 0.0"/>
+   <posXYZ volume="CPB1"  X_Y_Z="-5.47625 -9.5325  -3.33" rot="90. 0.0 0.0"/>
+   <posXYZ volume="CPB2"  X_Y_Z=" 9.5235  4.0  -3.33" rot="0. 90.0 0.0"/>
+   <posXYZ volume="CPB2"  X_Y_Z=" 9.5235 -4.0  -3.33" rot="0. 90.0 0.0"/>
+   <posXYZ volume="CPB2"  X_Y_Z="-9.5235  4.0  -3.33" rot="0. 90.0 0.0"/>
+   <posXYZ volume="CPB2"  X_Y_Z="-9.5235 -4.0  -3.33" rot="0. 90.0 0.0"/>
+   <posXYZ volume="CPB3"  X_Y_Z=" 5.47625  14.115  -3.33" rot="90. 0.0 0.0"/>
+   <posXYZ volume="CPB3"  X_Y_Z="-5.47625  14.115  -3.33" rot="90. 0.0 0.0"/>
+   <posXYZ volume="CPB3"  X_Y_Z=" 5.47625 -14.115  -3.33" rot="90. 0.0 0.0"/>
+   <posXYZ volume="CPB3"  X_Y_Z="-5.47625 -14.115  -3.33" rot="90. 0.0 0.0"/>
+   <posXYZ volume="CPB4"  X_Y_Z=" 14.365  4.0  -3.33" rot="0. 90.0 0.0"/>
+   <posXYZ volume="CPB4"  X_Y_Z=" 14.365 -4.0  -3.33" rot="0. 90.0 0.0"/>
+   <posXYZ volume="CPB4"  X_Y_Z="-14.365  4.0  -3.33" rot="0. 90.0 0.0"/>
+   <posXYZ volume="CPB4"  X_Y_Z="-14.365 -4.0  -3.33" rot="0. 90.0 0.0"/>
 
-    <posXYZ volume="CPPAbsorber1" X_Y_Z="0.0  0.0   3.075" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0   9.96"> <layer value="1" /> </posXYZ>
-    <posXYZ volume="CPPAbsorber2" X_Y_Z="0.0  0.0  16.545" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  23.13"> <layer value="2" /> </posXYZ>
-    <posXYZ volume="CPPAbsorber3" X_Y_Z="0.0  0.0  29.715" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  36.3"> <layer value="3" /> </posXYZ>
-    <posXYZ volume="CPPAbsorber4" X_Y_Z="0.0  0.0  43.56" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  50.82"> <layer value="4" /> </posXYZ>
-    <posXYZ volume="CPPAbsorber5" X_Y_Z="0.0  0.0  59.33" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  67.84"> <layer value="5" /> </posXYZ>
-    <posXYZ volume="CPPAbsorber6" X_Y_Z="0.0  0.0  79.65" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  91.46"> <layer value="6" /> </posXYZ>
-    <posXYZ volume="CPPAbsorber7" X_Y_Z="0.0  0.0 140.495" />
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 189.53"> <layer value="7" /> </posXYZ>
-    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 197.15"> <layer value="8" /> </posXYZ>
 
+    <posXYZ volume="CPPAbsorber1" X_Y_Z="0.0  0.0   2.50" />
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0   7.63" rot="0.0 0.0 90.0"> 
+      <layer value="1" /> 
+    </posXYZ>
+    <posXYZ volume="CPPAbsorber2" X_Y_Z="0.0  0.0  15.26" />
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  22.89"> 
+      <layer value="2" /> 
+    </posXYZ>
+    <posXYZ volume="CPPAbsorber3" X_Y_Z="0.0  0.0  33.02" />
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  43.15" rot="0.0 0.0 90.0"> 
+      <layer value="3" /> 
+    </posXYZ>
+    <posXYZ volume="CPPAbsorber4" X_Y_Z="0.0  0.0  63.28" />
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0  83.41">
+      <layer value="4" /> 
+    </posXYZ>
+    <posXYZ volume="CPPAbsorber5" X_Y_Z="0.0  0.0 103.54" />
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 123.67" rot="0.0 0.0 90.0">
+      <layer value="5" /> 
+    </posXYZ>
+    <posXYZ volume="CPPChamber"   X_Y_Z="0.0  0.0 128.93">
+      <layer value="6" /> 
+    </posXYZ>
+   
   </composition>
 
  <composition name="CPPAbsorber1" envelope="CPA1"> <posXYZ volume="CPH1" X_Y_Z="0.0 0.0 0.0" /> </composition>
@@ -67,18 +103,17 @@ in main_HDDS.xml
  <composition name="CPPAbsorber3" envelope="CPA3"> <posXYZ volume="CPH3" X_Y_Z="0.0 0.0 0.0" /> </composition>
  <composition name="CPPAbsorber4" envelope="CPA4"> <posXYZ volume="CPH4" X_Y_Z="0.0 0.0 0.0" /> </composition>
  <composition name="CPPAbsorber5" envelope="CPA5"> <posXYZ volume="CPH5" X_Y_Z="0.0 0.0 0.0" /> </composition>
- <composition name="CPPAbsorber6" envelope="CPA6"> <posXYZ volume="CPH6" X_Y_Z="0.0 0.0 0.0" /> </composition>
- <composition name="CPPAbsorber7" envelope="CPA7"> <posXYZ volume="CPH7" X_Y_Z="0.0 0.0 0.0" /> </composition>
 
  <composition name="CPPChamber" envelope="CPPF">
     <posXYZ volume="CPPWall" X_Y_Z="0.0 0.0 -1.815" />
-    <posXYZ volume="CPPG" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="CPPG" X_Y_Z="0.0 0.0 -1.0" />
+    <posXYZ volume="CPPWireDeadeningRegion" X_Y_Z="0.0 0.0 0.0" rot="0.0 90.0 0.0"/>
     <posXYZ volume="CPPWall" X_Y_Z="0.0 0.0 1.815" />
  </composition>
 
  <composition name="CPPWall" envelope="CPPW">
     <posXYZ volume="CPPPlate" X_Y_Z="0.0 0.0 -0.735" />
-    <posXYZ volume="CPPC" X_Y_Z="0.0 0.0 0.0" />
+    <posXYZ volume="CPH6" X_Y_Z="0.0 0.0 0.0" />
     <posXYZ volume="CPPPlate" X_Y_Z="0.0 0.0 0.735" />
  </composition>
 
@@ -86,41 +121,75 @@ in main_HDDS.xml
     <posXYZ volume="CPPH" X_Y_Z="0.0 0.0 0.0" />
  </composition>
 
-  <box name="MWPC" X_Y_Z="165.0 165.0 401.92"  material="Air" comment="forward MWPC mother" />
+ <composition name="CPPWireDeadeningRegion" envelope="CPDR">
+   <posXYZ volume="CPWI" X_Y_Z="-0.99925 0.0 0.0" rot="0.0 90.0 0.0" />  
+   <mposY volume="CPCT" ncopy="10" Z_X="0.0 0.0" Y0="-4.5" dY="1.0" />
+   <posXYZ volume="CPWI" X_Y_Z="+0.99925 0.0 0.0" rot="0.0 90.0 0.0" />
+ </composition>
+
+  <!--box name="MWPC" X_Y_Z="165.0 165.0 401.92"  material="Air" comment="forward MWPC mother" /-->
   
   <!-- Absorbers are 61"x61" square with various thicknesses and a 8cm round beam hole -->
-  <box name="CPA1" X_Y_Z="154.94 154.94  6.15" material="Iron" comment="Iron Absorber"/>
-  <box name="CPA2" X_Y_Z="154.94 154.94  5.55" material="Iron" comment="Iron Absorber"/>
-  <box name="CPA3" X_Y_Z="154.94 154.94  5.55" material="Iron" comment="Iron Absorber"/>
-  <box name="CPA4" X_Y_Z="154.94 154.94  6.90" material="Iron" comment="Iron Absorber"/>
-  <box name="CPA5" X_Y_Z="154.94 154.94  9.40" material="Iron" comment="Iron Absorber"/>
-  <box name="CPA6" X_Y_Z="154.94 154.94 16.00" material="Iron" comment="Iron Absorber"/>
-  <box name="CPA7" X_Y_Z="154.94 154.94 90.45" material="Iron" comment="Iron Absorber"/>
-  <tubs name="CPH1" Rio_Z="0.0 4.0 6.15"  material="Air" comment="Iron Absorber beam hole" />
-  <tubs name="CPH2" Rio_Z="0.0 4.0 5.55"  material="Air" comment="Iron Absorber beam hole" />
-  <tubs name="CPH3" Rio_Z="0.0 4.0 5.55"  material="Air" comment="Iron Absorber beam hole" />
-  <tubs name="CPH4" Rio_Z="0.0 4.0 6.90"  material="Air" comment="Iron Absorber beam hole" />
-  <tubs name="CPH5" Rio_Z="0.0 4.0 9.40"  material="Air" comment="Iron Absorber beam hole" />
-  <tubs name="CPH6" Rio_Z="0.0 4.0 16.00" material="Air" comment="Iron Absorber beam hole" />
-  <tubs name="CPH7" Rio_Z="0.0 4.0 90.45" material="Air" comment="Iron Absorber beam hole" />
+  <box name="CPA1" X_Y_Z="154.94 154.94  5.00" material="Lead" comment="Lead Absorber"/>
+  <box name="CPA2" X_Y_Z="154.94 154.94 10.00" material="Iron" comment="Iron Absorber"/>
+  <box name="CPA3" X_Y_Z="154.94 154.94 15.00" material="Iron" comment="Iron Absorber"/>
+  <box name="CPA4" X_Y_Z="154.94 154.94 35.00" material="Iron" comment="Iron Absorber"/>
+  <box name="CPA5" X_Y_Z="154.94 154.94 35.00" material="Iron" comment="Iron Absorber"/>
+
+  <pgon name="CPA6" segments="4" profile="-45 360" material="Lead" comment="Lead picture frame absorber">
+    <polyplane Rio_Z="4.0 7.0 0.0"/>
+    <polyplane Rio_Z="4.0 7.0 12.7"/>
+  </pgon>
+
+  <pgon name="CPA7" segments="4" profile="-45 360" material="Lead" comment="Angle profile for adjusting location of picture frame">
+    <polyplane Rio_Z="12.065 12.865 0.0"/>
+    <polyplane Rio_Z="12.065 12.865 4.26"/>
+    <polyplane Rio_Z="12.065 17.145 4.26"/>
+    <polyplane Rio_Z="12.065 17.145 5.06"/>
+  </pgon>
+
+  <tubs name="CPH1" Rio_Z="0.0 4.0  5.00"  material="Air" comment="Lead Absorber beam hole" />
+  <tubs name="CPH2" Rio_Z="0.0 4.0 10.00"  material="Air" comment="Iron Absorber beam hole" />
+  <tubs name="CPH3" Rio_Z="0.0 4.0 15.00"  material="Air" comment="Iron Absorber beam hole" />
+  <tubs name="CPH4" Rio_Z="0.0 4.0 35.00"  material="Air" comment="Iron Absorber beam hole" />
+  <tubs name="CPH5" Rio_Z="0.0 4.0 35.00"  material="Air" comment="Iron Absorber beam hole" />
+
+  <tubs name="CPB1" Rio_Z="0.0 0.47625 5.065" material="StainlessSteel" comment="Verticle bolt"/>
+  <tubs name="CPB2" Rio_Z="0.0 0.3175 5.065" material="StainlessSteel" comment="Horizontal bolt"/>
+  <tubs name="CPB3" Rio_Z="0.0 0.47625 2.5" material="StainlessSteel" comment="Verticle bolt"/>
+  <tubs name="CPB4" Rio_Z="0.0 0.3175 3.0" material="StainlessSteel" comment="Horizontal bolt"/>
+  <tubs name="CPN1" Rio_Z="0.47625 1.05 0.85" material="StainlessSteel" comment="nut for picture frame adjustment"/>
+  
 
   <!-- MWPC frame is 64" x 64" x 5.26cm  -->
   <box name="CPPF" X_Y_Z="162.56 162.56 5.26"  material="FR-4" comment="G10 frame" />
 
   <!-- MWPC gas is 60" x 60" x 2cm  -->
-  <box name="CPPG" X_Y_Z="152.4 152.4 2.0"  material="FDchamberGas" 
-       sensitive="true" comment="Chamber gas" />
-
+  <!--box name="CPPG" X_Y_Z="152.4 152.4 2.0"  material="FMWPCchamberGas" 
+       sensitive="true" comment="Chamber gas" /-->
+  <pgon name="CPPG" segments="4" profile="-45 360" material="FMWPCchamberGas" 
+	sensitive="true" comment="Active volume of chamber gas">
+    <polyplane Rio_Z="5.0 76.2 0.0"/>
+    <polyplane Rio_Z="5.0 76.2 2.0"/>
+  </pgon>
+  
   <!-- MWPC aluminum wall 60" x 60" x 1.63cm  -->
-  <box name="CPPW" X_Y_Z="152.4 152.4 1.63"  material="Air" comment="Aluminum panel mother" />
+  <box name="CPPW" X_Y_Z="152.4 152.4 1.63"  material="AluminumComb" comment="Aluminum panel mother" />
 
-  <!-- MWPC aluminum comb 60" x 60" x 1.27cm  -->
-  <box name="CPPC" X_Y_Z="152.4 152.4 1.27"  material="AluminumComb" comment="Aluminum comb" />
+  <!-- Hole through wall for passage of beam  -->
+  <tubs name="CPH6" Rio_Z="0. 2.54 1.312"  material="Air" comment="beam hole" />
 
   <!-- MWPC aluminum plate 60" x 60" x 1/16"  -->
   <box name="CPPP" X_Y_Z="152.4 152.4 0.159"  material="Aluminum" comment="Aluminum plate" />
 
   <tubs name="CPPH" Rio_Z="0.0 2.54 0.159" material="Air" comment="Aluminum Plate Hole"/>
+  
+  <tubs name="CPWI" Rio_Z="0.0 3.81 0.0015" material="Aluminum" comment="Aluminum window"/>
+  
+  <!-- Wire deadening region 10cm x 10 cm x 2cm  -->
+  <box name="CPDR" X_Y_Z="2.0 10.0 10.0"  material="FMWPCchamberGas" comment="Wire deadening region" />
+
+  <tubs name="CPCT" Rio_Z="0.028 0.071 10.0" material="CarbonFiber" comment="carbon fiber tubes"/>
 
 </section>
 

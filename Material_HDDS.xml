@@ -910,6 +910,15 @@
  	</addmaterial>
   </composite>
 
+  <composite name="FMWPCchamberGas">
+	<addmaterial material="Argon">
+		<fractionmass	fraction="0.883" />
+ 	</addmaterial>
+	<addmaterial material="CO2">
+		<fractionmass	fraction="0.117" />
+ 	</addmaterial>
+  </composite>
+
   <composite name="CalciumTitanate">
         <addmaterial material="Calcium"> <natoms n="1" /> </addmaterial>
         <addmaterial material="Titanium"> <natoms n="1" /> </addmaterial>

@@ -1,4 +1,13 @@
+from __future__ import print_function
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import unicode_literals
 
+from builtins import int
+from builtins import str
+from builtins import map
+from future import standard_library
+standard_library.install_aliases()
 import os
 import sys
 import subprocess
@@ -18,15 +27,22 @@ SHOWBUILD = ARGUMENTS.get('SHOWBUILD', 0)
 # Get platform-specific name
 osname = os.getenv('BMS_OSNAME', 'build')
 
+# Get gcc major version
+proc=subprocess.Popen('./gccversion.sh', shell=True, stdout=subprocess.PIPE, )
+gcc_version_str=str(proc.communicate()[0], 'utf-8')
+gcc_version = int(gcc_version_str.rstrip("\n"))
+print('gcc_version =', gcc_version)
+
 # Check for GDML support in ROOT
 hasGDMLsupport = False
 rootsys = os.getenv('ROOTSYS')  # needed to run root to generate GDML
 if rootsys != None:
 	if os.path.exists('%s/include/TGDMLWrite.h' % rootsys): hasGDMLsupport = True
+	if os.path.exists('%s/include/root/TGDMLWrite.h' % rootsys): hasGDMLsupport = True
 if hasGDMLsupport:
-	print 'ROOT GDML support found. GDML files will be generated.'
+	print('ROOT GDML support found. GDML files will be generated.')
 else:
-	print 'No ROOT support for GDML. GDML files will NOT be generated.'
+	print('No ROOT support for GDML. GDML files will NOT be generated.')
 
 # Setup initial environment
 builddir   = ".%s" % (osname)
@@ -43,7 +59,7 @@ env = Environment(ENV = os.environ,  # Bring in full environement, including PAT
 # Add Xerces
 xerces = os.getenv('XERCESCROOT')
 if xerces == None:
-	print 'You MUST have your XERCESCROOT environment variable defined!'
+	print('You MUST have your XERCESCROOT environment variable defined!')
 	sys.exit(-1)
 env.AppendUnique(CPPPATH=['%s/include' % xerces])
 env.AppendUnique(LIBPATH=['%s/lib' % xerces], LIBS=['xerces-c'])
@@ -66,7 +82,11 @@ if SHOWBUILD==0:
 # Turn on debug symbols and warnings
 env.PrependUnique(      CFLAGS = ['-g', '-fPIC', '-Wall'])
 env.PrependUnique(    CXXFLAGS = ['-g', '-fPIC', '-Wall'])
-env.PrependUnique(FORTRANFLAGS = ['-g', '-fPIC'])
+env.PrependUnique(    CXXFLAGS = ['-std=c++11'])
+if gcc_version >= 10:
+   env.PrependUnique(FORTRANFLAGS = ['-g', '-fPIC', '-fallow-argument-mismatch'])
+else:
+   env.PrependUnique(FORTRANFLAGS = ['-g', '-fPIC'])
 
 # Common source files used for all programs
 COMMONSRC = ['hddsCommon.cpp', 'XParsers.cpp', 'XString.cpp', 'md5.c']
@@ -146,7 +166,7 @@ libhdds = env.SharedLibrary(target='%s/hdds' % builddir, source = COMMONBSRC, SH
 # Configure for installation. In principle, we should not need to explicitly
 # check if the "install" target was specified. For some unknown reason though,
 # scons seems to install things automatically otherwise (Argghh!)
-build_targets = map(str,BUILD_TARGETS)
+build_targets = list(map(str,BUILD_TARGETS))
 if len(build_targets)>0:
 	if 'install' in build_targets:
 		env.Install(bin, hdds_geant)

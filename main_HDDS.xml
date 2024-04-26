@@ -17,6 +17,7 @@
   <!ENTITY CerenkovCntr_s SYSTEM "CerenkovCntr_HDDS.xml">
   <!ENTITY UpstreamEMveto_s SYSTEM "UpstreamEMveto_HDDS.xml">
   <!ENTITY ComptonEMcal_s SYSTEM "ComptonEMcal_HDDS.xml">
+  <!ENTITY CrystalECAL_s SYSTEM "CrystalECAL_HDDS.xml">
   <!ENTITY DIRC_s SYSTEM "DIRC_HDDS.xml">
   <!ENTITY TRDGEM_s SYSTEM "TRDGEM_HDDS.xml">
 
@@ -47,6 +48,7 @@
      &UpstreamEMveto_s;
      &PairSpect_s;     
      &ComptonEMcal_s;
+     &CrystalECAL_s;
      &DIRC_s;
      &TRDGEM_s;
 <!-- End of include    -->
@@ -101,6 +103,7 @@
     <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0427 0.0461 -0.1813"/>
     <posXYZ volume="ForwardEMcal" X_Y_Z="0.529 -0.002 624.906" rot="-0.0418 -0.07019 -0.0149" />
     <!--posXYZ volume="ComptonEMcal" X_Y_Z="0.0  0.0  1279.376" /-->
+    <posXYZ volume="CrystalECAL" X_Y_Z="0.0  0.0  1279.376" />
   </composition>
 
   <composition name="backwardPackage">

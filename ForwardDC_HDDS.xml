@@ -35,6 +35,9 @@
                   i) Fixed dimensions of copper-free regions in the cathode planes.
 
     version 3.3:  small tweaks to eliminate overlaps -rtj
+
+    version 4.0:  replace thin foils representing the wire planes with individual
+                  field and sense wires, properly placed -rtj
  
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
@@ -684,25 +687,849 @@
     <posXYZ volume="FDW1" />
   </composition>
   <composition name="forwardDC_activeVolume_1" envelope="FDA1">
-    <posXYZ volume="FDX1" />
+    <!--posXYZ volume="FDX1" /-->
+    <posXYZ volume="FA01" X_Y_Z="-47.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA01" X_Y_Z="47.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA02" X_Y_Z="-46.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA02" X_Y_Z="46.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA03" X_Y_Z="-45.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA03" X_Y_Z="45.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA04" X_Y_Z="-44.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA04" X_Y_Z="44.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA05" X_Y_Z="-43.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA05" X_Y_Z="43.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA06" X_Y_Z="-42.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA06" X_Y_Z="42.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA07" X_Y_Z="-41.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA07" X_Y_Z="41.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA08" X_Y_Z="-40.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA08" X_Y_Z="40.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA09" X_Y_Z="-39.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA09" X_Y_Z="39.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA10" X_Y_Z="-38.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA10" X_Y_Z="38.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA11" X_Y_Z="-37.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA11" X_Y_Z="37.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA12" X_Y_Z="-36.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA12" X_Y_Z="36.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA13" X_Y_Z="-35.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA13" X_Y_Z="35.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA14" X_Y_Z="-34.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA14" X_Y_Z="34.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA15" X_Y_Z="-33.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA15" X_Y_Z="33.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA16" X_Y_Z="-32.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA16" X_Y_Z="32.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA17" X_Y_Z="-31.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA17" X_Y_Z="31.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA18" X_Y_Z="-30.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA18" X_Y_Z="30.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA19" X_Y_Z="-29.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA19" X_Y_Z="29.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA20" X_Y_Z="-28.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA20" X_Y_Z="28.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA21" X_Y_Z="-27.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA21" X_Y_Z="27.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA22" X_Y_Z="-26.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA22" X_Y_Z="26.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA23" X_Y_Z="-25.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA23" X_Y_Z="25.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA24" X_Y_Z="-24.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA24" X_Y_Z="24.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA25" X_Y_Z="-23.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA25" X_Y_Z="23.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA26" X_Y_Z="-22.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA26" X_Y_Z="22.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA27" X_Y_Z="-21.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA27" X_Y_Z="21.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA28" X_Y_Z="-20.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA28" X_Y_Z="20.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA29" X_Y_Z="-19.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA29" X_Y_Z="19.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA30" X_Y_Z="-18.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA30" X_Y_Z="18.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA31" X_Y_Z="-17.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA31" X_Y_Z="17.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA32" X_Y_Z="-16.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA32" X_Y_Z="16.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA33" X_Y_Z="-15.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA33" X_Y_Z="15.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA34" X_Y_Z="-14.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA34" X_Y_Z="14.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA35" X_Y_Z="-13.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA35" X_Y_Z="13.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA36" X_Y_Z="-12.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA36" X_Y_Z="12.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA37" X_Y_Z="-11.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA37" X_Y_Z="11.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA38" X_Y_Z="-10.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA38" X_Y_Z="10.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA39" X_Y_Z="-9.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA39" X_Y_Z="9.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA40" X_Y_Z="-8.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA40" X_Y_Z="8.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA41" X_Y_Z="-7.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA41" X_Y_Z="7.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA42" X_Y_Z="-6.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA42" X_Y_Z="6.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA43" X_Y_Z="-5.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA43" X_Y_Z="5.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA44" X_Y_Z="-4.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA44" X_Y_Z="4.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA45" X_Y_Z="-3.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA45" X_Y_Z="3.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA46" X_Y_Z="-2.5000 25.0581 0" rot="90 0 0" />
+    <posXYZ volume="FA46" X_Y_Z="2.5000 25.0581 0" rot="90 0 0" />
+    <posXYZ volume="FA46" X_Y_Z="-2.5000 -25.0581 0" rot="90 0 0" />
+    <posXYZ volume="FA46" X_Y_Z="2.5000 -25.0581 0" rot="90 0 0" />
+    <posXYZ volume="FA47" X_Y_Z="-1.5000 25.5409 0" rot="90 0 0" />
+    <posXYZ volume="FA47" X_Y_Z="1.5000 25.5409 0" rot="90 0 0" />
+    <posXYZ volume="FA47" X_Y_Z="-1.5000 -25.5409 0" rot="90 0 0" />
+    <posXYZ volume="FA47" X_Y_Z="1.5000 -25.5409 0" rot="90 0 0" />
+    <posXYZ volume="FA48" X_Y_Z="-0.5000 25.7286 0" rot="90 0 0" />
+    <posXYZ volume="FA48" X_Y_Z="0.5000 25.7286 0" rot="90 0 0" />
+    <posXYZ volume="FA48" X_Y_Z="-0.5000 -25.7286 0" rot="90 0 0" />
+    <posXYZ volume="FA48" X_Y_Z="0.5000 -25.7286 0" rot="90 0 0" />
+    <posXYZ volume="FF01" X_Y_Z="-48.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF01" X_Y_Z="48.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF02" X_Y_Z="-47.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF02" X_Y_Z="47.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF03" X_Y_Z="-46.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF03" X_Y_Z="46.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF04" X_Y_Z="-45.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF04" X_Y_Z="45.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF05" X_Y_Z="-44.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF05" X_Y_Z="44.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF06" X_Y_Z="-43.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF06" X_Y_Z="43.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF07" X_Y_Z="-42.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF07" X_Y_Z="42.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF08" X_Y_Z="-41.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF08" X_Y_Z="41.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF09" X_Y_Z="-40.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF09" X_Y_Z="40.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF10" X_Y_Z="-39.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF10" X_Y_Z="39.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF11" X_Y_Z="-38.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF11" X_Y_Z="38.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF12" X_Y_Z="-37.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF12" X_Y_Z="37.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF13" X_Y_Z="-36.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF13" X_Y_Z="36.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF14" X_Y_Z="-35.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF14" X_Y_Z="35.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF15" X_Y_Z="-34.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF15" X_Y_Z="34.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF16" X_Y_Z="-33.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF16" X_Y_Z="33.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF17" X_Y_Z="-32.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF17" X_Y_Z="32.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF18" X_Y_Z="-31.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF18" X_Y_Z="31.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF19" X_Y_Z="-30.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF19" X_Y_Z="30.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF20" X_Y_Z="-29.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF20" X_Y_Z="29.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF21" X_Y_Z="-28.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF21" X_Y_Z="28.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF22" X_Y_Z="-27.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF22" X_Y_Z="27.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF23" X_Y_Z="-26.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF23" X_Y_Z="26.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF24" X_Y_Z="-25.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF24" X_Y_Z="25.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF25" X_Y_Z="-24.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF25" X_Y_Z="24.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF26" X_Y_Z="-23.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF26" X_Y_Z="23.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF27" X_Y_Z="-22.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF27" X_Y_Z="22.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF28" X_Y_Z="-21.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF28" X_Y_Z="21.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF29" X_Y_Z="-20.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF29" X_Y_Z="20.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF30" X_Y_Z="-19.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF30" X_Y_Z="19.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF31" X_Y_Z="-18.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF31" X_Y_Z="18.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF32" X_Y_Z="-17.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF32" X_Y_Z="17.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF33" X_Y_Z="-16.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF33" X_Y_Z="16.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF34" X_Y_Z="-15.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF34" X_Y_Z="15.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF35" X_Y_Z="-14.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF35" X_Y_Z="14.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF36" X_Y_Z="-13.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF36" X_Y_Z="13.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF37" X_Y_Z="-12.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF37" X_Y_Z="12.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF38" X_Y_Z="-11.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF38" X_Y_Z="11.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF39" X_Y_Z="-10.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF39" X_Y_Z="10.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF40" X_Y_Z="-9.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF40" X_Y_Z="9.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF41" X_Y_Z="-8.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF41" X_Y_Z="8.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF42" X_Y_Z="-7.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF42" X_Y_Z="7.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF43" X_Y_Z="-6.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF43" X_Y_Z="6.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF44" X_Y_Z="-5.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF44" X_Y_Z="5.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF45" X_Y_Z="-4.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF45" X_Y_Z="4.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF46" X_Y_Z="-3.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF46" X_Y_Z="3.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF47" X_Y_Z="-2.0000 25.3533 0" rot="90 0 0" />
+    <posXYZ volume="FF47" X_Y_Z="2.0000 25.3533 0" rot="90 0 0" />
+    <posXYZ volume="FF47" X_Y_Z="-2.0000 -25.3533 0" rot="90 0 0" />
+    <posXYZ volume="FF47" X_Y_Z="2.0000 -25.3533 0" rot="90 0 0" />
+    <posXYZ volume="FF48" X_Y_Z="-1.0000 25.6610 0" rot="90 0 0" />
+    <posXYZ volume="FF48" X_Y_Z="1.0000 25.6610 0" rot="90 0 0" />
+    <posXYZ volume="FF48" X_Y_Z="-1.0000 -25.6610 0" rot="90 0 0" />
+    <posXYZ volume="FF48" X_Y_Z="1.0000 -25.6610 0" rot="90 0 0" />
+    <posXYZ volume="FF49" X_Y_Z="0.0 25.7500 0.0" rot="90 0 0" />
+    <posXYZ volume="FF49" X_Y_Z="0.0 -25.7500 0.0" rot="90 0 0" />
   </composition>
   <composition name="forwardDC_gasVolume_2" envelope="FDG2">
     <posXYZ volume="FDW2" />
   </composition>
   <composition name="forwardDC_activeVolume_2" envelope="FDA2">
-    <posXYZ volume="FDX2" />
+    <!--posXYZ volume="FDX2" /-->
+    <posXYZ volume="FA01" X_Y_Z="-47.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA01" X_Y_Z="47.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA02" X_Y_Z="-46.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA02" X_Y_Z="46.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA03" X_Y_Z="-45.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA03" X_Y_Z="45.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA04" X_Y_Z="-44.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA04" X_Y_Z="44.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA05" X_Y_Z="-43.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA05" X_Y_Z="43.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA06" X_Y_Z="-42.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA06" X_Y_Z="42.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA07" X_Y_Z="-41.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA07" X_Y_Z="41.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA08" X_Y_Z="-40.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA08" X_Y_Z="40.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA09" X_Y_Z="-39.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA09" X_Y_Z="39.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA10" X_Y_Z="-38.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA10" X_Y_Z="38.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA11" X_Y_Z="-37.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA11" X_Y_Z="37.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA12" X_Y_Z="-36.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA12" X_Y_Z="36.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA13" X_Y_Z="-35.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA13" X_Y_Z="35.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA14" X_Y_Z="-34.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA14" X_Y_Z="34.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA15" X_Y_Z="-33.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA15" X_Y_Z="33.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA16" X_Y_Z="-32.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA16" X_Y_Z="32.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA17" X_Y_Z="-31.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA17" X_Y_Z="31.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA18" X_Y_Z="-30.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA18" X_Y_Z="30.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA19" X_Y_Z="-29.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA19" X_Y_Z="29.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA20" X_Y_Z="-28.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA20" X_Y_Z="28.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA21" X_Y_Z="-27.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA21" X_Y_Z="27.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA22" X_Y_Z="-26.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA22" X_Y_Z="26.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA23" X_Y_Z="-25.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA23" X_Y_Z="25.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA24" X_Y_Z="-24.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA24" X_Y_Z="24.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA25" X_Y_Z="-23.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA25" X_Y_Z="23.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA26" X_Y_Z="-22.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA26" X_Y_Z="22.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA27" X_Y_Z="-21.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA27" X_Y_Z="21.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA28" X_Y_Z="-20.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA28" X_Y_Z="20.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA29" X_Y_Z="-19.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA29" X_Y_Z="19.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA30" X_Y_Z="-18.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA30" X_Y_Z="18.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA31" X_Y_Z="-17.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA31" X_Y_Z="17.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA32" X_Y_Z="-16.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA32" X_Y_Z="16.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA33" X_Y_Z="-15.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA33" X_Y_Z="15.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA34" X_Y_Z="-14.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA34" X_Y_Z="14.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA35" X_Y_Z="-13.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA35" X_Y_Z="13.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA36" X_Y_Z="-12.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA36" X_Y_Z="12.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA37" X_Y_Z="-11.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA37" X_Y_Z="11.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA38" X_Y_Z="-10.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA38" X_Y_Z="10.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA39" X_Y_Z="-9.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA39" X_Y_Z="9.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA40" X_Y_Z="-8.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA40" X_Y_Z="8.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA41" X_Y_Z="-7.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA41" X_Y_Z="7.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA42" X_Y_Z="-6.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA42" X_Y_Z="6.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA43" X_Y_Z="-5.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA43" X_Y_Z="5.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA44" X_Y_Z="-4.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA44" X_Y_Z="4.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA45" X_Y_Z="-3.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA45" X_Y_Z="3.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA46" X_Y_Z="-2.5000 25.0581 0" rot="90 0 0" />
+    <posXYZ volume="FA46" X_Y_Z="2.5000 25.0581 0" rot="90 0 0" />
+    <posXYZ volume="FA46" X_Y_Z="-2.5000 -25.0581 0" rot="90 0 0" />
+    <posXYZ volume="FA46" X_Y_Z="2.5000 -25.0581 0" rot="90 0 0" />
+    <posXYZ volume="FA47" X_Y_Z="-1.5000 25.5409 0" rot="90 0 0" />
+    <posXYZ volume="FA47" X_Y_Z="1.5000 25.5409 0" rot="90 0 0" />
+    <posXYZ volume="FA47" X_Y_Z="-1.5000 -25.5409 0" rot="90 0 0" />
+    <posXYZ volume="FA47" X_Y_Z="1.5000 -25.5409 0" rot="90 0 0" />
+    <posXYZ volume="FA48" X_Y_Z="-0.5000 25.7286 0" rot="90 0 0" />
+    <posXYZ volume="FA48" X_Y_Z="0.5000 25.7286 0" rot="90 0 0" />
+    <posXYZ volume="FA48" X_Y_Z="-0.5000 -25.7286 0" rot="90 0 0" />
+    <posXYZ volume="FA48" X_Y_Z="0.5000 -25.7286 0" rot="90 0 0" />
+    <posXYZ volume="FF01" X_Y_Z="-48.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF01" X_Y_Z="48.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF02" X_Y_Z="-47.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF02" X_Y_Z="47.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF03" X_Y_Z="-46.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF03" X_Y_Z="46.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF04" X_Y_Z="-45.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF04" X_Y_Z="45.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF05" X_Y_Z="-44.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF05" X_Y_Z="44.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF06" X_Y_Z="-43.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF06" X_Y_Z="43.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF07" X_Y_Z="-42.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF07" X_Y_Z="42.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF08" X_Y_Z="-41.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF08" X_Y_Z="41.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF09" X_Y_Z="-40.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF09" X_Y_Z="40.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF10" X_Y_Z="-39.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF10" X_Y_Z="39.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF11" X_Y_Z="-38.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF11" X_Y_Z="38.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF12" X_Y_Z="-37.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF12" X_Y_Z="37.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF13" X_Y_Z="-36.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF13" X_Y_Z="36.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF14" X_Y_Z="-35.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF14" X_Y_Z="35.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF15" X_Y_Z="-34.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF15" X_Y_Z="34.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF16" X_Y_Z="-33.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF16" X_Y_Z="33.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF17" X_Y_Z="-32.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF17" X_Y_Z="32.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF18" X_Y_Z="-31.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF18" X_Y_Z="31.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF19" X_Y_Z="-30.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF19" X_Y_Z="30.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF20" X_Y_Z="-29.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF20" X_Y_Z="29.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF21" X_Y_Z="-28.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF21" X_Y_Z="28.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF22" X_Y_Z="-27.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF22" X_Y_Z="27.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF23" X_Y_Z="-26.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF23" X_Y_Z="26.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF24" X_Y_Z="-25.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF24" X_Y_Z="25.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF25" X_Y_Z="-24.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF25" X_Y_Z="24.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF26" X_Y_Z="-23.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF26" X_Y_Z="23.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF27" X_Y_Z="-22.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF27" X_Y_Z="22.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF28" X_Y_Z="-21.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF28" X_Y_Z="21.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF29" X_Y_Z="-20.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF29" X_Y_Z="20.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF30" X_Y_Z="-19.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF30" X_Y_Z="19.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF31" X_Y_Z="-18.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF31" X_Y_Z="18.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF32" X_Y_Z="-17.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF32" X_Y_Z="17.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF33" X_Y_Z="-16.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF33" X_Y_Z="16.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF34" X_Y_Z="-15.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF34" X_Y_Z="15.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF35" X_Y_Z="-14.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF35" X_Y_Z="14.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF36" X_Y_Z="-13.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF36" X_Y_Z="13.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF37" X_Y_Z="-12.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF37" X_Y_Z="12.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF38" X_Y_Z="-11.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF38" X_Y_Z="11.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF39" X_Y_Z="-10.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF39" X_Y_Z="10.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF40" X_Y_Z="-9.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF40" X_Y_Z="9.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF41" X_Y_Z="-8.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF41" X_Y_Z="8.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF42" X_Y_Z="-7.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF42" X_Y_Z="7.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF43" X_Y_Z="-6.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF43" X_Y_Z="6.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF44" X_Y_Z="-5.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF44" X_Y_Z="5.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF45" X_Y_Z="-4.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF45" X_Y_Z="4.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF46" X_Y_Z="-3.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF46" X_Y_Z="3.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF47" X_Y_Z="-2.0000 25.3533 0" rot="90 0 0" />
+    <posXYZ volume="FF47" X_Y_Z="2.0000 25.3533 0" rot="90 0 0" />
+    <posXYZ volume="FF47" X_Y_Z="-2.0000 -25.3533 0" rot="90 0 0" />
+    <posXYZ volume="FF47" X_Y_Z="2.0000 -25.3533 0" rot="90 0 0" />
+    <posXYZ volume="FF48" X_Y_Z="-1.0000 25.6610 0" rot="90 0 0" />
+    <posXYZ volume="FF48" X_Y_Z="1.0000 25.6610 0" rot="90 0 0" />
+    <posXYZ volume="FF48" X_Y_Z="-1.0000 -25.6610 0" rot="90 0 0" />
+    <posXYZ volume="FF48" X_Y_Z="1.0000 -25.6610 0" rot="90 0 0" />
+    <posXYZ volume="FF49" X_Y_Z="0.0 25.7500 0.0" rot="90 0 0" />
+    <posXYZ volume="FF49" X_Y_Z="0.0 -25.7500 0.0" rot="90 0 0" />
   </composition>
   <composition name="forwardDC_gasVolume_3" envelope="FDG3">
     <posXYZ volume="FDW3" />
   </composition>
   <composition name="forwardDC_activeVolume_3" envelope="FDA3">
-    <posXYZ volume="FDX3" />
+    <!--posXYZ volume="FDX3" /-->
+    <posXYZ volume="FA51" X_Y_Z="-47.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA51" X_Y_Z="47.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA52" X_Y_Z="-46.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA52" X_Y_Z="46.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA53" X_Y_Z="-45.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA53" X_Y_Z="45.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA54" X_Y_Z="-44.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA54" X_Y_Z="44.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA55" X_Y_Z="-43.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA55" X_Y_Z="43.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA56" X_Y_Z="-42.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA56" X_Y_Z="42.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA57" X_Y_Z="-41.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA57" X_Y_Z="41.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA58" X_Y_Z="-40.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA58" X_Y_Z="40.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA59" X_Y_Z="-39.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA59" X_Y_Z="39.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA60" X_Y_Z="-38.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA60" X_Y_Z="38.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA61" X_Y_Z="-37.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA61" X_Y_Z="37.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA62" X_Y_Z="-36.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA62" X_Y_Z="36.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA63" X_Y_Z="-35.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA63" X_Y_Z="35.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA64" X_Y_Z="-34.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA64" X_Y_Z="34.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA65" X_Y_Z="-33.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA65" X_Y_Z="33.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA66" X_Y_Z="-32.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA66" X_Y_Z="32.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA67" X_Y_Z="-31.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA67" X_Y_Z="31.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA68" X_Y_Z="-30.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA68" X_Y_Z="30.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA69" X_Y_Z="-29.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA69" X_Y_Z="29.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA70" X_Y_Z="-28.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA70" X_Y_Z="28.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA71" X_Y_Z="-27.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA71" X_Y_Z="27.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA72" X_Y_Z="-26.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA72" X_Y_Z="26.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA73" X_Y_Z="-25.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA73" X_Y_Z="25.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA74" X_Y_Z="-24.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA74" X_Y_Z="24.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA75" X_Y_Z="-23.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA75" X_Y_Z="23.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA76" X_Y_Z="-22.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA76" X_Y_Z="22.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA77" X_Y_Z="-21.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA77" X_Y_Z="21.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA78" X_Y_Z="-20.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA78" X_Y_Z="20.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA79" X_Y_Z="-19.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA79" X_Y_Z="19.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA80" X_Y_Z="-18.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA80" X_Y_Z="18.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA81" X_Y_Z="-17.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA81" X_Y_Z="17.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA82" X_Y_Z="-16.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA82" X_Y_Z="16.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA83" X_Y_Z="-15.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA83" X_Y_Z="15.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA84" X_Y_Z="-14.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA84" X_Y_Z="14.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA85" X_Y_Z="-13.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA85" X_Y_Z="13.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA86" X_Y_Z="-12.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA86" X_Y_Z="12.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA87" X_Y_Z="-11.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA87" X_Y_Z="11.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA88" X_Y_Z="-10.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA88" X_Y_Z="10.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA89" X_Y_Z="-9.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA89" X_Y_Z="9.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA90" X_Y_Z="-8.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA90" X_Y_Z="8.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA91" X_Y_Z="-7.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA91" X_Y_Z="7.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA92" X_Y_Z="-6.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA92" X_Y_Z="6.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA93" X_Y_Z="-5.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA93" X_Y_Z="5.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA94" X_Y_Z="-4.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA94" X_Y_Z="4.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA95" X_Y_Z="-3.5000 25.0629 0" rot="90 0 0" />
+    <posXYZ volume="FA95" X_Y_Z="3.5000 25.0629 0" rot="90 0 0" />
+    <posXYZ volume="FA95" X_Y_Z="-3.5000 -25.0629 0" rot="90 0 0" />
+    <posXYZ volume="FA95" X_Y_Z="3.5000 -25.0629 0" rot="90 0 0" />
+    <posXYZ volume="FA96" X_Y_Z="-2.5000 25.7198 0" rot="90 0 0" />
+    <posXYZ volume="FA96" X_Y_Z="2.5000 25.7198 0" rot="90 0 0" />
+    <posXYZ volume="FA96" X_Y_Z="-2.5000 -25.7198 0" rot="90 0 0" />
+    <posXYZ volume="FA96" X_Y_Z="2.5000 -25.7198 0" rot="90 0 0" />
+    <posXYZ volume="FA97" X_Y_Z="-1.5000 26.0407 0" rot="90 0 0" />
+    <posXYZ volume="FA97" X_Y_Z="1.5000 26.0407 0" rot="90 0 0" />
+    <posXYZ volume="FA97" X_Y_Z="-1.5000 -26.0407 0" rot="90 0 0" />
+    <posXYZ volume="FA97" X_Y_Z="1.5000 -26.0407 0" rot="90 0 0" />
+    <posXYZ volume="FA98" X_Y_Z="-0.5000 26.1832 0" rot="90 0 0" />
+    <posXYZ volume="FA98" X_Y_Z="0.5000 26.1832 0" rot="90 0 0" />
+    <posXYZ volume="FA98" X_Y_Z="-0.5000 -26.1832 0" rot="90 0 0" />
+    <posXYZ volume="FA98" X_Y_Z="0.5000 -26.1832 0" rot="90 0 0" />
+    <posXYZ volume="FF51" X_Y_Z="-48.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF51" X_Y_Z="48.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF52" X_Y_Z="-47.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF52" X_Y_Z="47.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF53" X_Y_Z="-46.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF53" X_Y_Z="46.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF54" X_Y_Z="-45.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF54" X_Y_Z="45.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF55" X_Y_Z="-44.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF55" X_Y_Z="44.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF56" X_Y_Z="-43.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF56" X_Y_Z="43.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF57" X_Y_Z="-42.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF57" X_Y_Z="42.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF58" X_Y_Z="-41.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF58" X_Y_Z="41.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF59" X_Y_Z="-40.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF59" X_Y_Z="40.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF60" X_Y_Z="-39.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF60" X_Y_Z="39.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF61" X_Y_Z="-38.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF61" X_Y_Z="38.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF62" X_Y_Z="-37.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF62" X_Y_Z="37.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF63" X_Y_Z="-36.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF63" X_Y_Z="36.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF64" X_Y_Z="-35.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF64" X_Y_Z="35.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF65" X_Y_Z="-34.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF65" X_Y_Z="34.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF66" X_Y_Z="-33.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF66" X_Y_Z="33.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF67" X_Y_Z="-32.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF67" X_Y_Z="32.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF68" X_Y_Z="-31.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF68" X_Y_Z="31.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF69" X_Y_Z="-30.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF69" X_Y_Z="30.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF70" X_Y_Z="-29.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF70" X_Y_Z="29.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF71" X_Y_Z="-28.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF71" X_Y_Z="28.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF72" X_Y_Z="-27.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF72" X_Y_Z="27.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF73" X_Y_Z="-26.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF73" X_Y_Z="26.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF74" X_Y_Z="-25.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF74" X_Y_Z="25.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF75" X_Y_Z="-24.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF75" X_Y_Z="24.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF76" X_Y_Z="-23.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF76" X_Y_Z="23.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF77" X_Y_Z="-22.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF77" X_Y_Z="22.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF78" X_Y_Z="-21.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF78" X_Y_Z="21.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF79" X_Y_Z="-20.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF79" X_Y_Z="20.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF80" X_Y_Z="-19.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF80" X_Y_Z="19.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF81" X_Y_Z="-18.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF81" X_Y_Z="18.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF82" X_Y_Z="-17.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF82" X_Y_Z="17.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF83" X_Y_Z="-16.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF83" X_Y_Z="16.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF84" X_Y_Z="-15.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF84" X_Y_Z="15.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF85" X_Y_Z="-14.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF85" X_Y_Z="14.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF86" X_Y_Z="-13.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF86" X_Y_Z="13.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF87" X_Y_Z="-12.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF87" X_Y_Z="12.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF88" X_Y_Z="-11.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF88" X_Y_Z="11.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF89" X_Y_Z="-10.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF89" X_Y_Z="10.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF90" X_Y_Z="-9.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF90" X_Y_Z="9.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF91" X_Y_Z="-8.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF91" X_Y_Z="8.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF92" X_Y_Z="-7.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF92" X_Y_Z="7.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF93" X_Y_Z="-6.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF93" X_Y_Z="6.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF94" X_Y_Z="-5.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF94" X_Y_Z="5.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF95" X_Y_Z="-4.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF95" X_Y_Z="4.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF96" X_Y_Z="-3.0000 25.4580 0" rot="90 0 0" />
+    <posXYZ volume="FF96" X_Y_Z="3.0000 25.4580 0" rot="90 0 0" />
+    <posXYZ volume="FF96" X_Y_Z="-3.0000 -25.4580 0" rot="90 0 0" />
+    <posXYZ volume="FF96" X_Y_Z="3.0000 -25.4580 0" rot="90 0 0" />
+    <posXYZ volume="FF97" X_Y_Z="-2.0000 25.9070 0" rot="90 0 0" />
+    <posXYZ volume="FF97" X_Y_Z="2.0000 25.9070 0" rot="90 0 0" />
+    <posXYZ volume="FF97" X_Y_Z="-2.0000 -25.9070 0" rot="90 0 0" />
+    <posXYZ volume="FF97" X_Y_Z="2.0000 -25.9070 0" rot="90 0 0" />
+    <posXYZ volume="FF98" X_Y_Z="-1.0000 26.1310 0" rot="90 0 0" />
+    <posXYZ volume="FF98" X_Y_Z="1.0000 26.1310 0" rot="90 0 0" />
+    <posXYZ volume="FF98" X_Y_Z="-1.0000 -26.1310 0" rot="90 0 0" />
+    <posXYZ volume="FF98" X_Y_Z="1.0000 -26.1310 0" rot="90 0 0" />
+    <posXYZ volume="FF99" X_Y_Z="0.0 26.2000 0.0" rot="90 0 0" />
+    <posXYZ volume="FF99" X_Y_Z="0.0 -26.2000 0.0" rot="90 0 0" />
   </composition>
   <composition name="forwardDC_gasVolume_4" envelope="FDG4">
     <posXYZ volume="FDW4" />
   </composition>
   <composition name="forwardDC_activeVolume_4" envelope="FDA4">
-    <posXYZ volume="FDX4" />
+    <!--posXYZ volume="FDX4" /-->
+    <posXYZ volume="FA51" X_Y_Z="-47.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA51" X_Y_Z="47.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA52" X_Y_Z="-46.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA52" X_Y_Z="46.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA53" X_Y_Z="-45.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA53" X_Y_Z="45.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA54" X_Y_Z="-44.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA54" X_Y_Z="44.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA55" X_Y_Z="-43.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA55" X_Y_Z="43.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA56" X_Y_Z="-42.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA56" X_Y_Z="42.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA57" X_Y_Z="-41.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA57" X_Y_Z="41.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA58" X_Y_Z="-40.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA58" X_Y_Z="40.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA59" X_Y_Z="-39.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA59" X_Y_Z="39.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA60" X_Y_Z="-38.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA60" X_Y_Z="38.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA61" X_Y_Z="-37.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA61" X_Y_Z="37.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA62" X_Y_Z="-36.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA62" X_Y_Z="36.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA63" X_Y_Z="-35.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA63" X_Y_Z="35.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA64" X_Y_Z="-34.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA64" X_Y_Z="34.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA65" X_Y_Z="-33.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA65" X_Y_Z="33.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA66" X_Y_Z="-32.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA66" X_Y_Z="32.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA67" X_Y_Z="-31.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA67" X_Y_Z="31.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA68" X_Y_Z="-30.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA68" X_Y_Z="30.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA69" X_Y_Z="-29.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA69" X_Y_Z="29.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA70" X_Y_Z="-28.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA70" X_Y_Z="28.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA71" X_Y_Z="-27.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA71" X_Y_Z="27.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA72" X_Y_Z="-26.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA72" X_Y_Z="26.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA73" X_Y_Z="-25.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA73" X_Y_Z="25.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA74" X_Y_Z="-24.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA74" X_Y_Z="24.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA75" X_Y_Z="-23.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA75" X_Y_Z="23.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA76" X_Y_Z="-22.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA76" X_Y_Z="22.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA77" X_Y_Z="-21.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA77" X_Y_Z="21.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA78" X_Y_Z="-20.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA78" X_Y_Z="20.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA79" X_Y_Z="-19.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA79" X_Y_Z="19.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA80" X_Y_Z="-18.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA80" X_Y_Z="18.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA81" X_Y_Z="-17.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA81" X_Y_Z="17.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA82" X_Y_Z="-16.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA82" X_Y_Z="16.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA83" X_Y_Z="-15.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA83" X_Y_Z="15.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA84" X_Y_Z="-14.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA84" X_Y_Z="14.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA85" X_Y_Z="-13.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA85" X_Y_Z="13.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA86" X_Y_Z="-12.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA86" X_Y_Z="12.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA87" X_Y_Z="-11.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA87" X_Y_Z="11.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA88" X_Y_Z="-10.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA88" X_Y_Z="10.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA89" X_Y_Z="-9.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA89" X_Y_Z="9.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA90" X_Y_Z="-8.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA90" X_Y_Z="8.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA91" X_Y_Z="-7.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA91" X_Y_Z="7.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA92" X_Y_Z="-6.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA92" X_Y_Z="6.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA93" X_Y_Z="-5.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA93" X_Y_Z="5.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA94" X_Y_Z="-4.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA94" X_Y_Z="4.5000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FA95" X_Y_Z="-3.5000 25.0629 0" rot="90 0 0" />
+    <posXYZ volume="FA95" X_Y_Z="3.5000 25.0629 0" rot="90 0 0" />
+    <posXYZ volume="FA95" X_Y_Z="-3.5000 -25.0629 0" rot="90 0 0" />
+    <posXYZ volume="FA95" X_Y_Z="3.5000 -25.0629 0" rot="90 0 0" />
+    <posXYZ volume="FA96" X_Y_Z="-2.5000 25.7198 0" rot="90 0 0" />
+    <posXYZ volume="FA96" X_Y_Z="2.5000 25.7198 0" rot="90 0 0" />
+    <posXYZ volume="FA96" X_Y_Z="-2.5000 -25.7198 0" rot="90 0 0" />
+    <posXYZ volume="FA96" X_Y_Z="2.5000 -25.7198 0" rot="90 0 0" />
+    <posXYZ volume="FA97" X_Y_Z="-1.5000 26.0407 0" rot="90 0 0" />
+    <posXYZ volume="FA97" X_Y_Z="1.5000 26.0407 0" rot="90 0 0" />
+    <posXYZ volume="FA97" X_Y_Z="-1.5000 -26.0407 0" rot="90 0 0" />
+    <posXYZ volume="FA97" X_Y_Z="1.5000 -26.0407 0" rot="90 0 0" />
+    <posXYZ volume="FA98" X_Y_Z="-0.5000 26.1832 0" rot="90 0 0" />
+    <posXYZ volume="FA98" X_Y_Z="0.5000 26.1832 0" rot="90 0 0" />
+    <posXYZ volume="FA98" X_Y_Z="-0.5000 -26.1832 0" rot="90 0 0" />
+    <posXYZ volume="FA98" X_Y_Z="0.5000 -26.1832 0" rot="90 0 0" />
+    <posXYZ volume="FF51" X_Y_Z="-48.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF51" X_Y_Z="48.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF52" X_Y_Z="-47.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF52" X_Y_Z="47.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF53" X_Y_Z="-46.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF53" X_Y_Z="46.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF54" X_Y_Z="-45.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF54" X_Y_Z="45.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF55" X_Y_Z="-44.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF55" X_Y_Z="44.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF56" X_Y_Z="-43.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF56" X_Y_Z="43.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF57" X_Y_Z="-42.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF57" X_Y_Z="42.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF58" X_Y_Z="-41.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF58" X_Y_Z="41.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF59" X_Y_Z="-40.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF59" X_Y_Z="40.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF60" X_Y_Z="-39.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF60" X_Y_Z="39.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF61" X_Y_Z="-38.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF61" X_Y_Z="38.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF62" X_Y_Z="-37.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF62" X_Y_Z="37.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF63" X_Y_Z="-36.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF63" X_Y_Z="36.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF64" X_Y_Z="-35.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF64" X_Y_Z="35.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF65" X_Y_Z="-34.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF65" X_Y_Z="34.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF66" X_Y_Z="-33.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF66" X_Y_Z="33.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF67" X_Y_Z="-32.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF67" X_Y_Z="32.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF68" X_Y_Z="-31.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF68" X_Y_Z="31.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF69" X_Y_Z="-30.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF69" X_Y_Z="30.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF70" X_Y_Z="-29.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF70" X_Y_Z="29.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF71" X_Y_Z="-28.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF71" X_Y_Z="28.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF72" X_Y_Z="-27.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF72" X_Y_Z="27.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF73" X_Y_Z="-26.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF73" X_Y_Z="26.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF74" X_Y_Z="-25.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF74" X_Y_Z="25.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF75" X_Y_Z="-24.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF75" X_Y_Z="24.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF76" X_Y_Z="-23.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF76" X_Y_Z="23.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF77" X_Y_Z="-22.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF77" X_Y_Z="22.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF78" X_Y_Z="-21.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF78" X_Y_Z="21.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF79" X_Y_Z="-20.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF79" X_Y_Z="20.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF80" X_Y_Z="-19.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF80" X_Y_Z="19.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF81" X_Y_Z="-18.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF81" X_Y_Z="18.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF82" X_Y_Z="-17.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF82" X_Y_Z="17.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF83" X_Y_Z="-16.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF83" X_Y_Z="16.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF84" X_Y_Z="-15.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF84" X_Y_Z="15.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF85" X_Y_Z="-14.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF85" X_Y_Z="14.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF86" X_Y_Z="-13.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF86" X_Y_Z="13.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF87" X_Y_Z="-12.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF87" X_Y_Z="12.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF88" X_Y_Z="-11.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF88" X_Y_Z="11.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF89" X_Y_Z="-10.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF89" X_Y_Z="10.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF90" X_Y_Z="-9.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF90" X_Y_Z="9.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF91" X_Y_Z="-8.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF91" X_Y_Z="8.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF92" X_Y_Z="-7.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF92" X_Y_Z="7.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF93" X_Y_Z="-6.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF93" X_Y_Z="6.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF94" X_Y_Z="-5.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF94" X_Y_Z="5.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF95" X_Y_Z="-4.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF95" X_Y_Z="4.0000 0.0 0.0" rot="90 0 0" />
+    <posXYZ volume="FF96" X_Y_Z="-3.0000 25.4580 0" rot="90 0 0" />
+    <posXYZ volume="FF96" X_Y_Z="3.0000 25.4580 0" rot="90 0 0" />
+    <posXYZ volume="FF96" X_Y_Z="-3.0000 -25.4580 0" rot="90 0 0" />
+    <posXYZ volume="FF96" X_Y_Z="3.0000 -25.4580 0" rot="90 0 0" />
+    <posXYZ volume="FF97" X_Y_Z="-2.0000 25.9070 0" rot="90 0 0" />
+    <posXYZ volume="FF97" X_Y_Z="2.0000 25.9070 0" rot="90 0 0" />
+    <posXYZ volume="FF97" X_Y_Z="-2.0000 -25.9070 0" rot="90 0 0" />
+    <posXYZ volume="FF97" X_Y_Z="2.0000 -25.9070 0" rot="90 0 0" />
+    <posXYZ volume="FF98" X_Y_Z="-1.0000 26.1310 0" rot="90 0 0" />
+    <posXYZ volume="FF98" X_Y_Z="1.0000 26.1310 0" rot="90 0 0" />
+    <posXYZ volume="FF98" X_Y_Z="-1.0000 -26.1310 0" rot="90 0 0" />
+    <posXYZ volume="FF98" X_Y_Z="1.0000 -26.1310 0" rot="90 0 0" />
+    <posXYZ volume="FF99" X_Y_Z="0.0 26.2000 0.0" rot="90 0 0" />
+    <posXYZ volume="FF99" X_Y_Z="0.0 -26.2000 0.0" rot="90 0 0" />
   </composition>
 
   <composition name="forwardDC_fiducial_mother" envelope="FDFM">
@@ -909,6 +1736,205 @@
 	    sensitive="false" comment="fdc chamber anode wire plane" />
   <tubs name="FDX4" Rio_Z=" 3.9 48.50 0.0100" material="FDCwirePlaneComposite"
 	    sensitive="false" comment="fdc chamber anode wire plane" />
+
+  <!-- The following are individual sense and field wires that replace the above
+       FDCwirePlaneComposite sheets that were used as an early approximation
+       to the real FDC geometry, only defined in the active part of the chambers. -->
+  <tubs name="FA01" Rio_Z="0.0 0.001 19.3990" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA02" Rio_Z="0.0 0.001 27.4299" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA03" Rio_Z="0.0 0.001 33.4736" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA04" Rio_Z="0.0 0.001 38.4780" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA05" Rio_Z="0.0 0.001 42.8093" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA06" Rio_Z="0.0 0.001 46.6553" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA07" Rio_Z="0.0 0.001 50.1278" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA08" Rio_Z="0.0 0.001 53.2999" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA09" Rio_Z="0.0 0.001 56.2224" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA10" Rio_Z="0.0 0.001 58.9325" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA11" Rio_Z="0.0 0.001 61.4583" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA12" Rio_Z="0.0 0.001 63.8216" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA13" Rio_Z="0.0 0.001 66.0400" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA14" Rio_Z="0.0 0.001 68.1275" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA15" Rio_Z="0.0 0.001 70.0959" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA16" Rio_Z="0.0 0.001 71.9550" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA17" Rio_Z="0.0 0.001 73.7130" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA18" Rio_Z="0.0 0.001 75.3769" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA19" Rio_Z="0.0 0.001 76.9530" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA20" Rio_Z="0.0 0.001 78.4464" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA21" Rio_Z="0.0 0.001 79.8619" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA22" Rio_Z="0.0 0.001 81.2034" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA23" Rio_Z="0.0 0.001 82.4747" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA24" Rio_Z="0.0 0.001 83.6789" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA25" Rio_Z="0.0 0.001 84.8189" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA26" Rio_Z="0.0 0.001 85.8971" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA27" Rio_Z="0.0 0.001 86.9161" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA28" Rio_Z="0.0 0.001 87.8776" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA29" Rio_Z="0.0 0.001 88.7838" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA30" Rio_Z="0.0 0.001 89.6362" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA31" Rio_Z="0.0 0.001 90.4363" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA32" Rio_Z="0.0 0.001 91.1855" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA33" Rio_Z="0.0 0.001 91.8851" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA34" Rio_Z="0.0 0.001 92.5363" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA35" Rio_Z="0.0 0.001 93.1399" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA36" Rio_Z="0.0 0.001 93.6970" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA37" Rio_Z="0.0 0.001 94.2083" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA38" Rio_Z="0.0 0.001 94.6746" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA39" Rio_Z="0.0 0.001 95.0966" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA40" Rio_Z="0.0 0.001 95.4748" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA41" Rio_Z="0.0 0.001 95.8098" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA42" Rio_Z="0.0 0.001 96.1020" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA43" Rio_Z="0.0 0.001 96.3519" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA44" Rio_Z="0.0 0.001 96.5596" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA45" Rio_Z="0.0 0.001 96.7256" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA46" Rio_Z="0.0 0.001 46.7338" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA47" Rio_Z="0.0 0.001 45.8511" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA48" Rio_Z="0.0 0.001 45.5175" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA51" Rio_Z="0.0 0.001 19.3990" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA52" Rio_Z="0.0 0.001 27.4299" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA53" Rio_Z="0.0 0.001 33.4736" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA54" Rio_Z="0.0 0.001 38.4780" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA55" Rio_Z="0.0 0.001 42.8093" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA56" Rio_Z="0.0 0.001 46.6553" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA57" Rio_Z="0.0 0.001 50.1278" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA58" Rio_Z="0.0 0.001 53.2999" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA59" Rio_Z="0.0 0.001 56.2224" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA60" Rio_Z="0.0 0.001 58.9325" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA61" Rio_Z="0.0 0.001 61.4583" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA62" Rio_Z="0.0 0.001 63.8216" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA63" Rio_Z="0.0 0.001 66.0400" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA64" Rio_Z="0.0 0.001 68.1275" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA65" Rio_Z="0.0 0.001 70.0959" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA66" Rio_Z="0.0 0.001 71.9550" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA67" Rio_Z="0.0 0.001 73.7130" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA68" Rio_Z="0.0 0.001 75.3769" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA69" Rio_Z="0.0 0.001 76.9530" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA70" Rio_Z="0.0 0.001 78.4464" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA71" Rio_Z="0.0 0.001 79.8619" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA72" Rio_Z="0.0 0.001 81.2034" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA73" Rio_Z="0.0 0.001 82.4747" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA74" Rio_Z="0.0 0.001 83.6789" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA75" Rio_Z="0.0 0.001 84.8189" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA76" Rio_Z="0.0 0.001 85.8971" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA77" Rio_Z="0.0 0.001 86.9161" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA78" Rio_Z="0.0 0.001 87.8776" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA79" Rio_Z="0.0 0.001 88.7838" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA80" Rio_Z="0.0 0.001 89.6362" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA81" Rio_Z="0.0 0.001 90.4363" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA82" Rio_Z="0.0 0.001 91.1855" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA83" Rio_Z="0.0 0.001 91.8851" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA84" Rio_Z="0.0 0.001 92.5363" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA85" Rio_Z="0.0 0.001 93.1399" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA86" Rio_Z="0.0 0.001 93.6970" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA87" Rio_Z="0.0 0.001 94.2083" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA88" Rio_Z="0.0 0.001 94.6746" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA89" Rio_Z="0.0 0.001 95.0966" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA90" Rio_Z="0.0 0.001 95.4748" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA91" Rio_Z="0.0 0.001 95.8098" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA92" Rio_Z="0.0 0.001 96.1020" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA93" Rio_Z="0.0 0.001 96.3519" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA94" Rio_Z="0.0 0.001 96.5596" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA95" Rio_Z="0.0 0.001 46.5998" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA96" Rio_Z="0.0 0.001 45.4104" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA97" Rio_Z="0.0 0.001 44.8515" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FA98" Rio_Z="0.0 0.001 44.6081" sensitive="false" material="Tungsten" comment="sense wire" />
+  <tubs name="FF01" Rio_Z="0.0 0.004 13.6118" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF02" Rio_Z="0.0 0.004 23.7773" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF03" Rio_Z="0.0 0.004 30.6176" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF04" Rio_Z="0.0 0.004 36.0766" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF05" Rio_Z="0.0 0.004 40.7136" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF06" Rio_Z="0.0 0.004 44.7848" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF07" Rio_Z="0.0 0.004 48.4330" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF08" Rio_Z="0.0 0.004 51.7479" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF09" Rio_Z="0.0 0.004 54.7898" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF10" Rio_Z="0.0 0.004 57.6021" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF11" Rio_Z="0.0 0.004 60.2169" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF12" Rio_Z="0.0 0.004 62.6591" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF13" Rio_Z="0.0 0.004 64.9480" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF14" Rio_Z="0.0 0.004 67.0993" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF15" Rio_Z="0.0 0.004 69.1260" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF16" Rio_Z="0.0 0.004 71.0386" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF17" Rio_Z="0.0 0.004 72.8461" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF18" Rio_Z="0.0 0.004 74.5563" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF19" Rio_Z="0.0 0.004 76.1756" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF20" Rio_Z="0.0 0.004 77.7097" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF21" Rio_Z="0.0 0.004 79.1636" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF22" Rio_Z="0.0 0.004 80.5417" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF23" Rio_Z="0.0 0.004 81.8477" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF24" Rio_Z="0.0 0.004 83.0850" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF25" Rio_Z="0.0 0.004 84.2568" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF26" Rio_Z="0.0 0.004 85.3656" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF27" Rio_Z="0.0 0.004 86.4139" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF28" Rio_Z="0.0 0.004 87.4039" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF29" Rio_Z="0.0 0.004 88.3375" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF30" Rio_Z="0.0 0.004 89.2166" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF31" Rio_Z="0.0 0.004 90.0427" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF32" Rio_Z="0.0 0.004 90.8172" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF33" Rio_Z="0.0 0.004 91.5415" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF34" Rio_Z="0.0 0.004 92.2167" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF35" Rio_Z="0.0 0.004 92.8440" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF36" Rio_Z="0.0 0.004 93.4242" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF37" Rio_Z="0.0 0.004 93.9583" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF38" Rio_Z="0.0 0.004 94.4470" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF39" Rio_Z="0.0 0.004 94.8911" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF40" Rio_Z="0.0 0.004 95.2911" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF41" Rio_Z="0.0 0.004 95.6477" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF42" Rio_Z="0.0 0.004 95.9612" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF43" Rio_Z="0.0 0.004 96.2322" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF44" Rio_Z="0.0 0.004 96.4610" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF45" Rio_Z="0.0 0.004 96.6478" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF46" Rio_Z="0.0 0.004 96.7930" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF47" Rio_Z="0.0 0.004 46.1900" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF48" Rio_Z="0.0 0.004 45.6369" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF49" Rio_Z="0.0 0.004 45.4800" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF51" Rio_Z="0.0 0.004 13.6118" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF52" Rio_Z="0.0 0.004 23.7773" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF53" Rio_Z="0.0 0.004 30.6176" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF54" Rio_Z="0.0 0.004 36.0766" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF55" Rio_Z="0.0 0.004 40.7136" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF56" Rio_Z="0.0 0.004 44.7848" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF57" Rio_Z="0.0 0.004 48.4330" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF58" Rio_Z="0.0 0.004 51.7479" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF59" Rio_Z="0.0 0.004 54.7898" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF60" Rio_Z="0.0 0.004 57.6021" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF61" Rio_Z="0.0 0.004 60.2169" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF62" Rio_Z="0.0 0.004 62.6591" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF63" Rio_Z="0.0 0.004 64.9480" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF64" Rio_Z="0.0 0.004 67.0993" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF65" Rio_Z="0.0 0.004 69.1260" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF66" Rio_Z="0.0 0.004 71.0386" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF67" Rio_Z="0.0 0.004 72.8461" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF68" Rio_Z="0.0 0.004 74.5563" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF69" Rio_Z="0.0 0.004 76.1756" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF70" Rio_Z="0.0 0.004 77.7097" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF71" Rio_Z="0.0 0.004 79.1636" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF72" Rio_Z="0.0 0.004 80.5417" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF73" Rio_Z="0.0 0.004 81.8477" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF74" Rio_Z="0.0 0.004 83.0850" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF75" Rio_Z="0.0 0.004 84.2568" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF76" Rio_Z="0.0 0.004 85.3656" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF77" Rio_Z="0.0 0.004 86.4139" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF78" Rio_Z="0.0 0.004 87.4039" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF79" Rio_Z="0.0 0.004 88.3375" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF80" Rio_Z="0.0 0.004 89.2166" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF81" Rio_Z="0.0 0.004 90.0427" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF82" Rio_Z="0.0 0.004 90.8172" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF83" Rio_Z="0.0 0.004 91.5415" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF84" Rio_Z="0.0 0.004 92.2167" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF85" Rio_Z="0.0 0.004 92.8440" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF86" Rio_Z="0.0 0.004 93.4242" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF87" Rio_Z="0.0 0.004 93.9583" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF88" Rio_Z="0.0 0.004 94.4470" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF89" Rio_Z="0.0 0.004 94.8911" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF90" Rio_Z="0.0 0.004 95.2911" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF91" Rio_Z="0.0 0.004 95.6477" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF92" Rio_Z="0.0 0.004 95.9612" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF93" Rio_Z="0.0 0.004 96.2322" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF94" Rio_Z="0.0 0.004 96.4610" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF95" Rio_Z="0.0 0.004 96.6478" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF96" Rio_Z="0.0 0.004 45.8770" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF97" Rio_Z="0.0 0.004 45.0826" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF98" Rio_Z="0.0 0.004 44.6969" sensitive="false" material="Copper" comment="field wire" />
+  <tubs name="FF99" Rio_Z="0.0 0.004 44.5800" sensitive="false" material="Copper" comment="field wire" />
+
   <tubs name="FDK1" Rio_Z=" 1.3 48.50 0.0027" material="CopperKapton"
                              comment="cathode strip plane for chamber 1" />
   <tubs name="FDK2" Rio_Z=" 1.3 48.50 0.0027" material="CopperKapton"
