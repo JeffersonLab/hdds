@@ -1,0 +1,14 @@
+  <box name="ECAL" X_Y_Z="83.6  83.6  34.0"  material="Air"
+       comment="CrystalECAL mother" />
+ 
+  <composition name="XTModule" envelope="XTMD">
+    <posXYZ volume="XTBL" X_Y_Z="0.0 0.0 0.0"/>
+  </composition>
+
+  <box name="XTMD" X_Y_Z="  2.055    2.055   20.0"  material="Tedlar"
+       comment="lead tungstate module assembly"     />
+  <box name="XTBL" X_Y_Z="  2.01    2.01  20.0"  material="PWO"
+       sensitive="true"	 comment="lead tungstate block"     />
+
+</section>
+<!-- </HDDS> -->

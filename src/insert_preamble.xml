@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: Lead tungstate calorimeter (ECAL)
+  ************************************************************
+
+     version 1.0:  Initial version	-A.S.
+     version 2.0:  Using survey data    -S.T.
+
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name          = "CrystalECAL"
+         version       = "2.0"
+         date          = "2023-12-17"
+         author        = "S. Taylor"
+         top_volume    = "ECAL"
+         specification = "v1.0" >
+
+<!-- Origin of CrystalECAL is the center of upstream face of lead tungstate modules -->
+

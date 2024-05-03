@@ -1,8 +1,7 @@
-
   <composition name="LGDblock" envelope="LGBU">
     <posXYZ volume="LGBLwrapped" X_Y_Z="-0.0038 -0.0038 -2.600"/>
-    <posXYZ volume="LGBS" X_Y_Z="2.00405 0 0"/>
-    <posXYZ volume="LGBS" X_Y_Z="0 2.00405 0" rot="0 0 90"/>
+    <posXYZ volume="LGBS" X_Y_Z="1.9667 0 0"/>
+    <posXYZ volume="LGBS" X_Y_Z="0 1.9667 0" rot="0 0 90"/>
     <posXYZ volume="LGBF" X_Y_Z="-0.0038 -0.0038 -25.100"/>
     <posXYZ volume="LGLG" X_Y_Z="-0.0038 -0.0038  22.450"/>
   </composition>
@@ -13,29 +12,20 @@
 
   <box name="FCAL" X_Y_Z="242.0 242.0 50.8" material="Air"
        comment="forward EMcal mother" />
-      
-  <box name="LGDB" X_Y_Z="160.628  76.2983  50.8"  material="Air"
-					comment="LGD bottom section"   />
-  <box name="LGDT" X_Y_Z="160.628  76.2983  50.8"  material="Air"
-					comment="LGD top section"      />
-  <box name="LGDN" X_Y_Z="76.2983  160.628  50.8"  material="Air"
-					comment="LGD north section"     />
-  <box name="LGDS" X_Y_Z="76.2983  160.628  50.8"  material="Air"
-					comment="LGD south section"    />
-  <box name="LGBU" X_Y_Z="4.0157  4.0157  50.8"  material="Air"
+  <box name="LGBU" X_Y_Z="3.94  3.94  50.8"  material="Air"
 		            comment="lead glass block stacking unit cell"/>
-  <box name="LGBL" X_Y_Z="4.0030  4.0030  45.0"  material="leadGlassF800"
+  <box name="LGBL" X_Y_Z="3.9273  3.9273  45.0"  material="leadGlassF800"
 		sensitive="true" comment="lead glass block" />
   <tubs name="LGLG" Rio_Z="0.0  1.5875  5.08" material="Plexiglas"
 		sensitive="true" comment="lead glass block plexiglass light guide" />
-  <box name="LGBW" X_Y_Z="4.0081  4.0081  45.0"  material="Mylar"
+  <box name="LGBW" X_Y_Z="3.9334  3.9334  45.0"  material="Mylar"
 		            comment="aluminized mylar wrapping around the block"/>
   <box name="LGBS" X_Y_Z="0.0076 2.8575 50.8" material="StainlessSteel"
 		            comment="SS strap holding the tube assy to the block"/>
   <pgon name="LGBF" segments="4" profile="-45 360" material="StainlessSteel"
 		            comment="SS frame fixing the straps to the front of the block">
-   <polyplane Rio_Z="1.5875 2.0015 -0.300"/>
-   <polyplane Rio_Z="1.5875 2.0015 0.000"/>
+   <polyplane Rio_Z="1.5875 1.97 -0.300"/>
+   <polyplane Rio_Z="1.5875 1.97 0.000"/>
   </pgon>
 
   <composition name="plexiSheet" envelope="LGPS">
