@@ -14,7 +14,7 @@
          version       = "2.0"
          date          = "2023-12-17"
          author        = "S. Taylor"
-         top_volume    = "ECAL"
+         top_volume    = "FCAL"
          specification = "v1.0" >
 
 <!-- Origin of CrystalECAL is the center of upstream face of lead tungstate modules -->

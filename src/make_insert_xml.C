@@ -40,7 +40,7 @@ void make_insert_xml(){
     double dx=outer_left_x[i]-outer_right_x[i];
     dphi[i]=-180/M_PI*(outer_left_y[i]-outer_right_y[i])/dx;
     dx/=39.; // find module size
-    if (i==20 || i==21) ncopy=19;
+    if (i==19 || i==20) ncopy=19;
     
     out << "  <composition name=\"XTrow"<<i<<"\">"<< endl;
     out << "    <mposX volume=\"XTModule\" ncopy=\""<< ncopy
@@ -51,12 +51,12 @@ void make_insert_xml(){
     out << "  </composition>" << endl;
   }
   // Handle the right side half-width rows 
-  ymid[40]=ymid[20];
-  ymid[41]=ymid[21];
-  dphi[40]=dphi[20];
-  dphi[41]=dphi[21];
+  ymid[40]=ymid[19];
+  ymid[41]=ymid[20];
+  dphi[40]=dphi[19];
+  dphi[41]=dphi[20];
   for (int i=0;i<2;i++){
-    double dx=-(outer_right_x[20+i]-inner_right_x[i])/18.;
+    double dx=-(outer_right_x[19+i]-inner_right_x[i])/18.;
     out << "  <composition name=\"XTrow"<<40+i<<"\">"<< endl;
     out << "    <mposX volume=\"XTModule\" ncopy=\"19\" X0=\""
 	<< -inner_right_x[i] << "\" dX=\"" << dx <<"\">" <<endl;
@@ -67,7 +67,9 @@ void make_insert_xml(){
   }
 
   out << "  <composition name=\"CrystalECAL\">" << endl;
-
+  out << "    <posXYZ volume=\"InsertBeamPipe\" X_Y_Z=\"0. 0.075 8.4095\"/>"
+      << endl;
+  out << "    <posXYZ volume=\"XTTA\" X_Y_Z=\"0. 0.075 -13.0\"/>" << endl;
   for (int i=0;i<42;i++){
     out << "    <posXYZ volume=\"XTrow"<<i<<"\" X_Y_Z=\"0. " << ymid[i] 
 	<<" 0.\" rot=\"0 0 " << dphi[i] <<"\"/>" << endl;
