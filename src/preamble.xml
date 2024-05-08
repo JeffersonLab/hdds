@@ -25,7 +25,4 @@
     <posXYZ volume="FCLC" X_Y_Z="0.0  0.0  -2.0" />   
   </composition>
 
-  <composition name="forwardEMcal" envelope="FCAL">
-    <apply region="nullBfield"/>
-    <posXYZ volume="CrystalECAL" X_Y_Z="0.0 0.0 -2.811"/>  
 
