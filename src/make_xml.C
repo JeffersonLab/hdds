@@ -14,17 +14,17 @@ void make_xml(){
       92.778,92.778,96.814,100.824,100.826,104.786,104.781,108.810,108.84};
 
   for (int i=0;i<19;i++){
-    double y_z=lower_survey_y[i];
     double x_0=-lower_survey_x2[i]; 
     double dx=4.0157;
     if (i<2) dx=(lower_survey_x2[i]-lower_survey_x1[i])/(num_col[i]-1);
  
+    out << "  <composition name=\"LGLowerRow" << i <<"\">" << endl;
     out <<"    <mposX volume=\"LGDblock\" ncopy=\"" << num_col[i] 
-	<< "\" Y_Z=\"" << y_z <<" 0.\" X0=\""<<x_0<<"\" dX=\""<< dx <<"\">" 
-	<<endl;
+	<< "\" X0=\""<<x_0<<"\" dX=\""<< dx <<"\">" <<endl;
     out <<"      <column value=\"" << 40-num_col[i] << "\" step=\"1\"/>" <<endl;
     out <<"      <row value=\""<< i << "\"/>" <<endl;
     out <<"    </mposX>" << endl;
+    out <<"  </composition>" << endl;
   } 
   
   double upper_survey_y[19]
@@ -38,7 +38,6 @@ void make_xml(){
     ={27.849,39.95};
       			     
   for (int i=0;i<19;i++){
-    double y_z=upper_survey_y[i];
     double x_0=0.;  
     double dx=4.0157;
     if (i>=2){
@@ -48,13 +47,13 @@ void make_xml(){
       x_0=-upper_survey_x2[i];
       dx=(-x_0-upper_survey_x1[i])/(num_col[i]-1);
     }
-    
+    out << "  <composition name=\"LGUpperRow" << i <<"\">" << endl;
     out <<"    <mposX volume=\"LGDblock\" ncopy=\"" << num_col[i] 
-	<< "\" Y_Z=\"" << y_z <<" 0.\" X0=\""<<x_0<<"\" dX=\"" << dx << "\">"
-	<<endl;
+	<< "\" X0=\""<<x_0<<"\" dX=\"" << dx << "\">" <<endl;
     out <<"      <column value=\"19\" step=\"1\"/>" <<endl;
     out <<"      <row value=\""<< 58-i << "\"/>" <<endl;
-    out <<"    </mposX>" << endl;
+    out <<"    </mposX>" << endl;  
+    out <<"  </composition>" << endl;
   }
   
   int num_col2[38]={2,4,6,7,9,10,11,12,13,13,14,15,15,16,16,17,17,18,18,18,
@@ -81,18 +80,18 @@ void make_xml(){
       -116.123,-116.103,-112.071,-112.078,-112.093};
 
   for (int i=0;i<38;i++){
-    double y_z=north_survey_y[i];
     double x_0=-north_survey_x1[i];
     double dx=(north_survey_x1[i]-north_survey_x2[i])/(num_col2[i]-1);
 
-    out <<"    <mposX volume=\"LGDblock\" ncopy=\"" << num_col2[i] 
-	<< "\" Y_Z=\"" << y_z <<" 0.\" X0=\""<<x_0<<"\" dX=\"" << dx <<"\">" 
-	<<endl;
-    out <<"      <column value=\"40\" step=\"1\"/>" <<endl;
-    out <<"      <row value=\""<< 2+i << "\"/>" <<endl;
-    out <<"    </mposX>" << endl;
+    out << "  <composition name=\"LGNorthRow" << i <<"\">" << endl;
+    out << "    <mposX volume=\"LGDblock\" ncopy=\"" << num_col2[i] 
+	<< "\" X0=\""<<x_0<<"\" dX=\"" << dx <<"\">" <<endl;
+    out << "      <column value=\"40\" step=\"1\"/>" <<endl;
+    out << "      <row value=\""<< 2+i << "\"/>" <<endl;
+    out << "    </mposX>" << endl;
+    out << "  </composition>" <<endl;
   } 
-   
+  
   double south_survey_y[38]
     ={-40.198,-36.154,-32.149,-28.139,-24.087,-20.047,-16.071,-12.053,-8.024,
       -3.996,0.011,4.038,8.045,12.033,16.079,20.082,24.14,28.139,32.143,
@@ -114,18 +113,37 @@ void make_xml(){
 
   for (int i=0;i<38;i++){
     int j=37-i;
-    double y_z=south_survey_y[i];
     double x_0=-south_survey_x1[i]; 
     double dx=(south_survey_x1[i]-south_survey_x2[i])/(num_col2[j]-1);
-
+    
+    out << "  <composition name=\"LGSouthRow" << i <<"\">" << endl;
     out <<"    <mposX volume=\"LGDblock\" ncopy=\"" << num_col2[j] 
-	<< "\" Y_Z=\"" << y_z <<" 0.\" X0=\""<<x_0<<"\" dX=\"" << dx <<"\">" 
-	<<endl;
-    out <<"      <column value=\""<< 19-num_col2[j] << "\" step=\"1\"/>" <<endl;
-    out <<"      <row value=\""<< 19+i << "\"/>" <<endl;
-    out <<"    </mposX>" << endl;
+	<< "\" X0=\""<<x_0<<"\" dX=\"" << dx <<"\">" <<endl;
+    out << "      <column value=\""<< 19-num_col2[j] << "\" step=\"1\"/>" <<endl;
+    out << "      <row value=\""<< 19+i << "\"/>" <<endl;
+    out << "    </mposX>" << endl;  
+    out << "  </composition>" <<endl;
   } 
   
+  out << "  <composition name=\"forwardEMcal\" envelope=\"FCAL\">" << endl;
+  out << "    <apply region=\"nullBfield\"/>" << endl;
+  out << "    <posXYZ volume=\"CrystalECAL\" X_Y_Z=\"0.0 0.0 -2.811\"/>" <<endl;
+  for (int i=0;i<19;i++){
+    out << "     <posXYZ volume=\"LGLowerRow" << i << "\" X_Y_Z=\" 0. " 
+	<< lower_survey_y[i] << " 0.\" rot=\"0. 0. 0.\"/>" << endl;
+  }  
+  for (int i=0;i<19;i++){
+    out << "     <posXYZ volume=\"LGUpperRow" << i << "\" X_Y_Z=\" 0. " 
+	<< upper_survey_y[i] << " 0.\" rot=\"0. 0. 0.\"/>" << endl;
+  } 
+  for (int i=0;i<38;i++){
+    out << "     <posXYZ volume=\"LGNorthRow" << i << "\" X_Y_Z=\" 0. " 
+	<< north_survey_y[i] << " 0.\" rot=\"0. 0. 0.\"/>" << endl;
+  } 
+  for (int i=0;i<38;i++){
+    out << "     <posXYZ volume=\"LGSouthRow" << i << "\" X_Y_Z=\" 0. " 
+	<< south_survey_y[i] << " 0.\" rot=\"0. 0. 0.\"/>" << endl;
+  } 
   out << "  </composition>" << endl << endl;
 
   out.close();
