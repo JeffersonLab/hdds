@@ -21,7 +21,10 @@
 
   <composition name="ForwardEMcal">
     <posXYZ volume="forwardEMcal" X_Y_Z="0.0  0.0  25.4" />
-    <posXYZ volume="plexiSheet" X_Y_Z="0.0  0.0  -1.0" />
+    <posXYZ volume="LGPS" X_Y_Z="-41.8  -83.2  -0.635" />
+    <posXYZ volume="LGPS" X_Y_Z="41.8  83.2  -0.635" />
+    <posXYZ volume="LGPS" X_Y_Z="-83.2 41.8 -0.635" rot="0. 0. 90."/>
+    <posXYZ volume="LGPS" X_Y_Z="83.2 -41.8 -0.635" rot="0. 0. 90."/>
     <posXYZ volume="FCLC" X_Y_Z="0.0  0.0  -2.0" />   
   </composition>
 

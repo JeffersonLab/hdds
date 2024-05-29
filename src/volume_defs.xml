@@ -28,11 +28,7 @@
    <polyplane Rio_Z="1.5875 1.97 0.000"/>
   </pgon>
 
-  <composition name="plexiSheet" envelope="LGPS">
-    <posXYZ volume="LGPH"/>
-  </composition>
-  <tubs name="LGPS" Rio_Z="0.0  123.190  1.270" material="Plexiglas"/>
-  <box name="LGPH" X_Y_Z="9.500 9.500 1.270" material="Air"/>
+  <box name="LGPS" X_Y_Z="82. 166.7 1.27" material="Plexiglas"/>
   <box name="FCLC" X_Y_Z="243.8 243.8 0.3175" material="ABS-PVC"/>
 
 
