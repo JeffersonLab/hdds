@@ -28,7 +28,8 @@
    <polyplane Rio_Z="1.5875 1.97 0.000"/>
   </pgon>
 
-  <box name="LGPS" X_Y_Z="82. 166.7 1.27" material="Plexiglas"/>
+  <box name="LGPS" X_Y_Z="166.7 82. 1.27" material="Plexiglas"
+       sensitive="true" comment="plate for FCAL light monitoring system"/>
   <box name="FCLC" X_Y_Z="243.8 243.8 0.3175" material="ABS-PVC"/>
 
 
