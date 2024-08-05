@@ -45,7 +45,8 @@ exitwall_inner_beamhole = 2.7*inches
 exitwall_inner_boxsize = 25
 exitwall_inner_boxlength = 20
 exitwall_middle_boxsize = 80
-exitwall_outer_boxsize = 1359 + 1384
+exitwall_outer_width = 135.9 + 138.4
+exitwall_outer_height = 199
 exitwall_start = 1004.9
 exitwall_thickness = 1126.8 - 1004.9
 exitwall_side_thickness = 61.0
@@ -117,35 +118,26 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
     <posXYZ volume="collimatorStack" />
   </composition>
 
-""" +f"""
   <composition name="collimatorStack">
-    <posXYZ volume="BeamPipe0"     X_Y_Z="0 0 0"" />
-""" +f"""
+    <posXYZ volume="BeamPipe0"     X_Y_Z="0 0 0" />
     <!--posXYZ volume="PFLD"          X_Y_Z="0.0  0.0  {profiler_start}" />
     <posXYZ volume="PFSC"          X_Y_Z="0.0  0.0  {profiler_start + 2}" />
-    <posXYZ volume="PFSC"          X_Y_Z="0.0  0.0  {profiler_start + 6}" />
-""" +f"""
+    <posXYZ volume="PFSC"          X_Y_Z="0.0  0.0  {profiler_start + 6}" /-->
     <posXYZ volume="DET1"          X_Y_Z="0.0  0.0  60.0" />
-""" +f"""
     <!--posXYZ volume="ColDetector"   X_Y_Z="0.0  0.0  {activecol_start}" /-->
-""" +f"""
     <posXYZ volume="KLFtargetAssy" X_Y_Z="0.0  0.0  {klftarget_assy_start}" />
-""" +f"""
     <posXYZ volume="Flange1"       X_Y_Z="0.0  0.0  {presweep_pipe_start - presweep_flange_thick}" />
-""" +f"""
     <posXYZ volume="BeamPipe1"     X_Y_Z="0.0  0.0  {presweep_pipe_start}" />
-""" +f"""
     <posXYZ volume="ConcreteWall1" X_Y_Z="{-(cave_width - concrete_wall1_width)/2}  0.0  {concrete_wall1_start}" />
     <posXYZ volume="LeadWall1"     X_Y_Z="{-(cave_width - concrete_wall1_width)/2}  0.0  {concrete_wall1_start + concrete_wall1_thickness}" />
     <posXYZ volume="BeamPipe2"     X_Y_Z="0.0  0.0 {concrete_wall1_start + concrete_wall1_thickness + concrete_wall1_leadthick}" />
     <posXYZ volume="ConcreteWall2" X_Y_Z="{+(cave_width - concrete_wall1_width)/2}  0.0  {concrete_wall2_start}" />
     <posXYZ volume="BeamPipe3"     X_Y_Z="0.0  0.0  {concrete_wall2_start + concrete_wall2_thickness}" />
-    <posXYZ volume="sweepMagnet1"  X_Y_Z="0.0  0.0  {sweep_magnet_start} />
+    <posXYZ volume="sweepMagnet1"  X_Y_Z="0.0  0.0  {sweep_magnet_start}" />
     <posXYZ volume="BeamPipe4"     X_Y_Z="0.0  0.0  {sweep_magnet_start + sweep_magnet_length}" />
     <posXYZ volume="shieldingWall" X_Y_Z="0.0  0.0  {exitwall_start}" />
     <posXYZ volume="BeamPipe5"     X_Y_Z="0.0  0.0  {exitwall_start + exitwall_thickness + exitwall_lead_thickness + 2*exitwall_steel_thickness}" />
   </composition>
-""" +f"""
   
 <!-- Beam Pipe 0 -->
 
@@ -156,7 +148,6 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   <tubs name="PFTH" Rio_Z="0.0 {taghall_piperadius[1]} {taghall_pipelength}" material="Iron" />
   <tubs name="PFTV" Rio_Z="0.0 {taghall_piperadius[0]} {taghall_pipelength}" material="Vacuum" />
 
-""" + f"""
   <composition name="BeamPipe0">
     <posXYZ volume="BeamPipe0Tube"    X_Y_Z="0.0  0.0  25.0" />
     <posXYZ volume="BeamPipe0Flange1" X_Y_Z="0.0  0.0  48.58" />
@@ -194,7 +185,7 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
 
   <composition name="KLFtargetAssy" envelope="KLFA">
     <posXYZ volume="KLFtargetEnclosure" X_Y_Z="0.0  0.0  0.0" />
-    <posXYZ volume="KLFC" X_Y_Z="0.0  0.0  {-(klftarget_full_length - klftarget_poly_thickness)/2}" />
+    <posXYZ volume="KLFE" X_Y_Z="0.0  0.0  {-(klftarget_full_length - klftarget_poly_thickness)/2}" />
     <posXYZ volume="KLFE" X_Y_Z="0.0  0.0  {+(klftarget_full_length - klftarget_poly_thickness)/2}" />
   </composition>
 
@@ -206,22 +197,18 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   </composition>
 
   <composition name="KLFtargetCavity" envelope="KLFC">
-    <poxXYZ volume="KLFT" X_Y_Z="0.0  0.0  {klftarget_be_start - klftarget_poly_thickness + klftarget_be_length/2}" />
-    <poxXYZ volume="KLFW" X_Y_Z="0.0  0.0  {klftarget_be_start - klftarget_poly_thickness + klftarget_be_length + klftarget_w_gap + klftarget_w_length/2}" />
+    <posXYZ volume="KLFT" X_Y_Z="0.0  0.0  {klftarget_be_start - klftarget_poly_thickness + klftarget_be_length/2}" />
+    <posXYZ volume="KLFW" X_Y_Z="0.0  0.0  {klftarget_be_start - klftarget_poly_thickness + klftarget_be_length + klftarget_w_gap + klftarget_w_length/2}" />
   </composition>
 
   <box name="KLFA" X_Y_Z="{klftarget_full_width}
                           {klftarget_full_height}
                           {klftarget_full_length}"
-       material="Borated Polyethylene" />
+       material="Polyethylene" />
   <box name="KLFB" X_Y_Z="{klftarget_full_width - klftarget_poly_thickness*2}
                           {klftarget_full_height - klftarget_poly_thickness*2}
                           {klftarget_full_length - klftarget_poly_thickness*2}"
        material="Lead" />
-  <box name="KLFC" X_Y_Z="{klftarget_uphole_size} 
-                          {klftarget_uphole_size}
-                          {klftarget_poly_thickness}"
-       material="Air" />
   <box name="KLFC" X_Y_Z="{klftarget_uphole_size} 
                           {klftarget_uphole_size}
                           {klftarget_be_start - klftarget_poly_thickness + klftarget_be_length + klftarget_w_gap + klftarget_w_length + 1}"
@@ -244,11 +231,11 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
     <posXYZ volume="BF1W" X_Y_Z="0.0  0.0  {presweep_flange_thick/2}" />
   </composition>
 
-  <tubs name="BF1R" Rio_Z="{presweep_piperadius[0]} {presweep_piperadius[1] + 3} {presweep_flange_thick}" />
-  <tubs name="BF1W" Rio_Z="0.0  {presweep_piperadius[0]}  {presweep_flange_window}" />
+  <tubs name="BF1R" Rio_Z="{presweep_piperadius[0]} {presweep_piperadius[1] + 3} {presweep_flange_thick}" material="Iron" />
+  <tubs name="BF1W" Rio_Z="0.0  {presweep_piperadius[0]}  {presweep_flange_window}" material="Aluminum" />
 
   <composition name="BeamPipe1">
-    <posXYZ volume="BeamPipe1Tube" X_Y_Z="0.0  0.0 {(concrete_wall1_start - presweep_pipe_start)/2}"
+    <posXYZ volume="BeamPipe1Tube" X_Y_Z="0.0  0.0 {(concrete_wall1_start - presweep_pipe_start)/2}" />
   </composition>
 
   <composition name="BeamPipe1Tube" envelope="BP1O">
@@ -264,7 +251,7 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
     <posXYZ volume="ConcreteWall1BeamBox" X_Y_Z="0.0  0.0  {concrete_wall1_thickness/2}" />
   </composition>
 
-  <composition name="ConcreteWall1Box" envelope="CW1B">
+  <composition name="ConcreteWall1BeamBox" envelope="CW1B">
     <posXYZ volume="ConcreteWall1BeamHole" X_Y_Z="{+(cave_width - concrete_wall1_width)/2}  0.0  0.0" />
   </composition>
 
@@ -286,7 +273,7 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   </composition>
 
   <composition name="LeadWall1Box" envelope="LW1B">
-    <posXYZ volume="LeadWall1BeamHole" X_Y_Z="{+(cave_width - concrete_wall1_width)/2}  0.0" />
+    <posXYZ volume="LeadWall1BeamHole" X_Y_Z="{+(cave_width - concrete_wall1_width)/2}  0.0  0.0" />
   </composition>
 
   <composition name="LeadWall1BeamHole" envelope="LW1H">
@@ -299,7 +286,6 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
 
   <box name="LW1B" X_Y_Z="{concrete_wall1_width}  {concrete_wall1_height}  {concrete_wall1_leadthick}" material="Lead"/>
   <box name="LW1H" X_Y_Z="{concrete_wall1_beamhole}  {concrete_wall1_beamhole}  {concrete_wall1_leadthick}" material="Air"/>
-""" + f"""
   <tubs name="LW1P" Rio_Z="0.0  {presweep_piperadius[1]}  {concrete_wall1_leadthick}" material="Iron" />
   <tubs name="LW1V" Rio_Z="0.0  {presweep_piperadius[0]}  {concrete_wall1_leadthick}" material="Vacuum" />
 
@@ -310,7 +296,6 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
                                                       concrete_wall1_thickness - concrete_wall1_leadthick)/2}" />
   </composition>
 
-""" + f"""
   <composition name="BeamPipe2Tube" envelope="BP2O">
     <posXYZ volume="BP2I" />
   </composition>
@@ -329,20 +314,20 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   </composition>
 
   <composition name="ConcreteWall2Box">
-    <posXYZ volume="ConcreteWall2BeamHole" X_Y_Z="{-(cave_width - concrete_wall2_width)/2}  0.0" />
+    <posXYZ volume="ConcreteWall2BeamHole" X_Y_Z="{-(cave_width - concrete_wall2_width)/2}  0.0  0.0" />
   </composition>
 
-  <composition name="ConcreteWall1BeamHole" envelope="CW1H">
-    <posXYZ volume="ConcreteWall1BeamPipe" />
+  <composition name="ConcreteWall2BeamHole" envelope="CW2H">
+    <posXYZ volume="ConcreteWall2BeamPipe" />
   </composition>
 
-  <composition name="ConcreteWall1BeamPipe" envelope="CW1P">
-    <posXYZ volume="CW1V" />
+  <composition name="ConcreteWall2BeamPipe" envelope="CW2P">
+    <posXYZ volume="CW2V" />
   </composition>
 
-  <box name="CW1H" X_Y_Z="{concrete_wall1_beamhole}  {concrete_wall1_beamhole}  {concrete_wall1_thickness}" material="Air"/>
-  <tubs name="CW1P" Rio_Z="0.0  {presweep_piperadius[1]}  {concrete_wall1_thickness}" material="Iron" />
-  <tubs name="CW1V" Rio_Z="0.0  {presweep_piperadius[0]}  {concrete_wall1_thickness}" material="Vacuum" />
+  <box name="CW2H" X_Y_Z="{concrete_wall2_beamhole}  {concrete_wall2_beamhole}  {concrete_wall2_thickness}" material="Air"/>
+  <tubs name="CW2P" Rio_Z="0.0  {presweep_piperadius[1]}  {concrete_wall1_thickness}" material="Iron" />
+  <tubs name="CW2V" Rio_Z="0.0  {presweep_piperadius[0]}  {concrete_wall1_thickness}" material="Vacuum" />
 
 <!-- Third section of vacuum pipe -->
 
@@ -378,7 +363,7 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   </box> 
 
   <box name="POL1" X_Y_Z="29.2  9.95  {sweep_magnet_length}" material="Iron" />
-  <box name="GAP1" X_Y_Z= 9.49 : 4.9  {sweep_magnet_length}" material="Iron" />
+  <box name="GAP1" X_Y_Z="9.49   4.9  {sweep_magnet_length}" material="Iron" />
 
   <composition name="MagnetPipe1" envelope="MPO1">
     <posXYZ volume="MPI1" />
@@ -401,26 +386,24 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
         material="Iron" />
   <tubs name="BP4I" Rio_Z="0.0  {postsweep_piperadius[0]}  {exitwall_start - sweep_magnet_start - sweep_magnet_length}"
         material="Vacuum" />
-""" + f"""
 
 <!-- Last shielding wall in the cave -->
 
   <composition name="shieldingWall">
     <posXYZ volume="shieldingWallBox" X_Y_Z="0.0  0.0  {exitwall_thickness/2}" />
     <posXYZ volume="shieldingWallPlates" X_Y_Z="0.0  0.0  {exitwall_thickness + exitwall_lead_thickness + exitwall_steel_thickness*2}" />
-    <posXYZ volume="SWTB" X_Y_Z="0.0  {+(beam_to_floor/2 + exitwall_outer_boxsize/4)}  {exitwall_thickness - exitwall_side_thickness/2}" />
-    <posXYZ volume="SWTB" X_Y_Z="0.0  {-(beam_to_floor/2 + exitwall_outer_boxsize/4)}  {exitwall_thickness - exitwall_side_thickness/2}" />
-    <posXYZ volume="SWLR" X_Y_Z="0.0  {-(cave_width/4 + exitwall_outer_boxsize/4)}  {exitwall_thickness - exitwall_side_thickness/2}" />
-    <posXYZ volume="SWLR" X_Y_Z="0.0  {+(cave_width/4 + exitwall_outer_boxsize/4)}  {exitwall_thickness - exitwall_side_thickness/2}" />
+    <posXYZ volume="SWTB" X_Y_Z="0.0  {+(beam_to_floor/2 + exitwall_outer_height/4)}  {exitwall_thickness - exitwall_side_thickness/2}" />
+    <posXYZ volume="SWTB" X_Y_Z="0.0  {-(beam_to_floor/2 + exitwall_outer_height/4)}  {exitwall_thickness - exitwall_side_thickness/2}" />
+    <posXYZ volume="SWLR" X_Y_Z="0.0  {-(cave_width/4 + exitwall_outer_width/4)}  {exitwall_thickness - exitwall_side_thickness/2}" />
+    <posXYZ volume="SWLR" X_Y_Z="0.0  {+(cave_width/4 + exitwall_outer_width/4)}  {exitwall_thickness - exitwall_side_thickness/2}" />
   </composition>
 
   <composition name="shieldingWallBox" envelope="SWOB">
-    <posXYZ volume="shieldingWallBoxMiddle">
+    <posXYZ volume="shieldingWallBoxMiddle" />
   </composition>
 
-""" + f"""
   <composition name="shieldingWallBoxMiddle" envelope="SWMB">
-    <posXYZ volume="shieldingWallBoxInner">
+    <posXYZ volume="shieldingWallBoxInner" />
   </composition>
 
   <composition name="shieldingWallBoxInner" envelope="SWIB">
@@ -428,30 +411,29 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
     <posXYZ volume="shieldingWallLeadBox" X_Y_Z="0.0  0.0  {-exitwall_thickness/2 + exitwall_inner_boxlength*3/2}" />
     <posXYZ volume="shieldingWallLeadBox" X_Y_Z="0.0  0.0  {+exitwall_thickness/2 - exitwall_inner_boxlength/2}" />
     <posXYZ volume="shieldingWallHoleBox" X_Y_Z="0.0  0.0  {exitwall_inner_boxlength/2}" />
-  <composition>
-""" + f"""
+  </composition>
 
   <composition name="shieldingWallLeadBox" envelope="SWLB">
-    posXYZ volume="shieldingWallLeadHole" />
+    <posXYZ volume="shieldingWallLeadHole" />
   </composition>
 
   <composition name="shieldingWallLeadHole" envelope="SWLH">
-    posXYZ volume="shieldingWallLeadPipe" />
+    <posXYZ volume="shieldingWallLeadPipe" />
   </composition>
 
   <composition name="shieldingWallLeadPipe" envelope="SWLP">
-    posXYZ volume="SWLV" />
+    <posXYZ volume="SWLV" />
   </composition>
 
   <composition name="shieldingWallHoleBox" envelope="SWHB">
-    posXYZ volume="shieldingWallHolePipe" />
-  </composition
-
-  <composition name="shieldingWallHolePipe" envelope="SWHP">
-    posXYZ volume="SWHV" />
+    <posXYZ volume="shieldingWallHolePipe" />
   </composition>
 
-  <box name="SWOB" X_Y_Z="{exitwall_outer_boxsize}  {exitwall_outer_boxsize}  {exitwall_thickness}" material="Concrete" />
+  <composition name="shieldingWallHolePipe" envelope="SWHP">
+    <posXYZ volume="SWHV" />
+  </composition>
+
+  <box name="SWOB" X_Y_Z="{exitwall_outer_width}  {exitwall_outer_height}  {exitwall_thickness}" material="Concrete" />
   <box name="SWMB" X_Y_Z="{exitwall_middle_boxsize}  {exitwall_middle_boxsize}  {exitwall_thickness}" material="Concrete" />
   <box name="SWIB" X_Y_Z="{exitwall_inner_boxsize}  {exitwall_inner_boxsize}  {exitwall_thickness}" material="Concrete" />
   <box name="SWLB" X_Y_Z="{exitwall_inner_boxsize}  {exitwall_inner_boxsize}  {exitwall_inner_boxlength}" material="Lead" />
@@ -461,55 +443,52 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   <box name="SWHB" X_Y_Z="{exitwall_inner_boxsize}  {exitwall_inner_boxsize}  {exitwall_thickness - 3*exitwall_inner_boxlength}" material="Air" />
   <tubs name="SWHP" Rio_Z="0.0  {postsweep_piperadius[1]}  {exitwall_thickness - 3*exitwall_inner_boxlength}" material="Iron" />
   <tubs name="SWHV" Rio_Z="0.0  {postsweep_piperadius[0]}  {exitwall_thickness - 3*exitwall_inner_boxlength}" material="Vacuum" />
-  <box name="SWTB" X_Y_Z="{exitwall_outer_boxsize}  {beam_to_floor - exitwall_outer_boxsize/2}  {exitwall_side_thickness}" material="Concrete" />
-  <box name="SWLR" X_Y_Z="{cave_width/2 - exitwall_outer_boxsize/2}  2*beam_to_floor  {exitwall_side_thickness}" material="Concrete" />
+  <box name="SWTB" X_Y_Z="{exitwall_outer_width}  {beam_to_floor - exitwall_outer_height/2}  {exitwall_side_thickness}" material="Concrete" />
+  <box name="SWLR" X_Y_Z="{cave_width/2 - exitwall_outer_width/2}  {2*beam_to_floor}  {exitwall_side_thickness}" material="Concrete" />
 
-""" + f"""
   <composition name="shieldingWallPlates">
-    <posXYZ volume="shieldingWallSteelPlate" X_Y_Z="0.0  0.0  {exitwall_steel_thickness/2}" />
-    <posXYZ volume="shieldingWallLeadPlate" X_Y_Z="0.0  0.0  {exitwall_steel_thickness + exitwall_lead_thickness/2}" />
-    <posXYZ volume="shieldingWallSteelPlate" X_Y_Z="0.0  0.0  {exitwall_lead_thickness + exitwall_steel_thickness*3/2}" />
+    <posXYZ volume="shieldingPlateSteelPlate" X_Y_Z="0.0  0.0  {exitwall_steel_thickness/2}" />
+    <posXYZ volume="shieldingPlateLeadPlate" X_Y_Z="0.0  0.0  {exitwall_steel_thickness + exitwall_lead_thickness/2}" />
+    <posXYZ volume="shieldingPlateSteelPlate" X_Y_Z="0.0  0.0  {exitwall_lead_thickness + exitwall_steel_thickness*3/2}" />
   </composition>
 
-  <composition name="shieldingWallSteelPlate" envelope="SWSP">
-    <posXYZ volume="shieldingWallSteelHole" />
-  </composiition>
+  <composition name="shieldingPlateSteelPlate" envelope="SWSP">
+    <posXYZ volume="shieldingPlateSteelHole" />
+  </composition>
 
-  <composition name="shieldingWallSteelHole" envelope="SWSH">
-    <posXYZ volume="shieldingWallSteelPipe" />
-  </composiition>
+  <composition name="shieldingPlateSteelHole" envelope="SWSH">
+    <posXYZ volume="shieldingPlateSteelPipe" />
+  </composition>
 
-  <composition name="shieldingWallSteelPipe" envelope="SWSP">
+  <composition name="shieldingPlateSteelPipe" envelope="SWSI">
     <posXYZ volume="SWSV" />
-  </composiition>
+  </composition>
 
-  <composition name="shieldingWallLeadPlate" envelope="SWPL">
-    <posXYZ volume="shieldingWallSteelHole" />
-  </composiition>
+  <composition name="shieldingPlateLeadPlate" envelope="SWPL">
+    <posXYZ volume="shieldingPlateSteelHole" />
+  </composition>
 
-  <composition name="shieldingWallLeadlHole" envelope="SWPH">
-    <posXYZ volume="shieldingWallLeadlPipe" />
-  </composiition>
+  <composition name="shieldingPlateLeadHole" envelope="SWPH">
+    <posXYZ volume="shieldingPlateLeadPipe" />
+  </composition>
 
-  <composition name="shieldingWallLeadPipe" envelope="SWPP">
+  <composition name="shieldingPlateLeadPipe" envelope="SWPP">
     <posXYZ volume="SWPV" />
-  </composiition>
-""" + f"""
+  </composition>
 
-  <box name="SWSP" X_Y_Z="{exitwall_outer_boxsize}  {exitwall_outer_boxsize}  {exitwall_steel_thickness}" Material="Iron" />
-  <box name="SWSH" X_Y_Z="{exitwall_inner_beamhole}  {exitwall_inner_beamhole}  {exitwall_steel_thickness}" Material="Air" />
-  <tubs name="SWSP" Rio_Z="0.0  {postsweep_piperadius[1]}  {exitwall_steel_thickness}" Material="Iron" />
-  <tubs name="SWSV" Rio_z="0.0  {postsweep_piperadius[0]}  {exitwall_steel_thickness}" Material="Vacuum" />
-  <box name="SWPL" X_Y_Z="{exitwall_outer_boxsize}  {exitwall_outer_boxsize}  {exitwall_lead_thickness}" Material="Lead" />
-  <box name="SWPH" X_Y_Z="{exitwall_inner_beamhole}  {exitwall_inner_beamhole}  {exitwall_lead_thickness}" Material="Air" />
-  <tubs name="SWPP" Rio_Z="{exitwall_inner_beamhole}  {exitwall_inner_beamhole}  {exitwall_lead_thickness}" Material="Iron" />
-  <tubs name="SWPV" Rio_Z="{exitwall_inner_beamhole}  {exitwall_inner_beamhole}  {exitwall_lead_thickness}" Material="Vacuum" />
+  <box name="SWSP" X_Y_Z="{exitwall_outer_width}  {exitwall_outer_height}  {exitwall_steel_thickness}" material="Iron" />
+  <box name="SWSH" X_Y_Z="{exitwall_inner_beamhole}  {exitwall_inner_beamhole}  {exitwall_steel_thickness}" material="Air" />
+  <tubs name="SWSI" Rio_Z="0.0  {postsweep_piperadius[1]}  {exitwall_steel_thickness}" material="Iron" />
+  <tubs name="SWSV" Rio_Z="0.0  {postsweep_piperadius[0]}  {exitwall_steel_thickness}" material="Vacuum" />
+  <box name="SWPL" X_Y_Z="{exitwall_outer_width}  {exitwall_outer_height}  {exitwall_lead_thickness}" material="Lead" />
+  <box name="SWPH" X_Y_Z="{exitwall_inner_beamhole}  {exitwall_inner_beamhole}  {exitwall_lead_thickness}" material="Air" />
+  <tubs name="SWPP" Rio_Z="{exitwall_inner_beamhole}  {exitwall_inner_beamhole}  {exitwall_lead_thickness}" material="Iron" />
+  <tubs name="SWPV" Rio_Z="{exitwall_inner_beamhole}  {exitwall_inner_beamhole}  {exitwall_lead_thickness}" material="Vacuum" />
 
 <!-- Fifth section of vacuum pipe -->
-""" + f"""
 
   <composition name="BeamPipe5">
-    <posXYZ volume="BeamPipe5Tube" X_Y_Z="0.0  0.0  {(cave_length + exitwall_start + exitwall_thickness + exitwall_lead_thickness + 2*exitwall_steel_thickness)/2}"
+    <posXYZ volume="BeamPipe5Tube" X_Y_Z="0.0  0.0  {(cave_length + exitwall_start + exitwall_thickness + exitwall_lead_thickness + 2*exitwall_steel_thickness)/2}" />
   </composition>
 
   <composition name="BeamPipe5Tube" envelope="BP5O">
@@ -521,7 +500,6 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   <tubs name="BP5I" Rio_Z="0.0  {postsweep_piperadius[0]}  {cave_length - exitwall_start - exitwall_thickness - exitwall_lead_thickness - 2*exitwall_steel_thickness}"
         material="Vacuum" />
 
-""" + f"""
 <!-- Pseudo volumes for background studies -->
     
   <tubs name="DET1" Rio_Z="0.0  50.0  2.0" material="Air" />
@@ -572,7 +550,6 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   <tubs name="DIV2" Rio_Z="2.7   2.8  2.9" profile="-42.870 85.740"
                                            material="Aluminum" />
 
-""" + f"""
   <composition name="innerPinCushionWedge" envelope="ACWI">
     <posXYZ volume="ACBI" X_Y_Z="0.0 0.0 -0.85" />
     <posXYZ volume="innerPinCushionRow_1" X_Y_Z="0.276 0.0 0.40" />
@@ -682,6 +659,18 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   <box name="AORB" X_Y_Z="0.051 4.10 1.7" material="Air" />
 
   <box name="PIN1" X_Y_Z="0.051 0.051 1.7" material="SoftTungsten" />
+
+  <composition name="beamPipe">
+    <!-- not present in the KLF beamline -->
+    <posXYZ volume="NULL" />
+  </composition>
+
+  <composition name="SixWayCross">
+    <!-- not present in the KLF beamline -->
+    <posXYZ volume="NULL" />
+  </composition>
+
+  <box name="NULL" X_Y_Z="0.0  0.0  0.0" material="Air" />
  
 </section>
 
