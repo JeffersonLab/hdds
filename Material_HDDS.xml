@@ -1367,6 +1367,15 @@
  	</addmaterial>
   </composite>
 
+  <composite name="SofterTungsten">
+	<addmaterial material="Tungsten">
+		<fractionmass	fraction="0.90"	/>
+ 	</addmaterial>
+	<addmaterial material="Copper">
+		<fractionmass	fraction="0.10"	/>
+ 	</addmaterial>
+  </composite>
+
   <composite name="PWO">
     <addmaterial material="Tungsten">
         <fractionmass   fraction="0.4040"       />
