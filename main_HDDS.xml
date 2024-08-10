@@ -129,7 +129,7 @@
   </composition>
 
   <composition name="everything" envelope="SITE">
-    <posXYZ volume="collimatorPackage" X_Y_Z="0.0 0.0 -2254.5" />
+    <posXYZ volume="collimatorPackage" X_Y_Z="0.0 0.0 -2454.5" />
     <posXYZ volume="LASSfieldVolume" X_Y_Z="0. 0. 0." />
   </composition>
 
