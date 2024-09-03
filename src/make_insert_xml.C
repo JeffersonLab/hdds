@@ -78,12 +78,13 @@ void make_insert_xml(){
   // cout << dx_min << endl;
 
   out << "  <composition name=\"CrystalECAL\">" << endl;
-  out << "    <posXYZ volume=\"InsertBeamPipe\" X_Y_Z=\"0. 0.075 8.4095\"/>"
+  out << "    <posXYZ volume=\"InsertBeamPipe\" X_Y_Z=\"-0.001 0.0875 3.4095\"/>"
       << endl;
-  out << "    <posXYZ volume=\"XTTA\" X_Y_Z=\"0. 0.075 -13.0\"/>" << endl;
+  out << "    <posXYZ volume=\"XTTA\" X_Y_Z=\"-0.001 0.0875 -13.0\"/>" << endl;
   for (int i=0;i<42;i++){
     out << "    <posXYZ volume=\"XTrow"<<i<<"\" X_Y_Z=\"0. " << ymid[i] 
-	<<" 0.\" rot=\"0 0 " << dphi[i] <<"\"/>" << endl;
+      //	<<" 0.\" rot=\"0 0 " << dphi[i] <<"\"/>" << endl;
+	<<" 0.\" rot=\"0 0 0\"/>" << endl;
   }
 
   out << "  </composition>" << endl << endl;
