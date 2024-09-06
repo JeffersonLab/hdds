@@ -1,7 +1,7 @@
   <composition name="LGDblock" envelope="LGBU">
     <posXYZ volume="LGBLwrapped" X_Y_Z="-0.0038 -0.0038 -2.600"/>
-    <posXYZ volume="LGBS" X_Y_Z="1.9662 0 0"/>
-    <posXYZ volume="LGBS" X_Y_Z="0 1.9662 0" rot="0 0 90"/>
+    <posXYZ volume="LGBS" X_Y_Z="1.9762 0 0"/>
+    <posXYZ volume="LGBS" X_Y_Z="0 1.9762 0" rot="0 0 90"/>
     <posXYZ volume="LGBF" X_Y_Z="-0.0038 -0.0038 -25.100"/>
     <posXYZ volume="LGLG" X_Y_Z="-0.0038 -0.0038  22.450"/>
   </composition>
@@ -12,20 +12,20 @@
 
   <box name="FCAL" X_Y_Z="242.0 242.0 50.8" material="Air"
        comment="forward EMcal mother" />
-  <box name="LGBU" X_Y_Z="3.94  3.94  50.8"  material="Air"
+  <box name="LGBU" X_Y_Z="3.96  3.96  50.8"  material="Air"
 		            comment="lead glass block stacking unit cell"/>
-  <box name="LGBL" X_Y_Z="3.9273  3.9273  45.0"  material="leadGlassF800"
+  <box name="LGBL" X_Y_Z="3.9474  3.9474  45.0"  material="leadGlassF800"
 		sensitive="true" comment="lead glass block" />
   <tubs name="LGLG" Rio_Z="0.0  1.5875  5.08" material="Plexiglas"
 		sensitive="true" comment="lead glass block plexiglass light guide" />
-  <box name="LGBW" X_Y_Z="3.9324  3.9324  45.0"  material="Mylar"
+  <box name="LGBW" X_Y_Z="3.9524  3.9524  45.0"  material="Mylar"
 		            comment="aluminized mylar wrapping around the block"/>
   <box name="LGBS" X_Y_Z="0.0076 2.8575 50.8" material="StainlessSteel"
 		            comment="SS strap holding the tube assy to the block"/>
   <pgon name="LGBF" segments="4" profile="-45 360" material="StainlessSteel"
 		            comment="SS frame fixing the straps to the front of the block">
-   <polyplane Rio_Z="1.5875 1.966 -0.300"/>
-   <polyplane Rio_Z="1.5875 1.966 0.000"/>
+   <polyplane Rio_Z="1.5875 1.976 -0.300"/>
+   <polyplane Rio_Z="1.5875 1.976 0.000"/>
   </pgon>
 
   <box name="LGPS" X_Y_Z="166.7 82. 1.27" material="Plexiglas"
