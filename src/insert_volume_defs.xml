@@ -11,7 +11,7 @@
        comment="lead tungstate module assembly"     />
   <box name="XTBL" X_Y_Z="  2.055    2.055  20.0"  material="PWO"
        sensitive="true"	 comment="lead tungstate block"     />
-  <box name="XTBP" X_Y_Z="4.175 4.175 34.151" material="StainlessSteel"
+  <box name="XTBP" X_Y_Z="4.17 4.17 34.151" material="StainlessSteel"
        comment="Beam pipe in center of insert"/>
   <tubs name="XTBT" Rio_Z="0. 1.905 34.151" material="Air"/>
   <pgon name="XTTA" segments="4" profile= "-45 360" material="Tungsten"
@@ -19,6 +19,8 @@
     <polyplane Rio_Z="2.1 5.225 -3.0"/>
     <polyplane Rio_Z="2.1 5.225 +3.0"/>
   </pgon>
-
+  <box name="XRUB" X_Y_Z="83.8 0.159 20.0" material="Rubber"
+       comment="Thermacool rubber sponge"/>
+  
 </section>
 <!-- </HDDS> -->
