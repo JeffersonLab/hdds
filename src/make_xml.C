@@ -4,9 +4,9 @@ void make_xml(){
   out << setprecision(10);
   
   double lower_survey_y[19]
-    ={-116.315,-112.30133,-108.3205,-104.3275,-100.292,-96.284,-92.288,-88.306,
-      -84.291,-80.268,-76.272,-72.267,-68.223,-64.196,-60.2,-56.21,-52.194,
-      -48.187,-44.08};
+    ={-116.315,-112.30133,-108.3205,-104.3275,-100.292,-96.28,-92.28,-88.294,
+      -84.275,-80.248,-76.248,-72.239,-68.191,-64.16,-60.16,-56.166,-52.146,
+      -48.135,-44.08};
   double lower_survey_x1[19]
     ={-27.874,-39.901};
   double lower_survey_x2[19]
@@ -146,7 +146,7 @@ void make_xml(){
   
   double old=0.;
   out << "  <composition name=\"forwardEMcal\" envelope=\"FCAL\">" << endl;
-  out << "    <apply region=\"nullBfield\"/>" << endl;
+  //out << "    <apply region=\"nullBfield\"/>" << endl;
   out << "    <posXYZ volume=\"CrystalECAL\" X_Y_Z=\"0.0 0.0 -2.811\"/>" <<endl;
   cout<<"Lower" <<endl;
  
