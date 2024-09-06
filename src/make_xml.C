@@ -1,23 +1,28 @@
 void make_xml(){
   ofstream out("lgd.xml");
-  int num_col[19]={15,21,23,25,27,28,29,31,32,33,34,34,35,36,36,37,37,38,38};
+  int num_col[19]={15,21,23,25,27,28,30,31,32,33,34,34,35,36,36,37,37,38,38};
   out << setprecision(10);
   
   double lower_survey_y[19]
     ={-116.315,-112.30133,-108.3205,-104.3275,-100.292,-96.284,-92.288,-88.306,
       -84.291,-80.268,-76.272,-72.267,-68.223,-64.196,-60.2,-56.21,-52.194,
-      -48.187,-44.17};
+      -48.187,-44.08};
   double lower_survey_x1[19]
     ={-27.874,-39.901};
   double lower_survey_x2[19]
     ={28.336,40.41,48.439,56.485,64.564,68.579,76.677,80.673,84.697,88.719,
       92.778,92.778,96.814,100.824,100.826,104.786,104.781,108.810,108.84};
-
+  lower_survey_x1[18]=-39.771;
+  
+  cout << "Lower" << endl;
+  double min_dx=1e6;
   for (int i=0;i<19;i++){
     double x_0=-lower_survey_x2[i]; 
     double dx=4.0157;
-    if (i<2) dx=(lower_survey_x2[i]-lower_survey_x1[i])/(num_col[i]-1);
- 
+    if (i<2 || i==18) dx=(lower_survey_x2[i]-lower_survey_x1[i])/(num_col[i]-1);
+    cout << i << " " << x_0 << " " << dx << endl;
+    if (fabs(dx)<min_dx) min_dx=fabs(dx);
+    
     out << "  <composition name=\"LGLowerRow" << i <<"\">" << endl;
     out <<"    <mposX volume=\"LGDblock\" ncopy=\"" << num_col[i] 
 	<< "\" X0=\""<<x_0<<"\" dX=\""<< dx <<"\">" <<endl;
@@ -31,22 +36,21 @@ void make_xml(){
     ={116.602,112.6065,108.4695,104.436,100.4255,96.419,92.3615,88.331,84.339,
       80.32,76.336,72.313,68.315,64.261,60.278,56.172,52.174,48.108,44.096};
   double upper_survey_x1[19]
-    ={-28.384,-40.5,-48.428,-56.476,-64.494,-68.508,-72.519,-80.59,-84.596,
+    ={-28.384,-40.5,-48.428,-56.476,-64.494,-68.508,-76.53,-80.59,-84.596,
       -88.635,-92.654,-92.643,-96.647,-100.675,-100.703,-104.688,-104.711,
       -108.736,-108.703};
   double upper_survey_x2[19]
-    ={27.849,39.95};
-      			     
+    ={27.849,39.95,39.91,39.85,39.85,39.825,39.85,39.86,39.86,
+    39.86,39.86,39.87,39.87,39.87,39.84,39.87,39.85,39.84,
+    39.865};
+
+  cout << "Upper" << endl;
   for (int i=0;i<19;i++){
-    double x_0=0.;  
-    double dx=4.0157;
-    if (i>=2){
-      x_0=-dx*(num_col[i]-1)-upper_survey_x1[i];
-    }
-    else {
-      x_0=-upper_survey_x2[i];
-      dx=(-x_0-upper_survey_x1[i])/(num_col[i]-1);
-    }
+    double x_0=-upper_survey_x2[i];
+    double dx=(-x_0-upper_survey_x1[i])/(num_col[i]-1);
+    cout << "   " << i << " " << x_0 << " " << dx << endl;
+    if (fabs(dx)<min_dx) min_dx=fabs(dx);
+ 
     out << "  <composition name=\"LGUpperRow" << i <<"\">" << endl;
     out <<"    <mposX volume=\"LGDblock\" ncopy=\"" << num_col[i] 
 	<< "\" X0=\""<<x_0<<"\" dX=\"" << dx << "\">" <<endl;
@@ -55,12 +59,13 @@ void make_xml(){
     out <<"    </mposX>" << endl;  
     out <<"  </composition>" << endl;
   }
+  cout << endl;
   
   int num_col2[38]={2,4,6,7,9,10,11,12,13,13,14,15,15,16,16,17,17,18,18,18,
 		    19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,
 		    18,18,18};
   double north_survey_y[38]
-    ={-108.9455,-104.895,-100.9005,-96.861,-92.854,-88.818,-84.766,-80.825,
+    ={-108.9455,-104.895,-100.9005,-96.861,-92.854,-88.818,-84.766,-80.8,
       -76.784,-72.749,-68.748,-64.696,-60.712,-56.706,-52.67,-48.667,-44.655,
       -40.666,-36.626,-32.626,-28.603,-24.571,-20.525,-16.524,-12.528,-8.488,
       -4.437,-0.440,3.578,7.603,11.614,15.633,19.668,23.691,27.723,31.703,
@@ -69,7 +74,7 @@ void make_xml(){
     ={-43.891,-43.8889,-43.8735,-43.8548,-43.8594,-43.8057,-43.845,-43.8243,
       -43.8126,-43.8596,-43.8179,-43.8042,-43.8412,-43.8025,-43.7855,-43.8068,
       -43.8038,
-      -43.785,-43.847,-43.779,-43.835,-43.848,-43.878,-43.887,-43.859,-43.852,
+      -43.785,-43.847,-43.779,-43.835,-43.848,-43.878,-43.887,-43.859,-43.855,
       -43.863,-43.895,-43.860,-43.895,-43.874,-43.837,-43.835,-43.863,-43.815,
       -43.837,-43.803,-43.811};
   double north_survey_x2[38]
@@ -78,11 +83,13 @@ void make_xml(){
       -112.063,-112.068,-112.058,-116.1,-116.098,-116.128,-116.161,-116.12,
       -116.094,-116.117,-116.114,-116.115,-116.082,-116.109,-116.107,-116.071,
       -116.123,-116.103,-112.071,-112.078,-112.093};
-
+  cout << "North" <<endl;
   for (int i=0;i<38;i++){
     double x_0=-north_survey_x1[i];
     double dx=(north_survey_x1[i]-north_survey_x2[i])/(num_col2[i]-1);
-
+    cout << i << " " << x_0 << " " << dx << endl;
+    if (fabs(dx)<min_dx) min_dx=fabs(dx);
+    
     out << "  <composition name=\"LGNorthRow" << i <<"\">" << endl;
     out << "    <mposX volume=\"LGDblock\" ncopy=\"" << num_col2[i] 
 	<< "\" X0=\""<<x_0<<"\" dX=\"" << dx <<"\">" <<endl;
@@ -93,10 +100,18 @@ void make_xml(){
   } 
   
   double south_survey_y[38]
-    ={-40.198,-36.154,-32.149,-28.139,-24.087,-20.047,-16.071,-12.053,-8.024,
+    ={-40.19,-36.154,-32.149,-28.139,-24.087,-20.047,-16.071,-12.053,-8.024,
       -3.996,0.011,4.038,8.045,12.033,16.079,20.082,24.14,28.139,32.143,
       36.174,40.198,44.307,48.35,52.361,56.399,60.406,64.415,68.447,72.456,
       76.46,80.498,84.58,88.588,92.573,96.632,100.6335,104.6605,108.6735};
+  double south_survey_y2[21]
+    ={-40.021,-36.026,-32.001,-27.997,-23.969,-19.963,-15.929,-11.894,-7.83,
+    -3.910,0.124,4.148,8.15,12.159,16.189,20.191,24.202,28.225,32.246,36.272,
+    40.2757};
+  for (int i=0;i<21;i++){
+    south_survey_y[i]+=south_survey_y2[i];
+    south_survey_y[i]/=2.;
+  }
   double south_survey_x1[38]
     ={112.115,112.113,112.124,116.138,116.107,116.088,116.107,116.071,116.121,
       116.086,116.072,116.054,116.028,116.075,116.084,116.067,116.08,116.053,
@@ -106,15 +121,19 @@ void make_xml(){
       55.96,47.938};
   double south_survey_x2[38]
     ={43.85,43.891,43.876,43.867,43.85,43.825,43.807,43.802,43.810,43.783,
-      43.757,43.742,43.742,43.781,43.775,43.755,43.796,43.766,43.843,43.88,
+    43.77,43.77,43.77,43.781,43.775,43.77,43.796,43.8,43.843,43.88,
       43.849,
       43.8848,43.8618,43.8605,43.8635,43.8752,43.8492,43.8569,43.9176,43.8796,
       43.8383,43.87,43.8567,43.8874,43.8698,43.8635,43.9129,43.942};
 
+  cout << "South" << endl;
+  double min_dy=1e6;
   for (int i=0;i<38;i++){
     int j=37-i;
     double x_0=-south_survey_x1[i]; 
     double dx=(south_survey_x1[i]-south_survey_x2[i])/(num_col2[j]-1);
+    cout << i << " " << x_0 << " " << dx << endl;
+    if (fabs(dx)<min_dx) min_dx=fabs(dx);
     
     out << "  <composition name=\"LGSouthRow" << i <<"\">" << endl;
     out <<"    <mposX volume=\"LGDblock\" ncopy=\"" << num_col2[j] 
@@ -125,26 +144,53 @@ void make_xml(){
     out << "  </composition>" <<endl;
   } 
   
+  double old=0.;
   out << "  <composition name=\"forwardEMcal\" envelope=\"FCAL\">" << endl;
   out << "    <apply region=\"nullBfield\"/>" << endl;
   out << "    <posXYZ volume=\"CrystalECAL\" X_Y_Z=\"0.0 0.0 -2.811\"/>" <<endl;
+  cout<<"Lower" <<endl;
+ 
+  //if (false)
   for (int i=0;i<19;i++){
+    double dy=lower_survey_y[i]-old;
+    old=lower_survey_y[i];
+    cout << i << " " << lower_survey_y[i] << " " << dy << endl;
+    if (fabs(dy)<min_dy) min_dy=fabs(dy);
     out << "     <posXYZ volume=\"LGLowerRow" << i << "\" X_Y_Z=\" 0. " 
 	<< lower_survey_y[i] << " 0.\" rot=\"0. 0. 0.\"/>" << endl;
-  }  
-  for (int i=0;i<19;i++){
+  }
+  cout << "Upper" <<endl;
+  //if (false)
+  for (int i=0;i<19;i++){ 
+    double dy=upper_survey_y[i]-old;
+    old=upper_survey_y[i];
+    if (fabs(dy)<4.0157) cout << i << " " << upper_survey_y[i] << " " << dy << endl;
+    if (fabs(dy)<min_dy) min_dy=fabs(dy);
     out << "     <posXYZ volume=\"LGUpperRow" << i << "\" X_Y_Z=\" 0. " 
 	<< upper_survey_y[i] << " 0.\" rot=\"0. 0. 0.\"/>" << endl;
-  } 
-  for (int i=0;i<38;i++){
-    out << "     <posXYZ volume=\"LGNorthRow" << i << "\" X_Y_Z=\" 0. " 
+  }
+  cout << "North" <<endl;
+  //if (false)
+  for (int i=0;i<38;i++){  
+    double dy=north_survey_y[i]-old;
+    old=north_survey_y[i];
+    if (fabs(dy)<4.0157) cout << i << " " << north_survey_y[i] << " " << dy << endl;
+    if (fabs(dy)<min_dy) min_dy=fabs(dy);
+    out << "     <posXYZ volume=\"LGNorthRow" << i << "\" X_Y_Z=\" 0.0 " 
 	<< north_survey_y[i] << " 0.\" rot=\"0. 0. 0.\"/>" << endl;
-  } 
+  }
+  cout << "South" << endl;
+  //if (false)
   for (int i=0;i<38;i++){
-    out << "     <posXYZ volume=\"LGSouthRow" << i << "\" X_Y_Z=\" 0. " 
+    double dy=south_survey_y[i]-old;
+    old=south_survey_y[i];
+    if (fabs(dy)<4.0157) cout << i << " " << south_survey_y[i] << " " << dy << endl;
+    if (fabs(dy)<min_dy) min_dy=fabs(dy);
+    out << "     <posXYZ volume=\"LGSouthRow" << i << "\" X_Y_Z=\" 0.0 " 
 	<< south_survey_y[i] << " 0.\" rot=\"0. 0. 0.\"/>" << endl;
   } 
   out << "  </composition>" << endl << endl;
+  cout << "Min dx= " << min_dx << " Min dy= " << min_dy << endl;
 
   out.close();
 }
