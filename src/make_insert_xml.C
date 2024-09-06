@@ -39,7 +39,7 @@ void make_insert_xml(){
 
   for (int i=0;i<40;i++){
     int ncopy=40;
-    ymid[i]=0.5*(outer_left_y[i]+outer_right_y[i])-0.085;
+    ymid[i]=0.5*(outer_left_y[i]+outer_right_y[i])-0.088;
     double dx=outer_left_x[i]-outer_right_x[i];
     dphi[i]=-180/M_PI*(outer_left_y[i]-outer_right_y[i])/dx;
     dx/=39.; // find module size
@@ -78,9 +78,13 @@ void make_insert_xml(){
   // cout << dx_min << endl;
 
   out << "  <composition name=\"CrystalECAL\">" << endl;
-  out << "    <posXYZ volume=\"InsertBeamPipe\" X_Y_Z=\"-0.001 0.0 3.4095\"/>"
+  out << "    <posXYZ volume=\"InsertBeamPipe\" X_Y_Z=\"0.0 0.0 3.4095\"/>"
       << endl;
-  out << "    <posXYZ volume=\"XTTA\" X_Y_Z=\"-0.001 0.0 -13.0\"/>" << endl;
+  out << "    <posXYZ volume=\"XTTA\" X_Y_Z=\"0.0 0.0 -13.0\"/>" << endl;
+  out << "    <posXYZ volume=\"XRUB\" X_Y_Z=\"0.0 -42.0 0.0\" geometry_layer=\"1\"/>" << endl;
+  out << "    <posXYZ volume=\"XRUB\" X_Y_Z=\"0.0 42.0 0.0\" geometry_layer=\"1\"/>" << endl;
+  out << "    <posXYZ volume=\"XRUB\" X_Y_Z=\"-41.8 0 0.0\" rot=\"0 0.0 90.\" geometry_layer=\"1\"/>" << endl;
+  out << "    <posXYZ volume=\"XRUB\" X_Y_Z=\"41.8 0 0.0\" rot=\"0 0.0 90.\" geometry_layer=\"1\"/>" << endl;
   for (int i=0;i<42;i++){
     cout << ymid[i] << endl;
     out << "    <posXYZ volume=\"XTrow"<<i<<"\" X_Y_Z=\" 0. " << ymid[i]
