@@ -64,7 +64,7 @@ klftarget_be_radius = 3.0
 klftarget_uphole_size = 15.2
 klftarget_downhole_size = 7.6
 klftarget_w_gap = 0.5
-klftarget_w_length = 10
+klftarget_w_length = 20
 klftarget_w_radius = 7.5
 klftarget_full_length = 162.56
 klftarget_full_width = 137.2
@@ -511,7 +511,7 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   <box name="DET2" X_Y_Z="450.0  270.0  0.1" material="Vacuum" />
   <box name="DET3" X_Y_Z="450.0  2.0  918.0" material="Air" />
   <box name="DET4" X_Y_Z="1700.0  1200.0  2.0" material="Vacuum" />
-  <box name="DET5" X_Y_Z="1700.0  1198.0  2.0" material="Air" />
+  <box name="DET5" X_Y_Z="1700.0  1198.0  0.2" material="Air" />
   <box name="DET6" X_Y_Z="1700.0  2.0  3000.0" material="Air" />
   <!--box name="DET7" X_Y_Z="1700.0  1198.0  2.0" material="Air" /-->
   <tubs name="DET7" Rio_Z="0.0 1.7399  2.0" material="Vacuum"

@@ -111,12 +111,12 @@
   </composition>
 
   <composition name="KLFtargetEnclosure" envelope="KLFB">
-    <posXYZ volume="KLFtargetCavity" X_Y_Z="0.0  0.0  -30.370000000000005" />
-    <posXYZ volume="KLFD" X_Y_Z="0.0  0.0 40.75" />
+    <posXYZ volume="KLFtargetCavity" X_Y_Z="0.0  0.0  -25.370000000000005" />
+    <posXYZ volume="KLFD" X_Y_Z="0.0  0.0 45.75" />
   </composition>
 
   <composition name="KLFtargetCavity" envelope="KLFC">
-    <posXYZ volume="KLFT" X_Y_Z="0.0  0.0  9.249999999999998" />
+    <posXYZ volume="KLFT" X_Y_Z="0.0  0.0  4.249999999999998" />
     <posXYZ volume="KLFW" X_Y_Z="0.0  0.0  34.75" />
   </composition>
 
@@ -130,18 +130,18 @@
        material="Lead" />
   <box name="KLFC" X_Y_Z="15.2 
                           15.2
-                          81.5"
+                          91.5"
        material="Air" />
   <box name="KLFD" X_Y_Z="7.6 
                           7.6
-                          60.74000000000001"
+                          50.74000000000001"
        material="Air" />
   <box name="KLFE" X_Y_Z="7.6 
                           7.6
                           10.16"
        material="Air" />
   <tubs name="KLFT" Rio_Z="0.0 3.0 40" material="Beryllium" />
-  <tubs name="KLFW" Rio_Z="0.0 7.5 10" material="SofterTungsten" />
+  <tubs name="KLFW" Rio_Z="0.0 7.5 20" material="SofterTungsten" />
 
 <!-- First section of vacuum pipe -->
 
@@ -433,7 +433,7 @@
   <box name="DET2" X_Y_Z="450.0  270.0  0.1" material="Vacuum" />
   <box name="DET3" X_Y_Z="450.0  2.0  918.0" material="Air" />
   <box name="DET4" X_Y_Z="1700.0  1200.0  2.0" material="Vacuum" />
-  <box name="DET5" X_Y_Z="1700.0  1198.0  2.0" material="Air" />
+  <box name="DET5" X_Y_Z="1700.0  1198.0  0.2" material="Air" />
   <box name="DET6" X_Y_Z="1700.0  2.0  3000.0" material="Air" />
   <!--box name="DET7" X_Y_Z="1700.0  1198.0  2.0" material="Air" /-->
   <tubs name="DET7" Rio_Z="0.0 1.7399  2.0" material="Vacuum"

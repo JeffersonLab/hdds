@@ -1369,10 +1369,10 @@
 
   <composite name="SofterTungsten">
 	<addmaterial material="Tungsten">
-		<fractionmass	fraction="0.90"	/>
+		<fractionmass	fraction="0.85"	/>
  	</addmaterial>
 	<addmaterial material="Copper">
-		<fractionmass	fraction="0.10"	/>
+		<fractionmass	fraction="0.15"	/>
  	</addmaterial>
   </composite>
 

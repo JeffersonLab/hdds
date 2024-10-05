@@ -1,5 +1,4 @@
-#KLF LH2 target
-  <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--DOCTYPE HDDS>
 
   Hall D Geometry Data Base: Target
@@ -98,7 +97,8 @@
     <polyplane Rio_Z="0.0 0.0 +20.0"/>
   </pcon>
 
-  <pcon name="LIH2" material="LiqHydrogen" comment="target contents">
+  <!--pcon name="LIH2" material="LiqHydrogen" comment="target contents"-->
+  <pcon name="LIH2" material="Vacuum" comment="target contents">
     <polyplane Rio_Z="0.0 0.0 -19.98"/>
     <polyplane Rio_Z="0.0 1.02 -19.8"/>
     <polyplane Rio_Z="0.0 1.62185 -19.5"/>
