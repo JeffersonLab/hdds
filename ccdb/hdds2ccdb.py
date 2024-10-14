@@ -23,7 +23,7 @@ import sys
 import ccdb
 
 def usage():
-   print """
+   str1 = """
    Usage: hddm2ccdb.py [-r <run>] [-v <var>] command
      where command is one of
        * ls <table>
@@ -35,42 +35,46 @@ def usage():
        <table> is a GEOMETRY table name, eg BeamLine_HDDS.xml
        <comment> is a log comment to go with the ccdb update, in quotes
    """
+   print(str1)
    sys.exit(1)
 
 def do_ls_table(tpath):
-   """
+   str1 = """
    Print the metadata of the ccdb table identified in tpath 
    """
+   print(str1)
    table = provider.get_type_table(tpath)
    try:
       runs = run.split('-')
       ass = provider.get_assignment(tpath, runs[0], var)
    except:
-      print "no entry found"
+      print( "no entry found")
       return
-   print "run range:", "{0}-{1}".format(ass.run_range.min, ass.run_range.max)
-   print "variation:", ass.variation.name
-   print "modified:", ass.modified
-   print "comment:", ass.comment
-   print "author:", ass.author.name
+   print( "run range:", "{0}-{1}".format(ass.run_range.min, ass.run_range.max))
+   print( "variation:", ass.variation.name)
+   print( "modified:", ass.modified)
+   print( "comment:", ass.comment)
+   print( "author:", ass.author.name)
 
 def do_get_table(tpath):
-   """
+   str1 = """
    Print the contents of the ccdb table identified in tpath 
    """
+   print(str1)
    table = provider.get_type_table(tpath)
    try:
       runs = run.split('-')
       ass = provider.get_assignment(tpath, runs[0], var)
    except:
-      print "no entry found"
+      print( "no entry found")
       return
    sys.stdout.write(ass.constant_set.vault)
 
 def do_set_table(tpath, comment):
-   """
+   str1 = """
    Pull xml content from stdin, push into a new table row in ccdb
    """
+   print(str1)
    content = sys.stdin.read()
    runs = run.split('-')
    if len(runs) == 1:
