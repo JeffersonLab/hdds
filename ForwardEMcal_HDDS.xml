@@ -10,94 +10,831 @@
 -->
 
 <section name        = "ForwardEMcal"
-         version     = "2.1"
-         date        = "2006-11-25"
-         author      = "R.T. Jones"
+         version     = "3.0"
+         date        = "2024-04-23"
+         author      = "S. Taylor"
          top_volume  = "FCAL"
          specification = "v1.0">
 
 <!-- Origin of ForwardEMcal is center of upstream face of LGD -->
-
-<!-- Thr Jan 29 08:14:30 EST 2009                                  -->
-<!-- changed order of counting columns: 0-58 from south to north   -->
-
-<!-- July 7, 2017, Richard Jones                                   -->
-<!-- Added front steel frame and side straps to the LGD blocks.    -->
-<!-- Added mylar wrapping around the blocks.                       -->
-<!-- Increased the size of the FCAL block unit cell to account for
-     the space needed for wrapping, strips, and front frame.       -->
-<!-- Added plexiglass sheet (0.5") in front of the LGD.            -->
-<!-- Extended the stainless tube around the beam hole to the full 
-     length (32.75") shown in the drawings, with front flush with
-     the front of the wrapped blocks.                              -->
-
-<!-- July 7, 2017, Richard Jones                                   -->
-<!-- Added light cover in front of entrance face to the FCal       -->
-
-<!-- version 2.1, January 8, 2019, Richard Jones                   -->
-<!-- Small tweaks to eliminate overlaps between volumnes.          -->
+<!-- order of counting columns: 0-58 from south to north   -->
 
   <composition name="ForwardEMcal">
     <posXYZ volume="forwardEMcal" X_Y_Z="0.0  0.0  25.4" />
-    <posXYZ volume="plexiSheet" X_Y_Z="0.0  0.0  -1.0" />
-    <posXYZ volume="FCLC" X_Y_Z="0.0  0.0  -2.0" />
-    <posXYZ volume="FCBX" X_Y_Z="0.0  0.0  50.8" />
+    <posXYZ volume="LGPS" X_Y_Z="-41.8  -83.2  -0.635" />
+    <posXYZ volume="LGPS" X_Y_Z="41.8  83.2  -0.635" />
+    <posXYZ volume="LGPS" X_Y_Z="-83.2 41.8 -0.635" rot="0. 0. 90."/>
+    <posXYZ volume="LGPS" X_Y_Z="83.2 -41.8 -0.635" rot="0. 0. 90."/>
+    <posXYZ volume="FCLC" X_Y_Z="0.0  0.0  -2.0" />   
   </composition>
 
+
+  <composition name="LGLowerRow0">
+    <mposX volume="LGDblock" ncopy="15" X0="-28.336" dX="4.015">
+      <column value="22" step="1"/>
+      <row value="0"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow1">
+    <mposX volume="LGDblock" ncopy="21" X0="-40.41" dX="4.01555">
+      <column value="19" step="1"/>
+      <row value="1"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow2">
+    <mposX volume="LGDblock" ncopy="23" X0="-48.439" dX="4.0157">
+      <column value="17" step="1"/>
+      <row value="2"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow3">
+    <mposX volume="LGDblock" ncopy="25" X0="-56.485" dX="4.0157">
+      <column value="15" step="1"/>
+      <row value="3"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow4">
+    <mposX volume="LGDblock" ncopy="27" X0="-64.564" dX="4.0157">
+      <column value="13" step="1"/>
+      <row value="4"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow5">
+    <mposX volume="LGDblock" ncopy="28" X0="-68.579" dX="4.0157">
+      <column value="12" step="1"/>
+      <row value="5"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow6">
+    <mposX volume="LGDblock" ncopy="30" X0="-76.677" dX="4.0157">
+      <column value="10" step="1"/>
+      <row value="6"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow7">
+    <mposX volume="LGDblock" ncopy="31" X0="-80.673" dX="4.0157">
+      <column value="9" step="1"/>
+      <row value="7"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow8">
+    <mposX volume="LGDblock" ncopy="32" X0="-84.697" dX="4.0157">
+      <column value="8" step="1"/>
+      <row value="8"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow9">
+    <mposX volume="LGDblock" ncopy="33" X0="-88.719" dX="4.0157">
+      <column value="7" step="1"/>
+      <row value="9"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow10">
+    <mposX volume="LGDblock" ncopy="34" X0="-92.778" dX="4.0157">
+      <column value="6" step="1"/>
+      <row value="10"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow11">
+    <mposX volume="LGDblock" ncopy="34" X0="-92.778" dX="4.0157">
+      <column value="6" step="1"/>
+      <row value="11"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow12">
+    <mposX volume="LGDblock" ncopy="35" X0="-96.814" dX="4.0157">
+      <column value="5" step="1"/>
+      <row value="12"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow13">
+    <mposX volume="LGDblock" ncopy="36" X0="-100.824" dX="4.0157">
+      <column value="4" step="1"/>
+      <row value="13"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow14">
+    <mposX volume="LGDblock" ncopy="36" X0="-100.826" dX="4.0157">
+      <column value="4" step="1"/>
+      <row value="14"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow15">
+    <mposX volume="LGDblock" ncopy="37" X0="-104.786" dX="4.0157">
+      <column value="3" step="1"/>
+      <row value="15"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow16">
+    <mposX volume="LGDblock" ncopy="37" X0="-104.781" dX="4.0157">
+      <column value="3" step="1"/>
+      <row value="16"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow17">
+    <mposX volume="LGDblock" ncopy="38" X0="-108.81" dX="4.0157">
+      <column value="2" step="1"/>
+      <row value="17"/>
+    </mposX>
+  </composition>
+  <composition name="LGLowerRow18">
+    <mposX volume="LGDblock" ncopy="38" X0="-108.84" dX="4.016513514">
+      <column value="2" step="1"/>
+      <row value="18"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow0">
+    <mposX volume="LGDblock" ncopy="15" X0="-27.849" dX="4.016642857">
+      <column value="22" step="1"/>
+      <row value="58"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow1">
+    <mposX volume="LGDblock" ncopy="21" X0="-39.95" dX="4.0225">
+      <column value="19" step="1"/>
+      <row value="57"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow2">
+    <mposX volume="LGDblock" ncopy="23" X0="-39.91" dX="4.015363636">
+      <column value="19" step="1"/>
+      <row value="56"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow3">
+    <mposX volume="LGDblock" ncopy="25" X0="-39.85" dX="4.013583333">
+      <column value="19" step="1"/>
+      <row value="55"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow4">
+    <mposX volume="LGDblock" ncopy="27" X0="-39.85" dX="4.013230769">
+      <column value="19" step="1"/>
+      <row value="54"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow5">
+    <mposX volume="LGDblock" ncopy="28" X0="-39.825" dX="4.012333333">
+      <column value="19" step="1"/>
+      <row value="53"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow6">
+    <mposX volume="LGDblock" ncopy="30" X0="-39.85" dX="4.013103448">
+      <column value="19" step="1"/>
+      <row value="52"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow7">
+    <mposX volume="LGDblock" ncopy="31" X0="-39.86" dX="4.015">
+      <column value="19" step="1"/>
+      <row value="51"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow8">
+    <mposX volume="LGDblock" ncopy="32" X0="-39.86" dX="4.014709677">
+      <column value="19" step="1"/>
+      <row value="50"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow9">
+    <mposX volume="LGDblock" ncopy="33" X0="-39.86" dX="4.01546875">
+      <column value="19" step="1"/>
+      <row value="49"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow10">
+    <mposX volume="LGDblock" ncopy="34" X0="-39.86" dX="4.015575758">
+      <column value="19" step="1"/>
+      <row value="48"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow11">
+    <mposX volume="LGDblock" ncopy="34" X0="-39.87" dX="4.015545455">
+      <column value="19" step="1"/>
+      <row value="47"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow12">
+    <mposX volume="LGDblock" ncopy="35" X0="-39.87" dX="4.015205882">
+      <column value="19" step="1"/>
+      <row value="46"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow13">
+    <mposX volume="LGDblock" ncopy="36" X0="-39.87" dX="4.015571429">
+      <column value="19" step="1"/>
+      <row value="45"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow14">
+    <mposX volume="LGDblock" ncopy="36" X0="-39.84" dX="4.015514286">
+      <column value="19" step="1"/>
+      <row value="44"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow15">
+    <mposX volume="LGDblock" ncopy="37" X0="-39.87" dX="4.0155">
+      <column value="19" step="1"/>
+      <row value="43"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow16">
+    <mposX volume="LGDblock" ncopy="37" X0="-39.85" dX="4.015583333">
+      <column value="19" step="1"/>
+      <row value="42"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow17">
+    <mposX volume="LGDblock" ncopy="38" X0="-39.84" dX="4.015567568">
+      <column value="19" step="1"/>
+      <row value="41"/>
+    </mposX>
+  </composition>
+  <composition name="LGUpperRow18">
+    <mposX volume="LGDblock" ncopy="38" X0="-39.865" dX="4.015351351">
+      <column value="19" step="1"/>
+      <row value="40"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow0">
+    <mposX volume="LGDblock" ncopy="2" X0="43.891" dX="3.991">
+      <column value="40" step="1"/>
+      <row value="2"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow1">
+    <mposX volume="LGDblock" ncopy="4" X0="43.8889" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="3"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow2">
+    <mposX volume="LGDblock" ncopy="6" X0="43.8735" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="4"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow3">
+    <mposX volume="LGDblock" ncopy="7" X0="43.8548" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="5"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow4">
+    <mposX volume="LGDblock" ncopy="9" X0="43.8594" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="6"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow5">
+    <mposX volume="LGDblock" ncopy="10" X0="43.8057" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="7"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow6">
+    <mposX volume="LGDblock" ncopy="11" X0="43.845" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="8"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow7">
+    <mposX volume="LGDblock" ncopy="12" X0="43.8243" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="9"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow8">
+    <mposX volume="LGDblock" ncopy="13" X0="43.8126" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="10"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow9">
+    <mposX volume="LGDblock" ncopy="13" X0="43.8596" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="11"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow10">
+    <mposX volume="LGDblock" ncopy="14" X0="43.8179" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="12"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow11">
+    <mposX volume="LGDblock" ncopy="15" X0="43.8042" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="13"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow12">
+    <mposX volume="LGDblock" ncopy="15" X0="43.8412" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="14"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow13">
+    <mposX volume="LGDblock" ncopy="16" X0="43.8025" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="15"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow14">
+    <mposX volume="LGDblock" ncopy="16" X0="43.7855" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="16"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow15">
+    <mposX volume="LGDblock" ncopy="17" X0="43.8068" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="17"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow16">
+    <mposX volume="LGDblock" ncopy="17" X0="43.8038" dX="4.0157">
+      <column value="40" step="1"/>
+      <row value="18"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow17">
+    <mposX volume="LGDblock" ncopy="18" X0="43.785" dX="4.016352941">
+      <column value="40" step="1"/>
+      <row value="19"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow18">
+    <mposX volume="LGDblock" ncopy="18" X0="43.847" dX="4.013">
+      <column value="40" step="1"/>
+      <row value="20"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow19">
+    <mposX volume="LGDblock" ncopy="18" X0="43.779" dX="4.016411765">
+      <column value="40" step="1"/>
+      <row value="21"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow20">
+    <mposX volume="LGDblock" ncopy="19" X0="43.835" dX="4.014722222">
+      <column value="40" step="1"/>
+      <row value="22"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow21">
+    <mposX volume="LGDblock" ncopy="19" X0="43.848" dX="4.013888889">
+      <column value="40" step="1"/>
+      <row value="23"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow22">
+    <mposX volume="LGDblock" ncopy="19" X0="43.878" dX="4.013888889">
+      <column value="40" step="1"/>
+      <row value="24"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow23">
+    <mposX volume="LGDblock" ncopy="19" X0="43.887" dX="4.015222222">
+      <column value="40" step="1"/>
+      <row value="25"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow24">
+    <mposX volume="LGDblock" ncopy="19" X0="43.859" dX="4.0145">
+      <column value="40" step="1"/>
+      <row value="26"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow25">
+    <mposX volume="LGDblock" ncopy="19" X0="43.855" dX="4.013277778">
+      <column value="40" step="1"/>
+      <row value="27"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow26">
+    <mposX volume="LGDblock" ncopy="19" X0="43.863" dX="4.014111111">
+      <column value="40" step="1"/>
+      <row value="28"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow27">
+    <mposX volume="LGDblock" ncopy="19" X0="43.895" dX="4.012166667">
+      <column value="40" step="1"/>
+      <row value="29"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow28">
+    <mposX volume="LGDblock" ncopy="19" X0="43.86" dX="4.014166667">
+      <column value="40" step="1"/>
+      <row value="30"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow29">
+    <mposX volume="LGDblock" ncopy="19" X0="43.895" dX="4.010388889">
+      <column value="40" step="1"/>
+      <row value="31"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow30">
+    <mposX volume="LGDblock" ncopy="19" X0="43.874" dX="4.013055556">
+      <column value="40" step="1"/>
+      <row value="32"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow31">
+    <mposX volume="LGDblock" ncopy="19" X0="43.837" dX="4.015">
+      <column value="40" step="1"/>
+      <row value="33"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow32">
+    <mposX volume="LGDblock" ncopy="19" X0="43.835" dX="4.013111111">
+      <column value="40" step="1"/>
+      <row value="34"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow33">
+    <mposX volume="LGDblock" ncopy="19" X0="43.863" dX="4.014444444">
+      <column value="40" step="1"/>
+      <row value="35"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow34">
+    <mposX volume="LGDblock" ncopy="19" X0="43.815" dX="4.016">
+      <column value="40" step="1"/>
+      <row value="36"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow35">
+    <mposX volume="LGDblock" ncopy="18" X0="43.837" dX="4.013764706">
+      <column value="40" step="1"/>
+      <row value="37"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow36">
+    <mposX volume="LGDblock" ncopy="18" X0="43.803" dX="4.016176471">
+      <column value="40" step="1"/>
+      <row value="38"/>
+    </mposX>
+  </composition>
+  <composition name="LGNorthRow37">
+    <mposX volume="LGDblock" ncopy="18" X0="43.811" dX="4.016588235">
+      <column value="40" step="1"/>
+      <row value="39"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow0">
+    <mposX volume="LGDblock" ncopy="18" X0="-112.115" dX="4.015588235">
+      <column value="1" step="1"/>
+      <row value="19"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow1">
+    <mposX volume="LGDblock" ncopy="18" X0="-112.113" dX="4.013058824">
+      <column value="1" step="1"/>
+      <row value="20"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow2">
+    <mposX volume="LGDblock" ncopy="18" X0="-112.124" dX="4.014588235">
+      <column value="1" step="1"/>
+      <row value="21"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow3">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.138" dX="4.015055556">
+      <column value="0" step="1"/>
+      <row value="22"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow4">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.107" dX="4.014277778">
+      <column value="0" step="1"/>
+      <row value="23"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow5">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.088" dX="4.014611111">
+      <column value="0" step="1"/>
+      <row value="24"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow6">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.107" dX="4.016666667">
+      <column value="0" step="1"/>
+      <row value="25"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow7">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.071" dX="4.014944444">
+      <column value="0" step="1"/>
+      <row value="26"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow8">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.121" dX="4.017277778">
+      <column value="0" step="1"/>
+      <row value="27"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow9">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.086" dX="4.016833333">
+      <column value="0" step="1"/>
+      <row value="28"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow10">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.072" dX="4.016777778">
+      <column value="0" step="1"/>
+      <row value="29"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow11">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.054" dX="4.015777778">
+      <column value="0" step="1"/>
+      <row value="30"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow12">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.028" dX="4.014333333">
+      <column value="0" step="1"/>
+      <row value="31"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow13">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.075" dX="4.016333333">
+      <column value="0" step="1"/>
+      <row value="32"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow14">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.084" dX="4.017166667">
+      <column value="0" step="1"/>
+      <row value="33"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow15">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.067" dX="4.0165">
+      <column value="0" step="1"/>
+      <row value="34"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow16">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.08" dX="4.015777778">
+      <column value="0" step="1"/>
+      <row value="35"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow17">
+    <mposX volume="LGDblock" ncopy="19" X0="-116.053" dX="4.014055556">
+      <column value="0" step="1"/>
+      <row value="36"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow18">
+    <mposX volume="LGDblock" ncopy="18" X0="-112.066" dX="4.013117647">
+      <column value="1" step="1"/>
+      <row value="37"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow19">
+    <mposX volume="LGDblock" ncopy="18" X0="-112.117" dX="4.013941176">
+      <column value="1" step="1"/>
+      <row value="38"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow20">
+    <mposX volume="LGDblock" ncopy="18" X0="-112.159" dX="4.018235294">
+      <column value="1" step="1"/>
+      <row value="39"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow21">
+    <mposX volume="LGDblock" ncopy="17" X0="-108.136" dX="4.0157">
+      <column value="2" step="1"/>
+      <row value="40"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow22">
+    <mposX volume="LGDblock" ncopy="17" X0="-108.113" dX="4.0157">
+      <column value="2" step="1"/>
+      <row value="41"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow23">
+    <mposX volume="LGDblock" ncopy="16" X0="-104.096" dX="4.0157">
+      <column value="3" step="1"/>
+      <row value="42"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow24">
+    <mposX volume="LGDblock" ncopy="16" X0="-104.099" dX="4.0157">
+      <column value="3" step="1"/>
+      <row value="43"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow25">
+    <mposX volume="LGDblock" ncopy="15" X0="-100.095" dX="4.0157">
+      <column value="4" step="1"/>
+      <row value="44"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow26">
+    <mposX volume="LGDblock" ncopy="15" X0="-100.069" dX="4.0157">
+      <column value="4" step="1"/>
+      <row value="45"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow27">
+    <mposX volume="LGDblock" ncopy="14" X0="-96.061" dX="4.0157">
+      <column value="5" step="1"/>
+      <row value="46"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow28">
+    <mposX volume="LGDblock" ncopy="13" X0="-92.106" dX="4.0157">
+      <column value="6" step="1"/>
+      <row value="47"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow29">
+    <mposX volume="LGDblock" ncopy="13" X0="-92.068" dX="4.0157">
+      <column value="6" step="1"/>
+      <row value="48"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow30">
+    <mposX volume="LGDblock" ncopy="12" X0="-88.011" dX="4.0157">
+      <column value="7" step="1"/>
+      <row value="49"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow31">
+    <mposX volume="LGDblock" ncopy="11" X0="-84.027" dX="4.0157">
+      <column value="8" step="1"/>
+      <row value="50"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow32">
+    <mposX volume="LGDblock" ncopy="10" X0="-79.998" dX="4.0157">
+      <column value="9" step="1"/>
+      <row value="51"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow33">
+    <mposX volume="LGDblock" ncopy="9" X0="-76.013" dX="4.0157">
+      <column value="10" step="1"/>
+      <row value="52"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow34">
+    <mposX volume="LGDblock" ncopy="7" X0="-67.964" dX="4.0157">
+      <column value="12" step="1"/>
+      <row value="53"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow35">
+    <mposX volume="LGDblock" ncopy="6" X0="-63.942" dX="4.0157">
+      <column value="13" step="1"/>
+      <row value="54"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow36">
+    <mposX volume="LGDblock" ncopy="4" X0="-55.96" dX="4.0157">
+      <column value="15" step="1"/>
+      <row value="55"/>
+    </mposX>
+  </composition>
+  <composition name="LGSouthRow37">
+    <mposX volume="LGDblock" ncopy="2" X0="-47.938" dX="3.996">
+      <column value="17" step="1"/>
+      <row value="56"/>
+    </mposX>
+  </composition>
   <composition name="forwardEMcal" envelope="FCAL">
-    <apply region="nullBfield"/>
-    <posXYZ volume="LGDlower" X_Y_Z="  0.0 -62.24335  0.0" />
-    <posXYZ volume="LGDsouth" X_Y_Z="-62.24335   0.0  0.0" />
-    <posXYZ volume="LGDnorth" X_Y_Z="+62.24335   0.0  0.0" />
-    <posXYZ volume="LGDupper" X_Y_Z="  0.0 +62.24335  0.0" />
-    <posXYZ volume="FCBI" X_Y_Z="0.0  0.0  0.0" />
-  </composition>
-
-  <composition name="LGDlower" envelope="LGDB">
-    <mposY volume="LGDfullRow" ncopy="28" Z_X="0.0 0.0" Y0="-54.21195" dY="4.0157">
-      <row value="0" step="1" />
-    </mposY>
-  </composition>
-
-  <composition name="LGDnorth" envelope="LGDN">
-    <mposY volume="LGDhalfRowNorth" ncopy="3" Y0="-4.0157" dY="4.0157">
-      <row value="28" step="1" />
-    </mposY>
-  </composition>
-
-  <composition name="LGDsouth" envelope="LGDS">
-    <mposY volume="LGDhalfRowSouth" ncopy="3" Y0="-4.0157" dY="4.0157">
-      <row value="28" step="1" />
-    </mposY>
-  </composition>
-
-  <composition name="LGDupper" envelope="LGDT">
-    <mposY volume="LGDfullRow" ncopy="28" Z_X="0.0 0.0" Y0="-54.21195" dY="4.0157">
-      <row value="31" step="1" />
-    </mposY>
-  </composition>
-  <composition name="LGDfullRow">
-    <mposX volume="LGDblock" ncopy="59" Y_Z="0.0 0.0" X0="-116.4553" dX="4.0157">
-      <column value="0" step="1" />
-    </mposX>
-  </composition>
-
-  <composition name="LGDhalfRowNorth">
-    <mposX volume="LGDblock" ncopy="28" Y_Z="0.0 0.0" X0="-54.21195" dX="4.0157">
-      <column value="31" step="1" />
-    </mposX>
-  </composition>
-
-  <composition name="LGDhalfRowSouth">
-    <mposX volume="LGDblock" ncopy="28" Y_Z="0.0 0.0" X0="-54.21195" dX="4.0157">
-      <column value="0" step="1" />
-    </mposX>
+    <posXYZ volume="CrystalECAL" X_Y_Z="0.0 0.0 -2.811"/>
+     <posXYZ volume="LGLowerRow0" X_Y_Z=" 0. -116.315 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow1" X_Y_Z=" 0. -112.30133 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow2" X_Y_Z=" 0. -108.3205 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow3" X_Y_Z=" 0. -104.3275 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow4" X_Y_Z=" 0. -100.292 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow5" X_Y_Z=" 0. -96.28 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow6" X_Y_Z=" 0. -92.28 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow7" X_Y_Z=" 0. -88.294 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow8" X_Y_Z=" 0. -84.275 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow9" X_Y_Z=" 0. -80.248 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow10" X_Y_Z=" 0. -76.248 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow11" X_Y_Z=" 0. -72.239 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow12" X_Y_Z=" 0. -68.191 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow13" X_Y_Z=" 0. -64.16 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow14" X_Y_Z=" 0. -60.16 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow15" X_Y_Z=" 0. -56.166 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow16" X_Y_Z=" 0. -52.146 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow17" X_Y_Z=" 0. -48.135 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGLowerRow18" X_Y_Z=" 0. -44.08 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow0" X_Y_Z=" 0. 116.602 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow1" X_Y_Z=" 0. 112.6065 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow2" X_Y_Z=" 0. 108.4695 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow3" X_Y_Z=" 0. 104.436 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow4" X_Y_Z=" 0. 100.4255 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow5" X_Y_Z=" 0. 96.419 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow6" X_Y_Z=" 0. 92.3615 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow7" X_Y_Z=" 0. 88.331 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow8" X_Y_Z=" 0. 84.339 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow9" X_Y_Z=" 0. 80.32 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow10" X_Y_Z=" 0. 76.336 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow11" X_Y_Z=" 0. 72.313 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow12" X_Y_Z=" 0. 68.315 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow13" X_Y_Z=" 0. 64.261 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow14" X_Y_Z=" 0. 60.278 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow15" X_Y_Z=" 0. 56.172 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow16" X_Y_Z=" 0. 52.174 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow17" X_Y_Z=" 0. 48.108 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGUpperRow18" X_Y_Z=" 0. 44.096 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow0" X_Y_Z=" 0.0 -108.9455 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow1" X_Y_Z=" 0.0 -104.895 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow2" X_Y_Z=" 0.0 -100.9005 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow3" X_Y_Z=" 0.0 -96.861 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow4" X_Y_Z=" 0.0 -92.854 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow5" X_Y_Z=" 0.0 -88.818 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow6" X_Y_Z=" 0.0 -84.766 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow7" X_Y_Z=" 0.0 -80.8 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow8" X_Y_Z=" 0.0 -76.784 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow9" X_Y_Z=" 0.0 -72.749 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow10" X_Y_Z=" 0.0 -68.748 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow11" X_Y_Z=" 0.0 -64.696 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow12" X_Y_Z=" 0.0 -60.712 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow13" X_Y_Z=" 0.0 -56.706 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow14" X_Y_Z=" 0.0 -52.67 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow15" X_Y_Z=" 0.0 -48.667 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow16" X_Y_Z=" 0.0 -44.655 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow17" X_Y_Z=" 0.0 -40.666 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow18" X_Y_Z=" 0.0 -36.626 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow19" X_Y_Z=" 0.0 -32.626 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow20" X_Y_Z=" 0.0 -28.603 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow21" X_Y_Z=" 0.0 -24.571 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow22" X_Y_Z=" 0.0 -20.525 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow23" X_Y_Z=" 0.0 -16.524 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow24" X_Y_Z=" 0.0 -12.528 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow25" X_Y_Z=" 0.0 -8.488 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow26" X_Y_Z=" 0.0 -4.437 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow27" X_Y_Z=" 0.0 -0.44 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow28" X_Y_Z=" 0.0 3.578 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow29" X_Y_Z=" 0.0 7.603 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow30" X_Y_Z=" 0.0 11.614 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow31" X_Y_Z=" 0.0 15.633 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow32" X_Y_Z=" 0.0 19.668 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow33" X_Y_Z=" 0.0 23.691 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow34" X_Y_Z=" 0.0 27.723 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow35" X_Y_Z=" 0.0 31.703 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow36" X_Y_Z=" 0.0 35.826 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGNorthRow37" X_Y_Z=" 0.0 39.93 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow0" X_Y_Z=" 0.0 -40.1055 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow1" X_Y_Z=" 0.0 -36.09 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow2" X_Y_Z=" 0.0 -32.075 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow3" X_Y_Z=" 0.0 -28.068 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow4" X_Y_Z=" 0.0 -24.028 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow5" X_Y_Z=" 0.0 -20.005 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow6" X_Y_Z=" 0.0 -16 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow7" X_Y_Z=" 0.0 -11.9735 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow8" X_Y_Z=" 0.0 -7.927 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow9" X_Y_Z=" 0.0 -3.953 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow10" X_Y_Z=" 0.0 0.0675 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow11" X_Y_Z=" 0.0 4.093 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow12" X_Y_Z=" 0.0 8.0975 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow13" X_Y_Z=" 0.0 12.096 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow14" X_Y_Z=" 0.0 16.134 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow15" X_Y_Z=" 0.0 20.1365 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow16" X_Y_Z=" 0.0 24.171 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow17" X_Y_Z=" 0.0 28.182 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow18" X_Y_Z=" 0.0 32.1945 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow19" X_Y_Z=" 0.0 36.223 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow20" X_Y_Z=" 0.0 40.23685 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow21" X_Y_Z=" 0.0 44.307 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow22" X_Y_Z=" 0.0 48.35 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow23" X_Y_Z=" 0.0 52.361 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow24" X_Y_Z=" 0.0 56.399 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow25" X_Y_Z=" 0.0 60.406 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow26" X_Y_Z=" 0.0 64.415 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow27" X_Y_Z=" 0.0 68.447 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow28" X_Y_Z=" 0.0 72.456 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow29" X_Y_Z=" 0.0 76.46 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow30" X_Y_Z=" 0.0 80.498 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow31" X_Y_Z=" 0.0 84.58 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow32" X_Y_Z=" 0.0 88.588 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow33" X_Y_Z=" 0.0 92.573 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow34" X_Y_Z=" 0.0 96.632 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow35" X_Y_Z=" 0.0 100.6335 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow36" X_Y_Z=" 0.0 104.6605 0." rot="0. 0. 0."/>
+     <posXYZ volume="LGSouthRow37" X_Y_Z=" 0.0 108.6735 0." rot="0. 0. 0."/>
   </composition>
 
   <composition name="LGDblock" envelope="LGBU">
     <posXYZ volume="LGBLwrapped" X_Y_Z="-0.0038 -0.0038 -2.600"/>
-    <posXYZ volume="LGBS" X_Y_Z="2.00405 0 0"/>
-    <posXYZ volume="LGBS" X_Y_Z="0 2.00405 0" rot="0 0 90"/>
+    <posXYZ volume="LGBS" X_Y_Z="1.9762 0 0"/>
+    <posXYZ volume="LGBS" X_Y_Z="0 1.9762 0" rot="0 0 90"/>
     <posXYZ volume="LGBF" X_Y_Z="-0.0038 -0.0038 -25.100"/>
     <posXYZ volume="LGLG" X_Y_Z="-0.0038 -0.0038  22.450"/>
   </composition>
@@ -106,47 +843,26 @@
     <posXYZ volume="LGBL"/>
   </composition>
 
-  <box name="FCAL" X_Y_Z="236.9263  236.9263  50.8"  material="Air"
-	                              	comment="forward EMcal mother" />
-  <box name="LGDB" X_Y_Z="236.9263  112.4396  50.8"  material="Air"
-					comment="LGD bottom section"   />
-  <box name="LGDT" X_Y_Z="236.9263  112.4396  50.8"  material="Air"
-					comment="LGD top section"      />
-  <box name="LGDN" X_Y_Z="112.4396   12.0471  50.8"  material="Air"
-					comment="LGD north section"     />
-  <box name="LGDS" X_Y_Z="112.4396   12.0471  50.8"  material="Air"
-					comment="LGD south section"    />
-  <box name="LGBU" X_Y_Z="4.0157  4.0157  50.8"  material="Air"
+  <box name="FCAL" X_Y_Z="242.0 242.0 50.8" material="Air"
+       comment="forward EMcal mother" />
+  <box name="LGBU" X_Y_Z="3.96  3.96  50.8"  material="Air"
 		            comment="lead glass block stacking unit cell"/>
-  <box name="LGBL" X_Y_Z="4.0030  4.0030  45.0"  material="leadGlassF800"
+  <box name="LGBL" X_Y_Z="3.9474  3.9474  45.0"  material="leadGlassF800"
 		sensitive="true" comment="lead glass block" />
   <tubs name="LGLG" Rio_Z="0.0  1.5875  5.08" material="Plexiglas"
 		sensitive="true" comment="lead glass block plexiglass light guide" />
-  <box name="LGBW" X_Y_Z="4.0081  4.0081  45.0"  material="Mylar"
+  <box name="LGBW" X_Y_Z="3.9524  3.9524  45.0"  material="Mylar"
 		            comment="aluminized mylar wrapping around the block"/>
   <box name="LGBS" X_Y_Z="0.0076 2.8575 50.8" material="StainlessSteel"
 		            comment="SS strap holding the tube assy to the block"/>
   <pgon name="LGBF" segments="4" profile="-45 360" material="StainlessSteel"
 		            comment="SS frame fixing the straps to the front of the block">
-   <polyplane Rio_Z="1.5875 2.0015 -0.300"/>
-   <polyplane Rio_Z="1.5875 2.0015 0.000"/>
-  </pgon>
-  <pgon name="FCBI" segments="4" profile="-45 360" material="StainlessSteel"
-                    comment="FCal beam hole support insert">
-   <polyplane Rio_Z="4.7536 6.0235  -25.400"/>
-   <polyplane Rio_Z="4.7536 6.0235  +25.400"/>
-  </pgon>
-  <pgon name="FCBX" segments="4" profile="-45 360" material="StainlessSteel"
-                    comment="FCal beam hole support extension">
-   <polyplane Rio_Z="4.7536 6.0236   0.000"/>
-   <polyplane Rio_Z="4.7536 6.0236  32.385"/>
+   <polyplane Rio_Z="1.5875 1.976 -0.300"/>
+   <polyplane Rio_Z="1.5875 1.976 0.000"/>
   </pgon>
 
-  <composition name="plexiSheet" envelope="LGPS">
-    <posXYZ volume="LGPH"/>
-  </composition>
-  <tubs name="LGPS" Rio_Z="0.0  123.190  1.270" material="Plexiglas"/>
-  <box name="LGPH" X_Y_Z="9.500 9.500 1.270" material="Air"/>
+  <box name="LGPS" X_Y_Z="166.7 82. 1.27" material="Plexiglas"
+       comment="plate for FCAL light monitoring system"/>
   <box name="FCLC" X_Y_Z="243.8 243.8 0.3175" material="ABS-PVC"/>
 
 
@@ -201,3 +917,6 @@
 </section>
 
 <!-- </HDDS> -->
+  
+  
+  

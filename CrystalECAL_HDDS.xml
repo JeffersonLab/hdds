@@ -5,193 +5,347 @@
   ************************************************************
 
      version 1.0:  Initial version	-A.S.
+     version 2.0:  Using survey data    -S.T.
 
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name          = "CrystalECAL"
-         version       = "1.0"
+         version       = "2.0"
          date          = "2023-12-17"
-         author        = "A. Somov"
-         top_volume    = "ECAL"
+         author        = "S. Taylor"
+         top_volume    = "FCAL"
          specification = "v1.0" >
 
 <!-- Origin of CrystalECAL is the center of upstream face of lead tungstate modules -->
 
-<!--
+  <composition name="XTrow0">
+    <mposX volume="XTModule" ncopy="40" X0="-40.718" dX="2.08713">
+      <column value="0" step="1"/>
+      <row value="0"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow1">
+    <mposX volume="XTModule" ncopy="40" X0="-40.717" dX="2.08674">
+      <column value="0" step="1"/>
+      <row value="1"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow2">
+    <mposX volume="XTModule" ncopy="40" X0="-40.739" dX="2.08803">
+      <column value="0" step="1"/>
+      <row value="2"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow3">
+    <mposX volume="XTModule" ncopy="40" X0="-40.743" dX="2.08797">
+      <column value="0" step="1"/>
+      <row value="3"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow4">
+    <mposX volume="XTModule" ncopy="40" X0="-40.739" dX="2.08754">
+      <column value="0" step="1"/>
+      <row value="4"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow5">
+    <mposX volume="XTModule" ncopy="40" X0="-40.73" dX="2.08769">
+      <column value="0" step="1"/>
+      <row value="5"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow6">
+    <mposX volume="XTModule" ncopy="40" X0="-40.72" dX="2.08772">
+      <column value="0" step="1"/>
+      <row value="6"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow7">
+    <mposX volume="XTModule" ncopy="40" X0="-40.716" dX="2.08805">
+      <column value="0" step="1"/>
+      <row value="7"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow8">
+    <mposX volume="XTModule" ncopy="40" X0="-40.721" dX="2.08787">
+      <column value="0" step="1"/>
+      <row value="8"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow9">
+    <mposX volume="XTModule" ncopy="40" X0="-40.696" dX="2.08782">
+      <column value="0" step="1"/>
+      <row value="9"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow10">
+    <mposX volume="XTModule" ncopy="40" X0="-40.686" dX="2.08736">
+      <column value="0" step="1"/>
+      <row value="10"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow11">
+    <mposX volume="XTModule" ncopy="40" X0="-40.7" dX="2.08828">
+      <column value="0" step="1"/>
+      <row value="11"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow12">
+    <mposX volume="XTModule" ncopy="40" X0="-40.701" dX="2.08803">
+      <column value="0" step="1"/>
+      <row value="12"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow13">
+    <mposX volume="XTModule" ncopy="40" X0="-40.685" dX="2.08721">
+      <column value="0" step="1"/>
+      <row value="13"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow14">
+    <mposX volume="XTModule" ncopy="40" X0="-40.69" dX="2.08713">
+      <column value="0" step="1"/>
+      <row value="14"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow15">
+    <mposX volume="XTModule" ncopy="40" X0="-40.694" dX="2.08764">
+      <column value="0" step="1"/>
+      <row value="15"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow16">
+    <mposX volume="XTModule" ncopy="40" X0="-40.723" dX="2.08767">
+      <column value="0" step="1"/>
+      <row value="16"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow17">
+    <mposX volume="XTModule" ncopy="40" X0="-40.718" dX="2.08759">
+      <column value="0" step="1"/>
+      <row value="17"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow18">
+    <mposX volume="XTModule" ncopy="40" X0="-40.72" dX="2.08741">
+      <column value="0" step="1"/>
+      <row value="18"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow19">
+    <mposX volume="XTModule" ncopy="19" X0="-40.722" dX="2.08808">
+      <column value="0" step="1"/>
+      <row value="19"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow20">
+    <mposX volume="XTModule" ncopy="19" X0="-40.72" dX="2.08774">
+      <column value="0" step="1"/>
+      <row value="20"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow21">
+    <mposX volume="XTModule" ncopy="40" X0="-40.671" dX="2.08646">
+      <column value="0" step="1"/>
+      <row value="21"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow22">
+    <mposX volume="XTModule" ncopy="40" X0="-40.675" dX="2.08654">
+      <column value="0" step="1"/>
+      <row value="22"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow23">
+    <mposX volume="XTModule" ncopy="40" X0="-40.691" dX="2.08741">
+      <column value="0" step="1"/>
+      <row value="23"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow24">
+    <mposX volume="XTModule" ncopy="40" X0="-40.684" dX="2.08703">
+      <column value="0" step="1"/>
+      <row value="24"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow25">
+    <mposX volume="XTModule" ncopy="40" X0="-40.721" dX="2.08749">
+      <column value="0" step="1"/>
+      <row value="25"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow26">
+    <mposX volume="XTModule" ncopy="40" X0="-40.723" dX="2.08787">
+      <column value="0" step="1"/>
+      <row value="26"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow27">
+    <mposX volume="XTModule" ncopy="40" X0="-40.711" dX="2.08746">
+      <column value="0" step="1"/>
+      <row value="27"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow28">
+    <mposX volume="XTModule" ncopy="40" X0="-40.724" dX="2.08762">
+      <column value="0" step="1"/>
+      <row value="28"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow29">
+    <mposX volume="XTModule" ncopy="40" X0="-40.706" dX="2.08685">
+      <column value="0" step="1"/>
+      <row value="29"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow30">
+    <mposX volume="XTModule" ncopy="40" X0="-40.702" dX="2.08705">
+      <column value="0" step="1"/>
+      <row value="30"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow31">
+    <mposX volume="XTModule" ncopy="40" X0="-40.732" dX="2.08777">
+      <column value="0" step="1"/>
+      <row value="31"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow32">
+    <mposX volume="XTModule" ncopy="40" X0="-40.724" dX="2.08723">
+      <column value="0" step="1"/>
+      <row value="32"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow33">
+    <mposX volume="XTModule" ncopy="40" X0="-40.703" dX="2.08615">
+      <column value="0" step="1"/>
+      <row value="33"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow34">
+    <mposX volume="XTModule" ncopy="40" X0="-40.756" dX="2.08715">
+      <column value="0" step="1"/>
+      <row value="34"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow35">
+    <mposX volume="XTModule" ncopy="40" X0="-40.761" dX="2.08715">
+      <column value="0" step="1"/>
+      <row value="35"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow36">
+    <mposX volume="XTModule" ncopy="40" X0="-40.766" dX="2.08692">
+      <column value="0" step="1"/>
+      <row value="36"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow37">
+    <mposX volume="XTModule" ncopy="40" X0="-40.787" dX="2.08731">
+      <column value="0" step="1"/>
+      <row value="37"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow38">
+    <mposX volume="XTModule" ncopy="40" X0="-40.783" dX="2.08764">
+      <column value="0" step="1"/>
+      <row value="38"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow39">
+    <mposX volume="XTModule" ncopy="40" X0="-40.744" dX="2.08649">
+      <column value="0" step="1"/>
+      <row value="39"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow40">
+    <mposX volume="XTModule" ncopy="19" X0="3.136" dX="2.08761">
+      <column value="21" step="1"/>
+      <row value="19"/>
+    </mposX>
+  </composition>
+  <composition name="XTrow41">
+    <mposX volume="XTModule" ncopy="19" X0="3.129" dX="2.08739">
+      <column value="21" step="1"/>
+      <row value="20"/>
+    </mposX>
+  </composition>
   <composition name="CrystalECAL">
-    <apply region="nullBfield"/>
-    <posXYZ volume="CrystalECAL" X_Y_Z="0.0  0.0  10.0" />
+    <posXYZ volume="InsertBeamPipe" X_Y_Z="0.0 0.0 3.4095"/>
+    <posXYZ volume="XTTA" X_Y_Z="0.0 0.0 -13.0"/>
+    <posXYZ volume="XRUB" X_Y_Z="0.0 -42.0 0.0" geometry_layer="1"/>
+    <posXYZ volume="XRUB" X_Y_Z="0.0 42.0 0.0" geometry_layer="1"/>
+    <posXYZ volume="XRUB" X_Y_Z="-41.8 0 0.0" rot="0 0.0 90." geometry_layer="1"/>
+    <posXYZ volume="XRUB" X_Y_Z="41.8 0 0.0" rot="0 0.0 90." geometry_layer="1"/>
+    <posXYZ volume="XTrow0" X_Y_Z=" 0. -40.8585 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow1" X_Y_Z=" 0. -38.7685 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow2" X_Y_Z=" 0. -36.6695 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow3" X_Y_Z=" 0. -34.5525 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow4" X_Y_Z=" 0. -32.4625 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow5" X_Y_Z=" 0. -30.3705 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow6" X_Y_Z=" 0. -28.28 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow7" X_Y_Z=" 0. -26.1775 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow8" X_Y_Z=" 0. -24.0685 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow9" X_Y_Z=" 0. -21.9735 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow10" X_Y_Z=" 0. -19.8765 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow11" X_Y_Z=" 0. -17.763 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow12" X_Y_Z=" 0. -15.673 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow13" X_Y_Z=" 0. -13.5805 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow14" X_Y_Z=" 0. -11.4905 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow15" X_Y_Z=" 0. -9.4005 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow16" X_Y_Z=" 0. -7.3105 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow17" X_Y_Z=" 0. -5.2205 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow18" X_Y_Z=" 0. -3.1305 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow19" X_Y_Z=" 0. -1.036 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow20" X_Y_Z=" 0. 1.054 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow21" X_Y_Z=" 0. 3.144 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow22" X_Y_Z=" 0. 5.234 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow23" X_Y_Z=" 0. 7.324 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow24" X_Y_Z=" 0. 9.414 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow25" X_Y_Z=" 0. 11.525 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow26" X_Y_Z=" 0. 13.615 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow27" X_Y_Z=" 0. 15.705 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow28" X_Y_Z=" 0. 17.795 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow29" X_Y_Z=" 0. 19.914 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow30" X_Y_Z=" 0. 22.006 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow31" X_Y_Z=" 0. 24.096 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow32" X_Y_Z=" 0. 26.195 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow33" X_Y_Z=" 0. 28.2875 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow34" X_Y_Z=" 0. 30.3805 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow35" X_Y_Z=" 0. 32.4805 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow36" X_Y_Z=" 0. 34.5705 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow37" X_Y_Z=" 0. 36.662 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow38" X_Y_Z=" 0. 38.752 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow39" X_Y_Z=" 0. 40.845 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow40" X_Y_Z=" 0. -1.036 0." rot="0 0 0"/>
+    <posXYZ volume="XTrow41" X_Y_Z=" 0. 1.054 0." rot="0 0 0"/>
   </composition>
--->
-
-  <composition name="CrystalECAL" envelope="ECAL">
-    <posXYZ volume="AbsorberECAL" X_Y_Z="0.0      0.0     -13.03" />
-    <posXYZ volume="XTDlower" X_Y_Z="0.0      -21.945     0.0" />
-    <posXYZ volume="XTDeast" X_Y_Z="-21.945    0.0        0.0" />
-    <posXYZ volume="XTDwest" X_Y_Z="+21.945    0.0        0.0" />
-    <posXYZ volume="XTDupper" X_Y_Z="0.0      +21.945     0.0" /> 
-  </composition> 
-  
-
-  <composition name="AbsorberECAL" envelope="XABO">
-    <posXYZ volume="XABI" X_Y_Z="0.0 0.0 0.0"/>
-  </composition>
-
-
-  <box name="XABO" X_Y_Z="8.315  8.315  6.05" material="Tungsten" />
-  <tubs name="XABI" Rio_Z="0  1.86   6.05" material="Air" />
-
-
-
-
-
-  <composition name="XTDlower" envelope="XTDB">
-    <mposY volume="XTDfullRow" ncopy="19" Z_X="0.0 0.0" Y0="-18.81" dY="2.09">
-      <row value="0" step="1" />
-    </mposY>
-  </composition>
-  
-
-  <composition name="XTDupper" envelope="XTDT">
-    <mposY volume="XTDfullRow" ncopy="19" Z_X="0.0 0.0" Y0="-18.81" dY="2.09">
-      <row value="21" step="1" />
-    </mposY>
-  </composition>
-  
-
-  
- <composition name="XTDwest" envelope="XTDW">
-    <mposY volume="XTDhalfRowWest" ncopy="2" Y0="-1.045" dY="2.09">
-      <row value="19 " step="1" />
-    </mposY>
-  </composition>
-  
-
-
-  <composition name="XTDeast" envelope="XTDE">
-    <mposY volume="XTDhalfRowEast" ncopy="2" Y0="-1.045" dY="2.09">
-      <row value="19" step="1" />
-    </mposY>
-  </composition>
-
-
-
-
-
-  <composition name="XTDfullRow">
-    <mposX volume="XTModule" ncopy="40" Y_Z="0.0 0.0" X0="-40.755" dX="2.09">
-      <column value="0" step="1" />
-    </mposX>
-  </composition>
-
-
-  <composition name="XTDhalfRowWest">
-    <mposX volume="XTModule" ncopy="19" Y_Z="0.0 0.0" X0="-18.81" dX="2.09">
-      <column value="21" step="1" />
-    </mposX>
-  </composition> 
-
-
-  <composition name="XTDhalfRowEast">
-    <mposX volume="XTModule" ncopy="19" Y_Z="0.0 0.0" X0="-18.81" dX="2.09">
-      <column value="0" step="1" />
-    </mposX>
-  </composition>   
 
  
-
-
-
-
-  <box name="ECAL" X_Y_Z="83.6  83.6  34.0"  material="Air"
-       comment="CrystalECAL mother" />
-
-
-
-  <box name="XTDB" X_Y_Z="83.6  39.71  20.0"  material="Air"
-       comment="XTD bottom section"   />
-
-
-  <box name="XTDT" X_Y_Z="83.6  39.71  20.0"  material="Air"
-       comment="XTD top section"      />
-
-
-  <box name="XTDW" X_Y_Z="39.71   4.18  20.0"  material="Air"
-       comment="XTD west section"     />
-
-
-  <box name="XTDE" X_Y_Z="39.71   4.18  20.0"  material="Air"
-       comment="XTD east section"    />
-
-
-
-
   <composition name="XTModule" envelope="XTMD">
     <posXYZ volume="XTBL" X_Y_Z="0.0 0.0 0.0"/>
   </composition>
+  
+  <composition name="InsertBeamPipe" envelope="XTBP">
+    <posXYZ volume="XTBT" X_Y_Z="0. 0.0 0."/>
+  </composition>
 
-
-
-  <box name="XTMD" X_Y_Z="  2.09    2.09   20.0"  material="Tedlar"
+  <box name="XTMD" X_Y_Z="  2.085    2.085   20.0"  material="Tedlar"
        comment="lead tungstate module assembly"     />
-
-
   <box name="XTBL" X_Y_Z="  2.055    2.055  20.0"  material="PWO"
        sensitive="true"	 comment="lead tungstate block"     />
-
-
-
-
-
-  <!-- The following elements describe an early rendition of the GlueX
-       detector simulated using a fast Monte Carlo program MCFast.  They
-       are retained for future reference, do not rely on their values. -->
-
-<!--  <parameters name="forwardEMcal_pars" type="mcfast">
-    <real_array	name="xlimit"	comment="xmin  xmax limits of box"
-				values="-106.0  106.0"
-				unit="cm"	/>
-    <real_array	name="ylimit"	comment="ymin  ymax limits of box"
-				values="-106.0  106.0"
-				unit="cm"	/>
-    <real_array	name="xlimit_gap" comment="xmin  xmax of beam hole aperture"
-				values="   -6.0   6.0"
-				unit="cm"	/>
-    <real_array	name="ylimit_gap" comment="ymin  ymax of beam hole aperture"
-				values="   -6.0   6.0"
-				unit="cm"	/>
-    <real	name="z0"	value="620.07"	comment="z of midplane"
-				unit="cm"	/>
-    <real	name="zlen"	value="18.0"	comment="length of blocks"
-				unit="cm"	/>
-    <reference	name="material"	value="leadGlassF800" />
-    <reference	name="active"	value="leadGlassF800" />
-    <int	name="ncr1"	value="58"	comment="x segmentation"     />
-    <int	name="ncr2"	value="58"	comment="y segmentation"     />
-    <int	name="nlayers"	value="1"	comment="z segmentation"     />
-    <real	name="siga_em"	value="0.06"	comment="root-E coefficient"
-				unit="cm"	/>
-    <real	name="sigb_em"	value="0.01"	comment="floor term"
-				unit="cm"	/>
-    <real	name="siga_had"	value="0.0"	comment="root-E coefficient"
-				unit="cm"	/>
-    <real	name="sigb_had"	value="0.0"	comment="floor term"
-				unit="cm"	/>
-    <real	name="em_had_ratio" value="4.0"	comment="response ratio"
-				unit="cm"	/>
-  </parameters>
--->
-<!-- The forward calorimeter is hard coded into HDFast at present
-
-  <mcfast model="CalorBox" template="db/calorbox.db"
-                           parameters="forwardEMcal_pars">
-    <string	name="name"	value="ECAL"
-    <string	name="shape"	value="BOX"
-    <int	name="type"	value="2"
-  </mcfast>
--->
-
+  <box name="XTBP" X_Y_Z="4.17 4.17 34.151" material="StainlessSteel"
+       comment="Beam pipe in center of insert"/>
+  <tubs name="XTBT" Rio_Z="0. 1.905 34.151" material="Air"/>
+  <pgon name="XTTA" segments="4" profile= "-45 360" material="Tungsten"
+	comment="Tungsten absorber">
+    <polyplane Rio_Z="2.1 5.225 -3.0"/>
+    <polyplane Rio_Z="2.1 5.225 +3.0"/>
+  </pgon>
+  <box name="XRUB" X_Y_Z="83.8 0.159 20.0" material="Rubber"
+       comment="Thermacool rubber sponge"/>
+  
 </section>
-
 <!-- </HDDS> -->
+  

@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE HDDS [
 
-  <!ENTITY Regions_s SYSTEM "Regions_HDDS.xml">
-  <!ENTITY Material_s SYSTEM "Material_HDDS.xml">
-  <!ENTITY BeamLine_s SYSTEM "BeamLine_HDDS.xml">
-  <!ENTITY PairSpect_s SYSTEM "PairSpect_HDDS.xml">
-  <!ENTITY Target_s SYSTEM "Target_HDDS.xml"  >
-  <!ENTITY Solenoid_s SYSTEM "Solenoid_HDDS.xml">
-  <!ENTITY CentralDC_s SYSTEM "CentralDC_HDDS.xml">
-  <!ENTITY ForwardDC_s SYSTEM "ForwardDC_HDDS.xml">
-  <!ENTITY StartCntr_s SYSTEM "StartCntr_HDDS.xml">
-  <!ENTITY ForwardTOF_s SYSTEM "ForwardTOF_HDDS.xml">
-  <!ENTITY BarrelEMcal_s SYSTEM "BarrelEMcal_HDDS.xml">
-  <!ENTITY GapEMcal_s SYSTEM "GapEMcal_HDDS.xml">
-  <!ENTITY ForwardEMcal_s SYSTEM "ForwardEMcal_HDDS.xml">
-  <!ENTITY CerenkovCntr_s SYSTEM "CerenkovCntr_HDDS.xml">
-  <!ENTITY UpstreamEMveto_s SYSTEM "UpstreamEMveto_HDDS.xml">
-  <!ENTITY ComptonEMcal_s SYSTEM "ComptonEMcal_HDDS.xml">
-  <!ENTITY CrystalECAL_s SYSTEM "CrystalECAL_HDDS.xml">
-  <!ENTITY DIRC_s SYSTEM "DIRC_HDDS.xml">
-  <!ENTITY TRDGEM_s SYSTEM "TRDGEM_HDDS.xml">
+<!ENTITY Regions_s SYSTEM "Regions_HDDS.xml">
+<!ENTITY Material_s SYSTEM "Material_HDDS.xml">
+<!ENTITY BeamLine_s SYSTEM "BeamLine_HDDS.xml">
+<!ENTITY PairSpect_s SYSTEM "PairSpect_HDDS.xml">
+<!ENTITY Target_s SYSTEM "Target_HDDS.xml"  >
+<!ENTITY Solenoid_s SYSTEM "Solenoid_HDDS.xml">
+<!ENTITY CentralDC_s SYSTEM "CentralDC_HDDS.xml">
+<!ENTITY ForwardDC_s SYSTEM "ForwardDC_HDDS.xml">
+<!ENTITY StartCntr_s SYSTEM "StartCntr_HDDS.xml">
+<!ENTITY ForwardTOF_s SYSTEM "ForwardTOF_HDDS.xml">
+<!ENTITY BarrelEMcal_s SYSTEM "BarrelEMcal_HDDS.xml">
+<!ENTITY GapEMcal_s SYSTEM "GapEMcal_HDDS.xml">
+<!ENTITY ForwardEMcal_s SYSTEM "ForwardEMcal_HDDS.xml">
+<!ENTITY CerenkovCntr_s SYSTEM "CerenkovCntr_HDDS.xml">
+<!ENTITY UpstreamEMveto_s SYSTEM "UpstreamEMveto_HDDS.xml">
+<!ENTITY ComptonEMcal_s SYSTEM "ComptonEMcal_HDDS.xml">
+<!ENTITY DIRC_s SYSTEM "DIRC_HDDS.xml"> 
+<!ENTITY CrystalECAL_s SYSTEM "CrystalECAL_HDDS.xml">
+<!ENTITY GEMTRD_s SYSTEM "GEMTRD_HDDS.xml">
 
 ]>
 
@@ -48,9 +48,9 @@
      &UpstreamEMveto_s;
      &PairSpect_s;     
      &ComptonEMcal_s;
-     &CrystalECAL_s;
      &DIRC_s;
-     &TRDGEM_s;
+     &CrystalECAL_s;
+     &GEMTRD_s;
 <!-- End of include    -->
 
 
@@ -72,11 +72,11 @@
   </box>
 
   <composition name="barrelPackage" envelope="LASS">
-    <posXYZ volume="Solenoid" X_Y_Z="0.03 0.0 0.0"/>
-    <posXYZ volume="Target" X_Y_Z="0.0 0.0 50.429"/>
-    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 38.84"  rot="0.0 0.0 -11.25"/>
-    <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.68" rot="0.0 0.0 0.0" />
-    <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.938" />
+    <posXYZ volume="Solenoid" X_Y_Z="-0.030 0.0 0.0"/>
+    <posXYZ volume="Target" X_Y_Z="0.0 0.0 50.263"/>
+    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 38.539"  rot="0.0 0.0 -11.25"/>
+    <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.60" rot="0.0 0.0 0.0" />
+    <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.858" />
     <!-- The origin of the BCAL below has to be changed because these offsets combined with
          these rotation angles lead to a lot of overlap with the FDC at the downstream end.
          A simple explanation for this discrepancy is that the x,y offsets were originally 
@@ -89,21 +89,18 @@
          The shifted origin below translates the offset (0.1,-0.988) from the BCAL center
          to the upstream end, respecting the orientation angles in the rot argument. -->
     <!--posXYZ volume="BarrelEMcal" X_Y_Z="0.1 -0.098 16.788" rot="-0.0424 0.01633 0.0046" /-->
-    <posXYZ volume="BarrelEMcal" X_Y_Z="0.0444 -0.2423 16.788" rot="-0.0424 0.01633 0.0046" />
+    <posXYZ volume="BarrelEMcal" X_Y_Z="0.0444 -0.2423 16.708" rot="-0.0424 0.01633 0.0046" />
   </composition>
   
   <composition name="forwardPackage">
     <!--<posXYZ volume="CerenkovCntr" X_Y_Z="0.0 0.0 466.0" /> -->
     <!--posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
-
-    <!-- To simulate TRD/GEM hits uncomment the line below -->
-    <posXYZ volume="TRDGEM" X_Y_Z="0.0 -73.94 584.7" />
+    <posXYZ volume="GEMTRD" X_Y_Z="0. 0. 450." />
     <!-- To simulate DIRC hits uncomment the line below -->
     <posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.600" />
-    <posXYZ volume="ForwardTOF" X_Y_Z="0.308 0.225 605.793" rot="-0.0427 0.0461 -0.1813"/>
-    <posXYZ volume="ForwardEMcal" X_Y_Z="0.529 -0.002 624.906" rot="-0.0418 -0.07019 -0.0149" />
-    <!--posXYZ volume="ComptonEMcal" X_Y_Z="0.0  0.0  1279.376" /-->
-    <posXYZ volume="CrystalECAL" X_Y_Z="0.0  0.0  1279.376" />
+    <posXYZ volume="ForwardTOF" X_Y_Z="0.085 0.283 604.369" rot="0.0313 -0.0763 -0.1503"/>
+    <posXYZ volume="ForwardEMcal" X_Y_Z="0. 0. 624.32" rot="0.0 0.0 0.0" />
+    <!--posXYZ volume="ComptonEMcal" X_Y_Z="0.042 -0.008 1275.936" rot="-0.1856 0.1633 -0.0287"/-->
   </composition>
 
   <composition name="backwardPackage">
@@ -148,3 +145,9 @@
 </section>
 
 </HDDS>
+  
+  
+  
+  
+  
+  
