@@ -21,6 +21,34 @@
 
 #include "XString.hpp"
 
+//----------------------------------------------------------------------
+// The following is to handle issues with compiling with c++20, but
+// in a way that should be compatible with c++11 and all versions
+// in-between. This handles printing the char16_t types which have
+// been deprecated for some time and removed in c++20.
+#include <string>
+#include <locale>
+#if __cplusplus >= 201103L && __cplusplus < 202002L  // C++11, C++14, C++17
+#include <codecvt>  // Deprecated in C++17, removed in C++20
+#endif
+static std::string char16_to_utf8(const char16_t* u16_str) {
+    if (!u16_str) return "(null)";
+
+#if __cplusplus >= 202002L  // C++20+
+    return std::string(reinterpret_cast<const char*>(u16_str));  // Works with UTF-8 `std::u8string`
+#elif __cplusplus >= 201103L  // C++11 to C++17
+    std::wstring_convert<std::codecvt_utf8_utf16<char16_t>, char16_t> converter;
+    return converter.to_bytes(u16_str);
+#else
+    static_assert(false, "C++11 or newer is required");
+#endif
+}
+
+// Overload operator<< for char16_t*
+static std::ostream& operator<<(std::ostream& os, const char16_t* u16_str) {
+    return os << char16_to_utf8(u16_str);
+}
+//----------------------------------------------------------------------
 
 // Filled by parseInputDocument using MyEntityResolver class
 extern std::string last_md5_checksum;
