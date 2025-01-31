@@ -6,8 +6,8 @@ from __future__ import unicode_literals
 from builtins import int
 from builtins import str
 from builtins import map
-from future import standard_library
-standard_library.install_aliases()
+# from future import standard_library
+# standard_library.install_aliases()
 import os
 import sys
 import subprocess
@@ -82,7 +82,7 @@ if SHOWBUILD==0:
 # Turn on debug symbols and warnings
 env.PrependUnique(      CFLAGS = ['-g', '-fPIC', '-Wall'])
 env.PrependUnique(    CXXFLAGS = ['-g', '-fPIC', '-Wall'])
-env.PrependUnique(    CXXFLAGS = ['-std=c++11'])
+env.PrependUnique(    CXXFLAGS = ['-std=c++20'])
 if gcc_version >= 10:
    env.PrependUnique(FORTRANFLAGS = ['-g', '-fPIC', '-fallow-argument-mismatch'])
 else:
