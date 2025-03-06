@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE HDDS [
 
-  <!ENTITY Regions_s SYSTEM "Regions_HDDS.xml">
-  <!ENTITY Material_s SYSTEM "Material_HDDS.xml">
-  <!ENTITY BeamLine_s SYSTEM "BeamLineCPP_HDDS.xml">
-  <!ENTITY PairSpect_s SYSTEM "PairSpect_HDDS.xml">
-  <!ENTITY Target_s SYSTEM "TargetCPP_HDDS.xml"  >
-  <!ENTITY Solenoid_s SYSTEM "Solenoid_HDDS.xml">
-  <!ENTITY CentralDC_s SYSTEM "CentralDC_HDDS.xml">
-  <!ENTITY ForwardDC_s SYSTEM "ForwardDC_HDDS.xml">
-  <!ENTITY StartCntr_s SYSTEM "StartCntr_HDDS.xml">
-  <!ENTITY ForwardTOF_s SYSTEM "ForwardTOF_HDDS.xml">
-  <!ENTITY BarrelEMcal_s SYSTEM "BarrelEMcal_HDDS.xml">
-  <!ENTITY ForwardEMcal_s SYSTEM "ForwardEMcal_HDDS.xml">
-  <!ENTITY DIRC_s SYSTEM "DIRC_HDDS.xml">
-  <!ENTITY ForwardMWPC_s SYSTEM "ForwardMWPC_HDDS.xml">
-  <!ENTITY CppScint_s SYSTEM "CppScint_HDDS.xml">
+<!ENTITY Regions_s SYSTEM "Regions_HDDS.xml">
+<!ENTITY Material_s SYSTEM "Material_HDDS.xml">
+<!ENTITY BeamLine_s SYSTEM "BeamLineCPP_HDDS.xml">
+<!ENTITY PairSpect_s SYSTEM "PairSpect_HDDS.xml">
+<!ENTITY Target_s SYSTEM "TargetCPP_HDDS.xml"  >
+<!ENTITY Solenoid_s SYSTEM "Solenoid_HDDS.xml">
+<!ENTITY CentralDC_s SYSTEM "CentralDC_HDDS.xml">
+<!ENTITY ForwardDC_s SYSTEM "ForwardDC_HDDS.xml">
+<!ENTITY StartCntr_s SYSTEM "StartCntr_HDDS.xml">
+<!ENTITY ForwardTOF_s SYSTEM "ForwardTOF_HDDS.xml">
+<!ENTITY BarrelEMcal_s SYSTEM "BarrelEMcal_HDDS.xml">
+<!ENTITY ForwardEMcal_s SYSTEM "ForwardEMcal_HDDS.xml">
+<!ENTITY DIRC_s SYSTEM "DIRC_HDDS.xml">
+<!ENTITY ForwardMWPC_s SYSTEM "ForwardMWPC_HDDS.xml">
+<!ENTITY CppScint_s SYSTEM "CppScint_HDDS.xml">
+<!ENTITY CrystalECAL_s SYSTEM "CrystalECAL_HDDS.xml">
+
 ]>
 
 <!--
@@ -49,6 +51,7 @@ The ForwardMWPC has been added.
      &DIRC_s;
      &ForwardMWPC_s;
      &CppScint_s;
+     &CrystalECAL_s;
 <!-- End of include    -->
 
 
