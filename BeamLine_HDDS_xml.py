@@ -23,24 +23,24 @@ taghall_piperadius = (12.4, 12.7)
 presweep_pipe_start = 259.3
 presweep_flange_thick = 1
 presweep_flange_window = 0.1
-presweep_piperadius = (1.935*inches/2, 2*inches/2)
-postsweep_piperadius = (2.435*inches/2, 2.5*inches/2)
+presweep_piperadius = (3.5, 3.7)
+postsweep_piperadius = (3.0, 3.2)
 
 # inner shield wall dimensions
 concrete_wall1_height = cave_height
 concrete_wall1_width = cave_width - 91.4
-concrete_wall1_beamhole = 2.2*inches
+concrete_wall1_beamhole = 3.0*inches
 concrete_wall1_thickness = 111
 concrete_wall1_start = 275.4
 concrete_wall1_leadthick = 10
 concrete_wall2_height = cave_height
 concrete_wall2_width = cave_width - 91.4
-concrete_wall2_beamhole = 2.2*inches
+concrete_wall2_beamhole = 3.0*inches
 concrete_wall2_thickness = 111
 concrete_wall2_start = 482.8
 
 # cave exit wall stack
-exitwall_inner_beamhole = 2.7*inches
+exitwall_inner_beamhole = 3.0*inches
 exitwall_inner_boxsize = 25
 exitwall_inner_boxlength = 20
 exitwall_middle_boxsize = 80
@@ -60,11 +60,11 @@ sweep_magnet_start = 602.6 + 10
 klftarget_assy_start = 85.4
 klftarget_be_start = 40.16
 klftarget_be_length = 40
-klftarget_be_radius = 3.0
+klftarget_be_radius = 3.5
 klftarget_uphole_size = 15.2
 klftarget_downhole_size = 7.6
 klftarget_w_gap = 0.5
-klftarget_w_length = 20
+klftarget_w_length = 14
 klftarget_w_radius = 7.5
 klftarget_full_length = 162.56
 klftarget_full_width = 137.2
@@ -513,9 +513,9 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   <box name="DET4" X_Y_Z="1700.0  1200.0  2.0" material="Vacuum" />
   <box name="DET5" X_Y_Z="1700.0  1198.0  0.2" material="Air" />
   <box name="DET6" X_Y_Z="1700.0  2.0  3000.0" material="Air" />
-  <!--box name="DET7" X_Y_Z="1700.0  1198.0  2.0" material="Air" /-->
-  <tubs name="DET7" Rio_Z="0.0 1.7399  2.0" material="Vacuum"
-        comment="disk detector inside beam pipe at target entrance" />
+  <box name="DET7" X_Y_Z="1700.0  1198.0  2.0" material="Air" />
+  <!--tubs name="DET7" Rio_Z="0.0 1.7399  2.0" material="Vacuum"
+        comment="disk detector inside beam pipe at target entrance" /-->
   <box name="DET8" X_Y_Z="10.0  10.0  1.0" material="Scintillator" sensitive="true" />
 
 <!-- Approximation for the beam profiler -->

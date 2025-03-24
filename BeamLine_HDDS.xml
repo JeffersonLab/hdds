@@ -111,12 +111,12 @@
   </composition>
 
   <composition name="KLFtargetEnclosure" envelope="KLFB">
-    <posXYZ volume="KLFtargetCavity" X_Y_Z="0.0  0.0  -25.370000000000005" />
-    <posXYZ volume="KLFD" X_Y_Z="0.0  0.0 45.75" />
+    <posXYZ volume="KLFtargetCavity" X_Y_Z="0.0  0.0  -28.370000000000005" />
+    <posXYZ volume="KLFD" X_Y_Z="0.0  0.0 42.75" />
   </composition>
 
   <composition name="KLFtargetCavity" envelope="KLFC">
-    <posXYZ volume="KLFT" X_Y_Z="0.0  0.0  4.249999999999998" />
+    <posXYZ volume="KLFT" X_Y_Z="0.0  0.0  7.249999999999998" />
     <posXYZ volume="KLFW" X_Y_Z="0.0  0.0  34.75" />
   </composition>
 
@@ -130,18 +130,18 @@
        material="Lead" />
   <box name="KLFC" X_Y_Z="15.2 
                           15.2
-                          91.5"
+                          85.5"
        material="Air" />
   <box name="KLFD" X_Y_Z="7.6 
                           7.6
-                          50.74000000000001"
+                          56.74000000000001"
        material="Air" />
   <box name="KLFE" X_Y_Z="7.6 
                           7.6
                           10.16"
        material="Air" />
-  <tubs name="KLFT" Rio_Z="0.0 3.0 40" material="Beryllium" />
-  <tubs name="KLFW" Rio_Z="0.0 7.5 20" material="SofterTungsten" />
+  <tubs name="KLFT" Rio_Z="0.0 3.5 40" material="Beryllium" />
+  <tubs name="KLFW" Rio_Z="0.0 7.5 14" material="SofterTungsten" />
 
 <!-- First section of vacuum pipe -->
 
@@ -150,8 +150,8 @@
     <posXYZ volume="BF1W" X_Y_Z="0.0  0.0  0.5" />
   </composition>
 
-  <tubs name="BF1R" Rio_Z="2.45745 5.54 1" material="Iron" />
-  <tubs name="BF1W" Rio_Z="0.0  2.45745  0.1" material="Aluminum" />
+  <tubs name="BF1R" Rio_Z="3.5 6.7 1" material="Iron" />
+  <tubs name="BF1W" Rio_Z="0.0  3.5  0.1" material="Aluminum" />
 
   <composition name="BeamPipe1">
     <posXYZ volume="BeamPipe1Tube" X_Y_Z="0.0  0.0 8.049999999999983" />
@@ -161,8 +161,8 @@
     <posXYZ volume="BP1I" />
   </composition>
 
-  <tubs name="BP1O" Rio_Z="0.0  2.54  16.099999999999966" material="Iron" />
-  <tubs name="BP1I" Rio_Z="0.0  2.45745  16.099999999999966" material="Vacuum" />
+  <tubs name="BP1O" Rio_Z="0.0  3.7  16.099999999999966" material="Iron" />
+  <tubs name="BP1I" Rio_Z="0.0  3.5  16.099999999999966" material="Vacuum" />
 
 <!-- First concrete shielding wall -->
 
@@ -185,9 +185,9 @@
   </composition>
 
   <box name="CW1B" X_Y_Z="358.6  270  111" material="Concrete"/>
-  <box name="CW1H" X_Y_Z="5.588000000000001  5.588000000000001  111" material="Iron"/>
-  <tubs name="CW1P" Rio_Z="0.0  2.54  111" material="Iron" />
-  <tubs name="CW1V" Rio_Z="0.0  2.45745  111" material="Vacuum" />
+  <box name="CW1H" X_Y_Z="7.62  7.62  111" material="Iron"/>
+  <tubs name="CW1P" Rio_Z="0.0  3.7  111" material="Iron" />
+  <tubs name="CW1V" Rio_Z="0.0  3.5  111" material="Vacuum" />
 
   <composition name="LeadWall1">
     <posXYZ volume="LeadWall1Box" X_Y_Z="-45.69999999999999
@@ -208,9 +208,9 @@
   </composition>
 
   <box name="LW1B" X_Y_Z="358.6  270  10" material="Lead"/>
-  <box name="LW1H" X_Y_Z="5.588000000000001  5.588000000000001  10" material="Iron"/>
-  <tubs name="LW1P" Rio_Z="0.0  2.54  10" material="Iron" />
-  <tubs name="LW1V" Rio_Z="0.0  2.45745  10" material="Vacuum" />
+  <box name="LW1H" X_Y_Z="7.62  7.62  10" material="Iron"/>
+  <tubs name="LW1P" Rio_Z="0.0  3.7  10" material="Iron" />
+  <tubs name="LW1V" Rio_Z="0.0  3.5  10" material="Vacuum" />
 
 <!-- Second section of vacuum pipe -->
 
@@ -222,9 +222,9 @@
     <posXYZ volume="BP2I" />
   </composition>
 
-  <tubs name="BP2O" Rio_Z="0.0  2.54  86.40000000000003"
+  <tubs name="BP2O" Rio_Z="0.0  3.7  86.40000000000003"
         material="Iron" />
-  <tubs name="BP2I" Rio_Z="0.0  2.45745  86.40000000000003"
+  <tubs name="BP2I" Rio_Z="0.0  3.5  86.40000000000003"
         material="Vacuum" />
 
 <!-- Second concrete shielding wall -->
@@ -248,9 +248,9 @@
   </composition>
 
   <box name="CW2B" X_Y_Z="358.6  270  111" material="Concrete"/>
-  <box name="CW2H" X_Y_Z="5.588000000000001  5.588000000000001  111" material="Iron"/>
-  <tubs name="CW2P" Rio_Z="0.0  2.54  111" material="Iron" />
-  <tubs name="CW2V" Rio_Z="0.0  2.45745  111" material="Vacuum" />
+  <box name="CW2H" X_Y_Z="7.62  7.62  111" material="Iron"/>
+  <tubs name="CW2P" Rio_Z="0.0  3.7  111" material="Iron" />
+  <tubs name="CW2V" Rio_Z="0.0  3.5  111" material="Vacuum" />
 
 <!-- Third section of vacuum pipe -->
 
@@ -262,9 +262,9 @@
     <posXYZ volume="BP3I" />
   </composition>
 
-  <tubs name="BP3O" Rio_Z="0.0  2.54  18.80000000000001"
+  <tubs name="BP3O" Rio_Z="0.0  3.7  18.80000000000001"
         material="Iron" />
-  <tubs name="BP3I" Rio_Z="0.0  2.45745  18.80000000000001"
+  <tubs name="BP3I" Rio_Z="0.0  3.5  18.80000000000001"
         material="Vacuum" />
 
 <!-- Permanent sweep magnet -->
@@ -305,9 +305,9 @@
     <posXYZ volume="BP4I" />
   </composition>
 
-  <tubs name="BP4O" Rio_Z="0.0  3.175  36.69999999999993"
+  <tubs name="BP4O" Rio_Z="0.0  3.2  36.69999999999993"
         material="Iron" />
-  <tubs name="BP4I" Rio_Z="0.0  3.09245  36.69999999999993"
+  <tubs name="BP4I" Rio_Z="0.0  3.0  36.69999999999993"
         material="Vacuum" />
 
 <!-- Last shielding wall in the cave -->
@@ -364,12 +364,12 @@
   <box name="SWMB" X_Y_Z="80  80  122.0" material="Concrete" />
   <box name="SWIB" X_Y_Z="25  25  122.0" material="Concrete" />
   <box name="SWLB" X_Y_Z="25  25  20" material="Lead" />
-  <box name="SWLH" X_Y_Z="6.8580000000000005  6.8580000000000005  20" material="Iron" />
-  <tubs name="SWLP" Rio_Z="0.0  3.175  20" material="Iron" />
-  <tubs name="SWLV" Rio_Z="0.0  3.09245  20" material="Vacuum" />
+  <box name="SWLH" X_Y_Z="7.62  7.62  20" material="Iron" />
+  <tubs name="SWLP" Rio_Z="0.0  3.2  20" material="Iron" />
+  <tubs name="SWLV" Rio_Z="0.0  3.0  20" material="Vacuum" />
   <box name="SWHB" X_Y_Z="25  25  62.0" material="Iron" />
-  <tubs name="SWHP" Rio_Z="0.0  3.175  62.0" material="Iron" />
-  <tubs name="SWHV" Rio_Z="0.0  3.09245  62.0" material="Vacuum" />
+  <tubs name="SWHP" Rio_Z="0.0  3.2  62.0" material="Iron" />
+  <tubs name="SWHV" Rio_Z="0.0  3.0  62.0" material="Vacuum" />
   <box name="SWTB" X_Y_Z="274.3  1  61.0" material="Concrete" />
   <box name="SWLR" X_Y_Z="87.85  269  61.0" material="Concrete" />
 
@@ -404,13 +404,13 @@
   </composition>
 
   <box name="SWSP" X_Y_Z="274.3  269  0.635" material="Iron" />
-  <box name="SWSH" X_Y_Z="6.8580000000000005  6.8580000000000005  0.635" material="Iron" />
-  <tubs name="SWSI" Rio_Z="0.0  3.175  0.635" material="Iron" />
-  <tubs name="SWSV" Rio_Z="0.0  3.09245  0.635" material="Vacuum" />
+  <box name="SWSH" X_Y_Z="7.62  7.62  0.635" material="Iron" />
+  <tubs name="SWSI" Rio_Z="0.0  3.2  0.635" material="Iron" />
+  <tubs name="SWSV" Rio_Z="0.0  3.0  0.635" material="Vacuum" />
   <box name="SWPL" X_Y_Z="274.3  269  5" material="Lead" />
-  <box name="SWPH" X_Y_Z="6.8580000000000005  6.8580000000000005  5" material="Iron" />
-  <tubs name="SWPP" Rio_Z="0  3.175  5" material="Iron" />
-  <tubs name="SWPV" Rio_Z="0  3.09245  5" material="Vacuum" />
+  <box name="SWPH" X_Y_Z="7.62  7.62  5" material="Iron" />
+  <tubs name="SWPP" Rio_Z="0  3.2  5" material="Iron" />
+  <tubs name="SWPV" Rio_Z="0  3.0  5" material="Vacuum" />
 
 <!-- Fifth section of vacuum pipe -->
 
@@ -422,9 +422,9 @@
     <posXYZ volume="BP5I" />
   </composition>
 
-  <tubs name="BP5O" Rio_Z="0.0  3.175  116.83000000000003"
+  <tubs name="BP5O" Rio_Z="0.0  3.2  116.83000000000003"
         material="Iron" />
-  <tubs name="BP5I" Rio_Z="0.0  3.09245  116.83000000000003"
+  <tubs name="BP5I" Rio_Z="0.0  3.0  116.83000000000003"
         material="Vacuum" />
 
 <!-- Pseudo volumes for background studies -->
@@ -435,9 +435,9 @@
   <box name="DET4" X_Y_Z="1700.0  1200.0  2.0" material="Vacuum" />
   <box name="DET5" X_Y_Z="1700.0  1198.0  0.2" material="Air" />
   <box name="DET6" X_Y_Z="1700.0  2.0  3000.0" material="Air" />
-  <!--box name="DET7" X_Y_Z="1700.0  1198.0  2.0" material="Air" /-->
-  <tubs name="DET7" Rio_Z="0.0 1.7399  2.0" material="Vacuum"
-        comment="disk detector inside beam pipe at target entrance" />
+  <box name="DET7" X_Y_Z="1700.0  1198.0  2.0" material="Air" />
+  <!--tubs name="DET7" Rio_Z="0.0 1.7399  2.0" material="Vacuum"
+        comment="disk detector inside beam pipe at target entrance" /-->
   <box name="DET8" X_Y_Z="10.0  10.0  1.0" material="Scintillator" sensitive="true" />
 
 <!-- Approximation for the beam profiler -->

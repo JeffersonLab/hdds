@@ -1,4 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
+#!/usr/bin/env python3
+#
+# Generates PairSpect_HDDS.xml from literal xml source below
+# with formulas instead of numerical values for some offsets.
+#
+# author: richard.t.jones at uconn.edu
+# version: june 3, 2024
+
+# dimensions are in cm
+inches = 2.54
+
+# z start positions are relative to cave-hall boundary
+psflange1_radius = (4.0*inches/2, 4.2*inches/2)
+psflange1_length = 1*inches
+psflange1_start = 0
+
+psmagnet_start = psflange1_start + psflange1_length
+psmagnet_length = 132.842
+psmagnet_gap = 0
+psmagpipe_length = psmagnet_length
+psmagpipe_radius = (2.8*inches/2, 2.9*inches/2)
+
+pspipe2_length = 460.0
+pspipe2_radius = (4.0*inches/2, 4.2*inches/2)
+pspipe2_wall_start = 480.0
+pspipe2_wall_size = (16.1, 240.0, 60.0)
+pspipe2_pwall_size = (16.1, 240.0, 10.0)
+pspipe2_donut_size = (3.0, 15.0, 20.0)
+
+pspipe3_start = pspipe2_wall_start
+pspipe3_length = 516.5
+pspipe3_radius = (2.75, 8.0)
+
+
+xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
 <!--DOCTYPE HDDS>
 
   Hall D Geometry Data Base: Pair Spectrometer in KLF Beam Line
@@ -25,16 +59,16 @@
 
 
   <composition name="PairSpectrometer">
-    <posXYZ volume="PairPipe1" X_Y_Z="0.0  0.0  0"/>
-    <posXYZ volume="PairMagnet" X_Y_Z="0.0   0.0  2.54" />
+    <posXYZ volume="PairPipe1" X_Y_Z="0.0  0.0  {psflange1_start}"/>
+    <posXYZ volume="PairMagnet" X_Y_Z="0.0   0.0  {psmagnet_start}" />
     <!--posXYZ volume="PairVacChamb" X_Y_Z="0.0   0.0   -114.6007" /-->
     <posXYZ volume="PairHodoscopeNorth" X_Y_Z="+36.261    0.0   345.3074"  rot="0.0  4.57077 0.0"/>
     <posXYZ volume="PairHodoscopeSouth" X_Y_Z="-36.3013   0.0   345.3392"  rot="0.0 -4.65958 0.0"/> 
     <posXYZ volume="PairCoarseNorth" X_Y_Z="+43.5331 0.0 394.4875" rot="0.0  4.6742 0.0" /> 
     <posXYZ volume="PairCoarseSouth" X_Y_Z="-43.5345 0.0 394.4855" rot="0.0 -4.7067  0.0" />
-    <posXYZ volume="PairPipe2" X_Y_Z="0.0   0.0   135.382"/> 
-    <posXYZ volume="DET5" X_Y_Z="0.0   0.0   1132.082"/> 
-    <posXYZ volume="DET7" X_Y_Z="0.0   0.0   2468.882"/> 
+    <posXYZ volume="PairPipe2" X_Y_Z="0.0   0.0   {psmagnet_start + psmagnet_length}"/> 
+    <posXYZ volume="DET5" X_Y_Z="0.0   0.0   {psmagnet_start + psmagnet_length + pspipe3_start + pspipe3_length + 0.2}"/> 
+    <posXYZ volume="DET7" X_Y_Z="0.0   0.0   {psmagnet_start + psmagnet_length + pspipe3_start + pspipe3_length + 1337}"/> 
     <!--posXYZ volume="PairShielding" X_Y_Z="0.0   0.0  432.6500" /-->
     <!--The following models the SEG blocks and additional lead shielding-->
     <!-- removed for the KLF flux detector
@@ -49,55 +83,55 @@
 <!-- Vacuum Pipe Section 1 -->
 
   <composition name="PairPipe1">
-    <posXYZ volume="PairPipeFlange1" X_Y_Z="0.0  0.0  1.27" /> 
+    <posXYZ volume="PairPipeFlange1" X_Y_Z="0.0  0.0  {psflange1_length/2}" /> 
   </composition>
   <composition name="PairPipeFlange1" envelope="HPO1" >
     <posXYZ volume="HPI1" X_Y_Z="0.0 0.0 0.0"/> 
   </composition>
 
-  <tubs name="HPO1" Rio_Z="0.0  5.3340000000000005  2.54" material="Iron" /> 
-  <tubs name="HPI1" Rio_Z="0.0  5.08  2.54" material="Vacuum" /> 
+  <tubs name="HPO1" Rio_Z="0.0  {psflange1_radius[1]}  {psflange1_length}" material="Iron" /> 
+  <tubs name="HPI1" Rio_Z="0.0  {psflange1_radius[0]}  {psflange1_length}" material="Vacuum" /> 
 
 
 <!-- Pair Spectrometer Magnet -->
 
   <composition name="PairMagnet">
-    <posXYZ volume="EffectRegion" X_Y_Z="0.0  0.0  66.421"/> 
+    <posXYZ volume="EffectRegion" X_Y_Z="0.0  0.0  {psmagnet_length/2}"/> 
   </composition>
 
   <composition name="EffectRegion" envelope="MAG3">
-    <posXYZ volume="PairMagPipe" X_Y_Z="0.0  0.0  -66.421" />
+    <posXYZ volume="PairMagPipe" X_Y_Z="0.0  0.0  {-psmagnet_length/2}" />
     <posXYZ volume="POL3" X_Y_Z="0.0 +29.591  1.0" />
     <posXYZ volume="POL3" X_Y_Z="0.0 -29.591  1.0" />
     <posXYZ volume="GAP3" X_Y_Z="+75.2475 0.0 1.0" />
     <posXYZ volume="GAP3" X_Y_Z="-75.2475 0.0 1.0" />
   </composition>
 
-  <box name="MAG3" X_Y_Z="209.55  110.744  132.842" material="Air" >
+  <box name="MAG3" X_Y_Z="209.55  110.744  {psmagnet_length}" material="Air" >
     <apply region="PairBfield" /> 
   </box> 
   <box name="POL3" X_Y_Z="209.55  51.562  91.44" material="Iron" />
   <box name="GAP3" X_Y_Z="59.055   7.62   91.44" material="Iron" />
 
   <composition name="PairMagPipe">
-    <posXYZ volume="PairMagPipeTube" X_Y_Z="0.0  0.0  66.421" /> 
+    <posXYZ volume="PairMagPipeTube" X_Y_Z="0.0  0.0  {psmagpipe_length/2}" /> 
   </composition>
   <composition name="PairMagPipeTube" envelope="HMPO" >
     <posXYZ volume="HMPI" X_Y_Z="0.0 0.0 0.0"/> 
   </composition>
 
-  <tubs name="HMPO" Rio_Z="0.0  3.683  132.842" material="Iron" /> 
-  <tubs name="HMPI" Rio_Z="0.0  3.5559999999999996  132.842" material="Vacuum" /> 
+  <tubs name="HMPO" Rio_Z="0.0  {psmagpipe_radius[1]}  {psmagpipe_length}" material="Iron" /> 
+  <tubs name="HMPI" Rio_Z="0.0  {psmagpipe_radius[0]}  {psmagpipe_length}" material="Vacuum" /> 
 
 
 <!-- Vacuum Pipe Section 2 -->
 
   <composition name="PairPipe2">
-    <posXYZ volume="PairPipe2Tube" X_Y_Z="0.0  0.0  230.0" /> 
-    <posXYZ volume="LWAD" X_Y_Z="0.0  0.0  510.0" />
-    <posXYZ volume="LeadDonut" X_Y_Z="0.0  0.0  470.0" />
-    <posXYZ volume="LPAD" X_Y_Z="0.0  0.0  545.0" />
-    <posXYZ volume="PairPipe3Tube" X_Y_Z="0.0  0.0  738.25" />
+    <posXYZ volume="PairPipe2Tube" X_Y_Z="0.0  0.0  {pspipe2_length/2}" /> 
+    <posXYZ volume="LWAD" X_Y_Z="0.0  0.0  {pspipe2_wall_start + pspipe2_wall_size[2]/2}" />
+    <posXYZ volume="LeadDonut" X_Y_Z="0.0  0.0  {pspipe2_wall_start - pspipe2_donut_size[2]/2}" />
+    <posXYZ volume="LPAD" X_Y_Z="0.0  0.0  {pspipe2_wall_start + pspipe2_wall_size[2] + pspipe2_pwall_size[2]/2}" />
+    <posXYZ volume="PairPipe3Tube" X_Y_Z="0.0  0.0  {pspipe3_start + pspipe3_length/2}" />
   </composition>
   <composition name="PairPipe2Tube" envelope="HPO2" >
     <posXYZ volume="HPI2" X_Y_Z="0.0  0.0  0.0" />
@@ -106,25 +140,25 @@
     <posXYZ volume="HPI3" X_Y_Z="0.0  0.0  0.0" />
   </composition>
 
-  <tubs name="HPO2" Rio_Z="0.0  5.3340000000000005  460.0" material="Iron" /> 
-  <tubs name="HPI2" Rio_Z="0.0  5.08  460.0" material="Vacuum" /> 
-  <tubs name="HPO3" Rio_Z="0.0  8.0  516.5" material="Iron" /> 
-  <tubs name="HPI3" Rio_Z="0.0  2.75  516.5" material="Vacuum" /> 
+  <tubs name="HPO2" Rio_Z="0.0  {pspipe2_radius[1]}  {pspipe2_length}" material="Iron" /> 
+  <tubs name="HPI2" Rio_Z="0.0  {pspipe2_radius[0]}  {pspipe2_length}" material="Vacuum" /> 
+  <tubs name="HPO3" Rio_Z="0.0  {pspipe3_radius[1]}  {pspipe3_length}" material="Iron" /> 
+  <tubs name="HPI3" Rio_Z="0.0  {pspipe3_radius[0]}  {pspipe3_length}" material="Vacuum" /> 
 
   <pgon name="LWAD" segments="4" profile="-45 360" material="Lead">
-    <polyplane Rio_Z="8.05  120.0  -30.0" />
-    <polyplane Rio_Z="8.05  120.0  30.0" />
+    <polyplane Rio_Z="{pspipe2_wall_size[0]/2}  {pspipe2_wall_size[1]/2}  {-pspipe2_wall_size[2]/2}" />
+    <polyplane Rio_Z="{pspipe2_wall_size[0]/2}  {pspipe2_wall_size[1]/2}  {+pspipe2_wall_size[2]/2}" />
   </pgon>
   <pgon name="LPAD" segments="4" profile="-45 360" material="Polyethylene">
-    <polyplane Rio_Z="8.05  120.0  -5.0" />
-    <polyplane Rio_Z="8.05  120.0  5.0" />
+    <polyplane Rio_Z="{pspipe2_pwall_size[0]/2}  {pspipe2_pwall_size[1]/2}  {-pspipe2_pwall_size[2]/2}" />
+    <polyplane Rio_Z="{pspipe2_pwall_size[0]/2}  {pspipe2_pwall_size[1]/2}  {+pspipe2_pwall_size[2]/2}" />
   </pgon>
 
   <composition name="LeadDonut" envelope="LDAD" >
     <posXYZ volume="LDAI" X_Y_Z="0.0  0.0  0.0" />
   </composition>
-  <tubs name="LDAD" Rio_Z="0  15.0  20.0" material="Lead" />
-  <tubs name="LDAI" Rio_Z="0  3.0  20.0" material="Vacuum" />
+  <tubs name="LDAD" Rio_Z="0  {pspipe2_donut_size[1]}  {pspipe2_donut_size[2]}" material="Lead" />
+  <tubs name="LDAI" Rio_Z="0  {pspipe2_donut_size[0]}  {pspipe2_donut_size[2]}" material="Vacuum" />
 
 
 <!-- Hodoscope Counters -->
@@ -473,8 +507,8 @@
 
   <box  name="PSHL" X_Y_Z="10.16 10.16 40.64" material="Lead" />
   <box name="PSH2" X_Y_Z="10.16 27.94 40.64" material="Lead"/>
-  <tubs name="OPSH" Rio_Z="0.0  5.3340000000000005  40.64" material="Iron"/> 
-  <tubs name="IPSH" Rio_Z="0.0  5.08  40.64" material="Vacuum"/> 
+  <tubs name="OPSH" Rio_Z="0.0  {pspipe2_radius[1]}  40.64" material="Iron"/> 
+  <tubs name="IPSH" Rio_Z="0.0  {pspipe2_radius[0]}  40.64" material="Vacuum"/> 
 
 <!-- Pair spectrometer shielding SEG blocks. The properties of material of the SEG 
                        block are very close to Iron.
@@ -485,4 +519,11 @@
 </section>
 
 <!-- </HDDS> -->
+"""
+
+
+import math
+
+for line in xml_source.split('\n'):
+    print(line)
 

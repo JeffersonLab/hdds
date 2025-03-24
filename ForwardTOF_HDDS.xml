@@ -44,6 +44,10 @@
 <!-- Tue July 02, 2019 A. Ernst -->
 <!-- Updated the geometry to match the upgrade in the hall. Removed lucite shielding.-->
 
+<!-- Mon Oct 14, 2024 B. Zihlmann -->
+<!-- Add Plug/sheidling for TOF2 geometry -->
+
+
   <composition name="ForwardTOF">
     <posXYZ volume="forwardTOF" X_Y_Z="0.0  0.0 3.85" rot="0 0 -90">
       <plane value="0" />
@@ -51,6 +55,10 @@
     <posXYZ volume="forwardTOF" X_Y_Z="0.0  0.0 1.27" rot="0 0 0">
       <plane value="1" />
     </posXYZ>
+    <!-- position part of the plug that is in front of the whole TOF detector -->
+    <posXYZ volume="shield_front" X_Y_Z="0.0 0.0 -2.87" />
+    <!-- position the part of the plug that is after the whole TOF detector -->
+    <posXYZ volume="shield_back" X_Y_Z="0.0 0.0 6.38" />
   </composition>
 
   <composition name="forwardTOF" envelope="FTOF">
@@ -62,7 +70,9 @@
     <posXYZ volume="forwardTOF_top3" X_Y_Z="0.0 +12.27 0.0" />
     <posXYZ volume="forwardTOF_top2" X_Y_Z="0.0 +19.95 0.0" />
     <posXYZ volume="forwardTOF_top1" X_Y_Z="0.0 +76.305 0.0" />
-   </composition>
+    <!-- position of plug that is in the hole of the TOF wall -->
+    <posXYZ volume="shield_feedthru" />
+  </composition>
 
 <!-- the attribute 'row' is synonymous with 'bar' -->
   <composition name="forwardTOF_top1" envelope="FTOT">
@@ -115,6 +125,25 @@
     </mposY>
   </composition>
 
+  <!-- plug volume in front the TOF plane -->
+  <composition name="shield_front" envelope="SHLH">
+   <posXYZ volume="shield_front_insert" />
+  </composition>
+
+  <composition name="shield_front_insert" envelope="SINS">
+   <posXYZ volume="SINA" />
+  </composition>
+
+  <!-- plug volume in the bore of the TOF plane -->
+  <composition name="shield_feedthru" envelope="SHFT">
+   <posXYZ volume="SINC" />
+  </composition>
+
+  <!-- plug volume after the TOF detector plane -->
+  <composition name="shield_back" envelope="SHLB">
+   <posXYZ volume="SINB" />
+  </composition>
+  
   <box name="FTOF" X_Y_Z="252.0 268.8 2.55" material="Air" />
   <box name="FTOB" X_Y_Z="252.0 103.53 2.55" material="Air" />
   <box name="FTOT" X_Y_Z="252.0 103.53 2.55" material="Air" />
@@ -133,6 +162,17 @@
   <box name="FTOX" X_Y_Z="252.0   4.5 2.54" material="Scintillator"
 					    sensitive="true" />
 
+  
+  <!-- add volumes neede for TOF2 Plug/Shielding -->
+  <box name="SHLH" X_Y_Z="34.544 34.544 5.715" material="Plexiglas" />
+  <box name="SINS" X_Y_Z="16.64 16.64 5.715" material="Polyethylene" />
+  <box name="SINA" X_Y_Z="8.54 8.54 5.715" material="Air" />
+  <box name="SHFT" X_Y_Z="16.64 16.64 2.53" material="Polyethylene" />
+  <box name="SINC" X_Y_Z="8.54 8.54 2.53" material="Air" />
+  <box name="SHLB" X_Y_Z="16.64 16.64 2.54" material="Polyethylene" />
+  <box name="SINB" X_Y_Z="8.54 8.54 2.54" material="Air" />
+
+  
   <!-- The following elements describe an early rendition of the GlueX
        detector simulated using a fast Monte Carlo program MCFast.  They
        are retained for future reference, do not rely on their values. -->

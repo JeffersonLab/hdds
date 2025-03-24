@@ -107,15 +107,16 @@
     <polyplane Rio_Z="6.667 7.9      -0.4"/>
     <polyplane Rio_Z="6.667 8.450000 -0.4"/>
     <polyplane Rio_Z="6.667 8.450000 1.0" />
-    <polyplane Rio_Z="6.66 8.25 39.465"/> 
+    <!--polyplane Rio_Z="6.66 8.25 39.465"/> 
     <polyplane Rio_Z="6.2 8.1 42.057375"/>
     <polyplane Rio_Z="2.4637 4.24 53.8226"/>
-    <polyplane Rio_Z="1.95 2.39 58.8" />
+    <polyplane Rio_Z="1.95 2.39 58.8" /-->
+    <polyplane Rio_Z="6.66 8.25 58.8"/> 
   </pcon>
   <pgon name="STAI" segments="30" material="Aluminum"
 	comment="Aluminum foil wrapping">
     <polyplane Rio_Z="7.74761 7.74926 0.000000" /> 
-    <polyplane Rio_Z="7.74761 7.74926 39.465000" />
+    <!--polyplane Rio_Z="7.74761 7.74926 39.465000" />
     <polyplane Rio_Z="7.72483 7.72648 40.176676" />
     <polyplane Rio_Z="7.72324 7.72489 40.194574" />
     <polyplane Rio_Z="7.66153 7.66319 40.885848" />
@@ -128,12 +129,13 @@
     <polyplane Rio_Z="7.19587 7.19761 43.057375" />
     <polyplane Rio_Z="1.99826 2.00000 58.594" />
     <polyplane Rio_Z="1.99826 2.00000 58.600"/>
-    <polyplane Rio_Z="2.31461 2.31635 58.690" />
+    <polyplane Rio_Z="2.31461 2.31635 58.690" /-->
+    <polyplane Rio_Z="7.74761 7.74926 58.690" />
   </pgon>
 <pgon name="STAO" segments="30" material="Aluminum"
 	comment="Aluminum foil wrapping">
     <polyplane Rio_Z=" 8.04926 8.05091 0.000000" /> 
-    <polyplane Rio_Z=" 8.04926 8.05091 39.465000" />
+    <!--polyplane Rio_Z=" 8.04926 8.05091 39.465000" />
     <polyplane Rio_Z=" 8.02827 8.02992 40.176676" />
     <polyplane Rio_Z=" 8.02774 8.02939 40.194574" />
     <polyplane Rio_Z=" 7.96605 7.96771 40.885848" />
@@ -144,12 +146,13 @@
     <polyplane Rio_Z=" 7.70446 7.70617 42.357668" />
     <polyplane Rio_Z=" 7.53600 7.53774 42.973460" />
     <polyplane Rio_Z=" 7.51305 7.51490 43.057375" />
-    <polyplane Rio_Z=" 2.31635 2.31809 58.594" />
+    <polyplane Rio_Z=" 2.31635 2.31809 58.594" /-->
+    <polyplane Rio_Z=" 8.04926 8.05091 58.594" /> 
   </pgon>
   <pgon name="STRC" segments="1" profile="-6.0 12.0" material="Scintillator"
 		sensitive="true" comment="start counter scintillator">
     <polyplane Rio_Z="7.74926 8.04926 0.000000" />
-    <polyplane Rio_Z="7.74926 8.04926 39.465000" />
+    <!--polyplane Rio_Z="7.74926 8.04926 39.465000" />
     <polyplane Rio_Z="7.72648 8.02827 40.176676" />
     <polyplane Rio_Z="7.72489 8.02774 40.194574" />
     <polyplane Rio_Z="7.66319 7.96605 40.885848" />
@@ -161,7 +164,8 @@
     <polyplane Rio_Z="7.22327 7.53600 42.973460" />
     <polyplane Rio_Z="7.19761 7.51305 43.057375" />
     <polyplane Rio_Z="2.00000 2.31635 58.594" />
-    <polyplane Rio_Z="2.31635 2.31635 58.6892" />
+    <polyplane Rio_Z="2.31635 2.31635 58.6892" /-->
+    <polyplane Rio_Z="7.74926 8.04926 58.6892" />
   </pgon>
   <pcon name="STIE" material="EpoxyResin">
     <polyplane Rio_Z="6.7691 6.81228 -0.3556"/>
@@ -175,7 +179,7 @@
   <pcon name="STIS" material="HighDensityROHACELL"
 	comment="start counter support cylinder">
     <polyplane Rio_Z="7.60603 7.74603 0.00"/>
-    <polyplane Rio_Z="7.60603 7.74603 0.2794"/>
+    <!--polyplane Rio_Z="7.60603 7.74603 0.2794"/>
     <polyplane Rio_Z="6.81228 7.74603 0.2794"/>
     <polyplane Rio_Z="6.81228 7.74603 37.7444"/>
     <polyplane Rio_Z="6.66753 7.74603 37.7444"/>
@@ -187,12 +191,13 @@
     <polyplane Rio_Z="6.19401 7.34850 42.357668" />
     <polyplane Rio_Z="6.02555 7.18004 42.973460" />
     <polyplane Rio_Z="5.99989 7.15438 43.057375" />
-    <polyplane Rio_Z="2.46380 3.57000 53.8226" />
+    <polyplane Rio_Z="2.46380 3.57000 53.8226" /-->
+    <polyplane Rio_Z="7.60603 7.74603 58.5"/>
   </pcon>
   <pgon name="STWR" segments="30" material="Cellulose"
 				  comment="start counter wrapping tape">
     <polyplane Rio_Z=" 8.05091 8.10091 0.000000" /> 
-    <polyplane Rio_Z=" 8.05091 8.10091 39.465000" />
+    <!--polyplane Rio_Z=" 8.05091 8.10091 39.465000" />
     <polyplane Rio_Z=" 8.02992 8.07992 40.176676" />
     <polyplane Rio_Z=" 8.02939 8.07939 40.194574" />
     <polyplane Rio_Z=" 7.96771 8.01798 40.885848" />
@@ -203,7 +208,8 @@
     <polyplane Rio_Z=" 7.70617 7.75862 42.357668" />
     <polyplane Rio_Z=" 7.53774 7.59033 42.973460" />
     <polyplane Rio_Z=" 7.51490 7.56763 43.057375" />
-    <polyplane Rio_Z=" 2.31809 2.37081 58.594"/>
+    <polyplane Rio_Z=" 2.31809 2.37081 58.594"/-->
+    <polyplane Rio_Z=" 8.05091 8.10091 58.594" />
   </pgon>
 
   <pcon name="STSR" material="Aluminum"
@@ -236,15 +242,17 @@
   </pcon> 
 
   <pcon name="STT1" material="Tedlar" comment="Wrapping for light tightness">
-    <polyplane Rio_Z="3.56 3.565 53.8226"/>
-    <polyplane Rio_Z="1.993 1.998 58.594"/>
+    <!--polyplane Rio_Z="3.56 3.565 53.8226"/>
+    <polyplane Rio_Z="1.993 1.998 58.594"/-->
+    <polyplane Rio_Z="8.150 8.152 53.8226"/>
+    <polyplane Rio_Z="8.150 8.152 58.594"/>
   </pcon>
 
   <pcon name="STTD" material="Tedlar" comment="Wrapping for light tightness">
     <polyplane Rio_Z="8.42 8.425 0." />
     <polyplane Rio_Z="8.42 8.425 1." />
     <polyplane Rio_Z="8.15 8.155 4." />
-    <polyplane Rio_Z="8.15 8.155 39.465000" />
+    <!--polyplane Rio_Z="8.15 8.155 39.465000" />
     <polyplane Rio_Z="8.13 8.135 40.176676" />
     <polyplane Rio_Z="8.124 8.129 40.194574" />
     <polyplane Rio_Z="8.07 8.075 40.885848" />
@@ -255,7 +263,8 @@
     <polyplane Rio_Z="7.81 7.8152 42.357668" />
     <polyplane Rio_Z="7.64 7.6453 42.973460" />
     <polyplane Rio_Z="7.62 7.6253 43.057375" />
-    <polyplane Rio_Z="2.38 2.3853 58.75 "/>
+    <polyplane Rio_Z="2.38 2.3853 58.75 "/-->
+    <polyplane Rio_Z="8.15 8.155 58.75" />
   </pcon>
 
 
