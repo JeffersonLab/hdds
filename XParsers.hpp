@@ -45,7 +45,7 @@ static std::string char16_to_utf8(const char16_t* u16_str) {
 }
 
 // Overload operator<< for char16_t*
-static std::ostream& operator<<(std::ostream& os, const char16_t* u16_str) {
+inline std::ostream& operator<<(std::ostream& os, const char16_t* u16_str) {
     return os << char16_to_utf8(u16_str);
 }
 //----------------------------------------------------------------------
