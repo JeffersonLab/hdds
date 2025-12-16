@@ -42,22 +42,22 @@ import glob
 
 #-----------------------------------------------------
 #--------------- EDIT THESE VALUES -------------------
-MIN_RUN   = 30000
-MAX_RUN   = 39999
+MIN_RUN   = 160001
+MAX_RUN   = 160001
 VARIATION = 'default'
-COMMENT   = 'Copied from HDDS'
+COMMENT   = 'Full scale GEMTRD'
 #-----------------------------------------------------
 
 
 
 CCDB_CONNECTION = os.getenv('CCDB_CONNECTION')
 if not CCDB_CONNECTION:
-	print 'CCDB_CONNECTION not set!'
+	print( 'CCDB_CONNECTION not set!')
 	sys.exit(-1)
 
 HDDS_HOME = os.getenv('HDDS_HOME')
 if not HDDS_HOME:
-	print 'HDDS_HOME not set!'
+	print( 'HDDS_HOME not set!')
 	sys.exit(-1)
 
 
@@ -68,8 +68,8 @@ provider.authentication.current_user_name = os.getenv('USER')  # to have a name 
 
 
 # Get list of all ML files in HDDS directory and loop over them
-xmlfiles  = glob.glob('%s/*.xml' % HDDS_HOME)
-xmlfiles += glob.glob('%s/*.xsd' % HDDS_HOME)
+xmlfiles  = glob.glob('%s/GEMTRD_HDDS.xml' % HDDS_HOME)
+#xmlfiles += glob.glob('%s/*.xsd' % HDDS_HOME)
 for xmlfile in xmlfiles:
 
 	# read file
@@ -88,12 +88,12 @@ for xmlfile in xmlfiles:
 	try:
 		provider.get_type_table(fullpath)
 	except:
-		print 'Type table ' + fullpath + ' doesn\'t exist. Creating ...'
+		print( 'Type table ' + fullpath + ' doesn\'t exist. Creating ...')
 		provider.create_type_table( itemname, '/GEOMETRY', 1, [('xml','string')], comment='created with hdds_2_ccdb.py')
 	
 
 	# add data to database
-	print 'Writing file ' + xmlfile + ' to ' + itemname
+	print( 'Writing file ' + xmlfile + ' to ' + itemname)
 	provider.create_assignment(
 		data=tabled_data,
 		path=fullpath,
