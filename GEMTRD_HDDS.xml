@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: GEM-TRD for GlueX-III upgrade
+  *************************************************************
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<!--Origin is face of most upstream foil-->
+
+<section name        = "GEMTRD"
+         version     = "1.0"
+         date        = "2022-02-04"
+         author      = "Simon Taylor"
+         top_volume  = "GTMV"
+         specification = "v1.0">
+
+<composition name="GEMTRD">
+  <posXYZ volume="gemTRDmodule" X_Y_Z="0. -60.0 0.">
+    <layer value="1"/>
+  </posXYZ> 
+  <posXYZ volume="gemTRDmodule" X_Y_Z="0. 60.0 0." rot="0. 0. 180.">
+    <layer value="2"/>
+  </posXYZ>
+</composition>
+
+<composition name="gemTRDmodule" envelope="GTMV">
+  <posXYZ volume="GTRA" X_Y_Z="0.0 19.6 -1.7625"/>
+  <posXYZ volume="GTCW" X_Y_Z="0.0 19.6 8.2425"/>
+  <posXYZ volume="gemSensitiveVolume" X_Y_Z="0. 19.6 9.4975"/>
+  <posXYZ volume="gemLayer" X_Y_Z="0. 19.6 10.8475"/>
+  <posXYZ volume="gemLayer" X_Y_Z="0. 19.6 11.0475"/>
+  <posXYZ volume="gemLayer" X_Y_Z="0. 19.6 11.2475"/>
+  <posXYZ volume="GTRO" X_Y_Z="0.0 19.45 11.3525"/>
+  <posXYZ volume="gemTRDReadoutFrame" X_Y_Z="0.0 0.0 11.51625"/>
+  <mposX volume="GTF1" Y_Z="-23.6 11.7325" ncopy="12" X0="-45.72" dX="7.62"/>
+  <mposY volume="GTF2" Z_X="11.7325 94." ncopy="5" Y0="16.8" dY="7.62"/>
+  <mposY volume="GTF2" Z_X="11.7325 -94." ncopy="5" Y0="16.8" dY="7.62"/>
+</composition>
+
+<composition name="gemTRDReadoutFrame" envelope="GTRF">
+  <posXYZ volume="GTC1" X_Y_Z="96. 19.6 0."/>
+  <posXYZ volume="GTC1" X_Y_Z="-96. 19.6 0."/>
+  <posXYZ volume="GTC2" X_Y_Z="0. -20. 0."/>
+  <posXYZ volume="GTCH" X_Y_Z="0. 22.6 0."/>
+</composition>
+
+<composition name="gemLayer" envelope="GTGP">
+  <posXYZ volume="GTFO" X_Y_Z="0. 0. -0.0975"/>
+  <posXYZ volume="GTGG" X_Y_Z="0. 0. 0.0025"/>
+</composition>
+
+<composition name="gemSensitiveVolume" envelope="GTAV">
+  <posXYZ volume="GTSV" X_Y_Z="0. 0. 0."/>
+</composition>
+
+<box name="GTRA" X_Y_Z="149.0 56.8 20.0" material="TRDradiator" comment="TRD/GEM radiator"/>
+<box name="GTAV" X_Y_Z="155.0 56.8 2.5" material="FR-4" comment="GEM active volume other"/>
+<box name="GTSV" X_Y_Z="149.0 50.8 2.5" material="GTchamberGas"
+     sensitive="true" comment="GEMTRD chamber gas"/>
+<box name="GTGG" X_Y_Z="149.0 50.8 0.195" material="GTchamberGas" comment="GEM gap gas" />
+<box name="GTGP" X_Y_Z="155.0 56.8 0.2" material="FR-4" comment="GEM gap frame"/>
+<box name="GTCW" X_Y_Z="155.0 56.8 0.005" material="AluminizedKapton" comment="GEM cathode foil"/>
+<box name="GTFO" X_Y_Z="155.0 56.8 0.005" material="CopperKapton" comment="GEM foils"/>
+<box name="GTRO" X_Y_Z="179.0 59.8 0.01" material="CopperKapton" comment="GEM readout foil"/>
+
+<box name="GTMV" X_Y_Z="242.0 102. 23.525" material="Air" comment="mother volume"/>
+<box name="GTRF" X_Y_Z="242.0 102. 0.3175" material="FR-4" comment="TRD/GEM readout frame"/>
+<box name="GTC1" X_Y_Z="10.0 56.8 0.3175" material="Air" comment="TRD/GEM readout frame cutout 1"/>
+<box name="GTC2" X_Y_Z="149.0 20. 0.3175" material="Air" comment="TRD/GEM readout frame cutout 2"/>
+<box name="GTCH" X_Y_Z="149.0 50.8 0.3175" material="FR-4-honeycomb" comment="TRD/GEM readout honeycomb"/>
+<box name="GTF1" X_Y_Z="2.54 30. 0.03" material="CopperKapton" comment="Flexible readout board" />
+<box name="GTF2" X_Y_Z="20.0 2.54 0.03" material="CopperKapton" comment="Flexible readout board" />
+
+
+</section>
