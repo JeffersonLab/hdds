@@ -19,7 +19,7 @@
 <!ENTITY ComptonEMcal_s SYSTEM "ComptonEMcal_HDDS.xml">
 <!ENTITY CrystalECAL_s SYSTEM "CrystalECAL_HDDS.xml">
 <!ENTITY DIRC_s SYSTEM "DIRC_HDDS.xml">
-<!ENTITY GEMTRD_s SYSTEM "GEMTRD_HDDS_FullScale.xml">
+<!ENTITY GEMTRD_s SYSTEM "GEMTRD_HDDS.xml">
 
 ]>
 
@@ -97,7 +97,7 @@
     <!--posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
     <!-- To simulate DIRC hits uncomment the line below -->
     <posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.600" />
-    <posXYZ volume="GEMTRD" X_Y_Z="0.0 0.0 481.0"/>
+    <posXYZ volume="GEMTRD" X_Y_Z="0.0 0.0 472.0"/>
     <posXYZ volume="ForwardTOF" X_Y_Z="-0.168 -0.105 605.325" rot="-0.414 -0.0854 -0.108"/>
     <posXYZ volume="ForwardEMcal" X_Y_Z="0.0 0.0 624.987" rot="0.0 0.0 0.0" />
     <posXYZ volume="ComptonEMcal" X_Y_Z="0.042 -0.008 1275.936" rot="-0.1856 0.1633 -0.0287"/>
