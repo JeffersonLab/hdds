@@ -16,10 +16,10 @@
          specification = "v1.0">
 
 <composition name="GEMTRD">
-  <posXYZ volume="gemTRDmodule" X_Y_Z="0. -60.0 0.">
+  <posXYZ volume="gemTRDmodule" X_Y_Z="0. -55.0 0.">
     <layer value="1"/>
   </posXYZ> 
-  <posXYZ volume="gemTRDmodule" X_Y_Z="0. 60.0 0." rot="0. 0. 180.">
+  <posXYZ volume="gemTRDmodule" X_Y_Z="0. 55.0 0." rot="0. 0. 180.">
     <layer value="2"/>
   </posXYZ>
 </composition>
@@ -33,9 +33,9 @@
   <posXYZ volume="gemLayer" X_Y_Z="0. 19.6 11.2475"/>
   <posXYZ volume="GTRO" X_Y_Z="0.0 19.45 11.3525"/>
   <posXYZ volume="gemTRDReadoutFrame" X_Y_Z="0.0 0.0 11.51625"/>
-  <mposX volume="GTF1" Y_Z="-23.6 11.7325" ncopy="12" X0="-45.72" dX="7.62"/>
-  <mposY volume="GTF2" Z_X="11.7325 94." ncopy="5" Y0="16.8" dY="7.62"/>
-  <mposY volume="GTF2" Z_X="11.7325 -94." ncopy="5" Y0="16.8" dY="7.62"/>
+  <mposX volume="GTF1" Y_Z="-23.6 11.7325" ncopy="12" X0="-55.88" dX="10.16"/>
+  <mposY volume="GTF2" Z_X="11.7325 94." ncopy="5" Y0="-0.765" dY="10.16"/>
+  <mposY volume="GTF2" Z_X="11.7325 -94." ncopy="5" Y0="-0.765" dY="10.16"/>
 </composition>
 
 <composition name="gemTRDReadoutFrame" envelope="GTRF">
@@ -69,8 +69,8 @@
 <box name="GTC1" X_Y_Z="10.0 56.8 0.3175" material="Air" comment="TRD/GEM readout frame cutout 1"/>
 <box name="GTC2" X_Y_Z="149.0 20. 0.3175" material="Air" comment="TRD/GEM readout frame cutout 2"/>
 <box name="GTCH" X_Y_Z="149.0 50.8 0.3175" material="FR-4-honeycomb" comment="TRD/GEM readout honeycomb"/>
-<box name="GTF1" X_Y_Z="2.54 30. 0.03" material="CopperKapton" comment="Flexible readout board" />
-<box name="GTF2" X_Y_Z="20.0 2.54 0.03" material="CopperKapton" comment="Flexible readout board" />
+<box name="GTF1" X_Y_Z="3.81 30. 0.03" material="CopperKapton" comment="Flexible readout board" />
+<box name="GTF2" X_Y_Z="20.0 3.81 0.03" material="CopperKapton" comment="Flexible readout board" />
 
 
 </section>
