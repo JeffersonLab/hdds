@@ -55,8 +55,8 @@
 </composition>
 
 <box name="GTRA" X_Y_Z="149.0 56.8 20.0" material="TRDradiator" comment="TRD/GEM radiator"/>
-<box name="GTAV" X_Y_Z="155.0 56.8 2.5" material="FR-4" comment="GEM active volume other"/>
-<box name="GTSV" X_Y_Z="149.0 50.8 2.5" material="GTchamberGas"
+<box name="GTAV" X_Y_Z="155.0 56.8 2.5" material="FR-4" comment="GEM active volume mother"/>
+<box name="GTSV" X_Y_Z="152.0 53.8 2.5" material="GTchamberGas"
      sensitive="true" comment="GEMTRD chamber gas"/>
 <box name="GTGG" X_Y_Z="149.0 50.8 0.195" material="GTchamberGas" comment="GEM gap gas" />
 <box name="GTGP" X_Y_Z="155.0 56.8 0.2" material="FR-4" comment="GEM gap frame"/>
