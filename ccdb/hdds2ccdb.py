@@ -6,7 +6,7 @@
 # author: richard.t.jones at uconn.edu
 # version: may 17, 2018
 #
-# Usage: hddm2ccdb.py [-r <run>] [-v <var>] [-d <datetime>]command
+# Usage: hddm2ccdb.py [-r <run>] [-v <var>] command
 #  where command is one of
 #    * ls <table>
 #    * get <table>
@@ -14,7 +14,6 @@
 #  with
 #    <run> is a run number starting at 1 [1]
 #    <var> is a variation string [default]
-#    <date> is a date string like "2024-04-12 09:30:00"
 #    <table> is a GEOMETRY table name, eg BeamLine_HDDS.xml
 #    <comment> is a log comment to go with the ccdb update, in quotes
 #
@@ -22,11 +21,10 @@
 import os
 import sys
 import ccdb
-import datetime
 
 def usage():
    str1 = """
-   Usage: hddm2ccdb.py [-r <run>] [-v <var>] [-d datetime] command
+   Usage: hddm2ccdb.py [-r <run>] [-v <var>] command
      where command is one of
        * ls <table>
        * get <table>
@@ -34,7 +32,6 @@ def usage():
      with
        <run> is a run number or range, like 10222 or 10222-10224 [1]
        <var> is a variation string [default]
-       <datetime> is a date string, eg "2024-04-12 09:30:00" 
        <table> is a GEOMETRY table name, eg BeamLine_HDDS.xml
        <comment> is a log comment to go with the ccdb update, in quotes
    """
@@ -67,7 +64,7 @@ def do_get_table(tpath):
    table = provider.get_type_table(tpath)
    try:
       runs = run.split('-')
-      ass = provider.get_assignment(tpath, runs[0], var, date)
+      ass = provider.get_assignment(tpath, runs[0], var)
    except:
       print( "no entry found")
       return
@@ -93,8 +90,6 @@ ls_table = ""
 get_table = ""
 set_table = ""
 comment = ""
-date = ""
-
 i = 1
 while i < len(sys.argv[1:]):
    if sys.argv[i][:2] == "-r":
@@ -109,12 +104,6 @@ while i < len(sys.argv[1:]):
       else:
          i += 1
          var = sys.argv[i]
-   elif sys.argv[i][:2] == "-d":
-      if len(sys.argv[i]) > 2:
-         date = sys.argv[i][2:]
-      else:
-         i += 1
-         date = sys.argv[i]
    elif sys.argv[i] == "ls":
       i += 1
       ls_table = sys.argv[i]
@@ -129,10 +118,6 @@ while i < len(sys.argv[1:]):
 
 if not ls_table and not get_table and not set_table:
    usage()
-
-
-if date != "" :
-   calibdate = datetime.datetime.fromisoformat(date)
 
 # Connect to CCDB DB
 sqlite_connect_str = os.environ["JANA_CALIB_URL"]
