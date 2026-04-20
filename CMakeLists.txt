@@ -11,8 +11,16 @@ set(HAS_GDML_SUPPORT ${ROOT_FOUND})
 
 # Global Flags
 add_compile_options(-g -fPIC -Wall)
-if(CMAKE_Fortran_COMPILER_ID STREQUAL "GNU" AND CMAKE_Fortran_COMPILER_VERSION VERSION_GREATER_EQUAL 10)
-    add_compile_options($<$<COMPILE_LANGUAGE:Fortran>:-fallow-argument-mismatch>)
+
+# GNU Fortran-specific options
+if(CMAKE_Fortran_COMPILER_ID STREQUAL "GNU")
+    # Allow mismatched arguments for gfortran>=10
+    if(CMAKE_Fortran_COMPILER_VERSION VERSION_GREATER_EQUAL 10)
+        add_compile_options($<$<COMPILE_LANGUAGE:Fortran>:-fallow-argument-mismatch>)
+    endif()
+
+    # Suppress CHARACTER truncation warnings for Fortran sources
+    add_compile_options($<$<COMPILE_LANGUAGE:Fortran>:-Wno-character-truncation>)
 endif()
 
 # --- 2. Source Definitions ---
