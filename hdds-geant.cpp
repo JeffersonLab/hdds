@@ -1253,7 +1253,7 @@ void FortranWriter::createMapFunctions(DOMElement* el, const XString& ident)
         << "      subroutine gufld(r,B)" << std::endl
         << "      implicit none" << std::endl
         << "      real r(3),B(3)" << std::endl
-        << "      real rr(3),rs(3),BB(3)" << std::endl
+     // << "      real rr(3),rs(3),BB(3)" << std::endl
         << "      integer iregion" << std::endl
         << "      integer getMap" << std::endl
         << "      external getMap" << std::endl
