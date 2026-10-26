@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: Kaon Flux Monitor Time of Flight Wall
+  ********************************************
+
+     version 1.0: Initial version
+
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name        = "KLFKFMTracker"
+         version     = "1.0"
+         date        = "2026-08-27"
+         author      = "S.Fegan"
+         top_volume  = "KFMN"
+         specification = "v1.0">
+
+
+<!-- Origin of Flux Monitor Tracker is defined as the center of the hall.
+-->
+
+  <composition name="KLFKFMTracker">
+    <posXYZ volume="TrackerModule1" X_Y_Z="0.00    0.0   0.0"/>
+    <posXYZ volume="TrackerModule2" X_Y_Z="0.00    0.0   10.0" rot="0 0 45"/>
+    <posXYZ volume="TrackerModule3" X_Y_Z="0.00    0.0   205.0" rot="0 0 90"/>
+    <posXYZ volume="TrackerModule4" X_Y_Z="0.00    0.0   215.0" rot="0 0 135"/>
+
+  </composition>
+
+
+  <composition name="TrackerModule1" envelope="KFT1">
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -1.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -0.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 0.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 1.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
+  </composition>
+
+    <composition name="TrackerModule2" envelope="KFT2">
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -1.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -0.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 0.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 1.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
+    </composition>
+
+      <composition name="TrackerModule3" envelope="KFT3">
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -1.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -0.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 0.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 1.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
+      </composition>
+
+        <composition name="TrackerModule4" envelope="KFT4">
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -1.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -0.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 0.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 1.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
+  </composition>
+
+<!-- Tracker Modules -->
+
+<!--<composition name="TrackerStraws" envelope="FMTK">
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -1.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -0.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 0.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
+  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 1.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
+ -->
+
+<!--    <posXYZ volume="KZZZ" X_Y_Z="0.0 0.0 0.0" rot="0 90 0">  </posXYZ>-->
+<!--</composition>-->
+
+
+  <tubs name="KZZZ" Rio_Z="0.3974 0.4 100.0" material="Mylar" comment="Mylar Straw"/>
+
+
+  <box name="KFT1" X_Y_Z="120.0 120.0 5.0" material="Air" comment="Mother volume for flux monitor tracker straws" />
+
+  <box name="KFT2" X_Y_Z="120.0 120.0 5.0" material="Air" comment="Mother volume for flux monitor tracker straws" />
+
+  <box name="KFT3" X_Y_Z="120.0 120.0 5.0" material="Air" comment="Mother volume for flux monitor tracker straws" />
+
+    <box name="KFT4" X_Y_Z="120.0 120.0 5.0" material="Air" comment="Mother volume for flux monitor tracker straws" />
+
+
+
+
+</section>
+
+<!-- </HDDS> -->

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: Kaon Flux Monitor Time of Flight Wall
+  ********************************************
+
+     version 1.0: Initial version
+
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name        = "KLFKFMTOF"
+         version     = "1.0"
+         date        = "2026-06-05"
+         author      = "S.Fegan"
+         top_volume  = "KFMN"
+         specification = "v1.0">
+
+
+<!-- Origin of Flux Monitor TOF is defined as the center of the hall.
+-->
+
+  <composition name="KLFKFMTOF">
+    <posXYZ volume="TOFBarsNorth" X_Y_Z="+56.00    0.0   0.0"/>
+    <posXYZ volume="TOFBarsSouth" X_Y_Z="-56.00   0.0   0.0"/>
+    <!-- Shorter top and bottom bars surrounding beam pipe -->
+    <posXYZ volume="TOFBarsCenter" X_Y_Z="0.0   0.0   0.0"/>
+  </composition>
+	
+
+<!-- TOF Counters -->
+
+<composition name="TOFBarsNorth" envelope="FMTN">
+  <mposX volume="FMTF" ncopy="8" Y_Z="0.0 0.0" X0="-44" dX="12">  </mposX>
+</composition>
+
+<composition name="TOFBarsSouth" envelope="FMTS">
+  <mposX volume="FMTF" ncopy="8" Y_Z="0.0 0.0" X0="-40" dX="12">  </mposX>
+</composition>
+
+<composition name="TOFBarsCenter" envelope="FMTC">
+  <posXYZ volume="FMTT" X_Y_Z="0.0 71.75 0.0">  </posXYZ>
+  <posXYZ volume="FMTB" X_Y_Z="0.0 -72.75 0.0">  </posXYZ>
+  </composition>
+
+
+  <box name="FMTF" X_Y_Z="11.99 260.0 2.0" material="Scintillator" sensitive="true"/>
+  <box name="FMTT" X_Y_Z="11.99 116.5 2.0" material="Scintillator" sensitive="true"/>
+  <box name="FMTB" X_Y_Z="11.99 114.5 2.0" material="Scintillator" sensitive="true"/>
+
+  <box name="FMTN" X_Y_Z="100.0 280.0 3.0" material="Air" comment="Mother volume for flux monitor TOF bars" />
+  <box name="FMTS" X_Y_Z="100.0 280.0 3.0" material="Air" comment="Mother volume for flux monitor TOF bars" />
+  <box name="FMTC" X_Y_Z="12.0 280.0 3.0" material="Air" comment="Mother volume for flux monitor TOF bars" />
+
+
+
+</section>
+
+<!-- </HDDS> -->

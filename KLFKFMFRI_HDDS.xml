@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE HDDS>
+
+  Hall D Geometry Data Base: Kaon Flux Monitor Time of Flight Wall
+  ********************************************
+
+     version 1.0: Initial version
+
+<HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
+-->
+
+<section name        = "KLFKFMFRI"
+         version     = "1.0"
+         date        = "2026-08-21"
+         author      = "S.Fegan"
+         top_volume  = "KFMN"
+         specification = "v1.0">
+
+
+<!-- Origin of Flux Monitor TOF is defined as the center of the hall.
+-->
+
+<composition name="KLFKFMFRI">
+  <posXYZ volume="FRILayer1" X_Y_Z="0.0   0.0   0.0"/>
+  <posXYZ volume="FRILayer2" X_Y_Z="0.0   0.0   5.0" rot="0 0 90"/>
+</composition>
+
+<composition name="FRILayer1">
+    <!-- Shorter top and bottom bars surrounding beam pipe -->
+    <posXYZ volume="FRIBarsCenter" X_Y_Z="0.0   0.0   45.3392"/>
+
+    <posXYZ volume="FRIBarsNorth" X_Y_Z="36.0    0.0   45.3074"/>
+    <posXYZ volume="FRIBarsSouth" X_Y_Z="-36.00   0.0   45.3392"/>
+
+</composition>
+
+<composition name="FRILayer2">
+    <!-- Shorter top and bottom bars surrounding beam pipe -->
+    <posXYZ volume="FRIBarsCenter" X_Y_Z="0.0   0.0   45.3392"/>
+
+    <posXYZ volume="FRIBarsNorth" X_Y_Z="36.0    0.0   45.3074"/>
+    <posXYZ volume="FRIBarsSouth" X_Y_Z="-36.00   0.0   45.3392"/>
+
+  </composition>
+	
+
+<!-- TOF Counters -->
+
+<composition name="FRIBarsNorth" envelope="FMXX">
+  <mposX volume="FMYY" ncopy="10" Y_Z="0.0 0.0" X0="-28.5" dX="3.0">  </mposX>
+</composition>
+
+
+<composition name="FRIBarsSouth" envelope="FMZZ">
+  <mposX volume="FMYY" ncopy="10" Y_Z="0.0 0.0" X0="1.5" dX="3.0">  </mposX>
+</composition>
+
+
+<composition name="FRIBarsCenter" envelope="FMRC">
+  <posXYZ volume="FMYY" X_Y_Z="-4.5 0.0 0.0">  </posXYZ>
+  <mposX volume="FRIT" ncopy="4" Y_Z="20.0 0.0" X0="-2.25" dX="1.5"> </mposX>
+  <mposX volume="FRIB" ncopy="4" Y_Z="-20.0 0.0" X0="-2.25" dX="1.5"> </mposX>
+  <posXYZ volume="FMYY" X_Y_Z="4.5 0.0 0.0">  </posXYZ>
+  </composition>
+
+
+  <box name="FMYY" X_Y_Z="3.00 74.5 0.5" material="Scintillator" sensitive="true"/>
+  <box name="FRIT" X_Y_Z="1.50 34.5 0.5" material="Scintillator" sensitive="true"/>
+  <box name="FRIB" X_Y_Z="1.50 34.5 0.5" material="Scintillator" sensitive="true"/>
+
+  <box name="FMXX" X_Y_Z="60.0 80.0 2.0" material="Air" comment="Mother volume for flux monitor TOF bars" />
+  <box name="FMZZ" X_Y_Z="60.0 80.0 2.0" material="Air" comment="Mother volume for flux monitor TOF bars" />
+  <box name="FMRC" X_Y_Z="12.0 80.0 2.0" material="Air" comment="Mother volume for flux monitor TOF bars" />
+
+
+
+</section>
+
+<!-- </HDDS> -->
