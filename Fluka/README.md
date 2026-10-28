@@ -5,16 +5,20 @@ material definitions and region–material assignments. Python 3 + numpy.
 
 ## Usage
 
+Run from the top of an hdds checkout, so that the main file finds the
+section files it includes; outputs are written to the current directory.
+
 ```
 # one sub-assembly, in HDDS global (Hall D) coordinates, inside an
 # air-filled RPP container that the host geometry subtracts
-python3 hdds2fluka.py main_HDDS_KLF2025_KFM.xml --root KLFFluxMonitor -o kfm
+# (on the klf_beamline branch: the KLF flux monitor alone)
+python3 Fluka/hdds2fluka.py main_HDDS.xml --root KLFFluxMonitor -o kfm
 
 # the complete geometry, world volume down to the last straw
-python3 hdds2fluka.py main_HDDS_KLF2025_KFM.xml -o klf_full
+python3 Fluka/hdds2fluka.py main_HDDS.xml -o klf_full
 
 # independent check of a translation (see "Verification")
-python3 verify.py main_HDDS_KLF2025_KFM.xml kfm --root KLFFluxMonitor
+python3 Fluka/verify.py main_HDDS.xml kfm --root KLFFluxMonitor
 ```
 
 Options:
