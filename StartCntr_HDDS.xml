@@ -33,7 +33,7 @@
 
   <composition name="StartCntr">  
     <posXYZ volume="startCntrCables" X_Y_Z="0. 0. -19. "/>
-    <posXYZ volume="startCntr" X_Y_Z="0.044  0.112  0.0"  rot="-0.1026 0.0 0.0"/>   
+    <posXYZ volume="startCntr" X_Y_Z="0.079  0.215  0.0"  rot="-0.05 0.055 0.0"/>   
     <!-- Plastic target at end of start counter -->
     <!--posXYZ volume="CAP2" X_Y_Z="0 0.0 58.89"/-->
   </composition>
@@ -373,3 +373,5 @@
 </section>
 
 <!-- </HDDS> -->
+  
+  
