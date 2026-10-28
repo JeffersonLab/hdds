@@ -3,13 +3,13 @@
 hdds2fluka.py - translate an HDDS geometry (GlueX / KLF) into FLUKA
 combinatorial geometry, materials and region-material assignments.
 
-Usage examples
+Usage examples (from the top of an hdds checkout, klf_beamline branch)
   # just the KLF flux monitor, in Hall D (HDDS global) coordinates,
   # wrapped in an air-filled container body that the host geometry subtracts
-  hdds2fluka.py main_HDDS_KLF2025_KFM.xml --root KLFFluxMonitor -o kfm
+  python3 Fluka/hdds2fluka.py main_HDDS.xml --root KLFFluxMonitor -o kfm
 
   # the complete geometry, from the top volume down to the last straw
-  hdds2fluka.py main_HDDS_KLF2025_KFM.xml -o klf_full
+  python3 Fluka/hdds2fluka.py main_HDDS.xml -o klf_full
 
 The HDDS conventions reproduced here were taken from hddsCommon.cpp and
 hdds-root.cpp in the HDDS repository:
@@ -125,16 +125,24 @@ def schema_defaults(xsd):
 # ---------------------------------------------------------------------------
 
 LENGTH = {'cm': 1.0, 'mm': 0.1, 'm': 100.0, 'km': 1e5, 'um': 1e-4,
-          'nm': 1e-7}
+          'nm': 1e-7, 'in': 2.54, 'ft': 30.48, 'mil': 2.54e-3}
 ANGLE = {'deg': math.pi / 180, 'rad': 1.0, 'mrad': 1e-3, 'urad': 1e-6}
 
 
 def ulen(el):
-    return LENGTH[el.get('unit_length', 'cm')]
+    u = el.get('unit_length', 'cm')
+    if u not in LENGTH:
+        raise HDDSError("unknown unit_length=\"%s\" on <%s %s>"
+                        % (u, el.tag, el.get('name') or el.get('volume')))
+    return LENGTH[u]
 
 
 def uang(el):
-    return ANGLE[el.get('unit_angle', 'deg')]
+    u = el.get('unit_angle', 'deg')
+    if u not in ANGLE:
+        raise HDDSError("unknown unit_angle=\"%s\" on <%s %s>"
+                        % (u, el.tag, el.get('name') or el.get('volume')))
+    return ANGLE[u]
 
 
 def floats(s, n=None):
