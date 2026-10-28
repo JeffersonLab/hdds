@@ -17,6 +17,7 @@
   <!ENTITY CerenkovCntr_s SYSTEM "CerenkovCntr_HDDS.xml">
   <!ENTITY UpstreamEMveto_s SYSTEM "UpstreamEMveto_HDDS.xml">
   <!ENTITY ComptonEMcal_s SYSTEM "ComptonEMcal_HDDS.xml">
+  <!ENTITY CrystalECAL_s SYSTEM "CrystalECAL_HDDS.xml">
   <!ENTITY DIRC_s SYSTEM "DIRC_HDDS.xml">
 
 ]>
@@ -46,6 +47,7 @@
      &UpstreamEMveto_s;
      &PairSpect_s;     
      &ComptonEMcal_s;
+     &CrystalECAL_s;
      &DIRC_s;
 <!-- End of include    -->
 
@@ -68,11 +70,11 @@
   </box>
 
   <composition name="barrelPackage" envelope="LASS">
-    <posXYZ volume="Solenoid" X_Y_Z="0.002 0.0 0.0"/>
+    <posXYZ volume="Solenoid" X_Y_Z="-0.030 0.0 0.0"/>
     <posXYZ volume="Target" X_Y_Z="0.0 0.0 50.2"/>
     <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 38.476"  rot="0.0 0.0 -11.25"/>
-    <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.558" rot="0.0 0.0 0.0" />
-    <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.843" />
+    <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.60" rot="0.0 0.0 0.0" />
+    <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.858" />
     <!-- The origin of the BCAL below has to be changed because these offsets combined with
          these rotation angles lead to a lot of overlap with the FDC at the downstream end.
          A simple explanation for this discrepancy is that the x,y offsets were originally 
@@ -85,7 +87,7 @@
          The shifted origin below translates the offset (0.1,-0.988) from the BCAL center
          to the upstream end, respecting the orientation angles in the rot argument. -->
     <!--posXYZ volume="BarrelEMcal" X_Y_Z="0.1 -0.098 16.788" rot="-0.0424 0.01633 0.0046" /-->
-    <posXYZ volume="BarrelEMcal" X_Y_Z="0.0444 -0.2423 16.788" rot="-0.0424 0.01633 0.0046" />
+    <posXYZ volume="BarrelEMcal" X_Y_Z="0.0444 -0.2423 16.708" rot="-0.0424 0.01633 0.0046" />
   </composition>
   
   <composition name="forwardPackage">
@@ -93,8 +95,8 @@
     <!--posXYZ volume="GapEMcal" X_Y_Z="0.0 0.0 460.0" /-->
     <!-- To simulate DIRC hits uncomment the line below -->
     <posXYZ volume="DIRC" X_Y_Z="0.0 0.0 595.600" />
-    <posXYZ volume="ForwardTOF" X_Y_Z="0.085 0.283 605.369" rot="-0.0427 0.0461 -0.1813"/>
-    <posXYZ volume="ForwardEMcal" X_Y_Z="0.189 0.022 624.32" rot="-0.0418 -0.07019 -0.0149" />
+    <posXYZ volume="ForwardTOF" X_Y_Z="-0.221 -0.111 605.318" rot="-0.414 -0.0854 -0.108"/>
+    <posXYZ volume="ForwardEMcal" X_Y_Z="0.0 0.0 624.948" rot="0.0 0.0 0.0" />
     <!--posXYZ volume="ComptonEMcal" X_Y_Z="0.0 0.0 876.106" /-->
   </composition>
 
