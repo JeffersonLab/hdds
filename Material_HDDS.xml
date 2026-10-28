@@ -682,6 +682,17 @@
 	<real name="radlen"	value="40.49"	unit="g/cm^2"	/>
 	<real name="collen"	value="59.3"	unit="g/cm^2"	/>
 	<real name="dedx"	value="1.929"	unit="MeV/g/cm^2"	/>
+	<optical_properties>
+      <specify E="1.50" refindex="1.484" abslen="83.0" />
+      <specify E="2.00" refindex="1.4896" abslen="83.0" />
+      <specify E="2.50" refindex="1.4968" abslen="83.0" />
+      <specify E="3.00" refindex="1.5034" abslen="83.0" />
+      <specify E="3.50" refindex="1.51" abslen="50.0" />
+      <specify E="4.00" refindex="1.52" abslen="8.0" />
+      <specify E="4.50" refindex="1.53" abslen="0.0" />
+      <specify E="5.00" refindex="1.54" abslen="0.0" />
+      <specify E="5.50" refindex="1.55" abslen="0.0" />
+    </optical_properties>
   </composite>
 
   <composite name="Polystyrene">
@@ -1090,14 +1101,14 @@
   </composite>
 
   <composite name="CarbonFiberEpoxy">
-        <addmaterial material="CarbonFiber">
+    <addmaterial material="CarbonFiber">
 		<fractionmass	fraction="0.60" />
 	</addmaterial>
-        <addmaterial material="EpoxyResin">
+    <addmaterial material="EpoxyResin">
 		<fractionmass	fraction="0.40" />
 	</addmaterial>
-        <addmaterial material="CarbonFiber">
-		<fractionmass	fraction="0.60" />
+    <addmaterial material="Air">
+		<fractionmass	fraction="0.00015" />
 	</addmaterial>
   </composite>
 
@@ -1598,6 +1609,23 @@
       <specify E="4.50" refindex="1.406" abslen="2.43" />
       <specify E="5.00" refindex="1.406" abslen="2.43" />
     </optical_properties>
+  </composite>
+
+  <composite name="Rubber">
+  <!-- Polydimethylsiloxane with n=10 (just a guess) -->
+    <addmaterial material="Silicon">
+      <natoms n="21"/>
+    </addmaterial>
+    <addmaterial material="Hydrogen">
+      <natoms n="72"/>
+    </addmaterial>
+    <addmaterial material="Carbon">
+      <natoms n="24"/>
+    </addmaterial>
+    <addmaterial material="Oxygen">
+      <natoms n="20"/>
+    </addmaterial>
+    <real name="density" value="1.105" unit="g/cm^3"/>
   </composite>
 
 </materials>
