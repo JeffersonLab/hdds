@@ -19,6 +19,10 @@
   <!ENTITY ComptonEMcal_s SYSTEM "ComptonEMcal_HDDS.xml">
   <!ENTITY CrystalECAL_s SYSTEM "CrystalECAL_HDDS.xml">
   <!ENTITY DIRC_s SYSTEM "DIRC_HDDS.xml">
+  <!ENTITY KLFKFMTOF_s SYSTEM "KLFKFMTOF_HDDS.xml">
+  <!ENTITY KLFKFMPizza_s SYSTEM "KLFKFMPizza_HDDS.xml">
+  <!ENTITY KLFKFMFRI_s SYSTEM "KLFKFMFRI_HDDS.xml">
+  <!ENTITY KLFKFMTracker_s SYSTEM "KLFKFMTracker_HDDS.xml">
 
 ]>
 
@@ -49,6 +53,10 @@
      &ComptonEMcal_s;
      &CrystalECAL_s;
      &DIRC_s;
+     &KLFKFMTOF_s;
+     &KLFKFMPizza_s;
+     &KLFKFMFRI_s;
+     &KLFKFMTracker_s;
 <!-- End of include    -->
 
 
@@ -114,9 +122,17 @@
 -->
   </composition>
 
+  <composition name="KLFFluxMonitor">
+    <posXYZ volume="KLFKFMTOF" X_Y_Z="0.0 0.0 350.0" />
+    <posXYZ volume="KLFKFMPizza" X_Y_Z="0 0 0" />
+    <posXYZ volume="KLFKFMFRI" X_Y_Z="0 0 45.0" />
+    <posXYZ volume="KLFKFMTracker" X_Y_Z="0 0 25" />
+  </composition>
+
   <composition name="experimentalHall" envelope="HALL">
     <posXYZ volume="GlueXdetector" X_Y_Z="150.0 -350.0 -500.0" />
     <posXYZ volume="PairSpectrometer" X_Y_Z="150.0 -350.0 -1704.5" />  
+    <posXYZ volume="KLFFluxMonitor" X_Y_Z="150 -350 -950"/>
     <posXYZ volume="beamPipe" X_Y_Z="0.0 0.0 -0.5" />
     <posXYZ volume="SixWayCross" X_Y_Z="150 -350 -605.96"/>
   </composition>

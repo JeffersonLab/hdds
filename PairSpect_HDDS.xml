@@ -97,7 +97,9 @@
     <posXYZ volume="LWAD" X_Y_Z="0.0  0.0  510.0" />
     <posXYZ volume="LeadDonut" X_Y_Z="0.0  0.0  470.0" />
     <posXYZ volume="LPAD" X_Y_Z="0.0  0.0  545.0" />
-    <posXYZ volume="PairPipe3Tube" X_Y_Z="0.0  0.0  738.25" />
+    <!-- exit pipe, interrupted by the KLF flux monitor -->
+    <posXYZ volume="PairPipe3Tube" X_Y_Z="0.0  0.0  549.059" />
+    <posXYZ volume="PairPipe4Tube" X_Y_Z="0.0  0.0  983.559" />
   </composition>
   <composition name="PairPipe2Tube" envelope="HPO2" >
     <posXYZ volume="HPI2" X_Y_Z="0.0  0.0  0.0" />
@@ -105,11 +107,16 @@
   <composition name="PairPipe3Tube" envelope="HPO3" >
     <posXYZ volume="HPI3" X_Y_Z="0.0  0.0  0.0" />
   </composition>
+  <composition name="PairPipe4Tube" envelope="HPO4" >
+    <posXYZ volume="HPI4" X_Y_Z="0.0  0.0  0.0" />
+  </composition>
 
   <tubs name="HPO2" Rio_Z="0.0  5.3340000000000005  460.0" material="Iron" /> 
   <tubs name="HPI2" Rio_Z="0.0  5.08  460.0" material="Vacuum" /> 
-  <tubs name="HPO3" Rio_Z="0.0  8.0  516.5" material="Iron" /> 
-  <tubs name="HPI3" Rio_Z="0.0  2.75  516.5" material="Vacuum" /> 
+  <tubs name="HPO3" Rio_Z="0.0  8.0  138.118" material="Iron" /> 
+  <tubs name="HPI3" Rio_Z="0.0  2.75  138.118" material="Vacuum" /> 
+  <tubs name="HPO4" Rio_Z="0.0  8.0  25.882" material="Iron" /> 
+  <tubs name="HPI4" Rio_Z="0.0  2.75  25.882" material="Vacuum" /> 
 
   <pgon name="LWAD" segments="4" profile="-45 360" material="Lead">
     <polyplane Rio_Z="8.05  120.0  -30.0" />

@@ -31,6 +31,21 @@ pspipe3_start = pspipe2_wall_start
 pspipe3_length = 516.5
 pspipe3_radius = (2.75, 8.0)
 
+# The exit pipe is interrupted by the KLF flux monitor (KFM): it stops at
+# the KFM entrance and resumes at the KFM exit.  The KFM extent along the
+# beam, here in PairSpectrometer coordinates, follows from the placements
+# in main_HDDS.xml (PairSpectrometer at hall z = -1704.5, KLFFluxMonitor
+# at hall z = -950) and the KFM's own front and back faces (-1.0, +351.5).
+ps_hall_z = -1704.5
+kfm_hall_z = -950.0
+kfm_zmin = kfm_hall_z - 1.0 - ps_hall_z
+kfm_zmax = kfm_hall_z + 351.5 - ps_hall_z
+pspipe2_offset = psmagnet_start + psmagnet_length
+pspipe3_end = pspipe3_start + pspipe3_length
+pspipe3a_length = round(kfm_zmin - pspipe2_offset - pspipe3_start, 6)
+pspipe3b_start = round(kfm_zmax - pspipe2_offset, 6)
+pspipe3b_length = round(pspipe3_end - pspipe3b_start, 6)
+
 
 xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
 <!--DOCTYPE HDDS>
@@ -66,7 +81,7 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
     <posXYZ volume="PairHodoscopeSouth" X_Y_Z="-36.3013   0.0   345.3392"  rot="0.0 -4.65958 0.0"/> 
     <posXYZ volume="PairCoarseNorth" X_Y_Z="+43.5331 0.0 394.4875" rot="0.0  4.6742 0.0" /> 
     <posXYZ volume="PairCoarseSouth" X_Y_Z="-43.5345 0.0 394.4855" rot="0.0 -4.7067  0.0" />
-    <posXYZ volume="PairPipe2" X_Y_Z="0.0   0.0   {psmagnet_start + psmagnet_length}"/> 
+    <posXYZ volume="PairPipe2" X_Y_Z="0.0   0.0   {pspipe2_offset}"/> 
     <posXYZ volume="DET5" X_Y_Z="0.0   0.0   {psmagnet_start + psmagnet_length + pspipe3_start + pspipe3_length + 0.2}"/> 
     <posXYZ volume="DET7" X_Y_Z="0.0   0.0   {psmagnet_start + psmagnet_length + pspipe3_start + pspipe3_length + 1337}"/> 
     <!--posXYZ volume="PairShielding" X_Y_Z="0.0   0.0  432.6500" /-->
@@ -131,7 +146,9 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
     <posXYZ volume="LWAD" X_Y_Z="0.0  0.0  {pspipe2_wall_start + pspipe2_wall_size[2]/2}" />
     <posXYZ volume="LeadDonut" X_Y_Z="0.0  0.0  {pspipe2_wall_start - pspipe2_donut_size[2]/2}" />
     <posXYZ volume="LPAD" X_Y_Z="0.0  0.0  {pspipe2_wall_start + pspipe2_wall_size[2] + pspipe2_pwall_size[2]/2}" />
-    <posXYZ volume="PairPipe3Tube" X_Y_Z="0.0  0.0  {pspipe3_start + pspipe3_length/2}" />
+    <!-- exit pipe, interrupted by the KLF flux monitor -->
+    <posXYZ volume="PairPipe3Tube" X_Y_Z="0.0  0.0  {round(pspipe3_start + pspipe3a_length/2, 6)}" />
+    <posXYZ volume="PairPipe4Tube" X_Y_Z="0.0  0.0  {round(pspipe3b_start + pspipe3b_length/2, 6)}" />
   </composition>
   <composition name="PairPipe2Tube" envelope="HPO2" >
     <posXYZ volume="HPI2" X_Y_Z="0.0  0.0  0.0" />
@@ -139,11 +156,16 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   <composition name="PairPipe3Tube" envelope="HPO3" >
     <posXYZ volume="HPI3" X_Y_Z="0.0  0.0  0.0" />
   </composition>
+  <composition name="PairPipe4Tube" envelope="HPO4" >
+    <posXYZ volume="HPI4" X_Y_Z="0.0  0.0  0.0" />
+  </composition>
 
   <tubs name="HPO2" Rio_Z="0.0  {pspipe2_radius[1]}  {pspipe2_length}" material="Iron" /> 
   <tubs name="HPI2" Rio_Z="0.0  {pspipe2_radius[0]}  {pspipe2_length}" material="Vacuum" /> 
-  <tubs name="HPO3" Rio_Z="0.0  {pspipe3_radius[1]}  {pspipe3_length}" material="Iron" /> 
-  <tubs name="HPI3" Rio_Z="0.0  {pspipe3_radius[0]}  {pspipe3_length}" material="Vacuum" /> 
+  <tubs name="HPO3" Rio_Z="0.0  {pspipe3_radius[1]}  {pspipe3a_length}" material="Iron" /> 
+  <tubs name="HPI3" Rio_Z="0.0  {pspipe3_radius[0]}  {pspipe3a_length}" material="Vacuum" /> 
+  <tubs name="HPO4" Rio_Z="0.0  {pspipe3_radius[1]}  {pspipe3b_length}" material="Iron" /> 
+  <tubs name="HPI4" Rio_Z="0.0  {pspipe3_radius[0]}  {pspipe3b_length}" material="Vacuum" /> 
 
   <pgon name="LWAD" segments="4" profile="-45 360" material="Lead">
     <polyplane Rio_Z="{pspipe2_wall_size[0]/2}  {pspipe2_wall_size[1]/2}  {-pspipe2_wall_size[2]/2}" />
