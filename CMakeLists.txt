@@ -44,11 +44,13 @@ target_link_libraries(findall PRIVATE XercesC::XercesC)
 set(GEN_DIR ${CMAKE_BINARY_DIR}/gen)
 file(MAKE_DIRECTORY ${GEN_DIR})
 
-# Function to isolate the tool execution
+# Function to isolate the tool execution; each command links the xml in its own
+# scratch directory, so parallel builds (-j) do not delete each other's links
 function(add_isolated_gen_command output_file tool input_xml)
+    set(work_dir ${GEN_DIR}/${output_file}.d)
     add_custom_command(
         OUTPUT ${GEN_DIR}/${output_file}
-        COMMAND sh -c "cd ${GEN_DIR} && ln -sf ${CMAKE_CURRENT_SOURCE_DIR}/*.xml . && ln -sf ${CMAKE_CURRENT_SOURCE_DIR}/*.xsd . && ${CMAKE_BINARY_DIR}/${tool} ${input_xml} > ${output_file} && rm -f *.xml *.xsd"
+        COMMAND sh -c "rm -rf ${work_dir} && mkdir ${work_dir} && cd ${work_dir} && ln -sf ${CMAKE_CURRENT_SOURCE_DIR}/*.xml . && ln -sf ${CMAKE_CURRENT_SOURCE_DIR}/*.xsd . && ${CMAKE_BINARY_DIR}/${tool} ${input_xml} > ${GEN_DIR}/${output_file} && cd ${GEN_DIR} && rm -rf ${work_dir}"
         DEPENDS ${tool} ${CMAKE_CURRENT_SOURCE_DIR}/${input_xml}
         VERBATIM
     )
