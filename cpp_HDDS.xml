@@ -13,6 +13,7 @@
   <!ENTITY ForwardTOF_s SYSTEM "ForwardTOF_HDDS.xml">
   <!ENTITY BarrelEMcal_s SYSTEM "BarrelEMcal_HDDS.xml">
   <!ENTITY ForwardEMcal_s SYSTEM "ForwardEMcal_HDDS.xml">
+  <!ENTITY CrystalECAL_s SYSTEM "CrystalECAL_HDDS.xml">
   <!ENTITY DIRC_s SYSTEM "DIRC_HDDS.xml">
   <!ENTITY ForwardMWPC_s SYSTEM "ForwardMWPC_HDDS.xml">
   <!ENTITY CppScint_s SYSTEM "CppScint_HDDS.xml">
@@ -37,6 +38,7 @@ The ForwardMWPC has been added.
 
 <!-- Include spec files -->
      &ForwardEMcal_s;
+     &CrystalECAL_s;
      &BarrelEMcal_s;
      &ForwardTOF_s;
      &ForwardDC_s;
