@@ -70,7 +70,7 @@
 <!--</composition>-->
 
 
-  <tubs name="KZZZ" Rio_Z="0.3974 0.4 100.0" material="Mylar" comment="Mylar Straw"/>
+  <tubs name="KZZZ" Rio_Z="0.3973 0.3999 100.0" material="Mylar" comment="Mylar Straw (1 um smaller than 0.3974/0.4: 2 um clearance between neighbours, which were exactly tangent at pitch 0.8)"/>
 
 
   <box name="KFT1" X_Y_Z="120.0 120.0 5.0" material="Air" comment="Mother volume for flux monitor tracker straws" />
