@@ -33,7 +33,8 @@ Options:
 | `--material-map HDDS=FLUKA` | use a material already defined in the host input instead of writing a definition (repeatable), e.g. `--material-map Air=AIR` |
 | `--no-field` | do not set the magnetic-field flag in ASSIGNMA |
 | `--box` | write rotated boxes as BOX bodies instead of RPPs under ROT-DEFI transformations |
-| `--body-prefix X` | extra characters in generated body names, to avoid clashes with a host geometry |
+| `--rot-index-start N` | index of the first ROT-DEFI transformation (default 1); FLUKA matches ROT-DEFI cards by index as well as by name, so translations pasted into one input need disjoint index ranges |
+| `--body-prefix X` | extra characters in generated body and ROT-DEFI names, to avoid clashes with a host geometry or with another translation pasted into the same input (e.g. `-o kfm` and `-o startcntr` need different prefixes) |
 
 ## Output files (stem `S`)
 

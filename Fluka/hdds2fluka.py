@@ -756,7 +756,11 @@ class BodyTable:
         key = tuple(np.round(R, 10).ravel())
         if key in self.rotations:
             return self.rotations[key][0]
-        name = 'rt' + base36(len(self.rotations) + 1, 5)
+        # the body prefix also goes into the rotation names: ROT-DEFI cards
+        # with the same name are applied one after another, so two
+        # translations pasted into one input must not share names
+        name = 'rt' + self.prefix + base36(len(self.rotations) + 1,
+                                           5 - len(self.prefix))
         self.rotations[key] = (name, R, rotdefi_angles(R))
         return name
 
@@ -1698,7 +1702,8 @@ def region_lines(name, zones):
 class Translation:
     def __init__(self, mainfile, top='everything', root=None, margin=1.0,
                  container='HDDSBOX', matmap=None, field=True,
-                 body_prefix='', transforms=True, container_shape='box'):
+                 body_prefix='', transforms=True, container_shape='box',
+                 rot_index_start=1):
         self.root_el, self.table = load_hdds(mainfile)
         self.fl = Flattener(self.table, root)
         self.pvs = self.fl.run(top)
@@ -1712,6 +1717,7 @@ class Translation:
         self.field = field
         self.regions = []      # (name, zones, material, field, pv-or-None, note)
         self.container_shape = container_shape
+        self.rot_index_start = rot_index_start
         self.envelope = None   # envelope mode: zones of the root's outer shape
         self.build(margin, container)
 
@@ -1846,7 +1852,8 @@ class Translation:
         self.nrot_out = len(rlist)
         for i, (name, R, cards) in enumerate(rlist):
             for th, ph in cards:
-                rot_l.append(card('ROT-DEFI', [1000 * (i + 1) + 3, th, ph],
+                rot_l.append(card('ROT-DEFI', [1000 * (i + self.rot_index_start)
+                                               + 3, th, ph],
                                   name))
         geo_r = []
         for name, zones, mat, fld, pv, note in self.regions:
@@ -2003,6 +2010,11 @@ def main(argv=None):
                          'host subtracts the outer shape of the --root '
                          'contents, written to STEM_envelope.inp (for a '
                          'root that encloses other parts, e.g. StartCntr)')
+    ap.add_argument('--rot-index-start', type=int, default=1,
+                    help='index of the first ROT-DEFI transformation '
+                         '(default 1); FLUKA matches ROT-DEFI cards by index '
+                         'as well as by name, so translations pasted into '
+                         'one input need disjoint index ranges')
     ap.add_argument('--margin', type=float, default=1.0,
                     help='container margin around --root contents (cm)')
     ap.add_argument('--material-map', action='append', default=[],
@@ -2014,13 +2026,14 @@ def main(argv=None):
                     help='write rotated boxes as BOX bodies instead of RPPs '
                          'under ROT-DEFI transformations')
     ap.add_argument('--body-prefix', default='',
-                    help='extra characters in body names to avoid clashes '
-                         'with a host geometry')
+                    help='extra characters in body and ROT-DEFI names to '
+                         'avoid clashes with a host geometry or another '
+                         'translation')
     a = ap.parse_args(argv)
     mm = dict(x.split('=', 1) for x in a.material_map)
     tr = Translation(a.mainfile, a.top, a.root, a.margin, a.container, mm,
                      not a.no_field, a.body_prefix, not a.box,
-                     a.container_shape)
+                     a.container_shape, a.rot_index_start)
     title = "%s%s" % (os.path.basename(a.mainfile),
                       (" root=" + a.root) if a.root else "")
     tr.write(a.out, title)
