@@ -80,7 +80,7 @@
   <composition name="barrelPackage" envelope="LASS">
     <posXYZ volume="Solenoid" X_Y_Z="-0.030 0.0 0.0"/>
     <posXYZ volume="Target" X_Y_Z="0.0 0.0 50.2"/>
-    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 38.476"  rot="0.0 0.0 -11.25"/>
+    <posXYZ volume="StartCntr" X_Y_Z="0.0 0.0 38.5776"  rot="0.0 0.0 -11.25"/>
     <posXYZ volume="CentralDC" X_Y_Z="0.0 0.0 17.60" rot="0.0 0.0 0.0" />
     <posXYZ volume="ForwardDC" X_Y_Z="0.0 0.0 176.858" />
     <!-- The origin of the BCAL below has to be changed because these offsets combined with

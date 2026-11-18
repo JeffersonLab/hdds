@@ -982,7 +982,9 @@ def solid_polygon(bt, frame, planes, nseg, phi0, dphi):
     z0, z1 = zs[0], zs[-1]
     half = dphi / nseg / 2
     sec = 1 / math.cos(half)
-    Rhull = max(p[2] for p in planes) * sec
+    # hull radius slightly beyond the polygon corners: a cylinder through the
+    # corners themselves leaves rounding-level slivers there (flair 2D errors)
+    Rhull = max(p[2] for p in planes) * sec * (1 + 1e-6) + 1e-6
     axis = frame.vector((0, 0, 1))
     base = frame.point((0, 0, z0))
     s.hull = '+' + bt.add('RCC', list(base) + list(axis * (z1 - z0)) + [Rhull])
