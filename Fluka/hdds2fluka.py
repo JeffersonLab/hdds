@@ -8,6 +8,11 @@ Usage examples (from the top of an hdds checkout, klf_beamline branch)
   # wrapped in an air-filled container body that the host geometry subtracts
   python3 Fluka/hdds2fluka.py main_HDDS.xml --root KLFFluxMonitor -o kfm
 
+  # the start counter, which surrounds the target: no box container; the
+  # host geometry subtracts the start counter's own outer shape instead
+  python3 Fluka/hdds2fluka.py main_HDDS.xml --root StartCntr \
+      --container-shape envelope -o startcntr
+
   # the complete geometry, from the top volume down to the last straw
   python3 Fluka/hdds2fluka.py main_HDDS.xml -o klf_full
 
@@ -1693,7 +1698,7 @@ def region_lines(name, zones):
 class Translation:
     def __init__(self, mainfile, top='everything', root=None, margin=1.0,
                  container='HDDSBOX', matmap=None, field=True,
-                 body_prefix='', transforms=True):
+                 body_prefix='', transforms=True, container_shape='box'):
         self.root_el, self.table = load_hdds(mainfile)
         self.fl = Flattener(self.table, root)
         self.pvs = self.fl.run(top)
@@ -1706,6 +1711,8 @@ class Translation:
         self.mats = Materials(self.table, matmap)
         self.field = field
         self.regions = []      # (name, zones, material, field, pv-or-None, note)
+        self.container_shape = container_shape
+        self.envelope = None   # envelope mode: zones of the root's outer shape
         self.build(margin, container)
 
     def build(self, margin, container):
@@ -1730,7 +1737,19 @@ class Translation:
             used.add(name)
             return name
 
-        if self.root:
+        if self.root and self.container_shape == 'envelope':
+            # no container region: the host subtracts the union of the
+            # top-level solids of the root, written as -( ... ) in
+            # STEM_envelope.inp; the standalone input gets a blackhole there
+            tops = [p for p in sel if p.mother is None or not p.mother.inroot]
+            self.envelope = [z for p in tops
+                             for z in self.rb.solid_zones(p.shape)]
+            self.env_tops = [p.name for p in tops]
+            lo = np.min([aabb(p.shape.hprox)[0] for p in tops], axis=0)
+            hi = np.max([aabb(p.shape.hprox)[1] for p in tops], axis=0)
+            self.env_box = (lo, hi)
+            self.container = None
+        elif self.root:
             tops = [p for p in sel if p.mother is None or not p.mother.inroot]
             lo = np.min([aabb(p.shape.hprox)[0] for p in tops], axis=0)
             hi = np.max([aabb(p.shape.hprox)[1] for p in tops], axis=0)
@@ -1807,6 +1826,8 @@ class Translation:
                 for l in z.lits}
         if self.container is not None:
             used.add(self.container[0])
+        if self.envelope is not None:
+            used |= {l[1:] for z in self.envelope for l in z.lits}
         bodies = [b for b in self.bt.bodies if b[0] in used]
         self.nbodies_out = len(bodies)
         rots_used = {b[3] for b in bodies if b[3] is not None}
@@ -1857,9 +1878,22 @@ class Translation:
         put('_regions.inp', geo_r)
         put('_materials.inp', mat_l)
         put('_assignma.inp', asg)
+        if self.envelope is not None:
+            put('_envelope.inp', [
+                "* outer shape of %s (union of %s): append this to every zone"
+                % (self.root, ', '.join(self.env_tops)),
+                "* of the host region(s) that fill this space, e.g.",
+                "*   AIR      5 +hallbox -pipe <this text>",
+                "* or wrap a multi-zone host region: +( zone1 | zone2 ) <this text>",
+                "* FLUKA expands the parentheses itself (flair can also expand them)."]
+                + self.envelope_lines())
         with open(out + '_regions.csv', 'w') as f:
             f.write("region,material,field,hdds_volume,hdds_shape,"
                     "sensitive,hdds_path,note\n")
+            if self.envelope is not None:
+                f.write("BLKHOLE,BLCKHOLE,0,,,,,outside %s: blackhole in the "
+                        "standalone %s.inp only; the host geometry in a "
+                        "real model\n" % (self.root, stem))
             for name, zones, mat, fld, pv, note in self.regions:
                 if pv is None:
                     f.write("%s,%s,%d,,,,,%s\n" % (name, mat, fld, note))
@@ -1880,11 +1914,31 @@ class Translation:
             extra_r = region_lines('BLKHOLE', [Zone(['+blkbody', '-' + cb],
                                                     [])])
             extra_a = [card('ASSIGNMA', ['BLCKHOLE', 'BLKHOLE'])]
+        if self.envelope is not None:
+            lo, hi = self.env_box
+            span = (hi - lo).max()
+            extra_b = body_lines('blkbody', 'RPP',
+                                 list(np.ravel(list(zip(lo - span, hi + span)))))
+            extra_r = region_lines('BLKHOLE', [Zone(['+blkbody'] +
+                                                    self.envelope_tokens(),
+                                                    [])])
+            extra_a = [card('ASSIGNMA', ['BLCKHOLE', 'BLKHOLE'])]
         std += geo_b + extra_b + ['END'] + geo_r + extra_r + ['END',
                                                              card('GEOEND', [])]
         std += mat_l + asg + extra_a + [card('STOP', [])]
         with open(out + '.inp', 'w') as f:
             f.write('\n'.join(hdr + std) + '\n')
+
+    def envelope_tokens(self):
+        toks = ['-(']
+        for i, z in enumerate(self.envelope):
+            if i:
+                toks.append('|')
+            toks.extend(z.lits)
+        return toks + [')']
+
+    def envelope_lines(self):
+        return wrap(' ' * 9, self.envelope_tokens())
 
     def summary(self):
         nz = [len(z) for _, z, *_ in self.regions]
@@ -1904,6 +1958,11 @@ class Translation:
                          "z %.3f..%.3f cm" % ((self.container[0],) + tuple(
                              np.ravel(list(zip(self.container[1],
                                                self.container[2]))))))
+        if self.envelope is not None:
+            lines.append("envelope of %s: %d zones (%s); the host subtracts "
+                         "it with the text in STEM_envelope.inp"
+                         % (self.root, len(self.envelope),
+                            ', '.join(self.env_tops)))
         for k, v in DERIVED_DENSITY.items():
             lines.append("material %s has no density in HDDS; used the "
                          "HDDS mixture rule: %.4g g/cm3" % (k, v))
@@ -1937,6 +1996,13 @@ def main(argv=None):
                     help='region name for the --root container; its body '
                          'is the same name in lower case (default HDDSBOX, '
                          'body hddsbox)')
+    ap.add_argument('--container-shape', choices=('box', 'envelope'),
+                    default='box',
+                    help='box: air-filled RPP container that the host '
+                         'subtracts (default); envelope: no container, the '
+                         'host subtracts the outer shape of the --root '
+                         'contents, written to STEM_envelope.inp (for a '
+                         'root that encloses other parts, e.g. StartCntr)')
     ap.add_argument('--margin', type=float, default=1.0,
                     help='container margin around --root contents (cm)')
     ap.add_argument('--material-map', action='append', default=[],
@@ -1953,7 +2019,8 @@ def main(argv=None):
     a = ap.parse_args(argv)
     mm = dict(x.split('=', 1) for x in a.material_map)
     tr = Translation(a.mainfile, a.top, a.root, a.margin, a.container, mm,
-                     not a.no_field, a.body_prefix, not a.box)
+                     not a.no_field, a.body_prefix, not a.box,
+                     a.container_shape)
     title = "%s%s" % (os.path.basename(a.mainfile),
                       (" root=" + a.root) if a.root else "")
     tr.write(a.out, title)

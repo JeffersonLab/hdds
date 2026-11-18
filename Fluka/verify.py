@@ -17,6 +17,7 @@ usage: verify.py MAIN_HDDS.xml STEM [--root VOL] [--per-volume N]
 import argparse
 import csv
 import math
+import re
 import sys
 import time
 
@@ -87,12 +88,53 @@ def read_fluka(path):
                 toks = t[2:]
             else:
                 toks = l.split()
-            for tk in toks:
-                if tk == '|':
-                    cur.append([])
-                else:
-                    cur[-1].append(tk)
-    return bodies, regions
+            cur[0].extend(toks)           # raw tokens, parsed below
+    return bodies, {k: parse_expr(v[0]) for k, v in regions.items()}
+
+
+def parse_expr(toks):
+    """FLUKA region tokens -> list of zones; a zone item is '+body',
+    '-body' or (sign, sub-expression) for a parenthesised group"""
+    toks = [x for tk in toks for x in re.findall(r'[+-]?\(|\)|\||[+-][^\s()|]+', tk)]
+    pos = 0
+
+    def expr():
+        nonlocal pos
+        zones = [[]]
+        while pos < len(toks):
+            tk = toks[pos]
+            pos += 1
+            if tk == '|':
+                zones.append([])
+            elif tk == ')':
+                return zones
+            elif tk.endswith('('):
+                zones[-1].append(('-' if tk[0] == '-' else '+', expr()))
+            else:
+                zones[-1].append(tk)
+        return zones
+    out = expr()
+    if pos != len(toks):
+        raise ValueError("unbalanced parentheses")
+    return [z for z in out if z]
+
+
+def eval_expr(bodies, zones, Q):
+    m = np.zeros(len(Q), bool)
+    for z in zones:
+        k = np.ones(len(Q), bool)
+        for l in z:
+            k &= eval_item(bodies, l, Q)
+        m |= k
+    return m
+
+
+def eval_item(bodies, l, Q):
+    if isinstance(l, tuple):
+        ib = eval_expr(bodies, l[1], Q)
+    else:
+        ib = inside_body(bodies[l[1:]], Q)
+    return ~ib if l[0] == '-' else ib
 
 
 def inside_body(b, P):
@@ -174,7 +216,7 @@ def fluka_classify(bodies, regions, P):
             lo = np.full(3, -np.inf)
             hi = np.full(3, np.inf)
             for l in z:
-                if l[0] != '+':
+                if l[0] != '+' or not isinstance(l, str):
                     continue
                 if l[1:] not in boxes:
                     boxes[l[1:]] = body_box(bodies[l[1:]])
@@ -192,9 +234,7 @@ def fluka_classify(bodies, regions, P):
             Q = P[idx]
             m = np.ones(len(idx), bool)
             for l in z:
-                ib = inside_body(bodies[l[1:]], Q[m])
-                if l[0] == '-':
-                    ib = ~ib
+                ib = eval_item(bodies, l, Q[m])
                 sub = np.nonzero(m)[0]
                 m[sub[~ib]] = False
                 if not m.any():

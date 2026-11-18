@@ -28,6 +28,7 @@ Options:
 | `--root VOL` | translate only VOL (any composition or solid); positions stay global |
 | `--top VOL` | top composition of the tree (default `everything`) |
 | `--container NAME` | region name of the `--root` container; the body is the same name in lower case (default `HDDSBOX` / `hddsbox`) |
+| `--container-shape box\|envelope` | `box` (default): air-filled RPP container around the `--root` contents; `envelope`: no container region, the host subtracts the outer shape of the `--root` contents itself (see below) |
 | `--margin CM` | container margin around the `--root` contents (default 1 cm) |
 | `--material-map HDDS=FLUKA` | use a material already defined in the host input instead of writing a definition (repeatable), e.g. `--material-map Air=AIR` |
 | `--no-field` | do not set the magnetic-field flag in ASSIGNMA |
@@ -44,6 +45,7 @@ Options:
 | `S_regions.inp` | region definitions only |
 | `S_materials.inp` | MATERIAL / COMPOUND cards |
 | `S_assignma.inp` | ASSIGNMA cards |
+| `S_envelope.inp` | (`--container-shape envelope` only) the text `-( ... )` that removes the `--root` outer shape from a host region |
 | `S_regions.csv` | region → material, field flag, HDDS volume, shape, sensitive flag, HDDS placement path |
 
 ### Embedding a `--root` translation in an existing FLUKA geometry
@@ -54,6 +56,28 @@ Options:
    subtract the container body: `... -hddsbox`.
 3. Add the cards from `S_materials.inp` (skip any the host already defines, or
    rerun with `--material-map`) and `S_assignma.inp`.
+
+### Embedding a part that surrounds other parts (`--container-shape envelope`)
+
+A box container only works for a part that sits alone in open space, like the
+KLF flux monitor. The start counter is a shell around the target, inside the
+CDC bore, so its bounding box would swallow the target. With
+`--container-shape envelope` no container region is written; instead:
+
+1. Paste `S_bodies.inp`, `S_regions.inp` and the `S_rotdefi.inp` cards as above.
+2. Append the text in `S_envelope.inp`, `-( zone | zone ... )`, to every zone
+   of the host region(s) that fill that space, or wrap a multi-zone host
+   region as `+( zone1 | zone2 ) -( ... )`. It is the exact union of the
+   top-level solids of `--root`, so nothing else of the host is touched.
+3. Materials and ASSIGNMA as above.
+
+In the standalone `S.inp` the space outside the envelope is the blackhole,
+so `verify.py` and flair check it as usual (`S_regions.csv` lists it as
+BLKHOLE). Example:
+
+```
+python3 Fluka/hdds2fluka.py main_HDDS.xml --root StartCntr --container-shape envelope -o startcntr
+```
 
 ## How HDDS maps to FLUKA
 
