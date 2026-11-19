@@ -1,0 +1,1055 @@
+{
+ "notes": [
+  "part 181: fitted volume 217.2 < CAD 246.1 cm3, density x1.13",
+  "part 39: fitted volume 0.5 < CAD 0.5 cm3, density x1.03",
+  "part 52: fitted volume 0.5 < CAD 0.5 cm3, density x1.03",
+  "part 65: fitted volume 0.5 < CAD 0.5 cm3, density x1.03",
+  "dropped GlueX beam-stub part 1510 (z -151.6..-150.7)",
+  "dropped GlueX beam-stub part 1532 (z -152.7..-151.8)",
+  "dropped GlueX beam-stub part 1540 (z -155.8..-154.2)",
+  "dropped GlueX beam-stub part 1554 (z -151.9..-148.7)",
+  "dropped GlueX beam-stub part 1560 (z -150.7..-150.5)",
+  "dropped GlueX beam-stub part 1566 (z -157.7..-154.5)",
+  "dropped GlueX beam-stub part 1584 (z -166.6..-162.7)",
+  "dropped GlueX beam-stub part 1494 (z -155.7..-150.7)",
+  "dropped GlueX beam-stub part 1505 (z -155.7..-154.8)",
+  "dropped GlueX beam-stub part 1533 (z -152.7..-151.8)",
+  "dropped GlueX beam-stub part 1541 (z -152.2..-150.6)",
+  "dropped GlueX beam-stub part 1555 (z -151.9..-148.7)",
+  "dropped GlueX beam-stub part 1561 (z -155.9..-155.6)",
+  "dropped GlueX beam-stub part 1567 (z -157.7..-154.5)",
+  "dropped GlueX beam-stub part 1585 (z -166.6..-162.7)",
+  "dropped GlueX beam-stub part 1469 (z -154.8..-151.6)",
+  "dropped GlueX beam-stub part 1506 (z -154.6..-153.7)",
+  "dropped GlueX beam-stub part 1513 (z -155.7..-154.8)",
+  "dropped GlueX beam-stub part 1542 (z -155.7..-150.7)",
+  "dropped GlueX beam-stub part 1556 (z -151.9..-148.7)",
+  "dropped GlueX beam-stub part 1562 (z -157.7..-154.5)",
+  "dropped GlueX beam-stub part 1578 (z -164.6..-164.4)",
+  "dropped GlueX beam-stub part 1586 (z -166.6..-162.7)",
+  "dropped GlueX beam-stub part 922 (z -150.1..-141.9)",
+  "dropped GlueX beam-stub part 1450 (z -163.7..-156.7)",
+  "dropped GlueX beam-stub part 1458 (z -151.6..-150.7)",
+  "dropped GlueX beam-stub part 1537 (z -153.2..-151.9)",
+  "dropped GlueX beam-stub part 1543 (z -154.6..-153.7)",
+  "dropped GlueX beam-stub part 1557 (z -151.9..-148.7)",
+  "dropped GlueX beam-stub part 1563 (z -157.7..-154.5)",
+  "dropped GlueX beam-stub part 1581 (z -166.6..-162.7)",
+  "dropped GlueX beam-stub part 923 (z -150.6..-149.4)",
+  "dropped GlueX beam-stub part 1451 (z -164.6..-163.4)",
+  "dropped GlueX beam-stub part 1485 (z -154.7..-151.7)",
+  "dropped GlueX beam-stub part 1538 (z -154.5..-153.2)",
+  "dropped GlueX beam-stub part 1558 (z -151.9..-148.7)",
+  "dropped GlueX beam-stub part 1564 (z -157.7..-154.5)",
+  "dropped GlueX beam-stub part 1582 (z -166.6..-162.7)",
+  "dropped GlueX beam-stub part 1044 (z -165.9..-164.6)",
+  "dropped GlueX beam-stub part 1452 (z -157.0..-155.8)",
+  "dropped GlueX beam-stub part 1531 (z -155.7..-154.8)",
+  "dropped GlueX beam-stub part 1539 (z -154.4..-151.9)",
+  "dropped GlueX beam-stub part 1553 (z -151.6..-150.7)",
+  "dropped GlueX beam-stub part 1559 (z -151.9..-148.7)",
+  "dropped GlueX beam-stub part 1565 (z -157.7..-154.5)",
+  "dropped GlueX beam-stub part 1583 (z -166.6..-162.7)",
+  "blank 921: bore opened to r 7.62",
+  "dropped: hardware on the three stage-1 support rods 5000-0003 (36 parts: bronze bushings, Al cups, brass springs, about 160 g), polyimide blocks 0031 (3 x 1.07 cm3), VCR fitting tag 23 (3.7 cm3 SS, would hit a hexapod strut)",
+  "dropped near the cell base, where moving them out of the beam puts them against the hexapod struts: copper clamp 0010 (tags 287, 288: 19.1 cm3), VCR fittings tags 20, 22 (5.4 cm3 SS)",
+  "dropped at the G-10 ring edges: 0005-0007 block (1.07 cm3 SS), spring (0.83 cm3), polyimide block 0031:3 (1.07 cm3)",
+  "springs 240, 253, 266, 279 (4 x 0.83 cm3 steel) and spring cups 244, 257 (2 x 0.66 cm3 Al) on the support rods at the shield wall dropped",
+  "part 182 (21.9 cm3) folded into 215",
+  "part 213 (52.7 cm3) folded into 203 (51.3 cm3 not kept)",
+  "part 214 (52.7 cm3) folded into 203 (52.7 cm3 not kept)",
+  "part 223 (2.0 cm3) folded into 219 (1.6 cm3 not kept)",
+  "part 228 (5.1 cm3) folded into 219 (5.1 cm3 not kept)",
+  "part 217 (10.3 cm3) folded into 216",
+  "part 1498 (1.2 cm3) folded into 1488 (1.0 cm3 not kept)",
+  "part 1077 (328.3 cm3) folded into 1078",
+  "part 83 (8.3 cm3) folded into 84",
+  "copper jacket 0017:2 shortened to end at LASS z 6.8 (strut contact)",
+  "cart block 1041: 3 mm Al shell, 16.1 kg (was 429 kg solid)",
+  "cart block 1042: 3 mm Al shell, 15.3 kg (was 394 kg solid)",
+  "cart block 1043: 3 mm Al shell, 7.7 kg (was 137 kg solid)",
+  "heat shield 0005: geometric 1207.2 cm3 for the CAD 1152.9 cm3 (density x0.96)",
+  "plate 0032: 258.6 of 479.9 cm2 left after the 6 inch opening",
+  "C0084 (TGT-401-0002-0008:2 [CAD mater) moved 0.24 cm outward, min r was 2.86",
+  "C0031 (SS_4_VCR_4_22882:1 [VCR fittin) moved 0.47 cm outward, min r was 2.63",
+  "C0018 (TGT-401-0002-0023:1 [CAD mater) dropped: it crosses the beam (min r 0.00), cannot be moved out",
+  "C0032 (SS_4_VCR_3_28491:3 [VCR fittin) moved 0.19 cm outward, min r was 2.91",
+  "C0019 (SS_4_VCR_3_28491:1 [VCR fittin) moved 0.16 cm outward, min r was 2.94",
+  "C0033 (SS_4_VCR_3_28491:4 [VCR fittin) moved 0.16 cm outward, min r was 2.94",
+  "C0234 (TGT-401-0002-0012:2 [CAD mater) moved 0.42 cm outward, min r was 2.68",
+  "C0026 (SS_2_VCR_1_24284:1 [VCR fittin) moved 0.18 cm outward, min r was 2.92",
+  "C0034 (SS_4_VCR_4_22882:2 [VCR fittin) moved 0.43 cm outward, min r was 2.67",
+  "C1497 (HALL_D_TARGET_ASSEMBLY 2014040) moved 0.30 cm outward, min r was 2.80",
+  "C0029 (0.2 g) merged into C0028",
+  "C0248.4 (2.4 g) merged into C0256.1",
+  "C0274.4 (2.4 g) merged into C0280.0",
+  "C0235.4 (2.4 g) merged into C0243.1",
+  "C0261.4 (2.4 g) merged into C0267.0",
+  "C0025 (2.5 g) merged into C0026 (0.7 g not kept)",
+  "C0249 (4.6 g) merged into C0254.1",
+  "C0275 (4.6 g) merged into C0280.1",
+  "C0262 (4.6 g) merged into C0267.1",
+  "C0236 (4.6 g) merged into C0241.1",
+  "C0234 (5.0 g) merged into C0031 (2.8 g not kept)",
+  "C0231 (5.0 g) merged into C0084",
+  "C0238 (1.8 g) merged into C0242",
+  "C0258 (1.8 g) merged into C0256.0",
+  "C0284 (1.8 g) merged into C0282.0",
+  "C0271 (1.8 g) merged into C0269.0",
+  "C0251 (1.8 g) merged into C0255",
+  "C0277 (1.8 g) merged into C0281",
+  "C0278 (1.8 g) merged into C0280.1",
+  "C0252 (1.8 g) merged into C0254.1",
+  "C0245 (1.8 g) merged into C0243.0",
+  "C0264 (1.8 g) merged into C0268",
+  "C0265 (1.8 g) merged into C0267.1",
+  "C0239 (1.8 g) merged into C0241.1",
+  "C0028 (5.9 g) merged into C0026 (5.9 g not kept)",
+  "C0248.3 (8.1 g) merged into C0256.0",
+  "C0274.3 (8.1 g) merged into C0282.0",
+  "C0235.3 (8.1 g) merged into C0243.0",
+  "C0261.3 (8.1 g) merged into C0269.0",
+  "C0274.5 (8.2 g) merged into C0280.1",
+  "C0248.5 (8.2 g) merged into C0254.1",
+  "C0235.5 (8.2 g) merged into C0241.1",
+  "C0261.5 (8.2 g) merged into C0267.1",
+  "C1602 (2.9 g) merged into C1646",
+  "C1624 (2.9 g) merged into C1596",
+  "C1608 (2.9 g) merged into C1646 (2.9 g not kept)",
+  "C1622 (2.9 g) merged into C1596 (2.9 g not kept)",
+  "C1606 (2.9 g) merged into C1646 (2.9 g not kept)",
+  "C1620 (2.9 g) merged into C1596 (2.9 g not kept)",
+  "C1614 (2.9 g) merged into C1659",
+  "C1604 (2.9 g) merged into C1646 (2.9 g not kept)",
+  "C1632 (2.9 g) merged into C1633",
+  "C1626 (2.9 g) merged into C1633 (2.9 g not kept)",
+  "C1618 (2.9 g) merged into C1596 (2.9 g not kept)",
+  "C1612 (2.9 g) merged into C1659 (2.9 g not kept)",
+  "C1630 (2.9 g) merged into C1633 (2.9 g not kept)",
+  "C1616 (2.9 g) merged into C1659 (2.9 g not kept)",
+  "C1610 (2.9 g) merged into C1659 (2.9 g not kept)",
+  "C1628 (2.9 g) merged into C1633 (2.9 g not kept)",
+  "C1031 (3.5 g) merged into C0960",
+  "C0991 (3.5 g) merged into C0959",
+  "C0971 (3.5 g) merged into C0955",
+  "C1011 (3.5 g) merged into C0957",
+  "C1015 (3.5 g) merged into C0957",
+  "C0975 (3.5 g) merged into C0955",
+  "C1016 (3.5 g) merged into C0957 (2.9 g not kept)",
+  "C0976 (3.5 g) merged into C0955 (2.9 g not kept)",
+  "C0996 (3.5 g) merged into C1000",
+  "C1035 (3.5 g) merged into C1040",
+  "C0995 (3.5 g) merged into C1000",
+  "C1036 (3.5 g) merged into C1040",
+  "C1039 (3.5 g) merged into C1040 (2.4 g not kept)",
+  "C0999 (3.5 g) merged into C1000 (2.4 g not kept)",
+  "C1038 (3.5 g) merged into C1040 (3.5 g not kept)",
+  "C0998 (3.5 g) merged into C1000 (3.5 g not kept)",
+  "C0974 (3.5 g) merged into C0955 (3.5 g not kept)",
+  "C1034 (3.5 g) merged into C1040 (3.5 g not kept)",
+  "C1014 (3.5 g) merged into C0957 (3.5 g not kept)",
+  "C1017 (3.5 g) merged into C0957 (3.5 g not kept)",
+  "C0977 (3.5 g) merged into C0955 (3.5 g not kept)",
+  "C0978 (3.5 g) merged into C0955 (3.5 g not kept)",
+  "C1018 (3.5 g) merged into C0957 (3.5 g not kept)",
+  "C0997 (3.5 g) merged into C1000 (3.5 g not kept)",
+  "C1037 (3.5 g) merged into C1040 (3.5 g not kept)",
+  "C0994 (3.5 g) merged into C1000 (3.5 g not kept)",
+  "C1019 (3.5 g) merged into C0957 (3.5 g not kept)",
+  "C0979 (3.5 g) merged into C0955 (3.5 g not kept)",
+  "C1493 (3.2 g) merged into C1495",
+  "C0225.0 (12.8 g) merged into C0078",
+  "C0033 (13.2 g) merged into C0034 (11.0 g not kept)",
+  "C0032 (13.2 g) merged into C0031 (13.2 g not kept)",
+  "C1317 (4.5 g) merged into C1322",
+  "C1336 (4.5 g) merged into C1341",
+  "C1327 (13.3 g) merged into C1341",
+  "C1308 (13.3 g) merged into C1322",
+  "C1315 (4.5 g) merged into C1316 (4.4 g not kept)",
+  "C1330 (4.5 g) merged into C1329 (4.4 g not kept)",
+  "C1311 (4.5 g) merged into C1310 (4.4 g not kept)",
+  "C1353 (4.5 g) merged into C1354 (4.4 g not kept)",
+  "C1355 (4.5 g) merged into C1360",
+  "C1346 (13.3 g) merged into C1345 (13.2 g not kept)",
+  "C1334 (4.5 g) merged into C1335 (4.4 g not kept)",
+  "C1349 (4.5 g) merged into C1348 (4.4 g not kept)",
+  "C0222 (15.4 g) merged into C0218 (14.5 g not kept)",
+  "C0233.0 (15.4 g) merged into C0078",
+  "C1731 (5.8 g) merged into C0958",
+  "C1753 (5.8 g) merged into C0958",
+  "C1729 (5.8 g) merged into C0958",
+  "C1737 (5.8 g) merged into C0958",
+  "C1745 (5.8 g) merged into C0958",
+  "C1755 (5.8 g) merged into C0958",
+  "C1747 (5.8 g) merged into C0958",
+  "C1739 (5.8 g) merged into C0958",
+  "C1733 (5.8 g) merged into C0958",
+  "C1757 (5.8 g) merged into C0958",
+  "C1749 (5.8 g) merged into C0958 (4.4 g not kept)",
+  "C1751 (5.8 g) merged into C0958 (5.8 g not kept)",
+  "C1741 (5.8 g) merged into C0958 (5.8 g not kept)",
+  "C1735 (5.8 g) merged into C0958 (5.8 g not kept)",
+  "C1743 (5.8 g) merged into C0958 (5.8 g not kept)",
+  "C1727 (5.8 g) merged into C0958 (5.8 g not kept)",
+  "C1466 (4.2 g) merged into C1495",
+  "C1528 (4.2 g) merged into C1495",
+  "C1200 (4.6 g) merged into C1076",
+  "C1204 (4.6 g) merged into C1049",
+  "C1211 (4.6 g) merged into C1083",
+  "C1210 (4.6 g) merged into C1083",
+  "C1207 (4.6 g) merged into C1083",
+  "C1206 (4.6 g) merged into C1083",
+  "C1228 (4.6 g) merged into C1076",
+  "C1232 (4.6 g) merged into C1049",
+  "C1201 (4.6 g) merged into C1076",
+  "C1205 (4.6 g) merged into C1049",
+  "C1233 (4.6 g) merged into C1049",
+  "C1229 (4.6 g) merged into C1076",
+  "C1215 (4.6 g) merged into C1080",
+  "C1218 (4.6 g) merged into C1080",
+  "C1219 (4.6 g) merged into C1080",
+  "C1214 (4.6 g) merged into C1080",
+  "C1221 (4.6 g) merged into C1080",
+  "C1216 (4.6 g) merged into C1080",
+  "C1217 (4.6 g) merged into C1080",
+  "C1220 (4.6 g) merged into C1080",
+  "C1209 (4.6 g) merged into C1083",
+  "C1213 (4.6 g) merged into C1083",
+  "C1208 (4.6 g) merged into C1083",
+  "C1198 (4.6 g) merged into C1076",
+  "C1202 (4.6 g) merged into C1049",
+  "C1226 (4.6 g) merged into C1076",
+  "C1230 (4.6 g) merged into C1049",
+  "C1212 (4.6 g) merged into C1083",
+  "C1203 (4.6 g) merged into C1049",
+  "C1199 (4.6 g) merged into C1076",
+  "C1227 (4.6 g) merged into C1076",
+  "C1231 (4.6 g) merged into C1049",
+  "C1680 (8.3 g) merged into C1674",
+  "C1716 (8.3 g) merged into C1674",
+  "C1704 (8.3 g) merged into C1674",
+  "C1798 (8.3 g) merged into C1673",
+  "C1692 (8.3 g) merged into C1674",
+  "C1786 (8.3 g) merged into C1673",
+  "C1762 (8.3 g) merged into C1673",
+  "C1774 (8.3 g) merged into C1673",
+  "C1707 (8.3 g) merged into C1674",
+  "C1683 (8.3 g) merged into C1674",
+  "C1695 (8.3 g) merged into C1674 (6.9 g not kept)",
+  "C1719 (8.3 g) merged into C1674 (8.3 g not kept)",
+  "C1801 (8.3 g) merged into C1673",
+  "C1713 (8.3 g) merged into C1674 (8.3 g not kept)",
+  "C1689 (8.3 g) merged into C1674 (8.3 g not kept)",
+  "C1677 (8.3 g) merged into C1674 (8.3 g not kept)",
+  "C1795 (8.3 g) merged into C1673 (1.0 g not kept)",
+  "C1771 (8.3 g) merged into C1673 (8.3 g not kept)",
+  "C1759 (8.3 g) merged into C1673 (8.3 g not kept)",
+  "C1701 (8.3 g) merged into C1674 (8.3 g not kept)",
+  "C1783 (8.3 g) merged into C1673 (8.3 g not kept)",
+  "C1765 (8.3 g) merged into C1673 (8.3 g not kept)",
+  "C1777 (8.3 g) merged into C1673 (8.3 g not kept)",
+  "C1789 (8.3 g) merged into C1673 (8.3 g not kept)",
+  "C1710 (8.3 g) merged into C1674 (8.3 g not kept)",
+  "C1792 (8.3 g) merged into C1673 (8.3 g not kept)",
+  "C1686 (8.3 g) merged into C1674 (8.3 g not kept)",
+  "C1698 (8.3 g) merged into C1674 (8.3 g not kept)",
+  "C1804 (8.3 g) merged into C1673 (8.3 g not kept)",
+  "C1722 (8.3 g) merged into C1674 (8.3 g not kept)",
+  "C1780 (8.3 g) merged into C1673 (8.3 g not kept)",
+  "C1768 (8.3 g) merged into C1673 (8.3 g not kept)",
+  "C1521 (3.6 g) merged into C1495",
+  "C1459 (3.6 g) merged into C1495",
+  "C1249 (9.4 g) merged into C1182",
+  "C1247 (9.4 g) merged into C1076",
+  "C1251 (9.4 g) merged into C1191",
+  "C1257 (9.4 g) merged into C1179",
+  "C1255 (9.4 g) merged into C1223",
+  "C1259 (9.4 g) merged into C1222",
+  "C1261 (9.4 g) merged into C1076",
+  "C1267 (9.4 g) merged into C1064",
+  "C1269 (9.4 g) merged into C1052",
+  "C1263 (9.4 g) merged into C1063",
+  "C1265 (9.4 g) merged into C1051",
+  "C1243 (9.4 g) merged into C1179",
+  "C1245 (9.4 g) merged into C1186",
+  "C1253 (9.4 g) merged into C1188",
+  "C1509 (2.9 g) merged into C1457",
+  "C1468 (3.4 g) merged into C1495",
+  "C1511 (3.4 g) merged into C1495",
+  "C1392 (10.7 g) merged into C1366 (11.8 g not kept)",
+  "C1384 (10.7 g) merged into C1366 (10.7 g not kept)",
+  "C1396 (10.7 g) merged into C1366 (10.7 g not kept)",
+  "C1388 (10.7 g) merged into C1366 (10.7 g not kept)",
+  "C1425 (10.7 g) merged into C1399 (11.8 g not kept)",
+  "C1417 (10.7 g) merged into C1399 (10.7 g not kept)",
+  "C1429 (10.7 g) merged into C1399 (10.7 g not kept)",
+  "C1401 (10.7 g) merged into C1399 (10.7 g not kept)",
+  "C1405 (10.7 g) merged into C1399 (10.7 g not kept)",
+  "C1409 (10.7 g) merged into C1399 (10.7 g not kept)",
+  "C1413 (10.7 g) merged into C1399 (10.7 g not kept)",
+  "C1421 (10.7 g) merged into C1399 (10.7 g not kept)",
+  "C1376 (10.7 g) merged into C1366 (10.7 g not kept)",
+  "C1368 (10.7 g) merged into C1366 (10.7 g not kept)",
+  "C1372 (10.7 g) merged into C1366 (10.7 g not kept)",
+  "C1380 (10.7 g) merged into C1366 (10.7 g not kept)",
+  "C0248.0 (35.8 g) merged into C0255",
+  "C0274.0 (35.8 g) merged into C0281",
+  "C0235.0 (35.8 g) merged into C0242",
+  "C0261.0 (35.8 g) merged into C0268",
+  "C0218 (38.2 g) merged into C0220.0 (36.7 g not kept)",
+  "C0232 (36.1 g) merged into C0219.0 (36.1 g not kept)",
+  "C1460 (9.4 g) merged into C1495",
+  "C1522 (9.4 g) merged into C1495",
+  "C0079.0 (49.1 g) merged into C0078",
+  "C0080.0 (49.1 g) merged into C0078 (31.7 g not kept)",
+  "C1758 (17.8 g) merged into C1673 (17.8 g not kept)",
+  "C1340 (21.1 g) merged into C1341",
+  "C1321 (21.1 g) merged into C1322",
+  "C1359 (21.1 g) merged into C1360",
+  "C1508 (3.0 g) merged into C1520",
+  "C1515 (7.0 g) merged into C1517 (0.3 g not kept)",
+  "C1519 (7.0 g) merged into C1517 (7.0 g not kept)",
+  "C1534 (7.0 g) merged into C1520",
+  "C1457 (9.9 g) merged into C1495",
+  "C1499 (29.1 g) merged into C1497 (28.8 g not kept)",
+  "C1362 (35.2 g) merged into C1360",
+  "C1324 (35.2 g) merged into C1322",
+  "C1343 (35.2 g) merged into C1341",
+  "C0945.0 (113.4 g) merged into C0950.0 (86.8 g not kept)",
+  "C1320 (47.5 g) merged into C1322",
+  "C1339 (47.5 g) merged into C1341",
+  "C1358 (47.5 g) merged into C1360",
+  "C0935 (141.1 g) merged into C0938.0 (114.0 g not kept)",
+  "C0924 (141.1 g) merged into C0931.1 (113.4 g not kept)",
+  "C1507 (47.7 g) merged into C1495",
+  "C1172 (14.5 g) merged into C1179",
+  "C1175 (14.5 g) merged into C1047",
+  "C1174 (14.5 g) merged into C1047",
+  "C1144 (14.5 g) merged into C1075",
+  "C1145 (14.5 g) merged into C1075",
+  "C1142 (14.5 g) merged into C1075",
+  "C1173 (14.5 g) merged into C1179",
+  "C1124 (14.5 g) merged into C1049",
+  "C1169 (14.5 g) merged into C1076",
+  "C1128 (14.5 g) merged into C1076",
+  "C1168 (14.5 g) merged into C1076",
+  "C1171 (14.5 g) merged into C1048",
+  "C1143 (14.5 g) merged into C1075",
+  "C1157 (14.5 g) merged into C1087",
+  "C1155 (14.5 g) merged into C1085",
+  "C1156 (14.5 g) merged into C1087",
+  "C1241 (14.5 g) merged into C1087",
+  "C1238 (14.5 g) merged into C1082",
+  "C1240 (14.5 g) merged into C1082",
+  "C1239 (14.5 g) merged into C1087",
+  "C1159 (14.5 g) merged into C1162",
+  "C1279 (14.5 g) merged into C1163",
+  "C1160 (14.5 g) merged into C1162",
+  "C1280 (14.5 g) merged into C1163",
+  "C1154 (14.5 g) merged into C1085",
+  "C1125 (14.5 g) merged into C1170",
+  "C1129 (14.5 g) merged into C1076",
+  "C1170 (28.9 g) merged into C1048",
+  "C1235 (14.5 g) merged into C1081",
+  "C1234 (14.5 g) merged into C1081",
+  "C1236 (14.5 g) merged into C1081",
+  "C1237 (14.5 g) merged into C1081",
+  "C1130 (14.5 g) merged into C1045",
+  "C1134 (14.5 g) merged into C1045",
+  "C1135 (14.5 g) merged into C1045",
+  "C1131 (14.5 g) merged into C1045",
+  "C1123 (14.5 g) merged into C1177",
+  "C1126 (14.5 g) merged into C1176",
+  "C1133 (14.5 g) merged into C1046",
+  "C1132 (14.5 g) merged into C1046",
+  "C1122 (14.5 g) merged into C1177",
+  "C1127 (14.5 g) merged into C1176",
+  "C1149 (14.5 g) merged into C1087",
+  "C1136 (14.5 g) merged into C1197",
+  "C1152 (14.5 g) merged into C1087",
+  "C1153 (14.5 g) merged into C1087",
+  "C1150 (14.5 g) merged into C1083",
+  "C1137 (14.5 g) merged into C1197",
+  "C1146 (14.5 g) merged into C1084",
+  "C1148 (14.5 g) merged into C1087",
+  "C1147 (14.5 g) merged into C1083",
+  "C1151 (14.5 g) merged into C1084",
+  "C1138 (14.5 g) merged into C1179",
+  "C1139 (14.5 g) merged into C1179",
+  "C1141 (14.5 g) merged into C1074",
+  "C1140 (14.5 g) merged into C1074",
+  "C1158 (43.0 g) merged into C1162",
+  "C1161 (43.0 g) merged into C1162",
+  "C1281 (43.0 g) merged into C1163",
+  "C1278 (43.0 g) merged into C1163",
+  "cart part C1846 (329.4 cm3) dropped: it is in the way of KL beam pipe HPO4 (check only)",
+  "cart part C1847 (1275.8 cm3) dropped: it is in the way of KL beam pipe HPO4 (check only)"
+ ],
+ "report": [],
+ "dropped": [
+  [
+   "cart",
+   "C0913.2",
+   47.015008121086154,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.9483333333333334}"
+  ],
+  [
+   "cart",
+   "C0919.2",
+   47.01500812111084,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.9303333333333333}"
+  ],
+  [
+   "cart",
+   "C0931.0",
+   35.71866859757375,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.787}"
+  ],
+  [
+   "cart",
+   "C0937.1",
+   46.62333949586166,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.9526666666666667}"
+  ],
+  [
+   "cart",
+   "C0943.1",
+   46.62333949587962,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.946}"
+  ],
+  [
+   "cart",
+   "C0949.1",
+   47.02961610239365,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.93}"
+  ],
+  [
+   "cart",
+   "C0914.2",
+   37.97638729611924,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.8423333333333334}"
+  ],
+  [
+   "cart",
+   "C0920.2",
+   37.976387296121274,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.7933333333333333}"
+  ],
+  [
+   "cart",
+   "C0926.0",
+   45.550327859835406,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.952}"
+  ],
+  [
+   "cart",
+   "C0932.0",
+   45.55032785985792,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.9526666666666667}"
+  ],
+  [
+   "cart",
+   "C0938.1",
+   36.92742324925025,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.823}"
+  ],
+  [
+   "cart",
+   "C0944.1",
+   36.92742324924922,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.846}"
+  ],
+  [
+   "cart",
+   "C0950.1",
+   38.13617790448457,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.7876666666666666}"
+  ],
+  [
+   "cart",
+   "C0915.2",
+   47.015008121107854,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.949}"
+  ],
+  [
+   "cart",
+   "C0927.0",
+   35.7186685975313,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.8336666666666667}"
+  ],
+  [
+   "cart",
+   "C0933.0",
+   35.718668597534226,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.825}"
+  ],
+  [
+   "cart",
+   "C0939.1",
+   46.6233394958766,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.941}"
+  ],
+  [
+   "cart",
+   "C0945.1",
+   27.743151388061403,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.11913357400722022}"
+  ],
+  [
+   "cart",
+   "C0951.1",
+   47.02961610242297,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.941}"
+  ],
+  [
+   "cart",
+   "C1840",
+   148.63844973568638,
+   "cannot be placed (bolt/gasket in a flange?) {}"
+  ],
+  [
+   "cart",
+   "C0916.2",
+   37.97638729616435,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.822}"
+  ],
+  [
+   "cart",
+   "C0928.0",
+   45.5503278598548,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.93}"
+  ],
+  [
+   "cart",
+   "C0940.1",
+   36.927423249291635,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.766}"
+  ],
+  [
+   "cart",
+   "C0952.1",
+   38.136177904484455,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.82}"
+  ],
+  [
+   "cart",
+   "C1432",
+   285.0482049085929,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.22835633626097868}"
+  ],
+  [
+   "cart",
+   "C1438",
+   285.04820490859174,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.23736730360934183}"
+  ],
+  [
+   "cart",
+   "C1841",
+   148.6384497357124,
+   "cannot be placed (bolt/gasket in a flange?) {}"
+  ],
+  [
+   "cart",
+   "C0917.2",
+   47.01500812113554,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.9353333333333333}"
+  ],
+  [
+   "cart",
+   "C0929.0",
+   35.71866859757323,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.7836666666666666}"
+  ],
+  [
+   "cart",
+   "C0941.1",
+   46.62333949590593,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.9263333333333333}"
+  ],
+  [
+   "cart",
+   "C0947.1",
+   47.02961610237654,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.938}"
+  ],
+  [
+   "cart",
+   "C0953.1",
+   47.029616102395735,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.9506666666666667}"
+  ],
+  [
+   "cart",
+   "C0918.2",
+   37.9763872961628,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.7776666666666666}"
+  ],
+  [
+   "cart",
+   "C0930.0",
+   45.55032785988055,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.9196666666666666}"
+  ],
+  [
+   "cart",
+   "C0942.1",
+   36.92742324929247,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.799}"
+  ],
+  [
+   "cart",
+   "C0948.1",
+   38.13617790443931,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.8116666666666666}"
+  ],
+  [
+   "cart",
+   "C0954.1",
+   38.1361779044386,
+   "cannot be placed (bolt/gasket in a flange?) {'HALL': 0.8283333333333334}"
+  ],
+  [
+   "cart",
+   "C0917.1",
+   5.981429517965281,
+   "in the way of KLF part XCL5"
+  ],
+  [
+   "cart",
+   "C0915.1",
+   5.981429517961573,
+   "in the way of KLF part XCL5"
+  ],
+  [
+   "cart",
+   "C0919.1",
+   5.981429517965266,
+   "in the way of KLF part XCL5"
+  ],
+  [
+   "cart",
+   "C0913.1",
+   5.981429517960784,
+   "in the way of KLF part XCL5"
+  ],
+  [
+   "cart",
+   "C0918.1",
+   14.314067101530615,
+   "in the way of KLF part XCL5"
+  ],
+  [
+   "cart",
+   "C0916.1",
+   14.314067101530567,
+   "in the way of KLF part XCL5"
+  ],
+  [
+   "cart",
+   "C0920.1",
+   14.314067101514487,
+   "in the way of KLF part XCL5"
+  ],
+  [
+   "cart",
+   "C0914.1",
+   14.314067101514198,
+   "in the way of KLF part XCL5"
+  ],
+  [
+   "cart",
+   "C1497",
+   48.395123229045026,
+   "in the way of KLF part XPNP"
+  ],
+  [
+   "cart",
+   "C1639",
+   45.85053903402786,
+   "folded into C1638"
+  ],
+  [
+   "cart",
+   "C1665",
+   45.85053903402851,
+   "folded into C1664"
+  ],
+  [
+   "cart",
+   "C1652",
+   45.85053903402786,
+   "folded into C1651"
+  ],
+  [
+   "cart",
+   "C1589",
+   45.85053903402807,
+   "folded into C1588"
+  ],
+  [
+   "cart",
+   "C1342",
+   57.97768669556566,
+   "folded into C1341"
+  ],
+  [
+   "cart",
+   "C1361",
+   57.97768669556328,
+   "folded into C1364"
+  ],
+  [
+   "cart",
+   "C1323",
+   57.977686695565225,
+   "folded into C1363"
+  ],
+  [
+   "cart",
+   "C0918.0",
+   46.119029384439926,
+   "in the way of KLF part C0921"
+  ],
+  [
+   "cart",
+   "C0916.0",
+   46.11902938443811,
+   "in the way of KLF part C0921"
+  ],
+  [
+   "cart",
+   "C0920.0",
+   46.11902938438588,
+   "in the way of KLF part C0921"
+  ],
+  [
+   "cart",
+   "C0914.0",
+   46.11902938438703,
+   "in the way of KLF part C0921"
+  ],
+  [
+   "cart",
+   "C0952.0",
+   60.27330587765158,
+   "in the way of KLF part XCL4"
+  ],
+  [
+   "cart",
+   "C0950.0",
+   86.86969542995689,
+   "in the way of KLF part XCL4"
+  ],
+  [
+   "cart",
+   "C0954.0",
+   60.273305877577144,
+   "in the way of KLF part XCL4"
+  ],
+  [
+   "cart",
+   "C0948.0",
+   60.27330587758023,
+   "in the way of KLF part XCL4"
+  ],
+  [
+   "cart",
+   "C0942.0",
+   61.482060532838304,
+   "in the way of KLF part C0956"
+  ],
+  [
+   "cart",
+   "C0940.0",
+   61.48206053283901,
+   "in the way of KLF part C0956"
+  ],
+  [
+   "cart",
+   "C0944.0",
+   61.482060532767555,
+   "in the way of KLF part C0956"
+  ],
+  [
+   "cart",
+   "C0938.0",
+   88.61182898672214,
+   "in the way of KLF part C0956"
+  ],
+  [
+   "cart",
+   "C0931.1",
+   90.3539625384546,
+   "in the way of KLF part C0934"
+  ],
+  [
+   "cart",
+   "C0929.1",
+   62.690815184560016,
+   "in the way of KLF part C0934"
+  ],
+  [
+   "cart",
+   "C0933.1",
+   62.690815184490624,
+   "in the way of KLF part C0934"
+  ],
+  [
+   "cart",
+   "C0927.1",
+   62.690815184487164,
+   "in the way of KLF part C0934"
+  ],
+  [
+   "cart",
+   "C0919.0",
+   45.4130461430058,
+   "in the way of KLF part C0921"
+  ],
+  [
+   "cart",
+   "C0917.0",
+   45.41304614302811,
+   "in the way of KLF part C0921"
+  ],
+  [
+   "cart",
+   "C0915.0",
+   45.41304614300366,
+   "in the way of KLF part C0921"
+  ],
+  [
+   "cart",
+   "C0913.0",
+   45.41304614298308,
+   "in the way of KLF part C0921"
+  ],
+  [
+   "cart",
+   "C0953.0",
+   51.37986767968408,
+   "in the way of KLF part XCL4"
+  ],
+  [
+   "cart",
+   "C0951.0",
+   51.3798676797045,
+   "in the way of KLF part XCL4"
+  ],
+  [
+   "cart",
+   "C0949.0",
+   51.37986767967617,
+   "in the way of KLF part XCL4"
+  ],
+  [
+   "cart",
+   "C0947.0",
+   51.37986767965254,
+   "in the way of KLF part XCL4"
+  ],
+  [
+   "cart",
+   "C0943.0",
+   51.78614428619792,
+   "in the way of KLF part C0956"
+  ],
+  [
+   "cart",
+   "C0941.0",
+   51.786144286217095,
+   "in the way of KLF part C0956"
+  ],
+  [
+   "cart",
+   "C0939.0",
+   51.78614428618765,
+   "in the way of KLF part C0956"
+  ],
+  [
+   "cart",
+   "C0937.0",
+   51.78614428616586,
+   "in the way of KLF part C0956"
+  ],
+  [
+   "cart",
+   "C0955",
+   119.90664453085908,
+   "in the way of KLF part C0956"
+  ],
+  [
+   "cart",
+   "C0957",
+   119.90664453085931,
+   "in the way of KLF part C0956"
+  ],
+  [
+   "cart",
+   "C0960",
+   115.7139707976521,
+   "in the way of KLF part C0956"
+  ],
+  [
+   "cart",
+   "C0959",
+   115.71397079764829,
+   "in the way of KLF part C0956"
+  ],
+  [
+   "cart",
+   "C0932.1",
+   52.859155922225916,
+   "in the way of KLF part C0934"
+  ],
+  [
+   "cart",
+   "C0930.1",
+   52.85915592224762,
+   "in the way of KLF part C0934"
+  ],
+  [
+   "cart",
+   "C0928.1",
+   52.859155922222484,
+   "in the way of KLF part C0934"
+  ],
+  [
+   "cart",
+   "C0926.1",
+   52.85915592219645,
+   "in the way of KLF part C0934"
+  ],
+  [
+   "cart",
+   "C1552",
+   80.37971956984892,
+   "folded into C1495"
+  ],
+  [
+   "cart",
+   "C0958",
+   740.3607585247898,
+   "in the way of KLF part C0956"
+  ],
+  [
+   "cart",
+   "C1846",
+   722.0053118615242,
+   "folded into C1070"
+  ],
+  [
+   "cart",
+   "C1066",
+   372.0727669409384,
+   "folded into C1084"
+  ],
+  [
+   "cart",
+   "C1067",
+   372.07276694142956,
+   "folded into C1179"
+  ],
+  [
+   "cart",
+   "C1166",
+   372.0727669409805,
+   "folded into C1047"
+  ],
+  [
+   "cart",
+   "C1167",
+   372.07276694137846,
+   "folded into C1179"
+  ],
+  [
+   "cart",
+   "C1165",
+   372.07276694114785,
+   "folded into C1076"
+  ],
+  [
+   "cart",
+   "C1121",
+   372.07276694109237,
+   "folded into C1080"
+  ],
+  [
+   "cart",
+   "C1120",
+   372.07276694108856,
+   "folded into C1080"
+  ],
+  [
+   "cart",
+   "C1069",
+   372.0727669410953,
+   "folded into C1081"
+  ],
+  [
+   "cart",
+   "C1068",
+   372.07276694107645,
+   "folded into C1081"
+  ],
+  [
+   "cart",
+   "C1164",
+   372.07276694112636,
+   "folded into C1048"
+  ],
+  [
+   "cart",
+   "C1363",
+   866.1467492831354,
+   "folded into C1078"
+  ],
+  [
+   "cart",
+   "C1364",
+   866.146749283134,
+   "folded into C1163"
+  ],
+  [
+   "cart",
+   "C1365",
+   808.169062587575,
+   "folded into C1079"
+  ],
+  [
+   "cart",
+   "C1070",
+   1301.794357089128,
+   "folded into C1049"
+  ],
+  [
+   "cart",
+   "C1071",
+   579.7890452276001,
+   "folded into C1197"
+  ],
+  [
+   "cart",
+   "C1073",
+   579.7890452277175,
+   "folded into C1178"
+  ],
+  [
+   "cart",
+   "C1072",
+   579.7890452277461,
+   "folded into C1179"
+  ]
+ ],
+ "mass_kg": {
+  "cart": [
+   157.98499208786245,
+   1084.7496248316065
+  ],
+  "KLF cryostat and lines": [
+   200.4530652882748,
+   268.9982239513688
+  ]
+ }
+}

@@ -7,6 +7,18 @@
 # version: june 3, 2024
 
 # dimensions are in cm
+#
+# KLF LH2 target v2.0 layout (claude/rtj 2026-11-19, LEDGER.md): the GlueX
+# target cart and the 16" 6-way cryostat cross sit directly upstream of the
+# target, so the KLF flux monitor (KFM) and the pair spectrometer shielding
+# (lead donut, lead wall, poly wall) are moved upstream until the KFM exit
+# is upstream of the cart.  The exit pipe now resumes after DET5 (which sits
+# in the gap between the KFM exit and the cart) and ends at the cryostat
+# entrance port (6 inch nipple, 8 inch CF flange).
+klf_shift = -1.645                 # target model shift (LEDGER.md 2026-11-19)
+lass_hall_z = -500.0               # LASS frame z = hall z + 500
+cart_zmin_lass = -333.705 + klf_shift   # upstream end of the GlueX cart
+port_zmin_lass = -165.0 + klf_shift     # upstream face of the entrance port flange
 inches = 2.54
 
 # z start positions are relative to cave-hall boundary
@@ -20,15 +32,13 @@ psmagnet_gap = 0
 psmagpipe_length = psmagnet_length
 psmagpipe_radius = (2.8*inches/2, 2.9*inches/2)
 
-pspipe2_length = 460.0
+pspipe2_length = None            # set below (was 460.0)
 pspipe2_radius = (4.0*inches/2, 4.2*inches/2)
-pspipe2_wall_start = 480.0
+pspipe2_wall_start = None        # set below (was 480.0)
 pspipe2_wall_size = (16.1, 240.0, 60.0)
 pspipe2_pwall_size = (16.1, 240.0, 10.0)
 pspipe2_donut_size = (3.0, 15.0, 20.0)
 
-pspipe3_start = pspipe2_wall_start
-pspipe3_length = 516.5
 pspipe3_radius = (2.75, 8.0)
 
 # The exit pipe is interrupted by the KLF flux monitor (KFM): it stops at
@@ -37,13 +47,19 @@ pspipe3_radius = (2.75, 8.0)
 # in main_HDDS.xml (PairSpectrometer at hall z = -1704.5, KLFFluxMonitor
 # at hall z = -950) and the KFM's own front and back faces (-1.0, +351.5).
 ps_hall_z = -1704.5
-kfm_hall_z = -950.0
+kfm_hall_z = round(cart_zmin_lass - 0.7 - 351.5 + lass_hall_z, 4)   # was -950.0
 kfm_zmin = kfm_hall_z - 1.0 - ps_hall_z
 kfm_zmax = kfm_hall_z + 351.5 - ps_hall_z
+# shielding: poly wall downstream face 1 cm upstream of the KFM entrance
+pspipe2_wall_start = round(kfm_zmin - 1.0 - (psmagnet_start + psmagnet_length) - pspipe2_wall_size[2] - pspipe2_pwall_size[2], 4)
+pspipe2_length = pspipe2_wall_start - pspipe2_donut_size[2]
+pspipe3_start = pspipe2_wall_start
+pspipe3_length = round(port_zmin_lass + lass_hall_z - ps_hall_z - (psmagnet_start + psmagnet_length) - pspipe3_start, 4)
+det5_z = kfm_zmax + 0.3            # DET5 (0.2 cm) between the KFM exit and the cart
 pspipe2_offset = psmagnet_start + psmagnet_length
 pspipe3_end = pspipe3_start + pspipe3_length
 pspipe3a_length = round(kfm_zmin - pspipe2_offset - pspipe3_start, 6)
-pspipe3b_start = round(kfm_zmax - pspipe2_offset, 6)
+pspipe3b_start = round(kfm_zmax + 0.5 - pspipe2_offset, 6)
 pspipe3b_length = round(pspipe3_end - pspipe3b_start, 6)
 
 
@@ -82,8 +98,8 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
     <posXYZ volume="PairCoarseNorth" X_Y_Z="+43.5331 0.0 394.4875" rot="0.0  4.6742 0.0" /> 
     <posXYZ volume="PairCoarseSouth" X_Y_Z="-43.5345 0.0 394.4855" rot="0.0 -4.7067  0.0" />
     <posXYZ volume="PairPipe2" X_Y_Z="0.0   0.0   {pspipe2_offset}"/> 
-    <posXYZ volume="DET5" X_Y_Z="0.0   0.0   {psmagnet_start + psmagnet_length + pspipe3_start + pspipe3_length + 0.2}"/> 
-    <posXYZ volume="DET7" X_Y_Z="0.0   0.0   {psmagnet_start + psmagnet_length + pspipe3_start + pspipe3_length + 1337}"/> 
+    <posXYZ volume="DET5" X_Y_Z="0.0   0.0   {round(det5_z, 4)}"/> 
+    <posXYZ volume="DET7" X_Y_Z="0.0   0.0   2468.882"/> <!-- fixed (was pipe end + 1337 with the original pipe length) --> 
     <!--posXYZ volume="PairShielding" X_Y_Z="0.0   0.0  432.6500" /-->
     <!--The following models the SEG blocks and additional lead shielding-->
     <!-- removed for the KLF flux detector

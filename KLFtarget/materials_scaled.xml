@@ -1,0 +1,170 @@
+  <!-- density-scaled copies (parts drawn without their holes and
+       slots keep the CAD mass); name_xNNN = NNN % of the density -->
+  <composite name="Aluminum_x006">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="0.162" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x014">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="0.378" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x024">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="0.648" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x028">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="0.756" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x030">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="0.81" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x032">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="0.864" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x036">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="0.972" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x040">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="1.08" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x042">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="1.134" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x044">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="1.188" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x056">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="1.512" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x058">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="1.566" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x064">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="1.728" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x072">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="1.944" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x074">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="1.998" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x076">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="2.052" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x084">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="2.268" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x090">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="2.43" unit="g/cm^3"/>
+  </composite>
+  <composite name="Aluminum_x094">
+    <addmaterial material="Aluminum"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="2.538" unit="g/cm^3"/>
+  </composite>
+  <composite name="Bronze_x078">
+    <addmaterial material="Bronze"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="6.922" unit="g/cm^3"/>
+  </composite>
+  <composite name="Bronze_x088">
+    <addmaterial material="Bronze"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="7.809" unit="g/cm^3"/>
+  </composite>
+  <composite name="Copper_x030">
+    <addmaterial material="Copper"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="2.688" unit="g/cm^3"/>
+  </composite>
+  <composite name="Copper_x070">
+    <addmaterial material="Copper"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="6.272" unit="g/cm^3"/>
+  </composite>
+  <composite name="Copper_x084">
+    <addmaterial material="Copper"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="7.526" unit="g/cm^3"/>
+  </composite>
+  <composite name="Copper_x092">
+    <addmaterial material="Copper"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="8.243" unit="g/cm^3"/>
+  </composite>
+  <composite name="Copper_x096">
+    <addmaterial material="Copper"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="8.602" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x002">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="0.1604" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x012">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="0.9624" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x032">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="2.566" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x040">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="3.208" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x054">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="4.331" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x056">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="4.491" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x060">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="4.812" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x064">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="5.133" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x068">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="5.454" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x076">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="6.095" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x078">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="6.256" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x084">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="6.737" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x090">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="7.218" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x092">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="7.378" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x108">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="8.662" unit="g/cm^3"/>
+  </composite>
+  <composite name="StainlessSteel_x114">
+    <addmaterial material="StainlessSteel"> <fractionmass fraction="1.0"/> </addmaterial>
+    <real name="density" value="9.143" unit="g/cm^3"/>
+  </composite>

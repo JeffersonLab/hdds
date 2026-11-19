@@ -1,0 +1,39 @@
+  <!-- KLF LH2 target v2.0 materials (claude, 2026-11-18) -->
+  <composite name="Al7075" comment="aluminium alloy 7075 (nominal Zn 5.6, Mg 2.5, Cu 1.6, Cr 0.23 %)">
+    <addmaterial material="Aluminum"> <fractionmass fraction="0.9007"/> </addmaterial>
+    <addmaterial material="Zinc">     <fractionmass fraction="0.0560"/> </addmaterial>
+    <addmaterial material="Magnesium"><fractionmass fraction="0.0250"/> </addmaterial>
+    <addmaterial material="Copper">   <fractionmass fraction="0.0160"/> </addmaterial>
+    <addmaterial material="Chromium"> <fractionmass fraction="0.0023"/> </addmaterial>
+    <real name="density" value="2.81" unit="g/cm^3"/>
+  </composite>
+  <composite name="G10" comment="NEMA G-10 glass epoxy laminate, composition as FR-4">
+    <addmaterial material="BorosilicateGlass"> <fractionmass fraction="0.70"/> </addmaterial>
+    <addmaterial material="EpoxyResin">        <fractionmass fraction="0.30"/> </addmaterial>
+    <real name="density" value="1.85" unit="g/cm^3"/>
+  </composite>
+  <composite name="G10ring21" comment="G10 at 1.85/1.273: target ring 0021 drawn without its holes">
+    <addmaterial material="BorosilicateGlass"> <fractionmass fraction="0.70"/> </addmaterial>
+    <addmaterial material="EpoxyResin">        <fractionmass fraction="0.30"/> </addmaterial>
+    <real name="density" value="1.453" unit="g/cm^3"/>
+  </composite>
+  <composite name="G10spider" comment="G10 at 1.85/1.457: target rings 0028, 0029 drawn without their holes">
+    <addmaterial material="BorosilicateGlass"> <fractionmass fraction="0.70"/> </addmaterial>
+    <addmaterial material="EpoxyResin">        <fractionmass fraction="0.30"/> </addmaterial>
+    <real name="density" value="1.270" unit="g/cm^3"/>
+  </composite>
+  <composite name="CFRP" comment="carbon fibre epoxy at the CAD density 1.43">
+    <addmaterial material="CarbonFiber"> <fractionmass fraction="0.60"/> </addmaterial>
+    <addmaterial material="EpoxyResin">  <fractionmass fraction="0.40"/> </addmaterial>
+    <real name="density" value="1.43" unit="g/cm^3"/>
+  </composite>
+  <composite name="Bronze" comment="tin bronze (CAD: Bronze, Soft Tin 8.874 g/cm3)">
+    <addmaterial material="Copper"> <fractionmass fraction="0.88"/> </addmaterial>
+    <addmaterial material="Tin">    <fractionmass fraction="0.12"/> </addmaterial>
+    <real name="density" value="8.874" unit="g/cm^3"/>
+  </composite>
+  <composite name="BrassCAD" comment="brass at the CAD density 8.47 (HDDS Brass has no density)">
+    <addmaterial material="Copper"> <fractionmass fraction="0.65"/> </addmaterial>
+    <addmaterial material="Zinc">   <fractionmass fraction="0.35"/> </addmaterial>
+    <real name="density" value="8.47" unit="g/cm^3"/>
+  </composite>

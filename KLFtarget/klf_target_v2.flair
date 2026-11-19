@@ -1,0 +1,50 @@
+# flair project file
+Version: 300
+Mode: fluka
+Title: KLF LH2 target v2.0
+Input: klf_target_v2.inp
+Page: Geometry
+Plot: Red
+	Type: Geometry
+	basisu: 0 0 1
+	basisv: 1 0 0
+	coord: Z-X
+	origin: 0 0 8
+	extends: 80 60
+	kind: Material
+	layer: Media
+	title: ZX slice at y=0, whole target
+End
+Plot: Green
+	Type: Geometry
+	basisu: 0 0 1
+	basisv: 1 0 0
+	coord: Z-X
+	origin: 0 0 42
+	extends: 5 3.75
+	kind: Material
+	layer: Media
+	title: ZX slice at y=0, cell base and entrance dome
+End
+Plot: Blue
+	Type: Geometry
+	basisu: 0 0 1
+	basisv: 1 0 0
+	coord: Z-X
+	origin: 0 0 82
+	extends: 4 3
+	kind: Material
+	layer: Media
+	title: ZX slice at y=0, downstream dome and exit window
+End
+Plot: Magenta
+	Type: Geometry
+	basisu: 1 0 0
+	basisv: 0 1 0
+	coord: X-Y
+	origin: 0 0 20
+	extends: 12 9
+	kind: Material
+	layer: Media
+	title: XY slice at z=20 (struts and rods)
+End

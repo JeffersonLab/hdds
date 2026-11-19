@@ -1,0 +1,8 @@
+Generators of Target_HDDS.xml and TargetCryostat_HDDS.xml (2026-11-19).
+They read the CAD-derived inputs (pcons_local.json, struts.json, prims_*.json,
+solids_named.json, vols.json, materials.txt) from /scratch/klf-geometry/lh2tgt,
+which are made from the STEP file TGT-401-5000-0000 by steptree.py and
+analyze_solids.py (gmsh/OpenCASCADE venv in /scratch/klf-geometry/lh2tgt/venv).
+build_target.py / build_cryostat.py import each other and expect to run from
+this directory (see README.md, "Build order"). The repo files Target_HDDS.xml,
+TargetCryostat_HDDS.xml, Material_HDDS.xml, PairSpect_HDDS.xml are their output.

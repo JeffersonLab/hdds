@@ -6,6 +6,7 @@
   <!ENTITY BeamLine_s SYSTEM "BeamLine_HDDS.xml">
   <!ENTITY PairSpect_s SYSTEM "PairSpect_HDDS.xml">
   <!ENTITY Target_s SYSTEM "Target_HDDS.xml"  >
+  <!ENTITY TargetCryostat_s SYSTEM "TargetCryostat_HDDS.xml">
   <!ENTITY Solenoid_s SYSTEM "Solenoid_HDDS.xml">
   <!ENTITY CentralDC_s SYSTEM "CentralDC_HDDS.xml">
   <!ENTITY ForwardDC_s SYSTEM "ForwardDC_HDDS.xml">
@@ -46,6 +47,7 @@
      &CentralDC_s;
      &StartCntr_s;
      &Target_s;
+     &TargetCryostat_s;
      &Solenoid_s;
      &BeamLine_s;
      &UpstreamEMveto_s;
@@ -132,9 +134,9 @@
   <composition name="experimentalHall" envelope="HALL">
     <posXYZ volume="GlueXdetector" X_Y_Z="150.0 -350.0 -500.0" />
     <posXYZ volume="PairSpectrometer" X_Y_Z="150.0 -350.0 -1704.5" />  
-    <posXYZ volume="KLFFluxMonitor" X_Y_Z="150 -350 -950"/>
+    <posXYZ volume="KLFFluxMonitor" X_Y_Z="150 -350 -1187.55"/> <!-- moved upstream of the LH2 target cart (was -950) -->
     <posXYZ volume="beamPipe" X_Y_Z="0.0 0.0 -0.5" />
-    <posXYZ volume="SixWayCross" X_Y_Z="150 -350 -605.96"/>
+    <posXYZ volume="targetCryostat" X_Y_Z="150 -350 -500"/> <!-- KLF LH2 target cryostat, entrance port and cart, LASS frame (replaces the empty SixWayCross) -->
   </composition>
 
   <composition name="LASSfieldVolume">

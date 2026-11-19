@@ -205,6 +205,12 @@ class Frame:
 
 SHAPES = ('box', 'tubs', 'pcon', 'pgon', 'trd', 'eltu', 'cons', 'sphere')
 
+# Volumes private to the HDDS description (virtual scoring planes DET1,
+# DET2, ... of the beam line and pair spectrometer, read by the GlueX
+# simulation only): they are never placed, so neither the FLUKA model nor
+# the verification sees them; the space they occupy belongs to their mother.
+PRIVATE = re.compile(r'^DET[0-9]+$')
+
 
 class PV:
     """One physical placement of a solid (a FLUKA region-to-be)."""
@@ -231,6 +237,7 @@ class Flattener:
         self.root_name = root_name
         self.pvs = []
         self.root_frames = []
+        self.private = []        # paths of skipped private placements
 
     def get(self, name):
         if name not in self.table:
@@ -256,6 +263,10 @@ class Flattener:
 
     def place(self, el, frame, mother, path, inroot, field, layer):
         name = el.get('name')
+        if name and PRIVATE.match(name):
+            if inroot or name == self.root_name:
+                self.private.append(path)
+            return
         if name == self.root_name:
             inroot = True
             self.root_frames.append(frame)
@@ -1960,6 +1971,11 @@ class Translation:
                      "%s (%d zones, %d terms)" % (r[0], len(r[1]),
                                                   sum(len(x.lits) for x in r[1]))
                      for r in worst)]
+        if self.fl.private:
+            lines.append("%d placements of HDDS-private volumes (%s) left out"
+                         % (len(self.fl.private), ", ".join(sorted(set(
+                             x.rsplit('/', 1)[-1].split('#')[0]
+                             for x in self.fl.private)))))
         if self.container is not None:
             lines.append("container body %s: x %.3f..%.3f  y %.3f..%.3f  "
                          "z %.3f..%.3f cm" % ((self.container[0],) + tuple(

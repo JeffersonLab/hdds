@@ -36,6 +36,15 @@ Options:
 | `--rot-index-start N` | index of the first ROT-DEFI transformation (default 1); FLUKA matches ROT-DEFI cards by index as well as by name, so translations pasted into one input need disjoint index ranges |
 | `--body-prefix X` | extra characters in generated body and ROT-DEFI names, to avoid clashes with a host geometry or with another translation pasted into the same input (e.g. `-o kfm` and `-o startcntr` need different prefixes) |
 
+## HDDS-private volumes
+
+The virtual scoring planes DET1, DET2, ... (beam line, pair spectrometer)
+are read only by the GlueX simulation. Any volume whose name matches
+`^DET[0-9]+$` (the `PRIVATE` pattern in `hdds2fluka.py`) is never placed:
+the FLUKA model does not contain it, `verify.py` does not see it, and the
+space it occupies belongs to its mother. The summary says how many
+placements were left out.
+
 ## Output files (stem `S`)
 
 | file | contents |
