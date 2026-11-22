@@ -512,11 +512,11 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   <box name="DET3" X_Y_Z="450.0  2.0  918.0" material="Air" />
   <tubs name="DET4" Rio_Z="3.52  230.0  0.2" material="Air" comment="virtual plane 1.0 cm upstream of the KFM TOF bars (placed in main_HDDS.xml); ring around the 7 cm OD pipe" />
   <box name="DET5" X_Y_Z="1700.0  1198.0  0.2" material="Air" />
-  <box name="DET6" X_Y_Z="1700.0  2.0  3000.0" material="Air" />
+  <tubs name="DET6" Rio_Z="3.52  60.0  0.2" material="Air" comment="virtual plane between KFM pizza 2 and straw module 1 (placed in main_HDDS.xml); ring around the 7 cm OD pipe" />
   <box name="DET7" X_Y_Z="1700.0  1198.0  2.0" material="Air" />
   <!--tubs name="DET7" Rio_Z="0.0 1.7399  2.0" material="Vacuum"
         comment="disk detector inside beam pipe at target entrance" /-->
-  <box name="DET8" X_Y_Z="10.0  10.0  1.0" material="Scintillator" sensitive="true" />
+  <tubs name="DET8" Rio_Z="3.52  80.0  0.2" material="Air" comment="virtual plane between KFM straw module 4 and the FRI (placed in main_HDDS.xml); ring around the 7 cm OD pipe" />
 
 <!-- Approximation for the beam profiler -->
 
