@@ -28,10 +28,12 @@
     <posXYZ volume="PairPipe1" X_Y_Z="0.0  0.0  0"/>
     <posXYZ volume="PairMagnet" X_Y_Z="0.0   0.0  2.54" />
     <!--posXYZ volume="PairVacChamb" X_Y_Z="0.0   0.0   -114.6007" /-->
+    <!-- PS detectors removed for the KLF flux monitor (rtj 2026-11-21)
     <posXYZ volume="PairHodoscopeNorth" X_Y_Z="+36.261    0.0   345.3074"  rot="0.0  4.57077 0.0"/>
     <posXYZ volume="PairHodoscopeSouth" X_Y_Z="-36.3013   0.0   345.3392"  rot="0.0 -4.65958 0.0"/> 
     <posXYZ volume="PairCoarseNorth" X_Y_Z="+43.5331 0.0 394.4875" rot="0.0  4.6742 0.0" /> 
     <posXYZ volume="PairCoarseSouth" X_Y_Z="-43.5345 0.0 394.4855" rot="0.0 -4.7067  0.0" />
+    -->
     <posXYZ volume="PairPipe2" X_Y_Z="0.0   0.0   135.382"/> 
     <posXYZ volume="DET5" X_Y_Z="0.0   0.0   868.75"/> 
     <posXYZ volume="DET7" X_Y_Z="0.0   0.0   2468.882"/> <!-- fixed (was pipe end + 1337 with the original pipe length) --> 
@@ -86,37 +88,48 @@
     <posXYZ volume="HMPI" X_Y_Z="0.0 0.0 0.0"/> 
   </composition>
 
-  <tubs name="HMPO" Rio_Z="0.0  3.683  132.842" material="Iron" /> 
+  <tubs name="HMPO" Rio_Z="0.0  3.683  132.842" material="StainlessSteel" comment="non-magnetic pipe between the pole faces" /> 
   <tubs name="HMPI" Rio_Z="0.0  3.5559999999999996  132.842" material="Vacuum" /> 
 
 
 <!-- Vacuum Pipe Section 2 -->
 
   <composition name="PairPipe2">
-    <posXYZ volume="PairPipe2Tube" X_Y_Z="0.0  0.0  144.784" /> 
-    <posXYZ volume="LWAD" X_Y_Z="0.0  0.0  339.568" />
-    <posXYZ volume="LeadDonut" X_Y_Z="0.0  0.0  299.568" />
-    <posXYZ volume="LPAD" X_Y_Z="0.0  0.0  374.568" />
-    <!-- exit pipe, interrupted by the KLF flux monitor -->
-    <posXYZ volume="PairPipe3Tube" X_Y_Z="0.0  0.0  345.068" />
+    <posXYZ volume="PairPipe2Tube" X_Y_Z="0.0  0.0  169.784" /> 
+    <posXYZ volume="LWAD" X_Y_Z="0.0  0.0  369.568" />
+    <posXYZ volume="LDAD" X_Y_Z="0.0  0.0  329.568" />
+    <posXYZ volume="LPAD" X_Y_Z="0.0  0.0  404.568" />
+    <!-- pipe through the lead and poly walls (stepped bore), then the exit pipe to the
+         target, interrupted only by the DET5 virtual-detector plane (0.4 cm gap) -->
+    <posXYZ volume="PairPipe3Tube" X_Y_Z="0.0  0.0  375.068" />
+    <posXYZ volume="PairPipe4aTube" X_Y_Z="0.0  0.0  571.868" />
     <posXYZ volume="PairPipe4Tube" X_Y_Z="0.0  0.0  818.0205" />
   </composition>
   <composition name="PairPipe2Tube" envelope="HPO2" >
     <posXYZ volume="HPI2" X_Y_Z="0.0  0.0  0.0" />
   </composition>
   <composition name="PairPipe3Tube" envelope="HPO3" >
-    <posXYZ volume="HPI3" X_Y_Z="0.0  0.0  0.0" />
+    <posXYZ volume="HPI3" X_Y_Z="0.0  0.0  -23.0" />
+    <posXYZ volume="HPJ3" X_Y_Z="0.0  0.0  -5.5" />
+    <posXYZ volume="HPK3" X_Y_Z="0.0  0.0  17.5" />
+  </composition>
+  <composition name="PairPipe4aTube" envelope="HPP4" >
+    <posXYZ volume="HPQ4" X_Y_Z="0.0  0.0  0.0" />
   </composition>
   <composition name="PairPipe4Tube" envelope="HPO4" >
     <posXYZ volume="HPI4" X_Y_Z="0.0  0.0  0.0" />
   </composition>
 
-  <tubs name="HPO2" Rio_Z="0.0  5.3340000000000005  289.568" material="Iron" /> 
-  <tubs name="HPI2" Rio_Z="0.0  5.08  289.568" material="Vacuum" /> 
+  <tubs name="HPO2" Rio_Z="0.0  3.5  339.568" material="StainlessSteel" comment="KFM beam pipe, OD 7 cm, through the flux monitor and the lead donut" /> 
+  <tubs name="HPI2" Rio_Z="0.0  3.373  339.568" material="Vacuum" /> 
   <tubs name="HPO3" Rio_Z="0.0  8.0  71.0" material="Iron" /> 
-  <tubs name="HPI3" Rio_Z="0.0  2.75  71.0" material="Vacuum" /> 
+  <tubs name="HPI3" Rio_Z="0.0  3.373  25.0" material="Vacuum" comment="upstream counterbore" /> 
+  <tubs name="HPJ3" Rio_Z="0.0  2.75  10.0" material="Vacuum" comment="land: defining aperture, centred in the lead" /> 
+  <tubs name="HPK3" Rio_Z="0.0  3.373  36.0" material="Vacuum" comment="downstream counterbore" /> 
+  <tubs name="HPP4" Rio_Z="0.0  8.0  322.6" material="Iron" /> 
+  <tubs name="HPQ4" Rio_Z="0.0  3.9  322.6" material="Vacuum" /> 
   <tubs name="HPO4" Rio_Z="0.0  8.0  168.905" material="Iron" /> 
-  <tubs name="HPI4" Rio_Z="0.0  2.75  168.905" material="Vacuum" /> 
+  <tubs name="HPI4" Rio_Z="0.0  3.9  168.905" material="Vacuum" /> 
 
   <pgon name="LWAD" segments="4" profile="-45 360" material="Lead">
     <polyplane Rio_Z="8.05  120.0  -30.0" />
@@ -127,11 +140,7 @@
     <polyplane Rio_Z="8.05  120.0  5.0" />
   </pgon>
 
-  <composition name="LeadDonut" envelope="LDAD" >
-    <posXYZ volume="LDAI" X_Y_Z="0.0  0.0  0.0" />
-  </composition>
-  <tubs name="LDAD" Rio_Z="0  15.0  20.0" material="Lead" />
-  <tubs name="LDAI" Rio_Z="0  3.0  20.0" material="Vacuum" />
+  <tubs name="LDAD" Rio_Z="3.5  15.0  20.0" material="Lead" comment="lead donut around the KFM pipe" />
 
 
 <!-- Hodoscope Counters -->

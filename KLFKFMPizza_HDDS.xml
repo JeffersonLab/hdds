@@ -4,14 +4,16 @@
   Hall D Geometry Data Base: Kaon Flux Monitor Time of Flight Wall
   ********************************************
 
-     version 1.0: Initial version
+     version 1.0: Initial version (S. Fegan)
+     version 1.1: beam hole radius 3.02 -> 3.55 cm for the 7 cm OD KFM beam
+                  pipe; mother inner radius 3.0 -> 3.52 (claude/rtj 2026-11-21)
 
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "KLFKFMPizza"
-         version     = "1.0"
-         date        = "2026-08-07"
+         version     = "1.1"
+         date        = "2026-11-21"
          author      = "S.Fegan"
          top_volume  = "KFMN"
          specification = "v1.0">
@@ -37,11 +39,11 @@
 </composition>
 
 
-  <tubs name="PZS1" Rio_Z="3.02 35.2 0.3" profile="0.0 5.0" material="Scintillator" sensitive="true"/>
+  <tubs name="PZS1" Rio_Z="3.55 35.2 0.3" profile="0.0 5.0" material="Scintillator" sensitive="true"/>
 
-  <tubs name="FMP1" Rio_Z="3.0 37.5 2.0" profile="0.0 360.0" material="Air" comment="Mother volume for Pizza layer 1" />
+  <tubs name="FMP1" Rio_Z="3.52 37.5 2.0" profile="0.0 360.0" material="Air" comment="Mother volume for Pizza layer 1" />
 
-    <tubs name="FMP2" Rio_Z="3.0 37.5 5.0" profile="0.0 360.0" material="Air" comment="Mother volume for flux monitor Pizza layer 2" />
+    <tubs name="FMP2" Rio_Z="3.52 37.5 5.0" profile="0.0 360.0" material="Air" comment="Mother volume for flux monitor Pizza layer 2" />
 
 
 

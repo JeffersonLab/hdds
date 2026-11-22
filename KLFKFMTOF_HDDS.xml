@@ -4,53 +4,64 @@
   Hall D Geometry Data Base: Kaon Flux Monitor Time of Flight Wall
   ********************************************
 
-     version 1.0: Initial version
+     version 1.0: Initial version (S. Fegan)
+     version 2.0: M. Bashkanov's 2026-11 layout (kfm_straws.png): 22 columns of
+                  12 cm; 14 x 260 cm bars (7 each side of a 24 cm centre slot),
+                  6 x 190 cm bars (outer 3 columns each side, same centre - assumed,
+                  cropped in the figure), the 116.5 and 114.5 cm bars side by side in
+                  the slot above the beam (lower ends 12 cm above the beam axis),
+                  nothing below the beam in the slot.  The bar centre is 46 cm above
+                  the beam (read from the figure).  Origin = beam axis.
+                  (claude/rtj 2026-11-21)
 
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "KLFKFMTOF"
-         version     = "1.0"
-         date        = "2026-06-05"
+         version     = "2.0"
+         date        = "2026-11-21"
          author      = "S.Fegan"
          top_volume  = "KFMN"
          specification = "v1.0">
 
 
-<!-- Origin of Flux Monitor TOF is defined as the center of the hall.
+<!-- Origin of the flux monitor TOF is the beam axis at the centre of the bar plane.
 -->
 
   <composition name="KLFKFMTOF">
-    <posXYZ volume="TOFBarsNorth" X_Y_Z="+56.00    0.0   0.0"/>
-    <posXYZ volume="TOFBarsSouth" X_Y_Z="-56.00   0.0   0.0"/>
-    <!-- Shorter top and bottom bars surrounding beam pipe -->
-    <posXYZ volume="TOFBarsCenter" X_Y_Z="0.0   0.0   0.0"/>
+    <posXYZ volume="TOFBarsNorth" X_Y_Z="+72.0   46.0   0.0"/>
+    <posXYZ volume="TOFBarsSouth" X_Y_Z="-72.0   46.0   0.0"/>
+    <!-- two shortened bars in the centre slot, above the beam pipe only -->
+    <posXYZ volume="TOFBarsCenter" X_Y_Z="0.0   70.25   0.0"/>
   </composition>
 	
 
 <!-- TOF Counters -->
 
 <composition name="TOFBarsNorth" envelope="FMTN">
-  <mposX volume="FMTF" ncopy="8" Y_Z="0.0 0.0" X0="-44" dX="12">  </mposX>
+  <mposX volume="FMTF" ncopy="7" Y_Z="0.0 0.0" X0="-54" dX="12">  </mposX>
+  <mposX volume="FMTH" ncopy="3" Y_Z="0.0 0.0" X0="30" dX="12">  </mposX>
 </composition>
 
 <composition name="TOFBarsSouth" envelope="FMTS">
-  <mposX volume="FMTF" ncopy="8" Y_Z="0.0 0.0" X0="-40" dX="12">  </mposX>
+  <mposX volume="FMTF" ncopy="7" Y_Z="0.0 0.0" X0="-18" dX="12">  </mposX>
+  <mposX volume="FMTH" ncopy="3" Y_Z="0.0 0.0" X0="-54" dX="12">  </mposX>
 </composition>
 
 <composition name="TOFBarsCenter" envelope="FMTC">
-  <posXYZ volume="FMTT" X_Y_Z="0.0 71.75 0.0">  </posXYZ>
-  <posXYZ volume="FMTB" X_Y_Z="0.0 -72.75 0.0">  </posXYZ>
+  <posXYZ volume="FMTT" X_Y_Z="6.0 0.0 0.0">  </posXYZ>
+  <posXYZ volume="FMTB" X_Y_Z="-6.0 -1.0 0.0">  </posXYZ>
   </composition>
 
 
   <box name="FMTF" X_Y_Z="11.99 260.0 2.0" material="Scintillator" sensitive="true"/>
-  <box name="FMTT" X_Y_Z="11.99 116.5 2.0" material="Scintillator" sensitive="true"/>
-  <box name="FMTB" X_Y_Z="11.99 114.5 2.0" material="Scintillator" sensitive="true"/>
+  <box name="FMTH" X_Y_Z="11.99 190.0 2.0" material="Scintillator" sensitive="true"/>
+  <box name="FMTT" X_Y_Z="11.99 116.5 2.0" material="Scintillator" sensitive="true" comment="y from 12.0 to 128.5 above the beam"/>
+  <box name="FMTB" X_Y_Z="11.99 114.5 2.0" material="Scintillator" sensitive="true" comment="y from 12.0 to 126.5 above the beam"/>
 
-  <box name="FMTN" X_Y_Z="100.0 280.0 3.0" material="Air" comment="Mother volume for flux monitor TOF bars" />
-  <box name="FMTS" X_Y_Z="100.0 280.0 3.0" material="Air" comment="Mother volume for flux monitor TOF bars" />
-  <box name="FMTC" X_Y_Z="12.0 280.0 3.0" material="Air" comment="Mother volume for flux monitor TOF bars" />
+  <box name="FMTN" X_Y_Z="120.0 262.0 3.0" material="Air" comment="Mother volume for flux monitor TOF bars" />
+  <box name="FMTS" X_Y_Z="120.0 262.0 3.0" material="Air" comment="Mother volume for flux monitor TOF bars" />
+  <box name="FMTC" X_Y_Z="24.0 116.6 3.0" material="Air" comment="Mother volume for flux monitor TOF bars" />
 
 
 

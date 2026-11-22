@@ -1,88 +1,714 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--DOCTYPE HDDS>
 
-  Hall D Geometry Data Base: Kaon Flux Monitor Time of Flight Wall
-  ********************************************
+  Hall D Geometry Data Base: Kaon Flux Monitor straw tracker
+  **********************************************************
 
-     version 1.0: Initial version
+     version 1.0: Initial version (S. Fegan)
+     version 2.0: complete 50 cm disks centred on the beam with an octagonal
+                  hole (apothem 3.55 cm) for the 7 cm OD beam pipe; generated
+                  by KLFKFMTracker_HDDS_xml.py (claude/rtj 2026-11-21)
 
 <HDDS specification="v1.0" xmlns="http://www.gluex.org/hdds">
 -->
 
 <section name        = "KLFKFMTracker"
-         version     = "1.0"
-         date        = "2026-08-27"
-         author      = "S.Fegan"
+         version     = "2.0"
+         date        = "2026-11-21"
+         author      = "S.Fegan, R.T. Jones"
          top_volume  = "KFMN"
          specification = "v1.0">
 
 
-<!-- Origin of Flux Monitor Tracker is defined as the center of the hall.
+<!-- Origin of the flux monitor tracker is the centre of its first module, on the beam axis.
+     532 straw pieces per module (38 straws split around the beam hole), 124 distinct lengths.
 -->
 
   <composition name="KLFKFMTracker">
     <posXYZ volume="TrackerModule1" X_Y_Z="0.00    0.0   0.0"/>
     <posXYZ volume="TrackerModule2" X_Y_Z="0.00    0.0   10.0" rot="0 0 45"/>
-    <posXYZ volume="TrackerModule3" X_Y_Z="0.00    0.0   205.0" rot="0 0 90"/>
-    <posXYZ volume="TrackerModule4" X_Y_Z="0.00    0.0   215.0" rot="0 0 135"/>
-
+    <posXYZ volume="TrackerModule3" X_Y_Z="0.00    0.0   20.0" rot="0 0 90"/>
+    <posXYZ volume="TrackerModule4" X_Y_Z="0.00    0.0   30.0" rot="0 0 135"/>
   </composition>
-
 
   <composition name="TrackerModule1" envelope="KFT1">
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -1.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -0.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 0.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 1.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
+    <posXYZ volume="TrackerStrawLayer" X_Y_Z="0 0 0" />
+  </composition>
+  <composition name="TrackerModule2" envelope="KFT2">
+    <posXYZ volume="TrackerStrawLayer" X_Y_Z="0 0 0" />
+  </composition>
+  <composition name="TrackerModule3" envelope="KFT3">
+    <posXYZ volume="TrackerStrawLayer" X_Y_Z="0 0 0" />
+  </composition>
+  <composition name="TrackerModule4" envelope="KFT4">
+    <posXYZ volume="TrackerStrawLayer" X_Y_Z="0 0 0" />
   </composition>
 
-    <composition name="TrackerModule2" envelope="KFT2">
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -1.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -0.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 0.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 1.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
-    </composition>
-
-      <composition name="TrackerModule3" envelope="KFT3">
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -1.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -0.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 0.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 1.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
-      </composition>
-
-        <composition name="TrackerModule4" envelope="KFT4">
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -1.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -0.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 0.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 1.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
+<!-- one straw layer: 4 rows; x = straw offset, y = piece centre along the straw -->
+  <composition name="TrackerStrawLayer">
+    <posXYZ volume="KS3F" X_Y_Z="-49.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS3D" X_Y_Z="-48.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS3B" X_Y_Z="-47.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS39" X_Y_Z="-46.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS37" X_Y_Z="-46 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS35" X_Y_Z="-45.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS33" X_Y_Z="-44.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2T" X_Y_Z="-43.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2P" X_Y_Z="-42.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2N" X_Y_Z="-42 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2L" X_Y_Z="-41.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2J" X_Y_Z="-40.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2H" X_Y_Z="-39.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2F" X_Y_Z="-38.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2D" X_Y_Z="-38 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2B" X_Y_Z="-37.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS29" X_Y_Z="-36.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS27" X_Y_Z="-35.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS25" X_Y_Z="-34.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS23" X_Y_Z="-34 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS21" X_Y_Z="-33.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1Z" X_Y_Z="-32.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1X" X_Y_Z="-31.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1V" X_Y_Z="-30.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1T" X_Y_Z="-30 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1R" X_Y_Z="-29.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1P" X_Y_Z="-28.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1N" X_Y_Z="-27.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1L" X_Y_Z="-26.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1J" X_Y_Z="-26 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1H" X_Y_Z="-25.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1F" X_Y_Z="-24.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1D" X_Y_Z="-23.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1B" X_Y_Z="-22.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS19" X_Y_Z="-22 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS17" X_Y_Z="-21.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS15" X_Y_Z="-20.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS13" X_Y_Z="-19.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS11" X_Y_Z="-18.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0Z" X_Y_Z="-18 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0X" X_Y_Z="-17.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0V" X_Y_Z="-16.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0T" X_Y_Z="-15.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0R" X_Y_Z="-14.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0P" X_Y_Z="-14 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0N" X_Y_Z="-13.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0L" X_Y_Z="-12.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0J" X_Y_Z="-11.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0H" X_Y_Z="-10.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0F" X_Y_Z="-10 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0D" X_Y_Z="-9.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0B" X_Y_Z="-8.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS09" X_Y_Z="-7.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS07" X_Y_Z="-6.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS05" X_Y_Z="-6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS03" X_Y_Z="-5.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS01" X_Y_Z="-4.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2R" X_Y_Z="-3.6 25.8301 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2R" X_Y_Z="-3.6 -25.8301 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2U" X_Y_Z="-2.8 26.2589 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2U" X_Y_Z="-2.8 -26.2589 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2W" X_Y_Z="-2 26.6814 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2W" X_Y_Z="-2 -26.6814 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS30" X_Y_Z="-1.2 26.7621 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS30" X_Y_Z="-1.2 -26.7621 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2Y" X_Y_Z="-0.4 26.7718 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2Y" X_Y_Z="-0.4 -26.7718 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2Y" X_Y_Z="0.4 26.7718 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2Y" X_Y_Z="0.4 -26.7718 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS30" X_Y_Z="1.2 26.7621 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS30" X_Y_Z="1.2 -26.7621 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2W" X_Y_Z="2 26.6814 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2W" X_Y_Z="2 -26.6814 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2U" X_Y_Z="2.8 26.2589 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2U" X_Y_Z="2.8 -26.2589 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2R" X_Y_Z="3.6 25.8301 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2R" X_Y_Z="3.6 -25.8301 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS01" X_Y_Z="4.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS03" X_Y_Z="5.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS05" X_Y_Z="6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS07" X_Y_Z="6.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS09" X_Y_Z="7.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0B" X_Y_Z="8.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0D" X_Y_Z="9.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0F" X_Y_Z="10 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0H" X_Y_Z="10.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0J" X_Y_Z="11.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0L" X_Y_Z="12.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0N" X_Y_Z="13.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0P" X_Y_Z="14 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0R" X_Y_Z="14.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0T" X_Y_Z="15.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0V" X_Y_Z="16.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0X" X_Y_Z="17.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS0Z" X_Y_Z="18 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS11" X_Y_Z="18.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS13" X_Y_Z="19.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS15" X_Y_Z="20.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS17" X_Y_Z="21.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS19" X_Y_Z="22 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1B" X_Y_Z="22.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1D" X_Y_Z="23.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1F" X_Y_Z="24.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1H" X_Y_Z="25.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1J" X_Y_Z="26 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1L" X_Y_Z="26.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1N" X_Y_Z="27.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1P" X_Y_Z="28.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1R" X_Y_Z="29.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1T" X_Y_Z="30 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1V" X_Y_Z="30.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1X" X_Y_Z="31.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS1Z" X_Y_Z="32.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS21" X_Y_Z="33.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS23" X_Y_Z="34 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS25" X_Y_Z="34.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS27" X_Y_Z="35.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS29" X_Y_Z="36.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2B" X_Y_Z="37.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2D" X_Y_Z="38 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2F" X_Y_Z="38.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2H" X_Y_Z="39.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2J" X_Y_Z="40.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2L" X_Y_Z="41.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2N" X_Y_Z="42 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2P" X_Y_Z="42.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS2T" X_Y_Z="43.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS33" X_Y_Z="44.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS35" X_Y_Z="45.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS37" X_Y_Z="46 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS39" X_Y_Z="46.8 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS3B" X_Y_Z="47.6 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS3D" X_Y_Z="48.4 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS3F" X_Y_Z="49.2 0 -1.5" rot="90 0 0" />
+    <posXYZ volume="KS3E" X_Y_Z="-48.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS3C" X_Y_Z="-48 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS3A" X_Y_Z="-47.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS38" X_Y_Z="-46.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS36" X_Y_Z="-45.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS34" X_Y_Z="-44.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS32" X_Y_Z="-44 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2Q" X_Y_Z="-43.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2O" X_Y_Z="-42.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2M" X_Y_Z="-41.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2K" X_Y_Z="-40.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2I" X_Y_Z="-40 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2G" X_Y_Z="-39.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2E" X_Y_Z="-38.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2C" X_Y_Z="-37.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2A" X_Y_Z="-36.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS28" X_Y_Z="-36 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS26" X_Y_Z="-35.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS24" X_Y_Z="-34.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS22" X_Y_Z="-33.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS20" X_Y_Z="-32.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1Y" X_Y_Z="-32 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1W" X_Y_Z="-31.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1U" X_Y_Z="-30.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1S" X_Y_Z="-29.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1Q" X_Y_Z="-28.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1O" X_Y_Z="-28 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1M" X_Y_Z="-27.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1K" X_Y_Z="-26.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1I" X_Y_Z="-25.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1G" X_Y_Z="-24.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1E" X_Y_Z="-24 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1C" X_Y_Z="-23.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1A" X_Y_Z="-22.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS18" X_Y_Z="-21.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS16" X_Y_Z="-20.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS14" X_Y_Z="-20 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS12" X_Y_Z="-19.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS10" X_Y_Z="-18.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0Y" X_Y_Z="-17.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0W" X_Y_Z="-16.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0U" X_Y_Z="-16 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0S" X_Y_Z="-15.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0Q" X_Y_Z="-14.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0O" X_Y_Z="-13.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0M" X_Y_Z="-12.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0K" X_Y_Z="-12 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0I" X_Y_Z="-11.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0G" X_Y_Z="-10.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0E" X_Y_Z="-9.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0C" X_Y_Z="-8.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0A" X_Y_Z="-8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS08" X_Y_Z="-7.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS06" X_Y_Z="-6.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS04" X_Y_Z="-5.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS02" X_Y_Z="-4.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS00" X_Y_Z="-4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2S" X_Y_Z="-3.2 26.0453 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2S" X_Y_Z="-3.2 -26.0453 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2V" X_Y_Z="-2.4 26.471 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2V" X_Y_Z="-2.4 -26.471 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS31" X_Y_Z="-1.6 26.755 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS31" X_Y_Z="-1.6 -26.755 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2Z" X_Y_Z="-0.8 26.7677 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2Z" X_Y_Z="-0.8 -26.7677 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2X" X_Y_Z="0 26.7741 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2X" X_Y_Z="0 -26.7741 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2Z" X_Y_Z="0.8 26.7677 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2Z" X_Y_Z="0.8 -26.7677 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS31" X_Y_Z="1.6 26.755 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS31" X_Y_Z="1.6 -26.755 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2V" X_Y_Z="2.4 26.471 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2V" X_Y_Z="2.4 -26.471 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2S" X_Y_Z="3.2 26.0453 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2S" X_Y_Z="3.2 -26.0453 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS00" X_Y_Z="4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS02" X_Y_Z="4.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS04" X_Y_Z="5.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS06" X_Y_Z="6.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS08" X_Y_Z="7.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0A" X_Y_Z="8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0C" X_Y_Z="8.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0E" X_Y_Z="9.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0G" X_Y_Z="10.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0I" X_Y_Z="11.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0K" X_Y_Z="12 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0M" X_Y_Z="12.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0O" X_Y_Z="13.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0Q" X_Y_Z="14.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0S" X_Y_Z="15.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0U" X_Y_Z="16 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0W" X_Y_Z="16.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS0Y" X_Y_Z="17.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS10" X_Y_Z="18.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS12" X_Y_Z="19.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS14" X_Y_Z="20 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS16" X_Y_Z="20.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS18" X_Y_Z="21.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1A" X_Y_Z="22.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1C" X_Y_Z="23.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1E" X_Y_Z="24 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1G" X_Y_Z="24.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1I" X_Y_Z="25.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1K" X_Y_Z="26.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1M" X_Y_Z="27.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1O" X_Y_Z="28 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1Q" X_Y_Z="28.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1S" X_Y_Z="29.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1U" X_Y_Z="30.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1W" X_Y_Z="31.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS1Y" X_Y_Z="32 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS20" X_Y_Z="32.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS22" X_Y_Z="33.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS24" X_Y_Z="34.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS26" X_Y_Z="35.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS28" X_Y_Z="36 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2A" X_Y_Z="36.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2C" X_Y_Z="37.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2E" X_Y_Z="38.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2G" X_Y_Z="39.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2I" X_Y_Z="40 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2K" X_Y_Z="40.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2M" X_Y_Z="41.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2O" X_Y_Z="42.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS2Q" X_Y_Z="43.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS32" X_Y_Z="44 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS34" X_Y_Z="44.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS36" X_Y_Z="45.6 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS38" X_Y_Z="46.4 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS3A" X_Y_Z="47.2 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS3C" X_Y_Z="48 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS3E" X_Y_Z="48.8 0 -0.5" rot="90 0 0" />
+    <posXYZ volume="KS3F" X_Y_Z="-49.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS3D" X_Y_Z="-48.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS3B" X_Y_Z="-47.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS39" X_Y_Z="-46.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS37" X_Y_Z="-46 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS35" X_Y_Z="-45.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS33" X_Y_Z="-44.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2T" X_Y_Z="-43.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2P" X_Y_Z="-42.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2N" X_Y_Z="-42 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2L" X_Y_Z="-41.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2J" X_Y_Z="-40.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2H" X_Y_Z="-39.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2F" X_Y_Z="-38.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2D" X_Y_Z="-38 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2B" X_Y_Z="-37.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS29" X_Y_Z="-36.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS27" X_Y_Z="-35.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS25" X_Y_Z="-34.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS23" X_Y_Z="-34 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS21" X_Y_Z="-33.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1Z" X_Y_Z="-32.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1X" X_Y_Z="-31.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1V" X_Y_Z="-30.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1T" X_Y_Z="-30 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1R" X_Y_Z="-29.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1P" X_Y_Z="-28.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1N" X_Y_Z="-27.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1L" X_Y_Z="-26.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1J" X_Y_Z="-26 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1H" X_Y_Z="-25.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1F" X_Y_Z="-24.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1D" X_Y_Z="-23.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1B" X_Y_Z="-22.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS19" X_Y_Z="-22 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS17" X_Y_Z="-21.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS15" X_Y_Z="-20.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS13" X_Y_Z="-19.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS11" X_Y_Z="-18.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0Z" X_Y_Z="-18 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0X" X_Y_Z="-17.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0V" X_Y_Z="-16.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0T" X_Y_Z="-15.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0R" X_Y_Z="-14.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0P" X_Y_Z="-14 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0N" X_Y_Z="-13.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0L" X_Y_Z="-12.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0J" X_Y_Z="-11.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0H" X_Y_Z="-10.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0F" X_Y_Z="-10 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0D" X_Y_Z="-9.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0B" X_Y_Z="-8.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS09" X_Y_Z="-7.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS07" X_Y_Z="-6.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS05" X_Y_Z="-6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS03" X_Y_Z="-5.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS01" X_Y_Z="-4.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2R" X_Y_Z="-3.6 25.8301 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2R" X_Y_Z="-3.6 -25.8301 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2U" X_Y_Z="-2.8 26.2589 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2U" X_Y_Z="-2.8 -26.2589 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2W" X_Y_Z="-2 26.6814 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2W" X_Y_Z="-2 -26.6814 0.5" rot="90 0 0" />
+    <posXYZ volume="KS30" X_Y_Z="-1.2 26.7621 0.5" rot="90 0 0" />
+    <posXYZ volume="KS30" X_Y_Z="-1.2 -26.7621 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2Y" X_Y_Z="-0.4 26.7718 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2Y" X_Y_Z="-0.4 -26.7718 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2Y" X_Y_Z="0.4 26.7718 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2Y" X_Y_Z="0.4 -26.7718 0.5" rot="90 0 0" />
+    <posXYZ volume="KS30" X_Y_Z="1.2 26.7621 0.5" rot="90 0 0" />
+    <posXYZ volume="KS30" X_Y_Z="1.2 -26.7621 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2W" X_Y_Z="2 26.6814 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2W" X_Y_Z="2 -26.6814 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2U" X_Y_Z="2.8 26.2589 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2U" X_Y_Z="2.8 -26.2589 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2R" X_Y_Z="3.6 25.8301 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2R" X_Y_Z="3.6 -25.8301 0.5" rot="90 0 0" />
+    <posXYZ volume="KS01" X_Y_Z="4.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS03" X_Y_Z="5.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS05" X_Y_Z="6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS07" X_Y_Z="6.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS09" X_Y_Z="7.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0B" X_Y_Z="8.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0D" X_Y_Z="9.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0F" X_Y_Z="10 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0H" X_Y_Z="10.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0J" X_Y_Z="11.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0L" X_Y_Z="12.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0N" X_Y_Z="13.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0P" X_Y_Z="14 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0R" X_Y_Z="14.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0T" X_Y_Z="15.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0V" X_Y_Z="16.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0X" X_Y_Z="17.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS0Z" X_Y_Z="18 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS11" X_Y_Z="18.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS13" X_Y_Z="19.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS15" X_Y_Z="20.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS17" X_Y_Z="21.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS19" X_Y_Z="22 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1B" X_Y_Z="22.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1D" X_Y_Z="23.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1F" X_Y_Z="24.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1H" X_Y_Z="25.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1J" X_Y_Z="26 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1L" X_Y_Z="26.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1N" X_Y_Z="27.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1P" X_Y_Z="28.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1R" X_Y_Z="29.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1T" X_Y_Z="30 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1V" X_Y_Z="30.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1X" X_Y_Z="31.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS1Z" X_Y_Z="32.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS21" X_Y_Z="33.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS23" X_Y_Z="34 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS25" X_Y_Z="34.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS27" X_Y_Z="35.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS29" X_Y_Z="36.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2B" X_Y_Z="37.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2D" X_Y_Z="38 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2F" X_Y_Z="38.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2H" X_Y_Z="39.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2J" X_Y_Z="40.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2L" X_Y_Z="41.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2N" X_Y_Z="42 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2P" X_Y_Z="42.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS2T" X_Y_Z="43.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS33" X_Y_Z="44.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS35" X_Y_Z="45.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS37" X_Y_Z="46 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS39" X_Y_Z="46.8 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS3B" X_Y_Z="47.6 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS3D" X_Y_Z="48.4 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS3F" X_Y_Z="49.2 0 0.5" rot="90 0 0" />
+    <posXYZ volume="KS3E" X_Y_Z="-48.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS3C" X_Y_Z="-48 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS3A" X_Y_Z="-47.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS38" X_Y_Z="-46.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS36" X_Y_Z="-45.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS34" X_Y_Z="-44.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS32" X_Y_Z="-44 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2Q" X_Y_Z="-43.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2O" X_Y_Z="-42.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2M" X_Y_Z="-41.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2K" X_Y_Z="-40.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2I" X_Y_Z="-40 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2G" X_Y_Z="-39.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2E" X_Y_Z="-38.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2C" X_Y_Z="-37.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2A" X_Y_Z="-36.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS28" X_Y_Z="-36 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS26" X_Y_Z="-35.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS24" X_Y_Z="-34.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS22" X_Y_Z="-33.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS20" X_Y_Z="-32.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1Y" X_Y_Z="-32 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1W" X_Y_Z="-31.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1U" X_Y_Z="-30.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1S" X_Y_Z="-29.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1Q" X_Y_Z="-28.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1O" X_Y_Z="-28 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1M" X_Y_Z="-27.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1K" X_Y_Z="-26.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1I" X_Y_Z="-25.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1G" X_Y_Z="-24.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1E" X_Y_Z="-24 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1C" X_Y_Z="-23.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1A" X_Y_Z="-22.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS18" X_Y_Z="-21.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS16" X_Y_Z="-20.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS14" X_Y_Z="-20 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS12" X_Y_Z="-19.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS10" X_Y_Z="-18.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0Y" X_Y_Z="-17.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0W" X_Y_Z="-16.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0U" X_Y_Z="-16 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0S" X_Y_Z="-15.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0Q" X_Y_Z="-14.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0O" X_Y_Z="-13.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0M" X_Y_Z="-12.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0K" X_Y_Z="-12 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0I" X_Y_Z="-11.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0G" X_Y_Z="-10.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0E" X_Y_Z="-9.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0C" X_Y_Z="-8.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0A" X_Y_Z="-8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS08" X_Y_Z="-7.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS06" X_Y_Z="-6.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS04" X_Y_Z="-5.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS02" X_Y_Z="-4.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS00" X_Y_Z="-4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2S" X_Y_Z="-3.2 26.0453 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2S" X_Y_Z="-3.2 -26.0453 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2V" X_Y_Z="-2.4 26.471 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2V" X_Y_Z="-2.4 -26.471 1.5" rot="90 0 0" />
+    <posXYZ volume="KS31" X_Y_Z="-1.6 26.755 1.5" rot="90 0 0" />
+    <posXYZ volume="KS31" X_Y_Z="-1.6 -26.755 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2Z" X_Y_Z="-0.8 26.7677 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2Z" X_Y_Z="-0.8 -26.7677 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2X" X_Y_Z="0 26.7741 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2X" X_Y_Z="0 -26.7741 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2Z" X_Y_Z="0.8 26.7677 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2Z" X_Y_Z="0.8 -26.7677 1.5" rot="90 0 0" />
+    <posXYZ volume="KS31" X_Y_Z="1.6 26.755 1.5" rot="90 0 0" />
+    <posXYZ volume="KS31" X_Y_Z="1.6 -26.755 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2V" X_Y_Z="2.4 26.471 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2V" X_Y_Z="2.4 -26.471 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2S" X_Y_Z="3.2 26.0453 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2S" X_Y_Z="3.2 -26.0453 1.5" rot="90 0 0" />
+    <posXYZ volume="KS00" X_Y_Z="4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS02" X_Y_Z="4.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS04" X_Y_Z="5.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS06" X_Y_Z="6.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS08" X_Y_Z="7.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0A" X_Y_Z="8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0C" X_Y_Z="8.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0E" X_Y_Z="9.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0G" X_Y_Z="10.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0I" X_Y_Z="11.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0K" X_Y_Z="12 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0M" X_Y_Z="12.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0O" X_Y_Z="13.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0Q" X_Y_Z="14.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0S" X_Y_Z="15.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0U" X_Y_Z="16 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0W" X_Y_Z="16.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS0Y" X_Y_Z="17.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS10" X_Y_Z="18.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS12" X_Y_Z="19.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS14" X_Y_Z="20 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS16" X_Y_Z="20.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS18" X_Y_Z="21.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1A" X_Y_Z="22.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1C" X_Y_Z="23.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1E" X_Y_Z="24 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1G" X_Y_Z="24.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1I" X_Y_Z="25.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1K" X_Y_Z="26.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1M" X_Y_Z="27.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1O" X_Y_Z="28 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1Q" X_Y_Z="28.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1S" X_Y_Z="29.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1U" X_Y_Z="30.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1W" X_Y_Z="31.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS1Y" X_Y_Z="32 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS20" X_Y_Z="32.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS22" X_Y_Z="33.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS24" X_Y_Z="34.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS26" X_Y_Z="35.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS28" X_Y_Z="36 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2A" X_Y_Z="36.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2C" X_Y_Z="37.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2E" X_Y_Z="38.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2G" X_Y_Z="39.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2I" X_Y_Z="40 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2K" X_Y_Z="40.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2M" X_Y_Z="41.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2O" X_Y_Z="42.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS2Q" X_Y_Z="43.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS32" X_Y_Z="44 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS34" X_Y_Z="44.8 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS36" X_Y_Z="45.6 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS38" X_Y_Z="46.4 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS3A" X_Y_Z="47.2 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS3C" X_Y_Z="48 0 1.5" rot="90 0 0" />
+    <posXYZ volume="KS3E" X_Y_Z="48.8 0 1.5" rot="90 0 0" />
   </composition>
 
-<!-- Tracker Modules -->
+  <tubs name="KS00" Rio_Z="0.3973 0.3999 99.612" material="Mylar" />
+  <tubs name="KS01" Rio_Z="0.3973 0.3999 99.538" material="Mylar" />
+  <tubs name="KS02" Rio_Z="0.3973 0.3999 99.4576" material="Mylar" />
+  <tubs name="KS03" Rio_Z="0.3973 0.3999 99.3708" material="Mylar" />
+  <tubs name="KS04" Rio_Z="0.3973 0.3999 99.2772" material="Mylar" />
+  <tubs name="KS05" Rio_Z="0.3973 0.3999 99.1774" material="Mylar" />
+  <tubs name="KS06" Rio_Z="0.3973 0.3999 99.0708" material="Mylar" />
+  <tubs name="KS07" Rio_Z="0.3973 0.3999 98.9576" material="Mylar" />
+  <tubs name="KS08" Rio_Z="0.3973 0.3999 98.838" material="Mylar" />
+  <tubs name="KS09" Rio_Z="0.3973 0.3999 98.7116" material="Mylar" />
+  <tubs name="KS0A" Rio_Z="0.3973 0.3999 98.5786" material="Mylar" />
+  <tubs name="KS0B" Rio_Z="0.3973 0.3999 98.439" material="Mylar" />
+  <tubs name="KS0C" Rio_Z="0.3973 0.3999 98.2926" material="Mylar" />
+  <tubs name="KS0D" Rio_Z="0.3973 0.3999 98.1394" material="Mylar" />
+  <tubs name="KS0E" Rio_Z="0.3973 0.3999 97.9794" material="Mylar" />
+  <tubs name="KS0F" Rio_Z="0.3973 0.3999 97.8128" material="Mylar" />
+  <tubs name="KS0G" Rio_Z="0.3973 0.3999 97.6392" material="Mylar" />
+  <tubs name="KS0H" Rio_Z="0.3973 0.3999 97.4588" material="Mylar" />
+  <tubs name="KS0I" Rio_Z="0.3973 0.3999 97.2714" material="Mylar" />
+  <tubs name="KS0J" Rio_Z="0.3973 0.3999 97.0772" material="Mylar" />
+  <tubs name="KS0K" Rio_Z="0.3973 0.3999 96.876" material="Mylar" />
+  <tubs name="KS0L" Rio_Z="0.3973 0.3999 96.6676" material="Mylar" />
+  <tubs name="KS0M" Rio_Z="0.3973 0.3999 96.4522" material="Mylar" />
+  <tubs name="KS0N" Rio_Z="0.3973 0.3999 96.2296" material="Mylar" />
+  <tubs name="KS0O" Rio_Z="0.3973 0.3999 96" material="Mylar" />
+  <tubs name="KS0P" Rio_Z="0.3973 0.3999 95.763" material="Mylar" />
+  <tubs name="KS0Q" Rio_Z="0.3973 0.3999 95.5186" material="Mylar" />
+  <tubs name="KS0R" Rio_Z="0.3973 0.3999 95.2672" material="Mylar" />
+  <tubs name="KS0S" Rio_Z="0.3973 0.3999 95.0082" material="Mylar" />
+  <tubs name="KS0T" Rio_Z="0.3973 0.3999 94.7416" material="Mylar" />
+  <tubs name="KS0U" Rio_Z="0.3973 0.3999 94.4676" material="Mylar" />
+  <tubs name="KS0V" Rio_Z="0.3973 0.3999 94.186" material="Mylar" />
+  <tubs name="KS0W" Rio_Z="0.3973 0.3999 93.8968" material="Mylar" />
+  <tubs name="KS0X" Rio_Z="0.3973 0.3999 93.6" material="Mylar" />
+  <tubs name="KS0Y" Rio_Z="0.3973 0.3999 93.2952" material="Mylar" />
+  <tubs name="KS0Z" Rio_Z="0.3973 0.3999 92.9824" material="Mylar" />
+  <tubs name="KS10" Rio_Z="0.3973 0.3999 92.6618" material="Mylar" />
+  <tubs name="KS11" Rio_Z="0.3973 0.3999 92.3332" material="Mylar" />
+  <tubs name="KS12" Rio_Z="0.3973 0.3999 91.9964" material="Mylar" />
+  <tubs name="KS13" Rio_Z="0.3973 0.3999 91.6514" material="Mylar" />
+  <tubs name="KS14" Rio_Z="0.3973 0.3999 91.298" material="Mylar" />
+  <tubs name="KS15" Rio_Z="0.3973 0.3999 90.9364" material="Mylar" />
+  <tubs name="KS16" Rio_Z="0.3973 0.3999 90.5662" material="Mylar" />
+  <tubs name="KS17" Rio_Z="0.3973 0.3999 90.1872" material="Mylar" />
+  <tubs name="KS18" Rio_Z="0.3973 0.3999 89.7996" material="Mylar" />
+  <tubs name="KS19" Rio_Z="0.3973 0.3999 89.4032" material="Mylar" />
+  <tubs name="KS1A" Rio_Z="0.3973 0.3999 88.9978" material="Mylar" />
+  <tubs name="KS1B" Rio_Z="0.3973 0.3999 88.5834" material="Mylar" />
+  <tubs name="KS1C" Rio_Z="0.3973 0.3999 88.1598" material="Mylar" />
+  <tubs name="KS1D" Rio_Z="0.3973 0.3999 87.7268" material="Mylar" />
+  <tubs name="KS1E" Rio_Z="0.3973 0.3999 87.2842" material="Mylar" />
+  <tubs name="KS1F" Rio_Z="0.3973 0.3999 86.8322" material="Mylar" />
+  <tubs name="KS1G" Rio_Z="0.3973 0.3999 86.3702" material="Mylar" />
+  <tubs name="KS1H" Rio_Z="0.3973 0.3999 85.8984" material="Mylar" />
+  <tubs name="KS1I" Rio_Z="0.3973 0.3999 85.4166" material="Mylar" />
+  <tubs name="KS1J" Rio_Z="0.3973 0.3999 84.9244" material="Mylar" />
+  <tubs name="KS1K" Rio_Z="0.3973 0.3999 84.4216" material="Mylar" />
+  <tubs name="KS1L" Rio_Z="0.3973 0.3999 83.9084" material="Mylar" />
+  <tubs name="KS1M" Rio_Z="0.3973 0.3999 83.3844" material="Mylar" />
+  <tubs name="KS1N" Rio_Z="0.3973 0.3999 82.8492" material="Mylar" />
+  <tubs name="KS1O" Rio_Z="0.3973 0.3999 82.3028" material="Mylar" />
+  <tubs name="KS1P" Rio_Z="0.3973 0.3999 81.7448" material="Mylar" />
+  <tubs name="KS1Q" Rio_Z="0.3973 0.3999 81.1752" material="Mylar" />
+  <tubs name="KS1R" Rio_Z="0.3973 0.3999 80.5936" material="Mylar" />
+  <tubs name="KS1S" Rio_Z="0.3973 0.3999 80" material="Mylar" />
+  <tubs name="KS1T" Rio_Z="0.3973 0.3999 79.3936" material="Mylar" />
+  <tubs name="KS1U" Rio_Z="0.3973 0.3999 78.7746" material="Mylar" />
+  <tubs name="KS1V" Rio_Z="0.3973 0.3999 78.1424" material="Mylar" />
+  <tubs name="KS1W" Rio_Z="0.3973 0.3999 77.4968" material="Mylar" />
+  <tubs name="KS1X" Rio_Z="0.3973 0.3999 76.8374" material="Mylar" />
+  <tubs name="KS1Y" Rio_Z="0.3973 0.3999 76.164" material="Mylar" />
+  <tubs name="KS1Z" Rio_Z="0.3973 0.3999 75.476" material="Mylar" />
+  <tubs name="KS20" Rio_Z="0.3973 0.3999 74.7732" material="Mylar" />
+  <tubs name="KS21" Rio_Z="0.3973 0.3999 74.055" material="Mylar" />
+  <tubs name="KS22" Rio_Z="0.3973 0.3999 73.3212" material="Mylar" />
+  <tubs name="KS23" Rio_Z="0.3973 0.3999 72.571" material="Mylar" />
+  <tubs name="KS24" Rio_Z="0.3973 0.3999 71.804" material="Mylar" />
+  <tubs name="KS25" Rio_Z="0.3973 0.3999 71.0198" material="Mylar" />
+  <tubs name="KS26" Rio_Z="0.3973 0.3999 70.2178" material="Mylar" />
+  <tubs name="KS27" Rio_Z="0.3973 0.3999 69.3974" material="Mylar" />
+  <tubs name="KS28" Rio_Z="0.3973 0.3999 68.5576" material="Mylar" />
+  <tubs name="KS29" Rio_Z="0.3973 0.3999 67.698" material="Mylar" />
+  <tubs name="KS2A" Rio_Z="0.3973 0.3999 66.8178" material="Mylar" />
+  <tubs name="KS2B" Rio_Z="0.3973 0.3999 65.9162" material="Mylar" />
+  <tubs name="KS2C" Rio_Z="0.3973 0.3999 64.9922" material="Mylar" />
+  <tubs name="KS2D" Rio_Z="0.3973 0.3999 64.0448" material="Mylar" />
+  <tubs name="KS2E" Rio_Z="0.3973 0.3999 63.0732" material="Mylar" />
+  <tubs name="KS2F" Rio_Z="0.3973 0.3999 62.076" material="Mylar" />
+  <tubs name="KS2G" Rio_Z="0.3973 0.3999 61.052" material="Mylar" />
+  <tubs name="KS2H" Rio_Z="0.3973 0.3999 60" material="Mylar" />
+  <tubs name="KS2I" Rio_Z="0.3973 0.3999 58.9182" material="Mylar" />
+  <tubs name="KS2J" Rio_Z="0.3973 0.3999 57.805" material="Mylar" />
+  <tubs name="KS2K" Rio_Z="0.3973 0.3999 56.6588" material="Mylar" />
+  <tubs name="KS2L" Rio_Z="0.3973 0.3999 55.4774" material="Mylar" />
+  <tubs name="KS2M" Rio_Z="0.3973 0.3999 54.2586" material="Mylar" />
+  <tubs name="KS2N" Rio_Z="0.3973 0.3999 52.9996" material="Mylar" />
+  <tubs name="KS2O" Rio_Z="0.3973 0.3999 51.6974" material="Mylar" />
+  <tubs name="KS2P" Rio_Z="0.3973 0.3999 50.349" material="Mylar" />
+  <tubs name="KS2Q" Rio_Z="0.3973 0.3999 48.9504" material="Mylar" />
+  <tubs name="KS2R" Rio_Z="0.3973 0.3999 48.0192" material="Mylar" />
+  <tubs name="KS2S" Rio_Z="0.3973 0.3999 47.6497" material="Mylar" />
+  <tubs name="KS2T" Rio_Z="0.3973 0.3999 47.4972" material="Mylar" />
+  <tubs name="KS2U" Rio_Z="0.3973 0.3999 47.2769" material="Mylar" />
+  <tubs name="KS2V" Rio_Z="0.3973 0.3999 46.901" material="Mylar" />
+  <tubs name="KS2W" Rio_Z="0.3973 0.3999 46.5218" material="Mylar" />
+  <tubs name="KS2X" Rio_Z="0.3973 0.3999 46.4483" material="Mylar" />
+  <tubs name="KS2Y" Rio_Z="0.3973 0.3999 46.4435" material="Mylar" />
+  <tubs name="KS2Z" Rio_Z="0.3973 0.3999 46.4355" material="Mylar" />
+  <tubs name="KS30" Rio_Z="0.3973 0.3999 46.4243" material="Mylar" />
+  <tubs name="KS31" Rio_Z="0.3973 0.3999 46.4099" material="Mylar" />
+  <tubs name="KS32" Rio_Z="0.3973 0.3999 45.9842" material="Mylar" />
+  <tubs name="KS33" Rio_Z="0.3973 0.3999 44.4054" material="Mylar" />
+  <tubs name="KS34" Rio_Z="0.3973 0.3999 42.7532" material="Mylar" />
+  <tubs name="KS35" Rio_Z="0.3973 0.3999 41.019" material="Mylar" />
+  <tubs name="KS36" Rio_Z="0.3973 0.3999 39.1918" material="Mylar" />
+  <tubs name="KS37" Rio_Z="0.3973 0.3999 37.258" material="Mylar" />
+  <tubs name="KS38" Rio_Z="0.3973 0.3999 35.2" material="Mylar" />
+  <tubs name="KS39" Rio_Z="0.3973 0.3999 32.9944" material="Mylar" />
+  <tubs name="KS3A" Rio_Z="0.3973 0.3999 30.6098" material="Mylar" />
+  <tubs name="KS3B" Rio_Z="0.3973 0.3999 28" material="Mylar" />
+  <tubs name="KS3C" Rio_Z="0.3973 0.3999 25.095" material="Mylar" />
+  <tubs name="KS3D" Rio_Z="0.3973 0.3999 21.777" material="Mylar" />
+  <tubs name="KS3E" Rio_Z="0.3973 0.3999 17.8168" material="Mylar" />
+  <tubs name="KS3F" Rio_Z="0.3973 0.3999 12.6236" material="Mylar" />
 
-<!--<composition name="TrackerStraws" envelope="FMTK">
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -1.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 -0.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 0.5" X0="-50" dX="0.8" rot="90 0 0">  </mposX>
-  <mposX volume="KZZZ" ncopy="122" Y_Z="0.0 1.5" X0="-49.6" dX="0.8" rot="90 0 0">  </mposX>
- -->
-
-<!--    <posXYZ volume="KZZZ" X_Y_Z="0.0 0.0 0.0" rot="0 90 0">  </posXYZ>-->
-<!--</composition>-->
-
-
-  <tubs name="KZZZ" Rio_Z="0.3973 0.3999 100.0" material="Mylar" comment="Mylar Straw (1 um smaller than 0.3974/0.4: 2 um clearance between neighbours, which were exactly tangent at pitch 0.8)"/>
-
-
-  <box name="KFT1" X_Y_Z="120.0 120.0 5.0" material="Air" comment="Mother volume for flux monitor tracker straws" />
-
-  <box name="KFT2" X_Y_Z="120.0 120.0 5.0" material="Air" comment="Mother volume for flux monitor tracker straws" />
-
-  <box name="KFT3" X_Y_Z="120.0 120.0 5.0" material="Air" comment="Mother volume for flux monitor tracker straws" />
-
-    <box name="KFT4" X_Y_Z="120.0 120.0 5.0" material="Air" comment="Mother volume for flux monitor tracker straws" />
-
-
-
+  <tubs name="KFT1" Rio_Z="3.52 50.5 5" material="Air" comment="Mother volume for flux monitor tracker straws (ring: the beam pipe passes through)" />
+  <tubs name="KFT2" Rio_Z="3.52 50.5 5" material="Air" comment="Mother volume for flux monitor tracker straws (ring: the beam pipe passes through)" />
+  <tubs name="KFT3" Rio_Z="3.52 50.5 5" material="Air" comment="Mother volume for flux monitor tracker straws (ring: the beam pipe passes through)" />
+  <tubs name="KFT4" Rio_Z="3.52 50.5 5" material="Air" comment="Mother volume for flux monitor tracker straws (ring: the beam pipe passes through)" />
 
 </section>
 

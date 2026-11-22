@@ -364,13 +364,13 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   </box> 
 
   <box name="POL1" X_Y_Z="29.2  9.95  {sweep_magnet_length}" material="Iron" />
-  <box name="GAP1" X_Y_Z="9.49   4.9  {sweep_magnet_length}" material="Iron" />
+  <box name="GAP1" X_Y_Z="9.49   4.9  {sweep_magnet_length}" material="StainlessSteel" comment="non-magnetic fill beside the pipe in the sweep magnet gap: iron here would short the poles" />
 
   <composition name="MagnetPipe1" envelope="MPO1">
     <posXYZ volume="MPI1" />
   </composition>
 
-  <eltu name="MPO1" Rxy_Z="5.11  2.45  {sweep_magnet_length}" material="Iron" />
+  <eltu name="MPO1" Rxy_Z="5.11  2.45  {sweep_magnet_length}" material="StainlessSteel" comment="non-magnetic pipe: it touches both pole faces" />
   <eltu name="MPI1" Rxy_Z="4.95  2.29  {sweep_magnet_length}" material="Vacuum" />
 
 <!-- Fourth section of vacuum pipe -->

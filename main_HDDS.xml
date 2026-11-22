@@ -124,17 +124,19 @@
 -->
   </composition>
 
+  <!-- KFM layout (M. Bashkanov 2026-11, LEDGER.md 2026-11-21), global z: pizza 1/2 at -977.5/-962.5,
+       tracker modules -955/-945/-935/-925, FRI layers -917.5/-912.5, TOF wall -751.5 (upstream of the donut) -->
   <composition name="KLFFluxMonitor">
-    <posXYZ volume="KLFKFMTOF" X_Y_Z="0.0 0.0 350.0" />
+    <posXYZ volume="KLFKFMTOF" X_Y_Z="0.0 0.0 226.0" />
     <posXYZ volume="KLFKFMPizza" X_Y_Z="0 0 0" />
-    <posXYZ volume="KLFKFMFRI" X_Y_Z="0 0 45.0" />
-    <posXYZ volume="KLFKFMTracker" X_Y_Z="0 0 25" />
+    <posXYZ volume="KLFKFMFRI" X_Y_Z="0 0 60.0" />
+    <posXYZ volume="KLFKFMTracker" X_Y_Z="0 0 22.5" />
   </composition>
 
   <composition name="experimentalHall" envelope="HALL">
     <posXYZ volume="GlueXdetector" X_Y_Z="150.0 -350.0 -500.0" />
     <posXYZ volume="PairSpectrometer" X_Y_Z="150.0 -350.0 -1704.5" />  
-    <posXYZ volume="KLFFluxMonitor" X_Y_Z="150 -350 -1187.55"/> <!-- moved upstream of the LH2 target cart (was -950) -->
+    <posXYZ volume="KLFFluxMonitor" X_Y_Z="150 -350 -1477.5"/> <!-- between the PS magnet and the lead donut (was -1187.55, before that -950) -->
     <posXYZ volume="beamPipe" X_Y_Z="0.0 0.0 -0.5" />
     <posXYZ volume="targetCryostat" X_Y_Z="150 -350 -500"/> <!-- KLF LH2 target cryostat, entrance port and cart, LASS frame (replaces the empty SixWayCross) -->
   </composition>

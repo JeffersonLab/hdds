@@ -33,13 +33,22 @@ psmagpipe_length = psmagnet_length
 psmagpipe_radius = (2.8*inches/2, 2.9*inches/2)
 
 pspipe2_length = None            # set below (was 460.0)
-pspipe2_radius = (4.0*inches/2, 4.2*inches/2)
+pspipe2_radius = (3.5 - 0.127, 3.5)   # KFM pipe: stainless, OD 7.0 cm, wall 1.27 mm (was iron 4.0"/4.2")
 pspipe2_wall_start = None        # set below (was 480.0)
 pspipe2_wall_size = (16.1, 240.0, 60.0)
 pspipe2_pwall_size = (16.1, 240.0, 10.0)
-pspipe2_donut_size = (3.0, 15.0, 20.0)
+pspipe2_donut_size = (3.5, 15.0, 20.0)   # inner radius = OD of the pipe through it (was 3.0)
 
 pspipe3_radius = (2.75, 8.0)
+# KFM relocation (M. Bashkanov, P. Degtiarenko, rtj 2026-11-21, LEDGER.md): the flux monitor
+# now sits between the PS magnet and the lead donut; the donut, lead wall and poly wall are
+# moved 30 cm downstream (lead wall upstream face at z = -729.55 global).  The bore of the
+# iron pipe through the wall is stepped (no cones): counterbores of the KFM pipe bore from
+# both ends and a 10 cm land at 2.75 cm, centred in the lead, as the defining aperture.
+pspipe3_counterbore = pspipe2_radius[0]
+pspipe3_land_length = 10.0
+pspipe4_bore = 3.9                 # clears particles passing the land (was 2.75)
+klf_wall_shift = 30.0
 
 # The exit pipe is interrupted by the KLF flux monitor (KFM): it stops at
 # the KFM entrance and resumes at the KFM exit.  The KFM extent along the
@@ -50,15 +59,21 @@ ps_hall_z = -1704.5
 kfm_hall_z = round(cart_zmin_lass - 0.7 - 351.5 + lass_hall_z, 4)   # was -950.0
 kfm_zmin = kfm_hall_z - 1.0 - ps_hall_z
 kfm_zmax = kfm_hall_z + 351.5 - ps_hall_z
+# (since 2026-11-21 kfm_zmin/kfm_zmax are the OLD KFM extent, used only to keep the
+#  shielding origin, DET5 and the downstream end of pipe 4 where they were)
 # shielding: poly wall downstream face 1 cm upstream of the KFM entrance
-pspipe2_wall_start = round(kfm_zmin - 1.0 - (psmagnet_start + psmagnet_length) - pspipe2_wall_size[2] - pspipe2_pwall_size[2], 4)
-pspipe2_length = pspipe2_wall_start - pspipe2_donut_size[2]
+pspipe2_wall_start = round(kfm_zmin - 1.0 - (psmagnet_start + psmagnet_length) - pspipe2_wall_size[2] - pspipe2_pwall_size[2] + klf_wall_shift, 4)
+pspipe2_length = pspipe2_wall_start      # KFM pipe runs through the donut to the wall face
 pspipe3_start = pspipe2_wall_start
 pspipe3_length = round(port_zmin_lass + lass_hall_z - ps_hall_z - (psmagnet_start + psmagnet_length) - pspipe3_start, 4)
-det5_z = kfm_zmax + 0.3            # DET5 (0.2 cm) between the KFM exit and the cart
+det5_z = kfm_zmax + 0.3            # DET5 (0.2 cm) kept where it was (old KFM exit), in a 0.4 cm gap of pipe 4
 pspipe2_offset = psmagnet_start + psmagnet_length
 pspipe3_end = pspipe3_start + pspipe3_length
-pspipe3a_length = round(kfm_zmin - pspipe2_offset - pspipe3_start, 6)
+pspipe3a_length = pspipe2_wall_size[2] + pspipe2_pwall_size[2] + 1.0   # through lead + poly, 1 cm beyond
+pspipe3_cb1_length = (pspipe2_wall_size[2] - pspipe3_land_length) / 2
+pspipe3_cb2_length = pspipe3a_length - pspipe3_cb1_length - pspipe3_land_length
+pspipe4a_start = pspipe3_start + pspipe3a_length
+pspipe4a_length = round(det5_z - 0.2 - pspipe2_offset - pspipe4a_start, 6)
 pspipe3b_start = round(kfm_zmax + 0.5 - pspipe2_offset, 6)
 pspipe3b_length = round(pspipe3_end - pspipe3b_start, 6)
 
@@ -93,10 +108,12 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
     <posXYZ volume="PairPipe1" X_Y_Z="0.0  0.0  {psflange1_start}"/>
     <posXYZ volume="PairMagnet" X_Y_Z="0.0   0.0  {psmagnet_start}" />
     <!--posXYZ volume="PairVacChamb" X_Y_Z="0.0   0.0   -114.6007" /-->
+    <!-- PS detectors removed for the KLF flux monitor (rtj 2026-11-21)
     <posXYZ volume="PairHodoscopeNorth" X_Y_Z="+36.261    0.0   345.3074"  rot="0.0  4.57077 0.0"/>
     <posXYZ volume="PairHodoscopeSouth" X_Y_Z="-36.3013   0.0   345.3392"  rot="0.0 -4.65958 0.0"/> 
     <posXYZ volume="PairCoarseNorth" X_Y_Z="+43.5331 0.0 394.4875" rot="0.0  4.6742 0.0" /> 
     <posXYZ volume="PairCoarseSouth" X_Y_Z="-43.5345 0.0 394.4855" rot="0.0 -4.7067  0.0" />
+    -->
     <posXYZ volume="PairPipe2" X_Y_Z="0.0   0.0   {pspipe2_offset}"/> 
     <posXYZ volume="DET5" X_Y_Z="0.0   0.0   {round(det5_z, 4)}"/> 
     <posXYZ volume="DET7" X_Y_Z="0.0   0.0   2468.882"/> <!-- fixed (was pipe end + 1337 with the original pipe length) --> 
@@ -151,7 +168,7 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
     <posXYZ volume="HMPI" X_Y_Z="0.0 0.0 0.0"/> 
   </composition>
 
-  <tubs name="HMPO" Rio_Z="0.0  {psmagpipe_radius[1]}  {psmagpipe_length}" material="Iron" /> 
+  <tubs name="HMPO" Rio_Z="0.0  {psmagpipe_radius[1]}  {psmagpipe_length}" material="StainlessSteel" comment="non-magnetic pipe between the pole faces" /> 
   <tubs name="HMPI" Rio_Z="0.0  {psmagpipe_radius[0]}  {psmagpipe_length}" material="Vacuum" /> 
 
 
@@ -160,28 +177,39 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   <composition name="PairPipe2">
     <posXYZ volume="PairPipe2Tube" X_Y_Z="0.0  0.0  {pspipe2_length/2}" /> 
     <posXYZ volume="LWAD" X_Y_Z="0.0  0.0  {pspipe2_wall_start + pspipe2_wall_size[2]/2}" />
-    <posXYZ volume="LeadDonut" X_Y_Z="0.0  0.0  {pspipe2_wall_start - pspipe2_donut_size[2]/2}" />
+    <posXYZ volume="LDAD" X_Y_Z="0.0  0.0  {pspipe2_wall_start - pspipe2_donut_size[2]/2}" />
     <posXYZ volume="LPAD" X_Y_Z="0.0  0.0  {pspipe2_wall_start + pspipe2_wall_size[2] + pspipe2_pwall_size[2]/2}" />
-    <!-- exit pipe, interrupted by the KLF flux monitor -->
+    <!-- pipe through the lead and poly walls (stepped bore), then the exit pipe to the
+         target, interrupted only by the DET5 virtual-detector plane (0.4 cm gap) -->
     <posXYZ volume="PairPipe3Tube" X_Y_Z="0.0  0.0  {round(pspipe3_start + pspipe3a_length/2, 6)}" />
+    <posXYZ volume="PairPipe4aTube" X_Y_Z="0.0  0.0  {round(pspipe4a_start + pspipe4a_length/2, 6)}" />
     <posXYZ volume="PairPipe4Tube" X_Y_Z="0.0  0.0  {round(pspipe3b_start + pspipe3b_length/2, 6)}" />
   </composition>
   <composition name="PairPipe2Tube" envelope="HPO2" >
     <posXYZ volume="HPI2" X_Y_Z="0.0  0.0  0.0" />
   </composition>
   <composition name="PairPipe3Tube" envelope="HPO3" >
-    <posXYZ volume="HPI3" X_Y_Z="0.0  0.0  0.0" />
+    <posXYZ volume="HPI3" X_Y_Z="0.0  0.0  {round(-pspipe3a_length/2 + pspipe3_cb1_length/2, 6)}" />
+    <posXYZ volume="HPJ3" X_Y_Z="0.0  0.0  {round(-pspipe3a_length/2 + pspipe3_cb1_length + pspipe3_land_length/2, 6)}" />
+    <posXYZ volume="HPK3" X_Y_Z="0.0  0.0  {round(pspipe3a_length/2 - pspipe3_cb2_length/2, 6)}" />
+  </composition>
+  <composition name="PairPipe4aTube" envelope="HPP4" >
+    <posXYZ volume="HPQ4" X_Y_Z="0.0  0.0  0.0" />
   </composition>
   <composition name="PairPipe4Tube" envelope="HPO4" >
     <posXYZ volume="HPI4" X_Y_Z="0.0  0.0  0.0" />
   </composition>
 
-  <tubs name="HPO2" Rio_Z="0.0  {pspipe2_radius[1]}  {pspipe2_length}" material="Iron" /> 
-  <tubs name="HPI2" Rio_Z="0.0  {pspipe2_radius[0]}  {pspipe2_length}" material="Vacuum" /> 
+  <tubs name="HPO2" Rio_Z="0.0  {pspipe2_radius[1]}  {round(pspipe2_length, 6)}" material="StainlessSteel" comment="KFM beam pipe, OD 7 cm, through the flux monitor and the lead donut" /> 
+  <tubs name="HPI2" Rio_Z="0.0  {round(pspipe2_radius[0], 6)}  {round(pspipe2_length, 6)}" material="Vacuum" /> 
   <tubs name="HPO3" Rio_Z="0.0  {pspipe3_radius[1]}  {pspipe3a_length}" material="Iron" /> 
-  <tubs name="HPI3" Rio_Z="0.0  {pspipe3_radius[0]}  {pspipe3a_length}" material="Vacuum" /> 
+  <tubs name="HPI3" Rio_Z="0.0  {round(pspipe3_counterbore, 6)}  {pspipe3_cb1_length}" material="Vacuum" comment="upstream counterbore" /> 
+  <tubs name="HPJ3" Rio_Z="0.0  {pspipe3_radius[0]}  {pspipe3_land_length}" material="Vacuum" comment="land: defining aperture, centred in the lead" /> 
+  <tubs name="HPK3" Rio_Z="0.0  {round(pspipe3_counterbore, 6)}  {pspipe3_cb2_length}" material="Vacuum" comment="downstream counterbore" /> 
+  <tubs name="HPP4" Rio_Z="0.0  {pspipe3_radius[1]}  {pspipe4a_length}" material="Iron" /> 
+  <tubs name="HPQ4" Rio_Z="0.0  {pspipe4_bore}  {pspipe4a_length}" material="Vacuum" /> 
   <tubs name="HPO4" Rio_Z="0.0  {pspipe3_radius[1]}  {pspipe3b_length}" material="Iron" /> 
-  <tubs name="HPI4" Rio_Z="0.0  {pspipe3_radius[0]}  {pspipe3b_length}" material="Vacuum" /> 
+  <tubs name="HPI4" Rio_Z="0.0  {pspipe4_bore}  {pspipe3b_length}" material="Vacuum" /> 
 
   <pgon name="LWAD" segments="4" profile="-45 360" material="Lead">
     <polyplane Rio_Z="{pspipe2_wall_size[0]/2}  {pspipe2_wall_size[1]/2}  {-pspipe2_wall_size[2]/2}" />
@@ -192,11 +220,7 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
     <polyplane Rio_Z="{pspipe2_pwall_size[0]/2}  {pspipe2_pwall_size[1]/2}  {+pspipe2_pwall_size[2]/2}" />
   </pgon>
 
-  <composition name="LeadDonut" envelope="LDAD" >
-    <posXYZ volume="LDAI" X_Y_Z="0.0  0.0  0.0" />
-  </composition>
-  <tubs name="LDAD" Rio_Z="0  {pspipe2_donut_size[1]}  {pspipe2_donut_size[2]}" material="Lead" />
-  <tubs name="LDAI" Rio_Z="0  {pspipe2_donut_size[0]}  {pspipe2_donut_size[2]}" material="Vacuum" />
+  <tubs name="LDAD" Rio_Z="{pspipe2_donut_size[0]}  {pspipe2_donut_size[1]}  {pspipe2_donut_size[2]}" material="Lead" comment="lead donut around the KFM pipe" />
 
 
 <!-- Hodoscope Counters -->
@@ -545,8 +569,8 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
 
   <box  name="PSHL" X_Y_Z="10.16 10.16 40.64" material="Lead" />
   <box name="PSH2" X_Y_Z="10.16 27.94 40.64" material="Lead"/>
-  <tubs name="OPSH" Rio_Z="0.0  {pspipe2_radius[1]}  40.64" material="Iron"/> 
-  <tubs name="IPSH" Rio_Z="0.0  {pspipe2_radius[0]}  40.64" material="Vacuum"/> 
+  <tubs name="OPSH" Rio_Z="0.0  {4.2*inches/2}  40.64" material="Iron"/> 
+  <tubs name="IPSH" Rio_Z="0.0  {4.0*inches/2}  40.64" material="Vacuum"/> 
 
 <!-- Pair spectrometer shielding SEG blocks. The properties of material of the SEG 
                        block are very close to Iron.
