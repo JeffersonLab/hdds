@@ -430,9 +430,9 @@
 <!-- Pseudo volumes for background studies -->
     
   <tubs name="DET1" Rio_Z="0.0  50.0  2.0" material="Air" />
-  <box name="DET2" X_Y_Z="450.0  270.0  0.1" material="Vacuum" />
+  <tubs name="DET2" Rio_Z="3.52  60.0  0.2" material="Air" comment="virtual plane 2.5 cm upstream of the centre of KFM pizza 1 (placed in main_HDDS.xml); ring around the 7 cm OD pipe" />
   <box name="DET3" X_Y_Z="450.0  2.0  918.0" material="Air" />
-  <box name="DET4" X_Y_Z="1700.0  1200.0  2.0" material="Vacuum" />
+  <tubs name="DET4" Rio_Z="3.52  230.0  0.2" material="Air" comment="virtual plane 1.0 cm upstream of the KFM TOF bars (placed in main_HDDS.xml); ring around the 7 cm OD pipe" />
   <box name="DET5" X_Y_Z="1700.0  1198.0  0.2" material="Air" />
   <box name="DET6" X_Y_Z="1700.0  2.0  3000.0" material="Air" />
   <box name="DET7" X_Y_Z="1700.0  1198.0  2.0" material="Air" />

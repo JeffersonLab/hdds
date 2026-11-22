@@ -125,8 +125,11 @@
   </composition>
 
   <!-- KFM layout (M. Bashkanov 2026-11, LEDGER.md 2026-11-21), global z: pizza 1/2 at -977.5/-962.5,
-       tracker modules -955/-945/-935/-925, FRI layers -917.5/-912.5, TOF wall -751.5 (upstream of the donut) -->
+       tracker modules -955/-945/-935/-925, FRI layers -917.5/-912.5, TOF wall -751.5 (upstream of the donut);
+       virtual planes for background profiles (hdgeant4 bgprofiles): DET2 at -980.0, DET4 at -753.5 -->
   <composition name="KLFFluxMonitor">
+    <posXYZ volume="DET2" X_Y_Z="0.0 0.0 -2.5" />
+    <posXYZ volume="DET4" X_Y_Z="0.0 0.0 224.0" />
     <posXYZ volume="KLFKFMTOF" X_Y_Z="0.0 0.0 226.0" />
     <posXYZ volume="KLFKFMPizza" X_Y_Z="0 0 0" />
     <posXYZ volume="KLFKFMFRI" X_Y_Z="0 0 60.0" />
