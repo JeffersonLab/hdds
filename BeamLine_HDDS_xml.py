@@ -64,12 +64,18 @@ klftarget_be_radius = 3.5
 klftarget_uphole_size = 15.2
 klftarget_downhole_size = 7.6
 klftarget_w_gap = 0.5
-klftarget_w_length = 14
+klftarget_w_slot = 14      # space for the W plug inside the target cavity (sets the cavity length)
+klftarget_w_length = 10    # W plug, upstream face at klftarget_w_gap after the Be target (was 14)
 klftarget_w_radius = 7.5
 klftarget_full_length = 162.56
 klftarget_full_width = 137.2
 klftarget_full_height = 127.3
 klftarget_poly_thickness = 10.16
+
+# removable lead sheet outside the KPT enclosure, covering the downstream beam
+# opening, centered between the poly exit face and Flange1 (vacuum pipe entrance)
+klftarget_pb_size = 10
+klftarget_pb_thickness = 7
 
 
 xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -121,6 +127,7 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
     <posXYZ volume="DET1"          X_Y_Z="0.0  0.0  60.0" />
     <!--posXYZ volume="ColDetector"   X_Y_Z="0.0  0.0  {activecol_start}" /-->
     <posXYZ volume="KLFtargetAssy" X_Y_Z="0.0  0.0  {klftarget_assy_start + klftarget_full_length/2}" />
+    <posXYZ volume="KLFP"          X_Y_Z="0.0  0.0  {(klftarget_assy_start + klftarget_full_length + presweep_pipe_start - presweep_flange_thick)/2}" />
     <posXYZ volume="Flange1"       X_Y_Z="0.0  0.0  {presweep_pipe_start - presweep_flange_thick}" />
     <posXYZ volume="BeamPipe1"     X_Y_Z="0.0  0.0  {presweep_pipe_start}" />
     <posXYZ volume="ConcreteWall1" X_Y_Z="0.0  0.0  {concrete_wall1_start}" />
@@ -186,13 +193,13 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
 
   <composition name="KLFtargetEnclosure" envelope="KLFB">
     <posXYZ volume="KLFtargetCavity" X_Y_Z="0.0  0.0  {-klftarget_full_length/2 + klftarget_poly_thickness +
-                          (klftarget_be_start - klftarget_poly_thickness + klftarget_be_length + klftarget_w_gap + klftarget_w_length + 1)/2}" />
-    <posXYZ volume="KLFD" X_Y_Z="0.0  0.0 {(klftarget_be_start - klftarget_poly_thickness + klftarget_be_length + klftarget_w_gap + klftarget_w_length + 1)/2}" />
+                          (klftarget_be_start - klftarget_poly_thickness + klftarget_be_length + klftarget_w_gap + klftarget_w_slot + 1)/2}" />
+    <posXYZ volume="KLFD" X_Y_Z="0.0  0.0 {(klftarget_be_start - klftarget_poly_thickness + klftarget_be_length + klftarget_w_gap + klftarget_w_slot + 1)/2}" />
   </composition>
 
   <composition name="KLFtargetCavity" envelope="KLFC">
-    <posXYZ volume="KLFT" X_Y_Z="0.0  0.0  {(klftarget_be_start - klftarget_poly_thickness - klftarget_w_gap - klftarget_w_length - 1)/2}" />
-    <posXYZ volume="KLFW" X_Y_Z="0.0  0.0  {(klftarget_be_start - klftarget_poly_thickness + klftarget_be_length + klftarget_w_gap - 1)/2}" />
+    <posXYZ volume="KLFT" X_Y_Z="0.0  0.0  {(klftarget_be_start - klftarget_poly_thickness - klftarget_w_gap - klftarget_w_slot - 1)/2}" />
+    <posXYZ volume="KLFW" X_Y_Z="0.0  0.0  {(klftarget_be_start - klftarget_poly_thickness + klftarget_be_length + klftarget_w_gap + klftarget_w_length - klftarget_w_slot - 1)/2}" />
   </composition>
 
   <box name="KLFA" X_Y_Z="{klftarget_full_width}
@@ -205,11 +212,11 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
        material="Lead" />
   <box name="KLFC" X_Y_Z="{klftarget_uphole_size} 
                           {klftarget_uphole_size}
-                          {klftarget_be_start - klftarget_poly_thickness + klftarget_be_length + klftarget_w_gap + klftarget_w_length + 1}"
+                          {klftarget_be_start - klftarget_poly_thickness + klftarget_be_length + klftarget_w_gap + klftarget_w_slot + 1}"
        material="Air" />
   <box name="KLFD" X_Y_Z="{klftarget_downhole_size} 
                           {klftarget_downhole_size}
-                          {klftarget_full_length - klftarget_poly_thickness - klftarget_be_start - klftarget_be_length - klftarget_w_gap - klftarget_w_length - 1}"
+                          {klftarget_full_length - klftarget_poly_thickness - klftarget_be_start - klftarget_be_length - klftarget_w_gap - klftarget_w_slot - 1}"
        material="Air" />
   <box name="KLFE" X_Y_Z="{klftarget_downhole_size} 
                           {klftarget_downhole_size}
@@ -217,6 +224,8 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
        material="Air" />
   <tubs name="KLFT" Rio_Z="0.0 {klftarget_be_radius} {klftarget_be_length}" material="Beryllium" />
   <tubs name="KLFW" Rio_Z="0.0 {klftarget_w_radius} {klftarget_w_length}" material="SofterTungsten" />
+  <box name="KLFP" X_Y_Z="{klftarget_pb_size}  {klftarget_pb_size}  {klftarget_pb_thickness}" material="Lead"
+       comment="removable lead sheet over the downstream beam opening of the KPT enclosure" />
 
 <!-- First section of vacuum pipe -->
 

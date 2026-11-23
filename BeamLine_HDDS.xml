@@ -47,6 +47,7 @@
     <posXYZ volume="DET1"          X_Y_Z="0.0  0.0  60.0" />
     <!--posXYZ volume="ColDetector"   X_Y_Z="0.0  0.0  70.6" /-->
     <posXYZ volume="KLFtargetAssy" X_Y_Z="0.0  0.0  166.68" />
+    <posXYZ volume="KLFP"          X_Y_Z="0.0  0.0  253.13" />
     <posXYZ volume="Flange1"       X_Y_Z="0.0  0.0  258.3" />
     <posXYZ volume="BeamPipe1"     X_Y_Z="0.0  0.0  259.3" />
     <posXYZ volume="ConcreteWall1" X_Y_Z="0.0  0.0  275.4" />
@@ -117,7 +118,7 @@
 
   <composition name="KLFtargetCavity" envelope="KLFC">
     <posXYZ volume="KLFT" X_Y_Z="0.0  0.0  7.249999999999998" />
-    <posXYZ volume="KLFW" X_Y_Z="0.0  0.0  34.75" />
+    <posXYZ volume="KLFW" X_Y_Z="0.0  0.0  32.75" />
   </composition>
 
   <box name="KLFA" X_Y_Z="137.2
@@ -141,7 +142,9 @@
                           10.16"
        material="Air" />
   <tubs name="KLFT" Rio_Z="0.0 3.5 40" material="Beryllium" />
-  <tubs name="KLFW" Rio_Z="0.0 7.5 14" material="SofterTungsten" />
+  <tubs name="KLFW" Rio_Z="0.0 7.5 10" material="SofterTungsten" />
+  <box name="KLFP" X_Y_Z="10  10  7" material="Lead"
+       comment="removable lead sheet over the downstream beam opening of the KPT enclosure" />
 
 <!-- First section of vacuum pipe -->
 
