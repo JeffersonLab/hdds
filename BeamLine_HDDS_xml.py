@@ -519,7 +519,7 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   <tubs name="DET1" Rio_Z="0.0  50.0  2.0" material="Air" />
   <tubs name="DET2" Rio_Z="3.52  60.0  0.2" material="Air" comment="virtual plane 2.5 cm upstream of the centre of KFM pizza 1 (placed in main_HDDS.xml); ring around the 7 cm OD pipe" />
   <box name="DET3" X_Y_Z="450.0  2.0  918.0" material="Air" />
-  <tubs name="DET4" Rio_Z="3.52  230.0  0.2" material="Air" comment="virtual plane 1.0 cm upstream of the KFM TOF bars (placed in main_HDDS.xml); ring around the 7 cm OD pipe" />
+  <tubs name="DET4" Rio_Z="15.5  230.0  0.2" material="Air" comment="virtual plane 1.0 cm upstream of the KFM TOF bars (placed in main_HDDS.xml); ring outside the lead donut (r 15), which the TOF wall now sits beside" />
   <box name="DET5" X_Y_Z="1700.0  1198.0  0.2" material="Air" />
   <tubs name="DET6" Rio_Z="3.52  60.0  0.2" material="Air" comment="virtual plane between KFM pizza 2 and straw module 1 (placed in main_HDDS.xml); ring around the 7 cm OD pipe" />
   <box name="DET7" X_Y_Z="1700.0  1198.0  2.0" material="Air" />
