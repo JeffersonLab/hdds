@@ -99,8 +99,8 @@
     <posXYZ volume="LWAD" X_Y_Z="0.0  0.0  369.568" />
     <posXYZ volume="LDAD" X_Y_Z="0.0  0.0  329.568" />
     <posXYZ volume="LPAD" X_Y_Z="0.0  0.0  404.568" />
-    <!-- pipe through the lead and poly walls (stepped bore), then the exit pipe to the
-         target, interrupted only by the DET5 virtual-detector plane (0.4 cm gap) -->
+    <!-- collimator: pipe through the lead and poly walls, then the exit pipe to the target,
+         all with the same bore, interrupted only by the DET5 virtual-detector plane (0.4 cm gap) -->
     <posXYZ volume="PairPipe3Tube" X_Y_Z="0.0  0.0  375.068" />
     <posXYZ volume="PairPipe4aTube" X_Y_Z="0.0  0.0  571.868" />
     <posXYZ volume="PairPipe4Tube" X_Y_Z="0.0  0.0  818.0205" />
@@ -108,10 +108,11 @@
   <composition name="PairPipe2Tube" envelope="HPO2" >
     <posXYZ volume="HPI2" X_Y_Z="0.0  0.0  0.0" />
   </composition>
-  <composition name="PairPipe3Tube" envelope="HPO3" >
-    <posXYZ volume="HPI3" X_Y_Z="0.0  0.0  -23.0" />
-    <posXYZ volume="HPJ3" X_Y_Z="0.0  0.0  -5.5" />
-    <posXYZ volume="HPK3" X_Y_Z="0.0  0.0  17.5" />
+  <composition name="PairPipe3Tube" envelope="HPS3" >
+    <posXYZ volume="PairPipe3Pipe" X_Y_Z="0.0  0.0  0.0" />
+  </composition>
+  <composition name="PairPipe3Pipe" envelope="HPO3" >
+    <posXYZ volume="HPI3" X_Y_Z="0.0  0.0  0.0" />
   </composition>
   <composition name="PairPipe4aTube" envelope="HPP4" >
     <posXYZ volume="HPQ4" X_Y_Z="0.0  0.0  0.0" />
@@ -122,14 +123,13 @@
 
   <tubs name="HPO2" Rio_Z="0.0  3.5  339.568" material="StainlessSteel" comment="KFM beam pipe, OD 7 cm, through the flux monitor and the lead donut" /> 
   <tubs name="HPI2" Rio_Z="0.0  3.373  339.568" material="Vacuum" /> 
-  <tubs name="HPO3" Rio_Z="0.0  8.0  71.0" material="Iron" /> 
-  <tubs name="HPI3" Rio_Z="0.0  3.373  25.0" material="Vacuum" comment="upstream counterbore" /> 
-  <tubs name="HPJ3" Rio_Z="0.0  2.75  10.0" material="Vacuum" comment="land: defining aperture, centred in the lead" /> 
-  <tubs name="HPK3" Rio_Z="0.0  3.373  36.0" material="Vacuum" comment="downstream counterbore" /> 
-  <tubs name="HPP4" Rio_Z="0.0  8.0  322.6" material="Iron" /> 
-  <tubs name="HPQ4" Rio_Z="0.0  3.9  322.6" material="Vacuum" /> 
-  <tubs name="HPO4" Rio_Z="0.0  8.0  168.905" material="Iron" /> 
-  <tubs name="HPI4" Rio_Z="0.0  3.9  168.905" material="Vacuum" /> 
+  <box name="HPS3" X_Y_Z="16.1  16.1  71.0" material="Iron" comment="iron sleeve: fills the square hole of the lead and poly walls around the round collimator pipe (no corner channels)" /> 
+  <tubs name="HPO3" Rio_Z="0.0  8.0  71.0" material="Iron" comment="collimator, through the lead and poly walls" /> 
+  <tubs name="HPI3" Rio_Z="0.0  3.0  71.0" material="Vacuum" comment="collimator bore" /> 
+  <tubs name="HPP4" Rio_Z="0.0  8.0  322.6" material="Iron" comment="collimator, to the DET5 gap" /> 
+  <tubs name="HPQ4" Rio_Z="0.0  3.0  322.6" material="Vacuum" /> 
+  <tubs name="HPO4" Rio_Z="0.0  8.0  168.905" material="Iron" comment="collimator, DET5 gap to the target entrance port" /> 
+  <tubs name="HPI4" Rio_Z="0.0  3.0  168.905" material="Vacuum" /> 
 
   <pgon name="LWAD" segments="4" profile="-45 360" material="Lead">
     <polyplane Rio_Z="8.05  120.0  -30.0" />

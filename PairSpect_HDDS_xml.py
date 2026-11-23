@@ -39,15 +39,22 @@ pspipe2_wall_size = (16.1, 240.0, 60.0)
 pspipe2_pwall_size = (16.1, 240.0, 10.0)
 pspipe2_donut_size = (3.5, 15.0, 20.0)   # inner radius = OD of the pipe through it (was 3.0)
 
-pspipe3_radius = (2.75, 8.0)
 # KFM relocation (M. Bashkanov, P. Degtiarenko, rtj 2026-11-21, LEDGER.md): the flux monitor
 # now sits between the PS magnet and the lead donut; the donut, lead wall and poly wall are
-# moved 30 cm downstream (lead wall upstream face at z = -729.55 global).  The bore of the
-# iron pipe through the wall is stepped (no cones): counterbores of the KFM pipe bore from
-# both ends and a 10 cm land at 2.75 cm, centred in the lead, as the defining aperture.
-pspipe3_counterbore = pspipe2_radius[0]
-pspipe3_land_length = 10.0
-pspipe4_bore = 3.9                 # clears particles passing the land (was 2.75)
+# moved 30 cm downstream (lead wall upstream face at z = -729.55 global).
+# Collimator (P. Degtiarenko, rtj 2026-11-23, LEDGER.md): the beam is defined by one thick
+# iron pipe of constant bore from the upstream face of the lead wall to the target entrance
+# port (pipe 3 through the walls, pipe 4a, the DET5 gap, pipe 4), replacing the stepped bore
+# with a 2.75 cm land and the 3.9 cm pipe 4.  The expanding part of the beam stops on the
+# pipe's entrance face at the wall (annulus between the bore and the 3.373 cm KFM pipe bore),
+# inside the lead donut, which acts as the collar.  Bore diameter 6.00 cm, the first of
+# Pavel's values (6.00 / 5.66 / 5.50 / 5.16), matching the 6 cm LH2 cell.  The square hole
+# of the lead and poly walls around the round pipe (half-width 8.05, pipe r 8.0) is packed
+# with an iron sleeve (square outside, round clearance hole for the pipe), so no corner
+# channels run through the walls (rtj 2026-11-23).
+klf_collimator_bore = 3.0          # radius
+pspipe3_radius = (klf_collimator_bore, 8.0)
+pspipe4_bore = klf_collimator_bore
 klf_wall_shift = 30.0
 
 # The exit pipe is interrupted by the KLF flux monitor (KFM): it stops at
@@ -70,8 +77,6 @@ det5_z = kfm_zmax + 0.3            # DET5 (0.2 cm) kept where it was (old KFM ex
 pspipe2_offset = psmagnet_start + psmagnet_length
 pspipe3_end = pspipe3_start + pspipe3_length
 pspipe3a_length = pspipe2_wall_size[2] + pspipe2_pwall_size[2] + 1.0   # through lead + poly, 1 cm beyond
-pspipe3_cb1_length = (pspipe2_wall_size[2] - pspipe3_land_length) / 2
-pspipe3_cb2_length = pspipe3a_length - pspipe3_cb1_length - pspipe3_land_length
 pspipe4a_start = pspipe3_start + pspipe3a_length
 pspipe4a_length = round(det5_z - 0.2 - pspipe2_offset - pspipe4a_start, 6)
 pspipe3b_start = round(kfm_zmax + 0.5 - pspipe2_offset, 6)
@@ -179,8 +184,8 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
     <posXYZ volume="LWAD" X_Y_Z="0.0  0.0  {pspipe2_wall_start + pspipe2_wall_size[2]/2}" />
     <posXYZ volume="LDAD" X_Y_Z="0.0  0.0  {pspipe2_wall_start - pspipe2_donut_size[2]/2}" />
     <posXYZ volume="LPAD" X_Y_Z="0.0  0.0  {pspipe2_wall_start + pspipe2_wall_size[2] + pspipe2_pwall_size[2]/2}" />
-    <!-- pipe through the lead and poly walls (stepped bore), then the exit pipe to the
-         target, interrupted only by the DET5 virtual-detector plane (0.4 cm gap) -->
+    <!-- collimator: pipe through the lead and poly walls, then the exit pipe to the target,
+         all with the same bore, interrupted only by the DET5 virtual-detector plane (0.4 cm gap) -->
     <posXYZ volume="PairPipe3Tube" X_Y_Z="0.0  0.0  {round(pspipe3_start + pspipe3a_length/2, 6)}" />
     <posXYZ volume="PairPipe4aTube" X_Y_Z="0.0  0.0  {round(pspipe4a_start + pspipe4a_length/2, 6)}" />
     <posXYZ volume="PairPipe4Tube" X_Y_Z="0.0  0.0  {round(pspipe3b_start + pspipe3b_length/2, 6)}" />
@@ -188,10 +193,11 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
   <composition name="PairPipe2Tube" envelope="HPO2" >
     <posXYZ volume="HPI2" X_Y_Z="0.0  0.0  0.0" />
   </composition>
-  <composition name="PairPipe3Tube" envelope="HPO3" >
-    <posXYZ volume="HPI3" X_Y_Z="0.0  0.0  {round(-pspipe3a_length/2 + pspipe3_cb1_length/2, 6)}" />
-    <posXYZ volume="HPJ3" X_Y_Z="0.0  0.0  {round(-pspipe3a_length/2 + pspipe3_cb1_length + pspipe3_land_length/2, 6)}" />
-    <posXYZ volume="HPK3" X_Y_Z="0.0  0.0  {round(pspipe3a_length/2 - pspipe3_cb2_length/2, 6)}" />
+  <composition name="PairPipe3Tube" envelope="HPS3" >
+    <posXYZ volume="PairPipe3Pipe" X_Y_Z="0.0  0.0  0.0" />
+  </composition>
+  <composition name="PairPipe3Pipe" envelope="HPO3" >
+    <posXYZ volume="HPI3" X_Y_Z="0.0  0.0  0.0" />
   </composition>
   <composition name="PairPipe4aTube" envelope="HPP4" >
     <posXYZ volume="HPQ4" X_Y_Z="0.0  0.0  0.0" />
@@ -202,13 +208,12 @@ xml_source = f"""<?xml version="1.0" encoding="UTF-8"?>
 
   <tubs name="HPO2" Rio_Z="0.0  {pspipe2_radius[1]}  {round(pspipe2_length, 6)}" material="StainlessSteel" comment="KFM beam pipe, OD 7 cm, through the flux monitor and the lead donut" /> 
   <tubs name="HPI2" Rio_Z="0.0  {round(pspipe2_radius[0], 6)}  {round(pspipe2_length, 6)}" material="Vacuum" /> 
-  <tubs name="HPO3" Rio_Z="0.0  {pspipe3_radius[1]}  {pspipe3a_length}" material="Iron" /> 
-  <tubs name="HPI3" Rio_Z="0.0  {round(pspipe3_counterbore, 6)}  {pspipe3_cb1_length}" material="Vacuum" comment="upstream counterbore" /> 
-  <tubs name="HPJ3" Rio_Z="0.0  {pspipe3_radius[0]}  {pspipe3_land_length}" material="Vacuum" comment="land: defining aperture, centred in the lead" /> 
-  <tubs name="HPK3" Rio_Z="0.0  {round(pspipe3_counterbore, 6)}  {pspipe3_cb2_length}" material="Vacuum" comment="downstream counterbore" /> 
-  <tubs name="HPP4" Rio_Z="0.0  {pspipe3_radius[1]}  {pspipe4a_length}" material="Iron" /> 
+  <box name="HPS3" X_Y_Z="{pspipe2_wall_size[0]}  {pspipe2_wall_size[0]}  {pspipe3a_length}" material="Iron" comment="iron sleeve: fills the square hole of the lead and poly walls around the round collimator pipe (no corner channels)" /> 
+  <tubs name="HPO3" Rio_Z="0.0  {pspipe3_radius[1]}  {pspipe3a_length}" material="Iron" comment="collimator, through the lead and poly walls" /> 
+  <tubs name="HPI3" Rio_Z="0.0  {pspipe3_radius[0]}  {pspipe3a_length}" material="Vacuum" comment="collimator bore" /> 
+  <tubs name="HPP4" Rio_Z="0.0  {pspipe3_radius[1]}  {pspipe4a_length}" material="Iron" comment="collimator, to the DET5 gap" /> 
   <tubs name="HPQ4" Rio_Z="0.0  {pspipe4_bore}  {pspipe4a_length}" material="Vacuum" /> 
-  <tubs name="HPO4" Rio_Z="0.0  {pspipe3_radius[1]}  {pspipe3b_length}" material="Iron" /> 
+  <tubs name="HPO4" Rio_Z="0.0  {pspipe3_radius[1]}  {pspipe3b_length}" material="Iron" comment="collimator, DET5 gap to the target entrance port" /> 
   <tubs name="HPI4" Rio_Z="0.0  {pspipe4_bore}  {pspipe3b_length}" material="Vacuum" /> 
 
   <pgon name="LWAD" segments="4" profile="-45 360" material="Lead">
