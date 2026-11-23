@@ -61,7 +61,10 @@ def sphere_r(R, zc, z):
 
 
 # ---------------------------------------------------------------- the cell
-R_IN, WALL = 2.8311, 0.05            # CAD inner radius; Al 7075 0.5 mm
+# LH2 inner radius 3.00 cm (2026-11-23): C. Keith, the CAD radius 2.8311 was a
+# proof-of-concept and is not fixed; the target group will redraw the cell with
+# r >= 3 cm. 3.00 is used until that drawing exists (Pavel: 6 cm beam needs it).
+R_IN, WALL = 3.00, 0.05              # LH2 inner radius; Al 7075 0.5 mm (CAD: 2.8311)
 R_OUT = R_IN + WALL
 Z_DOMEC = zl(138.705)                # centre of the downstream hemisphere
 NDOME = 18                           # 5 deg steps: sagitta 0.03 mm
@@ -118,12 +121,20 @@ def cap(R, zc, z_apex, z_rim, rcyl, n=16):
     return pl
 
 
-CELL = (cap(RO, ZC_E, Z_APEX_O, Z_RIM_O, R_LIP_O)
-        + [(Z_FLO_B, 0.0, R_LIP_O), (Z_FLO_A, 0.0, R_OUT)]
-        + hemisphere(R_OUT, Z_DOMEC, R_OUT, Z_FLO_A)[1:])   # mother, Al 7075
-LH2 = (cap(RI, ZC_E, Z_APEX_I, Z_RIM_I, R_LIP_I)
-       + [(Z_FL_B, 0.0, R_LIP_I), (Z_FL_A, 0.0, R_IN)]
-       + hemisphere(R_IN, Z_DOMEC, R_IN, Z_FL_A)[1:])       # daughter
+FLARE = R_IN < R_LIP_I - 1e-9        # no flare once the cell radius reaches the lip
+if FLARE:
+    CELL = (cap(RO, ZC_E, Z_APEX_O, Z_RIM_O, R_LIP_O)
+            + [(Z_FLO_B, 0.0, R_LIP_O), (Z_FLO_A, 0.0, R_OUT)]
+            + hemisphere(R_OUT, Z_DOMEC, R_OUT, Z_FLO_A)[1:])   # mother, Al 7075
+    LH2 = (cap(RI, ZC_E, Z_APEX_I, Z_RIM_I, R_LIP_I)
+           + [(Z_FL_B, 0.0, R_LIP_I), (Z_FL_A, 0.0, R_IN)]
+           + hemisphere(R_IN, Z_DOMEC, R_IN, Z_FL_A)[1:])       # daughter
+else:   # straight cylinder of r R_IN from the entrance dome rim (the lip is the cylinder)
+    assert abs(R_IN - R_LIP_I) < 1e-9 and abs(R_OUT - R_LIP_O) < 1e-9
+    CELL = (cap(RO, ZC_E, Z_APEX_O, Z_RIM_O, R_OUT)
+            + hemisphere(R_OUT, Z_DOMEC, R_OUT, Z_RIM_O)[1:])
+    LH2 = (cap(RI, ZC_E, Z_APEX_I, Z_RIM_I, R_IN)
+           + hemisphere(R_IN, Z_DOMEC, R_IN, Z_RIM_I)[1:])
 
 # cell base (Al 6061): CAD outer profile, bore = the outer radius of the cell
 # lip (3.05 cm), so the lip is seated in it over Z_RIM_O .. Z_FLO_B; the
@@ -403,7 +414,8 @@ def main(out):
              'comment="vessel exit window, 5 mil"/>'
              % (fmt(R_BORE - 1e-4), fmt(Z_XW1 - Z_XW0)))
     X += pcon_xml('TGBD', 'Aluminum', BODY, 'cell base (Al 6061), bore 3.05 cm = cell lip')
-    X += pcon_xml('TGCL', 'Al7075', CELL, 'target cell, 0.5 mm Al 7075, domed ends, 45 deg flare to a lip at r 3.0')
+    X += pcon_xml('TGCL', 'Al7075', CELL, 'target cell, 0.5 mm Al 7075, domed ends, ' +
+                  ('45 deg flare to a lip at r %g' % R_LIP_I if FLARE else 'LH2 r %g (cylinder seated in the base bore)' % R_IN))
     X += pcon_xml('LIH2', 'LiqHydrogen', LH2, 'target contents')
     for n, c, m in RINGS:
         X += pcon_xml(n, m, RINGP[n], 'G10 ring ' + c[8:])

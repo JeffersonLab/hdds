@@ -378,7 +378,7 @@
     <polyplane Rio_Z="3.05 4.3413 -9.3634"/>
     <polyplane Rio_Z="3.05 3.2 -8.2221"/>
   </pcon>
-  <pcon name="TGCL" material="Al7075" comment="target cell, 0.5 mm Al 7075, domed ends, 45 deg flare to a lip at r 3.0">
+  <pcon name="TGCL" material="Al7075" comment="target cell, 0.5 mm Al 7075, domed ends, LH2 r 3 (cylinder seated in the base bore)">
     <polyplane Rio_Z="0 0 -10.952"/>
     <polyplane Rio_Z="0 0.1997 -10.94871"/>
     <polyplane Rio_Z="0 0.39919 -10.93885"/>
@@ -396,27 +396,25 @@
     <polyplane Rio_Z="0 2.69833 -10.31879"/>
     <polyplane Rio_Z="0 2.87573 -10.22701"/>
     <polyplane Rio_Z="0 3.05 -10.12944"/>
-    <polyplane Rio_Z="0 3.05 -9.44489"/>
-    <polyplane Rio_Z="0 2.8811 -9.27599"/>
-    <polyplane Rio_Z="0 2.8811 28.7405"/>
-    <polyplane Rio_Z="0 2.87014 28.9916"/>
-    <polyplane Rio_Z="0 2.83733 29.2408"/>
-    <polyplane Rio_Z="0 2.78293 29.48618"/>
-    <polyplane Rio_Z="0 2.70735 29.72589"/>
-    <polyplane Rio_Z="0 2.61116 29.95811"/>
-    <polyplane Rio_Z="0 2.49511 30.18105"/>
-    <polyplane Rio_Z="0 2.36006 30.39303"/>
-    <polyplane Rio_Z="0 2.20705 30.59244"/>
-    <polyplane Rio_Z="0 2.03725 30.77775"/>
-    <polyplane Rio_Z="0 1.85194 30.94755"/>
-    <polyplane Rio_Z="0 1.65253 31.10056"/>
-    <polyplane Rio_Z="0 1.44055 31.23561"/>
-    <polyplane Rio_Z="0 1.21761 31.35166"/>
-    <polyplane Rio_Z="0 0.98539 31.44785"/>
-    <polyplane Rio_Z="0 0.74568 31.52343"/>
-    <polyplane Rio_Z="0 0.5003 31.57783"/>
-    <polyplane Rio_Z="0 0.2511 31.61064"/>
-    <polyplane Rio_Z="0 0 31.6216"/>
+    <polyplane Rio_Z="0 3.05 28.7405"/>
+    <polyplane Rio_Z="0 3.03839 29.00633"/>
+    <polyplane Rio_Z="0 3.00366 29.27013"/>
+    <polyplane Rio_Z="0 2.94607 29.5299"/>
+    <polyplane Rio_Z="0 2.86606 29.78366"/>
+    <polyplane Rio_Z="0 2.76424 30.02949"/>
+    <polyplane Rio_Z="0 2.64138 30.2655"/>
+    <polyplane Rio_Z="0 2.49841 30.48991"/>
+    <polyplane Rio_Z="0 2.33644 30.701"/>
+    <polyplane Rio_Z="0 2.15668 30.89718"/>
+    <polyplane Rio_Z="0 1.9605 31.07694"/>
+    <polyplane Rio_Z="0 1.74941 31.23891"/>
+    <polyplane Rio_Z="0 1.525 31.38188"/>
+    <polyplane Rio_Z="0 1.28899 31.50474"/>
+    <polyplane Rio_Z="0 1.04316 31.60656"/>
+    <polyplane Rio_Z="0 0.7894 31.68657"/>
+    <polyplane Rio_Z="0 0.52963 31.74416"/>
+    <polyplane Rio_Z="0 0.26583 31.77889"/>
+    <polyplane Rio_Z="0 0 31.7905"/>
   </pcon>
   <pcon name="LIH2" material="LiqHydrogen" comment="target contents">
     <polyplane Rio_Z="0 0 -10.902"/>
@@ -436,27 +434,25 @@
     <polyplane Rio_Z="0 2.65356 -10.28514"/>
     <polyplane Rio_Z="0 2.82829 -10.1957"/>
     <polyplane Rio_Z="0 3 -10.1006"/>
-    <polyplane Rio_Z="0 3 -9.4656"/>
-    <polyplane Rio_Z="0 2.8311 -9.2967"/>
-    <polyplane Rio_Z="0 2.8311 28.7405"/>
-    <polyplane Rio_Z="0 2.82033 28.98725"/>
-    <polyplane Rio_Z="0 2.78809 29.23212"/>
-    <polyplane Rio_Z="0 2.73463 29.47324"/>
-    <polyplane Rio_Z="0 2.66036 29.70879"/>
-    <polyplane Rio_Z="0 2.56585 29.93697"/>
-    <polyplane Rio_Z="0 2.4518 30.15605"/>
-    <polyplane Rio_Z="0 2.3191 30.36435"/>
-    <polyplane Rio_Z="0 2.16875 30.5603"/>
-    <polyplane Rio_Z="0 2.00189 30.74239"/>
-    <polyplane Rio_Z="0 1.8198 30.90925"/>
-    <polyplane Rio_Z="0 1.62385 31.0596"/>
-    <polyplane Rio_Z="0 1.41555 31.1923"/>
-    <polyplane Rio_Z="0 1.19647 31.30635"/>
-    <polyplane Rio_Z="0 0.96829 31.40086"/>
-    <polyplane Rio_Z="0 0.73274 31.47513"/>
-    <polyplane Rio_Z="0 0.49162 31.52859"/>
-    <polyplane Rio_Z="0 0.24675 31.56083"/>
-    <polyplane Rio_Z="0 0 31.5716"/>
+    <polyplane Rio_Z="0 3 28.7405"/>
+    <polyplane Rio_Z="0 2.98858 29.00197"/>
+    <polyplane Rio_Z="0 2.95442 29.26144"/>
+    <polyplane Rio_Z="0 2.89778 29.51696"/>
+    <polyplane Rio_Z="0 2.81908 29.76656"/>
+    <polyplane Rio_Z="0 2.71892 30.00835"/>
+    <polyplane Rio_Z="0 2.59808 30.2405"/>
+    <polyplane Rio_Z="0 2.45746 30.46123"/>
+    <polyplane Rio_Z="0 2.29813 30.66886"/>
+    <polyplane Rio_Z="0 2.12132 30.86182"/>
+    <polyplane Rio_Z="0 1.92836 31.03863"/>
+    <polyplane Rio_Z="0 1.72073 31.19796"/>
+    <polyplane Rio_Z="0 1.5 31.33858"/>
+    <polyplane Rio_Z="0 1.26785 31.45942"/>
+    <polyplane Rio_Z="0 1.02606 31.55958"/>
+    <polyplane Rio_Z="0 0.77646 31.63828"/>
+    <polyplane Rio_Z="0 0.52094 31.69492"/>
+    <polyplane Rio_Z="0 0.26147 31.72908"/>
+    <polyplane Rio_Z="0 0 31.7405"/>
   </pcon>
   <pcon name="TGG1" material="G10" comment="G10 ring 0005-0005">
     <polyplane Rio_Z="4.28503 5.87254 -13.01191"/>

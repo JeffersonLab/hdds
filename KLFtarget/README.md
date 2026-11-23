@@ -36,7 +36,7 @@ recovered by `steptree.py` (`solids_named.json`).
   - `struts.py` gives the strut axes from the inertia tensor.
 - **v2.0 decisions** (C. Keith, R. Jones; see `../LEDGER.md`, 2026-11-18 and 2026-11-19):
   - The cell is Al 7075 with a 0.5 mm wall and domed ends.
-  - The cell dimensions are Chris's (the CAD): LH2 radius 2.8311 cm and the CAD LH2 length.
+  - The cell length is Chris's (the CAD). LH2 radius **3.00 cm** since 2026-11-23: C. Keith, the CAD radius 2.8311 cm was a proof-of-concept and is not fixed; the target group will redraw the cell with r ≥ 3 cm. 3.00 is used until that drawing exists.
   - **Beam path clearance R_clear = 3.0 cm (6 cm beam):** nothing inside r < 3.0 cm except the cell (LH2, wall, domes) and the exit window.
   - G-10 has density 1.85 g/cm³.
   - "Generic" parts are aluminium unless there is a reason to think otherwise.
@@ -59,17 +59,17 @@ recovered by `steptree.py` (`solids_named.json`).
 | TGRV | vacuum vessel 0043, 12.3 mm wall; downstream of LASS z 82.38 the bore is 3.0 cm (CAD 2.0) and the end is a cylinder r 3.24 to the window | MediumDensityROHACELL (0.075) |
 | TGXW | exit window, 5 mil, r 3.0 cm, at the CAD z (LASS 84.74, 13 mm beyond the cell apex) | Kapton |
 | TGBD | cell base (Al 6061): CAD outer profile, bore 3.05 cm; the cell lip is seated in it over 6.85 mm | Aluminum |
-| TGCL / LIH2 | cell: cylinder r 2.8311 / 2.8811 cm (Chris's radius). At the upstream end the 0.5 mm wall flares at 45° out to a lip of r 3.00 / 3.05, closed by a convex-upstream entrance dome (the CAD inner sphere, R 6.016 cm). Hemispherical downstream dome. / LH2 inside it | Al7075 / LiqHydrogen |
+| TGCL / LIH2 | cell: cylinder r 3.00 / 3.05 cm (was 2.8311 / 2.8811 with a 45° flare out to a lip at 3.00 / 3.05; with r 3.00 the cylinder itself is the lip, seated in the base bore), closed upstream by a convex-upstream entrance dome (the CAD inner sphere, R 6.016 cm). Hemispherical downstream dome, centre unchanged. / LH2 inside it | Al7075 / LiqHydrogen |
 | TGG1–TGG5 | G-10 rings 0005-0005, 0005-0006, 0021, 0029, 0028; the 0021 bore is opened from 2.86 to 3.33 cm, as in the other two spider rings | G10; G10ring21 and G10spider are scaled to the CAD mass, because the rings are drawn without their holes |
 | TGR1–TGR4 | three SS support rods 0005-0010, Ø 6.35 mm; the segments inside rings are daughters of the ring | StainlessSteel |
 | TGS1–TGS5 | two hexapods of six struts each, Ø 4.77 mm | CFRP (1.43, the CAD value) |
 
-- **LH2:** 1039 cm³ (73.6 g), LASS z 40.94 … 83.42.
-- **Cell:** wall, flare, lip and domes, 110 g.
+- **LH2:** 1166 cm³ (82.6 g), LASS z 39.30 … 81.94 (r 2.8311: 1039 cm³, 73.6 g).
+- **Cell:** wall, lip and domes, 116 g.
 - **Aluminium along rays parallel to the axis:**
-  - r ≤ 2.5 cm: 0.10–0.16 cm (the two domes);
-  - r 2.83–2.88: about 38.5 cm (the cell wall itself);
-  - r 2.88–3.0: 0.13 cm (the flare and the dome edge).
+  - r ≤ 2.5 cm: 0.10–0.15 cm (the two domes);
+  - r 2.9 / 2.99: 0.23 / 0.42 cm (the dome edges);
+  - r 3.00–3.05: about 39.3 cm (the cell wall itself).
 - **Mass agreement:** within 3% of the CAD for every part not changed for the clearance; see `masses_stage1_2026-11-18.txt` (stage 1, before the shift).
 - **New materials:** Al7075, G10, G10ring21, G10spider and CFRP, added at the end of the copy in `Material_HDDS.xml`.
 
@@ -105,7 +105,7 @@ recovered by `steptree.py` (`solids_named.json`).
 
 ## Open design points
 
-- **Cell to base joint (option B, 2026-11-19):** a 45° flare and lip, seated in the base outside the beam. Whether 0.5 mm Al 7075 can be made this way is still to be confirmed. The fill and return ports should enter through the base and the lip at r > 3.0 cm (not modelled).
+- **Cell to base joint (option B, 2026-11-19):** a 45° flare and lip, seated in the base outside the beam. Since 2026-11-23 (LH2 r 3.00) there is no flare: the cylinder itself is seated in the base bore. Whether 0.5 mm Al 7075 can be made this way is still to be confirmed. The fill and return ports should enter through the base and the lip at r > 3.0 cm (not modelled).
 - **Second hexapod:** it is "Generic" (part 0030) in the CAD. It is drawn as CFRP like the first hexapod (0027), since aluminium struts would short the thermal isolation.
 - **Upstream of LASS z −69.8 (stage 2):** the copper plate 0032 has a hole of about 1", and the 6" openings are still to be made.
 
@@ -162,7 +162,7 @@ Checks (2026-11-19)
 
 ## Open design points
 
-- **Cell to base joint (option B, 2026-11-19):** a 45° flare and lip, seated in the base outside the beam. Whether 0.5 mm Al 7075 can be made this way is still to be confirmed. The fill and return ports should enter through the base and the lip at r > 3.0 cm (not modelled).
+- **Cell to base joint (option B, 2026-11-19):** a 45° flare and lip, seated in the base outside the beam. Since 2026-11-23 (LH2 r 3.00) there is no flare: the cylinder itself is seated in the base bore. Whether 0.5 mm Al 7075 can be made this way is still to be confirmed. The fill and return ports should enter through the base and the lip at r > 3.0 cm (not modelled).
 - **Second hexapod:** it is "Generic" (part 0030) in the CAD. It is drawn as CFRP like the first hexapod (0027), since aluminium struts would short the thermal isolation.
 - **Upstream of LASS z −69.8 (stage 2):** the copper plate 0032 has a hole of about 1", and the 6" openings are still to be made.
 
